@@ -1,9 +1,9 @@
 ---
 title: "Maintenance & Support"
 shortTitle: "Support"
-description: "Ongoing WordPress maintenance for China. Regular core and plugin updates, security monitoring, performance optimisation, uptime checks, and bilingual support whenever you need it."
-metaTitle: "WordPress Maintenance China | ChinaWebFoundry"
-metaDescription: "Ongoing WordPress maintenance and support from our China-based team. Security updates, monitoring, and monthly performance reports."
+description: "Ongoing WordPress maintenance from inside China. We handle updates, Great Firewall monitoring, Baidu SEO, security, and support so you don't have to."
+metaTitle: "WordPress Maintenance & Support in China | Agency"
+metaDescription: "China-based WordPress maintenance: firewall monitoring, Baidu SEO upkeep, security, backups, and fast support from a team operating inside China."
 icon: "wrench"
 order: 9
 keywords: ["wordpress maintenance china", "wordpress support china", "wordpress managed services china"]
@@ -12,16 +12,4 @@ relatedServices: ["china-hosting", "plugins-extensions"]
 
 ## What's included
 
-We provide ongoing maintenance and technical support for your WordPress site in China. This includes security updates, plugin management, performance monitoring, and priority support from our bilingual team.
-
-## Monthly deliverables
-
-- **WordPress core and plugin updates** - tested on staging before production deployment
-- **Security monitoring** - malware scans, firewall rules, login protection
-- **Performance monitoring** - load time tracking from Chinese cities, Core Web Vitals
-- **Monthly report** - uptime, traffic, performance metrics, and actions taken
-- **Priority support** - direct access to our engineering team via email and WeChat
-
-## Who this is for
-
-Companies with a live WordPress site in China that need reliable, ongoing technical support and peace of mind.
+Ongoing WordPress maintenance from a team operating inside China. We handle updates, Great Firewall monitoring, Baidu SEO, security, backups, and fast support so you don't have to.
