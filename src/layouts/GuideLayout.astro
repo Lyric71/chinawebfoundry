@@ -1,0 +1,299 @@
+---
+import PageLayout from './PageLayout.astro';
+import Button from '../components/ui/Button.astro';
+
+interface TocItem {
+  slug: string;
+  text: string;
+  depth: number;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  summary: string;
+  visual?: string;
+  tocItems: TocItem[];
+}
+
+const { title, subtitle, summary, visual, tocItems } = Astro.props;
+---
+
+<PageLayout
+  title={`${title} | China Web Guide | ChinaWebFoundry`}
+  description={summary}
+>
+  <!-- Hero header -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#1a1a2e] to-[#0f0f12]"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-16 md:pb-20">
+      <a
+        href="/resources/china-web-guide/"
+        class="inline-flex items-center gap-2 text-sm font-medium text-white/50 no-underline hover:text-white hover:gap-3 transition-all duration-200 mb-10"
+      >
+        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+        China Web Guide
+      </a>
+      <div class="max-w-3xl">
+        <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          {title}
+        </h1>
+        <p class="text-lg lg:text-xl text-[var(--color-brand-orange)] font-medium leading-relaxed">
+          {subtitle}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual (full bleed) -->
+  {visual && (
+    <section class="bg-[var(--color-surface-dark)]">
+      <div class="mx-auto max-w-[1400px] section-padding pb-0">
+        <div class="aspect-[21/9] rounded-t-2xl overflow-hidden">
+          <img
+            src={visual}
+            alt=""
+            class="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Article body with TOC sidebar -->
+  <article class="py-16 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+
+        <!-- Sticky TOC (left) -->
+        {tocItems.length > 0 && (
+          <aside class="hidden lg:block lg:w-[260px] shrink-0">
+            <nav class="sticky top-28">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">
+                In this article
+              </p>
+              <ul class="space-y-1 border-l border-[var(--color-surface-border)]">
+                {tocItems.map((heading) => (
+                  <li>
+                    <a
+                      href={`#${heading.slug}`}
+                      class="toc-link block pl-4 py-1.5 text-sm text-[var(--color-text-body)] no-underline hover:text-[var(--color-brand-orange)] hover:border-l-[var(--color-brand-orange)] transition-colors duration-200 border-l-2 border-transparent -ml-px"
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )}
+
+        <!-- Content column -->
+        <div class="min-w-0 flex-1 max-w-[780px]">
+          <div class="guide-content">
+            <slot />
+          </div>
+
+          <!-- Footer CTA -->
+          <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
+            <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+              Need help with this?
+            </h2>
+            <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
+              ChinaWebFoundry handles WordPress projects in China end to end. If any of this feels like more than you want to tackle alone, get in touch.
+            </p>
+            <Button href="/contact/" variant="primary" size="md">Talk to Us</Button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  /* ── Article typography ── */
+  .guide-content :global(h2) {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: var(--color-text-dark);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .guide-content :global(h3) {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--color-text-dark);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .guide-content :global(p) {
+    color: var(--color-text-body);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .guide-content :global(strong) {
+    color: var(--color-text-dark);
+    font-weight: 600;
+  }
+
+  .guide-content :global(a) {
+    color: var(--color-brand-orange);
+    text-decoration: none;
+  }
+
+  .guide-content :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  /* ── Blockquotes / citations ── */
+  .guide-content :global(blockquote) {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(242, 95, 41, 0.06), rgba(242, 95, 41, 0.02));
+    border-left: 3px solid var(--color-brand-orange);
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  .guide-content :global(blockquote p) {
+    color: var(--color-text-dark);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  .guide-content :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* ── Tables ── */
+  .guide-content :global(table) {
+    width: 100%;
+    margin: 1.5rem 0 2rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-surface-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .guide-content :global(thead) {
+    background: var(--color-surface-light);
+  }
+
+  .guide-content :global(th) {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-dark);
+    text-align: left;
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-surface-border);
+  }
+
+  .guide-content :global(td) {
+    padding: 0.75rem 1rem;
+    color: var(--color-text-body);
+    border-bottom: 1px solid var(--color-surface-border);
+    line-height: 1.5;
+  }
+
+  .guide-content :global(tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .guide-content :global(tbody tr:hover) {
+    background: rgba(242, 95, 41, 0.03);
+  }
+
+  /* ── Lists ── */
+  .guide-content :global(ul) {
+    margin: 1rem 0 1.5rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .guide-content :global(ul li) {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-body);
+    line-height: 1.7;
+  }
+
+  .guide-content :global(ul li::before) {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-brand-orange);
+  }
+
+  .guide-content :global(ol) {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.5rem;
+    list-style: decimal;
+  }
+
+  .guide-content :global(ol li) {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-body);
+    line-height: 1.7;
+  }
+
+  /* ── Horizontal rules ── */
+  .guide-content :global(hr) {
+    margin: 2.5rem 0;
+    border: none;
+    border-top: 1px solid var(--color-surface-border);
+  }
+
+  /* ── TOC active state (JS-driven) ── */
+  .toc-link.is-active {
+    color: var(--color-brand-orange) !important;
+    border-left-color: var(--color-brand-orange) !important;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  if (links.length > 0) {
+    const ids = Array.from(links).map((l) => l.getAttribute('href')!.slice(1));
+    const headings = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+
+    function updateActive() {
+      let current = 0;
+      for (let i = 0; i < headings.length; i++) {
+        if (headings[i].getBoundingClientRect().top <= 120) {
+          current = i;
+        }
+      }
+      links.forEach((l, i) => l.classList.toggle('is-active', i === current));
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  }
+</script>
