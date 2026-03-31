@@ -1,4 +1,4 @@
-# ChinaWebFoundry — Project Context for Claude Code
+# ChinaWebFoundry - Project Context for Claude Code
 
 ## Project Overview
 ChinaWebFoundry is a marketing website for a WordPress agency in China
@@ -26,24 +26,25 @@ located outside of China.
 - Headings: Poppins, self-hosted WOFF2 (weights: 400, 500, 600)
 - Buttons: Inter, self-hosted WOFF2 (weights: 400, 500)
 - Body: system sans-serif stack
-- CRITICAL: Never link to fonts.googleapis.com — all fonts must be self-hosted
+- CRITICAL: Never link to fonts.googleapis.com - all fonts must be self-hosted
   because Google Fonts are blocked in China.
 
 ## Brand & Content Rules
-- Brand name is "ChinaWebFoundry" — one word, PascalCase
+- Brand name is "ChinaWebFoundry" - one word, PascalCase
 - "WordPress" always has capital W and capital P
 - "Great Firewall" is capitalised as a proper noun
 - "Baidu" is always capitalised
 - "ICP" is always uppercase
 - Voice: Expert, direct, practical, grounded. No buzzwords.
 - Use British English spelling (optimise, localise, colour)
+- CRITICAL: Never use em dashes anywhere - not in content, code, comments, or copy. Use hyphens (-) or rewrite the sentence.
 
 ## Architecture Conventions
 - All components go in `src/components/` organised by scope:
-  - `global/` — site-wide (Header, Footer, Nav)
-  - `ui/` — reusable primitives (Button, Card, Container)
-  - `home/` — homepage-specific sections
-  - `pages/` — shared components used across non-home pages
+  - `global/` - site-wide (Header, Footer, Nav)
+  - `ui/` - reusable primitives (Button, Card, Container)
+  - `home/` - homepage-specific sections
+  - `pages/` - shared components used across non-home pages
 - Page layouts extend `BaseLayout.astro` → `PageLayout.astro`
 - Service pages use `ServiceLayout.astro` and pull from content collections
 - Data that drives UI (nav items, problem cards, trust points) lives in `src/data/`
@@ -71,7 +72,7 @@ with structured frontmatter (title, slug, description, icon, order).
 
 ## Performance Constraints
 - Target: LCP < 2.5s, FCP < 1.5s, total page weight < 1.5MB
-- Self-host all fonts and assets — no external CDN dependencies
+- Self-host all fonts and assets - no external CDN dependencies
 - Use Astro Image component for automatic optimisation
 - Lazy-load all below-fold images
 - No Google services (Analytics, Fonts, reCAPTCHA, Maps)
