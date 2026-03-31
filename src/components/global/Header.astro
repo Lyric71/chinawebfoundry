@@ -32,10 +32,10 @@ const { heroPage = false } = Astro.props;
         <a
           href="/contact/"
           class:list={[
-            'hidden md:inline-flex items-center gap-2 px-6 py-2 text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border no-underline transition-all duration-200',
+            'hidden md:inline-flex items-center gap-2 px-6 py-2 text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border no-underline transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0',
             heroPage
-              ? 'nav-contact-btn border-white/60 text-white hover:bg-white/10 hover:border-white'
-              : 'nav-contact-btn border-[var(--color-text-dark)] text-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white',
+              ? 'nav-contact-btn border-white/60 text-white hover:bg-white/10 hover:border-white hover:shadow-[0_6px_20px_rgba(255,255,255,0.15)]'
+              : 'nav-contact-btn border-[var(--color-text-dark)] text-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white hover:shadow-[0_6px_20px_rgba(33,33,33,0.2)]',
           ]}
         >
           Contact

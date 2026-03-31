@@ -10,12 +10,12 @@ interface Props {
 
 const { variant = 'primary', size = 'md', href, type = 'button', class: className, arrow = true } = Astro.props;
 
-const baseClasses = 'inline-flex items-center justify-center gap-2 font-[var(--font-button)] font-medium rounded-[var(--radius-pill)] transition-all duration-200 cursor-pointer';
+const baseClasses = 'inline-flex items-center justify-center gap-2 font-[var(--font-button)] font-medium rounded-[var(--radius-pill)] transition-all duration-200 cursor-pointer no-underline hover:-translate-y-0.5 active:translate-y-0';
 
 const variantClasses = {
-  primary: 'bg-[var(--color-brand-orange)] text-white hover:bg-[var(--color-brand-orange-hover)] active:bg-[var(--color-brand-orange-active)]',
-  secondary: 'bg-transparent text-[var(--color-text-dark)] border border-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white active:bg-[var(--color-text-near-black)]',
-  ghost: 'bg-transparent text-[var(--color-brand-orange)] hover:underline',
+  primary: 'bg-[var(--color-brand-orange)] text-white hover:bg-[var(--color-brand-orange-hover)] hover:shadow-[0_6px_20px_rgba(242,95,41,0.35)] active:bg-[var(--color-brand-orange-active)] active:shadow-[0_2px_8px_rgba(242,95,41,0.25)]',
+  secondary: 'bg-transparent text-[var(--color-text-dark)] border border-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white hover:shadow-[0_6px_20px_rgba(33,33,33,0.2)] active:bg-[var(--color-text-near-black)] active:shadow-[0_2px_8px_rgba(33,33,33,0.15)]',
+  ghost: 'bg-transparent text-[var(--color-brand-orange)] hover:underline hover:shadow-none',
 };
 
 const sizeClasses = {
