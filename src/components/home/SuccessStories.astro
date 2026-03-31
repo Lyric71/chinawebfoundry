@@ -1,0 +1,234 @@
+---
+/**
+ * SuccessStories — horizontal scroll carousel
+ * Pure Astro + Tailwind + vanilla JS. No external frameworks.
+ */
+
+interface Story {
+  title: string;
+  description: string;
+  href: string;
+  image?: string;
+  color: string;
+}
+
+const stories: Story[] = [
+  {
+    title: 'Global Manufacturer Enters China Market',
+    description:
+      'Migrated a 2,000-page WordPress site onto compliant China hosting with zero downtime. Load times dropped from 18 seconds to under 2.',
+    href: '/contact/',
+    color: '#475569',
+  },
+  {
+    title: 'E-Commerce Brand Launches on the Mainland',
+    description:
+      'Rebuilt a WooCommerce store for China with local payment gateways, Baidu SEO, and full ICP compliance. Revenue from Chinese customers tripled in six months.',
+    href: '/contact/',
+    color: '#57534e',
+  },
+  {
+    title: 'Media Company Goes Live Behind the Firewall',
+    description:
+      'Replaced every blocked resource, swapped Google services for local equivalents, and launched a dual-stack setup serving global and Chinese audiences from one CMS.',
+    href: '/contact/',
+    color: '#52525b',
+  },
+  {
+    title: 'SaaS Platform Achieves Baidu Visibility',
+    description:
+      'Full technical SEO overhaul for Baidu Spider. The site went from zero indexed pages to over 400 within three months of launch.',
+    href: '/contact/',
+    color: '#525252',
+  },
+  {
+    title: 'Luxury Brand Localises for Chinese Audiences',
+    description:
+      'Content strategy, UX redesign for Chinese users, and WeChat integration. Bounce rate dropped by 60% and session duration doubled.',
+    href: '/contact/',
+    color: '#4b5563',
+  },
+];
+---
+
+<section class="py-24 md:py-32 lg:py-40">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <!-- Header -->
+    <div class="mb-10 flex flex-col gap-8 md:mb-14 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+          Success Stories
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+          Projects That Prove It Works
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-lg">
+          Real results from companies that moved their WordPress sites into China with our team.
+        </p>
+      </div>
+      <!-- Nav arrows (md+) -->
+      <div class="hidden shrink-0 gap-2 md:flex">
+        <button
+          id="stories-prev"
+          aria-label="Previous slide"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[var(--color-surface-border)] text-[var(--color-text-muted)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors disabled:opacity-30 disabled:pointer-events-none"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+        </button>
+        <button
+          id="stories-next"
+          aria-label="Next slide"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[var(--color-surface-border)] text-[var(--color-text-muted)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors disabled:opacity-30 disabled:pointer-events-none"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel track — full bleed, scrolls horizontally -->
+  <div
+    id="stories-track"
+    class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Success stories"
+  >
+    {stories.map((story, i) => (
+      <a
+        href={story.href}
+        class="group relative flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] rounded-xl overflow-hidden snap-start no-underline"
+        role="group"
+        aria-roledescription="slide"
+        aria-label={`Story ${i + 1} of ${stories.length}`}
+      >
+        <div class="relative min-h-[26rem] md:min-h-[28rem] w-full">
+          {story.image ? (
+            <img
+              src={story.image}
+              alt={story.title}
+              class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div
+              class="absolute inset-0 transition-all duration-300 group-hover:brightness-110"
+              style={`background: linear-gradient(135deg, ${story.color}, ${story.color}dd)`}
+            ></div>
+          )}
+          <!-- Dark overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+          <!-- Text content -->
+          <div class="absolute inset-x-0 bottom-0 flex flex-col p-6 md:p-8">
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-snug mb-2 md:mb-3">
+              {story.title}
+            </h3>
+            <p class="text-sm text-white/70 leading-relaxed line-clamp-2 mb-8 md:mb-10">
+              {story.description}
+            </p>
+            <span class="inline-flex items-center text-sm font-medium text-white">
+              Read more
+              <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <!-- Dot indicators -->
+  <div id="stories-dots" class="mt-8 flex justify-center gap-2">
+    {stories.map((_, i) => (
+      <button
+        class:list={[
+          'stories-dot h-2 w-2 rounded-full transition-colors',
+          i === 0 ? 'bg-[var(--color-text-dark)]' : 'bg-[var(--color-text-dark)]/20',
+        ]}
+        data-index={i}
+        aria-label={`Go to slide ${i + 1}`}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  function initStories() {
+    const track = document.getElementById('stories-track');
+    const prev = document.getElementById('stories-prev');
+    const next = document.getElementById('stories-next');
+    const dots = document.querySelectorAll<HTMLButtonElement>('.stories-dot');
+    if (!track || !prev || !next) return;
+
+    const slides = track.children;
+    let current = 0;
+
+    function getSlideWidth() {
+      const slide = slides[0] as HTMLElement;
+      if (!slide) return 0;
+      return slide.offsetWidth + 20;
+    }
+
+    function scrollToSlide(index: number) {
+      const max = slides.length - 1;
+      current = Math.max(0, Math.min(index, max));
+      track!.scrollTo({ left: current * getSlideWidth(), behavior: 'smooth' });
+      updateState();
+    }
+
+    function updateState() {
+      prev!.toggleAttribute('disabled', current === 0);
+      next!.toggleAttribute('disabled', current >= slides.length - 1);
+      dots.forEach((dot, i) => {
+        if (i === current) {
+          dot.style.backgroundColor = 'var(--color-text-dark)';
+        } else {
+          dot.style.backgroundColor = 'color-mix(in srgb, var(--color-text-dark) 20%, transparent)';
+        }
+      });
+    }
+
+    prev.addEventListener('click', () => scrollToSlide(current - 1));
+    next.addEventListener('click', () => scrollToSlide(current + 1));
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.dataset.index);
+        scrollToSlide(idx);
+      });
+    });
+
+    // Sync current slide on manual scroll
+    let scrollTimer: number;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => {
+        const sw = getSlideWidth();
+        if (sw > 0) {
+          current = Math.round(track!.scrollLeft / sw);
+          updateState();
+        }
+      }, 100);
+    });
+
+    updateState();
+  }
+
+  document.addEventListener('DOMContentLoaded', initStories);
+  document.addEventListener('astro:page-load', initStories);
+</script>
