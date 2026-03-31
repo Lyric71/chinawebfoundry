@@ -1,6 +1,5 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import Container from '../../components/ui/Container.astro';
 import Button from '../../components/ui/Button.astro';
 
 const metaTitle = 'WordPress Migration to China | ChinaWebFoundry';
@@ -266,14 +265,10 @@ const audiences = [
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {scenarios.map((item, i) => (
+        {scenarios.map((item) => (
           <div class="relative bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] overflow-hidden">
             <!-- Thick top accent bar -->
             <div class="absolute top-0 left-0 right-0 h-1 bg-[var(--color-brand-orange)]"></div>
-            <!-- Large faded ordinal -->
-            <span class="block text-[72px] lg:text-[96px] font-bold font-[var(--font-heading)] leading-none text-[var(--color-surface-border)] select-none mb-2">
-              {String(i + 1).padStart(2, '0')}
-            </span>
             <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
               {item.title}
             </h3>
@@ -348,10 +343,7 @@ const audiences = [
                 i < migrationItems.length - 2 ? 'border-b border-white/10' : '',
                 i === migrationItems.length - 2 ? 'border-b border-white/10 sm:border-b-0' : '',
               ]}>
-                <div class="flex items-start gap-4">
-                  <span class="text-[var(--color-brand-orange)] font-mono text-sm font-semibold mt-0.5 flex-shrink-0">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
+                <div>
                   <div>
                     <h3 class="text-base font-semibold font-[var(--font-heading)] text-white mb-1">
                       {item.label}

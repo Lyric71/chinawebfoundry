@@ -1,6 +1,6 @@
 ---
 /**
- * Hero: full viewport, dark background with gradient overlay,
+ * Hero: full viewport, dark background with animated gradient orbs,
  * large headline vertically centred left, subtitle + CTAs,
  * trust badges bottom, progress bar at bottom.
  *
@@ -12,18 +12,86 @@ const badges = ['Built for China', 'WordPress Native', 'Cross-Border Ready'];
 ---
 
 <section class="relative bg-[var(--color-surface-dark)] min-h-screen flex flex-col overflow-hidden">
-  <!-- ====== BACKGROUND VISUAL PLACEHOLDER ====== -->
+  <!-- ====== ANIMATED BACKGROUND ====== -->
   <div class="absolute inset-0">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#4a2c17] via-[#8b5e3c] to-[#c4956a]"></div>
-    <div class="absolute bottom-0 right-0 w-3/4 h-2/3 bg-gradient-to-t from-[#d4a056] via-[#b8860b] to-transparent opacity-60"></div>
-    <div class="absolute bottom-0 right-[10%] w-1/2 h-1/2 bg-[#c8943e] opacity-40"></div>
-    <div class="absolute bottom-0 right-0 w-2/3 h-1/2 opacity-20" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.15) 40px, rgba(255,255,255,0.15) 41px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.15) 60px, rgba(255,255,255,0.15) 61px);"></div>
-    <div class="absolute top-1/2 right-[20%] -translate-y-1/2 flex flex-col items-center gap-2 opacity-30">
-      <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
-      <span class="text-white text-sm font-medium tracking-wide">HERO IMAGE</span>
+    <!-- Base gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#1a1a2e] to-[#16213e]"></div>
+
+    <!-- Animated gradient orbs -->
+    <div class="hero-orb absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)] opacity-[0.08]" style="filter: blur(100px); animation: float-1 12s ease-in-out infinite;"></div>
+    <div class="hero-orb absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-[#3b82f6] opacity-[0.06]" style="filter: blur(100px); animation: float-2 15s ease-in-out infinite;"></div>
+    <div class="hero-orb absolute top-[30%] right-[20%] w-[350px] h-[350px] rounded-full bg-[var(--color-brand-orange)] opacity-[0.05]" style="filter: blur(80px); animation: float-3 10s ease-in-out infinite;"></div>
+
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <!-- Floating geometric shapes -->
+    <div class="hidden lg:block absolute top-[18%] right-[12%] w-20 h-20 border border-white/[0.06] rounded-2xl" style="animation: spin-slow 20s linear infinite;"></div>
+    <div class="hidden lg:block absolute bottom-[28%] right-[25%] w-12 h-12 border border-[var(--color-brand-orange)]/[0.1] rounded-full" style="animation: spin-slow 15s linear infinite reverse;"></div>
+    <div class="hidden lg:block absolute top-[40%] right-[8%] w-3 h-3 bg-[var(--color-brand-orange)] rounded-full opacity-20" style="animation: pulse-dot 3s ease-in-out infinite;"></div>
+    <div class="hidden lg:block absolute top-[55%] right-[32%] w-2 h-2 bg-white rounded-full opacity-10" style="animation: pulse-dot 4s ease-in-out infinite 1s;"></div>
+
+    <!-- Gradient overlays for text readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/60 to-transparent"></div>
+    <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0f0f12]/50 to-transparent"></div>
+  </div>
+
+  <!-- ====== RIGHT SIDE VISUAL: Decorative illustration ====== -->
+  <div class="hidden lg:flex absolute right-[6%] top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-6">
+    <!-- Stylised browser/dashboard mockup -->
+    <div class="relative w-[340px] h-[220px] rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm overflow-hidden" style="animation: float-1 8s ease-in-out infinite;">
+      <!-- Browser chrome -->
+      <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/[0.06]">
+        <div class="w-2 h-2 rounded-full bg-red-400/60"></div>
+        <div class="w-2 h-2 rounded-full bg-yellow-400/60"></div>
+        <div class="w-2 h-2 rounded-full bg-green-400/60"></div>
+        <div class="ml-3 flex-1 h-4 rounded bg-white/[0.05]"></div>
+      </div>
+      <!-- Content skeleton -->
+      <div class="p-4 space-y-3">
+        <div class="flex gap-3">
+          <div class="w-16 h-16 rounded-lg bg-[var(--color-brand-orange)]/10 flex items-center justify-center">
+            <svg class="w-7 h-7 text-[var(--color-brand-orange)]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+          </div>
+          <div class="flex-1 space-y-2">
+            <div class="h-3 rounded bg-white/[0.08] w-3/4"></div>
+            <div class="h-2 rounded bg-white/[0.05] w-full"></div>
+            <div class="h-2 rounded bg-white/[0.05] w-2/3"></div>
+          </div>
+        </div>
+        <!-- Speed bar -->
+        <div class="pt-2">
+          <div class="flex justify-between text-[10px] text-white/30 mb-1">
+            <span>Load time</span>
+            <span class="text-green-400/70">2.1s</span>
+          </div>
+          <div class="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+            <div class="h-full w-[85%] rounded-full bg-gradient-to-r from-green-400/60 to-green-300/40"></div>
+          </div>
+        </div>
+        <!-- Stats row -->
+        <div class="flex gap-2 pt-1">
+          <div class="flex-1 rounded-lg bg-white/[0.04] p-2 text-center">
+            <div class="text-xs font-medium text-[var(--color-brand-orange)]/70">99.9%</div>
+            <div class="text-[9px] text-white/30 mt-0.5">Uptime</div>
+          </div>
+          <div class="flex-1 rounded-lg bg-white/[0.04] p-2 text-center">
+            <div class="text-xs font-medium text-green-400/70">A+</div>
+            <div class="text-[9px] text-white/30 mt-0.5">Speed</div>
+          </div>
+          <div class="flex-1 rounded-lg bg-white/[0.04] p-2 text-center">
+            <div class="text-xs font-medium text-blue-400/70">ICP</div>
+            <div class="text-[9px] text-white/30 mt-0.5">Compliant</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#1C1C1C]/95 via-[#1C1C1C]/70 to-[#1C1C1C]/20"></div>
-    <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#1C1C1C]/60 to-transparent"></div>
+
+    <!-- Floating badge below mockup -->
+    <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] backdrop-blur-sm border border-white/[0.08]" style="animation: float-2 6s ease-in-out infinite;">
+      <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+      <span class="text-xs text-white/50 font-medium">Live from mainland China</span>
+    </div>
   </div>
 
   <!-- ====== CONTENT ====== -->
@@ -33,18 +101,24 @@ const badges = ['Built for China', 'WordPress Native', 'Cross-Border Ready'];
 
     <!-- Middle: headline + subtitle + CTAs -->
     <div class="flex-1 flex items-center py-12 lg:py-16">
-      <div class="max-w-[780px]">
+      <div class="max-w-[680px]">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-8 bg-[var(--color-brand-orange)]"></div>
+          <span class="text-sm font-medium tracking-wider text-[var(--color-brand-orange)] uppercase">WordPress China Agency</span>
+        </div>
+
         <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-medium font-[var(--font-heading)] text-white leading-[1.06]">
-          Launch Your WordPress Website in China &mdash; That Actually Works!
+          Launch Your WordPress Website in China
         </h1>
-        <p class="mt-6 text-lg lg:text-xl text-white/70 leading-relaxed max-w-[640px]">
-          Expert WordPress solutions for the Chinese market. We handle the complexity of hosting, speed optimisation, compliance, and Baidu SEO so your website performs flawlessly behind the Great Firewall.
+        <p class="mt-6 text-lg lg:text-xl text-white/60 leading-relaxed max-w-[580px]">
+          We handle the complexity of hosting, speed optimisation, compliance, and Baidu SEO so your website performs flawlessly behind the Great Firewall.
         </p>
         <div class="mt-10 flex flex-wrap items-center gap-4">
           <Button href="#OurServices" variant="primary" size="md">Our Services</Button>
           <a
             href="/contact/"
-            class="inline-flex items-center gap-3 px-7 py-2.5 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/50 text-white hover:bg-white/10 hover:border-white/80 no-underline transition-all duration-200"
+            class="inline-flex items-center gap-3 px-7 py-2.5 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/30 text-white hover:bg-white/10 hover:border-white/50 no-underline transition-all duration-200"
           >
             <span>Contact Us</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -58,7 +132,7 @@ const badges = ['Built for China', 'WordPress Native', 'Cross-Border Ready'];
     <!-- Bottom: trust badges -->
     <div class="flex flex-wrap items-center gap-3 pb-10 lg:pb-14">
       {badges.map((badge) => (
-        <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-[var(--radius-pill)] text-sm text-white/80 font-medium">
+        <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.06] backdrop-blur-sm rounded-[var(--radius-pill)] text-sm text-white/70 font-medium border border-white/[0.06]">
           <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
@@ -69,7 +143,31 @@ const badges = ['Built for China', 'WordPress Native', 'Cross-Border Ready'];
   </div>
 
   <!-- ====== PROGRESS BAR ====== -->
-  <div class="relative z-20 h-[3px] bg-white/10">
-    <div class="h-full w-1/3 bg-[var(--color-brand-orange)]"></div>
+  <div class="relative z-20 h-[3px] bg-white/[0.06]">
+    <div class="h-full w-1/3 bg-gradient-to-r from-[var(--color-brand-orange)] to-[var(--color-brand-orange)]/60"></div>
   </div>
 </section>
+
+<style>
+  @keyframes float-1 {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    33% { transform: translateY(-15px) translateX(5px); }
+    66% { transform: translateY(10px) translateX(-5px); }
+  }
+  @keyframes float-2 {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-10px) translateX(-8px); }
+  }
+  @keyframes float-3 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+</style>

@@ -2,15 +2,36 @@
 import Button from '../ui/Button.astro';
 ---
 
-<!-- Newsletter / CTA section -->
-<section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
-  <div class="mx-auto max-w-[1400px] section-padding text-center">
-    <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-      Stay Ahead of the China Web Curve
-    </h2>
-    <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
-      Receive practical insights on WordPress in China &mdash; hosting updates, compliance changes, and Baidu SEO tips &mdash; directly in your inbox.
-    </p>
-    <Button href="/contact/" variant="primary" size="lg">Get in touch</Button>
+<!-- CTA section with gradient background -->
+<section class="relative py-24 md:py-32 lg:py-40 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-[var(--color-surface-light)]"></div>
+
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-[var(--color-brand-orange)] opacity-[0.03]" style="filter: blur(100px);"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-blue-500 opacity-[0.02]" style="filter: blur(80px);"></div>
+  <div class="hidden lg:block absolute top-16 right-[15%] w-16 h-16 border border-[var(--color-brand-orange)]/[0.08] rounded-2xl" style="animation: float-cta 12s ease-in-out infinite;"></div>
+  <div class="hidden lg:block absolute bottom-20 left-[10%] w-10 h-10 border border-[var(--color-surface-border)] rounded-full" style="animation: float-cta 8s ease-in-out infinite reverse;"></div>
+
+  <div class="relative z-10 mx-auto max-w-[1400px] section-padding text-center">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+        Get Started
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Stay Ahead of the China Web Curve
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-10">
+        Receive practical insights on WordPress in China -- hosting updates, compliance changes, and Baidu SEO tips -- directly in your inbox.
+      </p>
+      <Button href="/contact/" variant="primary" size="lg">Get in touch</Button>
+    </div>
   </div>
 </section>
+
+<style>
+  @keyframes float-cta {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(5deg); }
+  }
+</style>
