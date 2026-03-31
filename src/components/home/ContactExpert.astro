@@ -1,0 +1,35 @@
+---
+import Button from '../ui/Button.astro';
+
+/**
+ * Contact expert CTA block (iO pattern)
+ * Circular portrait + heading as question + name/title + two buttons
+ */
+---
+
+<section class="section-spacing">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      <!-- Circular portrait -->
+      <div class="flex-shrink-0">
+        <div class="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden bg-gradient-to-br from-[var(--color-brand-orange)]/20 to-[var(--color-text-card-blue)]/20">
+          <div class="w-full h-full bg-[url('/images/placeholder-expert.jpg')] bg-cover bg-center"></div>
+        </div>
+      </div>
+
+      <!-- Text + buttons -->
+      <div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Want to talk about your WordPress project in China?
+        </h2>
+        <p class="mt-3 text-lg text-[var(--color-text-muted)]">
+          Get in touch with our team
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href="/contact/" variant="primary" size="md">Email us</Button>
+          <Button href="/contact/" variant="secondary" size="md">Schedule a call</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

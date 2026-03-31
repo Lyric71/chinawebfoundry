@@ -1,0 +1,32 @@
+---
+import Button from '../ui/Button.astro';
+
+/**
+ * Client logo grid (iO "Together we make impact" pattern)
+ * Centred heading, 6 logos per row (3 rows), CTA below
+ */
+const logos = [
+  'Audi', 'Henkel', 'Siemens', 'BMW', 'Bosch', 'BASF',
+  'Adidas', 'SAP', 'Porsche', 'Bayer', 'Allianz', 'DHL',
+  'Volkswagen', 'Miele', 'Hugo Boss', 'Continental', 'Merck', 'Nivea',
+];
+---
+
+<section class="py-24 md:py-32 lg:py-40">
+  <div class="mx-auto max-w-[1400px] section-padding text-center">
+    <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-16 lg:mb-20">
+      Together we make impact
+    </h2>
+
+    <!-- Logo grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 lg:gap-x-10 lg:gap-y-14 items-center justify-items-center mb-16">
+      {logos.map((name) => (
+        <div class="w-full h-12 flex items-center justify-center px-4 grayscale opacity-50 hover:opacity-80 hover:grayscale-0 transition-all duration-300">
+          <span class="text-sm font-semibold text-[var(--color-text-dark)] tracking-wide uppercase whitespace-nowrap">{name}</span>
+        </div>
+      ))}
+    </div>
+
+    <Button href="/contact/" variant="primary" size="md">Check out our work</Button>
+  </div>
+</section>

@@ -1,12 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Container from '../components/ui/Container.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
-import DepartmentCard from '../components/pages/DepartmentCard.astro';
-import TeamMember from '../components/pages/TeamMember.astro';
-import ValueCard from '../components/pages/ValueCard.astro';
-import FAQAccordion from '../components/pages/FAQAccordion.astro';
 import Button from '../components/ui/Button.astro';
+import FAQAccordion from '../components/pages/FAQAccordion.astro';
 import { getCollection } from 'astro:content';
 
 const teamMembers = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
@@ -73,97 +68,182 @@ const values = [
   title="Who We Are | ChinaWebFoundry \u2014 WordPress China Agency"
   description="Meet the China-based team behind ChinaWebFoundry. 30+ specialists in WordPress engineering, Baidu SEO, Chinese UX, and infrastructure \u2014 built for China delivery."
 >
-  <!-- Breadcrumbs -->
-  <nav aria-label="Breadcrumb" class="section-padding pt-6">
-    <Container>
-      <ol class="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
-        <li><a href="/" class="hover:text-[var(--color-brand-orange)]">Home</a></li>
-        <li class="before:content-['/'] before:mx-2">Who We Are</li>
-      </ol>
-    </Container>
-  </nav>
-
-  <!-- Intro -->
-  <section class="section-spacing">
-    <Container>
-      <SectionHeading
-        tag="h1"
-        title="Grounded Locally, Built for Global Standards"
-        subtitle="If you're outside China but need a WordPress presence inside China, we bridge that gap. We speak both languages \u2014 literally and technically."
-      />
-    </Container>
+  <!-- Hero intro -->
+  <section class="pt-32 lg:pt-40 pb-24 md:pb-32 lg:pb-40">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-10">
+        <div class="col-span-12 lg:col-span-6">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Who We Are
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Grounded Locally, Built for Global Standards
+          </h1>
+        </div>
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-10">
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            If you're outside China but need a WordPress presence inside China, we bridge that gap. We speak both languages &mdash; literally and technically.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Team Departments -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <Container>
-      <SectionHeading
-        eyebrow="Our Team"
-        title="Built for China Delivery"
-        subtitle="We're a cross-functional, bilingual team organised around one goal: making WordPress work reliably and performantly for the Chinese market."
-      />
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {departments.map((dept) => (
-          <DepartmentCard
-            title={dept.title}
-            subtitle={dept.subtitle}
-            description={dept.description}
-          />
-        ))}
+  <!-- Team departments: split layout with divider list -->
+  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <!-- Left: heading + CTA -->
+        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Our Team
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Built for China Delivery
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+            We're a cross-functional, bilingual team organised around one goal: making WordPress work reliably and performantly for the Chinese market.
+          </p>
+          <div class="mt-10">
+            <Button href="/contact/" variant="primary" size="md">Work with us</Button>
+          </div>
+        </div>
+
+        <!-- Right: department list with dividers -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="divider-list border-t border-[var(--color-surface-border)]">
+            {departments.map((dept) => (
+              <div class="py-8">
+                <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+                  {dept.title}
+                </h3>
+                <p class="mt-1 text-sm font-medium text-[var(--color-brand-orange)]">
+                  {dept.subtitle}
+                </p>
+                <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
+                  {dept.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </Container>
+    </div>
   </section>
 
   <!-- Leadership -->
-  <section class="section-spacing">
-    <Container>
-      <SectionHeading title="Our Leadership" />
-      <div class="space-y-10 max-w-3xl mx-auto">
-        {teamMembers.map((member) => (
-          <TeamMember
-            name={member.data.name}
-            role={member.data.role}
-            photo={member.data.photo}
-            bio={member.data.bio}
-          />
-        ))}
+  <section class="py-24 md:py-32 lg:py-40">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <div class="col-span-12 lg:col-span-5">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Leadership
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Meet the people behind ChinaWebFoundry
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-12">
+            {teamMembers.map((member) => (
+              <div class="flex flex-col sm:flex-row gap-6 items-start">
+                <img
+                  src={member.data.photo}
+                  alt={`Photo of ${member.data.name}`}
+                  class="w-20 h-20 rounded-full object-cover flex-shrink-0"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                    {member.data.name}
+                  </h3>
+                  <p class="text-sm font-medium text-[var(--color-brand-orange)] mt-1">
+                    {member.data.role}
+                  </p>
+                  <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
+                    {member.data.bio}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </Container>
+    </div>
   </section>
 
-  <!-- Values -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <Container>
-      <SectionHeading
-        eyebrow="Our Values"
-        title="The Principles That Guide Every Project We Deliver"
-      />
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {values.map((v) => (
-          <ValueCard title={v.title} description={v.description} />
-        ))}
+  <!-- Values: dark section -->
+  <section class="relative bg-[var(--color-surface-dark)] py-24 md:py-32 lg:py-40 overflow-hidden">
+    <!-- Subtle background decoration -->
+    <div class="absolute inset-0 opacity-[0.04]">
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white to-transparent"></div>
+      <div class="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-[var(--color-brand-orange)]" style="filter: blur(120px);"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <!-- Left: heading -->
+        <div class="col-span-12 lg:col-span-5">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Our Values
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.1]">
+            The Principles That Guide Every Project We Deliver
+          </h2>
+        </div>
+
+        <!-- Right: values list -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-10">
+            {values.map((v) => (
+              <div>
+                <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-white leading-snug">
+                  {v.title}
+                </h3>
+                <p class="mt-3 text-base text-white/60 leading-relaxed">
+                  {v.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </Container>
+    </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section-spacing">
-    <Container>
-      <SectionHeading title="Common Questions About Working With Our Team" />
-      <FAQAccordion />
-    </Container>
+  <!-- FAQ: split layout -->
+  <section class="py-24 md:py-32 lg:py-40">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            FAQ
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Common questions about working with our team
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <FAQAccordion />
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CTA -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <Container class="text-center">
-      <h2 class="text-2xl md:text-[28px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
         Want to work with us?
       </h2>
-      <p class="text-[var(--color-text-body)] mb-8 max-w-xl mx-auto">
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">
         We'd love to hear about your project. Get in touch and we'll respond within 24 hours.
       </p>
       <Button href="/contact/" variant="primary" size="lg">Contact Us</Button>
-    </Container>
+    </div>
   </section>
 </PageLayout>

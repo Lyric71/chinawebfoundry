@@ -8,13 +8,13 @@ const { question, id } = Astro.props;
 ---
 
 <details class="group border-b border-[var(--color-surface-border)]">
-  <summary class="flex items-center justify-between py-4 cursor-pointer text-base font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] hover:text-[var(--color-brand-orange)] transition-colors">
+  <summary class="flex items-center justify-between gap-8 py-6 cursor-pointer text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] hover:text-[var(--color-brand-orange)] transition-colors">
     {question}
     <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
     </svg>
   </summary>
-  <div class="pb-4 text-[var(--color-text-body)]">
+  <div class="pb-6 text-base text-[var(--color-text-body)] leading-relaxed">
     <slot />
   </div>
 </details>

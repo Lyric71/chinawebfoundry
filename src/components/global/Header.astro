@@ -1,35 +1,93 @@
 ---
-import Container from '../ui/Container.astro';
 import Logo from './Logo.astro';
 import Navigation from './Navigation.astro';
 import MobileMenu from './MobileMenu.astro';
-import Button from '../ui/Button.astro';
+
+interface Props {
+  heroPage?: boolean;
+}
+
+const { heroPage = false } = Astro.props;
 ---
 
-<header id="site-header" class="relative z-50 bg-white">
-  <Container class="flex items-center justify-between py-5">
-    <Logo size="md" />
-    <div class="flex items-center gap-6">
-      <Navigation />
-      <Button href="/contact/" variant="primary" size="md" class="hidden md:inline-flex">Contact Us</Button>
-      <MobileMenu />
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  data-hero-page={heroPage ? 'true' : 'false'}
+>
+  <!-- Main navigation bar -->
+  <div
+    id="main-nav-bar"
+    class:list={[
+      'border-b transition-all duration-300',
+      heroPage
+        ? 'bg-transparent border-white/10'
+        : 'bg-white border-[var(--color-surface-border)]',
+    ]}
+  >
+    <div class="mx-auto max-w-[1400px] section-padding flex items-center justify-between py-3">
+      <Logo size="sm" />
+      <div class="flex items-center gap-8">
+        <Navigation heroPage={heroPage} />
+        <a
+          href="/contact/"
+          class:list={[
+            'hidden md:inline-flex items-center gap-2 px-6 py-2 text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border no-underline transition-all duration-200',
+            heroPage
+              ? 'nav-contact-btn border-white/60 text-white hover:bg-white/10 hover:border-white'
+              : 'nav-contact-btn border-[var(--color-text-dark)] text-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white',
+          ]}
+        >
+          Contact
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <MobileMenu />
+      </div>
     </div>
-  </Container>
-  <!-- Orange accent line -->
-  <div class="h-[3px] bg-[var(--color-brand-orange)]"></div>
+  </div>
 </header>
+
+<!-- Spacer: only on non-hero pages -->
+{!heroPage && <div class="h-[60px]"></div>}
 
 <script>
   const header = document.getElementById('site-header');
-  let lastScroll = 0;
+  const mainNavBar = document.getElementById('main-nav-bar');
+  const isHeroPage = header?.dataset.heroPage === 'true';
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > 50) {
-      header?.classList.add('sticky', 'top-0', 'shadow-[var(--shadow-header-scroll)]');
+    const scrollY = window.scrollY;
+
+    if (scrollY > 80) {
+      mainNavBar?.classList.remove('bg-transparent', 'border-white/10');
+      mainNavBar?.classList.add('bg-white/95', 'backdrop-blur-sm', 'border-[var(--color-surface-border)]');
+
+      if (isHeroPage) {
+        header?.querySelectorAll('.nav-link-hero').forEach((el) => {
+          el.classList.remove('text-white/90', 'hover:text-white');
+          el.classList.add('text-[var(--color-text-body)]', 'hover:text-[var(--color-brand-orange)]');
+        });
+        header?.querySelectorAll('.nav-contact-btn').forEach((el) => {
+          el.classList.remove('border-white/60', 'text-white', 'hover:bg-white/10', 'hover:border-white');
+          el.classList.add('border-[var(--color-text-dark)]', 'text-[var(--color-text-dark)]', 'hover:bg-[var(--color-text-dark)]', 'hover:text-white');
+        });
+      }
     } else {
-      header?.classList.remove('sticky', 'top-0', 'shadow-[var(--shadow-header-scroll)]');
+      if (isHeroPage) {
+        mainNavBar?.classList.add('bg-transparent', 'border-white/10');
+        mainNavBar?.classList.remove('bg-white/95', 'backdrop-blur-sm', 'border-[var(--color-surface-border)]');
+
+        header?.querySelectorAll('.nav-link-hero').forEach((el) => {
+          el.classList.add('text-white/90', 'hover:text-white');
+          el.classList.remove('text-[var(--color-text-body)]', 'hover:text-[var(--color-brand-orange)]');
+        });
+        header?.querySelectorAll('.nav-contact-btn').forEach((el) => {
+          el.classList.add('border-white/60', 'text-white', 'hover:bg-white/10', 'hover:border-white');
+          el.classList.remove('border-[var(--color-text-dark)]', 'text-[var(--color-text-dark)]', 'hover:bg-[var(--color-text-dark)]', 'hover:text-white');
+        });
+      }
     }
-    lastScroll = currentScroll;
   });
 </script>

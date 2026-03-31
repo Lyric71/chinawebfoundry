@@ -5,21 +5,22 @@ interface Props {
   href?: string;
   type?: 'button' | 'submit';
   class?: string;
+  arrow?: boolean;
 }
 
-const { variant = 'primary', size = 'md', href, type = 'button', class: className } = Astro.props;
+const { variant = 'primary', size = 'md', href, type = 'button', class: className, arrow = true } = Astro.props;
 
-const baseClasses = 'inline-flex items-center justify-center font-[var(--font-button)] font-medium rounded-[var(--radius-pill)] transition-all duration-200 cursor-pointer';
+const baseClasses = 'inline-flex items-center justify-center gap-2 font-[var(--font-button)] font-medium rounded-[var(--radius-pill)] transition-all duration-200 cursor-pointer';
 
 const variantClasses = {
   primary: 'bg-[var(--color-brand-orange)] text-white hover:bg-[var(--color-brand-orange-hover)] active:bg-[var(--color-brand-orange-active)]',
-  secondary: 'bg-transparent text-[var(--color-brand-orange)] border-2 border-[var(--color-brand-orange)] hover:bg-[var(--color-brand-orange)] hover:text-white active:bg-[var(--color-brand-orange-hover)]',
+  secondary: 'bg-transparent text-[var(--color-text-dark)] border border-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white active:bg-[var(--color-text-near-black)]',
   ghost: 'bg-transparent text-[var(--color-brand-orange)] hover:underline',
 };
 
 const sizeClasses = {
-  sm: 'px-4 py-1.5 text-sm',
-  md: 'px-6 py-2 text-base',
+  sm: 'px-5 py-2 text-sm',
+  md: 'px-6 py-2.5 text-base',
   lg: 'px-8 py-3 text-lg',
 };
 
@@ -28,10 +29,20 @@ const classes = [baseClasses, variantClasses[variant], sizeClasses[size], classN
 
 {href ? (
   <a href={href} class:list={classes}>
-    <slot />
+    <span><slot /></span>
+    {arrow && (
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    )}
   </a>
 ) : (
   <button type={type} class:list={classes}>
-    <slot />
+    <span><slot /></span>
+    {arrow && (
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    )}
   </button>
 )}
