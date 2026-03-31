@@ -1,0 +1,169 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Container from '../components/ui/Container.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import DepartmentCard from '../components/pages/DepartmentCard.astro';
+import TeamMember from '../components/pages/TeamMember.astro';
+import ValueCard from '../components/pages/ValueCard.astro';
+import FAQAccordion from '../components/pages/FAQAccordion.astro';
+import Button from '../components/ui/Button.astro';
+import { getCollection } from 'astro:content';
+
+const teamMembers = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
+
+const departments = [
+  {
+    title: 'WordPress Engineering',
+    subtitle: '5+ years China-focused experience per engineer',
+    description: 'Senior developers specialising in multisite/multilingual architectures, headless WordPress, plugin governance, CI/CD pipelines, and performance tuning specifically for China\u2019s network conditions.',
+  },
+  {
+    title: 'Infrastructure & DevOps',
+    subtitle: 'Alibaba Cloud, Tencent Cloud, and Private Server Operations',
+    description: 'Engineers managing our own servers and cloud deployments with expertise in CDN optimisation, caching, observability, disaster recovery, and cost-performance tuning for mainland China.',
+  },
+  {
+    title: 'Chinese UX/UI Design',
+    subtitle: 'Purely Local Design Team',
+    description: 'Designers who build for actual Chinese user expectations including WeChat/Alipay integrations, mobile-first layouts, payment UX, and navigation patterns that feel native to Chinese users.',
+  },
+  {
+    title: 'Chinese Copywriting & Localisation',
+    subtitle: 'Beyond Translation',
+    description: 'Native copywriters who rewrite English content with culturally relevant tone, local search intent alignment, and SEO optimisation so it reads naturally in Chinese and persuades local audiences.',
+  },
+  {
+    title: 'Baidu SEO & China Search Optimisation',
+    subtitle: 'Native Baidu Expertise',
+    description: 'SEO specialists who optimise for Baidu\u2019s unique ranking factors, crawlability requirements, and Chinese search behaviour \u2014 not Western SEO practices translated to China.',
+  },
+  {
+    title: 'Security & Compliance',
+    subtitle: 'WordPress Hardening and Local Regulatory Guidance',
+    description: 'Specialists implementing WAF, plugin audits, encrypted backups, vulnerability management, and providing guidance on ICP/\u5907\u6848 licensing and data residency requirements.',
+  },
+  {
+    title: 'Project Management & Client Success',
+    subtitle: 'Bilingual PMs Who Bridge Global and China Teams',
+    description: 'Project managers running sprints, tracking progress, managing risks, and ensuring clear communication with defined acceptance criteria, continuous delivery, and monthly reporting.',
+  },
+];
+
+const values = [
+  {
+    title: 'China-First Execution, Not Adaptation',
+    description: 'We don\u2019t retrofit Western solutions for China. We build from a China-native perspective \u2014 knowing the infrastructure, the user behaviours, the regulatory landscape, and the platforms that matter. Our work is designed to succeed in China from day one.',
+  },
+  {
+    title: 'Measurable Outcomes Over Buzzwords',
+    description: 'We define success in metrics you can verify: Core Web Vitals from mainland China, crawlability on Baidu, uptime, localised content performance. Every deliverable ties to a measurable commitment.',
+  },
+  {
+    title: 'Transparency & Accountability',
+    description: 'We work with clear roadmaps, acceptance criteria, and risk logs. You know what\u2019s being built, why, and when. If something blocks progress, you hear it from us first \u2014 with a mitigation plan already in motion.',
+  },
+  {
+    title: 'Long-Term Partnership',
+    description: 'Launching a WordPress site in China isn\u2019t a one-time event. We\u2019re structured for ongoing optimisation, security, performance monitoring, and continuous improvement. We succeed when your China presence thrives over time.',
+  },
+];
+---
+
+<PageLayout
+  title="Who We Are | ChinaWebFoundry \u2014 WordPress China Agency"
+  description="Meet the China-based team behind ChinaWebFoundry. 30+ specialists in WordPress engineering, Baidu SEO, Chinese UX, and infrastructure \u2014 built for China delivery."
+>
+  <!-- Breadcrumbs -->
+  <nav aria-label="Breadcrumb" class="section-padding pt-6">
+    <Container>
+      <ol class="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
+        <li><a href="/" class="hover:text-[var(--color-brand-orange)]">Home</a></li>
+        <li class="before:content-['/'] before:mx-2">Who We Are</li>
+      </ol>
+    </Container>
+  </nav>
+
+  <!-- Intro -->
+  <section class="section-spacing">
+    <Container>
+      <SectionHeading
+        tag="h1"
+        title="Grounded Locally, Built for Global Standards"
+        subtitle="If you're outside China but need a WordPress presence inside China, we bridge that gap. We speak both languages \u2014 literally and technically."
+      />
+    </Container>
+  </section>
+
+  <!-- Team Departments -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <Container>
+      <SectionHeading
+        eyebrow="Our Team"
+        title="Built for China Delivery"
+        subtitle="We're a cross-functional, bilingual team organised around one goal: making WordPress work reliably and performantly for the Chinese market."
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {departments.map((dept) => (
+          <DepartmentCard
+            title={dept.title}
+            subtitle={dept.subtitle}
+            description={dept.description}
+          />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Leadership -->
+  <section class="section-spacing">
+    <Container>
+      <SectionHeading title="Our Leadership" />
+      <div class="space-y-10 max-w-3xl mx-auto">
+        {teamMembers.map((member) => (
+          <TeamMember
+            name={member.data.name}
+            role={member.data.role}
+            photo={member.data.photo}
+            bio={member.data.bio}
+          />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Values -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <Container>
+      <SectionHeading
+        eyebrow="Our Values"
+        title="The Principles That Guide Every Project We Deliver"
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {values.map((v) => (
+          <ValueCard title={v.title} description={v.description} />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-spacing">
+    <Container>
+      <SectionHeading title="Common Questions About Working With Our Team" />
+      <FAQAccordion />
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <Container class="text-center">
+      <h2 class="text-2xl md:text-[28px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+        Want to work with us?
+      </h2>
+      <p class="text-[var(--color-text-body)] mb-8 max-w-xl mx-auto">
+        We'd love to hear about your project. Get in touch and we'll respond within 24 hours.
+      </p>
+      <Button href="/contact/" variant="primary" size="lg">Contact Us</Button>
+    </Container>
+  </section>
+</PageLayout>

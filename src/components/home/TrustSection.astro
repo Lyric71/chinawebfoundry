@@ -1,0 +1,22 @@
+---
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import TrustCard from './TrustCard.astro';
+import { trustPoints } from '../../data/trustPoints';
+---
+
+<section class="section-spacing bg-[var(--color-surface-light)]">
+  <Container>
+    <SectionHeading
+      eyebrow="Why ChinaWebFoundry"
+      title="Built for China, from China"
+      subtitle="We're not guessing from the outside. Our team is on the ground, delivering measurable results."
+    />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {trustPoints.map((point) => (
+        <TrustCard title={point.title} description={point.description} />
+      ))}
+    </div>
+  </Container>
+</section>

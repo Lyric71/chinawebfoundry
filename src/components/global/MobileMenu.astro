@@ -1,0 +1,47 @@
+---
+import { mainNav } from '../../data/navigation';
+import Button from '../ui/Button.astro';
+---
+
+<!-- Mobile menu button -->
+<button
+  id="mobile-menu-toggle"
+  class="md:hidden p-2 text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] transition-colors"
+  aria-label="Toggle menu"
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+
+<!-- Mobile menu panel -->
+<div
+  id="mobile-menu"
+  class="hidden fixed inset-0 top-[103px] z-40 bg-white md:hidden"
+  aria-label="Mobile navigation"
+>
+  <nav class="flex flex-col items-center gap-6 pt-8 px-4">
+    {mainNav.map((item) => (
+      <a
+        href={item.href}
+        class="text-lg text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors"
+      >
+        {item.label}
+      </a>
+    ))}
+    <Button href="/contact/" variant="primary" size="md">Contact Us</Button>
+  </nav>
+</div>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.contains('hidden') === false;
+    menu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

@@ -1,0 +1,29 @@
+---
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Card from '../ui/Card.astro';
+import { problems } from '../../data/problems';
+---
+
+<section class="section-spacing">
+  <Container>
+    <SectionHeading
+      eyebrow="Your WordPress Site Is Invisible in China"
+      title="The challenges you face"
+      subtitle="These are the most common problems international companies encounter when trying to reach users in mainland China."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {problems.map((problem) => (
+        <Card hover padding="md">
+          <h5 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] mb-2">
+            {problem.title}
+          </h5>
+          <p class="text-sm text-[var(--color-text-body)]">
+            {problem.description}
+          </p>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

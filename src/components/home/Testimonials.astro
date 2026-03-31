@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import TestimonialCard from './TestimonialCard.astro';
+
+const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="section-spacing">
+  <Container>
+    <SectionHeading
+      eyebrow="Client Feedback"
+      title="What our clients say"
+    />
+
+    <div id="testimonial-carousel" class="relative overflow-hidden">
+      <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track">
+        {testimonials.map((t) => (
+          <div class="w-full flex-shrink-0 px-4">
+            <TestimonialCard
+              quote={t.body || ''}
+              name={t.data.name}
+              role={t.data.role}
+              company={t.data.company}
+              photo={t.data.photo}
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- Navigation dots -->
+      <div class="flex justify-center gap-2 mt-8">
+        {testimonials.map((_, i) => (
+          <button
+            class="testimonial-dot w-3 h-3 rounded-full bg-[var(--color-surface-border)] transition-colors"
+            data-index={i}
+            aria-label={`Show testimonial ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  const track = document.getElementById('testimonial-track');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  let current = 0;
+
+  function goTo(index: number) {
+    current = index;
+    if (track) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('!bg-[var(--color-brand-orange)]', i === index);
+    });
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const index = Number((dot as HTMLElement).dataset.index);
+      goTo(index);
+    });
+  });
+
+  // Auto-advance every 5s
+  setInterval(() => {
+    goTo((current + 1) % dots.length);
+  }, 5000);
+
+  // Init first dot
+  goTo(0);
+</script>

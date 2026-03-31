@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import FAQItem from './FAQItem.astro';
+
+const faqs = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="max-w-3xl mx-auto">
+  {faqs.map(async (faq) => {
+    const { Content } = await render(faq);
+    return (
+      <FAQItem question={faq.data.question} id={faq.id}>
+        <Content />
+      </FAQItem>
+    );
+  })}
+</div>

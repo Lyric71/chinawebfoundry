@@ -1,0 +1,35 @@
+---
+import Container from '../ui/Container.astro';
+import Logo from './Logo.astro';
+import Navigation from './Navigation.astro';
+import MobileMenu from './MobileMenu.astro';
+import Button from '../ui/Button.astro';
+---
+
+<header id="site-header" class="relative z-50 bg-white">
+  <Container class="flex items-center justify-between py-5">
+    <Logo size="md" />
+    <div class="flex items-center gap-6">
+      <Navigation />
+      <Button href="/contact/" variant="primary" size="md" class="hidden md:inline-flex">Contact Us</Button>
+      <MobileMenu />
+    </div>
+  </Container>
+  <!-- Orange accent line -->
+  <div class="h-[3px] bg-[var(--color-brand-orange)]"></div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+      header?.classList.add('sticky', 'top-0', 'shadow-[var(--shadow-header-scroll)]');
+    } else {
+      header?.classList.remove('sticky', 'top-0', 'shadow-[var(--shadow-header-scroll)]');
+    }
+    lastScroll = currentScroll;
+  });
+</script>

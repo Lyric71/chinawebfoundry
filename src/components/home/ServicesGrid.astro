@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ServiceCard from './ServiceCard.astro';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="OurServices" class="section-spacing bg-[var(--color-surface-light)]">
+  <Container>
+    <SectionHeading
+      eyebrow="What We Do"
+      title="Complete WordPress solutions for China"
+      subtitle="From strategy to ongoing support, we handle every aspect of launching and maintaining your WordPress site in China."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <ServiceCard
+          title={service.data.title}
+          description={service.data.description}
+          href={`/services/${service.id}/`}
+        />
+      ))}
+    </div>
+  </Container>
+</section>

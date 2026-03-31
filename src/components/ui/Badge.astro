@@ -1,0 +1,16 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className } = Astro.props;
+---
+
+<span class:list={[
+  'inline-block px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-full',
+  'bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)]',
+  className,
+]}>
+  {text}
+</span>

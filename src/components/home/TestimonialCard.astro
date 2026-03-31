@@ -1,0 +1,33 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  photo?: string;
+}
+
+const { quote, name, role, company, photo } = Astro.props;
+---
+
+<div class="text-center max-w-2xl mx-auto">
+  <blockquote class="text-lg italic text-[var(--color-text-body)] font-[var(--font-heading)] mb-6">
+    "{quote}"
+  </blockquote>
+  <div class="flex items-center justify-center gap-4">
+    {photo && (
+      <img
+        src={photo}
+        alt={`Photo of ${name}`}
+        class="w-14 h-14 rounded-full object-cover"
+        width="56"
+        height="56"
+        loading="lazy"
+      />
+    )}
+    <div class="text-left">
+      <p class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">{name}</p>
+      <p class="text-sm text-[var(--color-text-muted)]">{role}, {company}</p>
+    </div>
+  </div>
+</div>

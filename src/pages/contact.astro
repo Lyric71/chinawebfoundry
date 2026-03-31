@@ -1,0 +1,32 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Container from '../components/ui/Container.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import ContactForm from '../components/pages/ContactForm.astro';
+---
+
+<PageLayout
+  title="Contact Us | ChinaWebFoundry"
+  description="Get in touch with ChinaWebFoundry. Tell us about your WordPress project in China and we'll respond within 24 hours."
+>
+  <!-- Breadcrumbs -->
+  <nav aria-label="Breadcrumb" class="section-padding pt-6">
+    <Container>
+      <ol class="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
+        <li><a href="/" class="hover:text-[var(--color-brand-orange)]">Home</a></li>
+        <li class="before:content-['/'] before:mx-2">Contact</li>
+      </ol>
+    </Container>
+  </nav>
+
+  <section class="section-spacing">
+    <Container>
+      <SectionHeading
+        tag="h1"
+        title="Let's talk about your project"
+        subtitle="Tell us what you need and we'll get back to you within 24 hours with a clear next step."
+      />
+      <ContactForm />
+    </Container>
+  </section>
+</PageLayout>

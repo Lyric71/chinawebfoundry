@@ -1,0 +1,44 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import ProblemSection from '../components/home/ProblemSection.astro';
+import ServicesGrid from '../components/home/ServicesGrid.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import TrustSection from '../components/home/TrustSection.astro';
+import Container from '../components/ui/Container.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<PageLayout
+  title="WordPress China Agency | ChinaWebFoundry"
+  description="ChinaWebFoundry is a WordPress China agency. We migrate, host, and optimise WordPress sites for the Chinese market - fast, compliant, and Baidu-ready."
+>
+  <Hero />
+
+  <!-- Bridge statement -->
+  <section class="py-12 text-center">
+    <Container>
+      <p class="text-xl md:text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">
+        We solve all of these - so you can focus on your business.
+      </p>
+    </Container>
+  </section>
+
+  <ProblemSection />
+  <ServicesGrid />
+  <Testimonials />
+  <TrustSection />
+
+  <!-- Footer CTA -->
+  <section class="section-spacing">
+    <Container class="text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+        Ready to launch your WordPress site in China?
+      </h2>
+      <p class="text-[var(--color-text-body)] mb-8 max-w-xl mx-auto">
+        Tell us about your project. We'll respond within 24 hours with a clear plan.
+      </p>
+      <Button href="/contact/" variant="primary" size="lg">Get in Touch</Button>
+    </Container>
+  </section>
+</PageLayout>

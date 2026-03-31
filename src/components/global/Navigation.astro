@@ -1,0 +1,26 @@
+---
+import { mainNav } from '../../data/navigation';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<nav class:list={['hidden md:flex items-center gap-8', className]} aria-label="Main navigation">
+  {mainNav.map((item) => (
+    <a
+      href={item.href}
+      class:list={[
+        'text-base font-normal no-underline transition-colors duration-200',
+        currentPath === item.href
+          ? 'text-[var(--color-brand-orange)]'
+          : 'text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)]',
+      ]}
+    >
+      {item.label}
+    </a>
+  ))}
+</nav>

@@ -1,0 +1,22 @@
+---
+import Card from '../ui/Card.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { title, description, href } = Astro.props;
+---
+
+<a href={href} class="no-underline hover:no-underline block">
+  <Card hover padding="md">
+    <h6 class="text-base font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] mb-2">
+      {title}
+    </h6>
+    <p class="text-sm text-[var(--color-text-card-blue)]">
+      {description}
+    </p>
+  </Card>
+</a>
