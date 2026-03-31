@@ -266,21 +266,42 @@ const audiences = [
         </div>
 
         <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {processSteps.map((step) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {step.title}
-                  </h3>
+          {processSteps.map((step, i) => (
+            <div class="flex">
+              <div class="mr-4 flex flex-col items-center">
+                <div>
+                  {i < processSteps.length - 1 ? (
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[var(--color-brand-orange)]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-[var(--color-brand-orange)]">
+                        <path d="M12 5l0 14"></path>
+                        <path d="M18 13l-6 6"></path>
+                        <path d="M6 13l6 6"></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[var(--color-brand-orange)] bg-[var(--color-brand-orange)]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white">
+                        <path d="M5 12l5 5l10 -10"></path>
+                      </svg>
+                    </div>
+                  )}
+                </div>
+                {i < processSteps.length - 1 && (
+                  <div class="h-full w-px bg-[var(--color-surface-border)]"></div>
+                )}
+              </div>
+              <div class:list={["pt-1", i < processSteps.length - 1 ? "pb-8" : ""]}>
+                <p class="mb-2 text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                  {step.title}
+                </p>
+                {step.body && (
                   <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
                     {step.body}
                   </p>
-                </div>
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
 
 const metaTitle = 'Chinese Content for WordPress in China | ChinaWebFoundry';
 const metaDescription = 'Native Chinese copywriting, transcreation & content management for WordPress in China. Baidu-optimized content by native speakers. Agency in China.';
@@ -290,19 +291,7 @@ const audiences = [
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {processSteps.map((item) => (
-          <div class="relative bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] overflow-hidden">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-[var(--color-brand-orange)]"></div>
-            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
-              {item.title}
-            </h3>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              {item.body}
-            </p>
-          </div>
-        ))}
-      </div>
+      <CaseStudyCards items={processSteps} />
     </div>
   </section>
 

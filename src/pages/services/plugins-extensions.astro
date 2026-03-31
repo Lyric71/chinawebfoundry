@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
 
 const metaTitle = 'WordPress Plugins for China | Custom Development';
 const metaDescription = 'Custom WordPress plugins built for China. WeChat, Alipay, Baidu SEO integrations and plugin fixes for sites behind the Great Firewall. Agency based in China.';
@@ -249,16 +250,7 @@ const audiences = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {gutenbergBlocks.map((block) => (
-          <div class="relative bg-white rounded-2xl p-6 border border-[var(--color-surface-border)] overflow-hidden">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-[var(--color-brand-orange)]"></div>
-            <p class="text-[15px] font-medium text-[var(--color-text-dark)] leading-relaxed">
-              {block}
-            </p>
-          </div>
-        ))}
-      </div>
+      <CaseStudyCards items={gutenbergBlocks.map(block => ({ title: block }))} />
     </div>
   </section>
 

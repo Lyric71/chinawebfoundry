@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
 
 const metaTitle = 'WordPress Migration to China | ChinaWebFoundry';
 const metaDescription = 'Move your WordPress site into China or migrate from any CMS to a WordPress setup built for the mainland. Zero downtime, zero data loss, fully compliant.';
@@ -9,14 +10,17 @@ const scenarios = [
   {
     title: 'WordPress to China-Optimised WordPress',
     body: 'Your WordPress site runs fine pretty much everywhere. But behind the Great Firewall it loads slow, throws errors, or just straight up breaks. We move it onto China-compliant hosting, replace blocked resources one by one, and get the performance to where it needs to be. Your global site stays exactly as-is.',
+    image: '/images/migration-wordpress-china-optimised.png',
   },
   {
     title: 'Other CMS to WordPress for China',
     body: 'Drupal, Sitecore, Adobe Experience Manager, Webflow, Shopify -- or something custom that was built ten years ago and nobody wants to touch anymore. Full content transfer into WordPress, rebuilt for China from the ground up. URL mapping, SEO preservation, and redesign where the original layout just doesn\'t translate for a Chinese audience.',
+    image: '/images/migration-cms-to-wordpress-china.png',
   },
   {
     title: 'Global Site to Dual-Stack Setup',
     body: 'Some companies need a global site and a separate China version running at the same time. We build dual-stack architecture so both versions share content management workflows, but each delivers what its specific audience actually needs. One team manages content. Two very different markets get served the right way.',
+    image: '/images/migration-dual-stack-global-china.png',
   },
 ];
 
@@ -255,20 +259,7 @@ const audiences = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {scenarios.map((item) => (
-          <div class="relative bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] overflow-hidden">
-            <!-- Thick top accent bar -->
-            <div class="absolute top-0 left-0 right-0 h-1 bg-[var(--color-brand-orange)]"></div>
-            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
-              {item.title}
-            </h3>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              {item.body}
-            </p>
-          </div>
-        ))}
-      </div>
+      <CaseStudyCards items={scenarios} />
     </div>
   </section>
 
