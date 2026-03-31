@@ -41,6 +41,18 @@ const team = defineCollection({
   }),
 });
 
+const guides = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    summary: z.string(),
+    visual: z.string(),
+    order: z.number(),
+    published: z.boolean().default(true),
+  }),
+});
+
 const faq = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/faq' }),
   schema: z.object({
@@ -50,4 +62,4 @@ const faq = defineCollection({
   }),
 });
 
-export const collections = { services, testimonials, team, faq };
+export const collections = { services, testimonials, team, faq, guides };
