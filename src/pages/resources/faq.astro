@@ -1,0 +1,45 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQAccordion from '../../components/pages/FAQAccordion.astro';
+---
+
+<PageLayout
+  title="WordPress China FAQ - 30 Questions, Answered"
+  description="We get asked the same things about WordPress in China over and over. ICP licenses, Baidu SEO, firewall fixes, hosting. Here's 30 answers at once."
+>
+  <!-- Hero -->
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+        FAQ
+      </p>
+      <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] max-w-2xl">
+        Frequently Asked Questions
+      </h1>
+      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+        30 questions we hear all the time from companies trying to get WordPress working in China. Straight answers from a team that's actually here.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="py-24 md:py-32 lg:py-40">
+    <div class="mx-auto max-w-[800px] section-padding">
+      <FAQAccordion />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Still have questions?
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">
+        We're happy to help. Get in touch and we'll get back to you within 24 hours.
+      </p>
+      <Button href="/contact/" variant="primary" size="lg">Contact Us</Button>
+    </div>
+  </section>
+</PageLayout>
