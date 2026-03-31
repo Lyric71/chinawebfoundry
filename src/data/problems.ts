@@ -5,27 +5,27 @@ export interface Problem {
 
 export const problems: Problem[] = [
   {
-    title: 'Blocked by the Great Firewall',
-    description: 'Your website loads slowly or not at all for users in mainland China.',
+    title: '15+ Second Load Times',
+    description: 'Pages take 15 seconds or more to load from mainland China \u2014 if they load at all. Most visitors leave after 3 seconds.',
   },
   {
-    title: 'No ICP licence',
-    description: 'Without an ICP licence, your site cannot legally be hosted on Chinese servers.',
+    title: 'Great Firewall Blocking',
+    description: 'Third-party plugins, external CDNs, and embedded scripts are silently blocked by the Great Firewall, breaking layouts and functionality.',
   },
   {
-    title: 'Google services break everything',
-    description: 'Google Fonts, Analytics, reCAPTCHA, and Maps are all blocked in China.',
+    title: 'Google Services Don\u2019t Work',
+    description: 'Google Fonts, Google Analytics, reCAPTCHA, Google Maps \u2014 none of them load in China. Every dependency must be replaced.',
   },
   {
-    title: 'Invisible on Baidu',
-    description: 'Your site isn\'t indexed by Baidu, so Chinese users can\'t find you.',
+    title: 'ICP Licensing & Compliance',
+    description: 'Hosting a website on a Chinese server requires an ICP licence. Content must meet local regulations. The process is opaque and entirely in Chinese.',
   },
   {
-    title: 'Plugins fail in China',
-    description: 'Many WordPress plugins depend on external services that are blocked or throttled.',
+    title: 'Baidu SEO Works Nothing Like Google',
+    description: 'Different ranking factors, different indexing rules, different webmaster tools. Your Google SEO playbook simply does not apply.',
   },
   {
-    title: 'No team on the ground',
-    description: 'Managing a China website from overseas means slow debugging and blind spots.',
+    title: 'Reliable Hosting Is Hard to Find',
+    description: 'Most international hosts have no mainland China presence. Choosing the wrong Chinese host means poor uptime, no English support, and limited WordPress compatibility.',
   },
 ];

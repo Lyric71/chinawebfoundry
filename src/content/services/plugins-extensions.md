@@ -1,7 +1,7 @@
 ---
 title: "Plugins & Extensions"
 shortTitle: "Plugins"
-description: "Audit, replacement, and custom development of WordPress plugins that work behind the Great Firewall. We swap blocked plugins for China-compatible alternatives."
+description: "China-compliant plugin solutions. We audit your plugin stack, replace blocked or incompatible plugins, and develop custom WordPress extensions that work reliably behind the Great Firewall."
 metaTitle: "WordPress China Plugins | ChinaWebFoundry"
 metaDescription: "We audit, replace, and build WordPress plugins that work in China. Swap blocked dependencies for Great Firewall-compatible alternatives."
 icon: "puzzle"

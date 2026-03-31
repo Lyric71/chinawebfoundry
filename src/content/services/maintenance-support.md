@@ -1,7 +1,7 @@
 ---
 title: "Maintenance & Support"
 shortTitle: "Support"
-description: "Ongoing WordPress maintenance, security updates, performance monitoring, and technical support from our China-based team. Monthly reports included."
+description: "Ongoing WordPress maintenance for China. Regular core and plugin updates, security monitoring, performance optimisation, uptime checks, and bilingual support whenever you need it."
 metaTitle: "WordPress Maintenance China | ChinaWebFoundry"
 metaDescription: "Ongoing WordPress maintenance and support from our China-based team. Security updates, monitoring, and monthly performance reports."
 icon: "wrench"

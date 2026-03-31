@@ -1,7 +1,7 @@
 ---
 title: "Technical Integration"
 shortTitle: "Integration"
-description: "Connecting your WordPress site with Chinese platforms - WeChat, Alipay, Baidu Maps, and local analytics. We replace blocked Western services with China-native alternatives."
+description: "China-specific WordPress optimisation: local CDN setup, Great Firewall-friendly plugin replacements, Chinese payment gateways (Alipay, WeChat Pay), and end-to-end performance tuning."
 metaTitle: "WordPress China Technical Integration | ChinaWebFoundry"
 metaDescription: "Integrate your WordPress site with WeChat, Alipay, Baidu Maps, and Chinese analytics. We replace blocked services with local alternatives."
 icon: "plug"

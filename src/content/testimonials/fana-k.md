@@ -1,9 +1,9 @@
 ---
 name: "Fana K."
-role: "CTO"
-company: "European SaaS Company"
+role: "CEO"
+company: "Luxury Swiss Watch Brand"
 photo: "/images/testimonials/fana-k.webp"
 order: 2
 ---
 
-We needed a team that understood both WordPress and the Chinese internet. ChinaWebFoundry delivered exactly that. They replaced all our blocked plugins and had us indexed on Baidu within weeks.
+We had been struggling for months to get our WordPress site accessible in China. ChinaWebFoundry had us live on Chinese servers, ICP licensed, and indexed on Baidu within six weeks - faster than we ever thought possible.

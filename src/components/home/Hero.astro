@@ -1,88 +1,70 @@
 ---
 /**
- * Hero: iO-style case study carousel hero
- * Full viewport, background photo placeholder with gradient overlay,
- * client logo top-left, large headline vertically centred left,
- * outlined pill CTA bottom-left, circle carousel arrow right edge,
- * client logo bar bottom-right, progress bar at bottom.
+ * Hero: full viewport, dark background with gradient overlay,
+ * large headline vertically centred left, subtitle + CTAs,
+ * trust badges bottom, progress bar at bottom.
  *
  * Header overlays this section (transparent on hero pages).
  */
+import Button from '../ui/Button.astro';
+
+const badges = ['Built for China', 'WordPress Native', 'Cross-Border Ready'];
 ---
 
 <section class="relative bg-[var(--color-surface-dark)] min-h-screen flex flex-col overflow-hidden">
   <!-- ====== BACKGROUND VISUAL PLACEHOLDER ====== -->
   <div class="absolute inset-0">
-    <!-- Rich gradient simulating a photography placeholder -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#4a2c17] via-[#8b5e3c] to-[#c4956a]"></div>
-    <!-- Simulated building/architecture shapes -->
     <div class="absolute bottom-0 right-0 w-3/4 h-2/3 bg-gradient-to-t from-[#d4a056] via-[#b8860b] to-transparent opacity-60"></div>
     <div class="absolute bottom-0 right-[10%] w-1/2 h-1/2 bg-[#c8943e] opacity-40"></div>
-    <!-- Grid lines suggesting a building facade -->
     <div class="absolute bottom-0 right-0 w-2/3 h-1/2 opacity-20" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.15) 40px, rgba(255,255,255,0.15) 41px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.15) 60px, rgba(255,255,255,0.15) 61px);"></div>
-    <!-- Placeholder label -->
     <div class="absolute top-1/2 right-[20%] -translate-y-1/2 flex flex-col items-center gap-2 opacity-30">
       <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
       <span class="text-white text-sm font-medium tracking-wide">HERO IMAGE</span>
     </div>
-    <!-- Left-to-right gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-r from-[#1C1C1C]/95 via-[#1C1C1C]/70 to-[#1C1C1C]/20"></div>
-    <!-- Top gradient for readability under nav -->
     <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#1C1C1C]/60 to-transparent"></div>
-  </div>
-
-  <!-- ====== CAROUSEL ARROW: vertically centred, right edge ====== -->
-  <div class="hidden lg:flex absolute right-8 xl:right-12 top-1/2 -translate-y-1/2 z-30">
-    <button
-      class="w-14 h-14 rounded-full border border-white/40 flex items-center justify-center text-white/60 hover:text-white hover:border-white/80 transition-all duration-200 backdrop-blur-sm"
-      aria-label="Next slide"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
   </div>
 
   <!-- ====== CONTENT ====== -->
   <div class="relative z-20 flex-1 flex flex-col mx-auto w-full max-w-[1400px] section-padding">
-    <!-- Top: client logo (pushed below fixed header) -->
-    <div class="pt-24 lg:pt-28">
-      <div class="inline-flex items-center gap-3 px-5 py-3 bg-white/10 backdrop-blur-sm rounded-lg">
-        <div class="w-8 h-8 rounded bg-white/20 flex items-center justify-center">
-          <span class="text-white/60 text-xs font-bold">CL</span>
-        </div>
-        <span class="text-white/80 text-sm font-medium">Client Name</span>
-      </div>
-    </div>
+    <!-- Spacer for fixed header -->
+    <div class="pt-24 lg:pt-28"></div>
 
-    <!-- Middle: headline -->
+    <!-- Middle: headline + subtitle + CTAs -->
     <div class="flex-1 flex items-center py-12 lg:py-16">
-      <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-medium font-[var(--font-heading)] text-white leading-[1.06] max-w-[720px]">
-        How do you launch a WordPress site in China that actually works?
-      </h1>
+      <div class="max-w-[780px]">
+        <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-medium font-[var(--font-heading)] text-white leading-[1.06]">
+          Launch Your WordPress Website in China &mdash; That Actually Works!
+        </h1>
+        <p class="mt-6 text-lg lg:text-xl text-white/70 leading-relaxed max-w-[640px]">
+          Expert WordPress solutions for the Chinese market. We handle the complexity of hosting, speed optimisation, compliance, and Baidu SEO so your website performs flawlessly behind the Great Firewall.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <Button href="#OurServices" variant="primary" size="md">Our Services</Button>
+          <a
+            href="/contact/"
+            class="inline-flex items-center gap-3 px-7 py-2.5 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/50 text-white hover:bg-white/10 hover:border-white/80 no-underline transition-all duration-200"
+          >
+            <span>Contact Us</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- Bottom: CTA left + partner logos right -->
-    <div class="flex items-end justify-between gap-8 pb-10 lg:pb-14">
-      <!-- View the case button -->
-      <a
-        href="/contact/"
-        class="inline-flex items-center gap-3 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/50 text-white hover:bg-white/10 hover:border-white/80 no-underline transition-all duration-200"
-      >
-        View the case
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
-
-      <!-- Partner logos (bottom-right) -->
-      <div class="hidden md:flex items-center gap-6 lg:gap-10">
-        {['Signify', 'Van Hoecke', 'Partner'].map((name) => (
-          <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded">
-            <span class="text-xs text-white/60 font-medium tracking-wide uppercase">{name}</span>
-          </div>
-        ))}
-      </div>
+    <!-- Bottom: trust badges -->
+    <div class="flex flex-wrap items-center gap-3 pb-10 lg:pb-14">
+      {badges.map((badge) => (
+        <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-[var(--radius-pill)] text-sm text-white/80 font-medium">
+          <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          {badge}
+        </span>
+      ))}
     </div>
   </div>
 

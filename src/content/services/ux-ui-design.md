@@ -1,7 +1,7 @@
 ---
 title: "UX/UI Design"
 shortTitle: "Design"
-description: "User experience and interface design tailored for Chinese audiences. We balance international brand consistency with local user expectations and platform conventions."
+description: "Culturally-adapted design for Chinese users. We optimise for local browsing habits, mobile-first layouts, WeChat integration, and conversion patterns specific to the Chinese market."
 metaTitle: "WordPress UX/UI Design for China | ChinaWebFoundry"
 metaDescription: "WordPress UX/UI design optimised for Chinese users. We blend your global brand with local expectations for better engagement."
 icon: "palette"

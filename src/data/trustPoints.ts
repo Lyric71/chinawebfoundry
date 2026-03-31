@@ -5,19 +5,19 @@ export interface TrustPoint {
 
 export const trustPoints: TrustPoint[] = [
   {
-    title: 'Proven Speed',
-    description: 'Average load time under 3 seconds from Shanghai. We optimise every layer - hosting, CDN, code, and assets.',
+    title: 'Proven Speed Optimisation',
+    description: 'Average load time under 3 seconds for WordPress sites in China. We optimise every element \u2014 images, scripts, fonts, CDN routing \u2014 to work with local infrastructure.',
   },
   {
-    title: 'Full Compliance',
-    description: 'We handle ICP licensing end to end, ensuring your site is legally hosted and fully compliant in mainland China.',
+    title: 'Full Compliance Handled',
+    description: 'We manage ICP licensing, content compliance, and all regulatory requirements end to end so you can focus on your business, not Chinese bureaucracy.',
   },
   {
     title: 'Bilingual Team',
-    description: 'Our team operates in English and Simplified Chinese. No miscommunication, no delays, no cultural blind spots.',
+    description: 'Work with professionals who communicate fluently in English (and French) while operating daily in Chinese. No lost-in-translation moments, no timezone black holes.',
   },
   {
-    title: 'WordPress Specialists',
-    description: 'WordPress is all we do. We know every plugin, every edge case, and every workaround for the Chinese internet.',
+    title: 'WordPress Specialists \u2014 Exclusively',
+    description: 'We are not a general web agency. We focus exclusively on WordPress for China. That single focus gives us deeper expertise in the platform and its China-specific challenges than any generalist ever could.',
   },
 ];

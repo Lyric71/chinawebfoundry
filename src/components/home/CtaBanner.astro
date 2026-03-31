@@ -1,20 +1,10 @@
 ---
-import Button from '../ui/Button.astro';
+import { getCollection, render } from 'astro:content';
 
-/**
- * Dark feature section (iO "How to put AI to work" pattern)
- * Dark bg with subtle visual, headline + check list left, description + CTA right
- */
-const features = [
-  'Replacing blocked Google services',
-  'China CDN and hosting setup',
-  'Baidu SEO and indexing',
-  'ICP licence management',
-  'Plugin compatibility testing',
-  'Performance monitoring from China',
-];
+const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
 ---
 
+<!-- Testimonials: dark section -->
 <section class="relative bg-[var(--color-surface-dark)] py-24 md:py-32 lg:py-40 overflow-hidden">
   <!-- Subtle background decoration -->
   <div class="absolute inset-0 opacity-[0.04]">
@@ -24,32 +14,49 @@ const features = [
 
   <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
     <div class="io-grid items-start gap-y-16">
-      <!-- Left column: headline + features (6 cols) -->
-      <div class="col-span-12 lg:col-span-6">
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-12">
-          How we optimise WordPress for the Chinese market
+      <!-- Left: heading -->
+      <div class="col-span-12 lg:col-span-5">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+          Success Stories
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.1]">
+          Every client arrives with the same challenge
         </h2>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
-          {features.map((feature) => (
-            <li class="flex items-start gap-3 text-white/80 text-base leading-relaxed">
-              <svg class="w-5 h-5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              {feature}
-            </li>
-          ))}
-        </ul>
+        <p class="mt-6 text-lg text-white/60 leading-relaxed">
+          A WordPress site that works everywhere except China. Our success stories are measured in one thing: your site loading fast, ranking on Baidu, and reaching Chinese audiences.
+        </p>
       </div>
 
-      <!-- Right column: description + CTA (5 cols) -->
-      <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-        <p class="text-lg text-white/60 leading-relaxed mb-5">
-          Most WordPress sites aren't built with China in mind. Plugins rely on blocked services, hosting is overseas, and performance suffers behind the Great Firewall.
-        </p>
-        <p class="text-lg text-white/60 leading-relaxed mb-10">
-          ChinaWebFoundry changes that. We audit, migrate, and optimise every layer of your WordPress site so it loads fast, ranks on Baidu, and stays compliant.
-        </p>
-        <Button href="/contact/" variant="primary" size="md">Get a free audit</Button>
+      <!-- Right: testimonial cards -->
+      <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+        <div class="space-y-8">
+          {testimonials.map(async (testimonial) => {
+            const { Content } = await render(testimonial);
+            return (
+              <div class="border-l-2 border-[var(--color-brand-orange)] pl-6">
+                <blockquote class="text-base lg:text-lg text-white/80 leading-relaxed italic">
+                  <Content />
+                </blockquote>
+                <div class="mt-4 flex items-center gap-3">
+                  {testimonial.data.photo && (
+                    <img
+                      src={testimonial.data.photo}
+                      alt={`Photo of ${testimonial.data.name}`}
+                      class="w-10 h-10 rounded-full object-cover"
+                      width="40"
+                      height="40"
+                      loading="lazy"
+                    />
+                  )}
+                  <div>
+                    <p class="text-sm font-medium text-white">{testimonial.data.name}</p>
+                    <p class="text-sm text-white/50">{testimonial.data.role}, {testimonial.data.company}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   </div>

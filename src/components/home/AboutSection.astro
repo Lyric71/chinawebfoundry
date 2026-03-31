@@ -1,59 +1,41 @@
 ---
 import Button from '../ui/Button.astro';
-
-/**
- * About section (iO "Nice to meet you" pattern)
- * Left: eyebrow + heading + body + CTA
- * Right: 2x2 image grid with circular corner cutouts creating a void in the centre
- */
+import { trustPoints } from '../../data/trustPoints';
 ---
 
+<!-- Trust / Why Us section -->
 <section class="py-24 md:py-32 lg:py-40">
   <div class="mx-auto max-w-[1400px] section-padding">
-    <div class="io-grid items-center gap-y-16">
-      <!-- Left column: text content (5 cols) -->
+    <div class="io-grid items-start gap-y-16">
+      <!-- Left: heading + description + CTA -->
       <div class="col-span-12 lg:col-span-5">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-          Nice to meet you
+          Why Us
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-          We are ChinaWebFoundry, your WordPress agency in China
+          Why International Companies Trust Us for WordPress in China
         </h2>
         <p class="mt-8 text-lg text-[var(--color-text-body)] leading-relaxed">
-          To build a truly strong digital presence in China, you need different expertise working together. Developers who understand the Great Firewall, strategists who know Baidu, and designers who think Chinese-first. We have them all. They work together for your brand and business.
+          We are based in China and understand the technical and regulatory landscape from the inside. We don't just build WordPress sites &mdash; we make them work within China's unique internet ecosystem.
         </p>
         <div class="mt-10">
-          <Button href="/who-we-are/" variant="primary" size="md">Our story</Button>
+          <Button href="/who-we-are/" variant="primary" size="md">About our team</Button>
         </div>
       </div>
 
-      <!-- Right column: 2x2 image grid with circular corners (6 cols) -->
+      <!-- Right: trust points -->
       <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-        <div class="grid grid-cols-2 gap-3">
-          <!-- Top-left: rounded bottom-right corner -->
-          <div class="aspect-square overflow-hidden" style="border-bottom-right-radius: 50%;">
-            <div class="w-full h-full bg-gradient-to-br from-[#d4a574] to-[#a67c52] flex items-center justify-center">
-              <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" /></svg>
+        <div class="divider-list border-t border-[var(--color-surface-border)]">
+          {trustPoints.map((point) => (
+            <div class="py-8">
+              <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+                {point.title}
+              </h3>
+              <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
+                {point.description}
+              </p>
             </div>
-          </div>
-          <!-- Top-right: rounded bottom-left corner -->
-          <div class="aspect-square overflow-hidden" style="border-bottom-left-radius: 50%;">
-            <div class="w-full h-full bg-gradient-to-bl from-[#b8c4d4] to-[#8a9bb5] flex items-center justify-center">
-              <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
-            </div>
-          </div>
-          <!-- Bottom-left: rounded top-right corner -->
-          <div class="aspect-square overflow-hidden" style="border-top-right-radius: 50%;">
-            <div class="w-full h-full bg-gradient-to-tr from-[#7a8b6f] to-[#a3b295] flex items-center justify-center">
-              <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
-            </div>
-          </div>
-          <!-- Bottom-right: regular rectangle -->
-          <div class="aspect-square overflow-hidden">
-            <div class="w-full h-full bg-gradient-to-tl from-[#c4956a] to-[#e0b88a] flex items-center justify-center">
-              <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" /></svg>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

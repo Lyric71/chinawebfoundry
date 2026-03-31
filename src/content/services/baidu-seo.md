@@ -1,7 +1,7 @@
 ---
 title: "Baidu SEO"
 shortTitle: "SEO"
-description: "Search engine optimisation specifically for Baidu, China's dominant search engine. We handle technical SEO, content optimisation, and Baidu Webmaster Tools configuration."
+description: "Ranking on Baidu requires a fundamentally different strategy than Google. We optimise your WordPress site's structure, metadata, content, and backlink profile for Baidu's algorithm and submission protocols."
 metaTitle: "Baidu SEO for WordPress | ChinaWebFoundry"
 metaDescription: "Baidu SEO services for WordPress sites. We handle technical SEO, content optimisation, and Baidu Webmaster Tools setup for China visibility."
 icon: "search"

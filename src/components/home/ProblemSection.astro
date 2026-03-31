@@ -1,29 +1,41 @@
 ---
-import Container from '../ui/Container.astro';
-import SectionHeading from '../ui/SectionHeading.astro';
-import Card from '../ui/Card.astro';
 import { problems } from '../../data/problems';
 ---
 
-<section class="section-spacing">
-  <Container>
-    <SectionHeading
-      eyebrow="Your WordPress Site Is Invisible in China"
-      title="The challenges you face"
-      subtitle="These are the most common problems international companies encounter when trying to reach users in mainland China."
-    />
+<!-- Problem section: split layout with divider list -->
+<section class="py-24 md:py-32 lg:py-40">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <div class="io-grid items-start gap-y-16">
+      <!-- Left: heading -->
+      <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+          The Problem
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+          Your WordPress Site Is Invisible in China
+        </h2>
+      </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {problems.map((problem) => (
-        <Card hover padding="md">
-          <h5 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] mb-2">
-            {problem.title}
-          </h5>
-          <p class="text-sm text-[var(--color-text-body)]">
-            {problem.description}
-          </p>
-        </Card>
-      ))}
+      <!-- Right: problem list with dividers -->
+      <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+        <div class="divider-list border-t border-[var(--color-surface-border)]">
+          {problems.map((problem) => (
+            <div class="py-8">
+              <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+                {problem.title}
+              </h3>
+              <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
+                {problem.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Transition line -->
+        <p class="mt-8 text-lg text-[var(--color-text-body)] leading-relaxed">
+          We solve every one of these problems &mdash; and we've done it dozens of times. As a specialised WordPress China agency, we migrate, optimise, and maintain WordPress websites so they perform flawlessly inside the Great Firewall.
+        </p>
+      </div>
     </div>
-  </Container>
+  </div>
 </section>

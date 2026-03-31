@@ -1,7 +1,7 @@
 ---
 title: "Chinese Content"
 shortTitle: "Content"
-description: "Professional Simplified Chinese content creation and localisation. Not just translation - we adapt your messaging for cultural relevance, Baidu SEO, and regulatory compliance."
+description: "Professional localisation and original content creation in Simplified Chinese. Our native copywriters understand your brand voice and know how to make it resonate with Chinese audiences."
 metaTitle: "Chinese Content for WordPress | ChinaWebFoundry"
 metaDescription: "Professional Simplified Chinese content and localisation for your WordPress site. Culturally adapted, Baidu-optimised, and compliant."
 icon: "languages"

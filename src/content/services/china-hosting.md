@@ -1,7 +1,7 @@
 ---
 title: "China Hosting"
 shortTitle: "Hosting"
-description: "Managed WordPress hosting on Alibaba Cloud, optimised for speed and compliance in mainland China. Includes CDN, SSL, backups, and 99.9% uptime SLA."
+description: "Reliable WordPress hosting within mainland China. Fast servers, ICP-licensed infrastructure, guaranteed uptime, and local data centres \u2014 managed entirely by our team so you never deal with a Chinese hosting panel."
 metaTitle: "WordPress Hosting in China | ChinaWebFoundry"
 metaDescription: "Managed WordPress hosting on Alibaba Cloud for China. Sub-3s load times, CDN, SSL, daily backups, and 99.9% uptime SLA."
 icon: "server"
