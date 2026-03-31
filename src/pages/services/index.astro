@@ -1,0 +1,170 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const services = [
+  {
+    title: 'Strategy & Audit',
+    tagline: 'Start with clarity, not guesswork.',
+    description: 'We pull up your site from real browsers in Beijing, Shanghai, Shenzhen and see what actually happens. Spoiler: it\'s usually worse than people expect. Every blocked resource, every compliance issue, all documented with a roadmap you can act on.',
+    link: '/services/strategy-audit/',
+    cta: 'Get a China Readiness Audit',
+  },
+  {
+    title: 'Migration',
+    tagline: 'Move to China without losing what you\'ve built.',
+    description: 'Full site transfer behind the Firewall. Content, SEO equity, integrations, the works. We\'ve migrated sites off Drupal, Sitecore, Shopify, and some frankly terrifying custom setups nobody wanted to touch anymore.',
+    link: '/services/china-migration/',
+    cta: 'Start Your Migration Assessment',
+  },
+  {
+    title: 'UX/UI Design',
+    tagline: 'Design for how Chinese users actually browse.',
+    description: 'Mobile-first, dense layouts, WeChat QR codes, business licence badges. Half of it looks wrong to Western eyes but it converts in Chongqing. That\'s what matters.',
+    link: '/services/ux-ui-design/',
+    cta: 'Start Your Design Project',
+  },
+  {
+    title: 'Technical Integration',
+    tagline: 'Your full stack, rebuilt for the Firewall.',
+    description: 'Server config, theme cleanup, blocked dependency swaps, WeChat Pay, Alipay, Baidu analytics. The whole thing tested from actual connections inside China. Not through some VPN pretending everything\'s fine.',
+    link: '/services/technical-integration/',
+    cta: 'Schedule a Technical Consultation',
+  },
+  {
+    title: 'Chinese Content',
+    tagline: 'Written in Chinese first. Not translated.',
+    description: 'Baidu actively pushes translated pages down. Our writers are native speakers creating original Chinese content, copy, blog posts, product pages, with Baidu ranking factors baked in from the start. Big difference.',
+    link: '/services/chinese-content/',
+    cta: 'Discuss Your Content Needs',
+  },
+  {
+    title: 'Baidu SEO',
+    tagline: 'Google doesn\'t exist here.',
+    description: 'Different crawler, different ranking signals, completely different keyword logic. We run Baidu SEO from China with Baidu\'s own tools. This isn\'t some adapted Google playbook with Chinese characters on top.',
+    link: '/services/baidu-seo/',
+    cta: 'Request a Baidu SEO Audit',
+  },
+  {
+    title: 'Plugins & Extensions',
+    tagline: 'Most plugins weren\'t built for China. Ours are.',
+    description: 'Something like 40% of popular WordPress plugins depend on Google in some way. Fonts, reCAPTCHA, Maps. All blocked. We build replacements and patch the ones that can be saved.',
+    link: '/services/plugins-extensions/',
+    cta: 'Request a Plugin Consultation',
+  },
+  {
+    title: 'China Hosting',
+    tagline: 'Wrong hosting kills everything else you do.',
+    description: 'Mainland servers, sub-one-second loads, ICP compliant. Don\'t have an ICP yet? Hong Kong gets you online while we deal with the paperwork. Need both China and global? We do dual-stack with geo-routing.',
+    link: '/services/china-hosting/',
+    cta: 'Explore Hosting Options',
+  },
+  {
+    title: 'Maintenance & Support',
+    tagline: 'Someone has to watch this from the inside.',
+    description: 'A Google Font gets blocked on a random Tuesday and your homepage turns into a mess for everyone in Shanghai. Your team won\'t know until someone complains. We monitor from Chinese networks so that conversation never has to happen.',
+    link: '/services/maintenance-support/',
+    cta: 'View Maintenance Plans',
+  },
+];
+---
+
+<PageLayout
+  title="WordPress China Services | Agency in China | CWF"
+  description="Full-service WordPress agency in China. Strategy, migration, design, Baidu SEO, hosting, content, plugins and maintenance. 20+ years on the ground."
+>
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/hero-services.png"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32 lg:pb-40">
+      <div class="io-grid items-start gap-y-10">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Our Services
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+            WordPress for China.<br />Every Layer, Handled.
+          </h1>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-10">
+          <p class="text-lg text-white/60 leading-relaxed">
+            One agency, based in China, covering everything your WordPress site needs to work behind the Great Firewall.
+          </p>
+          <div class="mt-8">
+            <Button href="/contact/" variant="primary" size="md">Tell Us What You Need</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="pb-24 md:pb-32 lg:pb-40">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid">
+        <div class="col-span-12 lg:col-span-8">
+          <p class="text-lg lg:text-xl text-[var(--color-text-body)] leading-relaxed">
+            Look, most WordPress sites are straight up broken in China. Plugins blocked, pages that take forever to load or just never finish loading, Baidu can't index anything, and the whole design feels off to anyone browsing from the mainland. Nobody on your team knows because from their desk in London or wherever, it all looks fine. We've been untangling this kind of mess from inside China for over 20 years now. Here's what we actually do.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {services.map((service) => (
+          <a
+            href={service.link}
+            class="group relative flex flex-col bg-white rounded-[var(--radius-card)] p-8 lg:p-10 no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]"
+          >
+            <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
+              {service.tagline}
+            </p>
+            <h2 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-4">
+              {service.title}
+            </h2>
+            <p class="text-base text-[var(--color-text-body)] leading-relaxed mb-8 flex-1">
+              {service.description}
+            </p>
+            <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+              {service.cta}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 md:py-32 lg:py-40">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Let's Figure Out What You Need in China
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
+        Maybe it's a site that won't load behind the Firewall. Maybe it's a launch you've been putting off because the China side feels like too much. Whatever it is, tell us what's going on and we'll work it out from there.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact/" variant="primary" size="lg">Schedule a Discovery Call</Button>
+        <Button href="/contact/" variant="secondary" size="lg">Get a Free Site Assessment</Button>
+      </div>
+    </div>
+  </section>
+</PageLayout>

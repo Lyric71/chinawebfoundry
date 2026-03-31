@@ -1,33 +1,27 @@
 ---
 title: "UX/UI Design"
 shortTitle: "Design"
-description: "Culturally-adapted design for Chinese users. We optimise for local browsing habits, mobile-first layouts, WeChat integration, and conversion patterns specific to the Chinese market."
-metaTitle: "WordPress UX/UI Design for China | ChinaWebFoundry"
-metaDescription: "WordPress UX/UI design optimised for Chinese users. We blend your global brand with local expectations for better engagement."
+description: "We design WordPress experiences built for Chinese users. Culturally adapted layouts, mobile-first, optimised for local platforms, browsers, and trust signals."
+metaTitle: "UX/UI Design for WordPress in China"
+metaDescription: "We design WordPress sites that work for Chinese users. Culturally adapted, mobile-first, built by a China-based team with 20 years local experience."
 icon: "palette"
 order: 3
-keywords: ["wordpress china design", "chinese ux design", "china website design"]
-relatedServices: ["chinese-content", "strategy-audit"]
+keywords: ["ux design china", "ui design wordpress china", "chinese web design", "mobile first china", "wordpress design china"]
+relatedServices: ["chinese-content", "technical-integration"]
 ---
 
 ## What's included
 
-We design WordPress interfaces that feel natural to Chinese users while maintaining your global brand identity. This includes layout adjustments, colour considerations, and navigation patterns aligned with local conventions.
+We design WordPress sites that feel native to users in China. Culturally adapted layouts, mobile-first design, trust signal integration, and Gutenberg-native design systems your team can manage without a developer.
 
-## Our process
+## Key deliverables
 
-### 1. Research
-We analyse your target Chinese audience, competitor sites, and local UX conventions.
-
-### 2. Wireframing
-Low-fidelity wireframes optimised for Chinese browsing patterns and device preferences.
-
-### 3. Visual design
-High-fidelity mockups in Figma, incorporating your brand guidelines with China-specific adjustments.
-
-### 4. Implementation
-We build the designs in WordPress using Elementor or custom theme development.
+- **UX research** - user insights, competitor benchmarking, and user journey mapping for Chinese audiences
+- **Information architecture** - wireframes and content hierarchy built around Chinese navigation patterns and information density preferences
+- **Visual design** - mobile-first layouts, culturally appropriate colour and imagery, trust signals (WeChat QR, ICP badges, business licences)
+- **Gutenberg design system** - custom blocks and templates your content team can use independently
+- **QA and validation** - tested on Chinese browsers and devices including UC Browser and QQ Browser
 
 ## Who this is for
 
-Companies launching a new WordPress site for China or redesigning an existing one for better local engagement.
+Companies building a WordPress site for China who want to get the design right from the start. Businesses with a live site in China that is underperforming. Marketing teams planning campaigns targeting Chinese consumers. Organisations with a global design system that needs proper adaptation for the Chinese market.

@@ -1,0 +1,451 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const metaTitle = 'WordPress Technical Integration for China Market';
+const metaDescription = 'Full WordPress integration for China. We handle server config, blocked plugins, WeChat Pay, Baidu analytics, and data compliance. Based in China.';
+
+const serverItems = [
+  {
+    title: 'Cloud Provider Tuning',
+    body: 'Chinese cloud providers each do things their own way. Alibaba Cloud handles database config differently than Tencent Cloud, and Huawei Cloud has its own opinions about PHP settings and file storage. We\'ve worked on all three and we tune WordPress for whichever one you end up on.',
+  },
+  {
+    title: 'SSL Certificates',
+    body: 'Some Western certificate authorities just aren\'t recognised by Chinese browsers. Visitor lands on your site, gets a security warning right away. That\'s it, they\'re gone. We set up certificates through providers that are actually trusted in China.',
+  },
+  {
+    title: 'Multisite and Multi-language',
+    body: 'Need a China site running alongside your global one? We do multisite and multi-language setups. Main thing is making sure both stay in sync without it becoming a pain to manage three months later.',
+  },
+];
+
+const themeFixItems = [
+  'Google Fonts replaced with locally hosted typefaces',
+  'jQuery and JavaScript libraries swapped from Western CDNs to China-hosted alternatives',
+  'YouTube players, Facebook buttons, Instagram widgets removed and replaced',
+  'Broken images and missing stylesheets fixed',
+  'External API calls rerouted or rebuilt for China access',
+  'Frontend fully tested from inside China before launch',
+];
+
+const customPlugins = [
+  {
+    title: 'Payment Gateways',
+    body: 'WeChat Pay has separate integration paths for mobile web, for in-app, for Mini Programs. Set it up wrong and the transaction fails with no error message, the user just sees nothing happen. We build plugins for Alipay, WeChat Pay, and UnionPay that actually work.',
+  },
+  {
+    title: 'WeChat Login and Sharing',
+    body: 'WeChat login buttons, sharing to Official Accounts, QR code generation. The social layer that Chinese users expect from any serious business site.',
+  },
+  {
+    title: 'Baidu Tongji Analytics',
+    body: 'Full integration with Baidu\'s analytics platform. And by the way, you need a verified ICP licence before Baidu gives you access to full reporting, which is something agencies that aren\'t based here tend to leave out of the conversation.',
+  },
+  {
+    title: 'SMS Verification',
+    body: 'Chinese phone number verification for account registration, checkout flows, and form submissions. Built to work with local SMS providers.',
+  },
+];
+
+const performanceItems = [
+  'Assets deployed on local edge servers through Alibaba or Tencent CDN',
+  'Caching layer with Redis or Varnish, configured for your hosting environment specifically',
+  'Images compressed for the network conditions people are actually on',
+  'Database queries cleaned up so the server responds faster',
+  'Tested from real locations in China, not through a VPN',
+];
+
+const platformItems = [
+  {
+    title: 'Payments',
+    body: 'Alipay and WeChat Pay handle most transactions. Credit cards don\'t really factor in for Chinese consumers. We integrate both, plus UnionPay. If you don\'t have a Chinese legal entity we set up cross-border payments so you can take RMB and settle in your currency.',
+  },
+  {
+    title: 'Social',
+    body: 'WeChat over here is a browser, a wallet, an app store, a content platform. All one thing. We hook your WordPress site into Official Accounts, Mini Programs, Weibo, Douyin, and RED.',
+  },
+  {
+    title: 'Analytics',
+    body: 'Google Analytics doesn\'t load in China. At all. We put in Baidu Tongji as the main tracker and add WeChat monitoring for social traffic and conversion paths that reflect how Chinese users actually move through a site.',
+  },
+  {
+    title: 'Enterprise Tools',
+    body: 'Got Salesforce, SAP, HubSpot or Odoo running globally? We build the API connections and data sync so your product catalogues and customer records stay lined up on both sides. No one has to copy paste between systems.',
+  },
+];
+
+const processSteps = [
+  {
+    title: 'Technical Audit',
+    body: 'We go through your current WordPress setup, document every plugin, every dependency, every external service your site talks to. Figure out what breaks in China.',
+  },
+  {
+    title: 'Layered Implementation',
+    body: 'Server config. Theme cleanup. Plugin replacements or custom builds. Performance. Platform integrations. One layer at a time.',
+  },
+  {
+    title: 'In-China Testing',
+    body: 'Everything tested from inside China before it goes live. Not through a VPN in California.',
+  },
+  {
+    title: 'Handover',
+    body: 'You get the documentation, your team takes it from there. Everything documented, everything built to WordPress standards so someone else can maintain it if they need to.',
+  },
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription}>
+
+  <!-- Hero: full-bleed dark -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-technical-integration.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="pt-8 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/#OurServices" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Technical Integration</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <!-- Text: 7 cols -->
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            Technical Integration
+          </p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Your Full WordPress Stack
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Rebuilt for China</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            Server infrastructure, theme and plugin fixes, Chinese payments, social platforms, enterprise connections. Rebuilt for a market where none of the usual assumptions hold.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/contact/" variant="primary" size="lg">Schedule a Technical Consultation</Button>
+          </div>
+        </div>
+
+        <!-- Visual: integration status card -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-white/30 ml-2 font-mono">integration-check</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-white/50">Google Fonts</span>
+                  <span class="text-sm font-semibold text-red-400 font-mono">Blocked</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Western CDN</span>
+                  <span class="text-sm font-semibold text-red-400 font-mono">Blocked</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Stripe / PayPal</span>
+                  <span class="text-sm font-semibold text-yellow-400 font-mono">Unusable</span>
+                </div>
+                <div class="w-full h-px bg-white/10 my-1"></div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Alibaba Cloud</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Configured</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">WeChat Pay</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Integrated</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Baidu Tongji</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Tracking</span>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative glow -->
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-8">
+          Two-second page load in the West turns into fifteen seconds in Shenzhen
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+          Your WordPress site works in New York. Works in London. Open it from Shanghai and you've got a different situation. Themes pull fonts from Google servers which China blocks. Plugins send API calls that just die behind the Great Firewall. JavaScript libraries try to load from CDNs that the country can't access.
+        </p>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+          Most companies find out about this after they've already launched, which is not a fun conversation to have with your team.
+        </p>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          And no, switching to a Chinese host doesn't solve it by itself. The whole site needs work. Server configuration, theme dependencies, how the checkout handles payment. All of it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WordPress Core and Server Setup: sticky heading + list -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <!-- Left: sticky heading -->
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            WordPress Core and Server Setup
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            The foundation has to be right first
+          </h2>
+        </div>
+
+        <!-- Right: items -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {serverItems.map((item) => (
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                    {item.title}
+                  </h3>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Theme and Plugin Overhaul -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Theme and Plugin Overhaul
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            This is honestly where it all goes wrong for most sites
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Themes and plugins assume the open internet exists for everyone. Google Fonts load automatically. jQuery gets pulled from Western CDNs. YouTube players, Facebook buttons, Instagram widgets. It's all just baked in. None of it works behind the Firewall.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            We go through everything. Flag every external call, swap in China-hosted alternatives, and if something doesn't have a clean replacement we rebuild it. What you end up with is a frontend that actually loads for people in China.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="bg-white rounded-2xl p-8 border border-[var(--color-surface-border)]">
+            <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+              What we replace
+            </p>
+            <div class="space-y-4">
+              {themeFixItems.map((item) => (
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Plugins: dark section -->
+  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Custom Plugins
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
+            Standard WordPress plugins don't think about China
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div class="space-y-6">
+            {customPlugins.map((item) => (
+              <div class="bg-white/[0.04] border border-white/10 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <p class="text-base text-white/70 leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p class="mt-8 text-base text-white/50 leading-relaxed">
+            Everything documented, everything built to WordPress standards so someone else can maintain it if they need to.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Performance
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Go outside the big cities and bandwidth drops off quick
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Beijing has good bandwidth. Shanghai too. Go outside the big cities and it drops off quick. And cross-border data transfers get throttled on purpose, so anything your site is fetching from overseas takes a hit.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            We test from real locations in China. Not through some VPN in California. VPN testing tells you everything looks fine while your actual users in Chengdu or Kunming are staring at a loading spinner wondering if the site is broken.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="bg-white rounded-2xl p-8 border border-[var(--color-surface-border)]">
+            <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+              How we optimise
+            </p>
+            <div class="space-y-4">
+              {performanceItems.map((item) => (
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connecting to Chinese Platforms -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Chinese Platform Connections
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Plugging into the ecosystem that actually matters
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {platformItems.map((item) => (
+          <div class="relative bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-[var(--color-brand-orange)]"></div>
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+              {item.title}
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              {item.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Compliance -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Data Compliance
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Going back to fix it after launch always costs more
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            The Personal Information Protection Law and China's Cybersecurity Law have real consequences for how you handle user data. Where it's stored. Whether it crosses a border. We build compliance into the technical setup from the beginning, because going back to fix it after launch always costs more than people budget for. Always.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="bg-[var(--color-surface-light)] rounded-xl p-6 border-l-4 border-[var(--color-brand-orange)]">
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed italic">
+              Data localisation, cross-border transfer rules, consent mechanisms, storage requirements. We handle the technical implementation so your legal team can focus on the policy side.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Projects Work: dark section -->
+  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            How Projects Work
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
+            One layer at a time, tested from China
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div class="space-y-6">
+            {processSteps.map((item) => (
+              <div class="bg-white/[0.04] border border-white/10 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <p class="text-base text-white/70 leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Get Started
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Every project starts with where you are now
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Tell us what you're trying to do in China and we'll figure out what your WordPress site needs to get there. No generic proposals.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact/" variant="primary" size="lg">Schedule a Technical Consultation</Button>
+        <Button href="/services/plugins-extensions/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Custom Plugins</Button>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

@@ -1,0 +1,357 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const metaTitle = 'Chinese Content for WordPress in China | ChinaWebFoundry';
+const metaDescription = 'Native Chinese copywriting, transcreation & content management for WordPress in China. Baidu-optimized content by native speakers. Agency in China.';
+
+const offerings = [
+  {
+    title: 'Content Strategy for China',
+    body: 'Before anyone on our team writes a single character, we need to understand what\'s going to work. That starts with keyword research, and this isn\'t translating your English keyword list into Chinese. Chinese users search with their own phrasing, their own slang, their own shorthand. Half the time the most valuable keywords have no English equivalent at all. Once we know what people are searching for, we build out the content architecture. What pages you need, how they link together, what Baidu wants to see in terms of structure. Then we plan your editorial calendar around the moments that matter most commercially in China. Everyone knows about Chinese New Year, but Singles\' Day, the 618 shopping festival, Mid-Autumn, Golden Week... these are when Chinese internet traffic spikes hardest. You want content ready before those windows open, not after. We look at your competitors too. What are they publishing for the Chinese market? Where are the gaps? That\'s usually where the best opportunities are hiding.',
+  },
+  {
+    title: 'Native Chinese Copywriting',
+    body: 'Our writers are native Chinese speakers. Not bilingual generalists, not freelance translators picking up marketing jobs on the side. These are people who write commercial Chinese content professionally. They know what makes someone in Shenzhen or Hangzhou keep reading past the fold. They know how trust is built on a Chinese product page versus a Western one. And they write with Baidu\'s ranking logic in mind, because great copy that Baidu can\'t find is just words on a server. We write website pages, product descriptions, blog articles, campaign material, thought leadership. Whatever your WordPress site needs in Chinese, we handle it. The goal is always the same: content that reads like it was born in Chinese. Because it was.',
+  },
+  {
+    title: 'Transcreation and Localisation',
+    body: 'Already have content in English or another language? We don\'t translate it. Translation gives you words. Transcreation gives you meaning. We keep your brand voice and intent but completely rebuild the message so it connects with a Chinese audience. Sometimes that\'s mostly tonal adjustments. Other times it means rethinking an entire page from scratch because the concept behind it just doesn\'t translate culturally. A joke that kills in New York might fall completely flat in Beijing. A case study format that works in B2B in Europe might feel off-putting in China. We know where those lines are. And then the smaller things that still matter: date formats, currency display, measurement units, how addresses are structured, legal disclaimers that actually comply with Chinese requirements. The kind of details you don\'t think about until a customer in Guangzhou points them out.',
+  },
+  {
+    title: 'WordPress Content Management',
+    body: 'Good content isn\'t worth much if your team can\'t maintain it after handoff. So we set up the systems too. Multilingual content workflows using WPML or MultilingualPress, Gutenberg blocks configured for Chinese publishing, content migration from whatever platform you\'re coming from. And we train your team to handle day-to-day updates on their own, without needing to loop in a developer for every blog post or product page edit.',
+  },
+];
+
+const contentTypes = [
+  'Core website pages',
+  'Landing pages built for Baidu Ads',
+  'SEO-driven blog articles',
+  'E-commerce product copy and category pages',
+  'Social content briefs for WeChat, Weibo, RED and Douyin',
+  'Case studies adapted for how business relationships work in China',
+  'Whitepapers and downloadable guides for lead generation',
+  'Email content for Chinese subscriber lists',
+];
+
+const processSteps = [
+  {
+    title: 'Strategy and Research',
+    body: 'Content goals, keyword analysis, competitor audit, editorial planning. We don\'t rush this part because getting it wrong means everything after it underperforms.',
+  },
+  {
+    title: 'Content Production',
+    body: 'Our writers produce content matched to your brand tone, optimised for the Baidu keywords we identified, formatted for WordPress. Every piece gets editorial review internally before it goes to you for approval. We don\'t send first drafts and hope for the best.',
+  },
+  {
+    title: 'Publishing and Optimisation',
+    body: 'Once you sign off, we handle publishing. Formatting in the CMS, meta data, internal linking, image compression, alt tags. The full scope.',
+  },
+  {
+    title: 'Monitoring and Iteration',
+    body: 'We monitor how content performs through Baidu Analytics and send you reports on traffic, rankings, engagement metrics. When something isn\'t pulling its weight, we revise it. Content in China needs ongoing attention. Publish-and-forget doesn\'t fly here.',
+  },
+];
+
+const audiences = [
+  'You\'re about to launch a Chinese-language website and the content side of things feels like the biggest unknown.',
+  'You\'ve had a Chinese site up for a while, but the content was translated ages ago and Baidu rankings have been flat or declining.',
+  'Your marketing team is gearing up for campaigns targeting Chinese consumers and you need copy that actually speaks to that audience.',
+  'Your e-commerce team needs product pages written for the Chinese market properly, not just run through a translation tool.',
+  'You need ongoing editorial support in Chinese. Regular blog publishing, seasonal campaign copy, product updates. All managed inside WordPress.',
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription}>
+
+  <!-- Hero: full-bleed dark -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-chinese-content.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="pt-8 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/#OurServices" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Chinese Content</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <!-- Text: 7 cols -->
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            Chinese Content
+          </p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Content That Speaks to Chinese Audiences.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Not Just in Chinese.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            Native Chinese copywriting, transcreation, and editorial management for your WordPress site. Built for Baidu, shaped by culture, managed in your CMS.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/contact/" variant="primary" size="lg">Discuss Your Content Needs</Button>
+          </div>
+        </div>
+
+        <!-- Visual: content metrics card -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-white/30 ml-2 font-mono">content-audit</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-white/50">Content language</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Native ZH</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Baidu indexed</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">186 pages</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-[75%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Organic traffic</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">+210% QoQ</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-[85%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Keyword rankings</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Top 10: 42</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Content freshness</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Weekly</span>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative glow -->
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Why content in China is not a translation job
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            This is the mistake we see over and over. A company translates their English site into Chinese, puts it live, and waits. Traffic doesn't come. Leads don't come. And they assume the problem is SEO or hosting or something technical. Usually it's not. It's the content itself.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Chinese consumers don't just read in a different language. They read differently. What builds trust on a page in the US doesn't carry the same weight in China. The structure is different, the tone expectations are different, even paragraph length conventions aren't the same.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            And keywords are a whole other story. You can't take an English keyword that gets 10,000 monthly searches on Google, translate it into Mandarin, and expect Baidu to reward you for it. That's not how any of this works over here.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            On top of that, Baidu's algorithm has a real bias against translated pages. It pushes them down. What it favours is original Chinese content, published on a consistent schedule. If your site is running on translated copy from a year or two ago that nobody's updated since, Baidu stopped caring about those pages a while back. Harsh, but that's the reality.
+          </p>
+        </div>
+
+        <!-- Visual: translated vs native comparison -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
+            <div class="absolute inset-6 flex flex-col justify-center gap-6">
+              <!-- Translated approach -->
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Translated content</div>
+                  <div class="text-xs text-[var(--color-text-muted)]">English keywords translated, stale copy, no updates</div>
+                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
+                    <div class="w-[8%] h-full bg-red-400 rounded-full"></div>
+                  </div>
+                  <div class="text-xs text-red-400 mt-1">Baidu ranking: buried</div>
+                </div>
+              </div>
+              <!-- Native approach -->
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Native Chinese content</div>
+                  <div class="text-xs text-[var(--color-text-muted)]">Original copy, Baidu keywords, regular publishing</div>
+                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
+                    <div class="w-[85%] h-full bg-green-500 rounded-full"></div>
+                  </div>
+                  <div class="text-xs text-green-500 mt-1">Baidu ranking: climbing</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer: sticky heading + list -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <!-- Left: sticky heading -->
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            What We Offer
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Content that was born in Chinese
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+            We write original content in Chinese, from China. Not adapted, not localised-from-English. Written in Chinese first, for Chinese readers, with Baidu ranking factors baked in from the start.
+          </p>
+        </div>
+
+        <!-- Right: items -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {offerings.map((item) => (
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                    {item.title}
+                  </h3>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Types: dark section -->
+  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Content Types
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
+            Whatever your Chinese web presence needs
+          </h2>
+          <p class="mt-6 text-lg text-white/60 leading-relaxed">
+            If it goes on your WordPress site or plugs into your broader China marketing, we can write it.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div class="space-y-5">
+            {contentTypes.map((item) => (
+              <div class="flex items-start gap-5 bg-white/[0.04] rounded-xl px-6 py-5 border border-white/10">
+                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
+                <p class="text-[15px] text-white/70 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work: process steps -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          How We Work
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          From research to results
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {processSteps.map((item) => (
+          <div class="relative bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-[var(--color-brand-orange)]"></div>
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+              {item.title}
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              {item.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Who This Is For
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Who should be reading this
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-5">
+            {audiences.map((item) => (
+              <div class="flex items-start gap-5 bg-white rounded-xl px-6 py-5 border border-[var(--color-surface-border)]">
+                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
+                <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Get Started
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Want content that Chinese audiences will actually read?
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        It starts with knowing the market and having the right people on it. Tell us what you're trying to do in China and we'll work out a content plan that fits.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact/" variant="primary" size="lg">Start Your Content Project</Button>
+        <Button href="/services/baidu-seo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Baidu SEO Services</Button>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

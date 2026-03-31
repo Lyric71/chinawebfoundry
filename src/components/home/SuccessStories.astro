@@ -90,57 +90,82 @@ const stories: Story[] = [
     </div>
   </div>
 
-  <!-- Carousel track - full bleed, scrolls horizontally -->
-  <div
-    id="stories-track"
-    class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
-    role="region"
-    aria-roledescription="carousel"
-    aria-label="Success stories"
-  >
-    {stories.map((story, i) => (
-      <a
-        href={story.href}
-        class="group relative flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] rounded-xl overflow-hidden snap-start no-underline"
-        role="group"
-        aria-roledescription="slide"
-        aria-label={`Story ${i + 1} of ${stories.length}`}
-      >
-        <div class="relative min-h-[26rem] md:min-h-[28rem] w-full">
-          {story.image ? (
-            <img
-              src={story.image}
-              alt={story.title}
-              class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
-            />
-          ) : (
-            <div
-              class="absolute inset-0 transition-all duration-300 group-hover:brightness-110"
-              style={`background: linear-gradient(135deg, ${story.color}, ${story.color}dd)`}
-            ></div>
-          )}
-          <!-- Dark overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+  <!-- Carousel wrapper with overlay arrows -->
+  <div class="relative" id="stories-wrapper">
+    <!-- Left arrow overlay -->
+    <button
+      id="stories-prev-overlay"
+      aria-label="Previous slide"
+      class="stories-overlay-arrow absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center text-[var(--color-text-dark)] hover:bg-white hover:text-[var(--color-brand-orange)] transition-all disabled:opacity-0 disabled:pointer-events-none"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
 
-          <!-- Text content -->
-          <div class="absolute inset-x-0 bottom-0 flex flex-col p-6 md:p-8">
-            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-snug mb-2 md:mb-3">
-              {story.title}
-            </h3>
-            <p class="text-sm text-white/70 leading-relaxed line-clamp-2 mb-8 md:mb-10">
-              {story.description}
-            </p>
-            <span class="inline-flex items-center text-sm font-medium text-white">
-              Read more
-              <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
+    <!-- Right arrow overlay -->
+    <button
+      id="stories-next-overlay"
+      aria-label="Next slide"
+      class="stories-overlay-arrow absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center text-[var(--color-text-dark)] hover:bg-white hover:text-[var(--color-brand-orange)] transition-all disabled:opacity-0 disabled:pointer-events-none"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Carousel track - full bleed, scrolls horizontally -->
+    <div
+      id="stories-track"
+      class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Success stories"
+    >
+      {stories.map((story, i) => (
+        <a
+          href={story.href}
+          class="group relative flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] rounded-xl overflow-hidden snap-start no-underline"
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`Story ${i + 1} of ${stories.length}`}
+        >
+          <div class="relative min-h-[26rem] md:min-h-[28rem] w-full">
+            {story.image ? (
+              <img
+                src={story.image}
+                alt={story.title}
+                class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : (
+              <div
+                class="absolute inset-0 transition-all duration-300 group-hover:brightness-110"
+                style={`background: linear-gradient(135deg, ${story.color}, ${story.color}dd)`}
+              ></div>
+            )}
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+            <!-- Text content -->
+            <div class="absolute inset-x-0 bottom-0 flex flex-col p-6 md:p-8">
+              <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-snug mb-2 md:mb-3">
+                {story.title}
+              </h3>
+              <p class="text-sm text-white/70 leading-relaxed line-clamp-2 mb-8 md:mb-10">
+                {story.description}
+              </p>
+              <span class="inline-flex items-center text-sm font-medium text-white">
+                Read more
+                <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
           </div>
-        </div>
-      </a>
-    ))}
+        </a>
+      ))}
+    </div>
   </div>
 
   <!-- Dot indicators -->
@@ -166,6 +191,9 @@ const stories: Story[] = [
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  .stories-overlay-arrow {
+    transition: opacity 0.2s, color 0.2s, background-color 0.2s;
+  }
 </style>
 
 <script>
@@ -173,11 +201,15 @@ const stories: Story[] = [
     const track = document.getElementById('stories-track');
     const prev = document.getElementById('stories-prev');
     const next = document.getElementById('stories-next');
+    const prevOverlay = document.getElementById('stories-prev-overlay');
+    const nextOverlay = document.getElementById('stories-next-overlay');
     const dots = document.querySelectorAll<HTMLButtonElement>('.stories-dot');
-    if (!track || !prev || !next) return;
+    if (!track) return;
 
     const slides = track.children;
+    const total = slides.length;
     let current = 0;
+    let autoplayTimer: number | null = null;
 
     function getSlideWidth() {
       const slide = slides[0] as HTMLElement;
@@ -186,15 +218,20 @@ const stories: Story[] = [
     }
 
     function scrollToSlide(index: number) {
-      const max = slides.length - 1;
-      current = Math.max(0, Math.min(index, max));
+      current = Math.max(0, Math.min(index, total - 1));
       track!.scrollTo({ left: current * getSlideWidth(), behavior: 'smooth' });
       updateState();
     }
 
     function updateState() {
-      prev!.toggleAttribute('disabled', current === 0);
-      next!.toggleAttribute('disabled', current >= slides.length - 1);
+      const atStart = current === 0;
+      const atEnd = current >= total - 1;
+
+      prev?.toggleAttribute('disabled', atStart);
+      next?.toggleAttribute('disabled', atEnd);
+      prevOverlay?.toggleAttribute('disabled', atStart);
+      nextOverlay?.toggleAttribute('disabled', atEnd);
+
       dots.forEach((dot, i) => {
         if (i === current) {
           dot.style.backgroundColor = 'var(--color-text-dark)';
@@ -204,16 +241,55 @@ const stories: Story[] = [
       });
     }
 
-    prev.addEventListener('click', () => scrollToSlide(current - 1));
-    next.addEventListener('click', () => scrollToSlide(current + 1));
+    function goNext() {
+      if (current >= total - 1) {
+        scrollToSlide(0);
+      } else {
+        scrollToSlide(current + 1);
+      }
+    }
+
+    function goPrev() {
+      scrollToSlide(current - 1);
+    }
+
+    // Autoplay
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = window.setInterval(goNext, 7000);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer !== null) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    function resetAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    // Button listeners (all four buttons)
+    prev?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
+    next?.addEventListener('click', () => { goNext(); resetAutoplay(); });
+    prevOverlay?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
+    nextOverlay?.addEventListener('click', () => { goNext(); resetAutoplay(); });
+
     dots.forEach((dot) => {
       dot.addEventListener('click', () => {
-        const idx = Number(dot.dataset.index);
-        scrollToSlide(idx);
+        scrollToSlide(Number(dot.dataset.index));
+        resetAutoplay();
       });
     });
 
-    // Sync current slide on manual scroll
+    // Pause autoplay on hover, resume on leave
+    const wrapper = document.getElementById('stories-wrapper');
+    wrapper?.addEventListener('mouseenter', stopAutoplay);
+    wrapper?.addEventListener('mouseleave', startAutoplay);
+
+    // Sync current slide on manual scroll/swipe
     let scrollTimer: number;
     track.addEventListener('scroll', () => {
       clearTimeout(scrollTimer);
@@ -226,7 +302,12 @@ const stories: Story[] = [
       }, 100);
     });
 
+    // Reset autoplay on touch interaction
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+    track.addEventListener('touchend', () => { resetAutoplay(); }, { passive: true });
+
     updateState();
+    startAutoplay();
   }
 
   document.addEventListener('DOMContentLoaded', initStories);

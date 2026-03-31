@@ -8,18 +8,30 @@ import ContactForm from '../components/pages/ContactForm.astro';
   description="Get in touch with ChinaWebFoundry. Tell us about your WordPress project in China and we'll respond within 24 hours."
 >
   <!-- Hero intro -->
-  <section class="pt-32 lg:pt-40 pb-24 md:pb-32 lg:pb-40">
-    <div class="mx-auto max-w-[1400px] section-padding">
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/hero-contact.png"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32 lg:pb-40">
       <div class="io-grid items-start gap-y-16">
         <!-- Left: heading + contact details -->
         <div class="col-span-12 lg:col-span-5">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
             Contact
           </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
             Let's talk about your project
           </h1>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+          <p class="mt-6 text-lg text-white/60 leading-relaxed">
             Tell us what you need and we'll get back to you within 24 hours with a clear next step.
           </p>
 
@@ -32,8 +44,8 @@ import ContactForm from '../components/pages/ContactForm.astro';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-semibold text-[var(--color-text-dark)]">Email</p>
-                <a href="mailto:hello@chinawebfoundry.com" class="text-base text-[var(--color-text-body)] no-underline hover:text-[var(--color-brand-orange)] transition-colors">
+                <p class="text-sm font-semibold text-white">Email</p>
+                <a href="mailto:hello@chinawebfoundry.com" class="text-base text-white/60 no-underline hover:text-[var(--color-brand-orange)] transition-colors">
                   hello@chinawebfoundry.com
                 </a>
               </div>
@@ -46,8 +58,8 @@ import ContactForm from '../components/pages/ContactForm.astro';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-semibold text-[var(--color-text-dark)]">Response time</p>
-                <p class="text-base text-[var(--color-text-body)]">Within 24 hours, Monday to Friday</p>
+                <p class="text-sm font-semibold text-white">Response time</p>
+                <p class="text-base text-white/60">Within 24 hours, Monday to Friday</p>
               </div>
             </div>
 
@@ -59,8 +71,8 @@ import ContactForm from '../components/pages/ContactForm.astro';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-semibold text-[var(--color-text-dark)]">Based in</p>
-                <p class="text-base text-[var(--color-text-body)]">China (CST/GMT+8)</p>
+                <p class="text-sm font-semibold text-white">Based in</p>
+                <p class="text-base text-white/60">China (CST/GMT+8)</p>
               </div>
             </div>
           </div>

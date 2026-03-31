@@ -72,20 +72,8 @@ export const mainNav: NavItem[] = [
     href: '/who-we-are/',
   },
   {
-    label: 'Resources',
-    href: '/blog/',
-    children: [
-      {
-        label: 'Blog',
-        href: '/blog/',
-        description: 'Insights on WordPress in China',
-      },
-      {
-        label: 'China Web Guide',
-        href: '/resources/china-web-guide/',
-        description: 'The complete reference',
-      },
-    ],
+    label: 'China Web Guide',
+    href: '/resources/china-web-guide/',
   },
 ];
 
@@ -97,7 +85,7 @@ export const ctaNav: NavItem = {
 export const footerNav = {
   services: mainNav[0].children!,
   company: [{ label: 'Who We Are', href: '/who-we-are/' }],
-  resources: mainNav[2].children!,
+  resources: [{ label: 'China Web Guide', href: '/resources/china-web-guide/' }],
 };
 
 export const legalNav: NavItem[] = [
