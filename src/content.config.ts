@@ -36,6 +36,8 @@ const team = defineCollection({
     photo: z.string(),
     bio: z.string(),
     order: z.number(),
+    linkedin: z.string().optional(),
+    substack: z.string().optional(),
   }),
 });
 

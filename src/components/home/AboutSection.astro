@@ -1,58 +1,96 @@
 ---
 import Button from '../ui/Button.astro';
-import { trustPoints } from '../../data/trustPoints';
-
-/** Icons for each trust point */
-const trustIcons = [
-  // Bolt - speed
-  'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
-  // Shield check - compliance
-  'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
-  // Chat bubbles - bilingual
-  'M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155',
-  // Star - specialists
-  'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z',
-];
 ---
 
-<!-- Trust / Why Us section: card grid with icons -->
-<section class="py-24 md:py-32 lg:py-40">
+<!-- Why Us: iO-style layout with circle bg + photo grid -->
+<section class="py-24 md:py-32 lg:py-40 overflow-hidden">
   <div class="mx-auto max-w-[1400px] section-padding">
-    <!-- Header -->
-    <div class="max-w-2xl mb-16 lg:mb-20">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-        Why Us
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-        Why International Companies Trust Us
-      </h2>
-      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-        We are based in China and understand the technical and regulatory landscape from the inside. We don't just build WordPress sites -- we make them work within China's unique internet ecosystem.
-      </p>
-    </div>
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 xl:gap-20">
 
-    <!-- Trust point cards: 2-column grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      {trustPoints.map((point, i) => (
-        <div class="group relative p-8 lg:p-10 rounded-2xl border border-[var(--color-surface-border)] bg-white hover:border-[var(--color-brand-orange)]/20 hover:shadow-[0_8px_30px_rgba(242,95,41,0.06)] transition-all duration-300">
-          <!-- Icon -->
-          <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/[0.08] group-hover:bg-[var(--color-brand-orange)]/[0.12] transition-colors mb-6">
-            <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d={trustIcons[i]} />
-            </svg>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
-            {point.title}
-          </h3>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            {point.description}
+      <!-- Left: Text inside a large decorative circle -->
+      <div class="relative lg:w-[50%] flex-shrink-0">
+        {/* Large circle background */}
+        <div class="absolute inset-0 -left-16 -top-12 -bottom-12 bg-[var(--color-surface-light)] rounded-full scale-110 lg:scale-125 origin-center"></div>
+
+        <div class="relative z-10 py-12 lg:py-16 pr-4 lg:pr-8">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Why us
           </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
+            We are ChinaWebFoundry, your WordPress team in China
+          </h2>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            To make WordPress work in China, you need people who understand the Firewall, the infrastructure, and how Chinese users actually browse. Developers who test from Beijing, not Berlin. Designers who build for WeChat, not just Chrome.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-10">
+            We have all of them, working together from inside China. Over 20 years of keeping WordPress sites fast, compliant, and visible behind the Great Firewall.
+          </p>
+          <Button href="/who-we-are/" variant="primary" size="md">Our story</Button>
         </div>
-      ))}
-    </div>
+      </div>
 
-    <div class="text-center">
-      <Button href="/who-we-are/" variant="primary" size="md">About our team</Button>
+      <!-- Right: 2x2 photo grid with circular inner corners -->
+      <div class="lg:w-[50%] flex-shrink-0">
+        <div class="grid grid-cols-2 gap-3 lg:gap-4 about-photo-grid">
+          {/* Top left - quarter circle on bottom-right */}
+          <div class="aspect-square overflow-hidden about-img-tl">
+            <img
+              src="/images/hero-strategy-audit.png"
+              alt="ChinaWebFoundry team auditing a WordPress site for China"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Top right - quarter circle on bottom-left */}
+          <div class="aspect-square overflow-hidden about-img-tr">
+            <img
+              src="/images/hero-technical-integration.png"
+              alt="Technical integration work for WordPress in China"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Bottom left - quarter circle on top-right */}
+          <div class="aspect-square overflow-hidden about-img-bl">
+            <img
+              src="/images/hero-ux-ui-design.png"
+              alt="UX design for Chinese users"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Bottom right - square with small rounding */}
+          <div class="aspect-square overflow-hidden about-img-br">
+            <img
+              src="/images/hero-chinese-content.png"
+              alt="Chinese content creation for WordPress"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<style>
+  /* Each inner corner gets a large circular radius to create the effect */
+  .about-img-tl {
+    border-radius: 8px 8px 50% 8px;
+  }
+  .about-img-tr {
+    border-radius: 8px 8px 8px 50%;
+  }
+  .about-img-bl {
+    border-radius: 8px 50% 8px 8px;
+  }
+  .about-img-br {
+    border-radius: 8px 8px 8px 8px;
+  }
+</style>
