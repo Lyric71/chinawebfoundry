@@ -117,7 +117,7 @@ const stories: Story[] = [
     <!-- Carousel track - full bleed, scrolls horizontally -->
     <div
       id="stories-track"
-      class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
+      class="flex gap-5 overflow-x-auto scroll-smooth pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
       role="region"
       aria-roledescription="carousel"
       aria-label="Success stories"
@@ -125,7 +125,7 @@ const stories: Story[] = [
       {stories.map((story, i) => (
         <a
           href={story.href}
-          class="group relative flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] rounded-xl overflow-hidden snap-start no-underline"
+          class="group relative flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] rounded-xl overflow-hidden no-underline"
           role="group"
           aria-roledescription="slide"
           aria-label={`Story ${i + 1} of ${stories.length}`}
@@ -206,34 +206,39 @@ const stories: Story[] = [
     const dots = document.querySelectorAll<HTMLButtonElement>('.stories-dot');
     if (!track) return;
 
-    const slides = track.children;
-    const total = slides.length;
+    // Clone all slides for seamless infinite loop
+    const originalSlides = Array.from(track.children) as HTMLElement[];
+    const total = originalSlides.length;
+    originalSlides.forEach((slide) => {
+      const clone = slide.cloneNode(true) as HTMLElement;
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+
     let current = 0;
     let autoplayTimer: number | null = null;
+    let isTransitioning = false;
 
     function getSlideWidth() {
-      const slide = slides[0] as HTMLElement;
+      const slide = originalSlides[0];
       if (!slide) return 0;
       return slide.offsetWidth + 20;
     }
 
-    function scrollToSlide(index: number) {
-      current = Math.max(0, Math.min(index, total - 1));
-      track!.scrollTo({ left: current * getSlideWidth(), behavior: 'smooth' });
-      updateState();
+    function scrollToSlide(index: number, smooth = true) {
+      isTransitioning = smooth;
+      current = index;
+      track!.scrollTo({ left: index * getSlideWidth(), behavior: smooth ? 'smooth' : 'instant' });
+      updateDots();
+      if (smooth) {
+        setTimeout(() => { isTransitioning = false; }, 400);
+      }
     }
 
-    function updateState() {
-      const atStart = current === 0;
-      const atEnd = current >= total - 1;
-
-      prev?.toggleAttribute('disabled', atStart);
-      next?.toggleAttribute('disabled', atEnd);
-      prevOverlay?.toggleAttribute('disabled', atStart);
-      nextOverlay?.toggleAttribute('disabled', atEnd);
-
+    function updateDots() {
+      const dotIndex = ((current % total) + total) % total;
       dots.forEach((dot, i) => {
-        if (i === current) {
+        if (i === dotIndex) {
           dot.style.backgroundColor = 'var(--color-text-dark)';
         } else {
           dot.style.backgroundColor = 'color-mix(in srgb, var(--color-text-dark) 20%, transparent)';
@@ -241,22 +246,37 @@ const stories: Story[] = [
       });
     }
 
-    function goNext() {
-      if (current >= total - 1) {
-        scrollToSlide(0);
-      } else {
-        scrollToSlide(current + 1);
+    // When smooth scroll to a clone finishes, snap back to the real slide
+    function snapIfNeeded() {
+      if (current >= total) {
+        current = current - total;
+        track!.scrollTo({ left: current * getSlideWidth(), behavior: 'instant' });
       }
     }
 
+    function goNext() {
+      if (isTransitioning) return;
+      const nextIndex = current + 1;
+      scrollToSlide(nextIndex);
+      setTimeout(snapIfNeeded, 450);
+    }
+
     function goPrev() {
-      scrollToSlide(current - 1);
+      if (isTransitioning) return;
+      if (current <= 0) {
+        // Jump to the cloned last slide instantly, then scroll back to the real last slide
+        track!.scrollTo({ left: total * getSlideWidth(), behavior: 'instant' });
+        current = total;
+        setTimeout(() => scrollToSlide(total - 1), 20);
+      } else {
+        scrollToSlide(current - 1);
+      }
     }
 
     // Autoplay
     function startAutoplay() {
       stopAutoplay();
-      autoplayTimer = window.setInterval(goNext, 7000);
+      autoplayTimer = window.setInterval(goNext, 5000);
     }
 
     function stopAutoplay() {
@@ -271,7 +291,7 @@ const stories: Story[] = [
       startAutoplay();
     }
 
-    // Button listeners (all four buttons)
+    // Button listeners
     prev?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
     next?.addEventListener('click', () => { goNext(); resetAutoplay(); });
     prevOverlay?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
@@ -292,12 +312,17 @@ const stories: Story[] = [
     // Sync current slide on manual scroll/swipe
     let scrollTimer: number;
     track.addEventListener('scroll', () => {
+      if (isTransitioning) return;
       clearTimeout(scrollTimer);
       scrollTimer = window.setTimeout(() => {
         const sw = getSlideWidth();
         if (sw > 0) {
           current = Math.round(track!.scrollLeft / sw);
-          updateState();
+          if (current >= total) {
+            current = current - total;
+            track!.scrollTo({ left: current * getSlideWidth(), behavior: 'instant' });
+          }
+          updateDots();
         }
       }, 100);
     });
@@ -306,7 +331,13 @@ const stories: Story[] = [
     track.addEventListener('touchstart', stopAutoplay, { passive: true });
     track.addEventListener('touchend', () => { resetAutoplay(); }, { passive: true });
 
-    updateState();
+    // Remove disabled states - arrows always work in infinite mode
+    prev?.removeAttribute('disabled');
+    next?.removeAttribute('disabled');
+    prevOverlay?.removeAttribute('disabled');
+    nextOverlay?.removeAttribute('disabled');
+
+    updateDots();
     startAutoplay();
   }
 
