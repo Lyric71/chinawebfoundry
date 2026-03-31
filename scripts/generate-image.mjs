@@ -10,9 +10,16 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const prompt = process.argv.slice(2).join(' ');
+const args = process.argv.slice(2);
+const nameFlag = args.findIndex((a) => a === '--name');
+let outputName;
+if (nameFlag !== -1) {
+  outputName = args.splice(nameFlag, 2)[1];
+}
+
+const prompt = args.join(' ');
 if (!prompt) {
-  console.error('Usage: node scripts/generate-image.mjs <prompt>');
+  console.error('Usage: node scripts/generate-image.mjs [--name <filename>] <prompt>');
   process.exit(1);
 }
 
@@ -24,7 +31,7 @@ const submitRes = await fetch(`${WAVESPEED_API_URL}/${MODEL}`, {
     Authorization: `Bearer ${apiKey}`,
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify({ prompt: prompt.trim(), output_format: 'png', quality: '1K' }),
+  body: JSON.stringify({ prompt: prompt.trim(), output_format: 'png', quality: '1K', size: '1408x832' }),
 });
 
 const submitData = await submitRes.json();
@@ -54,7 +61,7 @@ for (let i = 0; i < 120; i++) {
     // Download to disk
     const imgRes = await fetch(imageUrl);
     const buffer = Buffer.from(await imgRes.arrayBuffer());
-    const filename = `generated-${Date.now()}.png`;
+    const filename = outputName ? `${outputName}.png` : `generated-${Date.now()}.png`;
     const outPath = resolve('public/images', filename);
     await writeFile(outPath, buffer);
     console.log(`Saved to ${outPath}`);

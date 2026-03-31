@@ -38,16 +38,13 @@ const icons = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {problems.map((problem, i) => (
         <div class="group relative p-8 rounded-2xl border border-[var(--color-surface-border)] bg-white hover:border-[var(--color-brand-orange)]/20 hover:shadow-[0_8px_30px_rgba(242,95,41,0.08)] transition-all duration-300">
-          <!-- Number + Icon -->
-          <div class="flex items-center gap-4 mb-6">
+          <!-- Icon -->
+          <div class="mb-6">
             <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/[0.08] group-hover:bg-[var(--color-brand-orange)]/[0.12] transition-colors">
               <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d={icons[i]} />
               </svg>
             </div>
-            <span class="text-sm font-semibold text-[var(--color-text-muted)] font-[var(--font-heading)]">
-              0{i + 1}
-            </span>
           </div>
 
           <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">

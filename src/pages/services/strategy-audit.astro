@@ -68,22 +68,18 @@ const roadmapItems = [
 
 const processSteps = [
   {
-    number: '01',
     title: 'Kickoff Call',
     body: 'Your goals, audience, WordPress setup, ICP status, and previous China attempts.',
   },
   {
-    number: '02',
     title: 'Testing from China',
     body: 'Real browsers, real cities, real network conditions. Benchmarked against competitors.',
   },
   {
-    number: '03',
     title: 'Building the Plan',
     body: 'Specific recommendations with risk flags, compliance steps, and budget ranges.',
   },
   {
-    number: '04',
     title: 'Walkthrough',
     body: 'Video call to review findings and align on next steps before anything gets built.',
   },
@@ -357,12 +353,9 @@ const audiences = [
         <!-- Right: roadmap items with numbering -->
         <div class="col-span-12 lg:col-span-6 lg:col-start-7">
           <div class="space-y-6">
-            {roadmapItems.map((item, i) => (
+            {roadmapItems.map((item) => (
               <div class="flex gap-5">
-                <!-- Number circle -->
-                <div class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[var(--color-brand-orange)] flex items-center justify-center">
-                  <span class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-brand-orange)]">{i + 1}</span>
-                </div>
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
                 <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
                   <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
                     {item.title}
@@ -398,12 +391,8 @@ const audiences = [
 
         {processSteps.map((step) => (
           <div class="relative text-center">
-            <!-- Step number badge -->
-            <div class="relative z-10 w-[4.5rem] h-[4.5rem] mx-auto mb-6 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center justify-center">
-              <span class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]">
-                {step.number}
-              </span>
-            </div>
+            <!-- Step icon -->
+            <div class="relative z-10 w-3 h-3 mx-auto mb-6 rounded-full bg-[var(--color-brand-orange)]"></div>
             <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white mb-3">
               {step.title}
             </h3>

@@ -22,42 +22,34 @@ const scenarios = [
 
 const processSteps = [
   {
-    number: '01',
     title: 'Discovery and Assessment',
     body: 'Everything kicks off with an audit. Platform, content volume, third-party integrations, technical architecture. We go through all of it and flag anything that\'s blocked, incompatible, or non-compliant. This part happens before anyone touches code.',
   },
   {
-    number: '02',
     title: 'Migration Architecture',
     body: 'The blueprint. China hosting environment, CDN strategy, DNS configuration, content structure. The entire thing gets designed around mainland performance from day one -- not patched together after the fact.',
   },
   {
-    number: '03',
     title: 'Content and Data Transfer',
     body: 'All your content comes over. Pages, posts, media files, metadata, custom fields, user data, product catalogs if you\'re running e-commerce. We map URL structures carefully so you don\'t lose the SEO equity you spent years building up.',
   },
   {
-    number: '04',
     title: 'Integration Replacement',
     body: 'Google Analytics replaced with Baidu Analytics. YouTube embeds swapped for Youku or Bilibili. Facebook tracking pixels become WeChat or Weibo. Every single third-party dependency gets checked. If it\'s blocked in China, we find what works locally and wire it in.',
   },
   {
-    number: '05',
     title: 'China-Specific Optimisation',
     body: 'Blocked fonts, blocked CDNs, all of it gets replaced. SSL configured for China compatibility. Assets optimised for local network conditions. Baidu-friendly technical SEO gets layered in throughout.',
   },
   {
-    number: '06',
     title: 'Testing from Inside China',
     body: 'Real testing from real connections inside mainland China. Not proxied through Hong Kong. We test load speeds, functionality, cross-browser compatibility -- including QQ Browser and UC Browser -- plus mobile performance on actual Chinese devices.',
   },
   {
-    number: '07',
     title: 'Zero-Downtime Launch',
     body: 'Cutover is planned down to the hour. Zero downtime. DNS propagation managed carefully. Real-time monitoring runs through the entire transition window until everything is confirmed stable.',
   },
   {
-    number: '08',
     title: 'Post-Migration Support',
     body: 'Performance monitoring, issue resolution, ongoing tweaks and adjustments. Most problems tend to surface in the first two or three weeks, and we\'re around for all of it.',
   },
@@ -303,9 +295,7 @@ const audiences = [
           <div class="space-y-6">
             {processSteps.map((step) => (
               <div class="flex gap-5">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[var(--color-brand-orange)] flex items-center justify-center">
-                  <span class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-brand-orange)]">{step.number}</span>
-                </div>
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
                 <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
                   <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
                     {step.title}
