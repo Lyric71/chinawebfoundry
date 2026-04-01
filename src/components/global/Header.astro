@@ -43,7 +43,7 @@ const { heroPage = false } = Astro.props;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
-        <MobileMenu />
+        <MobileMenu heroPage={heroPage} />
       </div>
     </div>
   </div>
@@ -73,6 +73,10 @@ const { heroPage = false } = Astro.props;
           el.classList.remove('border-white/60', 'text-white', 'hover:bg-white/10', 'hover:border-white');
           el.classList.add('border-[var(--color-text-dark)]', 'text-[var(--color-text-dark)]', 'hover:bg-[var(--color-text-dark)]', 'hover:text-white');
         });
+        header?.querySelectorAll('.mobile-menu-btn').forEach((el) => {
+          el.classList.remove('text-white');
+          el.classList.add('text-[var(--color-text-body)]');
+        });
       }
     } else {
       if (isHeroPage) {
@@ -86,6 +90,10 @@ const { heroPage = false } = Astro.props;
         header?.querySelectorAll('.nav-contact-btn').forEach((el) => {
           el.classList.add('border-white/60', 'text-white', 'hover:bg-white/10', 'hover:border-white');
           el.classList.remove('border-[var(--color-text-dark)]', 'text-[var(--color-text-dark)]', 'hover:bg-[var(--color-text-dark)]', 'hover:text-white');
+        });
+        header?.querySelectorAll('.mobile-menu-btn').forEach((el) => {
+          el.classList.add('text-white');
+          el.classList.remove('text-[var(--color-text-body)]');
         });
       }
     }
