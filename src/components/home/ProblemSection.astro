@@ -97,11 +97,61 @@ const images = [
       </div>
     </div>
 
-    <!-- Transition line -->
-    <div class="mt-16 max-w-3xl mx-auto text-center">
-      <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-        We solve every one of these problems. As a specialised WordPress China agency, we migrate, optimise, and maintain WordPress websites so they perform flawlessly inside the Great Firewall.
+  </div>
+</section>
+
+<!-- Parallax transition: problem to solution -->
+<section class="parallax-section relative" style="padding: 12px;">
+  <div class="relative h-[75vh]">
+    <!-- Sticky image -->
+    <div
+      class="parallax-sticky sticky top-[12px] z-0 overflow-hidden rounded-3xl"
+      style="height: calc(50vh - 24px);"
+    >
+      <img
+        src="/images/parallax-solution-before-after.png"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="parallax-overlay absolute inset-0 bg-[#0f0f12]/70"></div>
+    </div>
+
+    <!-- Overlay text (scrolls over the sticky image) -->
+    <div class="parallax-copy absolute left-0 top-0 flex h-[50vh] w-full flex-col items-center justify-center text-white px-6">
+      <p class="mb-3 text-center text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] md:mb-4 md:text-base">
+        The Solution
       </p>
+      <p class="text-center text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-[1.12] max-w-4xl">
+        We solve every one of these problems.
+      </p>
+    </div>
+  </div>
+
+  <!-- Content below the sticky image -->
+  <div class="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-8 px-4 pb-16 pt-6">
+    <div class="col-span-1 md:col-span-5">
+      <h2 class="text-2xl sm:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+        A specialised WordPress China agency, on the ground.
+      </h2>
+    </div>
+    <div class="col-span-1 md:col-span-7">
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+        We migrate, optimise, and maintain WordPress websites so they perform flawlessly inside the Great Firewall. From ICP licensing and Baidu SEO to hosting on mainland servers and replacing every blocked plugin.
+      </p>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+        Our team works from China, tests from China, and builds for the way Chinese users actually browse the web.
+      </p>
+      <a
+        href="/contact/"
+        class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] bg-[var(--color-brand-orange)] text-white no-underline transition-all duration-200 hover:bg-[var(--color-brand-orange-hover)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(242,95,41,0.3)]"
+      >
+        Talk to us
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
@@ -163,4 +213,43 @@ const images = [
 
   document.addEventListener('DOMContentLoaded', initProblemAccordion);
   document.addEventListener('astro:page-load', initProblemAccordion);
+
+  // Parallax scroll animation
+  function initParallax() {
+    const section = document.querySelector('.parallax-section');
+    const sticky = document.querySelector('.parallax-sticky') as HTMLElement | null;
+    const overlay = document.querySelector('.parallax-overlay') as HTMLElement | null;
+    const copy = document.querySelector('.parallax-copy') as HTMLElement | null;
+    if (!section || !sticky || !overlay || !copy) return;
+
+    function onScroll() {
+      const rect = section!.getBoundingClientRect();
+      const sectionHeight = section!.clientHeight;
+      const viewportHeight = window.innerHeight;
+
+      // Progress: 0 when section enters, 1 when section leaves
+      const rawProgress = -rect.top / (sectionHeight - viewportHeight);
+      const progress = Math.max(0, Math.min(1, rawProgress));
+
+      // Scale the sticky image from 1 to 0.85 as you scroll past
+      const scale = 1 - progress * 0.15;
+      sticky!.style.transform = `scale(${scale})`;
+
+      // Fade overlay from visible to transparent
+      overlay!.style.opacity = String(1 - progress);
+
+      // Text visible immediately, fades out as you scroll past
+      let copyOpacity = 1;
+      if (progress > 0.5) {
+        copyOpacity = 1 - (progress - 0.5) / 0.5;
+      }
+      copy!.style.opacity = String(copyOpacity);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  document.addEventListener('DOMContentLoaded', initParallax);
+  document.addEventListener('astro:page-load', initParallax);
 </script>
