@@ -214,8 +214,11 @@ const images = [
   document.addEventListener('DOMContentLoaded', initProblemAccordion);
   document.addEventListener('astro:page-load', initProblemAccordion);
 
-  // Parallax scroll animation
+  // Parallax scroll animation (disabled on mobile to avoid Safari jank)
   function initParallax() {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) return;
+
     const section = document.querySelector('.parallax-section');
     const sticky = document.querySelector('.parallax-sticky') as HTMLElement | null;
     const overlay = document.querySelector('.parallax-overlay') as HTMLElement | null;
