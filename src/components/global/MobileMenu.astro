@@ -1,13 +1,23 @@
 ---
 import { mainNav } from '../../data/navigation';
 
+interface Props {
+  heroPage?: boolean;
+}
+
+const { heroPage = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
 <!-- Mobile menu button -->
 <button
   id="mobile-menu-toggle"
-  class="mobile-menu-btn md:hidden p-2 text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] transition-colors"
+  class:list={[
+    'mobile-menu-btn md:hidden p-2 transition-colors',
+    heroPage
+      ? 'text-white hover:text-white/70'
+      : 'text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)]',
+  ]}
   aria-label="Toggle menu"
   aria-expanded="false"
   aria-controls="mobile-menu"
