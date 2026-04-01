@@ -54,6 +54,20 @@ const guides = defineCollection({
   }),
 });
 
+const casestudies = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/casestudies' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    summary: z.string(),
+    visual: z.string(),
+    color: z.string(),
+    order: z.number(),
+    published: z.boolean().default(true),
+    services: z.array(z.string()).optional(),
+  }),
+});
+
 const faq = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/faq' }),
   schema: z.object({
@@ -63,4 +77,4 @@ const faq = defineCollection({
   }),
 });
 
-export const collections = { services, testimonials, team, faq, guides };
+export const collections = { services, testimonials, team, faq, guides, casestudies };

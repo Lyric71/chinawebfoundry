@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const casestudies = (await getCollection('casestudies'))
+  .filter((cs) => cs.data.published)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<PageLayout
+  title="Our Work | Case Studies | ChinaWebFoundry"
+  description="Real projects from companies that moved their WordPress sites into China. Migration, Baidu SEO, hosting, localisation and more."
+  heroPage={true}
+>
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#1a1a2e] to-[#0f0f12]"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32">
+      <div class="io-grid items-start gap-y-10">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Our Work
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+            Projects That Prove<br />It Works
+          </h1>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-10">
+          <p class="text-lg text-white/60 leading-relaxed">
+            Real results from companies that moved their WordPress sites into China with our team.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Grid -->
+  <section class="py-20 md:py-28 lg:py-36">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {casestudies.map((cs) => (
+          <a
+            href={`/work/${cs.id}/`}
+            class="group relative flex flex-col justify-end min-h-[360px] md:min-h-[420px] rounded-2xl overflow-hidden no-underline"
+          >
+            {cs.data.visual ? (
+              <img
+                src={cs.data.visual}
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div
+                class="absolute inset-0 transition-all duration-300 group-hover:brightness-110"
+                style={`background: linear-gradient(135deg, ${cs.data.color}, ${cs.data.color}dd)`}
+              ></div>
+            )}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            <div class="relative p-8 lg:p-10">
+              <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-snug mb-3">
+                {cs.data.title}
+              </h2>
+              <p class="text-base text-white/70 leading-relaxed mb-6 max-w-lg">
+                {cs.data.summary}
+              </p>
+              <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-white group-hover:gap-3 transition-all duration-200">
+                Read case study
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Ready to Be the Next Success Story?
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
+        Tell us where you are with China and we will map out what it takes to get your WordPress site performing behind the Great Firewall.
+      </p>
+      <Button href="/contact/" variant="primary" size="lg">Talk to Us</Button>
+    </div>
+  </section>
+</PageLayout>

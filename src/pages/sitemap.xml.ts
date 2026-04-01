@@ -7,6 +7,7 @@ const staticPages = [
   '',
   '/contact/',
   '/who-we-are/',
+  '/work/',
   '/services/',
   '/services/strategy-audit/',
   '/services/china-migration/',
@@ -26,9 +27,11 @@ const staticPages = [
 
 export const GET: APIRoute = async () => {
   const guides = (await getCollection('guides')).filter((g) => g.data.published);
+  const casestudies = (await getCollection('casestudies')).filter((cs) => cs.data.published);
 
   const guidePaths = guides.map((g) => `/resources/china-web-guide/${g.id}/`);
-  const allPaths = [...staticPages, ...guidePaths];
+  const casestudyPaths = casestudies.map((cs) => `/work/${cs.id}/`);
+  const allPaths = [...staticPages, ...guidePaths, ...casestudyPaths];
 
   const urls = allPaths
     .map(

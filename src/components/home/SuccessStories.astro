@@ -3,52 +3,19 @@
  * SuccessStories - horizontal scroll carousel
  * Pure Astro + Tailwind + vanilla JS. No external frameworks.
  */
+import { getCollection } from 'astro:content';
 
-interface Story {
-  title: string;
-  description: string;
-  href: string;
-  image?: string;
-  color: string;
-}
+const casestudies = (await getCollection('casestudies'))
+  .filter((cs) => cs.data.published)
+  .sort((a, b) => a.data.order - b.data.order);
 
-const stories: Story[] = [
-  {
-    title: 'Global Manufacturer Enters China Market',
-    description:
-      'Migrated a 2,000-page WordPress site onto compliant China hosting with zero downtime. Load times dropped from 18 seconds to under 2.',
-    href: '/contact/',
-    color: '#475569',
-  },
-  {
-    title: 'E-Commerce Brand Launches on the Mainland',
-    description:
-      'Rebuilt a WooCommerce store for China with local payment gateways, Baidu SEO, and full ICP compliance. Revenue from Chinese customers tripled in six months.',
-    href: '/contact/',
-    color: '#57534e',
-  },
-  {
-    title: 'Media Company Goes Live Behind the Firewall',
-    description:
-      'Replaced every blocked resource, swapped Google services for local equivalents, and launched a dual-stack setup serving global and Chinese audiences from one CMS.',
-    href: '/contact/',
-    color: '#52525b',
-  },
-  {
-    title: 'SaaS Platform Achieves Baidu Visibility',
-    description:
-      'Full technical SEO overhaul for Baidu Spider. The site went from zero indexed pages to over 400 within three months of launch.',
-    href: '/contact/',
-    color: '#525252',
-  },
-  {
-    title: 'Luxury Brand Localises for Chinese Audiences',
-    description:
-      'Content strategy, UX redesign for Chinese users, and WeChat integration. Bounce rate dropped by 60% and session duration doubled.',
-    href: '/contact/',
-    color: '#4b5563',
-  },
-];
+const stories = casestudies.map((cs) => ({
+  title: cs.data.title,
+  description: cs.data.summary,
+  href: `/work/${cs.id}/`,
+  image: cs.data.visual || undefined,
+  color: cs.data.color,
+}));
 ---
 
 <section class="py-24 md:py-32 lg:py-40">

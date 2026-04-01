@@ -68,6 +68,10 @@ export const mainNav: NavItem[] = [
     ],
   },
   {
+    label: 'Work',
+    href: '/work/',
+  },
+  {
     label: 'Who We Are',
     href: '/who-we-are/',
   },
@@ -96,7 +100,10 @@ export const ctaNav: NavItem = {
 
 export const footerNav = {
   services: mainNav[0].children!,
-  company: [{ label: 'Who We Are', href: '/who-we-are/' }],
+  company: [
+    { label: 'Our Work', href: '/work/' },
+    { label: 'Who We Are', href: '/who-we-are/' },
+  ],
   resources: [
     { label: 'China Web Guide', href: '/resources/china-web-guide/' },
     { label: 'FAQ', href: '/resources/faq/' },

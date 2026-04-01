@@ -1,0 +1,123 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+
+export async function getStaticPaths() {
+  const casestudies = await getCollection('casestudies');
+  return casestudies
+    .filter((cs) => cs.data.published)
+    .map((cs) => ({
+      params: { slug: cs.id },
+      props: { casestudy: cs },
+    }));
+}
+
+const { casestudy } = Astro.props;
+const { Content } = await render(casestudy);
+
+const allServices = await getCollection('services');
+const relatedServices = casestudy.data.services
+  ?.map((slug: string) => allServices.find((s) => s.id === slug))
+  .filter(Boolean) || [];
+---
+
+<PageLayout
+  title={`${casestudy.data.title} | Case Study | ChinaWebFoundry`}
+  description={casestudy.data.summary}
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    {casestudy.data.visual ? (
+      <img
+        src={casestudy.data.visual}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+    ) : (
+      <div
+        class="absolute inset-0"
+        style={`background: linear-gradient(135deg, ${casestudy.data.color}, ${casestudy.data.color}dd)`}
+      ></div>
+    )}
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-20 md:pb-28">
+      <a
+        href="/work/"
+        class="inline-flex items-center gap-2 text-sm font-medium text-white/50 no-underline hover:text-white hover:gap-3 transition-all duration-200 mb-10"
+      >
+        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+        All case studies
+      </a>
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+          Case Study
+        </p>
+        <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          {casestudy.data.title}
+        </h1>
+        <p class="text-lg lg:text-xl text-white/70 leading-relaxed">
+          {casestudy.data.subtitle}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <article class="py-16 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-[800px] section-padding">
+      <!-- Summary -->
+      <div class="mb-12 p-6 bg-[var(--color-surface-light)] rounded-xl border border-[var(--color-surface-border)]">
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed font-medium">
+          {casestudy.data.summary}
+        </p>
+      </div>
+
+      <!-- Body -->
+      <div class="prose prose-lg max-w-none
+        prose-headings:font-[var(--font-heading)] prose-headings:text-[var(--color-text-dark)] prose-headings:font-medium
+        prose-p:text-[var(--color-text-body)] prose-p:leading-relaxed
+        prose-li:text-[var(--color-text-body)]
+        prose-strong:text-[var(--color-text-dark)]
+        prose-a:text-[var(--color-brand-orange)] prose-a:no-underline hover:prose-a:underline
+      ">
+        <Content />
+      </div>
+
+      <!-- Related services -->
+      {relatedServices.length > 0 && (
+        <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
+          <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">
+            Services used in this project
+          </h2>
+          <div class="flex flex-wrap gap-3">
+            {relatedServices.map((service: any) => (
+              <a
+                href={`/services/${service.id}/`}
+                class="px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border border-[var(--color-surface-border)] text-[var(--color-text-body)] no-underline hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors"
+              >
+                {service.data.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- CTA -->
+      <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
+        <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+          Want results like these?
+        </h2>
+        <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
+          Tell us about your project and we will map out what it takes to make your WordPress site work in China.
+        </p>
+        <Button href="/contact/" variant="primary" size="md">Talk to Us</Button>
+      </div>
+    </div>
+  </article>
+</PageLayout>
