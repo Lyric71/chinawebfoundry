@@ -1,0 +1,33 @@
+---
+interface Props {
+  label: string;
+  description: string;
+  imageSrc: string;
+}
+
+const { label, description, imageSrc } = Astro.props;
+---
+
+<div class="audience-card group relative h-[280px] sm:h-[300px] rounded-2xl overflow-hidden cursor-default">
+  <!-- Background image -->
+  <img
+    src={imageSrc}
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f12]/90 via-[#0f0f12]/40 to-transparent"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col justify-end h-full p-6">
+    <h3 class="text-lg font-medium font-[var(--font-heading)] text-white leading-snug mb-1.5">
+      {label}
+    </h3>
+    <p class="text-sm text-white/70 leading-relaxed">
+      {description}
+    </p>
+  </div>
+</div>

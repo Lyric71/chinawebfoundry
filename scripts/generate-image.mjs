@@ -1,8 +1,11 @@
 import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import sharp from 'sharp';
 
 const WAVESPEED_API_URL = 'https://api.wavespeed.ai/api/v3';
 const MODEL = 'google/nano-banana-2/text-to-image';
+const WEBP_QUALITY = 80;
+const MAX_WIDTH = 1600;
 
 const apiKey = process.env.WAVESPEED_API_KEY;
 if (!apiKey) {
@@ -58,13 +61,18 @@ for (let i = 0; i < 120; i++) {
     const imageUrl = statusData.data.outputs[0];
     console.log(`Done! URL: ${imageUrl}`);
 
-    // Download to disk
+    // Download and optimise to WebP
     const imgRes = await fetch(imageUrl);
-    const buffer = Buffer.from(await imgRes.arrayBuffer());
-    const filename = outputName ? `${outputName}.png` : `generated-${Date.now()}.png`;
+    const rawBuffer = Buffer.from(await imgRes.arrayBuffer());
+    const optimised = await sharp(rawBuffer)
+      .resize({ width: MAX_WIDTH, withoutEnlargement: true })
+      .webp({ quality: WEBP_QUALITY })
+      .toBuffer();
+    const filename = outputName ? `${outputName}.webp` : `generated-${Date.now()}.webp`;
     const outPath = resolve('public/images', filename);
-    await writeFile(outPath, buffer);
-    console.log(`Saved to ${outPath}`);
+    await writeFile(outPath, optimised);
+    const savings = ((1 - optimised.length / rawBuffer.length) * 100).toFixed(0);
+    console.log(`Saved to ${outPath} (${(rawBuffer.length/1024).toFixed(0)}KB -> ${(optimised.length/1024).toFixed(0)}KB, -${savings}%)`);
     process.exit(0);
   }
 

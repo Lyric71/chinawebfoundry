@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'UX/UI Design for WordPress in China | ChinaWebFoundry';
 const metaDescription = 'We design WordPress sites that work for Chinese users. Culturally adapted, mobile-first, built by a China-based team with 20 years local experience.';
@@ -60,10 +61,10 @@ const insights = [
 ];
 
 const audiences = [
-  'You\'re building a WordPress site for China and you want to get the design right from the start.',
-  'You already have a site live in China but it\'s not performing and you think the design might be the issue.',
-  'Your marketing team is planning a campaign targeting Chinese consumers and needs pages that don\'t feel like they were just translated from English.',
-  'You\'ve got a solid global design system and you need someone who actually understands how to adapt it for China without wrecking it.',
+  { label: 'Starting from scratch', description: 'You\'re building a WordPress site for China and you want to get the design right from the start.', image: '/images/audiences/building-site-china-design.webp' },
+  { label: 'Not performing', description: 'You already have a site live in China but it\'s not performing and you think the design might be the issue.', image: '/images/audiences/live-site-not-performing.webp' },
+  { label: 'Campaign pages', description: 'Your marketing team needs pages targeting Chinese consumers that don\'t feel translated from English.', image: '/images/audiences/campaign-chinese-consumers.webp' },
+  { label: 'Adapting global design', description: 'You\'ve got a solid global design system and you need someone who understands how to adapt it for China.', image: '/images/audiences/global-design-adapt-china.webp' },
 ];
 ---
 
@@ -72,7 +73,7 @@ const audiences = [
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-ux-ui-design.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <img src="/images/hero-ux-ui-design.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
       <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
     </div>
@@ -334,32 +335,7 @@ const audiences = [
     </div>
   </section>
 
-  <!-- Who Should Be Reading This -->
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Who This Is For
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Who should be reading this
-          </h2>
-        </div>
-
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-5">
-            {audiences.map((item) => (
-              <div class="flex items-start gap-5 bg-white rounded-xl px-6 py-5 border border-[var(--color-surface-border)]">
-                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
-                <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <WhoIsThisFor heading="Who should be reading this" audiences={audiences} />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">

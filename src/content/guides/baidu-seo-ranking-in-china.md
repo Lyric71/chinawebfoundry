@@ -2,7 +2,7 @@
 title: "Baidu SEO: Ranking on China's #1 Search Engine"
 subtitle: "Most foreign companies optimise for Google. In China, that's like advertising on a billboard nobody drives past."
 summary: "Baidu dominates Chinese search with 724 million monthly users. Learn ranking factors, on-page optimisation, ecosystem strategy and mistakes foreign companies make."
-visual: "/images/guides/baidu-seo-ranking-in-china.png"
+visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
 ---

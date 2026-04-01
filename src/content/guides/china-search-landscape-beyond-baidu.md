@@ -2,7 +2,7 @@
 title: "China's Search Engine Landscape Beyond Baidu"
 subtitle: "Baidu gets all the attention. But four other search engines control a combined 25-30% of China's market, and each one is wired into a different corner of the Chinese internet."
 summary: "Baidu controls 60% of China's search, but Sogou, 360 Search, Shenma and Toutiao Search each serve different audiences worth knowing about."
-visual: "/images/guides/china-search-landscape-beyond-baidu.png"
+visual: "/images/guides/china-search-landscape-beyond-baidu.webp"
 order: 4
 published: true
 ---

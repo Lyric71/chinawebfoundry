@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'WordPress Maintenance & Support in China | Agency';
 const metaDescription = 'China-based WordPress maintenance: firewall monitoring, Baidu SEO upkeep, security, backups, and fast support from a team operating inside China.';
@@ -36,10 +37,10 @@ const insightItems = [
 ];
 
 const audiences = [
-  'Companies with a WordPress site live in China who need expert support without building a local team.',
-  'Marketing departments who\'d rather work on campaigns than debug plugin conflicts across nine time zones.',
-  'IT teams that need China WordPress experience but can\'t justify a full-time hire.',
-  'Ecommerce businesses running WooCommerce with Chinese payment gateways and local fulfilment.',
+  { label: 'No local team', description: 'Companies with a WordPress site live in China who need expert support without building a local team.', image: '/images/audiences/wordpress-china-no-local-team.webp' },
+  { label: 'Marketing first', description: 'Marketing departments who\'d rather work on campaigns than debug plugin conflicts across nine time zones.', image: '/images/audiences/marketing-not-debugging.webp' },
+  { label: 'IT without China hire', description: 'IT teams that need China WordPress experience but can\'t justify a full-time hire.', image: '/images/audiences/it-team-china-expertise.webp' },
+  { label: 'WooCommerce China', description: 'Ecommerce businesses running WooCommerce with Chinese payment gateways and local fulfilment.', image: '/images/audiences/woocommerce-china-payments.webp' },
 ];
 ---
 
@@ -48,7 +49,7 @@ const audiences = [
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-maintenance-support.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <img src="/images/hero-maintenance-support.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
       <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
     </div>
@@ -257,32 +258,7 @@ const audiences = [
     </div>
   </section>
 
-  <!-- Who Is This For -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Who Is This For?
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Who reaches out to us for maintenance
-          </h2>
-        </div>
-
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-5">
-            {audiences.map((item) => (
-              <div class="flex items-start gap-5 bg-white rounded-xl px-6 py-5 border border-[var(--color-surface-border)]">
-                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
-                <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <WhoIsThisFor heading="Who reaches out to us for maintenance" audiences={audiences} background="light" />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">

@@ -1,0 +1,62 @@
+---
+import AudienceCard from '../ui/AudienceCard.astro';
+
+interface AudienceItem {
+  label: string;
+  description: string;
+  image: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  audiences: AudienceItem[];
+  footnote?: string;
+  background?: 'white' | 'light';
+}
+
+const {
+  eyebrow = 'Who Is This For?',
+  heading,
+  audiences,
+  footnote,
+  background = 'light',
+} = Astro.props;
+---
+
+<section class:list={[
+  'section-spacing',
+  background === 'light' ? 'bg-[var(--color-surface-light)]' : '',
+]}>
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <div class="text-center mb-12 lg:mb-16">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        {eyebrow}
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight max-w-2xl mx-auto">
+        {heading}
+      </h2>
+    </div>
+
+    <div class:list={[
+      'grid gap-5',
+      audiences.length <= 4
+        ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+        : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+    ]}>
+      {audiences.map((item) => (
+        <AudienceCard
+          label={item.label}
+          description={item.description}
+          imageSrc={item.image}
+        />
+      ))}
+    </div>
+
+    {footnote && (
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
+        {footnote}
+      </p>
+    )}
+  </div>
+</section>

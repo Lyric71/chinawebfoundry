@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
+import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'WordPress Migration to China | ChinaWebFoundry';
 const metaDescription = 'Move your WordPress site into China or migrate from any CMS to a WordPress setup built for the mainland. Zero downtime, zero data loss, fully compliant.';
@@ -10,17 +11,17 @@ const scenarios = [
   {
     title: 'WordPress to China-Optimised WordPress',
     body: 'Your WordPress site runs fine pretty much everywhere. But behind the Great Firewall it loads slow, throws errors, or just straight up breaks. We move it onto China-compliant hosting, replace blocked resources one by one, and get the performance to where it needs to be. Your global site stays exactly as-is.',
-    image: '/images/migration-wordpress-china-optimised.png',
+    image: '/images/migration-wordpress-china-optimised.webp',
   },
   {
     title: 'Other CMS to WordPress for China',
     body: 'Drupal, Sitecore, Adobe Experience Manager, Webflow, Shopify -- or something custom that was built ten years ago and nobody wants to touch anymore. Full content transfer into WordPress, rebuilt for China from the ground up. URL mapping, SEO preservation, and redesign where the original layout just doesn\'t translate for a Chinese audience.',
-    image: '/images/migration-cms-to-wordpress-china.png',
+    image: '/images/migration-cms-to-wordpress-china.webp',
   },
   {
     title: 'Global Site to Dual-Stack Setup',
     body: 'Some companies need a global site and a separate China version running at the same time. We build dual-stack architecture so both versions share content management workflows, but each delivers what its specific audience actually needs. One team manages content. Two very different markets get served the right way.',
-    image: '/images/migration-dual-stack-global-china.png',
+    image: '/images/migration-dual-stack-global-china.webp',
   },
 ];
 
@@ -90,22 +91,10 @@ const challenges = [
 ];
 
 const audiences = [
-  {
-    label: 'Multinational companies',
-    body: 'Entering or expanding their WordPress presence in China.',
-  },
-  {
-    label: 'E-commerce brands',
-    body: 'Launching a China-ready online store built on WordPress.',
-  },
-  {
-    label: 'Media and publishing',
-    body: 'Organisations who need to reach Chinese audiences properly.',
-  },
-  {
-    label: 'Agencies',
-    body: 'Handling WordPress migrations to China on behalf of their own clients.',
-  },
+  { label: 'Multinational companies', description: 'Entering or expanding their WordPress presence in China.', image: '/images/audiences/multinational-china-entry.webp' },
+  { label: 'E-commerce brands', description: 'Launching a China-ready online store built on WordPress.', image: '/images/audiences/ecommerce-china-store.webp' },
+  { label: 'Media and publishing', description: 'Organisations who need to reach Chinese audiences properly.', image: '/images/audiences/media-publishing-china.webp' },
+  { label: 'Agencies', description: 'Handling WordPress migrations to China on behalf of their own clients.', image: '/images/audiences/agency-migration-clients.webp' },
 ];
 ---
 
@@ -114,7 +103,7 @@ const audiences = [
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-china-migration.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <img src="/images/hero-china-migration.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
       <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
     </div>
@@ -371,36 +360,7 @@ const audiences = [
     </div>
   </section>
 
-  <!-- Who Is This For: horizontal pill tags -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Who Is This For?
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Built for teams moving to China
-          </h2>
-        </div>
-
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-5">
-            {audiences.map((item) => (
-              <div class="flex items-start gap-5 bg-white rounded-xl px-6 py-5 border border-[var(--color-surface-border)]">
-                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
-                <div>
-                  <span class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">{item.label}</span>
-                  <span class="text-[var(--color-text-muted)] mx-2">/</span>
-                  <span class="text-[15px] text-[var(--color-text-body)]">{item.body}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <WhoIsThisFor heading="Built for teams moving to China" audiences={audiences} background="light" />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">

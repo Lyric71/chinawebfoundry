@@ -2,7 +2,7 @@
 title: "ICP Licence and ICP Filing: What Foreign Companies Need to Know"
 subtitle: "If you want to host a website in mainland China, you need an ICP. No exceptions. But there are two types, and confusing them can cost you months."
 summary: "Every China-hosted website needs an ICP. The Bei'an filing is simple. The Commercial Licence has ownership restrictions that block most foreign companies."
-visual: "/images/guides/icp-licence-filing-foreign-companies.png"
+visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
 published: true
 ---

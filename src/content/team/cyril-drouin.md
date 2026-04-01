@@ -1,7 +1,7 @@
 ---
 name: "Cyril Drouin"
 role: "Founder and CEO"
-photo: "/images/team/cyril-drouin.jpg"
+photo: "/images/team/cyril-drouin.webp"
 bio: "25 years in digital, advertising, and commerce. Former CEO of Publicis Commerce & Performance Marketing China and North Asia."
 order: 1
 linkedin: "https://www.linkedin.com/in/cyril-d-68835729/"

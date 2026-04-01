@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
+import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'WordPress China Hosting - Fast & ICP Compliant';
 const metaDescription = 'WordPress hosting optimized for mainland China. We handle servers, ICP licensing, CDN, and monitoring so your site loads fast behind the Great Firewall.';
@@ -50,10 +51,10 @@ const performanceRows = [
 ];
 
 const audiences = [
-  'International companies building a brand new site for China.',
-  'Businesses who already have a site but it\'s painfully slow for anyone visiting from the mainland.',
-  'Teams dealing with ICP paperwork for the first time and finding it confusing (it is).',
-  'E-commerce brands that need hosting that\'s fast and also actually compliant with Chinese regulations.',
+  { label: 'Building for China', description: 'International companies building a brand new site for China.', image: '/images/audiences/new-site-for-china.webp' },
+  { label: 'Slow from mainland', description: 'Businesses who already have a site but it\'s painfully slow for anyone visiting from the mainland.', image: '/images/audiences/slow-site-mainland.webp' },
+  { label: 'ICP first-timers', description: 'Teams dealing with ICP paperwork for the first time and finding it confusing.', image: '/images/audiences/icp-paperwork-first-time.webp' },
+  { label: 'Compliant e-commerce', description: 'E-commerce brands that need hosting that\'s fast and also compliant with Chinese regulations.', image: '/images/audiences/ecommerce-compliant-hosting.webp' },
 ];
 ---
 
@@ -62,7 +63,7 @@ const audiences = [
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-china-hosting.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <img src="/images/hero-china-hosting.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
       <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
     </div>
@@ -335,36 +336,7 @@ const audiences = [
     </div>
   </section>
 
-  <!-- Who Is This For -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Who Is This For?
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Who reaches out to us for hosting
-          </h2>
-        </div>
-
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-5">
-            {audiences.map((item) => (
-              <div class="flex items-start gap-5 bg-white rounded-xl px-6 py-5 border border-[var(--color-surface-border)]">
-                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
-                <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
-
-          <p class="mt-8 text-base text-[var(--color-text-body)] leading-relaxed">
-            You don't need to understand how any of this works on the technical side. That's what we do. Our team is based in China, we've been doing this for over twenty years, and we handle it so you can focus on the parts of your business you actually care about.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <WhoIsThisFor heading="Who reaches out to us for hosting" audiences={audiences} footnote="You don't need to understand how any of this works on the technical side. That's what we do. Our team is based in China, we've been doing this for over twenty years, and we handle it so you can focus on the parts of your business you actually care about." background="light" />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">

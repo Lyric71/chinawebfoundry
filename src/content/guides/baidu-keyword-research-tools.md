@@ -2,7 +2,7 @@
 title: "Baidu Keyword Research Tools and Methodology"
 subtitle: "You can't rank on Baidu by translating your Google keyword list into Chinese. Here's how keyword research actually works for China's search engine."
 summary: "Keyword research on Baidu requires different tools and methods than Google. This guide covers Baidu Index, Keyword Planner, 5118, and Chinese search behaviour."
-visual: "/images/guides/baidu-keyword-research-tools.png"
+visual: "/images/guides/baidu-keyword-research-tools.webp"
 order: 3
 published: true
 ---

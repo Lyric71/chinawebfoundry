@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Container from '../../components/ui/Container.astro';
 import Button from '../../components/ui/Button.astro';
+import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'WordPress China Strategy & Audit | ChinaWebFoundry';
 const metaDescription = 'Get a full audit of your WordPress site for China readiness. We identify blockers, plan your ICP licence, and deliver a prioritised roadmap.';
@@ -86,31 +87,11 @@ const processSteps = [
 ];
 
 const audiences = [
-  {
-    label: 'First-time China entry',
-    body: 'Need your WordPress site to actually work behind the Great Firewall.',
-    icon: 'rocket',
-  },
-  {
-    label: 'Underperforming in China',
-    body: 'Slow loads, poor Baidu visibility, or things breaking in mainland browsers.',
-    icon: 'chart',
-  },
-  {
-    label: 'Campaign teams',
-    body: 'Need a fast, compliant landing experience for Chinese audiences.',
-    icon: 'target',
-  },
-  {
-    label: 'Technical leadership',
-    body: 'Need a clear assessment of ICP, MIIT, and infrastructure requirements.',
-    icon: 'code',
-  },
-  {
-    label: 'E-commerce & B2B',
-    body: 'Losing Chinese customers because checkout flows break behind the Firewall.',
-    icon: 'cart',
-  },
+  { label: 'First-time China entry', description: 'Need your WordPress site to actually work behind the Great Firewall.', image: '/images/audiences/first-time-china-entry.webp' },
+  { label: 'Underperforming in China', description: 'Slow loads, poor Baidu visibility, or things breaking in mainland browsers.', image: '/images/audiences/underperforming-china-site.webp' },
+  { label: 'Campaign teams', description: 'Need a fast, compliant landing experience for Chinese audiences.', image: '/images/audiences/campaign-team-china.webp' },
+  { label: 'Technical leadership', description: 'Need a clear assessment of ICP, MIIT, and infrastructure requirements.', image: '/images/audiences/technical-leadership-icp.webp' },
+  { label: 'E-commerce & B2B', description: 'Losing Chinese customers because checkout flows break behind the Firewall.', image: '/images/audiences/ecommerce-china-checkout.webp' },
 ];
 ---
 
@@ -119,7 +100,7 @@ const audiences = [
   <!-- Hero: full-bleed dark with image placeholder -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-strategy-audit.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <img src="/images/hero-strategy-audit.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
       <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
     </div>
@@ -463,52 +444,7 @@ const audiences = [
     </div>
   </section>
 
-  <!-- Who Is This For: icon cards -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="text-center mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          Who Is This For?
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Built for teams serious about China
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {audiences.map((item, i) => (
-          <div class:list={[
-            'bg-white border border-[var(--color-surface-border)] rounded-xl p-7',
-            i === audiences.length - 1 ? 'sm:col-span-2 lg:col-span-1' : '',
-          ]}>
-            <div class="w-10 h-10 rounded-lg bg-[var(--color-text-card-blue)]/10 flex items-center justify-center mb-4">
-              {item.icon === 'rocket' && (
-                <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-6.233 0c-1.045 1.045-1.636 3.858-1.636 3.858s2.813-.591 3.858-1.636a4.493 4.493 0 000-2.222" /></svg>
-              )}
-              {item.icon === 'chart' && (
-                <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
-              )}
-              {item.icon === 'target' && (
-                <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-              )}
-              {item.icon === 'code' && (
-                <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
-              )}
-              {item.icon === 'cart' && (
-                <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
-              )}
-            </div>
-            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">
-              {item.label}
-            </h3>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              {item.body}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <WhoIsThisFor heading="Built for teams serious about China" audiences={audiences} />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
