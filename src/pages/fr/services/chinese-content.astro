@@ -5,28 +5,52 @@ import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'Contenu chinois pour WordPress en Chine | ChinaWebFoundry';
-const metaDescription = 'Rédaction chinoise native, transcréation et gestion de contenu pour WordPress en Chine. Contenu optimisé Baidu par des locuteurs natifs. Agence basée en Chine.';
+const metaDescription = 'Rédaction chinoise native, transcréation et gestion éditoriale pour WordPress en Chine. Contenu optimisé Baidu par des locuteurs natifs. Agence basée en Chine.';
 
 const offerings = [
-  { title: 'Stratégie de contenu pour la Chine', body: 'Avant que quiconque dans notre équipe n\'écrive un seul caractère, nous devons comprendre ce qui va fonctionner. Cela commence par la recherche de mots-clés, et non la traduction de votre liste anglaise en chinois. Les internautes chinois cherchent avec leur propre formulation, leur propre argot, leurs propres raccourcis. Nous construisons l\'architecture de contenu, planifions votre calendrier éditorial autour des moments commercialement décisifs en Chine : Singles\' Day, le festival 618, la Mi-Automne, la Semaine dorée. Nous analysons aussi vos concurrents pour identifier les opportunités.' },
-  { title: 'Rédaction chinoise native', body: 'Nos rédacteurs sont des locuteurs natifs chinois. Pas des généralistes bilingues, pas des traducteurs freelance qui prennent des missions marketing en parallèle. Ce sont des professionnels qui savent ce qui retient un lecteur à Shenzhen ou Hangzhou. Ils écrivent avec la logique de classement Baidu en tête, parce qu\'un excellent texte que Baidu ne trouve pas n\'est que des mots sur un serveur.' },
-  { title: 'Transcréation et localisation', body: 'Vous avez déjà du contenu en anglais ? Nous ne le traduisons pas. La traduction vous donne des mots. La transcréation vous donne du sens. Nous conservons votre voix de marque et votre intention, mais reconstruisons entièrement le message pour qu\'il touche le public chinois. Parfois ce sont des ajustements de ton. D\'autres fois, il faut repenser une page entière car le concept ne se transpose pas culturellement.' },
-  { title: 'Gestion de contenu WordPress', body: 'Un bon contenu ne vaut pas grand-chose si votre équipe ne peut pas le maintenir après la livraison. Nous mettons aussi en place les systèmes. Flux de travail multilingues avec WPML ou MultilingualPress, blocs Gutenberg configurés pour la publication en chinois, migration de contenu depuis votre plateforme d\'origine. Et nous formons votre équipe à gérer les mises à jour quotidiennes de manière autonome.' },
+  {
+    title: 'Stratégie de contenu pour la Chine',
+    body: 'Avant que quiconque dans notre équipe n\'écrive un seul caractère, nous devons cerner ce qui va fonctionner. Cela passe d\'abord par la recherche de mots-clés, et non par la traduction de votre liste anglaise en chinois. Les internautes chinois cherchent avec leurs propres formulations, leur argot, leurs raccourcis. La moitié du temps, les termes les plus rentables n\'ont tout simplement pas d\'équivalent en anglais. Une fois les requêtes identifiées, nous construisons l\'architecture de contenu : quelles pages créer, comment les relier entre elles, ce que Baidu attend en termes de structure. Puis nous planifions votre calendrier éditorial autour des temps forts commerciaux en Chine. Tout le monde connaît le Nouvel An chinois, mais le Singles\' Day, le festival 618, la Mi-Automne, la Semaine dorée... ce sont les moments où le trafic explose. Mieux vaut avoir du contenu prêt avant l\'ouverture de ces fenêtres, pas après. Nous analysons aussi vos concurrents. Que publient-ils pour le marché chinois ? Où sont les trous dans la raquette ? C\'est généralement là que se cachent les meilleures opportunités.',
+  },
+  {
+    title: 'Rédaction chinoise native',
+    body: 'Nos rédacteurs sont des locuteurs natifs chinois. Pas des généralistes bilingues, pas des traducteurs indépendants qui prennent des missions marketing entre deux contrats. Ce sont des professionnels qui savent ce qui retient un lecteur à Shenzhen ou Hangzhou au-delà de la première ligne. Ils savent comment la confiance se bâtit sur une page produit chinoise, en quoi elle diffère d\'une page occidentale. Et ils écrivent avec la logique de classement Baidu en tête, parce qu\'un texte brillant que Baidu ne trouve pas reste des mots perdus sur un serveur. Nous rédigeons des pages de site, des fiches produits, des articles de blog, des supports de campagne, des tribunes d\'expertise. Tout ce dont votre site WordPress a besoin en chinois, nous le prenons en charge. L\'objectif ne varie jamais : un contenu qui semble avoir vu le jour en chinois. Parce que c\'est le cas.',
+  },
+  {
+    title: 'Transcréation et localisation',
+    body: 'Vous disposez déjà de contenus en anglais ou dans une autre langue ? Nous ne les traduisons pas. La traduction vous donne des mots. La transcréation vous donne du sens. Nous conservons votre voix de marque et votre intention, mais reconstruisons intégralement le message pour qu\'il résonne auprès d\'un public chinois. Parfois, ce sont essentiellement des ajustements de ton. D\'autres fois, il faut repenser une page entière parce que le concept sous-jacent ne se transpose tout simplement pas culturellement. Une plaisanterie qui fait mouche à New York peut tomber complètement à plat à Pékin. Un format d\'étude de cas qui fonctionne en B2B en Europe peut rebuter en Chine. Nous savons où passent ces lignes. Et puis les détails qui comptent plus qu\'on ne le croit : formats de date, affichage des devises, unités de mesure, structure des adresses, mentions légales réellement conformes aux exigences chinoises. Le genre de choses auxquelles on ne pense pas, jusqu\'au jour où un client à Canton les signale.',
+  },
+  {
+    title: 'Gestion de contenu WordPress',
+    body: 'Un bon contenu ne vaut pas grand-chose si votre équipe ne peut plus le maintenir après la livraison. Nous mettons donc aussi les systèmes en place. Flux de travail multilingues via WPML ou MultilingualPress, blocs Gutenberg configurés pour la publication en chinois, migration de contenu depuis votre plateforme d\'origine. Et nous formons votre équipe à gérer les mises à jour courantes en toute autonomie, sans avoir à solliciter un développeur pour chaque article de blog ou chaque modification de fiche produit.',
+  },
 ];
 
 const processSteps = [
-  { title: 'Stratégie et recherche', body: 'Objectifs de contenu, analyse de mots-clés, audit concurrentiel, planification éditoriale. Nous ne bâclons pas cette étape car une erreur ici impacte toute la suite.' },
-  { title: 'Production de contenu', body: 'Nos rédacteurs produisent du contenu aligné sur le ton de votre marque, optimisé pour les mots-clés Baidu identifiés, formaté pour WordPress. Chaque pièce passe une revue éditoriale interne avant de vous être soumise pour validation.' },
-  { title: 'Publication et optimisation', body: 'Une fois votre accord obtenu, nous gérons la publication. Formatage dans le CMS, métadonnées, maillage interne, compression d\'images, textes alternatifs. La portée complète.' },
-  { title: 'Suivi et itération', body: 'Nous surveillons les performances du contenu via Baidu Analytics et vous envoyons des rapports sur le trafic, les classements, les métriques d\'engagement. Quand quelque chose ne performe pas, nous le révisons. Le contenu en Chine nécessite une attention continue.' },
+  {
+    title: 'Stratégie et recherche',
+    body: 'Objectifs de contenu, analyse de mots-clés, audit concurrentiel, planification éditoriale. Nous ne bâclons pas cette étape, parce qu\'une erreur ici compromet tout ce qui suit.',
+  },
+  {
+    title: 'Production de contenu',
+    body: 'Nos rédacteurs produisent des textes fidèles au ton de votre marque, optimisés pour les mots-clés Baidu identifiés, formatés pour WordPress. Chaque pièce passe par une relecture éditoriale interne avant de vous être soumise pour validation. Nous n\'envoyons pas de premiers jets en croisant les doigts.',
+  },
+  {
+    title: 'Publication et optimisation',
+    body: 'Une fois votre feu vert obtenu, nous gérons la mise en ligne. Formatage dans le CMS, métadonnées, maillage interne, compression d\'images, textes alternatifs. L\'ensemble du périmètre.',
+  },
+  {
+    title: 'Suivi et ajustements',
+    body: 'Nous mesurons les performances du contenu via Baidu Analytics et vous adressons des rapports sur le trafic, les classements et les indicateurs d\'engagement. Quand un contenu ne tient pas ses promesses, nous le retravaillons. En Chine, le contenu exige une attention permanente. Publier puis oublier, ici, ça ne fonctionne pas.',
+  },
 ];
 
 const audiences = [
-  { label: 'Lancement d\'un site chinois', description: 'Le volet contenu semble être la grande inconnue.', image: '/images/audiences/launching-chinese-website.webp' },
-  { label: 'Traductions obsolètes', description: 'Le contenu a été traduit il y a longtemps et les classements Baidu stagnent ou déclinent.', image: '/images/audiences/outdated-translated-content.webp' },
-  { label: 'Textes de campagne', description: 'Équipe marketing préparant des campagnes ciblant les consommateurs chinois.', image: '/images/audiences/campaign-chinese-copy.webp' },
-  { label: 'Pages produits', description: 'Équipe e-commerce ayant besoin de pages produits correctement rédigées pour le marché chinois.', image: '/images/audiences/ecommerce-product-pages-china.webp' },
-  { label: 'Éditorial continu', description: 'Publication régulière de blog, textes de campagne saisonniers, mises à jour produits, le tout géré dans WordPress.', image: '/images/audiences/ongoing-chinese-editorial.webp' },
+  { label: 'Lancement d\'un site chinois', description: 'Le volet contenu reste la grande inconnue de votre projet.', image: '/images/audiences/launching-chinese-website.webp' },
+  { label: 'Traductions vieillissantes', description: 'Le contenu a été traduit il y a longtemps et vos classements Baidu stagnent ou reculent.', image: '/images/audiences/outdated-translated-content.webp' },
+  { label: 'Textes de campagne', description: 'Équipe marketing en préparation de campagnes ciblant les consommateurs chinois.', image: '/images/audiences/campaign-chinese-copy.webp' },
+  { label: 'Pages produits', description: 'Équipe e-commerce ayant besoin de fiches produits rédigées dans les règles pour le marché chinois.', image: '/images/audiences/ecommerce-product-pages-china.webp' },
+  { label: 'Éditorial au long cours', description: 'Publication régulière sur le blog, textes de campagne saisonniers, mises à jour produits, le tout piloté depuis WordPress.', image: '/images/audiences/ongoing-chinese-editorial.webp' },
 ];
 ---
 
@@ -39,8 +63,8 @@ const audiences = [
         <div class="col-span-12 lg:col-span-7">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Contenu chinois</p>
           <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">Du contenu qui parle aux audiences chinoises.<span class="block mt-2 text-[var(--color-brand-orange)]">Pas seulement en chinois.</span></h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Rédaction chinoise native, transcréation et gestion éditoriale pour votre site WordPress. Conçu pour Baidu, façonné par la culture, géré dans votre CMS.</p>
-          <div class="mt-10"><Button href="/fr/contact/" variant="primary" size="lg">Parlez-nous de vos besoins en contenu</Button></div>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Rédaction chinoise native, transcréation et gestion éditoriale pour votre site WordPress. Pensé pour Baidu, ancré dans la culture, piloté depuis votre CMS.</p>
+          <div class="mt-10"><Button href="/fr/contact/" variant="primary" size="lg">Parlons de vos besoins en contenu</Button></div>
         </div>
       </div>
     </div>
@@ -50,10 +74,11 @@ const audiences = [
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-center">
         <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Pourquoi le contenu en Chine n'est pas un travail de traduction</h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">C'est l'erreur que nous voyons se répéter sans cesse. Une entreprise traduit son site anglais en chinois, le met en ligne et attend. Le trafic ne vient pas. Les leads ne viennent pas. Et elle suppose que le problème est technique. En général, ce n'est pas le cas. C'est le contenu lui-même.</p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">Les consommateurs chinois ne lisent pas seulement dans une langue différente. Ils lisent différemment. Ce qui inspire confiance sur une page aux États-Unis ne porte pas le même poids en Chine.</p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">De plus, l'algorithme de Baidu a un vrai biais contre les pages traduites. Il les rétrograde. Ce qu'il privilégie, c'est le contenu chinois original, publié régulièrement.</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Pourquoi le contenu en Chine ne relève pas de la traduction</h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">C'est l'erreur que nous voyons se répéter encore et encore. Une entreprise traduit son site anglais en chinois, le met en ligne et attend. Le trafic ne vient pas. Les prospects non plus. Et l'on suppose que le problème est technique. En règle générale, ce n'est pas le cas. C'est le contenu lui-même qui pose problème.</p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">Les consommateurs chinois ne lisent pas seulement dans une autre langue. Ils lisent autrement. Ce qui inspire confiance sur une page aux États-Unis ne porte pas le même poids en Chine. La structure diffère, les attentes en matière de ton diffèrent, les conventions de longueur de paragraphe ne sont pas les mêmes.</p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">Quant aux mots-clés, c'est encore une autre histoire. Vous ne pouvez pas prendre un terme anglais à 10 000 recherches mensuelles sur Google, le traduire en mandarin et espérer que Baidu vous récompense. Ce n'est pas du tout comme ça que les choses fonctionnent ici.</p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Par-dessus le marché, l'algorithme de Baidu pénalise activement les pages traduites. Il les rétrograde. Ce qu'il valorise, c'est le contenu chinois original, publié selon un rythme régulier. Si votre site tourne avec des traductions vieilles d'un an ou deux que personne n'a mises à jour depuis, Baidu a cessé de s'y intéresser depuis longtemps. C'est brutal, mais c'est la réalité.</p>
         </div>
       </div>
     </div>
@@ -65,7 +90,7 @@ const audiences = [
         <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Ce que nous proposons</p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Du contenu né en chinois</h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">Nous rédigeons du contenu original en chinois, depuis la Chine. Pas adapté, pas localisé depuis l'anglais. Écrit en chinois d'abord, pour des lecteurs chinois, avec les facteurs de classement Baidu intégrés dès le départ.</p>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">Nous rédigeons du contenu original en chinois, depuis la Chine. Pas du contenu adapté, pas du contenu localisé depuis l'anglais. Écrit en chinois d'abord, pour des lecteurs chinois, avec les critères de classement Baidu intégrés dès la première ligne.</p>
         </div>
         <div class="col-span-12 lg:col-span-6 lg:col-start-7">
           <div class="space-y-6">
@@ -88,14 +113,14 @@ const audiences = [
     </div>
   </section>
 
-  <WhoIsThisFor heading="Qui devrait lire ceci" audiences={audiences} />
+  <WhoIsThisFor heading="À qui s'adresse cette page" audiences={audiences} />
 
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
     <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Lancez-vous</p>
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Passez à l'action</p>
       <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Vous voulez du contenu que les audiences chinoises liront vraiment ?</h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Cela commence par connaître le marché et avoir les bonnes personnes dessus. Dites-nous ce que vous cherchez à accomplir en Chine et nous élaborerons un plan de contenu adapté.</p>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Tout commence par une connaissance fine du marché et les bonnes personnes pour s'en occuper. Dites-nous ce que vous cherchez à accomplir en Chine et nous bâtirons un plan de contenu adapté à vos objectifs.</p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/fr/contact/" variant="primary" size="lg">Lancer votre projet de contenu</Button>
         <Button href="/fr/services/baidu-seo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Services SEO Baidu</Button>

@@ -1,15 +1,15 @@
 ---
 title: "Maintenance et support"
 shortTitle: "Support"
-description: "Maintenance WordPress continue depuis la Chine. Nous assurons les mises à jour, la surveillance du Grand Pare-feu, le suivi SEO Baidu, la sécurité et le support technique pour que vous n'ayez pas à vous en occuper."
+description: "Maintenance WordPress assurée depuis la Chine. Mises à jour, surveillance du Grand Pare-feu, suivi SEO Baidu, sécurité et support réactif : nous gérons tout pour que vous puissiez vous concentrer sur votre activité."
 metaTitle: "Maintenance et support WordPress en Chine | Agence"
-metaDescription: "Maintenance WordPress depuis la Chine : surveillance du Grand Pare-feu, suivi SEO Baidu, sécurité, sauvegardes et support réactif par une équipe présente sur le terrain."
+metaDescription: "Maintenance WordPress depuis la Chine : surveillance du Grand Pare-feu, suivi SEO Baidu, sécurité, sauvegardes et assistance réactive par une équipe implantée sur le terrain."
 icon: "wrench"
 order: 9
 keywords: ["maintenance wordpress chine", "support wordpress chine", "services wordpress gérés chine"]
 relatedServices: ["china-hosting", "plugins-extensions"]
 ---
 
-## Ce qui est inclus
+## Ce que nous faisons
 
-Une maintenance WordPress continue, assurée par une équipe présente en Chine. Nous prenons en charge les mises à jour, la surveillance du Grand Pare-feu, le référencement Baidu, la sécurité, les sauvegardes et le support réactif pour que vous puissiez vous concentrer sur votre activité.
+Votre site WordPress en Chine mérite un suivi permanent. Notre équipe, implantée sur place, assure les mises à jour, surveille le Grand Pare-feu, maintient votre référencement Baidu, veille à la sécurité, gère les sauvegardes et répond rapidement à vos demandes de support. Vous gardez les mains libres.

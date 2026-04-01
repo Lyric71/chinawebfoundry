@@ -4,6 +4,6 @@ order: 26
 category: "technical"
 ---
 
-Probably, after we fix it. Out of the box? Almost certainly no. The usual culprits: Google Fonts, which is far and away the most common issue. JavaScript libraries loading from blocked CDNs. Unoptimised images with no China CDN delivery. Third-party tracking scripts hardcoded into the theme files.
+Probably, after we fix it. Out of the box, almost certainly not. Usual culprits: Google Fonts, JavaScript libraries from blocked CDNs, unoptimised images without China CDN delivery, and third-party tracking scripts hardcoded into theme files.
 
-We do a theme audit and produce a compatibility report. Nine times out of ten we can optimise what you already have rather than rebuilding from scratch. A full redesign only really makes sense if you're also planning to rethink the user experience for Chinese visitors as part of the same engagement. Otherwise it's usually overkill.
+We do a theme audit and produce a compatibility report. Nine times out of ten we can optimise what you have rather than rebuilding from scratch. A full redesign only makes sense if you're also rethinking the user experience for Chinese visitors.

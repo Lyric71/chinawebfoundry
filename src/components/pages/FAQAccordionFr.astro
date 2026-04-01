@@ -1,0 +1,58 @@
+---
+import { getCollection, render } from 'astro:content';
+import FAQItem from './FAQItem.astro';
+
+const faqs = (await getCollection('faq-fr')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<div data-faq-accordion>
+  {faqs.map(async (faq) => {
+    const { Content } = await render(faq);
+    return (
+      <FAQItem question={faq.data.question} id={faq.id}>
+        <Content />
+      </FAQItem>
+    );
+  })}
+</div>
+
+<script>
+  function initFaqAccordion() {
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement;
+
+        trigger?.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          // Close all other items (single collapsible behaviour)
+          items.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherTrigger = otherItem.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+              const otherChevron = otherItem.querySelector('[data-faq-chevron]') as SVGElement;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            }
+          });
+
+          // Toggle current item
+          const newState = !isOpen;
+          trigger.setAttribute('aria-expanded', String(newState));
+          content?.style.setProperty('grid-template-rows', newState ? '1fr' : '0fr');
+          chevron?.classList.toggle('rotate-180', newState);
+        });
+      });
+    });
+  }
+
+  initFaqAccordion();
+  document.addEventListener('astro:after-swap', initFaqAccordion);
+</script>

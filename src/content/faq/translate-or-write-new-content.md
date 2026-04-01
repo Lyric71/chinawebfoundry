@@ -4,6 +4,6 @@ order: 17
 category: "process"
 ---
 
-Straight translation almost never lands the way people expect. Chinese search queries just don't map from English in a direct way. User intent gets structured differently, the words people use to search for the same concept can be completely different. What we typically suggest: take your core brand messaging and have native Chinese writers adapt it. Not translate. Adapt. There's a real difference. Then build original content on top of that based on actual Baidu keyword research and local search behaviour.
+Straight translation almost never lands well. Chinese search queries don't map directly from English - user intent gets structured differently and the search terms can be completely different. We recommend taking your core brand messaging and having native Chinese writers adapt it, not translate it. Then build original content on top based on actual Baidu keyword research.
 
-Running your English blog through translation and posting it to Baidu is not a strategy that works. We've inherited sites where the previous agency tried that and the content just sits there unindexed. Localisation is a different skill than translation and the gap between them is bigger than most people think.
+Running your English blog through translation and posting it is not a strategy that works. Localisation is a different skill than translation, and the gap between them is bigger than most people think.

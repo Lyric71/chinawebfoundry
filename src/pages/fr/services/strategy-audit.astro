@@ -4,32 +4,32 @@ import Button from '../../../components/ui/Button.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'Stratégie et audit WordPress pour la Chine | ChinaWebFoundry';
-const metaDescription = 'Obtenez un audit complet de votre site WordPress pour la Chine. Nous identifions les obstacles, planifions votre licence ICP et livrons une feuille de route priorisée.';
+const metaDescription = 'Audit complet de votre site WordPress pour la Chine. Nous identifions les blocages, planifions votre licence ICP et livrons une feuille de route priorisée.';
 
 const auditItems = [
-  { title: 'Tests de vitesse depuis la Chine', body: 'Sessions de navigation réelles depuis quatre grandes villes. La plupart des sites mettent plus de 15 secondes. Certains ne finissent jamais de charger.', icon: 'speed' },
-  { title: 'Scan des ressources bloquées', body: 'Chaque extension, police, script et appel API vérifié face au Grand Pare-feu. Nous signalons ce qui est bloqué et ce qui est dégradé.', icon: 'shield' },
-  { title: 'Revue de conformité', body: 'SSL, traitement des données et hébergement évalués selon la Loi sur la cybersécurité, le PIPL et la Loi sur la sécurité des données.', icon: 'compliance' },
-  { title: 'Expérience utilisateur chinoise', body: 'Votre site sur un Xiaomi avec QQ Browser. Rendu de la langue, navigation, responsivité mobile.', icon: 'mobile' },
-  { title: 'Bilan de santé SEO Baidu', body: 'Indexation, sitemaps, compatibilité Outils Webmaster Baidu et alignement sur les intentions de recherche. Les classements Google ne comptent pas ici.', icon: 'search' },
-  { title: 'Revue d\'infrastructure', body: 'Hébergement, DNS, CDN et performance de la base de données. Votre stack WordPress fonctionnera-t-elle dans un environnement chinois ?', icon: 'server' },
+  { title: 'Tests de vitesse depuis la Chine', body: 'Sessions de navigation réelles depuis quatre grandes métropoles. La plupart des sites dépassent 15 secondes de chargement. Certains ne finissent tout simplement jamais de s\'afficher.', icon: 'speed' },
+  { title: 'Scan des ressources bloquées', body: 'Chaque extension, police, script et appel API passé au crible face au Grand Pare-feu. Nous signalons ce qui est bloqué et ce qui fonctionne en mode dégradé.', icon: 'shield' },
+  { title: 'Revue de conformité', body: 'SSL, traitement des données et hébergement évalués au regard de la Loi sur la cybersécurité, du PIPL et de la Loi sur la sécurité des données.', icon: 'compliance' },
+  { title: 'Expérience utilisateur chinoise', body: 'Votre site sur un Xiaomi avec QQ Browser. Rendu typographique, navigation, adaptabilité mobile.', icon: 'mobile' },
+  { title: 'Bilan de santé SEO Baidu', body: 'Indexation, sitemaps, compatibilité Outils Webmaster Baidu, alignement avec les intentions de recherche. Vos classements Google ne comptent pas ici.', icon: 'search' },
+  { title: 'Revue d\'infrastructure', body: 'Hébergement, DNS, CDN et performances de la base de données. Votre stack WordPress tiendra-t-elle le choc en environnement chinois ?', icon: 'server' },
 ];
 
 const roadmapItems = [
-  { title: 'Approche d\'entrée sur le marché', body: 'Hébergement continental, Hong Kong avec CDN, ou WeChat/Xiaohongshu ? Nous cartographions chaque option avec des compromis honnêtes.' },
-  { title: 'Parcours licence ICP', body: 'Type de dépôt, structure d\'entité, éligibilité du fournisseur et calendriers réalistes. Se tromper ici coûte des mois.' },
-  { title: 'Architecture technique', body: 'Hébergement, CDN, DNS pour les résolveurs chinois et une stack WordPress testée en conditions réelles en Chine.' },
-  { title: 'Contenu et SEO Baidu', body: 'Quoi publier en premier, comment le structurer pour Baidu Spider et les règles d\'indexation mobile-first.' },
-  { title: 'Liste de substitution des extensions', body: 'Google Analytics vers Baidu Tongji. Maps vers Amap. reCAPTCHA vers Tencent Captcha. Plus le mapping CRM/ERP.' },
-  { title: 'Calendrier et budget', body: 'Jalons phasés construits autour de calendriers réalistes, pas de voeux pieux.' },
+  { title: 'Stratégie d\'entrée sur le marché', body: 'Hébergement continental, Hong Kong avec CDN, ou WeChat/Xiaohongshu ? Nous cartographions chaque option avec ses vrais compromis, sans embellir.' },
+  { title: 'Parcours licence ICP', body: 'Type de dépôt, structure d\'entité, éligibilité du fournisseur et délais réalistes. Se tromper à cette étape coûte des mois entiers.' },
+  { title: 'Architecture technique', body: 'Hébergement, CDN, DNS pour les résolveurs chinois et une stack WordPress éprouvée en conditions réelles sur le terrain.' },
+  { title: 'Contenu et SEO Baidu', body: 'Quoi publier en priorité, comment le structurer pour Baidu Spider et les règles d\'indexation mobile-first.' },
+  { title: 'Liste de substitution des extensions', body: 'Google Analytics vers Baidu Tongji. Maps vers Amap. reCAPTCHA vers Tencent Captcha. Sans oublier la correspondance CRM/ERP.' },
+  { title: 'Calendrier et budget', body: 'Des jalons phasés bâtis sur des délais réalistes, pas sur des voeux pieux.' },
 ];
 
 const audiences = [
-  { label: 'Première entrée en Chine', description: 'Besoin que votre site WordPress fonctionne derrière le Grand Pare-feu.', image: '/images/audiences/first-time-china-entry.webp' },
-  { label: 'Sous-performance en Chine', description: 'Chargements lents, faible visibilité Baidu ou dysfonctionnements dans les navigateurs du continent.', image: '/images/audiences/underperforming-china-site.webp' },
-  { label: 'Équipes campagne', description: 'Besoin d\'une expérience d\'atterrissage rapide et conforme pour les audiences chinoises.', image: '/images/audiences/campaign-team-china.webp' },
-  { label: 'Direction technique', description: 'Besoin d\'une évaluation claire des exigences ICP, MIIT et infrastructure.', image: '/images/audiences/technical-leadership-icp.webp' },
-  { label: 'E-commerce et B2B', description: 'Perte de clients chinois parce que les processus de paiement cassent derrière le Grand Pare-feu.', image: '/images/audiences/ecommerce-china-checkout.webp' },
+  { label: 'Première entrée en Chine', description: 'Votre site WordPress doit fonctionner derrière le Grand Pare-feu.', image: '/images/audiences/first-time-china-entry.webp' },
+  { label: 'Sous-performance en Chine', description: 'Chargements lents, faible visibilité Baidu ou dysfonctionnements sur les navigateurs du continent.', image: '/images/audiences/underperforming-china-site.webp' },
+  { label: 'Équipes campagne', description: 'Besoin d\'une page d\'atterrissage rapide et conforme pour les audiences chinoises.', image: '/images/audiences/campaign-team-china.webp' },
+  { label: 'Direction technique', description: 'Besoin d\'un état des lieux précis des exigences ICP, MIIT et infrastructure.', image: '/images/audiences/technical-leadership-icp.webp' },
+  { label: 'E-commerce et B2B', description: 'Des clients chinois perdus parce que les parcours de paiement cassent derrière le Grand Pare-feu.', image: '/images/audiences/ecommerce-china-checkout.webp' },
 ];
 ---
 
@@ -41,8 +41,8 @@ const audiences = [
       <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
         <div class="col-span-12 lg:col-span-7">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Chaque projet commence ici</p>
-          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">Entrez en Chine avec confiance.<span class="block mt-2 text-[var(--color-brand-orange)]">Commencez par la stratégie.</span></h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Nous testons votre site WordPress face aux contraintes techniques réelles de la Chine et cartographions précisément ce qu'il faut pour performer derrière le Grand Pare-feu.</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">Entrez en Chine en confiance.<span class="block mt-2 text-[var(--color-brand-orange)]">Commencez par la stratégie.</span></h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Nous confrontons votre site WordPress aux contraintes techniques réelles de la Chine et traçons précisément la route à suivre pour performer derrière le Grand Pare-feu.</p>
           <div class="mt-10"><Button href="/fr/contact/" variant="primary" size="lg">Planifier un appel découverte</Button></div>
         </div>
       </div>
@@ -53,8 +53,8 @@ const audiences = [
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-center">
         <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">La plupart des sites WordPress cassent derrière le Grand Pare-feu</h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Les Google Fonts ne s'affichent pas, reCAPTCHA tourne indéfiniment, les embeds YouTube restent vides. Nous testons depuis Pékin, Shanghai, Shenzhen et Chengdu sur de vrais navigateurs, puis construisons une feuille de route : quoi corriger, quoi remplacer, quoi construire de neuf.</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">La plupart des sites WordPress ne passent pas le Grand Pare-feu</h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Les Google Fonts refusent de s'afficher, reCAPTCHA mouline indéfiniment, les vidéos YouTube restent noires. Nous testons depuis Pékin, Shanghai, Shenzhen et Chengdu sur de vrais navigateurs, puis bâtissons la feuille de route : quoi corriger, quoi remplacer, quoi créer de zéro.</p>
         </div>
       </div>
     </div>
@@ -64,8 +64,8 @@ const audiences = [
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="max-w-2xl mb-14">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">L'audit</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Audit WordPress de préparation à la Chine</h2>
-        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">Nous quantifions ce que chaque problème vous coûte en vitesse, classements Baidu et conversions.</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Audit WordPress : êtes-vous prêt pour la Chine ?</h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">Nous chiffrons ce que chaque problème vous coûte en vitesse, en classements Baidu et en conversions.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {auditItems.map((item) => (
@@ -87,7 +87,7 @@ const audiences = [
         <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">La feuille de route</p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Feuille de route stratégique</h2>
-          <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed mb-8">L'audit montre où vous en êtes. La feuille de route indique ce qu'il faut faire.</p>
+          <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed mb-8">L'audit dresse le constat. La feuille de route trace le chemin.</p>
         </div>
         <div class="col-span-12 lg:col-span-6 lg:col-start-7">
           <div class="space-y-6">
@@ -100,14 +100,14 @@ const audiences = [
     </div>
   </section>
 
-  <WhoIsThisFor heading="Conçu pour les équipes sérieuses au sujet de la Chine" audiences={audiences} />
+  <WhoIsThisFor heading="Pour les équipes qui prennent la Chine au sérieux" audiences={audiences} />
 
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
     <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Lancez-vous</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Prêt à découvrir comment votre site performe en Chine ?</h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Nous testons depuis la Chine continentale et livrons un plan sur lequel vous pouvez agir.</p>
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Passez à l'action</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Prêt à savoir comment votre site se comporte en Chine ?</h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Nous testons depuis la Chine continentale et vous livrons un plan d'action concret.</p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/fr/contact/" variant="primary" size="lg">Planifier un appel découverte</Button>
         <Button href="/fr/contact/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Télécharger notre guide du marché chinois</Button>

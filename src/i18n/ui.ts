@@ -90,7 +90,7 @@ export const ui = {
     'nav.resources': 'Ressources',
     'nav.contact': 'Contact',
     'nav.contactUs': 'Contactez-nous',
-    'nav.chinaSiteScanner': 'Scanner de site Chine',
+    'nav.chinaSiteScanner': 'China Site Scanner',
     'nav.chinaWebGuide': 'Guide du web chinois',
     'nav.faq': 'Questions fréquentes',
     'nav.faqShort': 'FAQ',
@@ -156,7 +156,7 @@ export const ui = {
     // 404
     '404.title': '404',
     '404.heading': 'Page introuvable',
-    '404.text': 'La page que vous recherchez n\'existe pas ou a été déplacée.',
+    '404.text': 'Cette page n\'existe plus ou a changé d\'adresse.',
     '404.backHome': 'Retour à l\'accueil',
 
     // Language switcher

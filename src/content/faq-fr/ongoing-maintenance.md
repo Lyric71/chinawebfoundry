@@ -1,11 +1,9 @@
 ---
-question: "Que comprend la maintenance continue ? Detaillez."
+question: "Que comprend la maintenance continue ? Détaillez."
 order: 30
 category: "process"
 ---
 
-Mises a jour du coeur WordPress, du theme et des extensions, toutes testees en pre-production avant deploiement. Sauvegardes quotidiennes stockees hors site. Surveillance de la disponibilite en continu depuis des points de test situes en Chine. Analyse de securite et nettoyage en cas de logiciel malveillant. Gestion des certificats SSL. Suivi de la conformite ICP, un point que les gens oublient, mais la reglementation evolue et votre licence doit rester a jour.
+Mises à jour du coeur WordPress, du thème et des extensions, testées en pré-production avant déploiement. Sauvegardes quotidiennes hors site. Surveillance de disponibilité depuis la Chine en continu. Analyse de sécurité et nettoyage de logiciels malveillants. Gestion SSL. Suivi de conformité ICP, car la réglementation évolue et votre licence doit rester à jour.
 
-Revues de performance mensuelles au cours desquelles nous examinons reellement les chiffres, pas un simple rapport automatise. Bilans de sante SEO Baidu. Support bilingue pour tout ce qui peut survenir.
-
-Chaque mois, vous recevez un rapport couvrant la disponibilite, la vitesse de chargement, la securite et la visibilite dans les moteurs de recherche. Tout est mesure depuis la Chine continentale. Si nous insistons sur ce point, c'est parce que cela compte veritablement. Tester depuis l'etranger donne une image completement differente, et generalement optimiste. Les chiffres qui comptent sont ceux que vivent vos visiteurs reels, et ceux-la ne se mesurent que depuis l'interieur du pays.
+Revues de performance mensuelles, bilans SEO Baidu, support bilingue. Chaque mois, un rapport couvrant disponibilité, vitesse, sécurité et visibilité, mesuré depuis la Chine continentale. Les chiffres qui comptent sont ceux que vivent vos visiteurs réels.

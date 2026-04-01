@@ -4,6 +4,6 @@ order: 23
 category: "technical"
 ---
 
-Yeah, full adaptation. Alipay and WeChat Pay as payment gateways. Chinese logistics integrations, SF Express, ZTO, YTO, replacing whatever Western shipping plugins you currently run. Product pages reworked for Chinese shopping patterns. And critically, a checkout flow that's tested inside the WeChat in-app browser. Huge number of mobile purchases in China go through that browser and if your checkout breaks inside it you're losing sales you'll never even know about because the user just leaves.
+Full adaptation. Alipay and WeChat Pay as payment gateways. Chinese logistics integrations (SF Express, ZTO, YTO) replacing Western shipping plugins. Product pages reworked for Chinese shopping patterns. And critically, a checkout flow tested inside the WeChat in-app browser - a huge number of mobile purchases go through it, and if your checkout breaks there you lose sales silently.
 
-We also set up CNY pricing and fapiao support. Fapiao is China's official tax invoice and it's required for business purchases. Not a feature, a requirement. If you sell to Chinese companies and they can't get a fapiao, they can't expense it, and the deal probably doesn't happen.
+We also set up CNY pricing and fapiao support. Fapiao is China's official tax invoice, required for business purchases. If you sell to Chinese companies and they can't get one, the deal probably doesn't happen.

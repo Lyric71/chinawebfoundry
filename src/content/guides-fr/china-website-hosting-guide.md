@@ -1,38 +1,38 @@
 ---
-title: "Hébergement web en Chine : le lieu d'hébergement décide si votre site charge ou non"
-subtitle: "Pour les utilisateurs chinois, la différence entre un site hébergé à Shanghai et un autre à Francfort ne se mesure pas en millisecondes. C'est la différence entre une page qui s'affiche et une page qui ne s'affiche pas du tout."
-summary: "Le lieu d'hébergement de votre site chinois affecte la vitesse, le classement Baidu et la conformité réglementaire. Comparaison entre hébergement continental, hongkongais et étranger, ainsi que les principaux fournisseurs cloud."
+title: "Hébergement web en Chine : le choix du serveur conditionne tout le reste"
+subtitle: "Pour les utilisateurs chinois, la différence entre un site hébergé à Shanghai et un autre à Francfort ne se mesure pas en millisecondes. Elle se résume à une question : la page s'affiche-t-elle, oui ou non."
+summary: "Le lieu d'hébergement de votre site chinois détermine la vitesse, le classement Baidu et la conformité réglementaire. Comparatif entre hébergement continental, hongkongais et étranger, et panorama des fournisseurs cloud."
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
 published: true
 category: Hosting
 ---
 
-L'hébergement est la décision la plus sous-estimée de toute stratégie web en Chine. Choisissez le mauvais emplacement de serveur et votre site met cinq secondes à charger, quand il charge. Choisissez le mauvais fournisseur et vous passez à côté d'intégrations écosystémiques que vos concurrents exploitent déjà. Le marché chinois du cloud est dominé par des acteurs locaux, chacun connecté à un pan différent de l'internet chinois. La question de l'emplacement des serveurs se décline en trois niveaux aux compromis très différents. Et le CDN que vous choisissez ici compte bien plus qu'ailleurs dans le monde.
+L'hébergement est la décision la plus sous-estimée dans toute stratégie web tournée vers la Chine. Un mauvais choix de localisation serveur, et le site met cinq secondes à charger - quand il charge. Un mauvais choix de fournisseur, et vous passez à côté d'intégrations écosystémiques que vos concurrents exploitent déjà. Le marché cloud chinois est dominé par des acteurs locaux, chacun connecté à un segment différent de l'internet chinois. La question de la localisation des serveurs se décline en trois niveaux, avec des arbitrages très différents. Quant au CDN, il pèse ici bien plus lourd qu'ailleurs dans le monde.
 
 ## Les fournisseurs cloud chinois
 
 | Fournisseur | Part de marché | Point fort |
 |---|---|---|
-| Alibaba Cloud | 36 à 39 % | Le plus grand en Chine, intégration e-commerce |
+| Alibaba Cloud | 36 à 39 % | Leader en Chine, intégration e-commerce |
 | Huawei Cloud | 12 à 19 % | Entreprises et secteur public |
 | Tencent Cloud | 11 à 16 % | Intégration WeChat |
 | Baidu Cloud | ~5 % | IA et apprentissage automatique |
-| AWS Chine | ~7 % | Notoriété mondiale (via Sinnet/NWCD) |
+| AWS Chine | ~7 % | Notoriété internationale (via Sinnet/NWCD) |
 
-Le marché chinois du cloud ne ressemble pas à ce dont on a l'habitude. AWS et Azure existent ici, mais ils ne dominent pas. Ce sont les acteurs locaux qui mènent, et chacun est branché sur un écosystème plus large qui détermine ses points forts.
+Le paysage cloud chinois ne ressemble pas à ce que l'on connaît ailleurs. AWS et Azure sont présents, mais n'occupent pas les premières places. Ce sont les acteurs locaux qui dominent, chacun adossé à un écosystème plus large qui détermine ses atouts.
 
-Alibaba Cloud est la force dominante. 36 % à 39 % du marché. Si votre activité touche déjà l'infrastructure de commerce en ligne ou de paiement d'Alibaba, c'est le choix naturel. Pour les entreprises qui arrivent en Chine sans préférence d'écosystème marquée, Alibaba est aussi le choix par défaut le plus sûr - documentation la plus complète, réseau de partenaires le plus étendu, plateforme la plus mature dans l'ensemble.
+Alibaba Cloud est la force dominante. 36 à 39 % du marché. Si votre activité touche déjà l'infrastructure de commerce en ligne ou de paiement d'Alibaba, c'est le choix naturel. Pour les entreprises qui arrivent en Chine sans préférence d'écosystème, Alibaba reste le choix le plus sûr par défaut : documentation la plus complète, réseau de partenaires le plus étendu, plateforme la plus mature.
 
-Huawei Cloud et Tencent Cloud se partagent le niveau suivant. Huawei se situe entre 12 % et 19 % et s'impose pour les projets d'entreprise et le secteur public. Si vous travaillez avec des entreprises d'État chinoises ou tout ce qui gravite autour du secteur public, Huawei est souvent le choix attendu, pas simplement une préférence. Tencent détient 11 % à 16 % et constitue le choix évident si votre stratégie implique les mini-programmes WeChat ou les services QQ. L'intégration WeChat à elle seule en fait la solution par défaut pour les entreprises qui construisent autour de cette plateforme.
+Huawei Cloud et Tencent Cloud se partagent le second rang. Huawei, entre 12 et 19 % du marché, est le partenaire de référence pour les projets d'entreprise et le secteur public. Si vos interlocuteurs sont des entreprises d'État ou des organismes proches du gouvernement, Huawei est souvent attendu, plus que simplement préféré. Tencent, entre 11 et 16 %, est le choix évident pour toute stratégie impliquant les mini-programmes WeChat ou les services QQ. L'intégration WeChat en fait la solution par défaut pour les entreprises qui se développent autour de cette plateforme.
 
-Baidu Cloud occupe une niche. Environ 5 % de part de marché, centré sur l'IA et l'apprentissage automatique. Pertinent si votre stack technique fait la part belle à l'IA. Ce n'est pas là que la plupart des entreprises commencent pour de l'hébergement classique.
+Baidu Cloud occupe une niche. Environ 5 % du marché, centré sur l'intelligence artificielle et l'apprentissage automatique. Pertinent si votre infrastructure technique est fortement orientée IA. Rarement le point de départ pour un hébergement classique.
 
-Reste AWS Chine. Les entreprises étrangères s'y dirigent parce que le nom leur est familier. Environ 7 % de part de marché, opéré à travers les partenaires locaux Sinnet et NWCD. Un point crucial à comprendre : AWS Chine est une entité entièrement distincte. Comptes séparés. Facturation séparée. Processus de conformité séparé. Ce n'est pas votre AWS mondial avec une région chinoise greffée dessus.
+Reste AWS Chine. Les entreprises étrangères s'y tournent par réflexe, le nom leur étant familier. Environ 7 % du marché, opéré via les partenaires locaux Sinnet et NWCD. Point essentiel : AWS Chine est une entité totalement distincte. Comptes séparés. Facturation séparée. Processus de conformité séparé. Ce n'est pas votre AWS mondial avec une région chinoise en plus.
 
-> AWS Chine est une entité entièrement distincte d'AWS mondial. Comptes différents, facturation différente, conformité différente. Ne présumez pas que c'est le même produit.
+> AWS Chine est une entité totalement distincte d'AWS mondial. Comptes différents, facturation différente, conformité différente. Ne partez pas du principe que c'est le même produit.
 
-Les entreprises qui font cette supposition se retrouvent face à de mauvaises surprises lors de la mise en place.
+Les entreprises qui font cette hypothèse se retrouvent surprises au moment de la mise en place.
 
 ## Chine continentale, Hong Kong ou étranger
 
@@ -40,37 +40,37 @@ Les entreprises qui font cette supposition se retrouvent face à de mauvaises su
 |---|---|---|---|
 | **Temps de chargement** | Moins d'une seconde | 50 à 150 ms de latence | 300 à 500 ms+ de latence |
 | **ICP requis** | Oui | Non | Non |
-| **Bonus SEO Baidu** | Oui | Non | Non |
+| **Avantage SEO Baidu** | Oui | Non | Non |
 | **Conformité PIPL** | Oui | Non | Non |
 | **Risque Grand Pare-feu** | Aucun | Faible | Élevé (perte de paquets + blocage) |
 
-L'emplacement physique de vos serveurs détermine tout le reste - choix du fournisseur, configuration CDN, stratégie Baidu. Si vous vous trompez sur ce point, rien en aval ne pourra le corriger.
+L'emplacement physique de vos serveurs conditionne tout le reste : choix du fournisseur, configuration CDN, stratégie Baidu. Une erreur à ce stade ne se rattrape pas en aval.
 
-**La Chine continentale** est la bonne réponse si vous êtes sérieux dans votre volonté d'atteindre les utilisateurs chinois. Temps de chargement inférieurs à une seconde. Baidu traite l'hébergement continental comme un signal de confiance. Le PIPL l'exige. Oui, vous avez besoin d'une licence ICP, mais la procédure de Bei'an est gérable pour la plupart des entreprises étrangères. Si votre public est en Chine, vos serveurs doivent l'être aussi.
+**La Chine continentale** est la bonne réponse dès lors que l'on cible sérieusement les utilisateurs chinois. Temps de chargement inférieurs à une seconde. Baidu y voit un signal de confiance. Le PIPL l'impose. Certes, il faut une licence ICP, mais la procédure de Bei'an est à la portée de la plupart des entreprises étrangères. Si votre audience est en Chine, vos serveurs doivent l'être aussi.
 
-> Les sites hébergés en Chine continentale chargent en moins d'une seconde. Les sites hébergés à l'étranger affichent 300 à 500 ms avant même que le Grand Pare-feu n'entre en jeu.
+> Un site hébergé en Chine continentale charge en moins d'une seconde. Un site hébergé à l'étranger part déjà avec 300 à 500 ms de latence, avant même que le Grand Pare-feu n'intervienne.
 
-**Hong Kong** fonctionne comme un tremplin. Pas d'ICP nécessaire, latence vers le continent de 50 à 150 millisecondes, et c'est une option raisonnable pour les entreprises qui testent le marché avant de passer par le processus ICP complet. Convenable aussi pour les sites qui desservent à la fois un public chinois et international depuis un même emplacement. Mais ne vous faites pas d'illusions - c'est un compromis. Pas une solution pérenne pour quiconque veut se positionner sur Baidu ou répondre aux exigences du PIPL.
+**Hong Kong** fait office de tremplin. Pas d'ICP nécessaire, latence vers le continent de 50 à 150 millisecondes, et c'est une option acceptable pour les entreprises qui testent le marché avant de s'engager dans le processus ICP complet. Convenable aussi pour les sites qui desservent à la fois un public chinois et international depuis un même emplacement. Mais autant le dire clairement : c'est un compromis, pas une solution pérenne pour qui veut se positionner sur Baidu ou satisfaire aux exigences du PIPL.
 
-Enfin, il y a **l'hébergement à l'étranger depuis les États-Unis ou l'Europe.** C'est le choix que font les entreprises qui veulent éviter le processus ICP dans son intégralité. Le compromis est rude. La latence atteint au minimum 300 à 500 millisecondes. Le Grand Pare-feu ajoute des pertes de paquets par-dessus. Et il existe un risque réel que le site soit purement et simplement bloqué. Pas de signal de confiance Baidu, pas de conformité PIPL, et des temps de chargement si lents que la plupart des utilisateurs chinois fermeront l'onglet avant que votre page ait fini de s'afficher. Si vous hébergez à Francfort pour servir des utilisateurs à Shenzhen, vous les perdez avant même qu'ils ne voient votre page d'accueil.
+Enfin, **l'hébergement à l'étranger depuis les États-Unis ou l'Europe**. C'est l'option de ceux qui veulent éviter le processus ICP. Le prix à payer est élevé. Latence de 300 à 500 millisecondes au minimum. Le Grand Pare-feu ajoute des pertes de paquets par-dessus. Et le risque de blocage pur et simple du site est réel. Pas de signal de confiance Baidu, pas de conformité PIPL, et des temps de chargement si longs que la plupart des utilisateurs chinois fermeront l'onglet avant que la page ne s'affiche. Héberger à Francfort pour servir des utilisateurs à Shenzhen, c'est les perdre avant même qu'ils ne voient la page d'accueil.
 
 ## Les fournisseurs CDN qui fonctionnent réellement en Chine
 
-| Fournisseur | Avantage clé |
+| Fournisseur | Avantage principal |
 |---|---|
 | Alibaba Cloud CDN | Plus grand réseau de PoP en Chine, écosystème Alibaba |
-| Tencent Cloud CDN | Idéal pour les services intégrés à WeChat/QQ |
+| Tencent Cloud CDN | Optimal pour les services liés à WeChat/QQ |
 | ChinaCache | Pionnier du CDN en Chine, réseau domestique étendu |
 | Cloudflare Chine | Via partenariat avec JD Cloud, forfait entreprise requis |
 
-Un CDN ne corrigera pas un mauvais choix d'hébergement, mais en Chine il peut faire la différence entre un site qui charge et un qui atteint le délai d'expiration. L'exigence déterminante : des points de présence physiquement situés en Chine continentale. Un CDN mondial sans PoP en Chine ne vous sera d'aucune aide.
+Un CDN ne corrige pas un mauvais choix d'hébergement, mais en Chine il peut décider si un site se charge ou non. Le critère déterminant : disposer de points de présence physiquement situés en Chine continentale. Un CDN mondial sans PoP en Chine ne résout rien.
 
-> L'exigence CDN déterminante : des points de présence physiquement en Chine continentale. Tout le reste est secondaire.
+> Le critère CDN déterminant : des points de présence physiquement en Chine continentale. Tout le reste est secondaire.
 
-**Alibaba Cloud CDN** possède le plus grand réseau de PoP en Chine et s'intègre directement à l'écosystème Alibaba. Si vous êtes déjà sur Alibaba Cloud, c'est le choix par défaut. Inutile de chercher ailleurs.
+**Alibaba Cloud CDN** possède le plus vaste réseau de PoP en Chine et s'intègre directement à l'écosystème Alibaba. Pour les clients déjà sur Alibaba Cloud, c'est le choix par défaut. Inutile de chercher ailleurs.
 
-**Tencent Cloud CDN** est la solution à adopter si vos services sont connectés à WeChat ou QQ. L'intégration avec les plateformes de messagerie de Tencent gère ce trafic plus efficacement que toute autre offre disponible.
+**Tencent Cloud CDN** s'impose si vos services sont connectés à WeChat ou QQ. L'intégration avec les plateformes de messagerie de Tencent gère ce trafic plus efficacement que toute autre offre du marché.
 
-**ChinaCache** est le nom le plus ancien du CDN chinois. En activité depuis plus longtemps que la plupart des solutions basées sur le cloud. Réseau domestique étendu, large couverture, bilan éprouvé.
+**ChinaCache** est le doyen du CDN chinois. En activité depuis plus longtemps que la plupart des solutions cloud. Réseau domestique étendu, large couverture, longue expérience du terrain.
 
-**Le réseau Cloudflare Chine** fonctionne via un partenariat avec JD Cloud. Il offre aux entreprises déjà sur Cloudflare au niveau mondial un accès au marché chinois, mais un forfait entreprise est requis. Ce n'est pas quelque chose que l'on configure via une inscription en libre-service.
+**Le réseau Cloudflare Chine** fonctionne via un partenariat avec JD Cloud. Il offre aux entreprises déjà clientes de Cloudflare au niveau mondial un point d'entrée vers la Chine, mais un forfait entreprise est requis. Pas d'inscription en libre-service.

@@ -1,9 +1,7 @@
 ---
-question: "Etes-vous reellement, physiquement en Chine ? Pas simplement en train de \"desservir\" le marche chinois ?"
+question: "Êtes-vous réellement, physiquement en Chine ? Pas simplement en train de « desservir » le marché chinois ?"
 order: 12
 category: "team"
 ---
 
-Oui. L'equipe est en Chine continentale. Nous testons sur les reseaux locaux, pas a travers un VPN depuis un autre pays. Nous echangeons avec les hebergeurs chinois et les portails gouvernementaux en mandarin. Nous deposons nous-memes les dossiers ICP. Quand un probleme survient a deux heures du matin, heure de Pekin, nous sommes dans le meme fuseau horaire pour le traiter, pas en train de decouvrir six heures plus tard une chaine de courriels decrivant le souci.
-
-Si nous insistons sur ce point, c'est parce que nous avons constate ce qui arrive lorsque des entreprises collaborent avec des agences qui revendiquent une expertise Chine mais operent en realite depuis Londres, Singapour ou ailleurs. Tout fonctionne jusqu'au jour ou un vrai probleme survient. La, le temps de reaction n'est plus au rendez-vous, le debogage bute parce qu'ils testent de l'exterieur du Grand Pare-feu, et l'ensemble s'enlise. Nous n'avons pas ce probleme.
+Oui. L'équipe est en Chine continentale. Nous testons sur les réseaux locaux, pas à travers un VPN. Nous échangeons en mandarin avec les hébergeurs et les portails gouvernementaux, déposons nous-mêmes les dossiers ICP, et quand un problème survient à deux heures du matin heure de Pékin, nous sommes dans le même fuseau horaire. Les agences qui revendiquent une expertise Chine depuis Londres ou Singapour finissent tôt ou tard par buter sur un vrai problème : temps de réaction insuffisant, débogage faussé par des tests depuis l'extérieur du Grand Pare-feu. Nous n'avons pas cette difficulté.

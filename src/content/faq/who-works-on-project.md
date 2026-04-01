@@ -4,6 +4,6 @@ order: 24
 category: "team"
 ---
 
-We get this one a lot. Every project has a bilingual PM as the main point of contact, from kickoff through post-launch. Working team includes WordPress developers with five-plus years of China-specific experience, DevOps people who manage Chinese cloud environments every day (not as a side thing), a UX designer who works within Chinese conventions, native Chinese copywriters, a Baidu SEO person, security and compliance staff.
+Every project has a bilingual PM as main point of contact from kickoff through post-launch. Working team: WordPress developers with five-plus years of China-specific experience, DevOps managing Chinese cloud environments daily, a UX designer working within Chinese conventions, native Chinese copywriters, a Baidu SEO specialist, and security and compliance staff.
 
-You meet the team that's going to build it before we start. Same people from the proposal do the work. We've heard enough horror stories about agencies where the senior team pitches and then a completely different group of juniors actually delivers. We don't operate like that and it's a deliberate choice.
+You meet the build team before we start. Same people from the proposal do the work. No bait-and-switch with senior pitchers and junior deliverers.

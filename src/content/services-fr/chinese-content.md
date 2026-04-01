@@ -1,26 +1,26 @@
 ---
 title: "Contenu chinois"
 shortTitle: "Contenu"
-description: "Rédaction en chinois natif, transcréation et gestion de contenu pour WordPress en Chine. Du contenu optimisé pour Baidu, rédigé par des locuteurs natifs, directement dans votre CMS."
+description: "Rédaction chinoise native, transcréation et gestion de contenu pour WordPress en Chine. Des textes pensés pour Baidu, écrits par des locuteurs natifs, publiés directement dans votre CMS."
 metaTitle: "Contenu chinois pour WordPress en Chine | CWF"
-metaDescription: "Rédaction chinoise native, transcréation et gestion de contenu pour WordPress en Chine. Contenu optimisé pour Baidu par des locuteurs natifs. Agence basée en Chine."
+metaDescription: "Rédaction chinoise native, transcréation et gestion de contenu pour WordPress en Chine. Contenu optimisé pour Baidu, rédigé par des professionnels de langue maternelle. Agence basée en Chine."
 icon: "languages"
 order: 5
 keywords: ["contenu chinois wordpress", "traduction wordpress chinois", "localisation chine", "rédaction chinoise", "contenu baidu", "transcréation chinois"]
 relatedServices: ["baidu-seo", "ux-ui-design"]
 ---
 
-## Ce qui est inclus
+## Ce que nous faisons
 
-Nous créons, adaptons et gérons du contenu en chinois natif pour votre site WordPress. Optimisé pour Baidu, culturellement pertinent et publié directement dans votre CMS.
+Nous produisons, adaptons et gérons du contenu en chinois natif pour votre site WordPress. Chaque texte est optimisé pour Baidu, culturellement ancré et publié dans votre CMS.
 
-## Livrables principaux
+## Livrables clés
 
-- **Stratégie de contenu** - recherche de mots-clés via Baidu Index et Baidu Keyword Planner, analyse concurrentielle, planification éditoriale calée sur les grandes dates commerciales chinoises
-- **Rédaction native** - contenu original en chinois rédigé par des professionnels de langue maternelle, conçu pour le classement Baidu et les habitudes de lecture chinoises
-- **Transcréation** - adaptation du message de marque qui préserve l'intention tout en reconstruisant le propos pour qu'il résonne culturellement en Chine
-- **Gestion de contenu WordPress** - flux de travail multilingues, configuration de Gutenberg pour la publication en chinois, migration de contenu et formation des équipes
+- **Stratégie de contenu** - recherche de mots-clés via Baidu Index et Baidu Keyword Planner, analyse concurrentielle, calendrier éditorial calé sur les temps forts commerciaux chinois
+- **Rédaction native** - contenu original en chinois, rédigé par des professionnels de langue maternelle, pensé pour le classement Baidu et les habitudes de lecture locales
+- **Transcréation** - votre message de marque est reconstruit, pas traduit. L'intention reste intacte, le propos résonne auprès du public chinois
+- **Gestion de contenu WordPress** - flux de travail multilingues, configuration Gutenberg pour la publication en chinois, migration de contenu et formation de vos équipes
 
-## À qui s'adresse ce service
+## À qui ce service s'adresse
 
-Aux entreprises qui lancent un site WordPress en langue chinoise, aux sociétés dont le contenu traduit est devenu obsolète et que Baidu ne référence plus, aux équipes marketing qui préparent des campagnes pour les consommateurs chinois, et aux équipes e-commerce qui ont besoin de fiches produits rédigées dans les règles pour le marché chinois.
+Vous lancez un site WordPress en langue chinoise. Votre contenu traduit vieillit mal et Baidu ne le référence plus. Votre équipe marketing prépare des campagnes pour les consommateurs chinois. Ou votre pôle e-commerce a besoin de fiches produits rédigées dans les règles pour le marché local. Nous répondons à chacune de ces situations.
