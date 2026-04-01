@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import Button from '../ui/Button.astro';
+
+const services = (await getCollection('services-fr')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<!-- Our Services: two-column layout with sticky heading + vertical list -->
+<section id="OurServices" class="pt-16 md:pt-20 lg:pt-24 pb-24 md:pb-32 lg:pb-40">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <div class="flex flex-col lg:flex-row lg:gap-20 xl:gap-28">
+      <!-- Left: sticky heading -->
+      <div class="lg:w-[38%] flex-shrink-0 mb-12 lg:mb-0 lg:sticky lg:top-32 lg:self-start">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+          Nos services
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+          Solutions WordPress complètes pour la Chine
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+          De la stratégie à la maintenance, nous gérons chaque aspect de votre présence WordPress en Chine.
+        </p>
+        <div class="mt-10">
+          <Button href="/fr/contact/" variant="primary" size="md">Commencer</Button>
+        </div>
+      </div>
+
+      <!-- Right: service list -->
+      <div class="flex-1">
+        {services.map((service) => (
+          <a
+            href={`/fr/services/${service.id}/`}
+            class="group flex items-start gap-6 py-8 border-t border-[var(--color-surface-border)] no-underline transition-colors last:border-b"
+          >
+            <div class="flex-1">
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] group-hover:text-[var(--color-brand-orange)] transition-colors leading-snug mb-3">
+                {service.data.title}
+              </h3>
+              <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-xl">
+                {service.data.description}
+              </p>
+            </div>
+            <div class="flex-shrink-0 mt-1 text-[var(--color-text-muted)] group-hover:text-[var(--color-brand-orange)] group-hover:translate-x-1 transition-all duration-200">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

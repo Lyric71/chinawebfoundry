@@ -1,0 +1,23 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import Button from '../../components/ui/Button.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('fr');
+---
+
+<PageLayout
+  title="Page introuvable | ChinaWebFoundry"
+  description="La page que vous recherchez n'existe pas."
+  lang="fr"
+>
+  <section class="section-spacing">
+    <Container class="text-center">
+      <h1 class="text-6xl font-semibold font-[var(--font-heading)] text-[var(--color-brand-orange)] mb-4">{t('404.title')}</h1>
+      <p class="text-xl text-[var(--color-text-dark)] font-[var(--font-heading)] mb-2">{t('404.heading')}</p>
+      <p class="text-[var(--color-text-body)] mb-8">{t('404.text')}</p>
+      <Button href="/fr/" variant="primary" size="lg">{t('404.backHome')}</Button>
+    </Container>
+  </section>
+</PageLayout>

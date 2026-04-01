@@ -1,0 +1,294 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQAccordion from '../../components/pages/FAQAccordion.astro';
+import { getCollection } from 'astro:content';
+
+const teamMembers = (await getCollection('team-fr')).sort((a, b) => a.data.order - b.data.order);
+
+const departments = [
+  {
+    title: 'Ingénierie WordPress',
+    subtitle: 'Plus de 5 ans d\'expérience par ingénieur, centrée sur la Chine',
+    description: 'Développeurs seniors spécialisés dans les architectures multisite et multilingues, le WordPress headless, la gouvernance des extensions, les pipelines CI/CD et l\'optimisation des performances spécifiquement adaptée aux conditions réseau chinoises.',
+  },
+  {
+    title: 'Infrastructure et DevOps',
+    subtitle: 'Alibaba Cloud, Tencent Cloud et serveurs dédiés',
+    description: 'Ingénieurs qui gèrent nos propres serveurs et déploiements cloud, experts en optimisation CDN, mise en cache, observabilité, reprise après sinistre et équilibre coût-performance pour la Chine continentale.',
+  },
+  {
+    title: 'Design UX/UI pour la Chine',
+    subtitle: 'Équipe de design 100 % locale',
+    description: 'Designers qui conçoivent pour les attentes réelles des utilisateurs chinois : intégrations WeChat et Alipay, mises en page mobile-first, expérience de paiement et schémas de navigation perçus comme natifs par les internautes chinois.',
+  },
+  {
+    title: 'Rédaction et localisation en chinois',
+    subtitle: 'Bien au-delà de la traduction',
+    description: 'Rédacteurs natifs qui réécrivent le contenu anglais avec un ton culturellement pertinent, aligné sur les intentions de recherche locales et optimisé pour le SEO, afin qu\'il se lise naturellement en chinois et convainque les audiences locales.',
+  },
+  {
+    title: 'Référencement Baidu et recherche chinoise',
+    subtitle: 'Expertise native de Baidu',
+    description: 'Spécialistes SEO qui optimisent pour les facteurs de classement propres à Baidu, ses exigences d\'indexation et les comportements de recherche chinois. Ce ne sont pas des pratiques SEO occidentales transposées en Chine.',
+  },
+  {
+    title: 'Sécurité et conformité',
+    subtitle: 'Durcissement WordPress et accompagnement réglementaire',
+    description: 'Spécialistes qui déploient WAF, audits d\'extensions, sauvegardes chiffrées, gestion des vulnérabilités, et vous accompagnent sur la licence ICP/备案 et les exigences de résidence des données.',
+  },
+  {
+    title: 'Gestion de projet et réussite client',
+    subtitle: 'Chefs de projet bilingues, trait d\'union entre équipes internationales et chinoises',
+    description: 'Chefs de projet qui pilotent les sprints, suivent l\'avancement, gèrent les risques et assurent une communication claire avec des critères d\'acceptation définis, une livraison continue et un reporting mensuel.',
+  },
+];
+
+const values = [
+  {
+    title: 'Conçu pour la Chine, pas adapté après coup',
+    description: 'Nous ne transposons pas des solutions occidentales pour la Chine. Nous construisons avec une perspective native chinoise, en maîtrisant l\'infrastructure, les comportements des utilisateurs, le cadre réglementaire et les plateformes qui comptent. Notre travail est pensé pour réussir en Chine dès le premier jour.',
+  },
+  {
+    title: 'Des résultats mesurables, pas des mots à la mode',
+    description: 'Nous définissons le succès par des indicateurs vérifiables : Core Web Vitals depuis la Chine continentale, indexabilité sur Baidu, disponibilité, performances du contenu localisé. Chaque livrable est lié à un engagement mesurable.',
+  },
+  {
+    title: 'Transparence et responsabilité',
+    description: 'Nous travaillons avec des feuilles de route claires, des critères d\'acceptation et des registres de risques. Vous savez ce qui est construit, pourquoi et quand. Si un obstacle bloque le projet, vous l\'apprenez de nous en premier, avec un plan de mitigation déjà en cours.',
+  },
+  {
+    title: 'Partenariat sur le long terme',
+    description: 'Lancer un site WordPress en Chine n\'est pas un événement ponctuel. Notre structure est conçue pour l\'optimisation continue, la sécurité, le suivi des performances et l\'amélioration permanente. Nous réussissons quand votre présence en Chine prospère dans la durée.',
+  },
+];
+---
+
+<PageLayout
+  title="Qui sommes-nous | ChinaWebFoundry - Agence WordPress Chine"
+  description="Découvrez l'équipe de ChinaWebFoundry basée en Chine. Plus de 30 spécialistes en ingénierie WordPress, référencement Baidu, UX chinoise et infrastructure, conçue pour livrer en Chine."
+  heroPage={true}
+  lang="fr"
+>
+  <!-- Hero intro -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/hero-who-we-are.webp"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32 lg:pb-40">
+      <div class="io-grid items-start gap-y-10">
+        <div class="col-span-12 lg:col-span-6">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Qui sommes-nous
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+            Enracinés localement, construits pour des standards internationaux
+          </h1>
+        </div>
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-10">
+          <p class="text-lg text-white/60 leading-relaxed">
+            Si vous êtes hors de Chine mais avez besoin d'une présence WordPress à l'intérieur de la Chine, nous comblons cet écart. Nous parlons les deux langues, au sens propre comme au sens technique.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team departments: split layout with divider list -->
+  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <!-- Left: heading + CTA -->
+        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Notre équipe
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Structurée pour livrer en Chine
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+            Nous sommes une équipe pluridisciplinaire et bilingue organisée autour d'un seul objectif : faire fonctionner WordPress de manière fiable et performante pour le marché chinois.
+          </p>
+          <div class="mt-10">
+            <Button href="/fr/contact/" variant="primary" size="md">Travaillez avec nous</Button>
+          </div>
+        </div>
+
+        <!-- Right: department list with dividers -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="divider-list border-t border-[var(--color-surface-border)]">
+            {departments.map((dept) => (
+              <div class="py-8">
+                <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+                  {dept.title}
+                </h3>
+                <p class="mt-1 text-sm font-medium text-[var(--color-brand-orange)]">
+                  {dept.subtitle}
+                </p>
+                <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
+                  {dept.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section class="py-24 md:py-32 lg:py-40">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <div class="col-span-12 lg:col-span-5">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Direction
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Les visages derrière ChinaWebFoundry
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-12">
+            {teamMembers.map((member) => (
+              <div class="flex flex-col sm:flex-row gap-6 items-start">
+                {member.data.linkedin ? (
+                  <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" class="flex-shrink-0">
+                    <img
+                      src={member.data.photo}
+                      alt={`Photo de ${member.data.name}`}
+                      class="w-32 h-32 rounded-full object-cover"
+                      width="128"
+                      height="128"
+                      loading="lazy"
+                    />
+                  </a>
+                ) : (
+                  <img
+                    src={member.data.photo}
+                    alt={`Photo de ${member.data.name}`}
+                    class="w-32 h-32 rounded-full object-cover flex-shrink-0"
+                    width="128"
+                    height="128"
+                    loading="lazy"
+                  />
+                )}
+                <div>
+                  <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                    {member.data.name}
+                  </h3>
+                  <p class="text-sm font-medium text-[var(--color-brand-orange)] mt-1">
+                    {member.data.role}
+                  </p>
+                  <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
+                    {member.data.bio}
+                  </p>
+                  {(member.data.linkedin || member.data.substack) && (
+                    <div class="flex items-center gap-4 mt-3">
+                      {member.data.linkedin && (
+                        <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] transition-colors" aria-label={`${member.data.name} sur LinkedIn`}>
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                          </svg>
+                        </a>
+                      )}
+                      {member.data.substack && (
+                        <a href={member.data.substack} target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] transition-colors" aria-label={`${member.data.name} sur Substack`}>
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values: dark section -->
+  <section class="relative bg-[var(--color-surface-dark)] py-24 md:py-32 lg:py-40 overflow-hidden">
+    <!-- Subtle background decoration -->
+    <div class="absolute inset-0 opacity-[0.04]">
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white to-transparent"></div>
+      <div class="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-[var(--color-brand-orange)]" style="filter: blur(120px);"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <!-- Left: heading -->
+        <div class="col-span-12 lg:col-span-5">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Nos valeurs
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.1]">
+            Les principes qui guident chacun de nos projets
+          </h2>
+        </div>
+
+        <!-- Right: values list -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-10">
+            {values.map((v) => (
+              <div>
+                <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-white leading-snug">
+                  {v.title}
+                </h3>
+                <p class="mt-3 text-base text-white/60 leading-relaxed">
+                  {v.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: split layout -->
+  <section class="py-24 md:py-32 lg:py-40">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            FAQ
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Questions fréquentes sur notre équipe
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <FAQAccordion />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Envie de travailler avec nous ?
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">
+        Nous serions ravis d'en savoir plus sur votre projet. Contactez-nous et nous vous répondrons sous 24 heures.
+      </p>
+      <Button href="/fr/contact/" variant="primary" size="lg">Contactez-nous</Button>
+    </div>
+  </section>
+</PageLayout>

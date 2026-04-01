@@ -1,0 +1,613 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-ffff-ffff-ffff-000000000001';
+---
+
+<PageLayout
+  title="China Site Scanner | Test Your Website's China Readiness | ChinaWebFoundry"
+  description="Free tool to scan your website for resources blocked by the Great Firewall. Check if Google Fonts, Analytics, reCAPTCHA, YouTube, and other services will break your site in China."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-[var(--color-surface-dark)] text-white section-padding pt-20 pb-28 md:pt-28 md:pb-36">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/china-site-scanner-hero.webp"
+        alt=""
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-[var(--color-surface-dark)]/92"></div>
+    </div>
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-[0.04]" id="grid-bg">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+    <!-- Radial glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[var(--color-brand-orange)] opacity-[0.06] blur-[120px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-3xl text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-[var(--color-brand-orange)] mb-6 scanner-fade-in">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+        Free tool
+      </div>
+      <h1 class="text-4xl md:text-6xl font-semibold font-[var(--font-heading)] leading-tight mb-5 text-white scanner-fade-in scanner-fade-in-delay-1">China Site Scanner</h1>
+      <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 scanner-fade-in scanner-fade-in-delay-2">
+        Check if your website will work behind the Great Firewall. We scan for 20 services blocked in China.
+      </p>
+
+      <!-- ═══ GATE FORM ═══ -->
+      <div id="gate-form-wrapper" class="scanner-fade-in scanner-fade-in-delay-3">
+        <form id="gate-form" class="relative max-w-md mx-auto text-left">
+          <div class="space-y-3">
+            <input
+              type="text"
+              id="gate-name"
+              name="name"
+              placeholder="Your name"
+              required
+              autocomplete="name"
+              class="w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
+            />
+            <input
+              type="text"
+              id="gate-company"
+              name="company"
+              placeholder="Company name"
+              required
+              autocomplete="organization"
+              class="w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
+            />
+            <input
+              type="text"
+              id="gate-website"
+              name="website"
+              placeholder="Website URL (e.g. example.com)"
+              required
+              autocomplete="url"
+              class="w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
+            />
+            <input
+              type="email"
+              id="gate-email"
+              name="email"
+              placeholder="Work email"
+              required
+              autocomplete="email"
+              class="w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
+            />
+          </div>
+          <!-- hCaptcha -->
+          <div class="mt-4 flex justify-center">
+            <div id="gate-hcaptcha" class="h-captcha" data-sitekey={hcaptchaSiteKey} data-theme="dark" data-size="compact"></div>
+          </div>
+          <button
+            type="submit"
+            id="gate-btn"
+            class="w-full mt-4 group inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-medium font-[var(--font-button)] text-white bg-[var(--color-brand-orange)] rounded-xl hover:bg-[var(--color-brand-orange-hover)] active:bg-[var(--color-brand-orange-active)] transition-all duration-200 hover:shadow-[0_8px_30px_rgba(242,95,41,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+          >
+            <svg id="gate-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <svg id="gate-spinner" class="hidden animate-spin w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span id="gate-btn-text">Scan my website</span>
+          </button>
+          <div id="gate-error" class="hidden mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-300 text-sm"></div>
+        </form>
+        <p class="text-white/50 text-xs mt-5">Scans Google Fonts, reCAPTCHA, Analytics, YouTube, Jetpack, and 15 more services</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading state -->
+  <div id="loading-state" class="hidden">
+    <section class="section-padding py-16 md:py-24">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="relative inline-flex items-center justify-center w-16 h-16 mb-6">
+          <div class="absolute inset-0 rounded-full border-2 border-[var(--color-surface-border)] opacity-30"></div>
+          <div class="absolute inset-0 rounded-full border-2 border-t-[var(--color-brand-orange)] animate-spin"></div>
+          <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Scanning your website</h2>
+        <p class="text-[var(--color-text-muted)] mb-8">Fetching HTML and JavaScript files, checking for blocked resources...</p>
+        <div class="max-w-md mx-auto">
+          <div class="h-1.5 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
+            <div id="progress-bar" class="h-full bg-[var(--color-brand-orange)] rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+          </div>
+          <div class="flex justify-between mt-3 text-xs text-[var(--color-text-muted)]">
+            <span id="progress-step">Connecting...</span>
+            <span id="progress-pct">0%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Results -->
+  <div id="results" class="hidden">
+    <section class="section-padding py-10 md:py-14 border-b border-[var(--color-surface-border)]">
+      <div class="mx-auto max-w-[var(--container-page)]">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div class="relative shrink-0">
+            <svg class="w-36 h-36 -rotate-90" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" stroke-width="8" fill="none" class="stroke-[var(--color-surface-border)]" />
+              <circle id="score-ring" cx="60" cy="60" r="52" stroke-width="8" fill="none" stroke-linecap="round" class="transition-all duration-1000 ease-out" style="stroke-dasharray: 326.73; stroke-dashoffset: 326.73;" />
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span id="score-number" class="text-4xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">0</span>
+              <span class="text-xs text-[var(--color-text-muted)] -mt-0.5">/ 100</span>
+            </div>
+          </div>
+          <div class="flex-1 text-center md:text-left">
+            <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Scan Results</h2>
+            <p id="results-url" class="text-sm text-[var(--color-text-muted)] mb-5 break-all"></p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-6">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-[var(--color-surface-border)]"></div>
+                <span class="text-sm text-[var(--color-text-body)]"><strong id="total-count" class="font-semibold">0</strong> checks</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-sm text-[var(--color-text-body)]"><strong id="passed-count" class="font-semibold text-green-600">0</strong> passed</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <span class="text-sm text-[var(--color-text-body)]"><strong id="failed-count" class="font-semibold text-red-600">0</strong> failed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-padding py-10 md:py-14">
+      <div class="mx-auto max-w-[var(--container-page)]">
+        <div id="check-groups" class="space-y-10"></div>
+
+        <div class="mt-14 relative overflow-hidden rounded-2xl bg-[var(--color-surface-dark)] p-6 md:p-14 text-center">
+          <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-[var(--color-brand-orange)] opacity-[0.08] blur-[100px] pointer-events-none"></div>
+          <div class="relative">
+            <h3 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-white mb-3">Need help fixing these issues?</h3>
+            <p class="text-white/60 mb-8 max-w-lg mx-auto">Our team specialises in migrating WordPress sites behind China's Great Firewall. We handle all the technical changes so your site works flawlessly.</p>
+            <a
+              href="/contact/"
+              class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-medium font-[var(--font-button)] text-white bg-[var(--color-brand-orange)] rounded-[var(--radius-pill)] hover:bg-[var(--color-brand-orange-hover)] hover:shadow-[0_8px_30px_rgba(242,95,41,0.4)] hover:-translate-y-0.5 active:translate-y-0 no-underline transition-all duration-200"
+            >
+              Get a Free Assessment
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="section-padding py-14 md:py-20 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[var(--container-page)]">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">How it works</h2>
+        <p class="text-[var(--color-text-muted)] max-w-lg mx-auto">Three simple steps to check your website's China compatibility</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div class="relative text-center group" data-animate>
+          <div class="w-14 h-14 rounded-2xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5 mx-auto transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Enter your details</h3>
+          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">Fill in your name, company, website, and email to get instant access to the scanner.</p>
+          <div class="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] border-t border-dashed border-[var(--color-surface-border)]"></div>
+        </div>
+        <div class="relative text-center group" data-animate>
+          <div class="w-14 h-14 rounded-2xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5 mx-auto transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">We run 20 checks</h3>
+          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">We scan HTML and JavaScript for resources hosted on domains blocked by the Great Firewall.</p>
+          <div class="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] border-t border-dashed border-[var(--color-surface-border)]"></div>
+        </div>
+        <div class="text-center group" data-animate>
+          <div class="w-14 h-14 rounded-2xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5 mx-auto transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Get your report</h3>
+          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">See what will fail, prioritised by severity, with China-compatible alternatives for each issue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we check -->
+  <section id="what-we-check" class="section-padding py-14 md:py-20">
+    <div class="mx-auto max-w-[var(--container-page)]">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">What we check</h2>
+        <p class="text-[var(--color-text-muted)] max-w-lg mx-auto">Every service below is blocked or degraded behind the Great Firewall</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" id="services-grid">
+        {[
+          { name: 'Google Fonts', color: 'bg-red-500' },
+          { name: 'Google reCAPTCHA', color: 'bg-red-500' },
+          { name: 'Google Analytics / GTM', color: 'bg-red-500' },
+          { name: 'Google Maps', color: 'bg-red-500' },
+          { name: 'YouTube / Vimeo', color: 'bg-red-500' },
+          { name: 'Facebook / Meta Pixel', color: 'bg-red-500' },
+          { name: 'Twitter / X', color: 'bg-red-500' },
+          { name: 'Jetpack / Photon CDN', color: 'bg-red-500' },
+          { name: 'Gravatar', color: 'bg-orange-500' },
+          { name: 'Disqus Comments', color: 'bg-red-500' },
+          { name: 'Stripe / PayPal', color: 'bg-red-500' },
+          { name: 'ICP Filing & Compliance', color: 'bg-blue-500' },
+        ].map((item) => (
+          <div class="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-surface-border)] transition-all duration-200 hover:border-[var(--color-brand-orange)]/30 hover:shadow-sm" data-animate>
+            <div class:list={['w-2 h-2 rounded-full shrink-0', item.color]}></div>
+            <span class="text-sm text-[var(--color-text-body)]">{item.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<!-- hCaptcha script -->
+<script is:inline src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+<style>
+  .scanner-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: scannerFadeIn 0.6s ease-out forwards;
+  }
+  .scanner-fade-in-delay-1 { animation-delay: 0.1s; }
+  .scanner-fade-in-delay-2 { animation-delay: 0.2s; }
+  .scanner-fade-in-delay-3 { animation-delay: 0.35s; }
+
+  @keyframes scannerFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .result-card {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  .result-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  }
+</style>
+
+<script>
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+  /* ── Constants ── */
+  const PRIORITY_META: Record<string, { label: string; tag: string; tagBg: string; description: string }> = {
+    P0: { label: 'Page Will Not Render', tag: 'Critical', tagBg: 'bg-red-100 text-red-700', description: 'Render-blocking resources on fully blocked domains' },
+    P1: { label: 'Core Feature Broken', tag: 'High', tagBg: 'bg-orange-100 text-orange-700', description: 'Essential functionality that will not work in China' },
+    P2: { label: 'Feature Degraded', tag: 'Medium', tagBg: 'bg-yellow-100 text-yellow-700', description: 'Tracking, social embeds, and non-critical resources' },
+    P3: { label: 'Compliance / Legal', tag: 'Info', tagBg: 'bg-blue-100 text-blue-700', description: 'ICP filing and regulatory requirements' },
+  };
+
+  const REPLACEMENTS: Record<string, string> = {
+    'Google Fonts': 'Self-host fonts (WOFF2)',
+    'Google AJAX / CDN Libraries': 'cdn.bootcdn.net, cdn.jsdelivr.net, or self-host',
+    'Gravatar Avatars': 'Cravatar (cravatar.cn) or Simple Local Avatars',
+    'Google reCAPTCHA': 'hCaptcha, Tencent Captcha, or Geetest',
+    'Google Analytics / Tag Manager': 'Baidu Analytics, Matomo, or Umami',
+    'Facebook / Meta Pixel & SDK': 'WeChat or Weibo integrations',
+    'Twitter / X Widgets': 'Weibo share buttons',
+    'YouTube / Vimeo Embeds': 'Youku, Bilibili, or Tencent Video',
+    'Instagram / Pinterest / TikTok Embeds': 'Weibo or WeChat embeds',
+    'Disqus Comments': 'Changyan or native WordPress comments',
+    'Google Maps': 'Baidu Maps or Amap',
+    'Jetpack / WordPress.com / Photon CDN': 'Disable Photon, use Alibaba Cloud CDN',
+    'Payment Gateway JS SDKs': 'Alipay, WeChat Pay, or UnionPay',
+    'External Web Fonts (Non-Google)': 'Self-host all fonts (WOFF2)',
+    'Blocked CDN Resources': 'Self-host or use cdn.jsdelivr.net',
+    'Render-Blocking Scripts on Blocked Domains': 'Remove or self-host these resources',
+    'External Images on Blocked Hosts': 'Self-host images or use Alibaba Cloud CDN',
+    'ICP Filing Number in Footer': 'Obtain ICP filing (requires Chinese business entity)',
+    'WooCommerce / E-Commerce Detection': 'Obtain ICP Commercial Licence',
+    'TLD ICP Eligibility': 'Register a .com, .cn, or .net domain',
+  };
+
+  /* ── DOM refs ── */
+  const gateFormWrapper = document.getElementById('gate-form-wrapper') as HTMLDivElement;
+  const gateForm = document.getElementById('gate-form') as HTMLFormElement;
+  const gateError = document.getElementById('gate-error') as HTMLDivElement;
+
+  const loadingEl = document.getElementById('loading-state') as HTMLDivElement;
+  const resultsEl = document.getElementById('results') as HTMLDivElement;
+  const checkGroups = document.getElementById('check-groups') as HTMLDivElement;
+  const howSection = document.getElementById('how-it-works') as HTMLElement;
+  const whatSection = document.getElementById('what-we-check') as HTMLElement;
+  const progressBar = document.getElementById('progress-bar') as HTMLDivElement;
+  const progressStep = document.getElementById('progress-step') as HTMLSpanElement;
+  const progressPct = document.getElementById('progress-pct') as HTMLSpanElement;
+
+  /* ── Types ── */
+  interface CheckResult {
+    id: number;
+    name: string;
+    description: string;
+    priority: string;
+    status: 'pass' | 'fail';
+    matches: string[];
+  }
+
+  interface ScanData {
+    url: string;
+    checks: CheckResult[];
+    summary: { total: number; passed: number; failed: number };
+  }
+
+  /* ── State ── */
+  let lastScanData: ScanData | null = null;
+  let lastScore = 0;
+
+  /* ── Progress animation ── */
+  let progressInterval: ReturnType<typeof setInterval> | null = null;
+
+  function startProgress() {
+    let pct = 0;
+    const steps = [
+      { at: 5, text: 'Submitting your details...' },
+      { at: 15, text: 'Fetching page HTML...' },
+      { at: 35, text: 'Scanning for blocked resources...' },
+      { at: 55, text: 'Analysing JavaScript files...' },
+      { at: 70, text: 'Detecting WordPress plugins...' },
+      { at: 85, text: 'Checking ICP compliance...' },
+      { at: 95, text: 'Generating report...' },
+    ];
+
+    progressInterval = setInterval(() => {
+      if (pct < 92) {
+        pct += Math.random() * 6 + 1.5;
+        pct = Math.min(pct, 92);
+      }
+      progressBar.style.width = `${pct}%`;
+      progressPct.textContent = `${Math.round(pct)}%`;
+      const currentStep = [...steps].reverse().find((s) => pct >= s.at);
+      if (currentStep) progressStep.textContent = currentStep.text;
+    }, 400);
+  }
+
+  function finishProgress() {
+    if (progressInterval) clearInterval(progressInterval);
+    progressBar.style.width = '100%';
+    progressPct.textContent = '100%';
+    progressStep.textContent = 'Complete';
+  }
+
+  /* ══════════════════════════════════════
+     FORM - collect lead + run scan in one step
+     ══════════════════════════════════════ */
+  gateForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = (document.getElementById('gate-name') as HTMLInputElement).value.trim();
+    const company = (document.getElementById('gate-company') as HTMLInputElement).value.trim();
+    const website = (document.getElementById('gate-website') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('gate-email') as HTMLInputElement).value.trim();
+
+    if (!name || !company || !website || !email) {
+      gateError.textContent = 'All fields are required.';
+      gateError.classList.remove('hidden');
+      return;
+    }
+
+    const captchaToken = (window as any).hcaptcha?.getResponse?.();
+    if (!captchaToken) {
+      gateError.textContent = 'Please complete the captcha verification.';
+      gateError.classList.remove('hidden');
+      return;
+    }
+
+    // Normalise URL
+    let url = website;
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
+    }
+
+    // Switch to loading UI
+    gateError.classList.add('hidden');
+    gateFormWrapper.classList.add('hidden');
+    howSection.classList.add('hidden');
+    whatSection.classList.add('hidden');
+    loadingEl.classList.remove('hidden');
+    progressBar.style.width = '0%';
+    progressPct.textContent = '0%';
+    progressStep.textContent = 'Submitting your details...';
+
+    startProgress();
+
+    try {
+      // Step 1: Send lead email (fire and forget - don't block scan on email delivery)
+      fetch('/api/scanner-access', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, company, website, email, captchaToken }),
+      }).catch(() => {});
+
+      // Step 2: Run the scan
+      const res = await fetch('/api/scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Scan failed.');
+      }
+
+      finishProgress();
+      await new Promise((r) => setTimeout(r, 500));
+
+      loadingEl.classList.add('hidden');
+      renderResults(data);
+
+    } catch (err) {
+      finishProgress();
+      loadingEl.classList.add('hidden');
+      gateFormWrapper.classList.remove('hidden');
+      howSection.classList.remove('hidden');
+      whatSection.classList.remove('hidden');
+      gateError.textContent = err instanceof Error ? err.message : 'An unexpected error occurred.';
+      gateError.classList.remove('hidden');
+      (window as any).hcaptcha?.reset?.();
+    }
+  });
+
+  /* ── Render results ── */
+  function renderResults(data: ScanData) {
+    lastScanData = data;
+    const { total, passed, failed } = data.summary;
+    const score = total > 0 ? Math.round((passed / total) * 100) : 0;
+    lastScore = score;
+
+    const circumference = 326.73;
+    const offset = circumference - (score / 100) * circumference;
+    const ring = document.getElementById('score-ring') as unknown as SVGCircleElement;
+    const scoreColor = score >= 80 ? '#22c55e' : score >= 50 ? '#f59e0b' : '#ef4444';
+    ring.style.stroke = scoreColor;
+    requestAnimationFrame(() => { ring.style.strokeDashoffset = String(offset); });
+
+    const scoreEl = document.getElementById('score-number') as HTMLElement;
+    scoreEl.style.color = scoreColor;
+    animateNumber(scoreEl, 0, score, 800);
+
+    animateNumber(document.getElementById('total-count') as HTMLElement, 0, total, 600);
+    animateNumber(document.getElementById('passed-count') as HTMLElement, 0, passed, 600);
+    animateNumber(document.getElementById('failed-count') as HTMLElement, 0, failed, 600);
+
+    (document.getElementById('results-url') as HTMLElement).textContent = data.url;
+
+    const groups: Record<string, CheckResult[]> = { P0: [], P1: [], P2: [], P3: [] };
+    for (const check of data.checks) {
+      if (groups[check.priority]) groups[check.priority].push(check);
+    }
+
+    checkGroups.innerHTML = '';
+
+    for (const [priority, checks] of Object.entries(groups)) {
+      if (checks.length === 0) continue;
+      const meta = PRIORITY_META[priority];
+      const failedInGroup = checks.filter((c) => c.status === 'fail').length;
+      const passedInGroup = checks.length - failedInGroup;
+
+      const groupEl = document.createElement('div');
+      groupEl.innerHTML = `
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-md ${meta.tagBg}">${meta.tag}</span>
+          <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">${meta.label}</h3>
+        </div>
+        <p class="text-sm text-[var(--color-text-muted)] mb-4">${meta.description}</p>
+        <div class="flex gap-3 mb-5 text-xs">
+          ${failedInGroup > 0 ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 text-red-600 font-medium"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>${failedInGroup} failed</span>` : ''}
+          ${passedInGroup > 0 ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 text-green-600 font-medium"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>${passedInGroup} passed</span>` : ''}
+        </div>
+        <div class="space-y-3">
+          ${checks.map((check) => renderCheck(check)).join('')}
+        </div>
+      `;
+      checkGroups.appendChild(groupEl);
+    }
+
+    resultsEl.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      const cards = resultsEl.querySelectorAll('.result-card');
+      cards.forEach((card, i) => { setTimeout(() => card.classList.add('is-visible'), i * 60); });
+    });
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ── Helpers ── */
+  function animateNumber(el: HTMLElement, from: number, to: number, duration: number) {
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(from + (to - from) * ease));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function escapeHtml(str: string): string {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderCheck(check: CheckResult): string {
+    const isFail = check.status === 'fail';
+    const icon = isFail
+      ? '<svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+      : '<svg class="w-5 h-5 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>';
+
+    const replacement = REPLACEMENTS[check.name] || '';
+    const matchesHtml = isFail && check.matches.length > 0
+      ? `<div class="mt-2.5 space-y-1.5">${check.matches.map((m) => `<code class="block text-xs bg-red-50 text-red-800 px-3 py-1.5 rounded-md break-all font-mono">${escapeHtml(m)}</code>`).join('')}</div>`
+      : '';
+    const replacementHtml = isFail && replacement
+      ? `<div class="mt-2.5 flex items-start gap-2 text-xs text-green-700 bg-green-50 px-3 py-2 rounded-md">
+           <svg class="w-3.5 h-3.5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+           <span><strong>Alternative:</strong> ${escapeHtml(replacement)}</span>
+         </div>`
+      : '';
+
+    return `
+      <div class="result-card border ${isFail ? 'border-red-200/80 bg-red-50/30' : 'border-green-200/80 bg-green-50/30'} rounded-xl p-5 transition-colors duration-200 hover:${isFail ? 'bg-red-50/60' : 'bg-green-50/60'}">
+        <div class="flex items-start gap-3">
+          ${icon}
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <h4 class="text-sm font-semibold text-[var(--color-text-dark)]">${escapeHtml(check.name)}</h4>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${isFail ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}">${isFail ? 'Fail' : 'Pass'}</span>
+            </div>
+            <p class="text-xs text-[var(--color-text-muted)] mt-1 leading-relaxed">${escapeHtml(check.description)}</p>
+            ${matchesHtml}
+            ${replacementHtml}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+</script>

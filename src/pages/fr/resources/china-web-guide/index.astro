@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../../../layouts/PageLayout.astro';
+import Button from '../../../../components/ui/Button.astro';
+
+const guides = (await getCollection('guides-fr'))
+  .filter((guide) => guide.data.published)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const categories = ['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search'] as const;
+---
+
+<PageLayout
+  title="Guide du web chinois | ChinaWebFoundry"
+  description="Articles pratiques sur la gestion d'un site web en Chine. Licences ICP, Grand Pare-feu, référencement Baidu, hébergement et bien plus."
+  heroPage={true}
+  lang="fr"
+>
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0"><div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#1a1a2e] to-[#0f0f12]"></div></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32">
+      <div class="io-grid items-start gap-y-10">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Guide du web chinois</p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">Ce que vous devez savoir<br />sur le web en Chine</h1>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-10">
+          <p class="text-lg text-white/60 leading-relaxed">Des articles pratiques et sans jargon couvrant les réalités de la gestion d'un site web derrière le Grand Pare-feu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters + Articles Grid -->
+  <section class="py-20 md:py-28 lg:py-36">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-wrap gap-2 mb-12" id="guide-filters">
+        <button type="button" class="filter-btn is-active px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border transition-all duration-200 cursor-pointer bg-[var(--color-text-dark)] text-white border-[var(--color-text-dark)]" data-filter="all">Tous</button>
+        {categories.map((cat) => (
+          <button type="button" class="filter-btn px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border transition-all duration-200 cursor-pointer bg-white text-[var(--color-text-body)] border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)]" data-filter={cat}>{cat}</button>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="guide-grid">
+        {guides.map((guide) => (
+          <a href={`/fr/resources/china-web-guide/${guide.id}/`} class="guide-card group flex flex-col bg-white border border-[var(--color-surface-border)] rounded-2xl overflow-hidden no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30" data-category={guide.data.category}>
+            <div class="aspect-[16/9] bg-[var(--color-surface-light)] overflow-hidden">
+              <img src={guide.data.visual} alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+            </div>
+            <div class="flex flex-col flex-1 p-6 lg:p-7">
+              <span class="inline-block self-start px-2.5 py-0.5 rounded-md text-xs font-medium bg-[var(--color-surface-light)] text-[var(--color-text-muted)] mb-3">{guide.data.category}</span>
+              <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">{guide.data.title}</h2>
+              <p class="text-sm text-[var(--color-brand-orange)] font-medium mb-3 line-clamp-2">{guide.data.subtitle}</p>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-6 flex-1">{guide.data.summary}</p>
+              <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+                Lire l'article
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Besoin d'aide pour votre stratégie web en Chine ?</h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">Ces guides couvrent les bases. Si vous avez besoin d'un accompagnement concret pour faire fonctionner votre site WordPress en Chine, nous sommes là pour cela.</p>
+      <Button href="/fr/contact/" variant="primary" size="lg">Parlons-en</Button>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.guide-card');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach((b) => { b.classList.remove('is-active', 'bg-[var(--color-text-dark)]', 'text-white', 'border-[var(--color-text-dark)]'); b.classList.add('bg-white', 'text-[var(--color-text-body)]', 'border-[var(--color-surface-border)]'); });
+      btn.classList.add('is-active', 'bg-[var(--color-text-dark)]', 'text-white', 'border-[var(--color-text-dark)]');
+      btn.classList.remove('bg-white', 'text-[var(--color-text-body)]', 'border-[var(--color-surface-border)]');
+      cards.forEach((card) => { card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none'; });
+    });
+  });
+</script>

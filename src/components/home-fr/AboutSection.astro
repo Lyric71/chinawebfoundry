@@ -1,0 +1,96 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<!-- Why Us: iO-style layout with circle bg + photo grid -->
+<section class="py-24 md:py-32 lg:py-40 overflow-hidden">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 xl:gap-20">
+
+      <!-- Left: Text inside a large decorative circle -->
+      <div class="relative lg:w-[50%] flex-shrink-0">
+        {/* Large circle background */}
+        <div class="absolute inset-0 -left-16 -top-12 -bottom-12 bg-[var(--color-surface-light)] rounded-full scale-110 lg:scale-125 origin-center"></div>
+
+        <div class="relative z-10 py-12 lg:py-16 pr-4 lg:pr-8">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Pourquoi nous
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
+            ChinaWebFoundry, votre équipe WordPress en Chine
+          </h2>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            Pour faire fonctionner WordPress en Chine, il faut des spécialistes qui connaissent le Grand Pare-feu, l'infrastructure locale et les habitudes réelles de navigation des utilisateurs chinois. Des développeurs qui testent depuis Pékin, pas depuis Berlin. Des designers qui conçoivent pour WeChat, pas uniquement pour Chrome.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-10">
+            Nous réunissons toutes ces compétences au sein d'une seule équipe, basée en Chine. Plus de 20 ans d'expérience à maintenir des sites WordPress rapides, conformes et visibles derrière le Grand Pare-feu.
+          </p>
+          <Button href="/fr/who-we-are/" variant="primary" size="md">Notre histoire</Button>
+        </div>
+      </div>
+
+      <!-- Right: 2x2 photo grid with circular inner corners -->
+      <div class="lg:w-[50%] flex-shrink-0">
+        <div class="grid grid-cols-2 gap-3 lg:gap-4 about-photo-grid">
+          {/* Top left - quarter circle on bottom-right */}
+          <div class="aspect-square overflow-hidden about-img-tl">
+            <img
+              src="/images/hero-strategy-audit.webp"
+              alt="L'équipe ChinaWebFoundry audite un site WordPress pour la Chine"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Top right - quarter circle on bottom-left */}
+          <div class="aspect-square overflow-hidden about-img-tr">
+            <img
+              src="/images/hero-technical-integration.webp"
+              alt="Intégration technique WordPress pour la Chine"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Bottom left - quarter circle on top-right */}
+          <div class="aspect-square overflow-hidden about-img-bl">
+            <img
+              src="/images/hero-ux-ui-design.webp"
+              alt="Conception UX pour les utilisateurs chinois"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Bottom right - square with small rounding */}
+          <div class="aspect-square overflow-hidden about-img-br">
+            <img
+              src="/images/hero-chinese-content.webp"
+              alt="Création de contenu en chinois pour WordPress"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Each inner corner gets a large circular radius to create the effect */
+  .about-img-tl {
+    border-radius: 8px 8px 50% 8px;
+  }
+  .about-img-tr {
+    border-radius: 8px 8px 8px 50%;
+  }
+  .about-img-bl {
+    border-radius: 8px 50% 8px 8px;
+  }
+  .about-img-br {
+    border-radius: 8px 8px 8px 8px;
+  }
+</style>

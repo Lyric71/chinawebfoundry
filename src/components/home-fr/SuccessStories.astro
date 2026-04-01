@@ -1,0 +1,314 @@
+---
+/**
+ * SuccessStories (FR) - horizontal scroll carousel
+ * Pure Astro + Tailwind + vanilla JS. No external frameworks.
+ */
+import { getCollection } from 'astro:content';
+
+const casestudies = (await getCollection('casestudies-fr'))
+  .filter((cs) => cs.data.published)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const stories = casestudies.map((cs) => ({
+  title: cs.data.title,
+  description: cs.data.summary,
+  href: `/fr/work/${cs.id}/`,
+  image: cs.data.visual || undefined,
+  color: cs.data.color,
+}));
+---
+
+<section class="py-24 md:py-32 lg:py-40">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <!-- Header -->
+    <div class="mb-10 flex flex-col gap-8 md:mb-14 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+          Nos réalisations
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+          Des projets qui parlent d'eux-mêmes
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-lg">
+          Des résultats concrets obtenus par des entreprises qui ont déployé leur site WordPress en Chine avec notre équipe.
+        </p>
+      </div>
+      <!-- Nav arrows (md+) -->
+      <div class="hidden shrink-0 gap-2 md:flex">
+        <button
+          id="stories-prev"
+          aria-label="Diapositive précédente"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[var(--color-surface-border)] text-[var(--color-text-muted)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors disabled:opacity-30 disabled:pointer-events-none"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+        </button>
+        <button
+          id="stories-next"
+          aria-label="Diapositive suivante"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[var(--color-surface-border)] text-[var(--color-text-muted)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors disabled:opacity-30 disabled:pointer-events-none"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel wrapper with overlay arrows -->
+  <div class="relative" id="stories-wrapper">
+    <!-- Left arrow overlay -->
+    <button
+      id="stories-prev-overlay"
+      aria-label="Diapositive précédente"
+      class="stories-overlay-arrow absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center text-[var(--color-text-dark)] hover:bg-white hover:text-[var(--color-brand-orange)] transition-all disabled:opacity-0 disabled:pointer-events-none"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Right arrow overlay -->
+    <button
+      id="stories-next-overlay"
+      aria-label="Diapositive suivante"
+      class="stories-overlay-arrow absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center text-[var(--color-text-dark)] hover:bg-white hover:text-[var(--color-brand-orange)] transition-all disabled:opacity-0 disabled:pointer-events-none"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Carousel track - full bleed, scrolls horizontally -->
+    <div
+      id="stories-track"
+      class="flex gap-5 overflow-x-auto scroll-smooth pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Nos réalisations"
+    >
+      {stories.map((story, i) => (
+        <a
+          href={story.href}
+          class="group relative flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] rounded-xl overflow-hidden no-underline"
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`Projet ${i + 1} sur ${stories.length}`}
+        >
+          <div class="relative min-h-[26rem] md:min-h-[28rem] w-full">
+            {story.image ? (
+              <img
+                src={story.image}
+                alt={story.title}
+                class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : (
+              <div
+                class="absolute inset-0 transition-all duration-300 group-hover:brightness-110"
+                style={`background: linear-gradient(135deg, ${story.color}, ${story.color}dd)`}
+              ></div>
+            )}
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+            <!-- Text content -->
+            <div class="absolute inset-x-0 bottom-0 flex flex-col p-6 md:p-8">
+              <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-snug mb-2 md:mb-3">
+                {story.title}
+              </h3>
+              <p class="text-sm text-white/70 leading-relaxed line-clamp-2 mb-8 md:mb-10">
+                {story.description}
+              </p>
+              <span class="inline-flex items-center text-sm font-medium text-white">
+                En savoir plus
+                <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Dot indicators -->
+  <div id="stories-dots" class="mt-8 flex justify-center gap-2">
+    {stories.map((_, i) => (
+      <button
+        class:list={[
+          'stories-dot h-2 w-2 rounded-full transition-colors',
+          i === 0 ? 'bg-[var(--color-text-dark)]' : 'bg-[var(--color-text-dark)]/20',
+        ]}
+        style="padding: 18px; margin: -18px; background-clip: content-box;"
+        data-index={i}
+        aria-label={`Aller à la diapositive ${i + 1}`}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .stories-overlay-arrow {
+    transition: opacity 0.2s, color 0.2s, background-color 0.2s;
+  }
+</style>
+
+<script>
+  function initStories() {
+    const track = document.getElementById('stories-track');
+    const prev = document.getElementById('stories-prev');
+    const next = document.getElementById('stories-next');
+    const prevOverlay = document.getElementById('stories-prev-overlay');
+    const nextOverlay = document.getElementById('stories-next-overlay');
+    const dots = document.querySelectorAll<HTMLButtonElement>('.stories-dot');
+    if (!track) return;
+
+    // Clone all slides for seamless infinite loop
+    const originalSlides = Array.from(track.children) as HTMLElement[];
+    const total = originalSlides.length;
+    originalSlides.forEach((slide) => {
+      const clone = slide.cloneNode(true) as HTMLElement;
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+
+    let current = 0;
+    let autoplayTimer: number | null = null;
+    let isTransitioning = false;
+
+    function getSlideWidth() {
+      const slide = originalSlides[0];
+      if (!slide) return 0;
+      return slide.offsetWidth + 20;
+    }
+
+    function scrollToSlide(index: number, smooth = true) {
+      isTransitioning = smooth;
+      current = index;
+      track!.scrollTo({ left: index * getSlideWidth(), behavior: smooth ? 'smooth' : 'instant' });
+      updateDots();
+      if (smooth) {
+        setTimeout(() => { isTransitioning = false; }, 400);
+      }
+    }
+
+    function updateDots() {
+      const dotIndex = ((current % total) + total) % total;
+      dots.forEach((dot, i) => {
+        if (i === dotIndex) {
+          dot.style.backgroundColor = 'var(--color-text-dark)';
+        } else {
+          dot.style.backgroundColor = 'color-mix(in srgb, var(--color-text-dark) 20%, transparent)';
+        }
+      });
+    }
+
+    // When smooth scroll to a clone finishes, snap back to the real slide
+    function snapIfNeeded() {
+      if (current >= total) {
+        current = current - total;
+        track!.scrollTo({ left: current * getSlideWidth(), behavior: 'instant' });
+      }
+    }
+
+    function goNext() {
+      if (isTransitioning) return;
+      const nextIndex = current + 1;
+      scrollToSlide(nextIndex);
+      setTimeout(snapIfNeeded, 450);
+    }
+
+    function goPrev() {
+      if (isTransitioning) return;
+      if (current <= 0) {
+        // Jump to the cloned last slide instantly, then scroll back to the real last slide
+        track!.scrollTo({ left: total * getSlideWidth(), behavior: 'instant' });
+        current = total;
+        setTimeout(() => scrollToSlide(total - 1), 20);
+      } else {
+        scrollToSlide(current - 1);
+      }
+    }
+
+    // Autoplay
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = window.setInterval(goNext, 5000);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer !== null) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    function resetAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    // Button listeners
+    prev?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
+    next?.addEventListener('click', () => { goNext(); resetAutoplay(); });
+    prevOverlay?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
+    nextOverlay?.addEventListener('click', () => { goNext(); resetAutoplay(); });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        scrollToSlide(Number(dot.dataset.index));
+        resetAutoplay();
+      });
+    });
+
+    // Pause autoplay on hover, resume on leave
+    const wrapper = document.getElementById('stories-wrapper');
+    wrapper?.addEventListener('mouseenter', stopAutoplay);
+    wrapper?.addEventListener('mouseleave', startAutoplay);
+
+    // Sync current slide on manual scroll/swipe
+    let scrollTimer: number;
+    track.addEventListener('scroll', () => {
+      if (isTransitioning) return;
+      clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => {
+        const sw = getSlideWidth();
+        if (sw > 0) {
+          current = Math.round(track!.scrollLeft / sw);
+          if (current >= total) {
+            current = current - total;
+            track!.scrollTo({ left: current * getSlideWidth(), behavior: 'instant' });
+          }
+          updateDots();
+        }
+      }, 100);
+    });
+
+    // Reset autoplay on touch interaction
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+    track.addEventListener('touchend', () => { resetAutoplay(); }, { passive: true });
+
+    // Remove disabled states - arrows always work in infinite mode
+    prev?.removeAttribute('disabled');
+    next?.removeAttribute('disabled');
+    prevOverlay?.removeAttribute('disabled');
+    nextOverlay?.removeAttribute('disabled');
+
+    updateDots();
+    startAutoplay();
+  }
+
+  document.addEventListener('DOMContentLoaded', initStories);
+  document.addEventListener('astro:page-load', initStories);
+</script>

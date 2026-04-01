@@ -1,0 +1,152 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+
+const metaTitle = 'Migration WordPress vers la Chine | ChinaWebFoundry';
+const metaDescription = 'Transférez votre site WordPress en Chine ou migrez depuis n\'importe quel CMS vers une architecture WordPress conçue pour le continent. Zéro interruption, zéro perte de données, conformité totale.';
+
+const scenarios = [
+  { title: 'WordPress vers WordPress optimisé Chine', body: 'Votre site WordPress fonctionne bien partout. Mais derrière le Grand Pare-feu, il charge lentement, affiche des erreurs ou tout simplement ne marche pas. Nous le transférons sur un hébergement conforme en Chine, remplaçons les ressources bloquées une par une et amenons les performances au niveau requis. Votre site global reste inchangé.' },
+  { title: 'Autre CMS vers WordPress pour la Chine', body: 'Drupal, Sitecore, Adobe Experience Manager, Webflow, Shopify ou un développement sur mesure vieux de dix ans que personne ne veut toucher. Transfert complet du contenu vers WordPress, reconstruit pour la Chine depuis zéro. Mapping d\'URL, préservation SEO et refonte quand la mise en page d\'origine ne convient pas au public chinois.' },
+  { title: 'Site global vers architecture double', body: 'Certaines entreprises ont besoin d\'un site global et d\'une version Chine fonctionnant simultanément. Nous construisons une architecture dual-stack pour que les deux versions partagent les flux de gestion de contenu, tout en servant à chaque audience ce dont elle a réellement besoin.' },
+];
+
+const processSteps = [
+  { title: 'Découverte et évaluation', body: 'Tout commence par un audit. Plateforme, volume de contenu, intégrations tierces, architecture technique. Nous passons tout en revue et signalons ce qui est bloqué, incompatible ou non conforme.' },
+  { title: 'Architecture de migration', body: 'Le plan directeur. Environnement d\'hébergement Chine, stratégie CDN, configuration DNS, structure du contenu. L\'ensemble est conçu autour de la performance continentale dès le premier jour.' },
+  { title: 'Transfert de contenu et de données', body: 'Tout votre contenu est transféré. Pages, articles, fichiers média, métadonnées, champs personnalisés, données utilisateurs, catalogues produits si vous faites du e-commerce. Nous cartographions soigneusement les structures d\'URL pour préserver le capital SEO.' },
+  { title: 'Remplacement des intégrations', body: 'Google Analytics remplacé par Baidu Analytics. YouTube remplacé par Youku ou Bilibili. Facebook par WeChat ou Weibo. Chaque dépendance tierce est vérifiée. Si elle est bloquée en Chine, nous trouvons l\'équivalent local et le mettons en place.' },
+  { title: 'Optimisation spécifique Chine', body: 'Polices bloquées, CDN bloqués, tout est remplacé. SSL configuré pour la compatibilité chinoise. Ressources optimisées pour les conditions réseau locales. SEO technique Baidu intégré à chaque étape.' },
+  { title: 'Tests depuis l\'intérieur de la Chine', body: 'Tests réels depuis de vraies connexions en Chine continentale. Pas de proxy via Hong Kong. Nous testons la vitesse, la fonctionnalité, la compatibilité multi-navigateurs, y compris QQ Browser et UC Browser, ainsi que les performances mobiles sur de vrais appareils chinois.' },
+  { title: 'Lancement sans interruption', body: 'La bascule est planifiée à l\'heure près. Zéro interruption. Propagation DNS gérée avec soin. Surveillance en temps réel pendant toute la fenêtre de transition jusqu\'à confirmation de la stabilité.' },
+  { title: 'Support post-migration', body: 'Surveillance des performances, résolution de problèmes, ajustements continus. La plupart des difficultés apparaissent dans les deux ou trois premières semaines, et nous sommes présents tout du long.' },
+];
+
+const audiences = [
+  { label: 'Multinationales', description: 'Qui entrent en Chine ou développent leur présence WordPress.', image: '/images/audiences/multinational-china-entry.webp' },
+  { label: 'Marques e-commerce', description: 'Qui lancent une boutique en ligne prête pour la Chine, construite sur WordPress.', image: '/images/audiences/ecommerce-china-store.webp' },
+  { label: 'Médias et édition', description: 'Organisations qui doivent toucher correctement le public chinois.', image: '/images/audiences/media-publishing-china.webp' },
+  { label: 'Agences', description: 'Qui gèrent des migrations WordPress vers la Chine pour le compte de leurs propres clients.', image: '/images/audiences/agency-migration-clients.webp' },
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-china-migration.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Migration vers la Chine</li>
+        </ol>
+      </nav>
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Migration WordPress</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Migration WordPress vers la Chine,
+            <span class="block mt-2 text-[var(--color-brand-orange)]">dans les règles de l'art.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Transférez votre site WordPress en Chine ou migrez depuis n'importe quel CMS vers une architecture WordPress conçue pour le continent. Zéro interruption, zéro perte de données, conformité totale.</p>
+          <div class="mt-10"><Button href="/fr/contact/" variant="primary" size="lg">Discuter de votre projet de migration</Button></div>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div><span class="text-xs text-white/30 ml-2 font-mono">migration-status</span></div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between"><span class="text-sm text-white/50">Transfert du contenu</span><span class="text-sm font-semibold text-green-400 font-mono">100 %</span></div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div></div>
+                <div class="flex items-center justify-between pt-2"><span class="text-sm text-white/50">Ressources bloquées</span><span class="text-sm font-semibold text-green-400 font-mono">0 / 47</span></div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div></div>
+                <div class="flex items-center justify-between pt-2"><span class="text-sm text-white/50">Temps de chargement Chine</span><span class="text-sm font-semibold text-green-400 font-mono">2,1s</span></div>
+                <div class="flex items-center justify-between pt-2"><span class="text-sm text-white/50">Conformité ICP</span><span class="text-sm font-semibold text-green-400 font-mono">Déposé</span></div>
+              </div>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Transférer un site en Chine n'a rien d'une migration classique</h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">Le Grand Pare-feu bloque la moitié des services dont votre site dépend. L'hébergement doit respecter les règles de licence ICP. Les utilisateurs chinois sont notoirement impatients face aux pages lentes. Et si Baidu ne peut pas explorer correctement votre site, vous êtes essentiellement invisible.</p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Nous traitons tout cela chaque semaine depuis nos bureaux en Chine. Que vous utilisiez déjà WordPress ou que vous migriez depuis un CMS totalement différent, l'objectif reste le même : un site qui fonctionne véritablement sur le continent.</p>
+        </div>
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
+            <div class="absolute inset-6 flex flex-col justify-center gap-4">
+              <div class="flex items-center gap-3"><div class="w-16 h-16 rounded-xl bg-[var(--color-surface-border)]/60 flex items-center justify-center flex-shrink-0"><svg class="w-7 h-7 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg></div><div><div class="h-3 w-24 bg-[var(--color-surface-border)] rounded mb-2"></div><div class="h-2 w-16 bg-[var(--color-surface-border)]/60 rounded"></div></div></div>
+              <div class="flex justify-center"><svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></div>
+              <div class="flex items-center gap-3"><div class="w-16 h-16 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0"><svg class="w-7 h-7 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div><div><div class="h-3 w-28 bg-[var(--color-brand-orange)]/20 rounded mb-2"></div><div class="h-2 w-20 bg-[var(--color-brand-orange)]/10 rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Scénarios de migration</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Trois chemins vers la Chine</h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">Chaque migration commence différemment. Voici comment nous abordons chacune.</p>
+      </div>
+      <CaseStudyCards items={scenarios} />
+    </div>
+  </section>
+
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Notre processus de migration</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Huit étapes vers un site opérationnel en Chine</h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {processSteps.map((step) => (
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{step.title}</h3>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="Conçu pour les équipes qui migrent vers la Chine" audiences={audiences} background="light" />
+
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Lancez votre migration</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Vous envisagez de transférer votre site WordPress en Chine ?</h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Chaque projet de migration est différent. Dites-nous ce que vous avez actuellement, ce que vous devez atteindre et quand cela doit être fait. Notre équipe en Chine trouvera la bonne approche avec vous.</p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/fr/contact/" variant="primary" size="lg">Lancer votre évaluation de migration</Button>
+        <Button href="/fr/services/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Voir nos services</Button>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

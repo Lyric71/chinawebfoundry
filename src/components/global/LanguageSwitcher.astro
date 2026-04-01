@@ -1,0 +1,55 @@
+---
+import { getLangFromUrl, getAlternateUrl } from '../../i18n/utils';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  lang?: Locale;
+  heroPage?: boolean;
+}
+
+const { lang, heroPage = false } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
+const alternateUrl = getAlternateUrl(Astro.url.pathname, currentLang);
+const isEn = currentLang === 'en';
+---
+
+<div class="flex items-center gap-1 text-sm">
+  <a
+    href={isEn ? Astro.url.pathname : alternateUrl}
+    class:list={[
+      'px-1.5 py-0.5 rounded no-underline transition-colors duration-200 font-medium',
+      isEn
+        ? heroPage
+          ? 'text-white'
+          : 'text-[var(--color-text-dark)]'
+        : heroPage
+          ? 'text-white/50 hover:text-white'
+          : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
+    ]}
+    aria-label="English"
+    aria-current={isEn ? 'page' : undefined}
+  >
+    EN
+  </a>
+  <span class:list={[
+    'text-xs',
+    heroPage ? 'text-white/30' : 'text-[var(--color-text-muted)]',
+  ]}>|</span>
+  <a
+    href={isEn ? alternateUrl : Astro.url.pathname}
+    class:list={[
+      'px-1.5 py-0.5 rounded no-underline transition-colors duration-200 font-medium',
+      !isEn
+        ? heroPage
+          ? 'text-white'
+          : 'text-[var(--color-text-dark)]'
+        : heroPage
+          ? 'text-white/50 hover:text-white'
+          : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
+    ]}
+    aria-label="Français"
+    aria-current={!isEn ? 'page' : undefined}
+  >
+    FR
+  </a>
+</div>

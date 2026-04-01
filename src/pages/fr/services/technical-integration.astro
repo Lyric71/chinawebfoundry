@@ -1,0 +1,89 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
+
+const metaTitle = 'Intégration technique WordPress pour le marché chinois';
+const metaDescription = 'Intégration WordPress complète pour la Chine. Configuration serveur, extensions bloquées, WeChat Pay, Baidu Analytics et conformité des données. Basé en Chine.';
+
+const serverItems = [
+  { title: 'Réglage fournisseur cloud', body: 'Les fournisseurs cloud chinois fonctionnent chacun à leur manière. Alibaba Cloud gère la configuration de base de données différemment de Tencent Cloud, et Huawei Cloud a ses propres opinions sur les paramètres PHP et le stockage de fichiers. Nous avons travaillé sur les trois et optimisons WordPress pour celui sur lequel vous vous retrouverez.' },
+  { title: 'Certificats SSL', body: 'Certaines autorités de certification occidentales ne sont tout simplement pas reconnues par les navigateurs chinois. Un visiteur arrive sur votre site et reçoit un avertissement de sécurité immédiatement. C\'est terminé, il est parti. Nous configurons les certificats via des fournisseurs effectivement reconnus en Chine.' },
+  { title: 'Multisite et multi-langue', body: 'Besoin d\'un site Chine fonctionnant en parallèle de votre site global ? Nous réalisons des configurations multisite et multi-langue. L\'essentiel est de s\'assurer que les deux restent synchronisés sans que cela devienne un casse-tête trois mois plus tard.' },
+];
+
+const platformItems = [
+  { title: 'Paiements', body: 'Alipay et WeChat Pay gèrent la plupart des transactions. Les cartes de crédit ne sont quasiment pas utilisées par les consommateurs chinois. Nous intégrons les deux, plus UnionPay. Si vous n\'avez pas d\'entité juridique chinoise, nous configurons les paiements transfrontaliers.' },
+  { title: 'Social', body: 'WeChat est à la fois un navigateur, un portefeuille, un magasin d\'applications et une plateforme de contenu. Nous connectons votre site WordPress aux comptes officiels, aux Mini Programs, à Weibo, Douyin et RED.' },
+  { title: 'Analytics', body: 'Google Analytics ne charge pas en Chine. Du tout. Nous installons Baidu Tongji comme tracker principal et ajoutons la surveillance WeChat pour le trafic social et les parcours de conversion.' },
+  { title: 'Outils entreprise', body: 'Vous utilisez Salesforce, SAP, HubSpot ou Odoo au niveau mondial ? Nous construisons les connexions API et la synchronisation des données pour que vos catalogues produits et fichiers clients restent alignés des deux côtés.' },
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0"><img src="/images/hero-technical-integration.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" /><div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div><div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20"><ol class="flex items-center gap-2 text-sm text-white/40"><li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li><li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li><li class="before:content-['/'] before:mx-2 text-white/60">Intégration technique</li></ol></nav>
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Intégration technique</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">Toute votre stack WordPress<span class="block mt-2 text-[var(--color-brand-orange)]">reconstruite pour la Chine</span></h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Infrastructure serveur, corrections de thèmes et d'extensions, paiements chinois, plateformes sociales, connexions entreprise. Reconstruit pour un marché où aucune des hypothèses habituelles ne tient.</p>
+          <div class="mt-10"><Button href="/fr/contact/" variant="primary" size="lg">Planifier une consultation technique</Button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-8">Deux secondes de chargement en Occident deviennent quinze secondes à Shenzhen</h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">Votre site WordPress fonctionne à New York. A Londres aussi. Ouvrez-le depuis Shanghai et c'est une autre histoire. Les thèmes chargent des polices depuis les serveurs Google que la Chine bloque. Les extensions envoient des appels API qui meurent derrière le Grand Pare-feu. Les bibliothèques JavaScript tentent de charger depuis des CDN inaccessibles dans le pays.</p>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Et non, passer à un hébergeur chinois ne suffit pas. Tout le site a besoin d'être retravaillé. Configuration serveur, dépendances du thème, gestion des paiements. Absolument tout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Coeur WordPress et serveur</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Les fondations doivent être solides d'abord</h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {serverItems.map((item) => (
+              <div class="flex gap-5"><div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div><div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]"><h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{item.title}</h3><p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item.body}</p></div></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Connexions aux plateformes chinoises</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Se brancher sur l'écosystème qui compte vraiment</h2>
+      </div>
+      <CaseStudyCards items={platformItems} />
+    </div>
+  </section>
+
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Lancez-vous</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Chaque projet commence par votre situation actuelle</h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Dites-nous ce que vous cherchez à faire en Chine et nous déterminerons ce dont votre site WordPress a besoin pour y parvenir. Pas de propositions génériques.</p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/fr/contact/" variant="primary" size="lg">Planifier une consultation technique</Button>
+        <Button href="/fr/services/plugins-extensions/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Extensions sur mesure</Button>
+      </div>
+    </div>
+  </section>
+</PageLayout>

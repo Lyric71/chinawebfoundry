@@ -80,6 +80,11 @@ export const mainNav: NavItem[] = [
     href: '/resources/',
     children: [
       {
+        label: 'China Site Scanner',
+        href: '/china-site-scanner/',
+        description: 'Test your site for China readiness',
+      },
+      {
         label: 'China Web Guide',
         href: '/resources/china-web-guide/',
         description: 'Your guide to the Chinese web',
@@ -105,6 +110,7 @@ export const footerNav = {
     { label: 'Who We Are', href: '/who-we-are/' },
   ],
   resources: [
+    { label: 'China Site Scanner', href: '/china-site-scanner/' },
     { label: 'China Web Guide', href: '/resources/china-web-guide/' },
     { label: 'FAQ', href: '/resources/faq/' },
   ],

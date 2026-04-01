@@ -3,23 +3,28 @@ import PageLayout from './PageLayout.astro';
 import Container from '../components/ui/Container.astro';
 import Button from '../components/ui/Button.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
+import { getLangFromUrl, localePath, useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
 
 interface Props {
   title: string;
   description: string;
   metaTitle: string;
   metaDescription: string;
+  lang?: Locale;
 }
 
-const { title, description, metaTitle, metaDescription } = Astro.props;
+const { title, description, metaTitle, metaDescription, lang } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
-<PageLayout title={metaTitle} description={metaDescription}>
+<PageLayout title={metaTitle} description={metaDescription} lang={currentLang}>
   <!-- Breadcrumbs -->
   <nav aria-label="Breadcrumb" class="section-padding pt-6">
     <Container>
       <ol class="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
-        <li><a href="/" class="hover:text-[var(--color-brand-orange)]">Home</a></li>
+        <li><a href={localePath('/', currentLang)} class="hover:text-[var(--color-brand-orange)]">{t('service.home')}</a></li>
         <li class="before:content-['/'] before:mx-2">{title}</li>
       </ol>
     </Container>
@@ -45,12 +50,12 @@ const { title, description, metaTitle, metaDescription } = Astro.props;
   <section class="section-spacing bg-[var(--color-surface-light)]">
     <Container class="text-center">
       <h2 class="text-2xl md:text-[28px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-        Ready to get started?
+        {t('service.readyToStart')}
       </h2>
       <p class="text-[var(--color-text-body)] mb-8 max-w-xl mx-auto">
-        Let's discuss how we can help your WordPress site succeed in China.
+        {t('service.letsDiscuss')}
       </p>
-      <Button href="/contact" variant="primary" size="lg">Contact Us</Button>
+      <Button href={localePath('/contact/', currentLang)} variant="primary" size="lg">{t('nav.contactUs')}</Button>
     </Container>
   </section>
 </PageLayout>

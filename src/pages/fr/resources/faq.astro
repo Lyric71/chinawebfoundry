@@ -1,0 +1,36 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import FAQAccordion from '../../../components/pages/FAQAccordion.astro';
+---
+
+<PageLayout
+  title="FAQ WordPress Chine - 30 questions, répondues"
+  description="On nous pose toujours les mêmes questions sur WordPress en Chine. Licences ICP, référencement Baidu, Grand Pare-feu, hébergement. Voici 30 réponses d'un coup."
+  lang="fr"
+>
+  <!-- Hero -->
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] max-w-2xl">Questions fréquentes</h1>
+      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">30 questions que nous entendons constamment de la part d'entreprises qui cherchent à faire fonctionner WordPress en Chine. Des réponses directes d'une équipe qui est véritablement sur place.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="pt-12 pb-24 md:pt-16 md:pb-32">
+    <div class="mx-auto max-w-[800px] section-padding">
+      <FAQAccordion />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Encore des questions ?</h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">Nous sommes là pour vous aider. Contactez-nous et nous vous répondrons sous 24 heures.</p>
+      <Button href="/fr/contact/" variant="primary" size="lg">Contactez-nous</Button>
+    </div>
+  </section>
+</PageLayout>

@@ -1,9 +1,10 @@
 ---
 interface Props {
   size?: 'sm' | 'md' | 'lg';
+  href?: string;
 }
 
-const { size = 'md' } = Astro.props;
+const { size = 'md', href = '/' } = Astro.props;
 
 const sizeClasses = {
   sm: 'w-9 h-9',
@@ -12,7 +13,7 @@ const sizeClasses = {
 };
 ---
 
-<a href="/" class="inline-block no-underline hover:no-underline" aria-label="ChinaWebFoundry - Home">
+<a href={href} class="inline-block no-underline hover:no-underline" aria-label="ChinaWebFoundry - Home">
   <img
     src="/Logo-ChinaWebFoundry-final.webp"
     alt="ChinaWebFoundry logo"

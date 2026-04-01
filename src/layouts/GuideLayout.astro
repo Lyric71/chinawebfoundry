@@ -1,6 +1,8 @@
 ---
 import PageLayout from './PageLayout.astro';
 import Button from '../components/ui/Button.astro';
+import { getLangFromUrl, localePath, useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
 
 interface TocItem {
   slug: string;
@@ -14,27 +16,31 @@ interface Props {
   summary: string;
   visual?: string;
   tocItems: TocItem[];
+  lang?: Locale;
 }
 
-const { title, subtitle, summary, visual, tocItems } = Astro.props;
+const { title, subtitle, summary, visual, tocItems, lang } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
 <PageLayout
-  title={`${title} | China Web Guide | ChinaWebFoundry`}
+  title={`${title} | ${t('guide.backLink')} | ChinaWebFoundry`}
   description={summary}
+  lang={currentLang}
 >
   <!-- Hero header -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#1a1a2e] to-[#0f0f12]"></div>
     <div class="relative mx-auto max-w-[1400px] section-padding pt-20 lg:pt-40 pb-16 md:pb-20">
       <a
-        href="/resources/china-web-guide/"
+        href={localePath('/resources/china-web-guide/', currentLang)}
         class="inline-flex items-center gap-2 text-sm font-medium text-white/50 no-underline hover:text-white hover:gap-3 transition-all duration-200 mb-10"
       >
         <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
-        China Web Guide
+        {t('guide.backLink')}
       </a>
       <div class="max-w-3xl">
         <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
@@ -74,7 +80,7 @@ const { title, subtitle, summary, visual, tocItems } = Astro.props;
           <aside class="hidden lg:block lg:w-[260px] shrink-0">
             <nav class="sticky top-28">
               <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">
-                In this article
+                {t('guide.toc')}
               </p>
               <ul class="space-y-1 border-l border-[var(--color-surface-border)]">
                 {tocItems.map((heading) => (
@@ -101,12 +107,12 @@ const { title, subtitle, summary, visual, tocItems } = Astro.props;
           <!-- Footer CTA -->
           <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
             <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-              Need help with this?
+              {t('guide.needHelp')}
             </h2>
             <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
-              ChinaWebFoundry handles WordPress projects in China end to end. If any of this feels like more than you want to tackle alone, get in touch.
+              {t('guide.needHelpText')}
             </p>
-            <Button href="/contact/" variant="primary" size="md">Talk to Us</Button>
+            <Button href={localePath('/contact/', currentLang)} variant="primary" size="md">{t('guide.talkToUs')}</Button>
           </div>
         </div>
 

@@ -2,6 +2,8 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/global/Header.astro';
 import Footer from '../components/global/Footer.astro';
+import { getLangFromUrl } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -10,15 +12,17 @@ interface Props {
   ogImage?: string;
   /** When true, header overlays content (transparent bg), no spacer. Used for hero pages. */
   heroPage?: boolean;
+  lang?: Locale;
 }
 
-const { title, description, canonical, ogImage, heroPage = false } = Astro.props;
+const { title, description, canonical, ogImage, heroPage = false, lang } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
-  <Header heroPage={heroPage} />
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} lang={currentLang}>
+  <Header heroPage={heroPage} lang={currentLang} />
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer lang={currentLang} />
 </BaseLayout>

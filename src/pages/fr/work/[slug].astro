@@ -1,0 +1,142 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+
+export async function getStaticPaths() {
+  const casestudies = await getCollection('casestudies-fr');
+  return casestudies
+    .filter((cs) => cs.data.published)
+    .map((cs) => ({
+      params: { slug: cs.id },
+      props: { casestudy: cs },
+    }));
+}
+
+const { casestudy } = Astro.props;
+const { Content, headings } = await render(casestudy);
+const tocItems = headings.filter((h) => h.depth === 2);
+
+const allServices = await getCollection('services-fr');
+const relatedServices = casestudy.data.services
+  ?.map((slug: string) => allServices.find((s) => s.id === slug))
+  .filter(Boolean) || [];
+
+const visuals = casestudy.data.visuals || [];
+---
+
+<PageLayout
+  title={`${casestudy.data.title} | Étude de cas | ChinaWebFoundry`}
+  description={casestudy.data.summary}
+  lang="fr"
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    {casestudy.data.visual ? (
+      <img src={casestudy.data.visual} alt="" class="absolute inset-0 w-full h-full object-cover object-top" loading="eager" decoding="async" />
+    ) : (
+      <div class="absolute inset-0" style={`background: linear-gradient(135deg, ${casestudy.data.color}, ${casestudy.data.color}dd)`}></div>
+    )}
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-20 md:pb-28">
+      <a href="/fr/work/" class="inline-flex items-center gap-2 text-sm font-medium text-white/50 no-underline hover:text-white hover:gap-3 transition-all duration-200 mb-10">
+        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        Toutes les études de cas
+      </a>
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Étude de cas</p>
+        <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">{casestudy.data.title}</h1>
+        <p class="text-lg lg:text-xl text-white/70 leading-relaxed">{casestudy.data.subtitle}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article body with TOC sidebar -->
+  <article class="py-16 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+        {tocItems.length > 0 && (
+          <aside class="hidden lg:block lg:w-[260px] shrink-0">
+            <nav class="sticky top-28">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">Dans cette étude de cas</p>
+              <ul class="space-y-1 border-l border-[var(--color-surface-border)]">
+                {tocItems.map((heading) => (
+                  <li><a href={`#${heading.slug}`} class="toc-link block pl-4 py-1.5 text-sm text-[var(--color-text-body)] no-underline hover:text-[var(--color-brand-orange)] transition-colors duration-200 border-l-2 border-transparent -ml-px">{heading.text}</a></li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )}
+        <div class="min-w-0 flex-1 max-w-[780px]">
+          <div class="case-content"><Content /></div>
+
+          {visuals.length > 0 && (
+            <div class="mt-12">
+              <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">Le site web</h2>
+              <div class="grid grid-cols-1 gap-4">
+                {visuals.map((src: string, i: number) => (
+                  <div class="rounded-xl overflow-hidden border border-[var(--color-surface-border)] bg-[var(--color-surface-light)]">
+                    <img src={src} alt={`Capture d'écran du site ${i + 1}`} class="w-full h-auto" loading="lazy" decoding="async" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {relatedServices.length > 0 && (
+            <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
+              <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">Services mobilisés pour ce projet</h2>
+              <div class="flex flex-wrap gap-3">
+                {relatedServices.map((service: any) => (
+                  <a href={`/fr/services/${service.id}/`} class="px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border border-[var(--color-surface-border)] text-[var(--color-text-body)] no-underline hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors">{service.data.title}</a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
+            <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">Vous souhaitez des résultats similaires ?</h2>
+            <p class="text-[var(--color-text-body)] leading-relaxed mb-8">Parlez-nous de votre projet et nous tracerons le chemin pour faire fonctionner votre site WordPress en Chine.</p>
+            <Button href="/fr/contact/" variant="primary" size="md">Parlons-en</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  .case-content :global(h2) { font-family: var(--font-heading); font-weight: 500; font-size: 1.375rem; line-height: 1.2; color: var(--color-text-dark); margin-top: 2.5rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
+  @media (min-width: 640px) { .case-content :global(h2) { font-size: 1.75rem; margin-top: 3rem; } }
+  .case-content :global(p) { color: var(--color-text-body); line-height: 1.75; margin-bottom: 1.25rem; }
+  .case-content :global(strong) { color: var(--color-text-dark); font-weight: 600; }
+  .case-content :global(a) { color: var(--color-brand-orange); text-decoration: none; }
+  .case-content :global(a:hover) { text-decoration: underline; }
+  .case-content :global(blockquote) { position: relative; margin: 1.5rem 0; padding: 1rem 1rem 1rem 1.25rem; background: linear-gradient(135deg, rgba(242, 95, 41, 0.06), rgba(242, 95, 41, 0.02)); border-left: 3px solid var(--color-brand-orange); border-radius: 0 0.75rem 0.75rem 0; }
+  .case-content :global(ul) { margin: 1rem 0 1.5rem; padding-left: 0; list-style: none; }
+  .case-content :global(ul li) { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; color: var(--color-text-body); line-height: 1.7; }
+  .case-content :global(ul li::before) { content: ''; position: absolute; left: 0; top: 0.65em; width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand-orange); }
+  .toc-link.is-active { color: var(--color-brand-orange) !important; border-left-color: var(--color-brand-orange) !important; font-weight: 500; }
+</style>
+
+<script>
+  document.querySelectorAll('.case-content table').forEach((table) => {
+    const wrapper = document.createElement('div');
+    wrapper.style.overflowX = 'auto';
+    wrapper.style.webkitOverflowScrolling = 'touch';
+    table.parentNode!.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+  const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  if (links.length > 0) {
+    const ids = Array.from(links).map((l) => l.getAttribute('href')!.slice(1));
+    const headings = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    function updateActive() {
+      let current = 0;
+      for (let i = 0; i < headings.length; i++) { if (headings[i].getBoundingClientRect().top <= 120) current = i; }
+      links.forEach((l, i) => l.classList.toggle('is-active', i === current));
+    }
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  }
+</script>

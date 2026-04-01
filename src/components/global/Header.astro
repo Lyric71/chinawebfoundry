@@ -2,12 +2,18 @@
 import Logo from './Logo.astro';
 import Navigation from './Navigation.astro';
 import MobileMenu from './MobileMenu.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getLangFromUrl, localePath, useTranslations } from '../../i18n/utils';
+import type { Locale } from '../../i18n/ui';
 
 interface Props {
   heroPage?: boolean;
+  lang?: Locale;
 }
 
-const { heroPage = false } = Astro.props;
+const { heroPage = false, lang } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
 <header
@@ -26,11 +32,25 @@ const { heroPage = false } = Astro.props;
     ]}
   >
     <div class="mx-auto max-w-[1400px] section-padding flex items-center justify-between py-3">
-      <Logo size="sm" />
+      <Logo size="sm" href={currentLang === 'fr' ? '/fr/' : '/'} />
       <div class="flex items-center gap-8">
-        <Navigation heroPage={heroPage} />
+        <Navigation heroPage={heroPage} lang={currentLang} />
         <a
-          href="/contact/"
+          href={localePath('/china-site-scanner/', currentLang)}
+          class:list={[
+            'hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] no-underline transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0',
+            heroPage
+              ? 'nav-scanner-btn bg-[var(--color-brand-orange)] text-white hover:bg-[var(--color-brand-orange-hover)] hover:shadow-[0_6px_20px_rgba(242,95,41,0.3)]'
+              : 'nav-scanner-btn bg-[var(--color-brand-orange)] text-white hover:bg-[var(--color-brand-orange-hover)] hover:shadow-[0_6px_20px_rgba(242,95,41,0.3)]',
+          ]}
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          {t('nav.chinaSiteScanner')}
+        </a>
+        <a
+          href={localePath('/contact/', currentLang)}
           class:list={[
             'hidden md:inline-flex items-center gap-2 px-6 py-2 text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border no-underline transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0',
             heroPage
@@ -38,12 +58,15 @@ const { heroPage = false } = Astro.props;
               : 'nav-contact-btn border-[var(--color-text-dark)] text-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white hover:shadow-[0_6px_20px_rgba(33,33,33,0.2)]',
           ]}
         >
-          Contact
+          {t('nav.contact')}
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
-        <MobileMenu heroPage={heroPage} />
+        <div class="hidden md:block">
+          <LanguageSwitcher lang={currentLang} heroPage={heroPage} />
+        </div>
+        <MobileMenu heroPage={heroPage} lang={currentLang} />
       </div>
     </div>
   </div>

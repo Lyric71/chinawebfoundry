@@ -1,0 +1,277 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+
+const metaTitle = 'Référencement Baidu pour WordPress en Chine | ChinaWebFoundry';
+const metaDescription = 'Nous optimisons les sites WordPress pour Baidu depuis la Chine. SEO technique, recherche de mots-clés chinois, stratégie de contenu et construction d\'autorité pour un vrai positionnement.';
+
+const services = [
+  {
+    title: 'SEO technique - Les spécificités Baidu',
+    body: 'La majeure partie de notre travail de SEO technique n\'a aucun équivalent Google. Configuration et vérification du site dans les Outils Webmaster Baidu. Soumission de sitemaps dans les formats privilégiés par Baidu. Optimisation de la vitesse mesurée depuis des serveurs en Chine continentale, car un site rapide en Europe peut être douloureusement lent derrière le Grand Pare-feu. Ergonomie mobile conforme aux tests propres de Baidu (plus stricts que ceux de Google). Structures d\'URL propres, canonicalisation correcte et balises meta incluant celles spécifiques à Baidu que la plupart des développeurs internationaux ne connaissent pas. Et, point crucial, un hébergement et une configuration ICP qui envoient les signaux de confiance attendus par Baidu avant de prendre votre site au sérieux.',
+  },
+  {
+    title: 'Recherche de mots-clés chinois - Pas de la traduction',
+    body: 'C\'est là que nous voyons les entreprises gaspiller le plus d\'argent. Elles prennent leur liste de mots-clés anglais, la passent en traduction et ciblent ces termes. Mais les internautes chinois ne cherchent pas ainsi. La formulation est différente, l\'intention derrière les requêtes est différente, les schémas de longue traîne suivent une logique entièrement distincte. Nous effectuons la recherche de mots-clés nativement avec Baidu Index, Baidu Keyword Planner et l\'analyse concurrentielle de ce sur quoi vos concurrents chinois se positionnent réellement. C\'est de la recherche primaire, pas un exercice de traduction.',
+  },
+  {
+    title: 'Optimisation on-page',
+    body: 'Balises title et meta descriptions rédigées pour l\'affichage de Baidu dans ses résultats (qui diffère de Google). Structure de titres que le crawler Baidu peut suivre. Maillage interne cohérent avec les schémas d\'indexation de Baidu. Textes alternatifs en chinois. Contenu formaté pour les habitudes de lecture chinoises : paragraphes plus courts, hiérarchie visuelle différente et signaux de qualité que Baidu récompense spécifiquement.',
+  },
+  {
+    title: 'Construction d\'autorité dans l\'écosystème web chinois',
+    body: 'Votre profil de backlinks international ne vaut quasiment rien sur Baidu. L\'autorité en Chine se construit via les plateformes chinoises : Baidu Baike, Baidu Zhidao, Baidu Tieba, les annuaires sectoriels locaux, la syndication de contenu sur les plateformes chinoises et les signaux sociaux provenant de WeChat et Weibo. Nous gérons tout cela car nous travaillons déjà quotidiennement dans cet écosystème. Ce n\'est pas un projet annexe pour nous.',
+  },
+  {
+    title: 'Gestion SEO continue',
+    body: 'Baidu modifie fréquemment son algorithme et ne le signale pas toujours. L\'année dernière, plusieurs mises à jour ont redistribué les classements dans des catégories majeures pratiquement du jour au lendemain. Nous surveillons vos positions chaque mois, suivons les actions de vos concurrents, réagissons aux changements d\'algorithme en temps réel et continuons de recommander de nouvelles opportunités de contenu. Abandonner le SEO Baidu après la configuration initiale est probablement l\'erreur la plus courante que nous observons.',
+  },
+];
+
+const googleDifferences = [
+  'Baidu exige du contenu en chinois simplifié. Il ne le préfère pas simplement, il le requiert pratiquement pour tout positionnement sérieux.',
+  'Un hébergement en Chine continentale n\'est pas un bonus, c\'est un signal de classement majeur.',
+  'La fraîcheur du contenu pèse bien plus lourd que sur Google.',
+  'La frontière entre résultats payants et organiques est plus floue, les annonces occupant davantage d\'espace au-dessus de la ligne de flottaison.',
+  'Le mobile n\'est pas une considération. C\'est le mode par défaut pour la grande majorité des internautes chinois.',
+];
+
+const audiences = [
+  { label: 'Pas de trafic organique', description: 'Entreprises disposant d\'un site WordPress en Chine qui ne génère aucun trafic organique.', image: '/images/audiences/no-organic-traffic-china.webp' },
+  { label: 'Lancement en Chine', description: 'Entreprises sur le point de lancer un nouveau site pour le marché chinois.', image: '/images/audiences/launching-chinese-market.webp' },
+  { label: 'Réduire les dépenses publicitaires', description: 'Équipes marketing cherchant à réduire leur dépendance à l\'acquisition payante en Chine.', image: '/images/audiences/reduce-paid-acquisition.webp' },
+  { label: 'Experts SEO pour Baidu', description: 'Professionnels du SEO qui maîtrisent Google mais ont besoin d\'une équipe en Chine pour Baidu.', image: '/images/audiences/seo-pro-needs-baidu.webp' },
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-baidu-seo.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Référencement Baidu</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            Référencement Baidu
+          </p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Soyez visible sur Baidu.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Parce que Google n'existe pas ici.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            Nous faisons du SEO Baidu pour les sites WordPress. Optimisation technique, recherche de mots-clés chinois, stratégie de contenu, construction d'autorité. Le tout piloté depuis la Chine, par une équipe qui utilise Baidu au quotidien.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/fr/contact/" variant="primary" size="lg">Demander un audit SEO Baidu</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-white/30 ml-2 font-mono">baidu-seo-audit</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-white/50">Pages indexées Baidu</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">342 pages</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Mots-clés positionnés</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Top 10 : 28</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-[65%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Trafic organique</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">+147 % MoM</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-[80%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Statut ICP</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Vérifié</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Score mobile</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">96/100</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Le problème dont personne ne vous prévient
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Voici ce qui se passe généralement. Une entreprise construit un excellent site WordPress, le traduit peut-être en chinois, le lance pour cibler le marché chinois, puis... rien. Pas de trafic Baidu. Pas de positionnement. Parfois le site n'est même pas indexé.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            La raison est presque toujours la même : ils ont traité Baidu comme si c'était Google avec des caractères chinois. Ce n'est pas le cas. Pas du tout.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Baidu a son propre crawler avec ses propres particularités et limitations. Il pondère les facteurs de classement différemment. Il privilégie fortement les sites hébergés en Chine continentale avec une licence ICP valide. Son rendu JavaScript accuse des années de retard sur celui de Google, ce qui signifie que le contenu chargé via JS pourrait tout aussi bien ne pas exister.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            Et la recherche de mots-clés qui fonctionnait pour vos campagnes Google ? Largement inutilisable, car les comportements de recherche chinois suivent des schémas radicalement différents.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
+            <div class="absolute inset-6 flex flex-col justify-center gap-6">
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Stratégie SEO Google</div>
+                  <div class="text-xs text-[var(--color-text-muted)]">Mots-clés traduits, backlinks internationaux, hébergement US</div>
+                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
+                    <div class="w-[5%] h-full bg-red-400 rounded-full"></div>
+                  </div>
+                  <div class="text-xs text-red-400 mt-1">Visibilité Baidu : quasi nulle</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Stratégie native Baidu</div>
+                  <div class="text-xs text-[var(--color-text-muted)]">Mots-clés natifs, backlinks chinois, hébergement Chine, ICP vérifié</div>
+                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
+                    <div class="w-[85%] h-full bg-green-500 rounded-full"></div>
+                  </div>
+                  <div class="text-xs text-green-500 mt-1">Visibilité Baidu : en progression</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Ce que nous faisons
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Notre action concrète
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+            Nous résolvons ces problèmes depuis des années, en travaillant depuis la Chine avec les outils natifs de Baidu. Pas en adaptant des stratégies Google, mais en partant de Baidu et en élargissant de là.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {services.map((item) => (
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                    {item.title}
+                  </h3>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Google SEO Doesn't Transfer -->
+  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Différences clés
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
+            Pourquoi le savoir-faire Google ne se transpose pas
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <p class="text-base text-white/70 leading-relaxed mb-8">
+            Quelques points qui surprennent même les professionnels du SEO les plus expérimentés :
+          </p>
+          <div class="space-y-5">
+            {googleDifferences.map((item) => (
+              <div class="flex items-start gap-5 bg-white/[0.04] rounded-xl px-6 py-5 border border-white/10">
+                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
+                <p class="text-[15px] text-white/70 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="Qui en a besoin" audiences={audiences} />
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Lancez-vous
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Le SEO Baidu ne se fait pas depuis l'extérieur de la Chine
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Pas correctement, en tout cas. Laissez-nous réaliser un audit et vous montrer où vous en êtes, et ce qu'il faudrait pour réellement vous positionner.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/fr/contact/" variant="primary" size="lg">Demander un audit SEO Baidu</Button>
+        <Button href="/fr/services/chinese-content/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Services de contenu chinois</Button>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

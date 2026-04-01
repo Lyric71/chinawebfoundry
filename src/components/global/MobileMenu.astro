@@ -1,11 +1,17 @@
 ---
-import { mainNav } from '../../data/navigation';
+import { getMainNav } from '../../i18n/navigation';
+import { getLangFromUrl, localePath, useTranslations } from '../../i18n/utils';
+import type { Locale } from '../../i18n/ui';
 
 interface Props {
   heroPage?: boolean;
+  lang?: Locale;
 }
 
-const { heroPage = false } = Astro.props;
+const { heroPage = false, lang } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const mainNav = getMainNav(currentLang);
 const currentPath = Astro.url.pathname;
 ---
 
@@ -75,12 +81,12 @@ const currentPath = Astro.url.pathname;
                 )}
               </a>
             ))}
-            {item.label === 'Services' && (
+            {item.href === localePath('/services/', currentLang) && (
               <a
-                href="/services/"
+                href={localePath('/services/', currentLang)}
                 class="block py-2 text-sm font-medium text-[var(--color-brand-orange)] no-underline mt-2 inline-flex items-center gap-1.5"
               >
-                All services
+                {t('nav.allServicesMobile')}
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -103,12 +109,21 @@ const currentPath = Astro.url.pathname;
       );
     })}
 
-    <div class="mt-6">
+    <div class="mt-6 space-y-3">
       <a
-        href="/contact/"
+        href={localePath('/china-site-scanner/', currentLang)}
+        class="flex items-center justify-center gap-2 w-full px-6 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] bg-[var(--color-brand-orange)] text-white hover:bg-[var(--color-brand-orange-hover)] no-underline transition-all duration-200"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        {t('nav.chinaSiteScanner')}
+      </a>
+      <a
+        href={localePath('/contact/', currentLang)}
         class="flex items-center justify-center gap-2 w-full px-6 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-[var(--color-text-dark)] text-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-white no-underline transition-all duration-200"
       >
-        Contact
+        {t('nav.contact')}
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>

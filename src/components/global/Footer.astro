@@ -1,5 +1,17 @@
 ---
-import { footerNav, legalNav } from '../../data/navigation';
+import { getFooterNav, getLegalNav } from '../../i18n/navigation';
+import { getLangFromUrl, localePath, useTranslations } from '../../i18n/utils';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const footerNav = getFooterNav(currentLang);
+const legalNav = getLegalNav(currentLang);
 ---
 
 <!-- Footer: nav columns + social + legal -->
@@ -9,7 +21,7 @@ import { footerNav, legalNav } from '../../data/navigation';
     <div class="grid grid-cols-6 sm:grid-cols-12 gap-y-10 gap-x-4 lg:gap-x-4 items-start">
       <!-- Manifesto + logo -->
       <div class="col-span-6 sm:col-span-12 lg:col-span-4">
-        <a href="/" class="inline-block mb-5" aria-label="ChinaWebFoundry - Home">
+        <a href={localePath('/', currentLang)} class="inline-block mb-5" aria-label="ChinaWebFoundry - Home">
           <img
             src="/Logo-ChinaWebFoundry-final.webp"
             alt="ChinaWebFoundry logo"
@@ -20,14 +32,14 @@ import { footerNav, legalNav } from '../../data/navigation';
           />
         </a>
         <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-sm">
-          WordPress for China, done right. Local team, global standards. From strategy to launch and beyond.
+          {t('footer.manifesto')}
         </p>
       </div>
 
       <!-- Services column -->
       <div class="col-span-3 sm:col-span-4 lg:col-span-3">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-          Services
+          {t('footer.services')}
         </h4>
         <ul class="space-y-2.5 text-sm">
           {footerNav.services.map((item) => (
@@ -43,7 +55,7 @@ import { footerNav, legalNav } from '../../data/navigation';
       <!-- Company column -->
       <div class="col-span-3 sm:col-span-4 lg:col-span-2">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-          Company
+          {t('footer.company')}
         </h4>
         <ul class="space-y-2.5 text-sm">
           {footerNav.company.map((item) => (
@@ -61,8 +73,8 @@ import { footerNav, legalNav } from '../../data/navigation';
             </li>
           ))}
           <li>
-            <a href="/contact/" class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
-              Contact
+            <a href={localePath('/contact/', currentLang)} class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
+              {t('footer.contact')}
             </a>
           </li>
         </ul>
@@ -71,7 +83,7 @@ import { footerNav, legalNav } from '../../data/navigation';
       <!-- Social column -->
       <div class="col-span-6 sm:col-span-4 lg:col-span-3">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-          Connect
+          {t('footer.connect')}
         </h4>
         <ul class="space-y-2.5 text-sm">
           <li>

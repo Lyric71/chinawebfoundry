@@ -1,0 +1,84 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+
+const metaTitle = 'Maintenance et support WordPress en Chine | Agence';
+const metaDescription = 'Maintenance WordPress depuis la Chine : surveillance du Grand Pare-feu, suivi SEO Baidu, sécurité, sauvegardes et support réactif par une équipe opérant depuis la Chine.';
+
+const includedItems = [
+  { title: 'Maintenance préventive', body: 'Mises à jour du coeur WordPress, des extensions et des thèmes, testées en environnement de pré-production avant tout passage en production. Sauvegardes quotidiennes stockées hors site. Scans de sécurité 24h/24. Vérifications de disponibilité toutes les cinq minutes depuis des serveurs physiquement situés en Chine. Nettoyage régulier de la base de données. Surveillance SSL et renouvellements pour les configurations compatibles Chine.', note: 'N\'importe quelle agence décente propose une version de ceci. La différence : nous vérifions tout depuis derrière le Grand Pare-feu, pas depuis un datacenter en Virginie.' },
+  { title: 'La couche Chine', body: 'Nous surveillons le comportement du Grand Pare-feu en temps réel. Quand un CDN, une bibliothèque de polices ou une API est bloqué, nous le détectons et mettons en place un remplacement compatible Chine avant que vos statistiques ne montrent les dégâts. Nous suivons les signaux de classement Baidu et ajustons le SEO technique quand les choses évoluent. Après chaque cycle de mise à jour, nous vérifions manuellement vos intégrations chinoises. WeChat login, Alipay, analytics locaux.', note: 'Votre agence habituelle ne peut littéralement pas faire cette partie. Elle aurait besoin d\'un VPN rien que pour voir que le problème existe.' },
+  { title: 'Dépannage', body: 'Quand quelque chose casse, notre équipe en Chine s\'en occupe immédiatement. Pas d\'attente d\'une demi-journée pour que quelqu\'un de l\'autre côté de la planète consulte sa boîte mail. Corrections de bugs, conflits d\'extensions, incidents de sécurité, problèmes de paiement WooCommerce avec Alipay ou WeChat Pay.', note: 'En cas de piratage : isoler, nettoyer, restaurer, durcir. Puis un véritable post-mortem pour que cela ne se reproduise pas.' },
+  { title: 'Évolution du site', body: 'Nouvelles pages, modifications de design, demandes de fonctionnalités, ajustements SEO Baidu, nouvelles intégrations. Le tout géré dans vos heures de support mensuelles. Nos recommandations s\'appuient sur des données de performance réelles provenant d\'utilisateurs chinois.', note: '' },
+];
+
+const audiences = [
+  { label: 'Pas d\'équipe locale', description: 'Entreprises avec un site WordPress actif en Chine qui ont besoin d\'un support expert sans constituer une équipe locale.', image: '/images/audiences/wordpress-china-no-local-team.webp' },
+  { label: 'Marketing d\'abord', description: 'Départements marketing qui préfèrent travailler sur les campagnes plutôt que déboguer des conflits d\'extensions sur neuf fuseaux horaires.', image: '/images/audiences/marketing-not-debugging.webp' },
+  { label: 'IT sans recrutement Chine', description: 'Équipes IT qui ont besoin d\'expertise WordPress Chine mais ne peuvent pas justifier un poste à plein temps.', image: '/images/audiences/it-team-china-expertise.webp' },
+  { label: 'WooCommerce Chine', description: 'Entreprises e-commerce utilisant WooCommerce avec des passerelles de paiement chinoises et de la logistique locale.', image: '/images/audiences/woocommerce-china-payments.webp' },
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0"><img src="/images/hero-maintenance-support.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" /><div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div><div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20"><ol class="flex items-center gap-2 text-sm text-white/40"><li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li><li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li><li class="before:content-['/'] before:mx-2 text-white/60">Maintenance et support</li></ol></nav>
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Maintenance et support</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">Votre site WordPress en Chine a besoin de quelqu'un<span class="block mt-2 text-[var(--color-brand-orange)]">qui le surveille de l'intérieur</span></h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Maintenance et support continus par une équipe qui opère véritablement derrière le Grand Pare-feu. Nous détectons les problèmes que votre équipe IT internationale ne peut pas voir.</p>
+          <div class="mt-10"><Button href="/fr/contact/" variant="primary" size="lg">Parler à notre équipe</Button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Une Google Font est bloquée. Votre page d'accueil casse. Personne dans vos bureaux ne le sait.</h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">Nous voyons cela plus souvent que nous ne le souhaiterions. Une Google Font est bloquée par le Grand Pare-feu un mardi quelconque. Votre page d'accueil devient un désordre pour chaque visiteur à Shanghai, Shenzhen, Pékin. Votre équipe à Paris ? Aucune idée. De leur côté, tout se charge normalement.</p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">WordPress en Chine nécessite une attention constante de la part de quelqu'un qui peut voir ce que vos visiteurs chinois voient réellement. Le Grand Pare-feu ne prévient pas avant de bloquer quelque chose.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Ce qui est inclus</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Ce que nous faisons concrètement pour votre site</h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {includedItems.map((item) => (
+              <div class="flex gap-5"><div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div><div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]"><h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{item.title}</h3><p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item.body}</p>{item.note && (<p class="mt-3 text-sm text-[var(--color-text-muted)] italic leading-relaxed">{item.note}</p>)}</div></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="Qui nous contacte pour la maintenance" audiences={audiences} background="light" />
+
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Lancez-vous</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Vous avez déjà fait le plus dur. Ne laissez pas tout se dégrader.</h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Vous avez déjà accompli le travail de lancement d'un site WordPress pour la Chine. Ne laissez pas tout se dégrader parce que personne ne surveille de l'intérieur.</p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/fr/contact/" variant="primary" size="lg">Demander une proposition sur mesure</Button>
+        <Button href="/fr/services/china-hosting/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Explorer les options d'hébergement</Button>
+      </div>
+    </div>
+  </section>
+</PageLayout>

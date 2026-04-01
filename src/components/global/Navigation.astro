@@ -1,12 +1,18 @@
 ---
-import { mainNav } from '../../data/navigation';
+import { getMainNav } from '../../i18n/navigation';
+import { getLangFromUrl, localePath, useTranslations } from '../../i18n/utils';
+import type { Locale } from '../../i18n/ui';
 
 interface Props {
   class?: string;
   heroPage?: boolean;
+  lang?: Locale;
 }
 
-const { class: className, heroPage = false } = Astro.props;
+const { class: className, heroPage = false, lang } = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const mainNav = getMainNav(currentLang);
 const currentPath = Astro.url.pathname;
 
 const planServices = mainNav[0].children?.filter((s) => s.column === 'plan') ?? [];
@@ -50,7 +56,7 @@ const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? 
             <div class="bg-white rounded-lg shadow-lg border border-[var(--color-surface-border)] p-8 w-[720px]">
               <div class="grid grid-cols-3 gap-8">
                 <div>
-                  <h4 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">Plan</h4>
+                  <h4 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">{t('nav.plan')}</h4>
                   <ul class="space-y-4" role="none">
                     {planServices.map((service) => (
                       <li role="none">
@@ -63,7 +69,7 @@ const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? 
                   </ul>
                 </div>
                 <div>
-                  <h4 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">Build</h4>
+                  <h4 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">{t('nav.build')}</h4>
                   <ul class="space-y-4" role="none">
                     {buildServices.map((service) => (
                       <li role="none">
@@ -76,7 +82,7 @@ const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? 
                   </ul>
                 </div>
                 <div>
-                  <h4 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">Grow & Run</h4>
+                  <h4 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">{t('nav.grow')}</h4>
                   <ul class="space-y-4" role="none">
                     {growServices.map((service) => (
                       <li role="none">
@@ -90,8 +96,8 @@ const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? 
                 </div>
               </div>
               <div class="mt-6 pt-4 border-t border-[var(--color-surface-border)]">
-                <a href="/services/" class="text-sm font-medium text-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange-hover)] no-underline inline-flex items-center gap-1.5">
-                  All services overview
+                <a href={localePath('/services/', currentLang)} class="text-sm font-medium text-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange-hover)] no-underline inline-flex items-center gap-1.5">
+                  {t('nav.allServices')}
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
