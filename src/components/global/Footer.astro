@@ -6,9 +6,9 @@ import { footerNav, legalNav } from '../../data/navigation';
 <footer class="bg-[var(--color-surface-light)] mt-0">
   <!-- Main footer content -->
   <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-16">
-    <div class="io-grid items-start">
+    <div class="grid grid-cols-6 sm:grid-cols-12 gap-y-10 gap-x-4 lg:gap-x-4 items-start">
       <!-- Manifesto + logo -->
-      <div class="col-span-12 lg:col-span-4">
+      <div class="col-span-6 sm:col-span-12 lg:col-span-4">
         <a href="/" class="inline-block mb-5" aria-label="ChinaWebFoundry - Home">
           <img
             src="/Logo-ChinaWebFoundry-final.png"
@@ -25,7 +25,7 @@ import { footerNav, legalNav } from '../../data/navigation';
       </div>
 
       <!-- Services column -->
-      <div class="col-span-6 sm:col-span-4 lg:col-span-3">
+      <div class="col-span-3 sm:col-span-4 lg:col-span-3">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           Services
         </h4>
@@ -41,7 +41,7 @@ import { footerNav, legalNav } from '../../data/navigation';
       </div>
 
       <!-- Company column -->
-      <div class="col-span-6 sm:col-span-4 lg:col-span-2">
+      <div class="col-span-3 sm:col-span-4 lg:col-span-2">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           Company
         </h4>
@@ -69,14 +69,14 @@ import { footerNav, legalNav } from '../../data/navigation';
       </div>
 
       <!-- Social column -->
-      <div class="col-span-12 sm:col-span-4 lg:col-span-3">
+      <div class="col-span-6 sm:col-span-4 lg:col-span-3">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           Connect
         </h4>
         <ul class="space-y-2.5 text-sm">
           <li>
             <a href="mailto:hello@beyondbordergroup.com" class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors inline-flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </svg>
               hello@beyondbordergroup.com
@@ -90,15 +90,17 @@ import { footerNav, legalNav } from '../../data/navigation';
   <!-- Legal bar -->
   <div class="border-t border-[var(--color-surface-border)]">
     <div class="mx-auto max-w-[1400px] section-padding py-6">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-text-muted)]">
-        <div class="flex items-center gap-4">
+      <div class="flex flex-col gap-4 text-sm text-[var(--color-text-muted)]">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
           <span>Copyright {new Date().getFullYear()} - BeyondBorderGroup Ltd - Hong Kong</span>
-          <span class="text-[var(--color-surface-border)]">|</span>
-          <a href="https://www.beyondbordergroup.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">beyondbordergroup.com</a>
-          <span class="text-[var(--color-surface-border)]">|</span>
-          <a href="https://www.nuvora.studio" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">nuvora.studio</a>
+          <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
+          <div class="flex items-center gap-3 sm:gap-4">
+            <a href="https://www.beyondbordergroup.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">beyondbordergroup.com</a>
+            <span class="text-[var(--color-surface-border)]">|</span>
+            <a href="https://www.nuvora.studio" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">nuvora.studio</a>
+          </div>
         </div>
-        <div class="flex items-center gap-6">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
           {legalNav.map((item) => (
             <a href={item.href} class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
               {item.label}
