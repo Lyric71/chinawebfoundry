@@ -14,12 +14,15 @@ export async function getStaticPaths() {
 }
 
 const { casestudy } = Astro.props;
-const { Content } = await render(casestudy);
+const { Content, headings } = await render(casestudy);
+const tocItems = headings.filter((h) => h.depth === 2);
 
 const allServices = await getCollection('services');
 const relatedServices = casestudy.data.services
   ?.map((slug: string) => allServices.find((s) => s.id === slug))
   .filter(Boolean) || [];
+
+const visuals = casestudy.data.visuals || [];
 ---
 
 <PageLayout
@@ -32,7 +35,7 @@ const relatedServices = casestudy.data.services
       <img
         src={casestudy.data.visual}
         alt=""
-        class="absolute inset-0 w-full h-full object-cover"
+        class="absolute inset-0 w-full h-full object-cover object-top"
         loading="eager"
         decoding="async"
       />
@@ -68,56 +71,268 @@ const relatedServices = casestudy.data.services
     </div>
   </section>
 
-  <!-- Content -->
+  <!-- Article body with TOC sidebar -->
   <article class="py-16 md:py-20 lg:py-24">
-    <div class="mx-auto max-w-[800px] section-padding">
-      <!-- Summary -->
-      <div class="mb-12 p-6 bg-[var(--color-surface-light)] rounded-xl border border-[var(--color-surface-border)]">
-        <p class="text-lg text-[var(--color-text-body)] leading-relaxed font-medium">
-          {casestudy.data.summary}
-        </p>
-      </div>
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
-      <!-- Body -->
-      <div class="prose prose-lg max-w-none
-        prose-headings:font-[var(--font-heading)] prose-headings:text-[var(--color-text-dark)] prose-headings:font-medium
-        prose-p:text-[var(--color-text-body)] prose-p:leading-relaxed
-        prose-li:text-[var(--color-text-body)]
-        prose-strong:text-[var(--color-text-dark)]
-        prose-a:text-[var(--color-brand-orange)] prose-a:no-underline hover:prose-a:underline
-      ">
-        <Content />
-      </div>
+        <!-- Sticky TOC (left) -->
+        {tocItems.length > 0 && (
+          <aside class="hidden lg:block lg:w-[260px] shrink-0">
+            <nav class="sticky top-28">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">
+                In this case study
+              </p>
+              <ul class="space-y-1 border-l border-[var(--color-surface-border)]">
+                {tocItems.map((heading) => (
+                  <li>
+                    <a
+                      href={`#${heading.slug}`}
+                      class="toc-link block pl-4 py-1.5 text-sm text-[var(--color-text-body)] no-underline hover:text-[var(--color-brand-orange)] transition-colors duration-200 border-l-2 border-transparent -ml-px"
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )}
 
-      <!-- Related services -->
-      {relatedServices.length > 0 && (
-        <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
-          <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">
-            Services used in this project
-          </h2>
-          <div class="flex flex-wrap gap-3">
-            {relatedServices.map((service: any) => (
-              <a
-                href={`/services/${service.id}/`}
-                class="px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border border-[var(--color-surface-border)] text-[var(--color-text-body)] no-underline hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors"
-              >
-                {service.data.title}
-              </a>
-            ))}
+        <!-- Content column -->
+        <div class="min-w-0 flex-1 max-w-[780px]">
+          <div class="case-content">
+            <Content />
+          </div>
+
+          <!-- Visuals gallery -->
+          {visuals.length > 0 && (
+            <div class="mt-12">
+              <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">
+                The website
+              </h2>
+              <div class="grid grid-cols-1 gap-4">
+                {visuals.map((src: string, i: number) => (
+                  <div class="rounded-xl overflow-hidden border border-[var(--color-surface-border)] bg-[var(--color-surface-light)]">
+                    <img
+                      src={src}
+                      alt={`Bassetti China website screenshot ${i + 1}`}
+                      class="w-full h-auto"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Related services -->
+          {relatedServices.length > 0 && (
+            <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
+              <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">
+                Services used in this project
+              </h2>
+              <div class="flex flex-wrap gap-3">
+                {relatedServices.map((service: any) => (
+                  <a
+                    href={`/services/${service.id}/`}
+                    class="px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border border-[var(--color-surface-border)] text-[var(--color-text-body)] no-underline hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors"
+                  >
+                    {service.data.title}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- CTA -->
+          <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
+            <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+              Want results like these?
+            </h2>
+            <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
+              Tell us about your project and we will map out what it takes to make your WordPress site work in China.
+            </p>
+            <Button href="/contact/" variant="primary" size="md">Talk to Us</Button>
           </div>
         </div>
-      )}
 
-      <!-- CTA -->
-      <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
-        <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-          Want results like these?
-        </h2>
-        <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
-          Tell us about your project and we will map out what it takes to make your WordPress site work in China.
-        </p>
-        <Button href="/contact/" variant="primary" size="md">Talk to Us</Button>
       </div>
     </div>
   </article>
 </PageLayout>
+
+<style>
+  .case-content :global(h2) {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    color: var(--color-text-dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 6rem;
+  }
+
+  @media (min-width: 640px) {
+    .case-content :global(h2) {
+      font-size: 1.75rem;
+      margin-top: 3rem;
+    }
+  }
+
+  .case-content :global(p) {
+    color: var(--color-text-body);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .case-content :global(strong) {
+    color: var(--color-text-dark);
+    font-weight: 600;
+  }
+
+  .case-content :global(a) {
+    color: var(--color-brand-orange);
+    text-decoration: none;
+  }
+
+  .case-content :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  .case-content :global(blockquote) {
+    position: relative;
+    margin: 1.5rem 0;
+    padding: 1rem 1rem 1rem 1.25rem;
+    background: linear-gradient(135deg, rgba(242, 95, 41, 0.06), rgba(242, 95, 41, 0.02));
+    border-left: 3px solid var(--color-brand-orange);
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .case-content :global(blockquote) {
+      margin: 2rem 0;
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+    }
+  }
+
+  .case-content :global(blockquote p) {
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 640px) {
+    .case-content :global(blockquote p) {
+      font-size: 1.05rem;
+    }
+  }
+
+  .case-content :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .case-content :global(table) {
+    width: 100%;
+    margin: 1.5rem 0 2rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-surface-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .case-content :global(thead) {
+    background: var(--color-surface-light);
+  }
+
+  .case-content :global(th) {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-dark);
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-surface-border);
+  }
+
+  .case-content :global(td) {
+    padding: 0.75rem 1rem;
+    color: var(--color-text-body);
+    border-bottom: 1px solid var(--color-surface-border);
+    line-height: 1.5;
+  }
+
+  .case-content :global(tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .case-content :global(ul) {
+    margin: 1rem 0 1.5rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .case-content :global(ul li) {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-body);
+    line-height: 1.7;
+  }
+
+  .case-content :global(ul li::before) {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-brand-orange);
+  }
+
+  .toc-link.is-active {
+    color: var(--color-brand-orange) !important;
+    border-left-color: var(--color-brand-orange) !important;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  // Wrap tables for mobile scroll
+  document.querySelectorAll('.case-content table').forEach((table) => {
+    const wrapper = document.createElement('div');
+    wrapper.style.overflowX = 'auto';
+    wrapper.style.webkitOverflowScrolling = 'touch';
+    table.parentNode!.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+
+  // TOC scroll spy
+  const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  if (links.length > 0) {
+    const ids = Array.from(links).map((l) => l.getAttribute('href')!.slice(1));
+    const headings = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+
+    function updateActive() {
+      let current = 0;
+      for (let i = 0; i < headings.length; i++) {
+        if (headings[i].getBoundingClientRect().top <= 120) {
+          current = i;
+        }
+      }
+      links.forEach((l, i) => l.classList.toggle('is-active', i === current));
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  }
+</script>

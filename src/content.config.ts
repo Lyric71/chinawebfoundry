@@ -61,6 +61,7 @@ const casestudies = defineCollection({
     subtitle: z.string(),
     summary: z.string(),
     visual: z.string(),
+    visuals: z.array(z.string()).optional(),
     color: z.string(),
     order: z.number(),
     published: z.boolean().default(true),
