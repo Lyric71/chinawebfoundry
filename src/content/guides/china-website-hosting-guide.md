@@ -5,6 +5,7 @@ summary: "Where you host your China website affects speed, Baidu rankings and co
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
 published: true
+category: Hosting
 ---
 
 Hosting is the most underestimated decision in any China web strategy. Pick the wrong server location and your site takes five seconds to load, if it loads at all. Pick the wrong provider and you miss ecosystem integrations your competitors are already using. China's cloud market is dominated by local players, each one wired into a different part of the Chinese internet. The server location question comes down to three tiers with very different tradeoffs. And the CDN you choose here matters more than it does anywhere else in the world.

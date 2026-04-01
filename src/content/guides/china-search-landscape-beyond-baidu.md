@@ -5,6 +5,7 @@ summary: "Baidu controls 60% of China's search, but Sogou, 360 Search, Shenma an
 visual: "/images/guides/china-search-landscape-beyond-baidu.webp"
 order: 4
 published: true
+category: Search
 ---
 
 When foreign companies think about search in China, they think Baidu. And fair enough, Baidu controls roughly 60% of the market. But that still leaves hundreds of millions of searches happening on platforms that most Western marketers have never touched. One lives inside WeChat. Another is tied to Alibaba's e-commerce system. A third caters to desktop users who picked their browser for security reasons. And the newest one sits inside ByteDance's news app. Each one serves a different audience and indexes different content. Ignoring them means missing a real chunk of how Chinese people search.

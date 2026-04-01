@@ -5,6 +5,7 @@ summary: "Every China-hosted website needs an ICP. The Bei'an filing is simple. 
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
 published: true
+category: Legal
 ---
 
 Every website on a mainland Chinese server needs an ICP registration. That part is simple enough. What trips foreign companies up is that there are two separate types of ICP with very different rules. One is quick, cheap, and open to most foreign businesses. The other takes months, costs real money, and has an ownership restriction that blocks most foreign companies outright. Getting them confused, or skipping both, means slower pages, lower rankings, and a site that Chinese users may never trust.

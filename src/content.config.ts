@@ -50,6 +50,7 @@ const guides = defineCollection({
     visual: z.string(),
     order: z.number(),
     published: z.boolean().default(true),
+    category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
   }),
 });
 

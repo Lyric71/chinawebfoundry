@@ -5,6 +5,7 @@ summary: "China's Great Firewall blocks Google, Facebook, Slack and dozens more.
 visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
+category: Technology
 ---
 
 The Great Firewall doesn't work the way most people imagine. It's not a blacklist. It's a layered system that poisons DNS queries, blocks entire IP ranges, reads the contents of your data packets in real time, and actively hunts for VPN connections. For foreign companies, that means any website with even one dependency on a blocked service - a font file, a tracking script, a map embed - is delivering a broken experience to users in China. And usually nobody on the team knows it's happening.
