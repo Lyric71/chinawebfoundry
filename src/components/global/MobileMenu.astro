@@ -118,8 +118,11 @@ const currentPath = Astro.url.pathname;
 <script>
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  const mainNavBar = document.getElementById('main-nav-bar');
   const openIcon = document.getElementById('menu-open-icon');
   const closeIcon = document.getElementById('menu-close-icon');
+  const header = document.getElementById('site-header');
+  const isHeroPage = header?.dataset.heroPage === 'true';
 
   toggle?.addEventListener('click', () => {
     const isOpen = !menu?.classList.contains('hidden');
@@ -127,6 +130,24 @@ const currentPath = Astro.url.pathname;
     openIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
     toggle.setAttribute('aria-expanded', String(!isOpen));
+
+    if (isHeroPage) {
+      if (!isOpen) {
+        // Menu is opening: force white header background and dark icon
+        mainNavBar?.classList.remove('bg-transparent', 'border-white/10');
+        mainNavBar?.classList.add('bg-white/95', 'backdrop-blur-sm', 'border-[var(--color-surface-border)]');
+        toggle.classList.remove('text-white', 'hover:text-white/70');
+        toggle.classList.add('text-[var(--color-text-body)]', 'hover:text-[var(--color-brand-orange)]');
+      } else {
+        // Menu is closing: restore header based on scroll position
+        if (window.scrollY <= 80) {
+          mainNavBar?.classList.add('bg-transparent', 'border-white/10');
+          mainNavBar?.classList.remove('bg-white/95', 'backdrop-blur-sm', 'border-[var(--color-surface-border)]');
+          toggle.classList.add('text-white', 'hover:text-white/70');
+          toggle.classList.remove('text-[var(--color-text-body)]', 'hover:text-[var(--color-brand-orange)]');
+        }
+      }
+    }
   });
 
   // Accordion behaviour
