@@ -2,7 +2,7 @@
 title: "Hosting and Technical Support for the World's Largest Water-Soluble Polymer Manufacturer in China"
 subtitle: "How we keep SNF China's WordPress site running fast, stable, and compliant as the group expands across its third-largest market worldwide."
 summary: "Reliable WordPress hosting, technical integration, and maintenance for SNF China, the world's largest water-soluble polymer manufacturer, across two factories and six offices."
-visual: "/images/casestudies/snfchina-com-1.png"
+visual: "/images/casestudies/snfchina-com-1.webp"
 color: "#1B3A5C"
 order: 5
 published: true

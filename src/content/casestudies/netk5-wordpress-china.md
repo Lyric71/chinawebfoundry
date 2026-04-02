@@ -2,7 +2,7 @@
 title: "Building the WordPress Website for China's Leading IT Services Provider for International Companies"
 subtitle: "How we structured, hosted, and maintain the WordPress site for NETK5, a China-based IT firm helping foreign businesses navigate China's tech landscape since 2002."
 summary: "Content strategy, WordPress build, China hosting, and ongoing support for NETK5, a leading IT services provider for international companies in China since 2002."
-visual: "/images/casestudies/NETK5-Your-IT-Team-1.png"
+visual: "/images/casestudies/netk5-your-it-team-1.webp"
 color: "#2A6B3F"
 order: 6
 published: true

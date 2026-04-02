@@ -2,7 +2,7 @@
 title: "Building a China Website for a Global Life Sciences Consulting Firm"
 subtitle: "How VCLS launched a localised website in China to support their new China office and serve the local HealthTech market."
 summary: "Built and localised a dedicated China website for life sciences consulting firm VCLS. Content localisation, China hosting, and ongoing maintenance and support."
-visual: "/images/casestudies/主页-VCLS-1.png"
+visual: "/images/casestudies/vcls-homepage-1.webp"
 color: "#344480"
 order: 4
 published: true

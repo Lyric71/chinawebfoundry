@@ -76,6 +76,8 @@ with structured frontmatter (title, slug, description, icon, order).
 - Use Astro Image component for automatic optimisation
 - Lazy-load all below-fold images
 - No Google services (Analytics, Fonts, reCAPTCHA, Maps)
+- CRITICAL: All images must be WebP format, max 1050px wide (2x retina for ~525px cards). When adding new case study or content images, convert PNGs/JPGs to WebP and resize with: `npx sharp-cli -i input.png -o output.webp -- resize 1050 --withoutEnlargement`
+- Never commit PNG or JPEG images to `public/images/` - always convert to WebP first
 
 ## Testing
 - Run `npm run build` before committing to catch build errors

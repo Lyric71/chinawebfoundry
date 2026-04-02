@@ -2,7 +2,7 @@
 title: "Bringing a French Industrial Sealing Manufacturer's Full Product Catalogue to the Chinese Market"
 subtitle: "How we designed, built, and now host the WordPress site that helps Techné sell sealing solutions to Chinese industrial buyers."
 summary: "Design, content strategy, full product catalogue, WordPress build, China hosting, and ongoing support for French sealing manufacturer Techné entering the Chinese market."
-visual: "/images/casestudies/techne-cn-1.png"
+visual: "/images/casestudies/techne-cn-1.webp"
 color: "#8B1A1A"
 order: 7
 published: true
