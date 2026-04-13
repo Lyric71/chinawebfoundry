@@ -503,12 +503,17 @@ import PageLayout from '../../layouts/PageLayout.astro';
     startProgress();
 
     try {
-      // Step 1: Send lead email (fire and forget - don't block scan on email delivery)
-      fetch('/api/scanner-access', {
+      // Step 1: Verify captcha and send lead email (must pass before scan runs)
+      const leadRes = await fetch('/api/scanner-access', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, company, website, email, captchaAnswer, captchaToken }),
-      }).catch(() => {});
+      });
+
+      if (!leadRes.ok) {
+        const { error } = await leadRes.json().catch(() => ({ error: 'Échec de la vérification. Veuillez réessayer.' }));
+        throw new Error(error || 'Échec de la vérification. Veuillez réessayer.');
+      }
 
       // Step 2: Run the scan
       const res = await fetch('/api/scan', {
