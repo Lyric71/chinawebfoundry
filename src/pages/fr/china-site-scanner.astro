@@ -1,7 +1,5 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-
-const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-ffff-ffff-ffff-000000000001';
 ---
 
 <PageLayout
@@ -79,9 +77,33 @@ const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-fff
               class="w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
             />
           </div>
-          <!-- hCaptcha -->
-          <div class="mt-4 flex justify-center">
-            <div id="gate-hcaptcha" class="h-captcha" data-sitekey={hcaptchaSiteKey} data-theme="dark" data-size="compact"></div>
+          <!-- Local captcha -->
+          <div class="mt-4">
+            <label for="gate-captcha-answer" class="block text-xs font-medium text-white/70 mb-2">
+              Vérification rapide : combien font <span id="gate-captcha-question" class="font-semibold text-white">...</span> ?
+            </label>
+            <div class="flex items-center gap-2">
+              <input
+                type="text"
+                id="gate-captcha-answer"
+                name="captchaAnswer"
+                inputmode="numeric"
+                autocomplete="off"
+                required
+                placeholder="Votre réponse"
+                class="flex-1 px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
+              />
+              <button
+                type="button"
+                id="gate-captcha-refresh"
+                aria-label="Actualiser le captcha"
+                class="px-3 py-3.5 text-white/70 bg-white/[0.07] border border-white/10 rounded-xl hover:bg-white/[0.1] hover:text-white transition-all duration-200"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </button>
+            </div>
           </div>
           <button
             type="submit"
@@ -263,9 +285,6 @@ const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-fff
   </section>
 </PageLayout>
 
-<!-- hCaptcha script -->
-<script is:inline src="https://js.hcaptcha.com/1/api.js" async defer></script>
-
 <style>
   .scanner-fade-in {
     opacity: 0;
@@ -351,6 +370,32 @@ const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-fff
   const gateFormWrapper = document.getElementById('gate-form-wrapper') as HTMLDivElement;
   const gateForm = document.getElementById('gate-form') as HTMLFormElement;
   const gateError = document.getElementById('gate-error') as HTMLDivElement;
+  const captchaQuestionEl = document.getElementById('gate-captcha-question') as HTMLSpanElement;
+  const captchaAnswerEl = document.getElementById('gate-captcha-answer') as HTMLInputElement;
+  const captchaRefreshBtn = document.getElementById('gate-captcha-refresh') as HTMLButtonElement;
+
+  /* ── Local captcha ── */
+  let captchaToken = '';
+
+  async function loadCaptcha() {
+    captchaQuestionEl.textContent = '...';
+    captchaAnswerEl.value = '';
+    try {
+      const res = await fetch('/api/captcha', { cache: 'no-store' });
+      const data = await res.json();
+      captchaQuestionEl.textContent = data.question;
+      captchaToken = data.token;
+    } catch {
+      captchaQuestionEl.textContent = 'indisponible';
+      captchaToken = '';
+    }
+  }
+
+  captchaRefreshBtn.addEventListener('click', () => {
+    loadCaptcha();
+  });
+
+  loadCaptcha();
 
   const loadingEl = document.getElementById('loading-state') as HTMLDivElement;
   const resultsEl = document.getElementById('results') as HTMLDivElement;
@@ -432,8 +477,8 @@ const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-fff
       return;
     }
 
-    const captchaToken = (window as any).hcaptcha?.getResponse?.();
-    if (!captchaToken) {
+    const captchaAnswer = captchaAnswerEl.value.trim();
+    if (!captchaAnswer || !captchaToken) {
       gateError.textContent = 'Veuillez compléter la vérification captcha.';
       gateError.classList.remove('hidden');
       return;
@@ -462,7 +507,7 @@ const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-fff
       fetch('/api/scanner-access', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, company, website, email, captchaToken }),
+        body: JSON.stringify({ name, company, website, email, captchaAnswer, captchaToken }),
       }).catch(() => {});
 
       // Step 2: Run the scan
@@ -492,7 +537,7 @@ const hcaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITEKEY || '10000000-fff
       whatSection.classList.remove('hidden');
       gateError.textContent = err instanceof Error ? err.message : 'Une erreur inattendue s\'est produite.';
       gateError.classList.remove('hidden');
-      (window as any).hcaptcha?.reset?.();
+      loadCaptcha();
     }
   });
 

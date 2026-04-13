@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { verifyChallenge } from '../../lib/captcha';
 
 export const prerender = false;
 
@@ -13,7 +14,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: 'Invalid request body.' }), { status: 400, headers });
   }
 
-  const { name, company, website, email, captchaToken } = body;
+  const { name, company, website, email, captchaAnswer, captchaToken } = body;
 
   if (!name || !company || !website || !email) {
     return new Response(JSON.stringify({ error: 'All fields are required.' }), { status: 400, headers });
@@ -24,24 +25,8 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: 'Invalid email address.' }), { status: 400, headers });
   }
 
-  // Verify hCaptcha
-  const hcaptchaSecret = import.meta.env.HCAPTCHA_SECRET;
-  if (hcaptchaSecret && captchaToken) {
-    try {
-      const verifyRes = await fetch('https://api.hcaptcha.com/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `response=${encodeURIComponent(captchaToken)}&secret=${encodeURIComponent(hcaptchaSecret)}`,
-      });
-      const verifyData = await verifyRes.json() as { success: boolean };
-      if (!verifyData.success) {
-        return new Response(JSON.stringify({ error: 'Captcha verification failed. Please try again.' }), { status: 403, headers });
-      }
-    } catch {
-      return new Response(JSON.stringify({ error: 'Captcha verification error. Please try again.' }), { status: 500, headers });
-    }
-  } else if (hcaptchaSecret && !captchaToken) {
-    return new Response(JSON.stringify({ error: 'Captcha is required.' }), { status: 400, headers });
+  if (!verifyChallenge(captchaAnswer, captchaToken)) {
+    return new Response(JSON.stringify({ error: 'Captcha verification failed. Please try again.' }), { status: 403, headers });
   }
 
   // Send email via Resend
