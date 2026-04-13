@@ -4,6 +4,23 @@ import { verifyChallenge } from '../../lib/captcha';
 
 export const prerender = false;
 
+const MESSAGES = {
+  en: {
+    invalidBody: 'Invalid request body.',
+    missingFields: 'All fields are required.',
+    invalidEmail: 'Invalid email address.',
+    captchaFailed: 'Captcha verification failed. Please try again.',
+    sendFailed: 'Failed to send. Please try again.',
+  },
+  fr: {
+    invalidBody: 'Requête invalide.',
+    missingFields: 'Tous les champs sont requis.',
+    invalidEmail: 'Adresse e-mail invalide.',
+    captchaFailed: 'Échec de la vérification anti-robot. Veuillez réessayer.',
+    sendFailed: "L'envoi a échoué. Veuillez réessayer.",
+  },
+} as const;
+
 export const POST: APIRoute = async ({ request }) => {
   const headers = { 'Content-Type': 'application/json' };
 
@@ -11,22 +28,23 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid request body.' }), { status: 400, headers });
+    return new Response(JSON.stringify({ error: MESSAGES.en.invalidBody }), { status: 400, headers });
   }
 
-  const { name, company, website, email, captchaAnswer, captchaToken } = body;
+  const { name, company, website, email, captchaAnswer, captchaToken, locale } = body;
+  const t = locale === 'fr' ? MESSAGES.fr : MESSAGES.en;
 
   if (!name || !company || !website || !email) {
-    return new Response(JSON.stringify({ error: 'All fields are required.' }), { status: 400, headers });
+    return new Response(JSON.stringify({ error: t.missingFields }), { status: 400, headers });
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    return new Response(JSON.stringify({ error: 'Invalid email address.' }), { status: 400, headers });
+    return new Response(JSON.stringify({ error: t.invalidEmail }), { status: 400, headers });
   }
 
   if (!verifyChallenge(captchaAnswer, captchaToken)) {
-    return new Response(JSON.stringify({ error: 'Captcha verification failed. Please try again.' }), { status: 403, headers });
+    return new Response(JSON.stringify({ error: t.captchaFailed }), { status: 403, headers });
   }
 
   // Send email via Resend
@@ -66,7 +84,7 @@ export const POST: APIRoute = async ({ request }) => {
   `;
 
   const { error } = await resend.emails.send({
-    from: 'ChinaWebFoundry <scanner@chinawebfoundry.com>',
+    from: 'ChinaWebFoundry <onboarding@resend.dev>',
     to: 'cyril.drouin@outlook.com',
     replyTo: email,
     subject: `China Site Scanner - ${name} (${company})`,
@@ -76,7 +94,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (error) {
     console.error('Resend error:', error);
-    return new Response(JSON.stringify({ error: 'Failed to send. Please try again.' }), { status: 500, headers });
+    return new Response(JSON.stringify({ error: t.sendFailed }), { status: 500, headers });
   }
 
   return new Response(JSON.stringify({ success: true }), { status: 200, headers });

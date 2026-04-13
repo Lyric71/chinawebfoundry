@@ -503,19 +503,26 @@ import PageLayout from '../../layouts/PageLayout.astro';
     startProgress();
 
     try {
-      // Step 1: Verify captcha and send lead email (must pass before scan runs)
-      const leadRes = await fetch('/api/scanner-access', {
+      // Step 1: Verify captcha (must pass before scan runs)
+      const verifyRes = await fetch('/api/verify-captcha', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, company, website, email, captchaAnswer, captchaToken }),
+        body: JSON.stringify({ captchaAnswer, captchaToken, locale: 'fr' }),
       });
 
-      if (!leadRes.ok) {
-        const { error } = await leadRes.json().catch(() => ({ error: 'Échec de la vérification. Veuillez réessayer.' }));
-        throw new Error(error || 'Échec de la vérification. Veuillez réessayer.');
+      if (!verifyRes.ok) {
+        const { error } = await verifyRes.json().catch(() => ({ error: 'Une erreur est survenue. Veuillez réessayer.' }));
+        throw new Error(error || 'Une erreur est survenue. Veuillez réessayer.');
       }
 
-      // Step 2: Run the scan
+      // Step 2: Send lead email (fire and forget - don't block scan on email delivery)
+      fetch('/api/scanner-access', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, company, website, email, captchaAnswer, captchaToken, locale: 'fr' }),
+      }).catch(() => {});
+
+      // Step 3: Run the scan
       const res = await fetch('/api/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
