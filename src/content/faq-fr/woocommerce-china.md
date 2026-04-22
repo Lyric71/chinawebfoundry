@@ -1,9 +1,9 @@
 ---
-question: "Pouvez-vous adapter notre boutique WooCommerce pour les acheteurs chinois ?"
+question: "Pouvez-vous adapter notre boutique WooCommerce aux consommateurs chinois ?"
 order: 23
 category: "technical"
 ---
 
-Oui, adaptation complète. Alipay et WeChat Pay comme passerelles de paiement. Intégrations logistiques chinoises (SF Express, ZTO, YTO). Pages produits retravaillées pour les habitudes d'achat locales. Tunnel de commande testé dans le navigateur intégré de WeChat, où s'effectue une part considérable des achats mobiles en Chine.
+Oui, de bout en bout. Alipay et WeChat Pay en passerelles de paiement. Connecteurs logistiques avec SF Express, ZTO et YTO. Fiches produits remaniées selon les codes locaux, plus denses en informations qu'en Europe. Tunnel d'achat testé dans le navigateur intégré de WeChat, là où se conclut une part massive des commandes mobiles du pays.
 
-Nous mettons aussi en place la tarification en CNY et la gestion des fapiao, la facture fiscale officielle chinoise, obligatoire pour les achats professionnels. Sans fapiao, les entreprises chinoises ne peuvent pas passer la dépense en charge.
+Nous gérons aussi la tarification en CNY et l'émission des fapiao, ces factures fiscales officielles qu'une entreprise chinoise doit impérativement recevoir pour pouvoir passer la dépense en comptabilité. Pas de fapiao, pas de vente B2B.

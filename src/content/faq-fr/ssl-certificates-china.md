@@ -1,9 +1,9 @@
 ---
-question: "Comment fonctionnent les certificats SSL sur un hébergement WordPress chinois ?"
+question: "Comment gère-t-on le SSL sur un hébergement WordPress chinois ?"
 order: 22
 category: "technical"
 ---
 
-Techniquement, comme partout ailleurs. La spécificité chinoise concerne l'autorité de certification : toutes les CA ne sont pas reconnues par les navigateurs chinois comme QQ Browser ou UC Browser. Un mauvais choix déclenche un avertissement de sécurité pour vos visiteurs.
+Sur le plan technique, rien de différent d'ailleurs. La particularité chinoise se joue sur le choix de l'autorité de certification. Tous les émetteurs ne sont pas reconnus par les navigateurs locaux, QQ Browser et UC Browser en tête. Une mauvaise CA et vos visiteurs tombent sur un avertissement de sécurité avant même d'arriver sur votre page d'accueil.
 
-Nous utilisons DigiCert, GlobalSign ou TrustAsia via Alibaba Cloud. HTTPS avec en-têtes HSTS, redirection HTTP forcée, renouvellement automatisé. La sélection de la CA est le point qui pose problème sans expérience du terrain chinois.
+Nous travaillons avec DigiCert, GlobalSign ou TrustAsia, via Alibaba Cloud. HTTPS systématique, en-têtes HSTS activés, redirection HTTP forcée, renouvellement automatisé. Le piège, c'est la sélection de l'émetteur. Sans pratique du terrain chinois, on tombe dedans.

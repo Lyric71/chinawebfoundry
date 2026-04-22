@@ -1,9 +1,9 @@
 ---
-question: "Qui travaille concrètement sur notre projet ? La vraie équipe, pas celle de la présentation commerciale."
+question: "Qui intervient vraiment sur notre projet ? La vraie équipe, pas celle de la plaquette."
 order: 24
 category: "team"
 ---
 
-Chaque projet dispose d'un chef de projet bilingue comme interlocuteur principal. L'équipe comprend des développeurs WordPress avec plus de cinq ans d'expérience spécifique à la Chine, des ingénieurs DevOps administrant des environnements cloud chinois au quotidien, un designer UX familiarisé avec les conventions chinoises, des rédacteurs chinois natifs, un spécialiste Baidu, et du personnel sécurité et conformité.
+Chaque dossier est piloté par un chef de projet bilingue, votre point d'entrée unique. Autour de lui : des développeurs WordPress qui cumulent plus de cinq ans de pratique propre à la Chine, des ingénieurs DevOps qui administrent des environnements cloud chinois au quotidien, un designer UX rompu aux codes visuels locaux, des rédacteurs natifs, un référent Baidu et des profils sécurité et conformité.
 
-Vous rencontrez l'équipe avant le démarrage. Les personnes qui interviennent lors de la proposition sont celles qui réalisent le travail.
+Vous rencontrez cette équipe avant le coup d'envoi. Les visages de la proposition commerciale sont ceux qui livrent le code.

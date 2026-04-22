@@ -1,29 +1,29 @@
 ---
 title: "Stratégie et audit"
 shortTitle: "Stratégie"
-description: "Un diagnostic complet de votre site WordPress face au marché chinois. Nous repérons les blocages, les faiblesses de performance et les lacunes réglementaires, puis vous livrons une feuille de route concrète pour réussir votre entrée."
+description: "Un diagnostic sans concession de votre site WordPress face au marché chinois. Nous cartographions les blocages, les failles de performance et les zones de non-conformité, puis posons une feuille de route actionnable."
 metaTitle: "Stratégie et audit WordPress pour la Chine | ChinaWebFoundry"
-metaDescription: "Évaluez la compatibilité de votre site WordPress avec la Chine. Nous identifions les blocages, les problèmes de performance et les risques de conformité, puis fournissons un plan d'action détaillé."
+metaDescription: "Jaugez la compatibilité de votre WordPress avec le marché chinois. Blocages, performances, conformité : nous livrons un état des lieux précis et un plan d'action hiérarchisé."
 icon: "clipboard-check"
 order: 1
-heroSubtitle: "Évaluez votre compatibilité Chine avant de vous engager"
+heroSubtitle: "Testez la compatibilité de votre site avec la Chine avant d'investir"
 keywords: ["audit wordpress chine", "compatibilité site web chine", "audit grand pare-feu"]
 relatedServices: ["china-migration", "technical-integration"]
 ---
 
-## Ce que nous faisons
+## Notre intervention
 
-Votre site WordPress passe au crible. Chaque facteur qui pèse sur les performances, la conformité et la visibilité en Chine continentale est examiné, mesuré, documenté.
+Votre site WordPress passe sous le scalpel. Tout ce qui pèse sur la performance, la conformité et la visibilité en Chine continentale est examiné, mesuré, consigné.
 
-## Livrables clés
+## Ce que nous livrons
 
-- **Scan du Grand Pare-feu** - identification de chaque ressource, script et dépendance externe bloqués
-- **Test de performance** - mesure des temps de chargement depuis plusieurs villes chinoises
-- **Audit des extensions** - repérage des extensions qui dépendent de services inaccessibles en Chine
-- **Évaluation de la licence ICP** - cadrage des obligations et estimation du calendrier
-- **Analyse de l'indexabilité Baidu** - vérification de l'explorabilité du site et de sa conformité SEO technique
-- **Feuille de route priorisée** - plan d'action clair, classé par impact et par effort
+- **Analyse Grand Pare-feu** : inventaire de chaque ressource, script ou dépendance externe bloquée
+- **Tests de performance** : temps de chargement mesurés depuis plusieurs villes chinoises
+- **Audit des extensions** : repérage des plugins qui s'appuient sur des services hors de portée en Chine
+- **Cadrage ICP** : clarification des obligations réglementaires et évaluation du calendrier
+- **Indexabilité Baidu** : vérification du crawl et de la conformité technique au moteur chinois
+- **Feuille de route** : plan d'action hiérarchisé selon l'impact et l'effort
 
-## À qui ce service s'adresse
+## Pour qui
 
-Vous possédez un site WordPress et voulez savoir précisément ce qu'il faudra pour le rendre opérationnel en Chine. Avant de vous lancer dans une migration, vous avez besoin de réponses claires. C'est exactement ce que cet audit vous apporte.
+Vous avez un site WordPress et voulez savoir, noir sur blanc, ce qu'il faudra faire pour qu'il tienne en Chine. Avant d'engager une migration, vous attendez des réponses nettes. Cet audit les apporte.

@@ -1,28 +1,28 @@
 ---
 title: "Intégration technique"
 shortTitle: "Intégration"
-description: "Intégration WordPress complète pour la Chine. Configuration serveur, correction des extensions bloquées, WeChat Pay, statistiques Baidu et conformité des données. Agence implantée en Chine."
+description: "Une intégration WordPress de bout en bout pour la Chine. Serveurs, extensions bloquées, WeChat Pay, statistiques Baidu, conformité des données : chaque couche est reprise. Agence sur le terrain."
 metaTitle: "Intégration technique WordPress pour le marché chinois"
-metaDescription: "Intégration WordPress complète pour la Chine. Configuration serveur, extensions bloquées, WeChat Pay, statistiques Baidu et conformité des données. Équipe basée en Chine."
+metaDescription: "Une intégration WordPress complète pour la Chine. Serveurs, extensions bloquées, WeChat Pay, statistiques Baidu, conformité des données. Équipe basée en Chine."
 icon: "plug"
 order: 4
 keywords: ["intégration wordpress chine", "wordpress wechat pay", "wordpress technique chine", "wordpress grand pare-feu"]
 relatedServices: ["plugins-extensions", "china-hosting", "china-migration"]
 ---
 
-## Ce que nous faisons
+## Notre intervention
 
-Nous reprenons chaque couche de votre site WordPress pour qu'il tourne réellement en Chine. Serveurs, extensions, paiements, statistiques, conformité : tout est revu.
+Nous reprenons chaque strate de votre site WordPress pour qu'il tourne vraiment en Chine. Serveurs, extensions, paiements, analytics, conformité : tout est remis sur les rails.
 
-## Intégrations principales
+## Les chantiers couverts
 
-- **Serveur et hébergement** - configuration sur Alibaba Cloud, Tencent Cloud ou Huawei Cloud
-- **Refonte thème et extensions** - remplacement de toutes les dépendances externes bloquées par le Grand Pare-feu
-- **Passerelles de paiement** - WeChat Pay, Alipay, UnionPay
-- **Plateformes sociales** - WeChat, Weibo, Douyin, RED
-- **Statistiques** - Baidu Tongji en remplacement de Google Analytics
-- **Conformité des données** - PIPL et loi sur la cybersécurité intégrées nativement dans l'architecture du site
+- **Serveurs et hébergement** : déploiement sur Alibaba Cloud, Tencent Cloud ou Huawei Cloud
+- **Thème et extensions** : remplacement de toutes les dépendances externes bloquées par le Grand Pare-feu
+- **Paiements** : WeChat Pay, Alipay, UnionPay
+- **Réseaux sociaux** : WeChat, Weibo, Douyin, Xiaohongshu
+- **Statistiques** : Baidu Tongji en lieu et place de Google Analytics
+- **Données personnelles** : PIPL et loi sur la cybersécurité intégrées nativement à l'architecture du site
 
-## À qui ce service s'adresse
+## Pour qui
 
-Votre pile WordPress doit être reconstruite pour l'internet chinois. Pas un simple remplacement d'extensions : une refonte technique de bout en bout. C'est notre terrain.
+Votre pile WordPress doit être refondue pour l'internet chinois. Pas un simple échange d'extensions : une reconstruction technique complète. C'est notre terrain.

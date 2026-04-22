@@ -1,9 +1,9 @@
 ---
-question: "Comment fonctionne concrètement la migration de base de données ?"
+question: "Comment se déroule la migration de la base de données ?"
 order: 16
 category: "technical"
 ---
 
-Export via WP-CLI ou dump MySQL, rechercher-remplacer pour les URL (compatible sérialisation), transfert par SSH/SCP vers le serveur chinois, vérification d'intégrité de chaque table. Pour les grosses bases, synchronisation incrémentale afin de réduire le temps d'interruption.
+Le déroulé tient en quatre temps : export via WP-CLI ou dump MySQL, remplacement des URL compatible avec les données sérialisées, transfert chiffré par SSH ou SCP vers le serveur chinois, puis contrôle d'intégrité table par table. Pour les bases volumineuses, nous passons en synchronisation incrémentale afin de limiter la coupure à quelques minutes.
 
-Le point critique, c'est l'encodage. Il faut de l'UTF-8mb4 vérifié après transfert, pas simplement présumé. Si l'encodage dérape, les caractères chinois se corrompent partout, et corriger cela après coup est pénible. Nous testons ce point plusieurs fois avant la bascule.
+Le vrai sujet, c'est l'encodage. Nous vérifions l'UTF-8mb4 après transfert, nous ne le supposons jamais. Un encodage qui dérape et tous vos caractères chinois partent en fumée : le rattrapage a posteriori est long et pénible. Nous faisons le test plusieurs fois avant la bascule finale.

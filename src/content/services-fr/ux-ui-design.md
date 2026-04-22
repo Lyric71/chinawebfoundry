@@ -1,27 +1,27 @@
 ---
 title: "Design UX/UI"
 shortTitle: "Design"
-description: "Nous concevons des expériences WordPress pensées pour les utilisateurs chinois. Maquettes adaptées culturellement, approche mobile-first, optimisation pour les plateformes locales, les navigateurs et les signaux de confiance du marché."
+description: "Des expériences WordPress conçues pour les utilisateurs chinois. Maquettes ancrées culturellement, approche mobile-first, compatibilité avec les plateformes, les navigateurs et les repères de confiance locaux."
 metaTitle: "Design UX/UI pour WordPress en Chine"
-metaDescription: "Nous concevons des sites WordPress qui fonctionnent pour les utilisateurs chinois. Adaptation culturelle, approche mobile-first, par une équipe basée en Chine forte de 20 ans d'expérience locale."
+metaDescription: "Des sites WordPress qui parlent aux utilisateurs chinois. Adaptation culturelle, approche mobile-first, par une équipe installée en Chine et forte de vingt ans de terrain."
 icon: "palette"
 order: 3
 keywords: ["design ux chine", "design ui wordpress chine", "web design chinois", "mobile first chine", "design wordpress chine"]
 relatedServices: ["chinese-content", "technical-integration"]
 ---
 
-## Ce que nous faisons
+## Notre intervention
 
-Nous concevons des sites WordPress qui paraissent naturels aux yeux des utilisateurs chinois. Maquettes adaptées culturellement, design mobile-first, signaux de confiance intégrés, et système de design Gutenberg que votre équipe peut piloter sans développeur.
+Nous dessinons des sites WordPress qui sonnent juste pour un public chinois. Maquettes ancrées culturellement, conception mobile-first, repères de confiance en évidence, et un système de design Gutenberg que vos équipes pilotent sans passer par un développeur.
 
-## Livrables clés
+## Ce que nous livrons
 
-- **Recherche UX** - étude des comportements utilisateurs, benchmarking concurrentiel, cartographie des parcours pour les audiences chinoises
-- **Architecture de l'information** - wireframes et hiérarchie de contenu bâtis autour des habitudes de navigation et des préférences de densité d'information propres au marché chinois
-- **Design visuel** - maquettes mobile-first, choix chromatiques et visuels culturellement adaptés, signaux de confiance (QR WeChat, badges ICP, licences commerciales)
-- **Système de design Gutenberg** - blocs et modèles personnalisés que votre équipe éditoriale peut utiliser en toute autonomie
-- **QA et validation** - tests sur les navigateurs et appareils courants en Chine, notamment UC Browser et QQ Browser
+- **Recherche UX** : étude comportementale, analyse concurrentielle, cartographie des parcours pour les audiences chinoises
+- **Architecture de l'information** : wireframes et hiérarchies de contenu calés sur les usages de navigation et la densité d'information attendue en Chine
+- **Direction artistique** : maquettes mobile-first, palettes et univers visuels culturellement justes, repères de confiance (QR WeChat, mention ICP, licences commerciales)
+- **Design system Gutenberg** : blocs et gabarits personnalisés que vos éditeurs utilisent en autonomie
+- **Recette et validation** : tests sur les navigateurs et terminaux les plus répandus en Chine, UC Browser et QQ Browser compris
 
-## À qui ce service s'adresse
+## Pour qui
 
-Vous construisez un site WordPress pour la Chine et voulez un design juste dès le départ. Votre site chinois actuel sous-performe. Votre équipe marketing prépare des campagnes pour les consommateurs locaux. Ou vous disposez d'un design system mondial qui doit être adapté rigoureusement pour le marché chinois. Quel que soit le cas de figure, nous sommes votre équipe.
+Vous bâtissez un site WordPress pour la Chine et voulez viser juste dès la première version. Votre site chinois existant patine. Vos équipes marketing préparent des campagnes pour les consommateurs locaux. Ou votre design system global doit être adapté au pixel près pour le marché chinois. Dans chacun de ces scénarios, nous sommes l'équipe qu'il vous faut.

@@ -4,50 +4,50 @@ import Button from '../../../components/ui/Button.astro';
 import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Extensions WordPress pour la Chine | Développement sur mesure | ChinaWebFoundry';
-const metaDescription = 'Extensions WordPress sur mesure pour la Chine. Intégrations WeChat, Alipay, référencement Baidu et corrections d\'extensions pour les sites derrière le Grand Pare-feu. Agence implantée en Chine.';
+const metaTitle = 'Extensions WordPress pour la Chine, développées sur mesure';
+const metaDescription = 'Extensions WordPress bâties pour la Chine : intégrations WeChat, Alipay, référencement Baidu et correctifs ciblés pour les sites derrière le Grand Pare-feu. Agence basée en Chine.';
 
 const buildItems = [
   {
     title: 'Intégration WeChat',
-    body: 'Connexion OAuth, liaison aux comptes officiels, passerelles Mini Programs, QR codes, WeChat Pay. Si vous faites des affaires en Chine, WeChat n\'est pas une option. C\'est le canal par lequel les gens vous trouvent, vérifient votre sérieux et vous règlent. Tout passe par là.',
+    body: 'Connexion OAuth, liaison aux comptes officiels, passerelles Mini Programs, QR codes, WeChat Pay. En Chine, WeChat n\'est pas une option. C\'est le canal par lequel les gens vous trouvent, jaugent votre sérieux et vous règlent. Tout transite par là.',
   },
   {
     title: 'Passerelles de paiement',
-    body: 'Alipay, WeChat Pay et UnionPay, sous forme d\'extensions WooCommerce ou de modules autonomes selon votre architecture. Se tromper sur ce volet n\'est pas anodin. Les acheteurs chinois quittent le site à la seconde où le processus de paiement leur paraît inhabituel ou peu fiable. Nous avons vu ce scénario se répéter sur les sites de nos clients plus souvent qu\'on ne voudrait l\'admettre.',
+    body: 'Alipay, WeChat Pay et UnionPay, sous forme d\'extensions WooCommerce ou de modules autonomes selon votre architecture. Se louper sur ce volet n\'a rien d\'anodin. Les acheteurs chinois quittent le site à la seconde où le tunnel de paiement leur paraît insolite. Nous l\'avons constaté chez nos clients plus souvent qu\'on ne voudrait l\'admettre.',
   },
   {
     title: 'Référencement Baidu',
-    body: 'Génération de sitemaps pour Baidu Spider, intégration de l\'API push, balises meta que Baidu lit et prend véritablement en compte. La plupart des gens pensent que Yoast ou RankMath suffisent. Ce n\'est pas le cas. Ces outils sont construits autour du fonctionnement de Google. Baidu obéit à ses propres règles.',
+    body: 'Génération de sitemaps pour Baidu Spider, intégration de l\'API push, balises meta que Baidu lit véritablement. La plupart croient que Yoast ou RankMath suffisent. Faux. Ces outils sont pensés pour Google. Baidu joue selon ses propres règles.',
   },
   {
-    title: 'Mesure d\'audience et partage social',
-    body: 'Baidu Tongji prend le relais de Google Analytics, CNZZ vient combler les lacunes. Pour le partage, nous connectons WeChat, Weibo, QQ, Douyin, RED. Les plateformes où les gens en Chine passent réellement leur temps, et non celles vers lesquelles vos boutons de partage actuels pointent probablement.',
+    title: 'Analytics et partage social',
+    body: 'Baidu Tongji prend le relais de Google Analytics, CNZZ bouche les trous. Pour le partage, nous branchons WeChat, Weibo, QQ, Douyin, RED. Les plateformes où les Chinois passent vraiment leur temps, pas celles vers lesquelles vos boutons de partage actuels pointent probablement.',
   },
 ];
 
 const fixItems = [
-  'Google Fonts remplacées par des polices hébergées localement',
-  'reCAPTCHA remplacé par une solution qui fonctionne en Chine',
+  'Google Fonts remplacées par des polices auto-hébergées',
+  'reCAPTCHA remplacé par une solution qui tourne en Chine',
   'Appels CDN bloqués redirigés vers des alternatives chinoises',
-  'Requêtes API acheminées via des couches proxy ou basculées vers des services locaux',
+  'Requêtes API acheminées via des couches proxy ou basculées sur des services locaux',
   'Boutons de partage social recâblés vers WeChat, Weibo, QQ, Douyin',
-  'Extensions de paiement basculées de Stripe/PayPal vers Alipay et WeChat Pay',
+  'Extensions de paiement basculées de Stripe et PayPal vers Alipay et WeChat Pay',
 ];
 
 const gutenbergBlocks = [
   'Blocs QR code WeChat',
   'Baidu Maps à la place de Google Maps',
-  'Lecteurs vidéo pour Youku, Bilibili, Tencent Video',
-  'Formulaires de contact avec validation de numéro chinois et champ WeChat ID',
-  'Blocs produits connectés aux passerelles de paiement locales',
+  'Lecteurs vidéo Youku, Bilibili, Tencent Video',
+  'Formulaires avec validation de numéro chinois et champ WeChat ID',
+  'Blocs produits branchés aux passerelles de paiement locales',
 ];
 
 const audiences = [
-  { label: 'Fonctionnalités absentes', description: 'Entreprises qui ont besoin de fonctionnalités WordPress que le marché n\'a tout simplement pas développées pour la Chine.', image: '/images/audiences/wordpress-features-china.webp' },
+  { label: 'Fonctionnalités manquantes', description: 'Entreprises qui ont besoin de briques WordPress que le marché n\'a jamais pensées pour la Chine.', image: '/images/audiences/wordpress-features-china.webp' },
   { label: 'Paiement WeChat et Alipay', description: 'Marques e-commerce qui intègrent Alipay ou WeChat Pay dans leur tunnel d\'achat.', image: '/images/audiences/ecommerce-wechat-alipay.webp' },
-  { label: 'Équipes techniques', description: 'Développeurs qui veulent des extensions pensées pour la Chine, créées par des professionnels qui travaillent quotidiennement dans cet environnement.', image: '/images/audiences/dev-team-china-plugins.webp' },
-  { label: 'Agences', description: 'Agences qui construisent des sites pour la Chine au nom de leurs propres clients et recherchent un travail d\'extension fiable.', image: '/images/audiences/agency-china-clients.webp' },
+  { label: 'Équipes techniques', description: 'Développeurs qui veulent des extensions pensées pour la Chine, signées par des pros qui travaillent chaque jour dans cet environnement.', image: '/images/audiences/dev-team-china-plugins.webp' },
+  { label: 'Agences', description: 'Agences qui bâtissent des sites pour la Chine au nom de leurs propres clients et cherchent un travail d\'extension fiable.', image: '/images/audiences/agency-china-clients.webp' },
 ];
 ---
 
@@ -76,14 +76,14 @@ const audiences = [
             Extensions et plugins
           </p>
           <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Extensions WordPress sur mesure
-            <span class="block mt-2 text-[var(--color-brand-orange)]">conçues pour le marché chinois</span>
+            Des extensions WordPress sur mesure
+            <span class="block mt-2 text-[var(--color-brand-orange)]">taillées pour le marché chinois</span>
           </h1>
           <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            La plupart des extensions WordPress n'ont jamais été prévues pour fonctionner en Chine. Nous développons celles qui marchent.
+            La plupart des extensions WordPress n'ont jamais été pensées pour tourner en Chine. Nous développons celles qui marchent.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/fr/contact/" variant="primary" size="lg">Demander une consultation extensions</Button>
+            <Button href="/fr/contact/" variant="primary" size="lg">Consulter nos développeurs</Button>
           </div>
         </div>
 
@@ -136,16 +136,16 @@ const audiences = [
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="max-w-3xl">
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-8">
-          Près de 40 % des extensions WordPress populaires dépendent de Google. Toutes bloquées en Chine.
+          40 % des extensions WordPress populaires dépendent de Google. Toutes bloquées en Chine.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-          Voilà ce que personne ne vous signale assez tôt : environ 40 % des extensions WordPress les plus répandues dépendent de Google d'une manière ou d'une autre. Polices, reCAPTCHA, Maps, Analytics. Tout est bloqué en Chine. Votre site se charge tout simplement avec des trous béants.
+          Ce que personne ne vous signale à temps : près de 40 % des extensions WordPress les plus répandues dépendent de Google, d'une manière ou d'une autre. Polices, reCAPTCHA, Maps, Analytics. Tout bloqué en Chine. Votre site se charge avec des trous béants.
         </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-          Et le problème va bien au-delà de Google. Les boutons de partage social pointent vers Facebook et Instagram, inaccessibles en Chine. Les extensions de paiement s'appuient sur Stripe ou PayPal, que les consommateurs chinois n'utilisent pas. Les ressources sont appelées depuis des CDN que le Grand Pare-feu refuse catégoriquement de charger. Cette pile d'extensions que vous avez passé des mois à assembler ? Bonne chance avec ça à Shenzhen.
+          Et le problème ne s'arrête pas à Google. Les boutons de partage pointent vers Facebook et Instagram, inaccessibles ici. Les extensions de paiement s'appuient sur Stripe ou PayPal, que les consommateurs chinois n'utilisent pas. Les ressources sont appelées depuis des CDN que le Grand Pare-feu refuse net de charger. Cette pile d'extensions que vous avez passé des mois à assembler ? Bon courage à Shenzhen.
         </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Nous démêlons ce type de situation depuis des années. Pour faire court : nous développons des extensions WordPress sur mesure pour l'internet chinois, et nous corrigeons celles qui cassent derrière le Grand Pare-feu.
+          Nous démêlons ce type de situations depuis des années. En clair : nous développons des extensions WordPress taillées pour l'internet chinois, et nous rafistolons celles qui cassent derrière le Grand Pare-feu.
         </p>
       </div>
     </div>
@@ -160,7 +160,7 @@ const audiences = [
             Ce que nous développons
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Les mêmes besoins reviennent à chaque nouveau client
+            Les mêmes besoins reviennent, client après client
           </h2>
         </div>
 
@@ -194,13 +194,13 @@ const audiences = [
             Corriger l'existant
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Tout ne nécessite pas une refonte complète
+            Tout ne mérite pas une refonte totale
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Certaines agences vous orienteront systématiquement vers un développement intégralement sur mesure, mais ce n'est pas toujours la réponse honnête. Notre approche habituelle consiste à auditer l'ensemble de votre pile d'extensions, identifier chaque dépendance qui va échouer derrière le Grand Pare-feu, puis les corriger une par une.
+            Certaines agences vous orienteront systématiquement vers du développement 100 % sur mesure : ce n'est pas toujours la réponse honnête. Notre démarche habituelle consiste à auditer toute votre pile d'extensions, repérer chaque dépendance qui flanchera derrière le Grand Pare-feu, puis les corriger une par une.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Votre équipe continue d'utiliser les outils qu'elle connaît déjà. Et franchement, cela compte bien plus qu'on ne le croit.
+            Votre équipe continue de travailler avec les outils qu'elle connaît. Cela pèse, en pratique, bien plus qu'on ne l'imagine.
           </p>
         </div>
 

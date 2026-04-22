@@ -1,29 +1,29 @@
 ---
 title: "Migration vers la Chine"
 shortTitle: "Migration"
-description: "Nous transférons votre site WordPress existant vers un hébergement conforme aux normes chinoises. Licence ICP, configuration DNS, migration de base de données : chaque étape est couverte, sans aucune interruption de service."
+description: "Nous transférons votre site WordPress sur une infrastructure conforme à la réglementation chinoise. Licence ICP, bascule DNS, transfert de base de données : chaque maillon est couvert, sans la moindre interruption de service."
 metaTitle: "Migration WordPress vers la Chine | ChinaWebFoundry"
-metaDescription: "Migrez votre site WordPress vers un hébergement conforme en Chine sans temps d'arrêt. Licence ICP, DNS, transfert de base de données et remplacement des extensions bloquées, tout est pris en charge."
+metaDescription: "Migrez votre WordPress vers un hébergement conforme en Chine, sans coupure. Licence ICP, DNS, transfert de base et remplacement des extensions bloquées : tout est orchestré."
 icon: "arrow-right-circle"
 order: 2
-heroSubtitle: "Transférez votre site derrière le Grand Pare-feu"
+heroSubtitle: "Installez votre site derrière le Grand Pare-feu"
 keywords: ["migration wordpress chine", "migrer site web vers la chine", "migration hébergement chine"]
 relatedServices: ["strategy-audit", "china-hosting"]
 ---
 
-## Ce que nous faisons
+## Notre intervention
 
-Une migration complète de votre site WordPress vers une infrastructure conforme aux exigences chinoises. Nous pilotons chaque étape, technique comme réglementaire. Votre site actuel reste en ligne tant que le nouvel environnement n'est pas intégralement testé et validé.
+Une migration WordPress complète vers une infrastructure calibrée pour la Chine. Nous orchestrons chaque étape, côté technique comme côté réglementaire. Votre site actuel reste en production jusqu'au moment où le nouvel environnement a été testé, éprouvé et validé.
 
-## Livrables clés
+## Ce que nous livrons
 
-- **Licence ICP** - prise en charge intégrale du processus d'obtention
-- **Provisionnement serveur** - mise en place de l'hébergement en Chine sur Alibaba Cloud ou Tencent Cloud
-- **Migration de la base de données** - transfert complet du contenu, des médias et de la configuration
-- **Planification du basculement DNS** - transition sans coupure, avec stratégie de retour arrière
-- **Remplacement des extensions** - substitution des extensions bloquées par des alternatives compatibles
-- **Tests post-migration** - vérification des performances depuis plusieurs villes chinoises
+- **Licence ICP** : dossier monté et piloté de bout en bout
+- **Provisionnement des serveurs** : hébergement sur Alibaba Cloud ou Tencent Cloud
+- **Base de données** : transfert intégral des contenus, médias et réglages
+- **Bascule DNS** : planification au cordeau, procédure de repli incluse
+- **Extensions bloquées** : substitution par des équivalents compatibles
+- **Recette post-migration** : tests de performance depuis plusieurs villes chinoises
 
-## À qui ce service s'adresse
+## Pour qui
 
-Vous exploitez un site WordPress en production et devez le transférer sur des serveurs chinois. Conformité totale, zéro perturbation sur votre site mondial existant.
+Vous exploitez un site WordPress en production et devez le rapatrier sur des serveurs chinois. Conformité totale, zéro perturbation sur votre plateforme internationale.

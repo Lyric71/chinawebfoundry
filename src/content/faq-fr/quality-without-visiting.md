@@ -1,9 +1,9 @@
 ---
-question: "Nous ne pouvons pas visiter vos bureaux. Comment s'assurer de la qualité ?"
+question: "Nous ne viendrons pas à Shanghai. Comment garantir la qualité à distance ?"
 order: 21
 category: "process"
 ---
 
-Par le processus et la transparence. Jalons documentés avec critères d'acceptation explicites. Accès à l'environnement de pré-production avant mise en ligne. Livraisons par sprints d'une à deux semaines pour examiner du travail réel en continu.
+Par la méthode, et par une transparence totale. Chaque jalon est documenté, ses critères de recette écrits noir sur blanc. Vous accédez à l'environnement de pré-production bien avant la mise en ligne. Les livraisons s'enchaînent par sprints d'une à deux semaines : vous voyez du travail concret, en continu.
 
-Nous tenons aussi un registre des risques : si quelque chose dérive, nous vous le signalons avec la solution avant que cela devienne un problème. Les projets qui échouent dans ce secteur échouent par manque de communication, pas par défaillance technique.
+Nous tenons également un registre des risques ouvert. Si un point dérape, vous êtes prévenu avant qu'il ne devienne un problème, avec la solution sur la table. Dans ce métier, les projets qui déraillent déraillent rarement pour des raisons techniques. C'est la communication qui flanche.

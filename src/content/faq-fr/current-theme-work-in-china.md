@@ -1,9 +1,9 @@
 ---
-question: "Notre thème WordPress actuel fonctionnera-t-il en Chine ?"
+question: "Notre thème WordPress actuel tiendra-t-il la route en Chine ?"
 order: 26
 category: "technical"
 ---
 
-Probablement, après intervention de notre part. Tel quel, presque certainement pas. Les problèmes habituels : Google Fonts (de loin le plus fréquent), bibliothèques JavaScript depuis des CDN bloqués, images non optimisées sans CDN chinois, scripts de suivi tiers codés en dur.
+Dans l'état, presque certainement pas. Après passage entre nos mains, le plus souvent oui. Les coupables reviennent toujours : Google Fonts en tête de liste, puis les bibliothèques JavaScript tirées de CDN bloqués, les images non optimisées servies sans CDN local, et les scripts de tracking tiers codés en dur dans les templates.
 
-Nous réalisons un audit et produisons un rapport de compatibilité. Dans neuf cas sur dix, nous optimisons l'existant plutôt que de tout reconstruire. Une refonte complète ne se justifie que si vous repensez en parallèle l'expérience utilisateur pour les visiteurs chinois.
+Nous commençons par un audit et produisons un rapport de compatibilité. Dans neuf cas sur dix, l'optimisation du thème existant suffit. La reconstruction complète ne se justifie que si vous en profitez, en parallèle, pour repenser l'expérience des visiteurs chinois.

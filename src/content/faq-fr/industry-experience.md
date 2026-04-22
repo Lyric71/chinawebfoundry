@@ -1,9 +1,9 @@
 ---
-question: "Avez-vous déjà travaillé avec des entreprises de notre secteur ? De notre région ?"
+question: "Connaissez-vous notre secteur ? Avez-vous des références dans notre zone géographique ?"
 order: 18
 category: "team"
 ---
 
-Nos clients viennent d'Europe, d'Amérique du Nord et d'Asie-Pacifique, dans des secteurs allant du luxe au B2B, en passant par le SaaS et les services professionnels. Le fil conducteur : WordPress et Chine, avec le besoin d'une équipe qui maîtrise les deux.
+Notre portefeuille couvre l'Europe, l'Amérique du Nord et la zone Asie-Pacifique. Les secteurs vont du luxe au B2B industriel, avec des incursions dans le SaaS et les services professionnels. Le dénominateur commun reste toujours le même : WordPress et la Chine, et le besoin d'une équipe qui tient les deux bouts.
 
-Nous pouvons vous mettre directement en relation avec d'anciens clients pour un avis sans filtre sur notre travail.
+Sur demande, nous vous mettons en contact direct avec d'anciens clients. Ils parleront sans langue de bois.

@@ -1,9 +1,9 @@
 ---
-question: "Combien cela coûte-t-il ?"
+question: "Quel budget prévoir ?"
 order: 20
 category: "process"
 ---
 
-Cela dépend du périmètre réel. Migrer un site WordPress propre vers un hébergement chinois est fondamentalement différent de créer une présence chinoise de toutes pièces avec contenu, design et référencement Baidu.
+Tout dépend de ce que vous avez entre les mains. Basculer un site WordPress propre vers un hébergement chinois n'a rien à voir avec la construction, de A à Z, d'une présence pensée pour Baidu, avec design, contenus et référencement locaux.
 
-Notre méthode : un audit initial gratuit qui débouche sur un devis détaillé, découpé en phases (audit, ICP, migration, optimisation, contenu, maintenance). L'hébergement mensuel et le support sont des postes distincts. Vous voyez tout avant de vous engager. Si le projet évolue, nous cadrons l'ajout séparément et vous le validez en amont.
+Nous procédons en deux temps. Un audit initial, offert, débouche sur une proposition chiffrée, découpée par phases : audit, ICP, migration, optimisation, contenu, maintenance. L'hébergement mensuel et le support figurent sur des lignes distinctes. Vous voyez tout avant de signer. Si le projet bouge en cours de route, le nouveau périmètre est cadré à part et validé avec vous avant qu'on y touche.

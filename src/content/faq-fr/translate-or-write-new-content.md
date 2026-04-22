@@ -1,9 +1,11 @@
 ---
-question: "Faut-il traduire nos contenus existants ou en créer de nouveaux en chinois ?"
+question: "Traduire nos contenus existants ou repartir d'une page blanche en chinois ?"
 order: 17
 category: "process"
 ---
 
-La traduction brute ne fonctionne presque jamais. Les requêtes de recherche chinoises ne se transposent pas directement depuis l'anglais, l'intention utilisateur se structure différemment. Notre recommandation : confiez vos messages essentiels à des rédacteurs chinois natifs pour qu'ils les adaptent, pas les traduisent. Puis construisez du contenu original fondé sur une recherche de mots-clés Baidu et les comportements de recherche locaux.
+La traduction mot à mot ne passe quasiment jamais la rampe. Les requêtes des internautes chinois n'ont rien à voir avec leurs équivalents anglais, et l'intention de recherche s'organise autrement.
 
-Publier sur Baidu du contenu simplement traduit n'est pas viable. Nous avons repris des sites où cette approche avait été tentée : le contenu restait non indexé.
+Notre parti pris : faire réécrire vos messages clés par des rédacteurs chinois natifs, qui les transposent plutôt qu'ils ne les traduisent. Le reste se construit à partir de zéro, sur la base d'une étude des mots-clés Baidu et des habitudes de recherche locales.
+
+Publier du contenu traduit sur Baidu est une impasse. Nous avons récupéré des sites qui avaient tenté l'exercice : pas une page indexée.

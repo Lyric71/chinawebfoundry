@@ -1,7 +1,7 @@
 ---
-question: "Quel retour sur investissement peut-on raisonnablement attendre ?"
+question: "Sur quel retour sur investissement peut-on tabler sérieusement ?"
 order: 8
 category: "process"
 ---
 
-Les premiers résultats portent sur la vitesse. Un site qui passe de 15 secondes à moins de trois en Chine voit son taux de rebond chuter de 40 à 60 pour cent, les conversions suivent. Le bénéfice stratégique à plus long terme, c'est l'indexation par Baidu : un trafic organique qui n'existait pas pour vous jusque-là. Sur des secteurs concurrentiels, comptez trois à six mois pour un trafic Baidu significatif. Sur des niches moins disputées, c'est plus rapide.
+Le premier gain tangible, c'est la vitesse. Quand un site passe de 15 secondes à moins de 3 depuis la Chine, le taux de rebond recule de 40 à 60 pour cent, et les conversions suivent dans la foulée. Le second gain, plus structurel, c'est l'entrée dans l'index Baidu : un flux de trafic organique auquel vous n'aviez tout simplement pas accès. Dans les secteurs très disputés, il faut compter entre trois et six mois avant que le trafic Baidu devienne significatif. Sur les niches moins peuplées, cela va beaucoup plus vite.

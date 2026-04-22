@@ -1,7 +1,7 @@
 ---
-question: "Combien de temps avant que notre site WordPress soit réellement en ligne en Chine ?"
+question: "En combien de temps notre site WordPress peut-il réellement être en ligne en Chine ?"
 order: 3
 category: "process"
 ---
 
-Quatre à huit semaines pour la plupart des projets. Semaine un : audit. Semaines deux à quatre : dépôt ICP (incompressible). Semaines trois à cinq : serveur et migration. Semaines quatre à six : remplacement des extensions et optimisation. Semaines six à huit : tests et lancement. La licence ICP commerciale ajoute quelques semaines. Certaines phases se chevauchent, mais le délai ICP reste le facteur bloquant.
+Quatre à huit semaines pour la majorité des projets. Semaine 1 : audit complet. Semaines 2 à 4 : dépôt ICP, étape incompressible. Semaines 3 à 5 : installation du serveur et migration. Semaines 4 à 6 : substitution des extensions et optimisations. Semaines 6 à 8 : recette et mise en ligne. Si une licence ICP commerciale entre en jeu, ajoutez quelques semaines. Certaines phases se déroulent en parallèle, mais c'est toujours l'ICP qui dicte le tempo.

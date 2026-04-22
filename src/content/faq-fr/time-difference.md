@@ -1,7 +1,7 @@
 ---
-question: "Votre équipe est en Chine. Comment gérez-vous le décalage horaire ?"
+question: "Votre équipe se trouve en Chine : comment absorbez-vous le décalage horaire ?"
 order: 4
 category: "process"
 ---
 
-Nos chefs de projet parlent anglais et chinois, certains aussi français. Nous chevauchons les horaires européens le matin et retrouvons les équipes nord-américaines en soirée. Points hebdomadaires par sprint, via l'outil de votre choix : Slack, Teams, Zoom, courriel. Nous avons géré des projets avec des équipes à Paris, Chicago et Sydney en parallèle. Quand un projet déraille, c'est une question de périmètre ou de retard de contenus, pas de fuseau horaire.
+Nos chefs de projet parlent anglais et chinois, quelques-uns aussi le français. Le matin, nous recoupons les horaires européens ; le soir, nous attrapons les équipes nord-américaines. Un point hebdomadaire rythme chaque sprint, sur l'outil que vous préférez : Slack, Teams, Zoom ou courriel. Nous avons piloté des projets avec des équipes simultanément à Paris, Chicago et Sydney. Quand un chantier dérape, la cause est toujours la même : un périmètre mal cadré ou des contenus en retard. Jamais le fuseau horaire.

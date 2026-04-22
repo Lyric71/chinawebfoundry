@@ -1,7 +1,7 @@
 ---
-question: "Expliquez-moi comment fonctionne le DNS pour un site WordPress en Chine."
+question: "Comment fonctionne le DNS pour un site WordPress destiné à la Chine ?"
 order: 7
 category: "technical"
 ---
 
-DNS fractionné avec résolution géographique. Les visiteurs chinois résolvent vers des enregistrements A pointant sur votre serveur sous licence ICP. Les visiteurs internationaux résolvent vers votre infrastructure existante. Nous configurons cela via DNSPod (Tencent) ou Alibaba Cloud DNS. Conservez votre registraire actuel, mais envisagez un .cn si le référencement Baidu compte pour vous : Baidu accorde un léger bonus de crédibilité aux domaines .cn et .com.cn, surtout quand vous n'avez pas encore d'autorité établie.
+On met en place un DNS fractionné avec résolution géographique. Les visiteurs chinois tombent sur des enregistrements A qui pointent vers votre serveur sous licence ICP. Les visiteurs étrangers continuent d'atterrir sur votre infrastructure habituelle. La configuration passe par DNSPod (Tencent) ou Alibaba Cloud DNS. Vous pouvez conserver votre bureau d'enregistrement actuel, mais songez à acquérir un .cn si vous misez sur Baidu : le moteur accorde une petite prime de crédibilité aux domaines en .cn et .com.cn, surtout tant que votre autorité de marque n'est pas installée.
