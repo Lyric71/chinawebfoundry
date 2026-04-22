@@ -3,83 +3,83 @@ import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
 import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
 
-const metaTitle = 'Intégration technique WordPress pour le marché chinois | ChinaWebFoundry';
-const metaDescription = 'Intégration WordPress complète pour la Chine. Configuration serveur, extensions bloquées, WeChat Pay, Baidu Analytics et conformité des données. Agence basée en Chine.';
+const metaTitle = 'Intégration technique WordPress pour la Chine | ChinaWebFoundry';
+const metaDescription = 'Intégration WordPress complète pour la Chine : configuration serveur, extensions bloquées réparées, WeChat Pay, Baidu Analytics, conformité des données. Agence basée à Shanghai.';
 
 const serverItems = [
   {
     title: 'Optimisation du fournisseur cloud',
-    body: 'Chaque fournisseur cloud chinois a ses propres règles du jeu. Alibaba Cloud gère la configuration des bases de données différemment de Tencent Cloud, et Huawei Cloud a ses propres particularités concernant les paramètres PHP et le stockage de fichiers. Nous avons travaillé sur les trois et nous optimisons WordPress pour celui que vous choisirez.',
+    body: 'Chaque fournisseur cloud chinois a ses règles du jeu. Alibaba Cloud traite la configuration des bases de données autrement que Tencent Cloud, et Huawei Cloud a ses particularités sur les paramètres PHP et le stockage de fichiers. Nous avons travaillé sur les trois, et nous optimisons WordPress pour celui que vous retiendrez.',
   },
   {
     title: 'Certificats SSL',
-    body: 'Certaines autorités de certification occidentales ne sont tout simplement pas reconnues par les navigateurs chinois. L\'internaute arrive sur votre site, reçoit un avertissement de sécurité dans la seconde. Résultat : il est déjà parti. Nous mettons en place des certificats émis par des fournisseurs effectivement reconnus en Chine.',
+    body: 'Certaines autorités de certification occidentales ne sont tout bonnement pas reconnues par les navigateurs chinois. L\'internaute arrive, reçoit un avertissement de sécurité dans la seconde, il est déjà parti. Nous mettons en place des certificats émis par des fournisseurs effectivement reconnus en Chine.',
   },
   {
     title: 'Multisite et multilingue',
-    body: 'Vous avez besoin d\'un site Chine fonctionnant en parallèle de votre site global ? Nous réalisons des configurations multisite et multilingues. L\'enjeu principal : s\'assurer que les deux restent synchronisés sans que cela devienne un casse-tête trois mois plus tard.',
+    body: 'Vous avez besoin d\'un site Chine qui tourne en parallèle de votre site global ? Nous déployons des configurations multisite et multilingues. L\'enjeu central : que les deux restent synchronisés sans devenir un casse-tête dans trois mois.',
   },
 ];
 
 const themeFixItems = [
-  'Google Fonts remplacées par des polices hébergées localement',
-  'jQuery et bibliothèques JavaScript basculées des CDN occidentaux vers des alternatives hébergées en Chine',
+  'Google Fonts remplacées par des polices auto-hébergées',
+  'jQuery et bibliothèques JavaScript basculés des CDN occidentaux vers des alternatives hébergées en Chine',
   'Lecteurs YouTube, boutons Facebook, widgets Instagram retirés et remplacés',
-  'Images cassées et feuilles de style manquantes corrigées',
-  'Appels API externes redirigés ou reconstruits pour un accès depuis la Chine',
-  'Intégralité du front-end testée depuis la Chine avant mise en production',
+  'Images cassées et feuilles de style manquantes remises d\'équerre',
+  'Appels API externes redirigés ou reconstruits pour rester accessibles depuis la Chine',
+  'Tout le front-end testé depuis la Chine avant mise en production',
 ];
 
 const customPlugins = [
   {
     title: 'Passerelles de paiement',
-    body: 'WeChat Pay propose des chemins d\'intégration distincts pour le web mobile, pour les applications et pour les Mini Programs. Une mauvaise configuration et la transaction échoue sans message d\'erreur : l\'utilisateur ne voit tout simplement rien se passer. Nous développons des extensions pour Alipay, WeChat Pay et UnionPay qui fonctionnent réellement.',
+    body: 'WeChat Pay propose des parcours d\'intégration distincts pour le web mobile, les applications et les Mini Programs. Une mauvaise configuration et la transaction échoue sans le moindre message d\'erreur : l\'utilisateur ne voit simplement rien se produire. Nous développons des extensions Alipay, WeChat Pay et UnionPay qui marchent pour de bon.',
   },
   {
     title: 'Connexion et partage WeChat',
-    body: 'Boutons de connexion WeChat, partage vers les comptes officiels, génération de QR codes. La couche sociale que les internautes chinois attendent de tout site professionnel digne de ce nom.',
+    body: 'Boutons de connexion WeChat, partage vers les comptes officiels, génération de QR codes. La couche sociale que les internautes chinois attendent de tout site professionnel sérieux.',
   },
   {
     title: 'Baidu Tongji Analytics',
-    body: 'Intégration complète avec la plateforme d\'analyse de Baidu. Précision utile : il faut disposer d\'une licence ICP vérifiée pour que Baidu vous donne accès à l\'ensemble des rapports. Un détail que les agences non implantées en Chine oublient régulièrement de mentionner.',
+    body: 'Intégration complète avec la plateforme d\'analyse de Baidu. Précision utile : il faut une licence ICP vérifiée pour que Baidu ouvre l\'ensemble de ses rapports. Un détail que les agences non implantées en Chine oublient régulièrement de signaler.',
   },
   {
     title: 'Vérification par SMS',
-    body: 'Validation par numéro de téléphone chinois pour l\'inscription, les processus d\'achat et les soumissions de formulaires. Conçu pour fonctionner avec les opérateurs SMS locaux.',
+    body: 'Validation par numéro de téléphone chinois pour l\'inscription, les tunnels d\'achat et les formulaires. Pensé pour fonctionner avec les opérateurs SMS locaux.',
   },
 ];
 
 const performanceItems = [
-  'Ressources déployées sur des serveurs de bordure locaux via Alibaba CDN ou Tencent CDN',
-  'Couche de cache Redis ou Varnish, configurée spécifiquement pour votre environnement d\'hébergement',
-  'Images compressées pour les conditions réseau réelles des utilisateurs',
+  'Ressources servies depuis des noeuds locaux via Alibaba CDN ou Tencent CDN',
+  'Couche de cache Redis ou Varnish, paramétrée pour votre environnement d\'hébergement',
+  'Images compressées pour les conditions réseau que vivent vraiment vos utilisateurs',
   'Requêtes de base de données nettoyées pour accélérer la réponse du serveur',
-  'Tests depuis des localisations réelles en Chine, pas à travers un VPN',
+  'Tests depuis de vraies localisations en Chine, pas à travers un VPN',
 ];
 
 const platformItems = [
   {
     title: 'Paiements',
-    body: 'Alipay et WeChat Pay captent la quasi-totalité des transactions. Les cartes bancaires ne pèsent quasiment rien dans les habitudes des consommateurs chinois. Nous intégrons les deux, plus UnionPay. Si vous ne disposez pas d\'entité juridique en Chine, nous configurons les paiements transfrontaliers pour que vous puissiez encaisser en renminbi et recevoir les fonds dans votre devise.',
+    body: 'Alipay et WeChat Pay captent la quasi-totalité des transactions. La carte bancaire pèse quasiment zéro dans les habitudes des consommateurs chinois. Nous intégrons les deux, plus UnionPay. Pas d\'entité juridique en Chine ? Nous configurons les paiements transfrontaliers pour que vous encaissiez en renminbi et receviez les fonds dans votre devise.',
   },
   {
     title: 'Écosystème social',
-    body: 'En Chine, WeChat est à la fois un navigateur, un portefeuille, une boutique d\'applications et une plateforme éditoriale. Tout en un. Nous connectons votre site WordPress aux comptes officiels, aux Mini Programs, à Weibo, Douyin et RED.',
+    body: 'En Chine, WeChat est tout à la fois : un navigateur, un portefeuille, un magasin d\'applications, une plateforme éditoriale. Nous connectons votre site WordPress aux comptes officiels, aux Mini Programs, à Weibo, Douyin et RED.',
   },
   {
     title: 'Mesure d\'audience',
-    body: 'Google Analytics ne charge pas en Chine. Pas du tout. Nous installons Baidu Tongji comme outil de mesure principal et ajoutons le suivi WeChat pour le trafic social et les parcours de conversion qui reflètent la manière dont les internautes chinois naviguent réellement.',
+    body: 'Google Analytics ne charge pas en Chine. Pas du tout. Nous installons Baidu Tongji comme outil principal et ajoutons un suivi WeChat pour le trafic social et les tunnels de conversion qui collent à la façon dont les internautes chinois naviguent vraiment.',
   },
   {
-    title: 'Outils entreprise',
-    body: 'Vous utilisez Salesforce, SAP, HubSpot ou Odoo à l\'échelle mondiale ? Nous construisons les connexions API et la synchronisation des données pour que vos catalogues produits et vos fichiers clients restent alignés des deux côtés. Plus personne n\'a besoin de copier-coller entre les systèmes.',
+    title: 'Outils d\'entreprise',
+    body: 'Vous utilisez Salesforce, SAP, HubSpot ou Odoo à l\'échelle mondiale ? Nous construisons les connecteurs API et la synchronisation des données pour garder vos catalogues produits et vos fichiers clients alignés des deux côtés. Plus personne n\'a besoin de faire du copier-coller entre les systèmes.',
   },
 ];
 
 const processSteps = [
   {
     title: 'Audit technique',
-    body: 'Nous passons au crible votre installation WordPress actuelle, documentons chaque extension, chaque dépendance, chaque service externe auquel votre site fait appel. Objectif : identifier précisément ce qui casse en Chine.',
+    body: 'Nous passons au crible votre installation WordPress actuelle, documentons chaque extension, chaque dépendance, chaque service externe appelé par votre site. Objectif : repérer précisément ce qui casse en Chine.',
   },
   {
     title: 'Mise en oeuvre par couches',
@@ -90,8 +90,8 @@ const processSteps = [
     body: 'Tout est testé depuis le territoire chinois avant la mise en ligne. Pas à travers un VPN en Californie.',
   },
   {
-    title: 'Transmission',
-    body: 'Vous recevez la documentation complète, votre équipe prend le relais. Tout est documenté, tout est construit selon les standards WordPress pour qu\'un autre développeur puisse assurer la maintenance si nécessaire.',
+    title: 'Passation',
+    body: 'Vous recevez la documentation complète, votre équipe prend le relais. Tout est documenté, tout est construit selon les standards WordPress, pour qu\'un autre développeur puisse assurer la maintenance sans sourciller.',
   },
 ];
 ---
@@ -121,14 +121,14 @@ const processSteps = [
             Intégration technique
           </p>
           <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Toute votre stack WordPress
-            <span class="block mt-2 text-[var(--color-brand-orange)]">reconstruite pour la Chine</span>
+            Toute votre stack WordPress,
+            <span class="block mt-2 text-[var(--color-brand-orange)]">refondue pour la Chine</span>
           </h1>
           <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            Infrastructure serveur, corrections de thèmes et d'extensions, paiements chinois, plateformes sociales, connexions aux outils d'entreprise. Le tout reconstruit pour un marché où aucune des hypothèses habituelles ne tient.
+            Infrastructure serveur, correctifs de thèmes et d'extensions, paiements chinois, plateformes sociales, connecteurs vers vos outils d'entreprise. Le tout refondu pour un marché où aucune des hypothèses habituelles ne tient.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/fr/contact/" variant="primary" size="lg">Planifier une consultation technique</Button>
+            <Button href="/fr/contact/" variant="primary" size="lg">Caler une consultation technique</Button>
           </div>
         </div>
 
@@ -181,16 +181,16 @@ const processSteps = [
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="max-w-3xl">
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-8">
-          Deux secondes de chargement en Europe, quinze secondes à Shenzhen
+          Deux secondes en Europe, quinze à Shenzhen
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-          Votre site WordPress fonctionne à New York. Il fonctionne à Londres. Ouvrez-le depuis Shanghai et c'est une tout autre histoire. Les thèmes chargent des polices depuis les serveurs Google, que la Chine bloque. Les extensions envoient des appels API qui meurent derrière le Grand Pare-feu. Les bibliothèques JavaScript tentent de se charger depuis des CDN auxquels le pays n'a pas accès.
+          Votre site WordPress carbure à New York. Il carbure à Londres. Ouvrez-le depuis Shanghai et c'est une autre histoire. Les thèmes appellent des polices sur les serveurs Google, que la Chine bloque. Les extensions lancent des appels API qui meurent derrière le Grand Pare-feu. Les bibliothèques JavaScript tentent de se charger depuis des CDN auxquels le pays n'a pas accès.
         </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-          La plupart des entreprises découvrent le problème après avoir lancé leur site. Ce n'est pas le genre de conversation agréable à avoir avec son équipe.
+          La plupart des entreprises découvrent le problème après le lancement. Ce n'est pas le genre de conversation agréable à avoir avec son équipe.
         </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Et non, migrer vers un hébergeur chinois ne suffit pas. L'ensemble du site doit être repris. Configuration serveur, dépendances du thème, traitement des paiements au niveau du tunnel d'achat. Absolument tout.
+          Et non, migrer vers un hébergeur chinois ne suffit pas. Tout le site doit être repris : configuration serveur, dépendances du thème, traitement des paiements jusque dans le tunnel d'achat. Absolument tout.
         </p>
       </div>
     </div>
@@ -205,7 +205,7 @@ const processSteps = [
             Coeur WordPress et configuration serveur
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Les fondations doivent être solides avant tout
+            Les fondations d'abord
           </h2>
         </div>
 
@@ -236,16 +236,16 @@ const processSteps = [
       <div class="io-grid items-center">
         <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Remise à plat des thèmes et extensions
+            Thèmes et extensions, remis à plat
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            C'est là que tout déraille pour la plupart des sites
+            C'est là que la plupart des sites déraillent
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Les thèmes et les extensions partent du principe que l'internet ouvert existe pour tout le monde. Google Fonts se charge automatiquement. jQuery est appelé depuis des CDN occidentaux. Lecteurs YouTube, boutons Facebook, widgets Instagram : tout est intégré par défaut. Rien de tout cela ne fonctionne derrière le Grand Pare-feu.
+            Les thèmes et les extensions postulent que l'internet ouvert existe pour tout le monde. Google Fonts se charge automatiquement. jQuery est appelé depuis des CDN occidentaux. Lecteurs YouTube, boutons Facebook, widgets Instagram : tout est intégré par défaut. Rien de tout cela ne tient derrière le Grand Pare-feu.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Nous passons tout au peigne fin. Chaque appel externe est identifié, remplacé par une alternative hébergée en Chine. Et quand il n'existe pas de substitut propre, nous le reconstruisons. Le résultat : un front-end qui se charge réellement pour les internautes en Chine.
+            Nous passons tout au peigne fin. Chaque appel externe est identifié, puis remplacé par une alternative hébergée en Chine. Et quand aucun substitut propre n'existe, nous le reconstruisons. Résultat : un front-end qui charge pour de bon pour les internautes sur place.
           </p>
         </div>
 
@@ -277,7 +277,7 @@ const processSteps = [
             Extensions sur mesure
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            Les extensions WordPress standard n'ont pas été pensées pour la Chine
+            Les extensions WordPress standard n'ont jamais été pensées pour la Chine
           </h2>
         </div>
 
@@ -293,7 +293,7 @@ const processSteps = [
             ))}
           </div>
           <p class="mt-8 text-base text-white/50 leading-relaxed">
-            Tout est documenté, tout est construit selon les standards WordPress pour qu'un autre développeur puisse assurer la maintenance si nécessaire.
+            Tout est documenté, tout est construit selon les standards WordPress pour qu'un autre développeur puisse prendre le relais si besoin.
           </p>
         </div>
       </div>
@@ -309,13 +309,13 @@ const processSteps = [
             Performance
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            En dehors des grandes villes, la bande passante chute vite
+            Hors des grandes villes, la bande passante s'effondre vite
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Pékin dispose d'une bonne bande passante. Shanghai aussi. Sortez des grandes métropoles et la qualité chute rapidement. Les transferts de données transfrontaliers sont volontairement ralentis, si bien que tout ce que votre site va chercher à l'étranger en pâtit.
+            Pékin dispose d'une bonne bande passante. Shanghai aussi. Quittez les grandes métropoles et la qualité dégringole à vue d'oeil. Les transferts de données transfrontaliers sont volontairement bridés : tout ce que votre site va chercher à l'étranger en pâtit.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Nous testons depuis des localisations réelles en Chine. Pas à travers un VPN en Californie. Les tests via VPN vous disent que tout va bien, pendant que vos véritables utilisateurs à Chengdu ou Kunming fixent un indicateur de chargement en se demandant si le site est en panne.
+            Nous testons depuis de vraies localisations en Chine. Pas à travers un VPN en Californie. Un test via VPN vous dit que tout va bien, pendant que vos utilisateurs à Chengdu ou Kunming fixent un indicateur de chargement en se demandant si le site est en panne.
           </p>
         </div>
 
@@ -346,7 +346,7 @@ const processSteps = [
           Connexions aux plateformes chinoises
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Se brancher sur l'écosystème qui compte vraiment
+          Brancher votre site sur l'écosystème qui compte vraiment
         </h2>
       </div>
 
@@ -363,17 +363,17 @@ const processSteps = [
             Conformité des données
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Corriger après le lancement coûte toujours plus cher que prévu
+            Corriger après le lancement coûte toujours plus que prévu
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            La loi sur la protection des informations personnelles (PIPL) et la loi chinoise sur la cybersécurité ont des conséquences très concrètes sur la gestion des données utilisateurs. Où elles sont stockées. Si elles traversent une frontière. Nous intégrons la conformité dans l'architecture technique dès le départ, parce que revenir en arrière après le lancement coûte toujours plus cher que ce que les équipes avaient budgété. Toujours.
+            La Loi sur la protection des informations personnelles (PIPL) et la Loi chinoise sur la cybersécurité ont des conséquences très concrètes sur la gestion des données utilisateurs : où elles résident, si elles franchissent une frontière. Nous inscrivons la conformité dans l'architecture technique dès le départ, parce que revenir en arrière après le lancement coûte toujours plus cher que ce qui avait été budgété. Toujours.
           </p>
         </div>
 
         <div class="col-span-12 lg:col-span-5 lg:col-start-8">
           <div class="bg-[var(--color-surface-light)] rounded-xl p-6 border-l-4 border-[var(--color-brand-orange)]">
             <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed italic">
-              Localisation des données, règles de transfert transfrontalier, mécanismes de consentement, exigences de stockage. Nous prenons en charge l'implémentation technique pour que votre service juridique puisse se concentrer sur le volet réglementaire.
+              Localisation des données, règles de transfert transfrontalier, mécanismes de consentement, exigences de stockage : nous prenons en charge l'implémentation technique pour que votre service juridique puisse se consacrer au volet réglementaire.
             </p>
           </div>
         </div>
