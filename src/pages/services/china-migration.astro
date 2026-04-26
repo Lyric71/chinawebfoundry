@@ -1,7 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
-import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'China Migration | Content, UX, Hosting Rebuilt | ChinaWebFoundry';
@@ -12,34 +11,67 @@ const layers = [
     label: 'Content',
     title: 'Content Rewritten for Chinese Audiences',
     body: 'Translation alone is not migration. Native Chinese writers rewrite your messaging for Chinese readers: trust signals, founder credibility, certifications, partnerships, awards, the kind of social proof Chinese audiences look for first. Page hierarchy gets reordered when needed. Where the original copy doesn’t land culturally, we replace it rather than translate it.',
+    iconPath: 'M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10',
   },
   {
     label: 'UX',
     title: 'UX Redesigned for Chinese Habits',
     body: 'Chinese users don’t scan a page the way Western users do. Mobile-first, denser information, WeChat browser tested, trust placement in the local order. We redesign the parts that need redesigning and keep the brand identity intact across both versions of the site.',
+    iconPath: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3',
   },
   {
     label: 'Hosting',
     title: 'Hosting and Infrastructure Moved Onto China',
     body: 'ICP filing handled end to end. Hosting on Aliyun, Tencent Cloud or Huawei Cloud, on the technology stack that fits the project. Blocked dependencies replaced one by one. CDN configured for mainland delivery. Baidu webmaster tools wired in from day one.',
+    iconPath: 'M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z',
   },
 ];
 
-const scenarios = [
+interface Scenario {
+  timeline: string;
+  title: string;
+  lead: string;
+  body: string;
+  fit: string[];
+  diagram: 'single' | 'swap' | 'parallel';
+}
+
+const scenarios: Scenario[] = [
   {
+    timeline: '6 to 10 weeks',
     title: 'Migrating Your Existing Site',
-    body: 'Your global site runs fine outside China. Behind the Firewall it loads slow, breaks layouts, or just refuses to work properly. We rebuild it for the Chinese market: content rewritten, UX adjusted, hosting moved onto a compliant mainland server. Your global site stays exactly as it is. WordPress, headless or whatever stack you happen to run. Typical timeline: 6 to 10 weeks.',
-    image: '/images/migration-wordpress-china-optimised.webp',
+    lead: 'One global site, rebuilt for the Chinese market.',
+    body: 'Content rewritten, UX adjusted, hosting moved onto a compliant mainland server. Your global site stays exactly as it is, on any stack you run.',
+    fit: [
+      'You already have a global site that performs',
+      'You want one China presence that finally lands',
+      'WordPress, headless or any other stack',
+    ],
+    diagram: 'single',
   },
   {
+    timeline: '8 to 14 weeks',
     title: 'Switching CMS as Part of the Move',
-    body: 'Drupal, Sitecore, Adobe Experience Manager, Webflow, Shopify, WordPress or something custom that nobody at HQ wants to maintain anymore. We move you onto a CMS that fits your team and the Chinese market, and we use the migration window as the moment to fix the things that were already broken on the old site, before adding everything China-specific on top. Typical timeline: 8 to 14 weeks.',
-    image: '/images/migration-cms-to-wordpress-china.webp',
+    lead: 'Replace the platform and move into China in one window.',
+    body: 'We use the migration as the moment to fix what was already broken on the old site, before adding everything China-specific on top. Drupal, Sitecore, AEM, Webflow, Shopify or custom.',
+    fit: [
+      'Your current CMS is painful to maintain',
+      'You want one project, not two',
+      'You were rebuilding anyway',
+    ],
+    diagram: 'swap',
   },
   {
+    timeline: '10 to 16 weeks',
     title: 'Running Two Sites in Parallel',
-    body: 'Some companies need a global site and a separate China site, running independently but sharing editorial workflows. We build both ends of that setup. One team manages the content pipeline, two very different audiences each get a site that was actually made for them. Typical timeline: 10 to 16 weeks.',
-    image: '/images/migration-dual-stack-global-china.webp',
+    lead: 'A global site and a China site, sharing one editorial pipeline.',
+    body: 'One team manages the content workflow. Two very different audiences each get a site that was actually made for them.',
+    fit: [
+      'Your global brand and China brand live differently',
+      'You want full control on both sides',
+      'You can resource both teams',
+    ],
+    diagram: 'parallel',
   },
 ];
 
@@ -50,11 +82,11 @@ const phases = [
     steps: [
       {
         title: 'Discovery and Audit',
-        body: 'Everything starts with a written audit. Current site, content volume, brand positioning, integrations, technical architecture, search visibility and what Chinese audiences in your category actually expect. We flag what works, what doesn’t, and what has to be rebuilt rather than carried over. Two to three weeks.',
+        body: 'A written audit of your site, brand, category and Chinese competition. We flag what to keep, what to rebuild. Two to three weeks.',
       },
       {
         title: 'Migration Architecture',
-        body: 'The plan. China hosting environment, CDN strategy, DNS, content structure, redirect map. Designed around Chinese performance and Chinese user habits from day one rather than patched together at the end. One week.',
+        body: 'Hosting, CDN, DNS, content structure, redirect map. Designed around Chinese performance from day one. One week.',
       },
     ],
   },
@@ -64,19 +96,19 @@ const phases = [
     steps: [
       {
         title: 'Content Rewrite and Transfer',
-        body: 'Pages, posts, media, metadata, custom fields, product catalogues. Everything moves. Native Chinese writers rewrite the copy that needs rewriting, transcreate where transcreation is the right call, and preserve the SEO equity you spent years building. URL mapping done by hand for anything that matters.',
+        body: 'Native Chinese writers rewrite the copy that needs it, transcreate the rest, and preserve SEO equity through hand-mapped URLs.',
       },
       {
         title: 'UX and UI Localisation',
-        body: 'We review every page template against the way Chinese users actually scan a page, then adjust where the original layout doesn’t hold up. Trust signals get repositioned, information density is raised where it makes sense, and mobile-first behaviour is checked inside the WeChat in-app browser specifically. The brand identity stays, the interface gets localised.',
+        body: 'Templates reviewed against Chinese reading habits and adjusted where they don’t hold up. Brand identity stays, interface gets localised.',
       },
       {
         title: 'Integration Replacement',
-        body: 'Google Analytics swapped for Baidu Tongji. YouTube embeds replaced with Youku or Bilibili. Facebook tracking pixels replaced with WeChat or Weibo equivalents. Every third-party dependency gets checked. If it’s blocked or slow in China, we wire in a local replacement.',
+        body: 'Google Analytics, YouTube, Facebook pixels swapped for Baidu Tongji, Youku or Bilibili, WeChat or Weibo equivalents. Every dependency checked.',
       },
       {
         title: 'Performance and Technical Optimisation',
-        body: 'Blocked fonts and CDNs replaced. SSL configured for China compatibility. Assets re-optimised for mainland network conditions. Baidu-friendly technical SEO layered through the build.',
+        body: 'Blocked fonts and CDNs replaced. SSL set for China. Assets tuned for mainland networks. Baidu-friendly SEO layered in.',
       },
     ],
   },
@@ -86,11 +118,11 @@ const phases = [
     steps: [
       {
         title: 'Testing From Inside China',
-        body: 'Real testing on real connections in mainland China. Not proxied through Hong Kong, not routed via VPN. We check load speed, functionality, cross-browser behaviour including QQ Browser and UC Browser, and how the site actually performs on the kind of mid-range Android handset most of your audience is reading on.',
+        body: 'Real connections, not VPN. Load speed, functionality, QQ and UC Browser, mid-range Android. The way your audience actually reads.',
       },
       {
         title: 'Zero-Downtime Cutover',
-        body: 'The launch is planned to the hour. DNS propagation managed carefully. Real-time monitoring across the transition window until everything is confirmed stable. We keep a rollback path open for forty-eight hours, just in case. Most issues surface in the first two to three weeks after launch and we are on call for all of it.',
+        body: 'Launch planned to the hour. DNS managed live, rollback path open for 48 hours. We are on call through the first weeks.',
       },
     ],
   },
@@ -111,18 +143,22 @@ const challenges = [
   {
     title: 'Legacy URLs and SEO Equity',
     body: 'You spent years building rankings on your global site. A bad migration loses all of it overnight. We do URL mapping by hand for any page that matters, set proper 301s, and preserve as much organic visibility as we can carry across.',
+    iconPath: 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244',
   },
   {
     title: 'The Great Firewall Layer',
     body: 'Blocks Google services, most Western CDNs, several social platforms and a long list of external dependencies your site almost certainly relies on. Every single one has to be replaced.',
+    iconPath: 'M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z',
   },
   {
     title: 'ICP Licensing',
     body: 'Hosting on a Chinese server requires a government filing called an ICP, or Bei’an. Application is in Chinese, rules vary by province and processing typically runs twenty working days at minimum. We handle the filing for you.',
+    iconPath: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
   },
   {
     title: 'Data Localisation Laws',
     body: 'Under China’s Cybersecurity Law and PIPL, certain user data has to be stored on mainland servers. Architecture has to account for this from day one, not three months after launch.',
+    iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
   },
 ];
 
@@ -224,20 +260,37 @@ const audiences = [
   <!-- Introduction -->
   <section class="section-spacing">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-7">
+      <div class="io-grid items-center gap-y-12">
+        <div class="col-span-12 lg:col-span-6">
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
             Most “China migrations” only solve the easy problem.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            You move the files, you change the host, you get an ICP filing. The site loads. The bounce rate stays at 80%.
+            You move the files, change the host, file the ICP. The site loads. The bounce rate stays at 80%.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            The hard part of a China migration isn’t the infrastructure, it’s everything Chinese users actually see and read once the site opens. The headline that worked in Munich. The page layout that converted in Boston. The trust signals your global team is proud of. None of that automatically translates.
+            The hard part isn’t the infrastructure. It’s everything Chinese users actually see once the page opens: the Munich headline, the Boston layout, the trust signals your global team is proud of. None of it automatically translates.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            A proper migration into China runs on three layers at once: content rewritten for Chinese audiences, UX redesigned for Chinese browsing habits, and hosting moved onto compliant Chinese servers. We handle them together as one project, out of Shanghai.
+            A real migration runs on three layers at once. Content. UX. Hosting. One project, out of Shanghai.
           </p>
+        </div>
+
+        <!-- Visual: phone in hand, scrolling past -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] lg:aspect-[5/6] bg-[var(--color-surface-light)]">
+              <img
+                src="/images/migration-easy-problem.webp"
+                alt="A Chinese reader scrolling past a website that loads but doesn’t land"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <!-- Decorative accent -->
+            <div class="absolute -inset-3 bg-[var(--color-brand-orange)]/[0.04] rounded-3xl blur-2xl -z-10"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -255,22 +308,23 @@ const audiences = [
         </h2>
       </div>
 
-      <div class="space-y-4 lg:space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
         {layers.map((layer) => (
-          <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-            <div class="lg:col-span-3">
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
-                {layer.label}
-              </p>
-              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
-                {layer.title}
-              </h3>
+          <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] flex flex-col">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-6 flex-shrink-0">
+              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={layer.iconPath} />
+              </svg>
             </div>
-            <div class="lg:col-span-9">
-              <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
-                {layer.body}
-              </p>
-            </div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+              {layer.label}
+            </p>
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-4">
+              {layer.title}
+            </h3>
+            <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+              {layer.body}
+            </p>
           </article>
         ))}
       </div>
@@ -292,7 +346,69 @@ const audiences = [
         </p>
       </div>
 
-      <CaseStudyCards items={scenarios} />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        {scenarios.map((scenario) => (
+          <article class="group relative flex flex-col p-7 lg:p-8 bg-white rounded-2xl border border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,15,18,0.06)] transition-all duration-300">
+            <!-- Diagram -->
+            <div class="mb-6 h-16 flex items-center" aria-hidden="true">
+              {scenario.diagram === 'single' && (
+                <div class="flex items-center gap-2">
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-muted)] border border-[var(--color-surface-border)]">Global site</span>
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-brand-orange)]/10 text-xs font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] border border-[var(--color-brand-orange)]/20">中国</span>
+                </div>
+              )}
+              {scenario.diagram === 'swap' && (
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-muted)] border border-[var(--color-surface-border)] line-through decoration-[var(--color-text-muted)]/40">Old CMS</span>
+                  <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-dark)] border border-[var(--color-surface-border)]">New CMS</span>
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-brand-orange)]/10 text-xs font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] border border-[var(--color-brand-orange)]/20">中国</span>
+                </div>
+              )}
+              {scenario.diagram === 'parallel' && (
+                <div class="flex flex-col gap-1.5">
+                  <div class="flex items-center gap-2">
+                    <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-dark)] border border-[var(--color-surface-border)]">Global site</span>
+                    <span class="text-[var(--color-text-muted)] text-sm">·</span>
+                    <span class="px-3 py-1.5 rounded-md bg-[var(--color-brand-orange)]/10 text-xs font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] border border-[var(--color-brand-orange)]/20">中国</span>
+                  </div>
+                  <span class="text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium">One editorial pipeline</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Timeline pill -->
+            <div class="inline-flex items-center gap-1.5 self-start mb-4 px-3 py-1 rounded-full bg-[var(--color-surface-light)] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              {scenario.timeline}
+            </div>
+
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">
+              {scenario.title}
+            </h3>
+            <p class="text-base font-semibold text-[var(--color-text-dark)] leading-snug mb-3">
+              {scenario.lead}
+            </p>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+              {scenario.body}
+            </p>
+
+            <div class="mt-auto pt-5 border-t border-[var(--color-surface-border)]">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">Right for you if</p>
+              <ul class="space-y-2">
+                {scenario.fit.map((point) => (
+                  <li class="flex items-start gap-2.5 text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                    <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -313,35 +429,47 @@ const audiences = [
           </p>
         </div>
 
-        <!-- Right: phased steps -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7 space-y-12">
-          {phases.map((phase) => (
-            <div>
-              <div class="flex items-baseline gap-3 mb-6 pb-3 border-b border-[var(--color-surface-border)]">
-                <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
-                  {phase.label}
-                </span>
-                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
-                  {phase.title}
-                </h3>
-              </div>
-              <div class="space-y-6">
-                {phase.steps.map((step) => (
-                  <div class="flex gap-5">
-                    <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                    <div class="flex-1">
-                      <h4 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+        <!-- Right: phased steps with vertical timeline -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7 relative">
+          <!-- Vertical line -->
+          <div class="absolute left-[14px] top-3 bottom-3 w-px bg-[var(--color-surface-border)]" aria-hidden="true"></div>
+
+          <div class="space-y-14">
+            {phases.map((phase) => (
+              <div class="relative">
+                <!-- Phase header with marker on the line -->
+                <div class="flex items-center gap-5 mb-6">
+                  <div class="relative z-10 flex-shrink-0 w-[30px] h-[30px] rounded-full bg-[var(--color-brand-orange)] ring-8 ring-white flex items-center justify-center">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div class="flex items-baseline gap-3">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+                      {phase.label}
+                    </span>
+                    <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                      {phase.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- Steps under the phase, indented past the line -->
+                <div class="pl-[50px] space-y-5">
+                  {phase.steps.map((step) => (
+                    <div class="bg-white rounded-xl p-5 border border-[var(--color-surface-border)]">
+                      <h4 class="text-base lg:text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
                         {step.title}
                       </h4>
                       <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
                         {step.body}
                       </p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -394,15 +522,19 @@ const audiences = [
         </h2>
       </div>
 
-      <div class="max-w-4xl mx-auto space-y-0 divider-list">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
         {challenges.map((item) => (
-          <div class="flex gap-6 lg:gap-10 py-8 lg:py-10 items-start">
-            <div class="hidden sm:block w-1 flex-shrink-0 self-stretch rounded-full bg-[var(--color-brand-orange)]/20"></div>
+          <div class="flex gap-5 p-6 lg:p-8 rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.iconPath} />
+              </svg>
+            </div>
             <div class="flex-1">
-              <h3 class="text-xl lg:text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+              <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
                 {item.title}
               </h3>
-              <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+              <p class="text-base text-[var(--color-text-body)] leading-relaxed">
                 {item.body}
               </p>
             </div>

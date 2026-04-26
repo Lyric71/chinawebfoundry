@@ -2,6 +2,8 @@ import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import sharp from 'sharp';
 
+try { process.loadEnvFile('.env'); } catch {}
+
 const WAVESPEED_API_URL = 'https://api.wavespeed.ai/api/v3';
 const MODEL = 'google/nano-banana-2/text-to-image';
 const WEBP_QUALITY = 80;

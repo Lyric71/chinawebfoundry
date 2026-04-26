@@ -1,16 +1,536 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import Button from '../components/ui/Button.astro';
+import FAQItem from '../components/pages/FAQItem.astro';
 
-const metaTitle = 'WordPress';
-const metaDescription = 'WordPress';
+const metaTitle = 'WordPress for China | What Works, What Changes | ChinaWebFoundry';
+const metaDescription = 'WordPress works in China when it’s built for it. The use cases that fit, the changes required behind the Firewall, and the alternatives that don’t.';
+
+const useCases = [
+  {
+    title: 'Content-heavy sites',
+    body: 'Hundreds of pages, regular publishing, multiple authors. WordPress was built for this. Editors who already know it don’t need to learn anything new.',
+  },
+  {
+    title: 'Multilingual sites',
+    body: 'Chinese alongside English, French, German, or Japanese. WordPress with WPML or Polylang handles three or more languages cleanly, with separate sitemaps for Baidu and Google.',
+  },
+  {
+    title: 'E-commerce with WooCommerce',
+    body: 'For brands selling in China outside Tmall or JD, WooCommerce is the closest thing the open web has to serious e-commerce. Add Alipay, WeChat Pay, and UnionPay and it covers most of what is needed.',
+  },
+  {
+    title: 'Sites updated by non-developers',
+    body: 'Marketing teams, content managers, regional offices. WordPress lets people update the site without a deployment pipeline or a developer call. For independent China teams, that flexibility matters more than raw page speed.',
+  },
+  {
+    title: 'Sites with custom workflows',
+    body: 'Membership areas, conditional lead capture, gated content, sales enablement. The plugin ecosystem covers most of it out of the box. Where it doesn’t, custom plugin work is straightforward.',
+  },
+  {
+    title: 'Builder-driven sites',
+    body: 'Most sites we inherit are built in Elementor, Divi, or Gutenberg. All three work once the dependencies are cleaned up. Gutenberg is the lightest and easiest to keep fast.',
+  },
+];
+
+const pickAstro = [
+  'The site is mostly marketing pages, updated monthly or less',
+  'Page speed is a hard requirement (paid media landing pages, ad campaigns)',
+  'You want a smaller attack surface and less maintenance overhead',
+  'Content updates can run through a developer or through us',
+  'You don’t need a CMS interface for non-technical editors',
+];
+
+const pickWordPress = [
+  'Editorial workflow is a daily activity, not an occasional task',
+  'You need three or more languages',
+  'You run e-commerce or membership',
+  'Your team already knows WordPress and you don’t want to retrain them',
+  'You need plugins for forms, SEO, marketing automation, or compliance',
+];
+
+const changeGroups = [
+  {
+    label: 'Frontend',
+    items: [
+      {
+        title: 'Fonts',
+        body: 'Google Fonts don’t load. We self-host, or swap in Chinese-compatible alternatives that ship Latin and CJK glyphs in one file. Fixes a layout problem most brands don’t realise they have.',
+      },
+      {
+        title: 'Theme stack',
+        body: 'Most ThemeForest themes call external CDNs, embed Google Maps, or load remote scripts that fail behind the Firewall. We audit, swap blocked dependencies, and replace the theme entirely if it isn’t salvageable.',
+      },
+      {
+        title: 'Builders',
+        body: 'Each needs targeted cleanup. We strip Google Fonts loaders, replace external icon libraries with local ones, and disable anything that pings a blocked service.',
+      },
+    ],
+  },
+  {
+    label: 'Integrations',
+    items: [
+      {
+        title: 'Embeds',
+        body: 'YouTube becomes Youku or Bilibili. Vimeo becomes Tencent Video. Facebook pixels become WeChat or Weibo. Google Maps becomes Baidu Map or Amap.',
+      },
+      {
+        title: 'Payments',
+        body: 'WooCommerce alone won’t take a Chinese consumer’s money. We add Alipay, WeChat Pay, and UnionPay, and configure checkout the way Chinese users actually pay: mobile-first, QR code, single screen.',
+      },
+      {
+        title: 'Plugins',
+        body: 'For every inherited plugin: does it reach anything that won’t resolve from a Chinese network? Yoast SEO needs Baidu sitemap support added. Google Analytics gets replaced with Baidu Tongji. reCAPTCHA needs a Chinese alternative. We keep a running list.',
+      },
+    ],
+  },
+  {
+    label: 'Hosting & Infrastructure',
+    items: [
+      {
+        title: 'Hosting',
+        body: 'Mainland Chinese server, valid ICP filing on the domain. Aliyun, Tencent Cloud, or Huawei Cloud. Hong Kong is a fallback for sites that can’t go through ICP, but the performance gap is real and Baidu treats it as foreign.',
+      },
+      {
+        title: 'Auto-updates',
+        body: 'Core and plugins phone home to wordpress.org and frequently time out from inside China. We route updates through a proxy or schedule manual update windows.',
+      },
+      {
+        title: 'Security',
+        body: 'Standard hardening: disable admin file editing, lock down xmlrpc, enforce 2FA, run a WAF on the Chinese cloud provider. Update discipline is stricter here, because failed auto-updates can leave the site exposed longer.',
+      },
+    ],
+  },
+  {
+    label: 'Performance & SEO',
+    items: [
+      {
+        title: 'Performance',
+        body: 'CDN configured for mainland delivery. Caching layered. Database tuned for Chinese cloud servers. Target: under three seconds first meaningful paint on a mid-range Chinese phone.',
+      },
+      {
+        title: 'SEO and AI search structure',
+        body: 'Baidu crawls differently. JavaScript-rendered content often doesn’t get indexed. We make sure critical content lives in the HTML, set up Baidu Webmaster Tools, and structure the site so Chinese AI engines (Doubao, Kimi, DeepSeek, Wenxin) can read and cite it.',
+      },
+    ],
+  },
+];
+
+const faqs = [
+  {
+    id: 'wp-icp',
+    question: 'Does our WordPress site need an ICP licence to work in China?',
+    answer: 'If it’s hosted in mainland China, yes. Hong Kong hosting skips ICP but is slower and Baidu treats it as foreign. For brands serious about China, ICP is worth doing.',
+  },
+  {
+    id: 'wp-marketing-team',
+    question: 'Will our marketing team still be able to update the site?',
+    answer: 'Yes. The admin interface and content workflow stay the same. The changes we make are mostly invisible to the editorial team.',
+  },
+  {
+    id: 'wp-vs-astro-speed',
+    question: 'Is WordPress slower than Astro in China?',
+    answer: 'In raw load time, yes. WordPress is dynamic, Astro is static. In practice, a well-tuned WordPress site on Aliyun with proper caching hits speed targets that satisfy both Chinese users and Baidu.',
+  },
+  {
+    id: 'wp-elementor-divi',
+    question: 'Will our existing Elementor or Divi site work in China?',
+    answer: 'Probably not in its current state, but it can usually be made to work. We strip the Google dependencies, swap fonts, and reroute integrations. Most are running cleanly within a few weeks.',
+  },
+  {
+    id: 'wp-auto-updates',
+    question: 'What about plugin auto-updates from wordpress.org?',
+    answer: 'They often fail or time out. We route through a proxy or run scheduled manual update windows. Your team shouldn’t have to think about it.',
+  },
+];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription}>
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-        WordPress
-      </h1>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-wordpress-china-skyline.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">WordPress</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <!-- Text -->
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            Technology
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            WordPress in China.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Yes, it works.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            Most clients arrive on WordPress already. The real question is whether it can work in China, and what has to change to make that true.
+          </p>
+          <p class="mt-4 text-base text-white/40 max-w-xl leading-relaxed">
+            Twenty years on the ground. Fifty-plus international sites launched.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/contact/" variant="primary" size="lg">Talk to our team</Button>
+            <Button href="/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro for China</Button>
+          </div>
+        </div>
+
+        <!-- Visual -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-white/30 ml-2 font-mono">wp-china-config</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-white/50">Self-hosted fonts</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">on</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Blocked dependencies</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">0</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">CDN</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Aliyun</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">ICP filing</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Filed</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Why WordPress Works in China -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Why WordPress Works in China
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            The platform isn’t the problem.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            WordPress runs in China. Core, wordpress.org, the standard publishing workflow: it all works the same on a Shanghai server as on a London one, and wp-admin is reachable without a VPN.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            The problem is what it depends on by default. Themes load Google Fonts. Plugins call APIs outside the Firewall. Libraries pull from blocked CDNs. Embeds point at YouTube. Analytics call Google.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            Strip those out, swap in local equivalents, and what’s left is a fast, compliant WordPress site, indexed by Baidu and manageable by a team that already knows it.
+          </p>
+        </div>
+
+        <!-- Stat callout -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-10 lg:mt-0">
+          <blockquote class="bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+            <p class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none mb-4">
+              43%
+            </p>
+            <p class="text-base text-[var(--color-text-body)] leading-relaxed mb-4">
+              of all websites on the internet are powered by WordPress.
+            </p>
+            <cite class="not-italic text-sm text-[var(--color-text-muted)] block">
+              W3Techs, Usage statistics of content management systems, 2024.
+            </cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What WordPress is best at -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          What It Is For
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          What WordPress is best at, in China.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Not the right answer for every project. For a specific set of use cases, still the best tool we have.
+        </p>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {useCases.map((item) => (
+          <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-7 transition-all duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[var(--color-brand-orange)] mb-5"></div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+              {item.title}
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              {item.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- When Astro instead -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          When It Isn’t the Right Call
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          When you might want Astro instead.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          We build both, so we can be honest about which fits. Astro is static-first, very fast on Chinese mobile networks, and the better answer for some projects.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10">
+          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
+            Pick Astro
+          </p>
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            When the site is mostly marketing.
+          </h3>
+          <ul class="space-y-4">
+            {pickAstro.map((item) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-1.5 h-1.5 mt-2.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                <span class="text-base text-[var(--color-text-body)] leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10">
+          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
+            Pick WordPress
+          </p>
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            When editorial workflow is daily work.
+          </h3>
+          <ul class="space-y-4">
+            {pickWordPress.map((item) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-1.5 h-1.5 mt-2.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                <span class="text-base text-[var(--color-text-body)] leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
+        When in doubt, <a href="/services/strategy-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategy and Audit</a> is where the conversation usually starts.
+      </p>
+    </div>
+  </section>
+
+  <!-- What we change -->
+  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            What Has to Change
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight mb-6">
+            What we change to make WordPress work in China.
+          </h2>
+          <p class="text-base text-white/60 leading-relaxed">
+            A typical WordPress install fails in China out of the box. Here is what we change, grouped by where the work happens.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6 space-y-12 lg:space-y-14">
+          {changeGroups.map((group) => (
+            <div>
+              <div class="flex items-baseline gap-3 mb-6 pb-3 border-b border-white/10">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+                  {group.label}
+                </span>
+              </div>
+              <div class="space-y-6">
+                {group.items.map((step) => (
+                  <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold font-[var(--font-heading)] text-white leading-tight mb-2">
+                        {step.title}
+                      </h3>
+                      <p class="text-[15px] text-white/60 leading-relaxed">
+                        {step.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Timeline
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            How long it takes.
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-7">
+            <p class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] mb-3">
+              8 to 12 weeks
+            </p>
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">
+              New WordPress site
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              Kick-off to launch, depending on content scope and how much UX rework is needed.
+            </p>
+          </div>
+          <div class="bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-7">
+            <p class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] mb-3">
+              6 to 10 weeks
+            </p>
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">
+              Migration of an existing site
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              When design and content are already there. ICP filing usually sits on the critical path. We start it on day one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Frequently Asked
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Five questions we hear every week.
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                <p>{faq.answer}</p>
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Get Started
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Thinking about WordPress for China?
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Already on WordPress and it doesn’t work in China? We can usually fix it. Starting fresh and unsure whether WordPress or Astro fits? Strategy and Audit is where most engagements begin.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact/" variant="primary" size="lg">Talk to our team</Button>
+        <Button href="/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro for China</Button>
+      </div>
+    </div>
+  </section>
+
 </PageLayout>
+
+<script>
+  function initFaqAccordion() {
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement;
+
+        trigger?.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          items.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherTrigger = otherItem.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+              const otherChevron = otherItem.querySelector('[data-faq-chevron]') as SVGElement;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            }
+          });
+
+          const newState = !isOpen;
+          trigger.setAttribute('aria-expanded', String(newState));
+          content?.style.setProperty('grid-template-rows', newState ? '1fr' : '0fr');
+          chevron?.classList.toggle('rotate-180', newState);
+        });
+      });
+    });
+  }
+
+  initFaqAccordion();
+  document.addEventListener('astro:after-swap', initFaqAccordion);
+</script>
