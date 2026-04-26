@@ -4,97 +4,133 @@ import Button from '../../components/ui/Button.astro';
 import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'WordPress Migration to China | ChinaWebFoundry';
-const metaDescription = 'Move your WordPress site into China or migrate from any CMS to a WordPress setup built for the mainland. Zero downtime, zero data loss, fully compliant.';
+const metaTitle = 'China Migration | Content, UX, Hosting Rebuilt | ChinaWebFoundry';
+const metaDescription = 'Move your website into China the right way. Content, UX, and hosting rebuilt for Chinese audiences. ICP licensed, Baidu ready. Shanghai team.';
+
+const layers = [
+  {
+    label: 'Content',
+    title: 'Content Rewritten for Chinese Audiences',
+    body: 'Translation alone is not migration. Native Chinese writers rewrite your messaging for Chinese readers: trust signals, founder credibility, certifications, partnerships, awards, the kind of social proof Chinese audiences look for first. Page hierarchy gets reordered when needed. Where the original copy doesn’t land culturally, we replace it rather than translate it.',
+  },
+  {
+    label: 'UX',
+    title: 'UX Redesigned for Chinese Habits',
+    body: 'Chinese users don’t scan a page the way Western users do. Mobile-first, denser information, WeChat browser tested, trust placement in the local order. We redesign the parts that need redesigning and keep the brand identity intact across both versions of the site.',
+  },
+  {
+    label: 'Hosting',
+    title: 'Hosting and Infrastructure Moved Onto China',
+    body: 'ICP filing handled end to end. Hosting on Aliyun, Tencent Cloud or Huawei Cloud, on the technology stack that fits the project. Blocked dependencies replaced one by one. CDN configured for mainland delivery. Baidu webmaster tools wired in from day one.',
+  },
+];
 
 const scenarios = [
   {
-    title: 'WordPress to China-Optimised WordPress',
-    body: 'Your WordPress site runs fine pretty much everywhere. But behind the Great Firewall it loads slow, throws errors, or just straight up breaks. We move it onto China-compliant hosting, replace blocked resources one by one, and get the performance to where it needs to be. Your global site stays exactly as-is.',
+    title: 'Migrating Your Existing Site',
+    body: 'Your global site runs fine outside China. Behind the Firewall it loads slow, breaks layouts, or just refuses to work properly. We rebuild it for the Chinese market: content rewritten, UX adjusted, hosting moved onto a compliant mainland server. Your global site stays exactly as it is. WordPress, headless or whatever stack you happen to run. Typical timeline: 6 to 10 weeks.',
     image: '/images/migration-wordpress-china-optimised.webp',
   },
   {
-    title: 'Other CMS to WordPress for China',
-    body: 'Drupal, Sitecore, Adobe Experience Manager, Webflow, Shopify -- or something custom that was built ten years ago and nobody wants to touch anymore. Full content transfer into WordPress, rebuilt for China from the ground up. URL mapping, SEO preservation, and redesign where the original layout just doesn\'t translate for a Chinese audience.',
+    title: 'Switching CMS as Part of the Move',
+    body: 'Drupal, Sitecore, Adobe Experience Manager, Webflow, Shopify, WordPress or something custom that nobody at HQ wants to maintain anymore. We move you onto a CMS that fits your team and the Chinese market, and we use the migration window as the moment to fix the things that were already broken on the old site, before adding everything China-specific on top. Typical timeline: 8 to 14 weeks.',
     image: '/images/migration-cms-to-wordpress-china.webp',
   },
   {
-    title: 'Global Site to Dual-Stack Setup',
-    body: 'Some companies need a global site and a separate China version running at the same time. We build dual-stack architecture so both versions share content management workflows, but each delivers what its specific audience actually needs. One team manages content. Two very different markets get served the right way.',
+    title: 'Running Two Sites in Parallel',
+    body: 'Some companies need a global site and a separate China site, running independently but sharing editorial workflows. We build both ends of that setup. One team manages the content pipeline, two very different audiences each get a site that was actually made for them. Typical timeline: 10 to 16 weeks.',
     image: '/images/migration-dual-stack-global-china.webp',
   },
 ];
 
-const processSteps = [
+const phases = [
   {
-    title: 'Discovery and Assessment',
-    body: 'Everything kicks off with an audit. Platform, content volume, third-party integrations, technical architecture. We go through all of it and flag anything that\'s blocked, incompatible, or non-compliant. This part happens before anyone touches code.',
+    label: 'Phase 1',
+    title: 'Discover',
+    steps: [
+      {
+        title: 'Discovery and Audit',
+        body: 'Everything starts with a written audit. Current site, content volume, brand positioning, integrations, technical architecture, search visibility and what Chinese audiences in your category actually expect. We flag what works, what doesn’t, and what has to be rebuilt rather than carried over. Two to three weeks.',
+      },
+      {
+        title: 'Migration Architecture',
+        body: 'The plan. China hosting environment, CDN strategy, DNS, content structure, redirect map. Designed around Chinese performance and Chinese user habits from day one rather than patched together at the end. One week.',
+      },
+    ],
   },
   {
-    title: 'Migration Architecture',
-    body: 'The blueprint. China hosting environment, CDN strategy, DNS configuration, content structure. The entire thing gets designed around mainland performance from day one -- not patched together after the fact.',
+    label: 'Phase 2',
+    title: 'Build',
+    steps: [
+      {
+        title: 'Content Rewrite and Transfer',
+        body: 'Pages, posts, media, metadata, custom fields, product catalogues. Everything moves. Native Chinese writers rewrite the copy that needs rewriting, transcreate where transcreation is the right call, and preserve the SEO equity you spent years building. URL mapping done by hand for anything that matters.',
+      },
+      {
+        title: 'UX and UI Localisation',
+        body: 'We review every page template against the way Chinese users actually scan a page, then adjust where the original layout doesn’t hold up. Trust signals get repositioned, information density is raised where it makes sense, and mobile-first behaviour is checked inside the WeChat in-app browser specifically. The brand identity stays, the interface gets localised.',
+      },
+      {
+        title: 'Integration Replacement',
+        body: 'Google Analytics swapped for Baidu Tongji. YouTube embeds replaced with Youku or Bilibili. Facebook tracking pixels replaced with WeChat or Weibo equivalents. Every third-party dependency gets checked. If it’s blocked or slow in China, we wire in a local replacement.',
+      },
+      {
+        title: 'Performance and Technical Optimisation',
+        body: 'Blocked fonts and CDNs replaced. SSL configured for China compatibility. Assets re-optimised for mainland network conditions. Baidu-friendly technical SEO layered through the build.',
+      },
+    ],
   },
   {
-    title: 'Content and Data Transfer',
-    body: 'All your content comes over. Pages, posts, media files, metadata, custom fields, user data, product catalogs if you\'re running e-commerce. We map URL structures carefully so you don\'t lose the SEO equity you spent years building up.',
-  },
-  {
-    title: 'Integration Replacement',
-    body: 'Google Analytics replaced with Baidu Analytics. YouTube embeds swapped for Youku or Bilibili. Facebook tracking pixels become WeChat or Weibo. Every single third-party dependency gets checked. If it\'s blocked in China, we find what works locally and wire it in.',
-  },
-  {
-    title: 'China-Specific Optimisation',
-    body: 'Blocked fonts, blocked CDNs, all of it gets replaced. SSL configured for China compatibility. Assets optimised for local network conditions. Baidu-friendly technical SEO gets layered in throughout.',
-  },
-  {
-    title: 'Testing from Inside China',
-    body: 'Real testing from real connections inside mainland China. Not proxied through Hong Kong. We test load speeds, functionality, cross-browser compatibility -- including QQ Browser and UC Browser -- plus mobile performance on actual Chinese devices.',
-  },
-  {
-    title: 'Zero-Downtime Launch',
-    body: 'Cutover is planned down to the hour. Zero downtime. DNS propagation managed carefully. Real-time monitoring runs through the entire transition window until everything is confirmed stable.',
-  },
-  {
-    title: 'Post-Migration Support',
-    body: 'Performance monitoring, issue resolution, ongoing tweaks and adjustments. Most problems tend to surface in the first two or three weeks, and we\'re around for all of it.',
+    label: 'Phase 3',
+    title: 'Launch',
+    steps: [
+      {
+        title: 'Testing From Inside China',
+        body: 'Real testing on real connections in mainland China. Not proxied through Hong Kong, not routed via VPN. We check load speed, functionality, cross-browser behaviour including QQ Browser and UC Browser, and how the site actually performs on the kind of mid-range Android handset most of your audience is reading on.',
+      },
+      {
+        title: 'Zero-Downtime Cutover',
+        body: 'The launch is planned to the hour. DNS propagation managed carefully. Real-time monitoring across the transition window until everything is confirmed stable. We keep a rollback path open for forty-eight hours, just in case. Most issues surface in the first two to three weeks after launch and we are on call for all of it.',
+      },
+    ],
   },
 ];
 
 const migrationItems = [
-  { label: 'Pages and Posts', body: 'Content, formatting, media embeds, metadata' },
-  { label: 'Media Library', body: 'Images, videos, documents, all re-optimised for delivery inside China' },
-  { label: 'SEO Data', body: 'Meta titles, descriptions, URLs, redirects, sitemaps' },
-  { label: 'Custom Fields and Taxonomies', body: 'ACF, custom post types, categories, tags' },
-  { label: 'E-Commerce Data', body: 'Products, orders, customer records (WooCommerce)' },
-  { label: 'User Accounts', body: 'Roles, profiles, and permissions' },
-  { label: 'Integrations', body: 'CRM, analytics, marketing tools -- adapted or replaced' },
-  { label: 'Design and Branding', body: 'Visual identity stays intact, with adjustments for Chinese UX where it makes sense' },
+  { label: 'Pages and Posts', body: 'Content, formatting, media embeds, metadata.' },
+  { label: 'Media Library', body: 'Images, videos, documents, re-optimised for delivery inside China.' },
+  { label: 'SEO Data', body: 'Meta titles, descriptions, URLs, redirects, sitemaps.' },
+  { label: 'Custom Fields and Taxonomies', body: 'Custom post types, categories, tags, structured data.' },
+  { label: 'E-Commerce Data', body: 'Products, orders, customer records, payment configuration.' },
+  { label: 'User Accounts', body: 'Roles, profiles and permissions.' },
+  { label: 'Integrations', body: 'CRM, analytics, marketing tools, adapted or replaced for the China stack.' },
+  { label: 'Design and Branding', body: 'Visual identity stays intact. UX adjusted where Chinese habits demand it.' },
 ];
 
 const challenges = [
   {
-    title: 'The Great Firewall',
-    body: 'Blocks Google services, most Western CDNs, social media platforms, and a long list of external resources your site almost certainly depends on. Every dependency has to be checked and swapped out. This is something our team deals with on a daily basis from China.',
+    title: 'Legacy URLs and SEO Equity',
+    body: 'You spent years building rankings on your global site. A bad migration loses all of it overnight. We do URL mapping by hand for any page that matters, set proper 301s, and preserve as much organic visibility as we can carry across.',
   },
   {
-    title: 'ICP Licence Requirements',
-    body: 'Your website has to sit on government-approved infrastructure with proper domain registration and filing. We walk clients through the entire process because honestly, it\'s pretty confusing if you haven\'t been through it before.',
+    title: 'The Great Firewall Layer',
+    body: 'Blocks Google services, most Western CDNs, several social platforms and a long list of external dependencies your site almost certainly relies on. Every single one has to be replaced.',
+  },
+  {
+    title: 'ICP Licensing',
+    body: 'Hosting on a Chinese server requires a government filing called an ICP, or Bei’an. Application is in Chinese, rules vary by province and processing typically runs twenty working days at minimum. We handle the filing for you.',
   },
   {
     title: 'Data Localisation Laws',
-    body: 'Under China\'s Cybersecurity Law and PIPL, certain user data must be stored within mainland China. Your architecture needs to account for this from the very beginning, not three months after you\'ve launched.',
-  },
-  {
-    title: 'Performance Standards',
-    body: 'Users expect pages to load fast and Baidu penalises slow sites harder than Google does. Our infrastructure team on the ground makes sure your migrated site actually hits those benchmarks.',
+    body: 'Under China’s Cybersecurity Law and PIPL, certain user data has to be stored on mainland servers. Architecture has to account for this from day one, not three months after launch.',
   },
 ];
 
 const audiences = [
-  { label: 'Multinational companies', description: 'Entering or expanding their WordPress presence in China.', image: '/images/audiences/multinational-china-entry.webp' },
-  { label: 'E-commerce brands', description: 'Launching a China-ready online store built on WordPress.', image: '/images/audiences/ecommerce-china-store.webp' },
-  { label: 'Media and publishing', description: 'Organisations who need to reach Chinese audiences properly.', image: '/images/audiences/media-publishing-china.webp' },
-  { label: 'Agencies', description: 'Handling WordPress migrations to China on behalf of their own clients.', image: '/images/audiences/agency-migration-clients.webp' },
+  { label: 'International brands entering China', description: 'Companies launching their first proper China presence after years of running a translated global site.', image: '/images/audiences/multinational-china-entry.webp' },
+  { label: 'Brands relaunching a site that didn’t land', description: 'The original China site is live but it never performed. Bounce rate is high, leads are flat, HQ is asking why. The migration is really a relaunch.', image: '/images/audiences/agency-migration-clients.webp' },
+  { label: 'E-commerce brands', description: 'Launching a China-ready store with the right payment, logistics and customer service integrations from day one.', image: '/images/audiences/ecommerce-china-store.webp' },
+  { label: 'Media and publishing', description: 'Organisations that need to reach Chinese audiences properly, not through a translated mirror.', image: '/images/audiences/media-publishing-china.webp' },
 ];
 ---
 
@@ -122,21 +158,24 @@ const audiences = [
         <!-- Text: 7 cols -->
         <div class="col-span-12 lg:col-span-7">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            WordPress Migration
+            China Migration
           </p>
           <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            WordPress Migration to China,
-            <span class="block mt-2 text-[var(--color-brand-orange)]">Done Right.</span>
+            Move Your Website Into China.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Properly.</span>
           </h1>
           <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            Move your WordPress site into China or switch from any CMS to a WordPress setup built for the mainland. Zero downtime, zero data loss, fully compliant.
+            A real China migration isn’t a copy-paste behind the Firewall. It’s a relaunch. We move your content, your design and your hosting into China together, so the site that goes live actually works for Chinese audiences.
+          </p>
+          <p class="mt-4 text-base text-white/40 max-w-xl leading-relaxed">
+            Twenty years on the ground in Shanghai. Fifty-plus international brands migrated, none broken on the way in.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/contact/" variant="primary" size="lg">Discuss Your Migration Project</Button>
+            <Button href="/contact/" variant="primary" size="lg">Discuss Your Migration</Button>
           </div>
         </div>
 
-        <!-- Visual: 5 cols, migration flow placeholder -->
+        <!-- Visual: 5 cols, migration status panel -->
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
           <div class="relative">
             <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
@@ -148,7 +187,7 @@ const audiences = [
               </div>
               <div class="space-y-4">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Content transfer</span>
+                  <span class="text-sm text-white/50">Content localised</span>
                   <span class="text-sm font-semibold text-green-400 font-mono">100%</span>
                 </div>
                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
@@ -185,56 +224,61 @@ const audiences = [
   <!-- Introduction -->
   <section class="section-spacing">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-7">
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Moving a website into China is nothing like a normal migration
+            Most “China migrations” only solve the easy problem.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            The Great Firewall blocks half the services your site relies on. Hosting has to comply with ICP licensing rules -- something most Western development teams haven't even encountered before. Chinese users are notoriously impatient with slow pages. And if Baidu can't properly crawl your site, you're essentially invisible.
+            You move the files, you change the host, you get an ICP filing. The site loads. The bounce rate stays at 80%.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            The hard part of a China migration isn’t the infrastructure, it’s everything Chinese users actually see and read once the site opens. The headline that worked in Munich. The page layout that converted in Boston. The trust signals your global team is proud of. None of that automatically translates.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            We deal with all of this, every week, from our office in China. Whether you're already running WordPress or migrating off a totally different CMS, the goal is the same: a site that genuinely works on the mainland. Not "sort of works." Not "works behind a VPN." A site that loads fast, passes compliance, and actually reaches the people you're trying to reach.
+            A proper migration into China runs on three layers at once: content rewritten for Chinese audiences, UX redesigned for Chinese browsing habits, and hosting moved onto compliant Chinese servers. We handle them together as one project, out of Shanghai.
           </p>
-        </div>
-
-        <!-- Visual: migration flow illustration -->
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
-            <div class="absolute inset-3 sm:inset-6 flex flex-col justify-center gap-4">
-              <!-- Source -->
-              <div class="flex items-center gap-3">
-                <div class="w-16 h-16 rounded-xl bg-[var(--color-surface-border)]/60 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-7 h-7 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg>
-                </div>
-                <div>
-                  <div class="h-3 w-24 bg-[var(--color-surface-border)] rounded mb-2"></div>
-                  <div class="h-2 w-16 bg-[var(--color-surface-border)]/60 rounded"></div>
-                </div>
-              </div>
-              <!-- Arrow -->
-              <div class="flex justify-center">
-                <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-              </div>
-              <!-- Destination -->
-              <div class="flex items-center gap-3">
-                <div class="w-16 h-16 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-7 h-7 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                </div>
-                <div>
-                  <div class="h-3 w-28 bg-[var(--color-brand-orange)]/20 rounded mb-2"></div>
-                  <div class="h-2 w-20 bg-[var(--color-brand-orange)]/10 rounded"></div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Migration Scenarios: tall accent-border cards -->
+  <!-- Three Layers -->
   <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          The Three Layers of a Real Migration
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Content. UX. Hosting. All in one project.
+        </h2>
+      </div>
+
+      <div class="space-y-4 lg:space-y-6">
+        {layers.map((layer) => (
+          <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+            <div class="lg:col-span-3">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+                {layer.label}
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+                {layer.title}
+              </h3>
+            </div>
+            <div class="lg:col-span-9">
+              <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+                {layer.body}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Migration Scenarios -->
+  <section class="section-spacing">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="max-w-2xl mb-14">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
@@ -244,7 +288,7 @@ const audiences = [
           Three paths into China
         </h2>
         <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-          Every migration starts differently. Here's how we handle each one.
+          Every migration starts from a different place. Here is how we usually approach each one.
         </p>
       </div>
 
@@ -252,55 +296,67 @@ const audiences = [
     </div>
   </section>
 
-  <!-- Process Section: numbered steps -->
-  <section class="section-spacing">
+  <!-- Process: phased -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-start">
         <!-- Left: sticky heading -->
         <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            How We Run a Migration
+            How We Run It
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Eight steps to a working site in China
+            Three phases. Eight steps. One launch.
           </h2>
           <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-            Every step is designed around mainland performance and compliance from day one.
+            Designed around Chinese performance and Chinese user habits from day one, not patched together at the end.
           </p>
         </div>
 
-        <!-- Right: process items -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {processSteps.map((step) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {step.title}
-                  </h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {step.body}
-                  </p>
-                </div>
+        <!-- Right: phased steps -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7 space-y-12">
+          {phases.map((phase) => (
+            <div>
+              <div class="flex items-baseline gap-3 mb-6 pb-3 border-b border-[var(--color-surface-border)]">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+                  {phase.label}
+                </span>
+                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                  {phase.title}
+                </h3>
               </div>
-            ))}
-          </div>
+              <div class="space-y-6">
+                {phase.steps.map((step) => (
+                  <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                    <div class="flex-1">
+                      <h4 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                        {step.title}
+                      </h4>
+                      <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                        {step.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What Gets Migrated: two-column divider list -->
+  <!-- Operational Checklist -->
   <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-start">
         <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            What Gets Migrated
+            Operational Checklist
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            Nothing gets left behind
+            Nothing important gets left behind.
           </h2>
         </div>
 
@@ -312,16 +368,12 @@ const audiences = [
                 i < migrationItems.length - 2 ? 'border-b border-white/10' : '',
                 i === migrationItems.length - 2 ? 'border-b border-white/10 sm:border-b-0' : '',
               ]}>
-                <div>
-                  <div>
-                    <h3 class="text-base font-semibold font-[var(--font-heading)] text-white mb-1">
-                      {item.label}
-                    </h3>
-                    <p class="text-sm text-white/50 leading-relaxed">
-                      {item.body}
-                    </p>
-                  </div>
-                </div>
+                <h3 class="text-base font-semibold font-[var(--font-heading)] text-white mb-1">
+                  {item.label}
+                </h3>
+                <p class="text-sm text-white/50 leading-relaxed">
+                  {item.body}
+                </p>
               </div>
             ))}
           </div>
@@ -330,15 +382,15 @@ const audiences = [
     </div>
   </section>
 
-  <!-- Why China Migration Is Different: stacked blockquote rows -->
+  <!-- Why Different -->
   <section class="section-spacing">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="text-center mb-16">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          Why It's Different
+          Why It Is Different
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Why WordPress migration to China is different
+          A China migration is not a normal migration.
         </h2>
       </div>
 
@@ -360,7 +412,7 @@ const audiences = [
     </div>
   </section>
 
-  <WhoIsThisFor heading="Built for teams moving to China" audiences={audiences} background="light" />
+  <WhoIsThisFor heading="Built for brands moving into China" audiences={audiences} background="light" />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
@@ -371,10 +423,10 @@ const audiences = [
         Start Your Migration
       </p>
       <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Thinking about moving your WordPress site to China?
+        Thinking about moving your site into China?
       </h2>
       <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Every migration project looks different. Tell us what you're working with right now, what you need to achieve, and when it needs to happen. Our team in China will figure out the right approach with you.
+        Tell us where the site lives today, what it does for your brand, and what it needs to do for Chinese audiences. We come back within two business days with a written assessment: scope, timeline, and a clear view of what a proper migration looks like for your project. No charge, no commitment.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/contact/" variant="primary" size="lg">Start Your Migration Assessment</Button>
