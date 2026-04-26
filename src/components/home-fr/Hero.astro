@@ -1,18 +1,17 @@
 ---
 /**
- * Hero (FR): full viewport with photographic background image,
- * large headline vertically centred left, subtitle + CTAs,
- * trust badges bottom, progress bar at bottom.
+ * Hero (FR) : fond photographique pleine largeur, titre à gauche,
+ * rangée de badges de confiance, barre de progression en bas.
  *
- * Header overlays this section (transparent on hero pages).
+ * Le header se superpose à cette section (transparent sur les pages hero).
  */
 import Button from '../ui/Button.astro';
 
-const badges = ['Équipe basée en Chine', 'WordPress taillé main', 'Regard international'];
+const badges = ['Bureau à Shanghai', 'Équipe chinoise native', 'Licence ICP', 'Prêt pour Baidu et l\'IA'];
 ---
 
-<section class="relative bg-[var(--color-surface-dark)] min-h-screen flex flex-col overflow-hidden">
-  <!-- ====== BACKGROUND IMAGE ====== -->
+<section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+  <!-- ====== IMAGE DE FOND ====== -->
   <div class="absolute inset-0">
     <img
       src="/images/hero-wordpress-china-skyline.webp"
@@ -21,49 +20,44 @@ const badges = ['Équipe basée en Chine', 'WordPress taillé main', 'Regard int
       loading="eager"
       decoding="async"
     />
-    <!-- Gradient overlays for text readability -->
+    <!-- Dégradés pour la lisibilité du texte -->
     <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
-    <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0f0f12]/60 to-transparent"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0f0f12]/60 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
   </div>
 
-  <!-- ====== CONTENT ====== -->
-  <div class="relative z-20 flex-1 flex flex-col mx-auto w-full max-w-[1400px] section-padding">
-    <!-- Spacer for fixed header -->
-    <div class="pt-24 lg:pt-28"></div>
+  <!-- ====== CONTENU ====== -->
+  <div class="relative z-20 mx-auto w-full max-w-[1400px] section-padding pt-28 lg:pt-32 pb-10 lg:pb-12">
+    <!-- Titre + sous-titre + CTA -->
+    <div class="max-w-[720px]">
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-px w-8 bg-[var(--color-brand-orange)]"></div>
+        <span class="text-sm font-medium tracking-wider text-[var(--color-brand-orange)] uppercase">Agence web en Chine · Bureau à Shanghai</span>
+      </div>
 
-    <!-- Middle: headline + subtitle + CTAs -->
-    <div class="flex-1 flex items-center py-12 lg:py-16">
-      <div class="max-w-[680px]">
-        <!-- Eyebrow -->
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-8 bg-[var(--color-brand-orange)]"></div>
-          <span class="text-sm font-medium tracking-wider text-[var(--color-brand-orange)] uppercase">Agence WordPress en Chine</span>
-        </div>
-
-        <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-medium font-[var(--font-heading)] text-white leading-[1.06]">
-          Votre WordPress, enfin visible en Chine
-        </h1>
-        <p class="mt-6 text-lg lg:text-xl text-white/60 leading-relaxed max-w-[580px]">
-          Serveurs à Shanghai, pages qui s'ouvrent en moins de trois secondes, licence ICP au propre, Baidu qui vous trouve : nous prenons tout en charge pour que votre site tienne la route derrière le Grand Pare-feu.
-        </p>
-        <div class="mt-10 flex flex-wrap items-center gap-4">
-          <Button href="#OurServices" variant="primary" size="md">Découvrir nos prestations</Button>
-          <a
-            href="/fr/contact/"
-            class="inline-flex items-center gap-3 px-7 py-2.5 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(255,255,255,0.15)] active:translate-y-0 active:shadow-[0_2px_8px_rgba(255,255,255,0.1)] no-underline transition-all duration-200"
-          >
-            <span>Échanger sur votre projet</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
+      <h1 class="text-[clamp(2.25rem,5vw,4rem)] font-medium font-[var(--font-heading)] text-white leading-[1.06]">
+        Un site pour la Chine, ce n\'est pas un site traduit.
+      </h1>
+      <p class="mt-5 text-base lg:text-lg text-white/65 leading-relaxed max-w-[620px]">
+        Les internautes chinois ne lisent pas, ne naviguent pas et n\'achètent pas comme ailleurs. Nous bâtissons des sites qui leur parlent vraiment : contenu écrit en chinois, expérience locale, présence sur Baidu et sur les moteurs d\'IA chinois. Vingt ans à Shanghai, plus de cinquante marques internationales lancées.
+      </p>
+      <div class="mt-7 flex flex-wrap items-center gap-4">
+        <Button href="/fr/contact/" variant="primary" size="md">Échanger avec l\'équipe</Button>
+        <a
+          href="/fr/china-site-scanner/"
+          class="inline-flex items-center gap-3 px-7 py-2.5 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(255,255,255,0.15)] active:translate-y-0 active:shadow-[0_2px_8px_rgba(255,255,255,0.1)] no-underline transition-all duration-200"
+        >
+          <span>Auditer mon site gratuitement</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </div>
 
-    <!-- Bottom: trust badges -->
-    <div class="flex flex-wrap items-center gap-3 pb-10 lg:pb-14">
+    <!-- Badges de confiance -->
+    <div class="mt-10 lg:mt-14 flex flex-wrap items-center gap-3">
       {badges.map((badge) => (
         <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.06] backdrop-blur-sm rounded-[var(--radius-pill)] text-sm text-white/70 font-medium border border-white/[0.06]">
           <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -75,7 +69,7 @@ const badges = ['Équipe basée en Chine', 'WordPress taillé main', 'Regard int
     </div>
   </div>
 
-  <!-- ====== PROGRESS BAR ====== -->
+  <!-- ====== BARRE DE PROGRESSION ====== -->
   <div class="relative z-20 h-[3px] bg-white/[0.06]">
     <div class="h-full w-1/3 bg-gradient-to-r from-[var(--color-brand-orange)] to-[var(--color-brand-orange)]/60"></div>
   </div>

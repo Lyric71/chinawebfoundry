@@ -2,10 +2,58 @@
 import { getCollection } from 'astro:content';
 import Button from '../ui/Button.astro';
 
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const services = await getCollection('services');
+const byId = (id: string) => services.find((s) => s.id === id);
+
+interface Choice {
+  label: string;
+  href: string;
+}
+
+interface ServiceItem {
+  id: string;
+  choices?: Choice[];
+}
+
+interface Group {
+  label: string;
+  items: ServiceItem[];
+}
+
+const groups: Group[] = [
+  {
+    label: 'Plan',
+    items: [
+      { id: 'strategy-audit' },
+      { id: 'china-migration' },
+    ],
+  },
+  {
+    label: 'Build',
+    items: [
+      { id: 'chinese-content' },
+      { id: 'ux-ui-design' },
+      {
+        id: 'technical-integration',
+        choices: [
+          { label: 'WordPress', href: '/wordpress/' },
+          { label: 'Astro', href: '/astro/' },
+        ],
+      },
+      { id: 'china-hosting' },
+    ],
+  },
+  {
+    label: 'Grow and Run',
+    items: [
+      { id: 'baidu-seo' },
+      { id: 'maintenance-support' },
+    ],
+  },
+];
 ---
 
-<!-- Our Services: two-column layout with sticky heading + vertical list -->
+<!-- Our Services: grouped Plan / Build / Grow and Run -->
 <section id="OurServices" class="pt-16 md:pt-20 lg:pt-24 pb-24 md:pb-32 lg:pb-40">
   <div class="mx-auto max-w-[1400px] section-padding">
     <div class="flex flex-col lg:flex-row lg:gap-20 xl:gap-28">
@@ -15,37 +63,80 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
           Our Services
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-          Complete WordPress Solutions for China
+          Nine services. One team. All in China.
         </h2>
         <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-          From strategy to maintenance, we handle every aspect of your WordPress presence in China.
+          Most engagements start with a Strategy and Audit, then move into a Migration or a fresh Build. Hosting and Maintenance run on a retainer once you launch.
         </p>
         <div class="mt-10">
           <Button href="/contact/" variant="primary" size="md">Get started</Button>
         </div>
       </div>
 
-      <!-- Right: service list -->
+      <!-- Right: grouped service list -->
       <div class="flex-1">
-        {services.map((service) => (
-          <a
-            href={`/services/${service.id}/`}
-            class="group flex items-start gap-6 py-8 border-t border-[var(--color-surface-border)] no-underline transition-colors last:border-b"
-          >
-            <div class="flex-1">
-              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] group-hover:text-[var(--color-brand-orange)] transition-colors leading-snug mb-3">
-                {service.data.title}
-              </h3>
-              <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-xl">
-                {service.data.description}
-              </p>
-            </div>
-            <div class="flex-shrink-0 mt-1 text-[var(--color-text-muted)] group-hover:text-[var(--color-brand-orange)] group-hover:translate-x-1 transition-all duration-200">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-          </a>
+        {groups.map((group) => (
+          <div class="mb-12 last:mb-0">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-2 pb-2 border-b border-[var(--color-surface-border)]">
+              {group.label}
+            </p>
+            {group.items.map((item) => {
+              const service = byId(item.id);
+              if (!service) return null;
+              if (item.choices && item.choices.length > 0) {
+                return (
+                  <div class="py-6 border-b border-[var(--color-surface-border)] last:border-b-0">
+                    <div class="flex items-start gap-6">
+                      <div class="flex-1">
+                        <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">
+                          {service.data.title}
+                        </h3>
+                        <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-xl mb-4">
+                          {service.data.description}
+                        </p>
+                        <div class="flex flex-wrap items-center gap-3">
+                          <span class="text-sm text-[var(--color-text-muted)] font-medium">
+                            Choose:
+                          </span>
+                          {item.choices.map((choice) => (
+                            <a
+                              href={choice.href}
+                              class="inline-flex items-center gap-2 px-4 py-2 rounded-[var(--radius-pill)] border border-[var(--color-surface-border)] text-sm font-medium font-[var(--font-button)] text-[var(--color-text-dark)] no-underline hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors"
+                            >
+                              {choice.label}
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <a
+                  href={`/services/${service.id}/`}
+                  class="group flex items-start gap-6 py-6 border-b border-[var(--color-surface-border)] no-underline transition-colors last:border-b-0"
+                >
+                  <div class="flex-1">
+                    <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] group-hover:text-[var(--color-brand-orange)] transition-colors leading-snug mb-2">
+                      {service.data.title}
+                    </h3>
+                    <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-xl">
+                      {service.data.description}
+                    </p>
+                  </div>
+                  <div class="flex-shrink-0 mt-1 text-[var(--color-text-muted)] group-hover:text-[var(--color-brand-orange)] group-hover:translate-x-1 transition-all duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
         ))}
       </div>
     </div>

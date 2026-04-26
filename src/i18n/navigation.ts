@@ -24,21 +24,33 @@ export function getMainNav(lang: Locale): NavItem[] {
           column: 'plan',
         },
         {
+          label: t('nav.label.chineseContent'),
+          href: lp('/services/chinese-content/'),
+          description: t('nav.desc.chineseContent'),
+          column: 'build',
+        },
+        {
           label: t('nav.label.uxUiDesign'),
           href: lp('/services/ux-ui-design/'),
           description: t('nav.desc.uxUiDesign'),
           column: 'build',
         },
         {
-          label: t('nav.label.technicalIntegration'),
-          href: lp('/services/technical-integration/'),
-          description: t('nav.desc.technicalIntegration'),
+          label: t('nav.label.wordpress'),
+          href: lp('/wordpress/'),
           column: 'build',
+          subColumn: 'technology',
         },
         {
-          label: t('nav.label.pluginsExtensions'),
-          href: lp('/services/plugins-extensions/'),
-          description: t('nav.desc.pluginsExtensions'),
+          label: t('nav.label.astro'),
+          href: lp('/astro/'),
+          column: 'build',
+          subColumn: 'technology',
+        },
+        {
+          label: t('nav.label.chinaHosting'),
+          href: lp('/services/china-hosting/'),
+          description: t('nav.desc.chinaHosting'),
           column: 'build',
         },
         {
@@ -48,15 +60,9 @@ export function getMainNav(lang: Locale): NavItem[] {
           column: 'grow',
         },
         {
-          label: t('nav.label.chineseContent'),
-          href: lp('/services/chinese-content/'),
-          description: t('nav.desc.chineseContent'),
-          column: 'grow',
-        },
-        {
-          label: t('nav.label.chinaHosting'),
-          href: lp('/services/china-hosting/'),
-          description: t('nav.desc.chinaHosting'),
+          label: t('nav.label.geo'),
+          href: lp('/services/geo/'),
+          description: t('nav.desc.geo'),
           column: 'grow',
         },
         {

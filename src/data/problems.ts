@@ -1,31 +1,29 @@
 export interface Problem {
   title: string;
   description: string;
+  citation?: string;
 }
 
 export const problems: Problem[] = [
   {
-    title: '15+ Second Load Times',
-    description: 'Pages take 15 seconds or more to load from mainland China \u2014 if they load at all. Most visitors leave after 3 seconds.',
+    title: 'Your Content Doesn’t Resonate',
+    description: 'Translated copy isn’t localised copy. Chinese audiences read for trust signals you weren’t taught to send: third-party validation, partnership logos, government-aligned language, founder credibility, certifications, awards. The hero copy that converts in Munich often reads as cold or boastful in Shanghai, and the longer the page goes the worse it gets.',
   },
   {
-    title: 'Great Firewall Blocking',
-    description: 'Third-party plugins, external CDNs, and embedded scripts are silently blocked by the Great Firewall, breaking layouts and functionality.',
+    title: 'Your UX Feels Foreign',
+    description: 'Long-scroll. Dense pages. Bright accent colours. Live chat right on the homepage. WeChat QR codes where Western sites would put a phone number. Chinese users browse mobile-first, often inside the WeChat in-app browser, and they expect the page to behave a certain way. Western minimalism reads as empty or unfinished.',
   },
   {
-    title: 'Google Services Don\u2019t Work',
-    description: 'Google Fonts, Google Analytics, reCAPTCHA, Google Maps \u2014 none of them load in China. Every dependency must be replaced.',
+    title: 'Baidu Doesn’t See You',
+    description: 'Different ranking signals, different indexing rules, different webmaster tools. And Baidu won’t properly index a site without an ICP filing and a Chinese host, no matter how good the SEO. Your Google playbook does not transfer here.',
+    citation: 'Baidu held roughly half of China’s search market in 2024, with Bing and Sogou trailing. Google sits at less than 3%. Source: Statcounter Global Stats, China desktop search engine share, 2024.',
   },
   {
-    title: 'ICP Licensing & Compliance',
-    description: 'Hosting a website on a Chinese server requires an ICP licence. Content must meet local regulations. The process is opaque and entirely in Chinese.',
+    title: 'AI Engines Have Already Replaced Search For Many Buyers',
+    description: 'Chinese consumers now ask Doubao, Kimi, DeepSeek and Baidu’s own Wenxin questions that used to go to a search engine. They get an answer with sources, and they often never click through. If your brand isn’t structured for Chinese AI engines to read and cite, you are invisible to a generation of buyers who are separate from the search results page entirely.',
   },
   {
-    title: 'Baidu SEO Works Nothing Like Google',
-    description: 'Different ranking factors, different indexing rules, different webmaster tools. Your Google SEO playbook simply does not apply.',
-  },
-  {
-    title: 'Reliable Hosting Is Hard to Find',
-    description: 'Most international hosts have no mainland China presence. Choosing the wrong Chinese host means poor uptime, no English support, and limited WordPress compatibility.',
+    title: 'Hosting Outside China Is a Floor, Not a Ceiling',
+    description: 'Slow loads, broken plugins, blocked scripts, dependencies that silently fail behind the Firewall. The infrastructure has to work, and we make sure it does. But it’s not the problem that wins you customers. Brand resonance is.',
   },
 ];

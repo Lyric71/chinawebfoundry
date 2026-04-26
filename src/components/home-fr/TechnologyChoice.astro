@@ -1,0 +1,110 @@
+---
+/**
+ * Choix technologique (FR) : carte WordPress et carte Astro,
+ * présentés comme deux options égales selon le besoin.
+ */
+const wpItems = [
+  'Le site change chaque semaine et votre équipe a déjà la main sur un CMS',
+  'Vous tenez une boutique WooCommerce ou vendez des produits en ligne',
+  'Trois langues ou plus à piloter de front',
+  'Des extensions font le gros du travail sur les formulaires, le référencement ou les espaces membres',
+];
+
+const astroItems = [
+  'Le site se compose surtout de pages marketing, retouchées une fois par mois au plus',
+  'La vitesse d\'affichage est une exigence ferme, pas un confort (pages d\'atterrissage publicitaires, médias payants, référencement)',
+  'Vous tenez à un JavaScript réduit au strict minimum et à une surface d\'attaque plus étroite',
+  'Vous acceptez de passer par nous, ou par votre équipe technique, pour modifier le contenu',
+];
+---
+
+<section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 lg:mb-20">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+        Technologie
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+        WordPress ou Astro. Le projet tranche.
+      </h2>
+      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+        La plupart de nos clients tournent sous WordPress. Vingt ans à arpenter ce terrain nous en ont appris les rouages derrière le Pare-feu, autant qu\'on peut les apprendre. Mais WordPress n\'est pas toujours la bonne réponse. Pour un site marketing épuré, dont les seuls maîtres-mots sont la rapidité et une mise en page sans bavure, nous poussons volontiers la discussion du côté d\'Astro.
+      </p>
+    </div>
+
+    <!-- Two cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+      <!-- WordPress card -->
+      <div class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+            Partir sur WordPress en Chine si
+          </h3>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {wpItems.map((item) => (
+            <li class="flex items-start gap-3 text-base text-[var(--color-text-body)] leading-relaxed">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="/fr/services/"
+          class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200 self-start"
+        >
+          En savoir plus sur WordPress en Chine
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Astro card -->
+      <div class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+            Partir sur Astro en Chine si
+          </h3>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {astroItems.map((item) => (
+            <li class="flex items-start gap-3 text-base text-[var(--color-text-body)] leading-relaxed">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="/fr/services/"
+          class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200 self-start"
+        >
+          En savoir plus sur Astro en Chine
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Closing line -->
+    <p class="mt-10 text-base lg:text-lg text-[var(--color-text-muted)] text-center">
+      Vous hésitez ? Commencez par un <a href="/fr/services/strategy-audit/" class="text-[var(--color-brand-orange)] hover:underline">audit stratégique</a>. Notre réponse sera franche, même quand elle ne va pas dans notre sens.
+    </p>
+  </div>
+</section>

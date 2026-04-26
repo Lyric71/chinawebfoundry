@@ -1,0 +1,83 @@
+---
+/**
+ * Nos priorités (FR) : cinq axes stratégiques (Contenu, UX, Baidu, IA, Hébergement),
+ * chacun avec un titre, un texte court et un lien vers le service correspondant.
+ */
+
+const areas = [
+  {
+    label: 'Contenu',
+    title: 'Un contenu qui touche vraiment',
+    body: 'Une traduction n\'est pas une localisation. Nos rédacteurs chinois natifs reprennent vos messages depuis la page blanche, en y portant les codes culturels, les signaux de confiance et le ton auxquels les internautes chinois répondent réellement. Parcours du fondateur, certifications, partenariats, prix et distinctions, caution d\'un tiers : tout ce que les marques étrangères négligent souvent et que le public chinois cherche en premier.',
+    link: { href: '/fr/services/chinese-content/', label: 'Contenu chinois' },
+  },
+  {
+    label: 'UX et UI',
+    title: 'Une UX et une UI calées sur les usages locaux',
+    body: 'Mobile d\'abord, navigateur WeChat éprouvé, conception pensée pour la manière dont les internautes chinois balaient une page. Une densité d\'information juste, ni clairsemée ni écrasante. Les signaux de confiance placés à la chinoise, et non à l\'occidentale. QR codes, boutons de service client et badges de vérification là où l\'utilisateur les attend.',
+    link: { href: '/fr/services/ux-ui-design/', label: 'Design UX et UI' },
+  },
+  {
+    label: 'Baidu',
+    title: 'Référencement Baidu',
+    body: 'Baidu n\'est pas un Google traduit. Critères de classement différents, soumission différente, exigences techniques plus strictes. Nous optimisons pour le moteur qui apporte vraiment du trafic en Chine, et nous posons les fondations dont Baidu a besoin pour vous indexer dès le départ.',
+    link: { href: '/fr/services/baidu-seo/', label: 'Référencement Baidu' },
+  },
+  {
+    label: 'Recherche IA',
+    title: 'GEO et AEO : le référencement face à l\'IA',
+    body: 'Generative Engine Optimisation et Answer Engine Optimisation. Les assistants chinois Doubao, Kimi, DeepSeek ou Wenxin sont devenus la première étape pour beaucoup de consommateurs chinois, surtout chez les moins de trente-cinq ans. Ils interrogent, l\'IA répond, le clic n\'arrive jamais. Nous structurons votre site, votre contenu et vos données pour que ces moteurs puissent lire votre marque, la comprendre et la citer le moment venu. Peu de marques étrangères ont inscrit ce chantier à leur feuille de route chinoise. Celles qui s\'y mettent cette année prendront une longueur d\'avance.',
+    link: { href: '/fr/contact/', label: 'En parler avec nous' },
+  },
+  {
+    label: 'Infrastructure',
+    title: 'Hébergement et infrastructure en Chine',
+    body: 'Hébergement rapide avec licence ICP, sur des serveurs du continent. Aliyun, Tencent Cloud ou Huawei Cloud. Géré de bout en bout : votre équipe ne se connecte jamais à une console d\'hébergement chinoise. Indispensable, presque invisible, et c\'est sur cette base que tout le reste tient.',
+    link: { href: '/fr/services/china-hosting/', label: 'Hébergement en Chine' },
+  },
+];
+---
+
+<section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 lg:mb-20">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+        Nos priorités
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+        Cinq défis. Une équipe qui les a déjà tous traités.
+      </h2>
+    </div>
+
+    <!-- Areas list -->
+    <div class="space-y-4 lg:space-y-6">
+      {areas.map((area) => (
+        <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+          <div class="lg:col-span-3">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+              {area.label}
+            </p>
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+              {area.title}
+            </h3>
+          </div>
+          <div class="lg:col-span-9">
+            <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+              {area.body}
+            </p>
+            <a
+              href={area.link.href}
+              class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200"
+            >
+              {area.link.label}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

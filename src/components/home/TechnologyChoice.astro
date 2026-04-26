@@ -1,0 +1,110 @@
+---
+/**
+ * Technology Choice: two-card layout comparing WordPress and Astro
+ * for the Chinese market. Both presented as equal options.
+ */
+const wpItems = [
+  'The site gets updated weekly and your team needs a CMS they already know',
+  'You run WooCommerce or sell products',
+  'There are three or more languages to manage',
+  'Plugins are doing real work for you on forms, SEO, or membership',
+];
+
+const astroItems = [
+  'The site is mostly marketing pages, updated monthly or less',
+  'Page speed is a hard requirement, not a nice-to-have (ad landing, paid media, SEO)',
+  'You want near-zero JavaScript and a smaller attack surface',
+  'You\'re happy to lean on us, or your dev team, for content updates',
+];
+---
+
+<section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 lg:mb-20">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+        Technology
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+        WordPress or Astro. We pick what fits.
+      </h2>
+      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+        Most of our clients run WordPress, and after twenty years working in this market we know its quirks behind the Firewall about as well as anyone does. But WordPress isn’t always the right call. For lean marketing sites where the brief is really just speed and a clean look, we’ll often push the conversation toward Astro instead.
+      </p>
+    </div>
+
+    <!-- Two cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+      <!-- WordPress card -->
+      <div class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+            Choose WordPress in China if
+          </h3>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {wpItems.map((item) => (
+            <li class="flex items-start gap-3 text-base text-[var(--color-text-body)] leading-relaxed">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="/services/"
+          class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200 self-start"
+        >
+          Explore WordPress in China
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Astro card -->
+      <div class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+            Choose Astro in China if
+          </h3>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {astroItems.map((item) => (
+            <li class="flex items-start gap-3 text-base text-[var(--color-text-body)] leading-relaxed">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="/services/"
+          class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200 self-start"
+        >
+          Explore Astro in China
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Closing line -->
+    <p class="mt-10 text-base lg:text-lg text-[var(--color-text-muted)] text-center">
+      Still not sure? Start with a <a href="/services/strategy-audit/" class="text-[var(--color-brand-orange)] hover:underline">Strategy and Audit</a>. We’ll give you a straight answer, even when the answer points away from us.
+    </p>
+  </div>
+</section>

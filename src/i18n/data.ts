@@ -6,28 +6,25 @@ import { trustPoints as trustPointsEn } from '../data/trustPoints';
 
 const problemsFr: Problem[] = [
   {
-    title: 'Quinze secondes avant le premier pixel',
-    description: 'Depuis la Chine continentale, vos pages s\'affichent au mieux en quinze secondes. Souvent, elles ne s\'affichent pas du tout. Or un internaute qui attend plus de trois secondes ferme l\'onglet.',
+    title: 'Votre contenu ne touche personne',
+    description: 'Une traduction, ce n\'est pas une localisation. Les internautes chinois cherchent des signaux de confiance qu\'on ne vous a jamais appris à envoyer : caution d\'un tiers, logos de partenaires, vocabulaire en phase avec le discours officiel, parcours du fondateur, certifications, prix et distinctions. Le titre qui convertit à Munich tombe à plat ou passe pour arrogant à Shanghai. Et plus la page est longue, pire ça devient.',
   },
   {
-    title: 'Le Grand Pare-feu coupe vos ressources',
-    description: 'Extensions tierces, CDN étrangers, scripts intégrés : le Grand Pare-feu les filtre en silence. Résultat, une mise en page qui se décompose et des fonctionnalités qui tombent en rade.',
+    title: 'Votre UX a un parfum d\'étranger',
+    description: 'Pages aérées, scroll long, couleurs vives, chat en direct dès l\'accueil, QR codes WeChat à la place du numéro de téléphone : les internautes chinois consultent d\'abord en mobile, souvent dans le navigateur intégré de WeChat, et attendent une page qui réagisse d\'une certaine manière. Le minimalisme occidental, vu d\'ici, donne l\'impression d\'un site vide ou inachevé.',
   },
   {
-    title: 'Les services Google restent à la porte',
-    description: 'Google Fonts, Google Analytics, reCAPTCHA, Google Maps : rien ne passe en Chine. Chaque brique empruntée à Google doit être remplacée, sans exception.',
+    title: 'Baidu ne vous voit pas',
+    description: 'Signaux de classement différents, règles d\'indexation différentes, outils pour webmasters différents. Et sans dépôt ICP ni hébergement chinois, Baidu n\'indexe pas correctement votre site, quel que soit le SEO derrière. La méthode Google ne s\'exporte pas ici.',
+    citation: 'Baidu pesait environ la moitié du marché chinois de la recherche en 2024, devant Bing et Sogou. Google reste sous les 3 %. Source : Statcounter Global Stats, parts de marché desktop en Chine, 2024.',
   },
   {
-    title: 'Licence ICP et cadre réglementaire',
-    description: 'Héberger un site sur un serveur chinois suppose une licence ICP. Les contenus doivent se plier à la réglementation locale. La démarche est opaque, et tout se passe en chinois.',
+    title: 'L\'IA a déjà remplacé la recherche pour bon nombre d\'acheteurs',
+    description: 'Les consommateurs chinois posent désormais à Doubao, Kimi, DeepSeek et au Wenxin de Baidu les questions qu\'ils auraient saisies dans un moteur de recherche. Ils obtiennent une réponse sourcée, et bien souvent ne cliquent jamais. Si votre marque n\'est pas structurée pour que les IA chinoises la lisent et la citent, vous êtes invisible pour toute une génération d\'acheteurs qui ne passent plus du tout par la page de résultats.',
   },
   {
-    title: 'Baidu ne raisonne pas comme Google',
-    description: 'Critères de classement, règles d\'indexation, outils pour webmasters : rien ne se recoupe. La recette SEO qui marchait sur Google ne donne rien ici.',
-  },
-  {
-    title: 'Trouver un hébergeur fiable relève du parcours du combattant',
-    description: 'La plupart des hébergeurs internationaux ne posent pas un pied en Chine continentale. Côté chinois, un mauvais choix signifie des coupures à répétition, un support exclusivement en mandarin et une compatibilité WordPress approximative.',
+    title: 'Héberger hors de Chine, c\'est un seuil, pas un objectif',
+    description: 'Pages lentes, extensions cassées, scripts bloqués, dépendances qui plantent en silence derrière le Pare-feu. L\'infrastructure doit tenir, c\'est notre métier. Mais ce n\'est pas elle qui vous gagnera des clients. Ce qui vous les gagne, c\'est la résonance de la marque.',
   },
 ];
 

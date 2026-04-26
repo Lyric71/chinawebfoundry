@@ -16,7 +16,8 @@ const mainNav = getMainNav(currentLang);
 const currentPath = Astro.url.pathname;
 
 const planServices = mainNav[0].children?.filter((s) => s.column === 'plan') ?? [];
-const buildServices = mainNav[0].children?.filter((s) => s.column === 'build') ?? [];
+const buildServices = mainNav[0].children?.filter((s) => s.column === 'build' && !s.subColumn) ?? [];
+const buildTechnology = mainNav[0].children?.filter((s) => s.column === 'build' && s.subColumn === 'technology') ?? [];
 const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? [];
 ---
 
@@ -80,6 +81,21 @@ const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? 
                       </li>
                     ))}
                   </ul>
+                  {buildTechnology.length > 0 && (
+                    <>
+                      <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mt-6 mb-3">{t('nav.technology')}</h5>
+                      <ul class="space-y-4" role="none">
+                        {buildTechnology.map((service) => (
+                          <li role="none">
+                            <a href={service.href} role="menuitem" class:list={['block no-underline', currentPath === service.href ? 'text-[var(--color-brand-orange)]' : 'text-[var(--color-text-dark)] hover:text-[var(--color-brand-orange)]']}>
+                              <span class="text-sm font-medium">{service.label}</span>
+                              {service.description && <span class="block text-xs text-[var(--color-text-muted)] mt-0.5">{service.description}</span>}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                 </div>
                 <div>
                   <h4 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">{t('nav.grow')}</h4>

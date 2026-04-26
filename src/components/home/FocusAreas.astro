@@ -1,0 +1,83 @@
+---
+/**
+ * Focus Areas: five strategic priorities (Content, UX, Baidu, AI, Hosting),
+ * each with a short headline, body and link to the related service.
+ */
+
+const areas = [
+  {
+    label: 'Content',
+    title: 'Content That Resonates',
+    body: 'Translated copy is not localised copy. Native Chinese writers rewrite your messaging from scratch with the cultural cues, trust signals and tone that Chinese audiences actually respond to. Founder stories, certifications, partnerships, awards, third-party validation: the things foreign brands routinely under-index on, and that Chinese audiences look for first.',
+    link: { href: '/services/chinese-content/', label: 'Chinese Content' },
+  },
+  {
+    label: 'UX and UI',
+    title: 'UX and UI That Fits Local Habits',
+    body: 'Mobile-first, WeChat-browser tested, designed for the way Chinese users actually scan a page. Information density that feels right rather than overwhelming. Trust placement in the Chinese order, not the Western one. QR codes, customer service buttons and verification badges where users expect them.',
+    link: { href: '/services/ux-ui-design/', label: 'UX and UI Design' },
+  },
+  {
+    label: 'Baidu',
+    title: 'Baidu SEO',
+    body: 'Baidu is not translated Google. Different ranking factors, a different submission process, stricter technical requirements. We optimise for the engine that actually drives Chinese search traffic, and we set the foundation Baidu needs to crawl you in the first place.',
+    link: { href: '/services/baidu-seo/', label: 'Baidu SEO' },
+  },
+  {
+    label: 'AI Search',
+    title: 'GEO and AEO: AI Search Optimisation',
+    body: 'Generative Engine Optimisation and Answer Engine Optimisation. Chinese AI assistants like Doubao, Kimi, DeepSeek and Wenxin are now the first stop for many Chinese consumers, especially under thirty-five. They ask, the AI answers, the click never happens. We structure your site, your content and your structured data so these engines can read your brand, understand it, and cite it back to users when it matters. Most foreign brands haven’t put this on their China roadmap yet. The ones who do, this year, will get the head start.',
+    link: { href: '/contact/', label: 'Talk to us about AI Search' },
+  },
+  {
+    label: 'Infrastructure',
+    title: 'Hosting and Infrastructure in China',
+    body: 'Fast, ICP-licensed hosting on mainland servers. Aliyun, Tencent Cloud or Huawei Cloud. Managed end to end so your team never logs into a Chinese hosting panel. Necessary, mostly invisible, and the foundation everything else sits on.',
+    link: { href: '/services/china-hosting/', label: 'China Hosting' },
+  },
+];
+---
+
+<section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 lg:mb-20">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+        What We Focus On
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+        Five challenges. One team that has solved them before.
+      </h2>
+    </div>
+
+    <!-- Areas list -->
+    <div class="space-y-4 lg:space-y-6">
+      {areas.map((area) => (
+        <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+          <div class="lg:col-span-3">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+              {area.label}
+            </p>
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+              {area.title}
+            </h3>
+          </div>
+          <div class="lg:col-span-9">
+            <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+              {area.body}
+            </p>
+            <a
+              href={area.link.href}
+              class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200"
+            >
+              {area.link.label}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

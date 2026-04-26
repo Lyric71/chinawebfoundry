@@ -4,6 +4,7 @@ export interface NavItem {
   children?: NavItem[];
   description?: string;
   column?: 'plan' | 'build' | 'grow';
+  subColumn?: 'technology';
 }
 
 export const mainNav: NavItem[] = [
@@ -24,21 +25,33 @@ export const mainNav: NavItem[] = [
         column: 'plan',
       },
       {
+        label: 'Chinese Content',
+        href: '/services/chinese-content/',
+        description: 'Native copy that converts',
+        column: 'build',
+      },
+      {
         label: 'UX/UI Design',
         href: '/services/ux-ui-design/',
         description: 'Design for Chinese users',
         column: 'build',
       },
       {
-        label: 'Technical Integration',
-        href: '/services/technical-integration/',
-        description: 'CDN, payments, and performance',
+        label: 'WordPress',
+        href: '/wordpress/',
         column: 'build',
+        subColumn: 'technology',
       },
       {
-        label: 'Plugins & Extensions',
-        href: '/services/plugins-extensions/',
-        description: 'Replace blocked plugins',
+        label: 'Astro',
+        href: '/astro/',
+        column: 'build',
+        subColumn: 'technology',
+      },
+      {
+        label: 'Hosting',
+        href: '/services/china-hosting/',
+        description: 'Fast, ICP-licensed servers',
         column: 'build',
       },
       {
@@ -48,15 +61,9 @@ export const mainNav: NavItem[] = [
         column: 'grow',
       },
       {
-        label: 'Chinese Content',
-        href: '/services/chinese-content/',
-        description: 'Native copy that converts',
-        column: 'grow',
-      },
-      {
-        label: 'China Hosting',
-        href: '/services/china-hosting/',
-        description: 'Fast, ICP-licensed servers',
+        label: 'GEO (Generative Engine Optimization)',
+        href: '/services/geo/',
+        description: 'Be cited by AI search engines',
         column: 'grow',
       },
       {

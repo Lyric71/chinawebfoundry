@@ -20,6 +20,7 @@ export const ui = {
     'nav.plan': 'Plan',
     'nav.build': 'Build',
     'nav.grow': 'Grow & Run',
+    'nav.technology': 'Technology',
 
     // Navigation service descriptions
     'nav.desc.strategyAudit': 'Assess your China-readiness',
@@ -28,6 +29,7 @@ export const ui = {
     'nav.desc.technicalIntegration': 'CDN, payments, and performance',
     'nav.desc.pluginsExtensions': 'Replace blocked plugins',
     'nav.desc.baiduSeo': "Rank on China's top search engine",
+    'nav.desc.geo': 'Be cited by AI search engines',
     'nav.desc.chineseContent': 'Native copy that converts',
     'nav.desc.chinaHosting': 'Fast, ICP-licensed servers',
     'nav.desc.maintenanceSupport': 'Ongoing updates and monitoring',
@@ -42,18 +44,22 @@ export const ui = {
     'nav.label.technicalIntegration': 'Technical Integration',
     'nav.label.pluginsExtensions': 'Plugins & Extensions',
     'nav.label.baiduSeo': 'Baidu SEO',
+    'nav.label.geo': 'GEO (Generative Engine Optimization)',
     'nav.label.chineseContent': 'Chinese Content',
-    'nav.label.chinaHosting': 'China Hosting',
+    'nav.label.chinaHosting': 'Hosting',
     'nav.label.maintenanceSupport': 'Maintenance & Support',
+    'nav.label.wordpress': 'WordPress',
+    'nav.label.astro': 'Astro',
 
     // Footer
-    'footer.manifesto': 'WordPress for China, done right. Local team, global standards. From strategy to launch and beyond.',
+    'footer.manifesto': 'Websites built for the way Chinese users actually browse, read, and buy. Local team, global standards. From strategy to launch and beyond.',
     'footer.services': 'Services',
     'footer.company': 'Company',
     'footer.connect': 'Connect',
     'footer.ourWork': 'Our Work',
     'footer.copyright': 'Copyright',
     'footer.contact': 'Contact',
+    'footer.builtWith': 'We build with',
 
     // Legal
     'legal.privacyPolicy': 'Privacy Policy',
@@ -101,6 +107,7 @@ export const ui = {
     'nav.plan': 'Préparer',
     'nav.build': 'Bâtir',
     'nav.grow': 'Faire vivre',
+    'nav.technology': 'Technologie',
 
     // Navigation service descriptions
     'nav.desc.strategyAudit': 'Jauger votre degré de préparation',
@@ -109,6 +116,7 @@ export const ui = {
     'nav.desc.technicalIntegration': 'CDN, paiements, performance',
     'nav.desc.pluginsExtensions': 'Remplacer les extensions bloquées',
     'nav.desc.baiduSeo': 'Vous rendre visible sur le premier moteur de Chine',
+    'nav.desc.geo': 'Apparaître dans les réponses des IA',
     'nav.desc.chineseContent': 'Des textes écrits en chinois, qui convertissent',
     'nav.desc.chinaHosting': 'Serveurs rapides, licence ICP au clair',
     'nav.desc.maintenanceSupport': 'Mises à jour et supervision en continu',
@@ -123,18 +131,22 @@ export const ui = {
     'nav.label.technicalIntegration': 'Intégration technique',
     'nav.label.pluginsExtensions': 'Extensions et plugins',
     'nav.label.baiduSeo': 'Référencement Baidu',
+    'nav.label.geo': 'GEO (Generative Engine Optimization)',
     'nav.label.chineseContent': 'Contenus en chinois',
-    'nav.label.chinaHosting': 'Hébergement en Chine',
+    'nav.label.chinaHosting': 'Hébergement',
     'nav.label.maintenanceSupport': 'Maintenance et support',
+    'nav.label.wordpress': 'WordPress',
+    'nav.label.astro': 'Astro',
 
     // Footer
-    'footer.manifesto': 'WordPress pour la Chine, fait avec soin. Une équipe sur place, des standards internationaux. De la stratégie à la mise en ligne, puis au quotidien.',
+    'footer.manifesto': 'Des sites pensés pour la manière dont les internautes chinois naviguent, lisent et achètent vraiment. Une équipe sur place, des standards internationaux. De la stratégie à la mise en ligne, et bien au-delà.',
     'footer.services': 'Prestations',
     'footer.company': 'L\'agence',
     'footer.connect': 'Contact',
     'footer.ourWork': 'Nos réalisations',
     'footer.copyright': 'Copyright',
     'footer.contact': 'Contact',
+    'footer.builtWith': 'Notre stack',
 
     // Legal
     'legal.privacyPolicy': 'Politique de confidentialité',
