@@ -50,6 +50,7 @@ export const ui = {
     'nav.label.maintenanceSupport': 'Maintenance & Support',
     'nav.label.wordpress': 'WordPress',
     'nav.label.astro': 'Astro',
+    'nav.label.wechat': 'WeChat',
 
     // Footer
     'footer.manifesto': 'Websites built for the way Chinese users actually browse, read, and buy. Local team, global standards. From strategy to launch and beyond.',
@@ -137,6 +138,7 @@ export const ui = {
     'nav.label.maintenanceSupport': 'Maintenance et support',
     'nav.label.wordpress': 'WordPress',
     'nav.label.astro': 'Astro',
+    'nav.label.wechat': 'WeChat',
 
     // Footer
     'footer.manifesto': 'Des sites pensés pour la manière dont les internautes chinois naviguent, lisent et achètent vraiment. Une équipe sur place, des standards internationaux. De la stratégie à la mise en ligne, et bien au-delà.',

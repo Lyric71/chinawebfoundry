@@ -6,58 +6,104 @@ import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 const metaTitle = 'UX/UI Design for WordPress in China | ChinaWebFoundry';
 const metaDescription = 'We design WordPress sites that work for Chinese users. Culturally adapted, mobile-first, built by a China-based team with 20 years local experience.';
 
+const stats = [
+  { value: '70%+', label: 'Mobile traffic in China' },
+  { value: '6', label: 'Browsers we QA on' },
+  { value: 'WeChat', label: 'Native integration' },
+  { value: 'ICP', label: 'Compliant by design' },
+];
+
 const services = [
   {
     title: 'UX Research and User Insights',
-    body: 'Mockups come later. First we need to understand who\'s going to use your site and how they\'ll find it in the first place. We look at how your specific audience navigates content in China, we benchmark your competitors (the local Chinese ones and the international brands chasing the same market), and we map out user journeys that begin where people in China actually begin: scrolling Douyin, reading a WeChat article, or typing something into Baidu. And we build everything mobile-first. Not as a nice-to-have, but because 70%+ of internet usage in China is on phones. Screen sizes, default browsers, OS versions... all different from what most Western design teams are testing on.',
+    body: 'We map how your audience actually navigates content in China, benchmark local and international competitors, and design journeys that begin where Chinese users begin: Douyin, WeChat, or Baidu.',
+    icon: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607Z',
+    tag: 'Research',
   },
   {
     title: 'Information Architecture',
-    body: 'One thing that surprises a lot of our clients: Chinese audiences actually prefer denser pages. More links visible, more text, more options upfront. To Western eyes it can look cluttered but to someone in Beijing, a page with tons of whitespace and minimal content often reads as empty. Or like you\'re hiding something. So we spend real time on content hierarchy and page structure. Wireframes follow local navigation patterns and give visitors the depth they\'re looking for, without making the page unreadable for the team back at HQ who also needs to sign off on it.',
+    body: 'Chinese audiences prefer denser pages. More links visible, more text, more options upfront. We structure content for the depth visitors expect, without making it unreadable for HQ.',
+    icon: 'M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5',
+    tag: 'IA',
   },
   {
     title: 'Visual Design',
-    body: 'This is where things get really specific. Mobile-first layouts built for devices people in China are actually using. Colour carries serious symbolic weight here. Red means luck and prosperity, white is associated with mourning. Typography needs to handle Chinese characters properly and not treat them like an afterthought. Imagery matters too, local audiences can tell immediately when stock photos weren\'t chosen with them in mind. Trust signals are a big one: QR codes for WeChat, business licence badges, ICP filing numbers, live chat widgets, customer service numbers. Chinese consumers actively look for these things before they\'ll take any action on your site. Leave them out and you\'ve already lost credibility. Mockups delivered in Figma, pixel-perfect, ready for the dev team.',
+    body: 'Mobile-first layouts for the devices people in China actually use. Symbolic colour, typography that respects Chinese characters, and the trust signals (WeChat QR, ICP, business licence) Chinese consumers verify before they act.',
+    icon: 'M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42',
+    tag: 'UI',
   },
   {
     title: 'Gutenberg-Native Design System',
-    body: 'We design inside WordPress\'s Gutenberg editor directly. Custom blocks your content team can use without needing a developer every time a page needs updating. Components that keep things visually consistent across the whole site. And templates built so that non-technical people on your team can handle routine content changes themselves.',
+    body: 'We design inside Gutenberg directly. Custom blocks your content team uses without a developer, components for visual consistency, templates non-technical staff can update themselves.',
+    icon: 'M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3',
+    tag: 'System',
   },
 ];
 
 const processSteps = [
-  {
-    title: 'Discovery and Briefing',
-    body: 'Get aligned on brand guidelines, goals, who you\'re trying to reach in China. We go through what you\'ve already got and figure out what needs to change.',
-  },
-  {
-    title: 'Research and Benchmarking',
-    body: 'Your competitive landscape in China, local user patterns, design principles for the project. This is the homework phase.',
-  },
-  {
-    title: 'Wireframing',
-    body: 'Page structure, layouts, user flows. All of it checked against how Chinese users actually expect sites to work before we touch visual design. Way cheaper to rework a wireframe than a polished mockup.',
-  },
-  {
-    title: 'Visual Design and Iteration',
-    body: 'High-fidelity mockups, feedback rounds, revisions. We keep going until it works for your global brand and performs in the Chinese market.',
-  },
-  {
-    title: 'Design System and Handoff',
-    body: 'Components, style guidelines, interaction specs, all packaged up so your dev team can build without guessing.',
-  },
-  {
-    title: 'QA and Validation',
-    body: 'We test on Chinese browsers and devices. Not just Chrome. A site that looks great in your browser in London can completely fall apart on UC Browser or QQ Browser, and those two still carry a lot of mobile traffic in China.',
-  },
+  { phase: '01', title: 'Discovery and Briefing', body: 'Get aligned on brand guidelines, goals, and who you are trying to reach in China.' },
+  { phase: '02', title: 'Research and Benchmarking', body: 'Competitive landscape, local user patterns, design principles. The homework phase.' },
+  { phase: '03', title: 'Wireframing', body: 'Page structure and user flows checked against how Chinese users expect sites to work. Cheaper to rework a wireframe than a polished mockup.' },
+  { phase: '04', title: 'Visual Design and Iteration', body: 'High-fidelity mockups and feedback rounds until it works for your global brand and the Chinese market.' },
+  { phase: '05', title: 'Design System and Handoff', body: 'Components, style guidelines, and interaction specs packaged so your dev team can build without guessing.' },
+  { phase: '06', title: 'QA and Validation', body: 'We test on Chinese browsers and devices. A site that looks great in London can fall apart on UC Browser or QQ Browser, both still big in China.' },
 ];
 
-const insights = [
-  'Mobile is the whole game here. Not a secondary consideration. Every single design decision starts with the phone screen, because that\'s where the overwhelming majority of your audience is.',
-  'Dense pages perform better than sparse ones. Western designers instinctively strip things back, but in China, information density is actually a trust signal. An empty-looking page makes people suspicious.',
-  'Skip social integration at your own risk. WeChat QR codes, sharing buttons, mini-program links. If these aren\'t on your site you\'re basically invisible in the channels where Chinese consumers spend their time.',
-  'Page speed is a design choice, not just a tech problem. Every image, animation, and font file gets optimised for China\'s network conditions. An 8-second load time on China Mobile kills everything else you\'ve built.',
-  'People verify before they trust. Business licences, certifications, real customer testimonials, a visible phone number or chat option. Chinese consumers check for these things. We design them in from day one, not as something bolted on at the end.',
+const colours = [
+  { name: 'Auspicious red', hex: '#E11D2E', meaning: 'Luck, energy, action' },
+  { name: 'Brand orange', hex: '#F25F29', meaning: 'Vitality, accent' },
+  { name: 'Trust green', hex: '#52C41A', meaning: 'Confirmation, WeChat' },
+  { name: 'Ink', hex: '#1F1F1F', meaning: 'Headings, anchor' },
+  { name: 'Cloud', hex: '#FAFAFA', meaning: 'Surface, never solo' },
+];
+
+const typeScale = [
+  { label: 'H1', size: '32', cn: '中文标题', en: 'Display Headline' },
+  { label: 'H2', size: '24', cn: '副标题', en: 'Section Subhead' },
+  { label: 'Body', size: '16', cn: '正文段落', en: 'Body paragraph' },
+  { label: 'Caption', size: '12', cn: '辅助说明', en: 'Caption / meta' },
+];
+
+const spacingTokens = [
+  { name: '4 · XS', width: 'w-2' },
+  { name: '8 · S', width: 'w-4' },
+  { name: '16 · M', width: 'w-8' },
+  { name: '24 · L', width: 'w-12' },
+  { name: '32 · XL', width: 'w-16' },
+  { name: '48 · 2XL', width: 'w-24' },
+];
+
+const intelligence = [
+  {
+    claim: 'Colour carries meaning',
+    body: 'Red signals luck and energy. Gold conveys premium. White used solo carries funerary weight, so we pair it with strong accents.',
+    visual: 'colour',
+  },
+  {
+    claim: 'Density reads as trust',
+    body: 'Dense above-the-fold layouts feel grounded to Chinese users. Whitespace-heavy designs can read as empty, unfinished, or evasive.',
+    visual: 'density',
+  },
+  {
+    claim: 'Trust lives at the edges',
+    body: 'ICP filing number, business licence, official badges. Footer placement is conventional. Above-fold QR codes anchor credibility.',
+    visual: 'trust',
+  },
+  {
+    claim: 'WeChat is plumbing',
+    body: 'QR codes, mini-program links, share endpoints, customer service handles. These are baseline infrastructure, not optional features.',
+    visual: 'wechat',
+  },
+  {
+    claim: 'Type carries weight',
+    body: 'PingFang SC, Noto Sans SC or Source Han pair with Inter or system stacks. Character spacing and line height differ from Latin.',
+    visual: 'type',
+  },
+  {
+    claim: 'Bottom nav is the home button',
+    body: 'Sticky bottom navigation is the home button of the Chinese mobile web. Five tap-targets, always visible, always thumbable.',
+    visual: 'nav',
+  },
 ];
 
 const audiences = [
@@ -66,21 +112,37 @@ const audiences = [
   { label: 'Campaign pages', description: 'Your marketing team needs pages targeting Chinese consumers that don\'t feel translated from English.', image: '/images/audiences/campaign-chinese-consumers.webp' },
   { label: 'Adapting global design', description: 'You\'ve got a solid global design system and you need someone who understands how to adapt it for China.', image: '/images/audiences/global-design-adapt-china.webp' },
 ];
+
+const marqueeWords = [
+  '移动优先', 'Mobile-first',
+  '微信', 'WeChat',
+  '百度', 'Baidu',
+  '抖音', 'Douyin',
+  '备案', 'ICP filing',
+  'Gutenberg',
+  '中文排版', 'CN typography',
+  '信任信号', 'Trust signals',
+  '色彩文化', 'Cultural colour',
+  '密度优先', 'Density-first',
+  'PingFang SC',
+  'UC · QQ · Chrome',
+];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
 
-  <!-- Hero: full-bleed dark -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+  <!-- HERO: editorial split with phone mockup -->
+  <section class="relative bg-[#0a0a0d] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-ux-ui-design.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px]"></div>
+      <div class="absolute -bottom-40 right-1/3 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/5 blur-[100px]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(242,95,41,0.08),transparent_50%)]"></div>
+      <!-- subtle grid overlay -->
+      <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px); background-size: 64px 64px;"></div>
     </div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-12">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/#OurServices" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
@@ -88,121 +150,150 @@ const audiences = [
         </ol>
       </nav>
 
-      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
-        <!-- Text: 7 cols -->
+      <div class="io-grid items-center pb-20 lg:pb-32">
+        <!-- Text -->
         <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            UX/UI Design
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Design for Chinese Users.
-            <span class="block mt-2 text-[var(--color-brand-orange)]">Not Just Chinese Language.</span>
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-white/70">UX / UI · 设计</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Design <span class="italic font-light text-white/80">for</span><br/>
+            Chinese users.
+            <span class="block mt-3 text-[var(--color-brand-orange)]">Not just Chinese language.</span>
           </h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            We build WordPress experiences that actually feel native to users in China. Culturally relevant, mobile-first, and shaped around the platforms and habits that run China's internet.
+
+          <p class="mt-8 text-lg lg:text-xl text-white/60 max-w-[560px] leading-relaxed">
+            WordPress experiences that feel native to users in China. Culturally relevant, mobile-first, shaped around the platforms that run China's internet.
           </p>
-          <div class="mt-10 flex flex-wrap gap-4">
+
+          <div class="mt-10 flex flex-wrap items-center gap-5">
             <Button href="/contact/" variant="primary" size="lg">Start Your Design Project</Button>
+            <a href="#what-we-offer" class="group inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors">
+              See the system
+              <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
           </div>
         </div>
 
-        <!-- Visual: design metrics card -->
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+        <!-- Visual: artboard-framed phone mockup -->
+        <div class="col-span-12 lg:col-span-5 mt-16 lg:mt-0">
           <div class="relative">
-            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-xs text-white/30 ml-2 font-mono">ux-design-audit</span>
+            <div class="absolute -inset-8 bg-[var(--color-brand-orange)]/15 rounded-[40px] blur-3xl -z-10"></div>
+
+            <!-- Artboard label -->
+            <div class="flex items-center justify-between mb-3 px-1">
+              <div class="flex items-center gap-2 text-[11px] font-mono text-white/40">
+                <span class="w-1.5 h-1.5 rounded-sm bg-[var(--color-brand-orange)]"></span>
+                <span>home—mobile.fig</span>
               </div>
-              <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Mobile-first</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Optimised</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Trust signals</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">WeChat + ICP</span>
-                </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-[90%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Cultural fit</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">China-native</span>
-                </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-[85%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Browser QA</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">UC + QQ + Chrome</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Gutenberg blocks</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Custom system</span>
-                </div>
-              </div>
+              <div class="text-[11px] font-mono text-white/30">375 × 812</div>
             </div>
-            <!-- Decorative glow -->
-            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+
+            <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent">
+              <img
+                src="/images/ux-design-china-mobile-wordpress-mockup.webp"
+                alt="A WordPress mobile homepage designed for Chinese users, with red accents, WeChat QR code, and ICP licence"
+                class="w-full h-auto block"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+
+            <!-- Floating chip: Mobile-first -->
+            <div class="hidden sm:flex absolute -left-6 top-20 items-center gap-2.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 px-4 py-2 shadow-2xl">
+              <span class="w-2 h-2 rounded-full bg-green-400"></span>
+              <span class="text-xs font-medium text-white">Mobile-first</span>
+            </div>
+
+            <!-- Floating chip: trust signals -->
+            <div class="hidden sm:flex absolute -right-4 bottom-24 items-center gap-2.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 px-4 py-2 shadow-2xl">
+              <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+              <span class="text-xs font-medium text-white">WeChat + ICP</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The Problem -->
-  <section class="section-spacing">
+  <!-- VOCABULARY MARQUEE -->
+  <section aria-hidden="true" class="bg-[#0a0a0d] border-y border-white/5 overflow-hidden py-5">
+    <div class="marquee-mask">
+      <div class="marquee-track flex items-center gap-10 whitespace-nowrap">
+        {[...marqueeWords, ...marqueeWords].map((word, i) => (
+          <div class="flex items-center gap-10 flex-shrink-0">
+            <span class={`text-base font-medium ${i % 2 === 0 ? 'text-white/40' : 'text-white/70'}`}>{word}</span>
+            <span class="w-1 h-1 rounded-full bg-[var(--color-brand-orange)]/60 flex-shrink-0"></span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <section class="bg-white border-b border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[var(--color-surface-border)] py-10 lg:py-12 -mx-4 sm:-mx-6 lg:-mx-8">
+        {stats.map((stat) => (
+          <div class="px-4 sm:px-6 lg:px-8">
+            <div class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] tracking-tight leading-none">
+              {stat.value}
+            </div>
+            <div class="mt-3 text-sm text-[var(--color-text-muted)]">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Good design back home. Broken in China.
+        <div class="col-span-12 lg:col-span-6 mb-12 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            The Problem
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-8 tracking-tight">
+            Good design back home.<br/>
+            <span class="text-[var(--color-text-muted)]">Broken in China.</span>
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            We see this all the time. A company puts real effort into their WordPress site, gets it running well, good conversion rate back home. Then they launch it in China. Bounce rates go through the roof, nobody's engaging, leads dry up. The site looks fine technically. But something about it just feels wrong to anyone actually browsing from Shanghai or Chengdu.
+            A company gets their WordPress site converting back home, launches it in China, and bounce rates spike. The site looks fine technically, but something about it feels wrong to anyone browsing from Shanghai or Chengdu.
           </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            What's going on is pretty simple once you've seen it enough times. Chinese internet users didn't grow up on the same web you did. Everything from how they navigate a page to how much information they expect to see at once, it's all been shaped by platforms like WeChat, Taobao, and Douyin. Not by Google and Amazon.
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            Chinese internet users did not grow up on the same web. How they navigate, how much information they expect to see at once, all shaped by WeChat, Taobao, and Douyin.
           </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            A design language that converts in Chicago doesn't automatically work in Chongqing. That's the gap we fill. Your brand stays globally consistent but the on-the-ground experience feels like it was made for China. Because it was.
-          </p>
+          <blockquote class="border-l-2 border-[var(--color-brand-orange)] pl-6 py-1">
+            <p class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+              A design language that converts in Chicago does not automatically work in Chongqing.
+            </p>
+          </blockquote>
         </div>
 
-        <!-- Visual: Western vs China design comparison -->
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
-            <div class="absolute inset-3 sm:inset-6 flex flex-col justify-center gap-4 sm:gap-6">
-              <!-- Western approach -->
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Western design patterns</div>
-                  <div class="text-xs text-[var(--color-text-muted)]">Minimal layout, whitespace-heavy, no trust signals</div>
-                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[12%] h-full bg-red-400 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-red-400 mt-1">China engagement: very low</div>
-                </div>
+        <div class="col-span-12 lg:col-span-6">
+          <div class="relative">
+            <div class="rounded-2xl overflow-hidden border border-[var(--color-surface-border)] shadow-xl shadow-black/5">
+              <img
+                src="/images/ux-design-china-vs-western-mobile-comparison.webp"
+                alt="Two phones side by side, one showing a sparse Western-style site, the other a dense Chinese-style site with WeChat QR and trust signals"
+                class="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="mt-5 grid grid-cols-2 gap-4 text-center">
+              <div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Western-style</div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)]">Sparse, low engagement</div>
               </div>
-              <!-- China-adapted approach -->
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">China-native design</div>
-                  <div class="text-xs text-[var(--color-text-muted)]">Dense layout, WeChat QR, ICP badge, mobile-first</div>
-                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[88%] h-full bg-green-500 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-green-500 mt-1">China engagement: converting</div>
-                </div>
+              <div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">China-native</div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)]">Dense, converts</div>
               </div>
             </div>
           </div>
@@ -211,126 +302,353 @@ const audiences = [
     </div>
   </section>
 
-  <!-- What We Offer: sticky heading + list -->
+  <!-- CHINA DESIGN INTELLIGENCE GRID -->
   <section class="section-spacing bg-[var(--color-surface-light)]">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <!-- Left: sticky heading -->
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-20">
+        <div class="max-w-2xl">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            What We Offer
+            Field Knowledge
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            What we actually deliver
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+            Six things designing<br/>for China taught us.
           </h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            From initial research through to validated design systems, every deliverable is built for how Chinese users actually behave online.
-          </p>
         </div>
+        <p class="text-base text-[var(--color-text-muted)] max-w-md font-mono uppercase tracking-wider text-xs">
+          A.01 — A.06 / China UX heuristics
+        </p>
+      </div>
 
-        <!-- Right: items -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {services.map((item) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {item.title}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {intelligence.map((card, idx) => (
+          <article class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] overflow-hidden hover:border-[var(--color-brand-orange)]/40 hover:shadow-xl hover:shadow-black/5 transition-all duration-300">
+            <!-- Visual artifact area -->
+            <div class="relative h-44 bg-gradient-to-br from-[var(--color-surface-light)] to-white border-b border-[var(--color-surface-border)] overflow-hidden">
+              <div class="absolute top-3 left-4 text-[11px] font-mono text-[var(--color-text-muted)] uppercase tracking-wider">
+                A.0{idx + 1}
+              </div>
+
+              {card.visual === 'colour' && (
+                <div class="absolute inset-0 flex items-center justify-center px-6">
+                  <div class="flex items-end gap-1">
+                    <div class="w-12 h-20 rounded-md bg-[#E11D2E] shadow-md"></div>
+                    <div class="w-12 h-16 rounded-md bg-[#F25F29] shadow-md"></div>
+                    <div class="w-12 h-12 rounded-md bg-[#D4AF37] shadow-md"></div>
+                    <div class="w-12 h-8 rounded-md bg-[#52C41A] shadow-md"></div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'density' && (
+                <div class="absolute inset-0 flex items-center justify-center px-8">
+                  <div class="w-full max-w-[180px] space-y-1.5">
+                    <div class="h-3 bg-[var(--color-brand-orange)]/80 rounded-sm"></div>
+                    <div class="grid grid-cols-3 gap-1.5">
+                      <div class="h-8 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                      <div class="h-8 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                      <div class="h-8 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                    </div>
+                    <div class="h-3 bg-[var(--color-text-dark)]/20 rounded-sm"></div>
+                    <div class="h-3 bg-[var(--color-text-dark)]/20 rounded-sm w-3/4"></div>
+                    <div class="grid grid-cols-2 gap-1.5">
+                      <div class="h-6 bg-[var(--color-brand-orange)]/30 rounded-sm"></div>
+                      <div class="h-6 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'trust' && (
+                <div class="absolute inset-0 flex items-center justify-center px-6">
+                  <div class="flex items-center gap-2.5">
+                    <div class="px-3 py-2 rounded-md border border-[var(--color-surface-border)] bg-white text-[10px] font-mono text-[var(--color-text-body)]">
+                      ICP 沪B2-2024<br/>0123456号
+                    </div>
+                    <div class="w-12 h-12 rounded-md bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white text-[10px] font-bold">营业<br/>执照</div>
+                    <div class="w-10 h-10 rounded-md bg-[#52C41A] flex items-center justify-center">
+                      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'wechat' && (
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="relative w-24 h-24 bg-white rounded-xl border border-[var(--color-surface-border)] p-2">
+                    <div class="grid grid-cols-7 gap-px h-full w-full">
+                      {Array.from({ length: 49 }).map((_, i) => {
+                        const filled = [0,1,2,3,5,6,8,12,14,15,18,20,22,24,28,29,30,32,34,36,40,42,43,44,46,47,48].includes(i);
+                        return <div class={filled ? 'bg-[var(--color-text-dark)] rounded-[1px]' : ''}></div>;
+                      })}
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-[#52C41A] border-2 border-white flex items-center justify-center">
+                      <span class="text-white text-[9px] font-bold">微信</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'type' && (
+                <div class="absolute inset-0 flex items-center justify-center gap-3 px-6">
+                  <span class="text-[80px] leading-none font-medium text-[var(--color-text-dark)]">中</span>
+                  <div class="h-16 w-px bg-[var(--color-surface-border)]"></div>
+                  <span class="text-[72px] leading-none font-light text-[var(--color-text-dark)] italic">Aa</span>
+                </div>
+              )}
+
+              {card.visual === 'nav' && (
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="relative w-20 h-32 rounded-xl border-2 border-[var(--color-text-dark)]/30 bg-white p-1.5 flex flex-col">
+                    <div class="flex-1 space-y-1">
+                      <div class="h-1.5 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                      <div class="h-3 bg-[var(--color-text-dark)]/10 rounded-sm"></div>
+                      <div class="h-1.5 bg-[var(--color-text-dark)]/15 rounded-sm w-3/4"></div>
+                      <div class="h-3 bg-[var(--color-brand-orange)]/30 rounded-sm"></div>
+                    </div>
+                    <div class="mt-1 flex items-center justify-around bg-[var(--color-brand-orange)]/10 rounded-md px-1 py-1.5 border-t border-[var(--color-brand-orange)]/30">
+                      {Array.from({ length: 5 }).map(() => (
+                        <div class="w-1 h-1 rounded-full bg-[var(--color-brand-orange)]"></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <!-- Body -->
+            <div class="p-7">
+              <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3 tracking-tight">
+                {card.claim}
+              </h3>
+              <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+                {card.body}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE OFFER: bento -->
+  <section id="what-we-offer" class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14 lg:mb-20">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          What We Offer
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+          Four disciplines.<br/>One outcome.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 lg:gap-6">
+        {services.map((service, idx) => {
+          const span = idx === 0 ? 'lg:col-span-7' : idx === 1 ? 'lg:col-span-5' : idx === 2 ? 'lg:col-span-5' : 'lg:col-span-7';
+          return (
+            <article class:list={[
+              'group relative rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5',
+              span,
+            ]}>
+              <div class="flex items-start gap-5">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center group-hover:bg-[var(--color-brand-orange)]/15 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="w-6 h-6 text-[var(--color-brand-orange)]">
+                    <path stroke-linecap="round" stroke-linejoin="round" d={service.icon} />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <span class="block text-[11px] font-mono uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">— {service.tag}</span>
+                  <h3 class="text-xl lg:text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4 tracking-tight">
+                    {service.title}
                   </h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {item.body}
+                  <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                    {service.body}
                   </p>
                 </div>
               </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DESIGN TOKENS -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-20">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Inside the System
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+            Tokens, not<br/>guesswork.
+          </h2>
+        </div>
+        <p class="text-base text-[var(--color-text-body)] max-w-md leading-relaxed">
+          Every design we ship is documented as a system. Colour, type and spacing tokens travel from Figma into Gutenberg, untouched.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+        <!-- COLOUR PANEL -->
+        <div class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-mono uppercase tracking-wider text-[var(--color-text-muted)]">— Colour</h3>
+            <span class="text-[11px] font-mono text-[var(--color-text-muted)]/60">5 / tokens</span>
+          </div>
+          <ul class="space-y-3">
+            {colours.map((c) => (
+              <li class="flex items-center gap-4">
+                <div class="w-11 h-11 rounded-lg border border-[var(--color-surface-border)] flex-shrink-0" style={`background:${c.hex}`}></div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-sm font-medium text-[var(--color-text-dark)] truncate">{c.name}</span>
+                    <span class="text-[11px] font-mono text-[var(--color-text-muted)] flex-shrink-0">{c.hex}</span>
+                  </div>
+                  <span class="text-xs text-[var(--color-text-muted)]">{c.meaning}</span>
+                </div>
+              </li>
             ))}
+          </ul>
+        </div>
+
+        <!-- TYPE PANEL -->
+        <div class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-mono uppercase tracking-wider text-[var(--color-text-muted)]">— Type</h3>
+            <span class="text-[11px] font-mono text-[var(--color-text-muted)]/60">PingFang · Inter</span>
+          </div>
+          <ul class="space-y-5">
+            {typeScale.map((t) => (
+              <li class="flex items-baseline gap-4 pb-4 border-b border-[var(--color-surface-border)] last:border-0 last:pb-0">
+                <div class="w-14 flex-shrink-0">
+                  <div class="text-[11px] font-mono text-[var(--color-text-muted)]">{t.label}</div>
+                  <div class="text-[10px] font-mono text-[var(--color-text-muted)]/60">{t.size}px</div>
+                </div>
+                <div class="flex-1 flex items-baseline gap-3">
+                  <span class={`font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none ${t.label === 'H1' ? 'text-2xl' : t.label === 'H2' ? 'text-lg' : t.label === 'Body' ? 'text-base' : 'text-xs'}`}>{t.cn}</span>
+                  <span class={`text-[var(--color-text-muted)] leading-none ${t.label === 'H1' ? 'text-2xl' : t.label === 'H2' ? 'text-lg' : t.label === 'Body' ? 'text-base' : 'text-xs'}`}>{t.en}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- SPACING PANEL -->
+        <div class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-mono uppercase tracking-wider text-[var(--color-text-muted)]">— Spacing</h3>
+            <span class="text-[11px] font-mono text-[var(--color-text-muted)]/60">4-base scale</span>
+          </div>
+          <ul class="space-y-4">
+            {spacingTokens.map((s) => (
+              <li class="flex items-center gap-4">
+                <div class="w-20 flex-shrink-0 text-xs font-mono text-[var(--color-text-muted)]">{s.name}</div>
+                <div class="flex-1 flex items-center">
+                  <div class={`h-2.5 bg-[var(--color-brand-orange)]/80 rounded-sm ${s.width}`}></div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-7 pt-5 border-t border-[var(--color-surface-border)] text-[11px] font-mono text-[var(--color-text-muted)]/70 leading-relaxed">
+            All spacing on a 4px base.<br/>Vertical rhythm = 8px lock.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How We Work -->
-  <section class="section-spacing">
+  <!-- FIGMA SHOWCASE -->
+  <section class="relative bg-[#0a0a0d] overflow-hidden section-spacing">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[var(--color-brand-orange)]/8 blur-[120px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Design System · Handoff
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.1] tracking-tight mb-8">
+            Built in Figma.<br/>Handed off ready to ship.
+          </h2>
+          <ul class="space-y-4">
+            {[
+              'Component library tuned for Chinese typography',
+              'Token system: colour, spacing, type scale',
+              'Mobile and desktop wireframes for every key page',
+              'Interaction specs your dev team can build from',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-white/70">
+                <svg class="flex-shrink-0 w-5 h-5 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span class="text-[15px] leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7">
+          <div class="relative">
+            <div class="absolute -inset-6 bg-gradient-to-tr from-[var(--color-brand-orange)]/15 to-transparent rounded-3xl blur-2xl -z-10"></div>
+            <!-- Window chrome -->
+            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+              <div class="flex items-center gap-2 px-4 py-2.5 bg-white/[0.04] border-b border-white/10">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="ml-2 text-[11px] font-mono text-white/40">WordPress CN — Component Library</span>
+              </div>
+              <img
+                src="/images/ux-design-figma-china-component-system.webp"
+                alt="A Figma canvas showing the WordPress component library tailored for Chinese audiences"
+                class="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-20">
+        <div class="max-w-2xl">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
             How We Work
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Our process
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+            A predictable path<br/>from brief to handoff.
           </h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            Every project follows the same structure. It keeps things predictable for your team and makes sure nothing gets missed.
-          </p>
         </div>
-
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          {processSteps.map((step, i) => (
-            <div class="flex">
-              <div class="mr-4 flex flex-col items-center">
-                <div>
-                  {i < processSteps.length - 1 ? (
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[var(--color-brand-orange)]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-[var(--color-brand-orange)]">
-                        <path d="M12 5l0 14"></path>
-                        <path d="M18 13l-6 6"></path>
-                        <path d="M6 13l6 6"></path>
-                      </svg>
-                    </div>
-                  ) : (
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[var(--color-brand-orange)] bg-[var(--color-brand-orange)]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white">
-                        <path d="M5 12l5 5l10 -10"></path>
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                {i < processSteps.length - 1 && (
-                  <div class="h-full w-px bg-[var(--color-surface-border)]"></div>
-                )}
-              </div>
-              <div class:list={["pt-1", i < processSteps.length - 1 ? "pb-8" : ""]}>
-                <p class="mb-2 text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">
-                  {step.title}
-                </p>
-                {step.body && (
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {step.body}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        <p class="text-base text-[var(--color-text-muted)] max-w-md font-mono uppercase tracking-wider text-xs">
+          P.01 — P.06 / Engagement flow
+        </p>
       </div>
-    </div>
-  </section>
 
-  <!-- What We've Learned -->
-  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Key Insights
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            What we've learned about designing for China
-          </h2>
-        </div>
-
-        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
-          <div class="space-y-5">
-            {insights.map((item) => (
-              <div class="flex items-start gap-5 bg-white/[0.04] rounded-xl px-6 py-5 border border-white/10">
-                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
-                <p class="text-[15px] text-white/70 leading-relaxed">{item}</p>
-              </div>
-            ))}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {processSteps.map((step) => (
+          <div class="group relative rounded-2xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-8 hover:border-[var(--color-brand-orange)]/40 hover:shadow-lg hover:shadow-black/5 transition-all">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono text-[var(--color-brand-orange)] tracking-wider">P.{step.phase}</span>
+              <div class="h-px flex-1 mx-4 bg-gradient-to-r from-[var(--color-brand-orange)]/30 to-transparent"></div>
+              <div class="w-2 h-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+            </div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3 tracking-tight">
+              {step.title}
+            </h3>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+              {step.body}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -338,18 +656,18 @@ const audiences = [
   <WhoIsThisFor heading="Who should be reading this" audiences={audiences} />
 
   <!-- CTA -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+  <section class="relative bg-[#0a0a0d] overflow-hidden py-16 sm:py-20 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/8 rounded-full blur-3xl"></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding text-center">
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
         Let's Talk
       </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Design for China isn't about making things look nice
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.1] max-w-3xl mx-auto tracking-tight">
+        Design for China is not<br/>about making things look nice.
       </h2>
       <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        It's about whether people actually use the thing you built. If that sounds like a conversation worth having, we should talk.
+        It is about whether people actually use the thing you built. If that sounds like a conversation worth having, we should talk.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/contact/" variant="primary" size="lg">Start Your Design Project</Button>
@@ -359,3 +677,21 @@ const audiences = [
   </section>
 
 </PageLayout>
+
+<style>
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+    width: max-content;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+</style>

@@ -48,6 +48,12 @@ export function getMainNav(lang: Locale): NavItem[] {
           subColumn: 'technology',
         },
         {
+          label: t('nav.label.wechat'),
+          href: lp('/wechat/'),
+          column: 'build',
+          subColumn: 'technology',
+        },
+        {
           label: t('nav.label.chinaHosting'),
           href: lp('/services/china-hosting/'),
           description: t('nav.desc.chinaHosting'),

@@ -1,75 +1,304 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
-import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
-const metaTitle = 'WordPress China Hosting - Fast & ICP Compliant';
-const metaDescription = 'WordPress hosting optimized for mainland China. We handle servers, ICP licensing, CDN, and monitoring so your site loads fast behind the Great Firewall.';
+const metaTitle = 'China Hosting | Fast, ICP-Licensed, Managed';
+const metaDescription = 'Hosting that actually works in mainland China. ICP filing handled, CDN configured, monitored from Shanghai. WordPress, Astro, or headless.';
 
-const includedItems = [
-  {
-    title: 'Server Setup and Optimisation',
-    body: 'We configure your hosting environment for WordPress specifically. PHP and MySQL tuning, OPcache, query optimisation, memory management. China-compatible SSL certificates. Server-level firewalls, intrusion detection, DDoS protection. Standard stuff, but configured for how things actually work in China, which is different from what you\'re used to.',
-  },
-  {
-    title: 'China CDN',
-    body: 'We hook up Alibaba Cloud CDN, Tencent Cloud CDN, or whatever makes sense for your project. Point is, your images and scripts and static files get served from nodes that are actually near your users. Not bouncing across the Pacific ocean first.',
-  },
-  {
-    title: 'Monitoring From Inside China',
-    body: 'This one catches people off guard. Most monitoring tools check your site from outside the Great Firewall. So your dashboard says everything looks fine while your actual visitors in Shenzhen are staring at a loading spinner. We monitor from inside China. It sounds like a small detail but it changes everything.',
-  },
-  {
-    title: 'Daily Backups',
-    body: 'Automated every single day, stored off-site. If something breaks we can do point-in-time recovery. We keep a disaster recovery plan documented too because stuff does break sometimes and you want to know there\'s a plan.',
-  },
+const proofStats = [
+  { value: '0.8', suffix: 's', label: 'Median load time on a mainland Chinese server', sub: 'Mid-range Chinese phone, Shanghai connection' },
+  { value: '99.97', suffix: '%', label: 'Uptime across the sites we currently host', sub: 'Rolling 30-day average' },
+  { value: '100', suffix: '%', label: 'ICP filing success rate so far', sub: 'Every application has eventually gone through' },
+  { value: '20', suffix: '+', label: 'Years on the ground in Shanghai', sub: 'Same team, same city, since 2005' },
+];
+
+const sectionLinks = [
+  { id: 'problem', label: 'The Problem' },
+  { id: 'options', label: 'Hosting Options' },
+  { id: 'included', label: 'What\'s Included' },
+  { id: 'icp', label: 'ICP Licence' },
+  { id: 'compliance', label: 'Data Compliance' },
+  { id: 'timeline', label: 'Timeline' },
+  { id: 'performance', label: 'Performance' },
+  { id: 'faq', label: 'FAQ' },
 ];
 
 const hostingOptions = [
   {
-    title: 'Mainland China Hosting (ICP Required)',
-    body: 'This is the real deal. Your site goes on servers sitting in Beijing, Shanghai, Shenzhen, Guangzhou. We use Alibaba Cloud, Tencent Cloud, Huawei Cloud. Been working with them for years at this point so we know what we\'re getting.',
-    details: 'Load times come in under one second. Baidu gives a noticeable ranking boost to sites that have an ICP licence on local servers, which matters a lot if organic search is part of your China strategy. We handle the full ICP filing too, and trust me, that\'s where most companies hit a wall without someone in-country helping them through it.',
+    id: 'mainland',
+    name: 'Mainland China',
+    tag: 'ICP Required',
+    tagline: 'Servers in Beijing, Shanghai, Shenzhen or Guangzhou.',
+    headline: 'The real deal. Sub-second loads, full Baidu boost.',
+    body: 'Your site lives on servers inside mainland China. We use Aliyun, Tencent Cloud or Huawei Cloud, depending on the project. We have been working with all three for years now, so we know exactly what we are getting from each one of them.',
+    detail: 'Load times come in under one second. Baidu gives a noticeable ranking boost to sites that hold an ICP licence on local servers, which matters a lot if organic search is part of your China strategy. We handle the full ICP filing too. Honestly, that is where most foreign companies hit a wall without someone in-country helping them through it.',
+    fit: 'Brands committed to the Chinese market, anyone serious about Baidu SEO, e-commerce, sites capturing Chinese user data.',
+    image: '/images/hosting-china-cdn-map.webp',
+    imageAlt: 'A stylised map of mainland China with glowing data center nodes in Beijing, Shanghai, Shenzhen and Guangzhou connected by a CDN mesh',
+    accent: 'orange',
+    metrics: [
+      { label: 'Load time', value: '< 1s' },
+      { label: 'ICP', value: 'Required' },
+      { label: 'Baidu boost', value: 'Big' },
+      { label: 'Time to live', value: '6–10 wks' },
+    ],
   },
   {
-    title: 'Hong Kong Hosting (No ICP Required)',
-    body: 'Don\'t have an ICP licence yet? Hong Kong gets you online faster. No filing required. With the right CDN and caching setup, you\'re looking at 2 to 4 second load times in mainland China. Not as quick as mainland hosting obviously, but compared to serving your site from Frankfurt or Virginia? Night and day.',
-    details: 'We use this as a bridge solution pretty often while clients wait on their ICP.',
+    id: 'hong-kong',
+    name: 'Hong Kong',
+    tag: 'No ICP Needed',
+    tagline: 'Online quickly, no government filing required.',
+    headline: 'A bridge to the mainland. Fast to launch.',
+    body: 'Don\'t have an ICP licence yet? Hong Kong gets you online faster. No filing required. With the right CDN and caching setup, you are looking at two to four second load times in mainland China. Not as quick as mainland hosting obviously, but compared to serving the site from Frankfurt or Virginia, night and day.',
+    detail: 'We use this as a bridge solution pretty often, while clients wait on their ICP filing or while they are still deciding whether to commit to a mainland presence. Some of our long-running clients have stayed on Hong Kong for years and never felt the need to move.',
+    fit: 'Quick launches, interim solutions, projects that can\'t get an ICP yet, brands testing the Chinese market before committing.',
+    image: '/images/hosting-hong-kong-bridge.webp',
+    imageAlt: 'Hong Kong skyline at blue hour from across Victoria Harbour with neon orange light trails crossing the water toward mainland China',
+    accent: 'sky',
+    metrics: [
+      { label: 'Load time', value: '2–4s' },
+      { label: 'ICP', value: 'Not required' },
+      { label: 'Baidu boost', value: 'Minimal' },
+      { label: 'Time to live', value: '2–3 wks' },
+    ],
   },
   {
-    title: 'Dual-Stack / Hybrid Setup',
-    body: 'Some of our clients can\'t just optimise for China and forget about the rest of the world. They need it working everywhere. For those situations we build a split: visitors in China hit China-based servers, everybody else goes to your existing global setup.',
-    details: 'DNS takes care of the routing automatically. One WordPress backend powers both sides, content syncs across the two.',
+    id: 'dual-stack',
+    name: 'Dual-Stack',
+    tag: 'Global + China',
+    tagline: 'Mainland for China visitors. Existing global stack for everyone else.',
+    headline: 'One brand, two architectures, no compromise.',
+    body: 'Some clients can\'t just optimise for China and forget about the rest of the world. They need the site working everywhere. For those situations we build a split: visitors from inside China hit a mainland Chinese server, everyone else goes to your existing global setup.',
+    detail: 'DNS takes care of the routing automatically. One backend powers both sides, content syncs across the two. The China site has its own ICP filing, the global site keeps running wherever it already lives. We handle both sides as one engagement so the editorial team only has one workflow.',
+    fit: 'Global brands with a serious China audience, multinational e-commerce, sites where neither China nor the rest of the world can be deprioritised.',
+    image: '/images/hosting-dual-stack-globe.webp',
+    imageAlt: 'Isometric 3D illustration of a globe with two server clusters glowing — orange over China and cyan over the West — with routing paths splitting traffic by geography',
+    accent: 'emerald',
+    metrics: [
+      { label: 'Load time', value: '< 1s in CN' },
+      { label: 'ICP', value: 'Required (CN)' },
+      { label: 'Baidu boost', value: 'Big' },
+      { label: 'Time to live', value: '8–12 wks' },
+    ],
+  },
+];
+
+const includedItems = [
+  {
+    icon: 'server',
+    title: 'Server setup and optimisation',
+    body: 'Hosting tuned for your stack, with China-compatible SSL, server-level firewalls and DDoS protection configured for how things actually work behind the Firewall.',
+  },
+  {
+    icon: 'cdn',
+    title: 'China CDN configured',
+    body: 'Aliyun or Tencent Cloud CDN hooked up. Your assets get served from nodes near your users in Shanghai or Chengdu, not bouncing across the Pacific first.',
+  },
+  {
+    icon: 'monitor',
+    title: 'Monitoring from inside China',
+    body: 'Most tools check from outside the Firewall, so dashboards lie. We monitor from inside China. Sounds like a detail, changes everything.',
+  },
+  {
+    icon: 'backup',
+    title: 'Daily backups and recovery plan',
+    body: 'Automated daily, stored off-site, point-in-time recovery, disaster plan documented. Because stuff does break sometimes.',
+  },
+  {
+    icon: 'document',
+    title: 'ICP filing handled end to end',
+    body: 'Paperwork, submissions, back-and-forth with the provincial authority. You never log into a Chinese hosting panel or read forms in Chinese.',
+  },
+  {
+    icon: 'wrench',
+    title: 'Ongoing maintenance',
+    body: 'Server patches, security updates and scaling on our end so the site keeps performing without you having to think about it.',
+  },
+];
+
+const icpTypes = [
+  {
+    code: '备案',
+    name: 'ICP Bei\'an',
+    type: 'Informational sites',
+    timing: '20+ working days',
+    body: 'Company website, blog, brochure site, anything that doesn\'t involve transactions. The most common filing for foreign brands launching in China.',
+    docs: ['Business registration', 'Domain certificate', 'Site administrator ID', 'Chinese-registered entity'],
+  },
+  {
+    code: '经营许可证',
+    name: 'ICP Commercial Licence',
+    type: 'Commercial activity',
+    timing: '2 to 3 months',
+    body: 'For sites handling transactions, e-commerce, paid services, anything commercial. Longer process, more documentation, deeper scrutiny from the provincial authority.',
+    docs: ['Everything in Bei\'an', 'Business scope review', 'Capital verification', 'Commercial purpose statement'],
+  },
+];
+
+const complianceLaws = [
+  {
+    abbr: 'PIPL',
+    name: 'Personal Information Protection Law',
+    body: 'Governs how personal data on Chinese residents must be handled, stored and transferred. The closest Chinese parallel to GDPR.',
+  },
+  {
+    abbr: 'CSL',
+    name: 'Cybersecurity Law',
+    body: 'Foundational data law since 2017. Sets the rules for network operators, critical infrastructure, and data localisation requirements.',
+  },
+  {
+    abbr: 'DSL',
+    name: 'Data Security Law',
+    body: 'Classifies data by sensitivity and requires categorised protection. Affects how Chinese user data is stored and moved across borders.',
+  },
+];
+
+const timelines = [
+  {
+    label: 'Hong Kong',
+    title: 'Hong Kong launch',
+    duration: '2 – 3 weeks',
+    accent: 'sky',
+    phases: [
+      { name: 'Setup', width: '40%' },
+      { name: 'Configure', width: '40%' },
+      { name: 'Go live', width: '20%' },
+    ],
+    note: 'No ICP filing needed. The fastest path online for the Chinese market.',
+  },
+  {
+    label: 'Mainland China',
+    title: 'Mainland China launch',
+    duration: '6 – 10 weeks',
+    accent: 'orange',
+    phases: [
+      { name: 'ICP filing', width: '50%' },
+      { name: 'Build (parallel)', width: '35%' },
+      { name: 'Cutover', width: '15%' },
+    ],
+    note: 'ICP runs on the critical path. We start the filing on day one and run the rest of the build in parallel.',
+  },
+  {
+    label: 'Dual-Stack',
+    title: 'Dual-stack launch',
+    duration: '8 – 12 weeks',
+    accent: 'emerald',
+    phases: [
+      { name: 'Architecture', width: '25%' },
+      { name: 'CN side + ICP', width: '45%' },
+      { name: 'Routing + cutover', width: '30%' },
+    ],
+    note: 'Depends on how the global site is currently set up. The mainland Chinese half drives the timeline.',
   },
 ];
 
 const performanceRows = [
-  { location: 'US or Europe', loadTime: '8 to 15+ seconds', icp: 'No', baiduBoost: 'None' },
-  { location: 'Hong Kong', loadTime: '2 to 4 seconds', icp: 'No', baiduBoost: 'Minimal' },
-  { location: 'Mainland China', loadTime: 'Under 1 second', icp: 'Yes', baiduBoost: 'Big' },
+  { location: 'US or Europe', loadTime: 8, loadLabel: '8 to 15+ seconds', icp: 'No', baiduBoost: 'None', highlight: false },
+  { location: 'Hong Kong', loadTime: 2.5, loadLabel: '2 to 4 seconds', icp: 'No', baiduBoost: 'Minimal', highlight: false },
+  { location: 'Mainland China', loadTime: 0.8, loadLabel: 'Under 1 second', icp: 'Yes', baiduBoost: 'Big', highlight: true },
 ];
 
 const audiences = [
-  { label: 'Building for China', description: 'International companies building a brand new site for China.', image: '/images/audiences/new-site-for-china.webp' },
-  { label: 'Slow from mainland', description: 'Businesses who already have a site but it\'s painfully slow for anyone visiting from the mainland.', image: '/images/audiences/slow-site-mainland.webp' },
-  { label: 'ICP first-timers', description: 'Teams dealing with ICP paperwork for the first time and finding it confusing.', image: '/images/audiences/icp-paperwork-first-time.webp' },
-  { label: 'Compliant e-commerce', description: 'E-commerce brands that need hosting that\'s fast and also compliant with Chinese regulations.', image: '/images/audiences/ecommerce-compliant-hosting.webp' },
+  { label: 'Building for China', description: 'International companies launching a brand new site for the Chinese market.', image: '/images/audiences/new-site-for-china.webp' },
+  { label: 'Slow from mainland', description: 'Businesses with an existing site that is painfully slow for anyone visiting from inside China.', image: '/images/audiences/slow-site-mainland.webp' },
+  { label: 'ICP first-timers', description: 'Teams dealing with the ICP filing for the first time and finding it confusing or stalled.', image: '/images/audiences/icp-paperwork-first-time.webp' },
+  { label: 'Compliant e-commerce', description: 'Brands that need fast hosting which is also compliant with Chinese regulations and the local payment ecosystem.', image: '/images/audiences/ecommerce-compliant-hosting.webp' },
 ];
+
+const faqs = [
+  {
+    id: 'mainland-or-hk',
+    question: 'Do we have to use mainland hosting, or can we just stay in Hong Kong?',
+    answer: 'You can stay in Hong Kong, especially for an interim launch. But Baidu treats Hong Kong sites as foreign and the ranking penalty is real. For brands serious about the Chinese market long-term, mainland hosting with an ICP filing is the right call.',
+  },
+  {
+    id: 'aliyun-overseas',
+    question: 'Do we need an ICP if we host on Aliyun\'s overseas region?',
+    answer: 'Yes, if you want the site on Aliyun\'s mainland servers. Aliyun also runs servers in Hong Kong and Singapore which don\'t require an ICP, but you lose the mainland performance and the Baidu boost.',
+  },
+  {
+    id: 'cost',
+    question: 'How much does China hosting cost?',
+    answer: 'It varies by traffic, storage, and the level of management we run on top. Most marketing sites land in a predictable monthly range that is actually lower than equivalent Western managed WordPress hosting. Tell us the scope and we send a real quote within two business days.',
+  },
+  {
+    id: 'add-china',
+    question: 'Can we keep our existing global hosting and just add China?',
+    answer: 'Yes, this is the dual-stack setup. Your global site stays where it is, the China visitors get routed to a mainland Chinese server, and the two share editorial workflows where it makes sense.',
+  },
+  {
+    id: 'providers',
+    question: 'What providers do you actually use?',
+    answer: 'Aliyun, Tencent Cloud and Huawei Cloud are our three. Aliyun is usually the default for marketing sites, Tencent Cloud is strong for sites that integrate deeply with WeChat, and Huawei Cloud comes up more often for clients who already use Huawei elsewhere in their infrastructure.',
+  },
+  {
+    id: 'icp-rejection',
+    question: 'What happens if the ICP application is rejected?',
+    answer: 'It happens, especially for first-time foreign filings. Usually it is a documentation issue or something missing from the business registration. We handle the resubmission. Every ICP we have ever submitted has eventually gone through.',
+  },
+  {
+    id: 'astro-headless',
+    question: 'Can we host an Astro or headless site in China?',
+    answer: 'Yes. The build runs outside China on a CI pipeline, the static output gets pushed to a mainland Chinese server, and the site loads as fast as anything we have shipped. We do this regularly with Astro and with headless WordPress setups.',
+  },
+  {
+    id: 'data-privacy',
+    question: 'Is mainland hosting compliant with Chinese data privacy laws?',
+    answer: 'For sites that collect data from Chinese users, yes. Mainland hosting on a properly configured Aliyun or Tencent Cloud account is the cleanest path to compliance with PIPL, the Cybersecurity Law and the Data Security Law. We configure the architecture so personal data stays in country.',
+  },
+  {
+    id: 'hosting-panel',
+    question: 'Do we have to deal with the Chinese hosting panel ourselves?',
+    answer: 'No. We run the hosting account, the ICP filing and the day-to-day server work. You don\'t log into anything in Chinese, you don\'t read forms you can\'t understand. You just get a working site and a monthly report.',
+  },
+  {
+    id: 'scaling',
+    question: 'What happens when traffic spikes or the site grows?',
+    answer: 'We scale the hosting up. Aliyun, Tencent and Huawei all support flexible scaling on the plans we use. We handle the resizing, the load balancing and any architecture changes the site needs to keep up.',
+  },
+];
+
+const accentMap: Record<string, { dot: string; bg: string; text: string; border: string; bar: string }> = {
+  orange: {
+    dot: 'bg-[var(--color-brand-orange)]',
+    bg: 'bg-[var(--color-brand-orange)]/10',
+    text: 'text-[var(--color-brand-orange)]',
+    border: 'border-[var(--color-brand-orange)]/25',
+    bar: 'bg-[var(--color-brand-orange)]',
+  },
+  sky: {
+    dot: 'bg-sky-500',
+    bg: 'bg-sky-500/10',
+    text: 'text-sky-600',
+    border: 'border-sky-500/25',
+    bar: 'bg-sky-500',
+  },
+  emerald: {
+    dot: 'bg-emerald-500',
+    bg: 'bg-emerald-500/10',
+    text: 'text-emerald-600',
+    border: 'border-emerald-500/25',
+    bar: 'bg-emerald-500',
+  },
+};
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
 
-  <!-- Hero: full-bleed dark -->
+  <ScrollEffects />
+
+  <!-- HERO -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
       <img src="/images/hero-china-hosting.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/95 via-[#0f0f12]/75 to-[#0f0f12]/35"></div>
       <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
     </div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <!-- Breadcrumbs -->
       <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
@@ -79,20 +308,30 @@ const audiences = [
       </nav>
 
       <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
-        <!-- Text: 7 cols -->
         <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            China Hosting
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            WordPress Hosting That Actually Works
-            <span class="block mt-2 text-[var(--color-brand-orange)]">in Mainland China</span>
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-white/70">China Hosting · 中国主机</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.05] tracking-tight">
+            Hosting that actually works
+            <span class="block mt-2 text-[var(--color-brand-orange)]">in mainland China.</span>
           </h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            We set up and manage hosting built for the Chinese internet. Fast load times, ICP licence support, CDN configuration, full compliance. We deal with the headaches so your site just works.
+
+          <p class="mt-8 text-lg lg:text-xl text-white/60 max-w-[560px] leading-relaxed">
+            We set up and manage hosting built for the Chinese internet. Fast load times, ICP filing handled end to end, CDN configured, monitored from inside China. Whatever stack your site runs on.
           </p>
-          <div class="mt-10 flex flex-wrap gap-4">
+          <p class="mt-4 text-base text-white/40 max-w-[560px] leading-relaxed">
+            Twenty years on the ground in Shanghai. Hundred percent ICP success rate so far.
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center gap-5">
             <Button href="/contact/" variant="primary" size="lg">Explore Hosting Options</Button>
+            <a href="#options" class="group inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors">
+              Compare the three setups
+              <span class="inline-block transition-transform group-hover:translate-y-0.5">↓</span>
+            </a>
           </div>
         </div>
 
@@ -109,141 +348,461 @@ const audiences = [
               <div class="space-y-4">
                 <div class="flex items-center justify-between">
                   <span class="text-sm text-white/50">Server location</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Shanghai</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">Shanghai</span>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                   <span class="text-sm text-white/50">Load time (China)</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">0.8s</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">0.8s</span>
                 </div>
                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-[8%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                  <div class="w-[8%] h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                   <span class="text-sm text-white/50">Uptime (30d)</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">99.97%</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">99.97%</span>
                 </div>
                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                  <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                   <span class="text-sm text-white/50">ICP status</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Active</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">Active</span>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                   <span class="text-sm text-white/50">CDN nodes</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">24 active</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">24 active</span>
                 </div>
               </div>
             </div>
-            <!-- Decorative glow -->
-            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/8 rounded-3xl blur-2xl -z-10"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Introduction -->
-  <section class="section-spacing">
+  <!-- STAT STRIP -->
+  <section class="border-y border-[var(--color-surface-border)] bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
+        {proofStats.map((stat, i) => (
+          <div class:list={[
+            'flex flex-col gap-3',
+            i > 0 ? 'lg:pl-8 lg:border-l lg:border-[var(--color-surface-border)]' : '',
+          ]}>
+            <div class="text-5xl lg:text-[60px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
+              0{stat.suffix}
+            </div>
+            <div>
+              <p class="text-sm lg:text-base text-[var(--color-text-dark)] leading-snug font-medium">
+                {stat.label}
+              </p>
+              <p class="mt-1 text-xs lg:text-sm text-[var(--color-text-muted)]">
+                {stat.sub}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY SUB-NAV: jump to section -->
+  <nav aria-label="Page sections" class="sticky top-[64px] lg:top-[72px] z-30 bg-white/85 backdrop-blur-md border-b border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="overflow-x-auto -mx-1">
+        <ul class="flex items-center gap-1 py-3 px-1 whitespace-nowrap">
+          {sectionLinks.map((link) => (
+            <li>
+              <a href={`#${link.id}`} class="inline-flex items-center px-3 py-1.5 text-xs lg:text-[13px] font-medium text-[var(--color-text-body)] rounded-full hover:bg-[var(--color-surface-light)] hover:text-[var(--color-brand-orange)] transition-colors no-underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PROBLEM -->
+  <section id="problem" class="section-spacing scroll-mt-32">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+        <div class="col-span-12 lg:col-span-6">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            The Problem
+          </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Your website probably doesn't load in China
+            Your website probably doesn't load in China.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Go ahead and try pulling up your site from Shanghai sometime. You'll sit there watching a blank screen for maybe 10 seconds. Fifteen. Sometimes it just dies and nothing ever shows up.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            That's the Great Firewall. It throttles and blocks traffic coming from overseas servers. Google Fonts won't load. SSL handshakes time out mid-connection. That CDN you're paying for? Either throttled or blocked outright.
+            Try pulling your site up from Shanghai sometime. Most international sites take ten or fifteen seconds. Sometimes the page just never appears.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            We've been at this for 20+ years inside China and this is still, hands down, the most common problem we see with international companies. Your site works great in New York. In Beijing it's basically broken.
+            That's the Great Firewall: throttled traffic, blocked CDNs, Google Fonts that won't resolve. After twenty years inside China, it's still the most common problem we see. Great in New York, broken in Beijing.
           </p>
         </div>
 
-        <!-- Visual: loading comparison -->
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
-            <div class="absolute inset-3 sm:inset-6 flex flex-col justify-center gap-4 sm:gap-6">
-              <!-- Slow load -->
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <!-- Visual: side-by-side phone load comparison -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="absolute -inset-6 bg-[var(--color-brand-orange)]/8 rounded-[40px] blur-3xl -z-10"></div>
+
+            <div class="grid grid-cols-2 gap-3 lg:gap-4">
+              <!-- US/EU phone -->
+              <div class="relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-5 lg:p-6 overflow-hidden">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                  <span class="text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-muted)]">US / EU</span>
                 </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">US/EU server</div>
-                  <div class="w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[85%] h-full bg-red-400 rounded-full"></div>
+                <!-- Phone mockup -->
+                <div class="relative mx-auto w-full max-w-[140px] aspect-[9/16] bg-[var(--color-surface-light)] rounded-[18px] border border-[var(--color-surface-border)] overflow-hidden">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center p-3">
+                    <svg class="w-8 h-8 text-red-400 animate-spin" style="animation-duration: 2s;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v2m0 12v2m8-8h-2M6 12H4m13.66-5.66l-1.42 1.42M7.76 16.24l-1.42 1.42m11.32 0l-1.42-1.42M7.76 7.76L6.34 6.34"/>
+                    </svg>
+                    <p class="mt-2 text-[10px] font-mono text-[var(--color-text-muted)] text-center">loading...</p>
                   </div>
-                  <div class="text-xs text-[var(--color-text-muted)] mt-1">12.4s load time</div>
+                </div>
+                <div class="mt-4 text-center">
+                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-red-500 tabular-nums leading-none">12.4s</p>
+                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">median load</p>
                 </div>
               </div>
-              <!-- Fast load -->
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+
+              <!-- China phone -->
+              <div class="relative bg-white border border-[var(--color-brand-orange)]/30 rounded-2xl p-5 lg:p-6 overflow-hidden lg:translate-y-6 shadow-[0_20px_40px_-20px_rgba(242,95,41,0.3)]">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="text-[11px] font-mono uppercase tracking-wider text-[var(--color-brand-orange)]">中国 · Mainland</span>
                 </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">China server</div>
-                  <div class="w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[8%] h-full bg-green-500 rounded-full"></div>
+                <div class="relative mx-auto w-full max-w-[140px] aspect-[9/16] bg-gradient-to-br from-[var(--color-brand-orange)]/10 to-white rounded-[18px] border border-[var(--color-surface-border)] overflow-hidden">
+                  <!-- Pretend rendered page -->
+                  <div class="absolute inset-0 p-2.5 flex flex-col gap-1.5">
+                    <div class="h-3 w-2/3 bg-[var(--color-text-dark)]/80 rounded"></div>
+                    <div class="h-2 w-full bg-[var(--color-text-muted)]/40 rounded"></div>
+                    <div class="h-2 w-5/6 bg-[var(--color-text-muted)]/40 rounded"></div>
+                    <div class="h-12 w-full bg-[var(--color-brand-orange)]/30 rounded mt-1"></div>
+                    <div class="h-2 w-4/5 bg-[var(--color-text-muted)]/40 rounded mt-1"></div>
+                    <div class="h-2 w-3/4 bg-[var(--color-text-muted)]/40 rounded"></div>
+                    <div class="mt-auto h-5 w-full bg-[var(--color-brand-orange)] rounded"></div>
                   </div>
-                  <div class="text-xs text-[var(--color-text-muted)] mt-1">0.8s load time</div>
+                </div>
+                <div class="mt-4 text-center">
+                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600 tabular-nums leading-none">0.8s</p>
+                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">median load</p>
                 </div>
               </div>
             </div>
+
+            <p class="mt-6 text-[11px] text-[var(--color-text-muted)] text-center">
+              Tested from a mid-range Chinese phone on a typical Shanghai mobile connection.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Hosting Options: accent-border cards -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
+  <!-- HOSTING OPTIONS — TABBED -->
+  <section id="options" class="section-spacing bg-[var(--color-surface-light)] scroll-mt-32">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-2xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          Hosting Options
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Three ways to host your WordPress site
-        </h2>
+      <div class="io-grid items-end mb-12">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Hosting Options
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Three ways to host your site in China.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Right answer depends on whether you have an ICP, how fast you need to launch, and whether you also need to perform globally.
+          </p>
+        </div>
       </div>
 
-      <CaseStudyCards items={hostingOptions} />
+      <!-- Tab triggers -->
+      <div role="tablist" aria-label="Hosting options" class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6" data-hosting-tabs>
+        {hostingOptions.map((opt, i) => {
+          const a = accentMap[opt.accent];
+          return (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${opt.id}`}
+              id={`tab-${opt.id}`}
+              data-tab-target={opt.id}
+              class:list={[
+                'group relative text-left p-5 lg:p-6 rounded-2xl border-2 transition-all duration-200 cursor-pointer',
+                'aria-selected:bg-white aria-selected:shadow-[0_18px_50px_-25px_rgba(0,0,0,0.25)]',
+                'aria-[selected=false]:bg-white/40 aria-[selected=false]:hover:bg-white/70',
+                'aria-selected:border-[var(--color-text-dark)]',
+                'aria-[selected=false]:border-transparent',
+              ]}>
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <span class:list={['inline-flex items-center gap-2 px-2.5 py-1 rounded-md text-[11px] font-semibold uppercase tracking-wider border', a.bg, a.text, a.border]}>
+                  <span class:list={['w-1.5 h-1.5 rounded-full', a.dot]}></span>
+                  {opt.tag}
+                </span>
+                <span class="text-xs font-mono text-[var(--color-text-muted)] tabular-nums">0{i + 1}</span>
+              </div>
+              <h3 class="text-xl lg:text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                {opt.name}
+              </h3>
+              <p class="mt-1.5 text-sm text-[var(--color-text-body)] leading-snug">
+                {opt.tagline}
+              </p>
+            </button>
+          );
+        })}
+      </div>
+
+      <!-- Tab panels -->
+      <div class="relative">
+        {hostingOptions.map((opt, i) => {
+          const a = accentMap[opt.accent];
+          return (
+            <div
+              role="tabpanel"
+              id={`panel-${opt.id}`}
+              aria-labelledby={`tab-${opt.id}`}
+              data-tab-panel={opt.id}
+              hidden={i !== 0}
+              class="bg-white border border-[var(--color-surface-border)] rounded-3xl overflow-hidden">
+              <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                <!-- Image side -->
+                <div class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto lg:min-h-[480px]">
+                  <img src={opt.image} alt={opt.imageAlt} class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+                  <div class="absolute inset-0 bg-gradient-to-tr from-black/50 via-black/10 to-transparent"></div>
+                  <!-- Floating chip -->
+                  <div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+                    {opt.metrics.map((m) => (
+                      <div class="bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/40">
+                        <p class="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium">{m.label}</p>
+                        <p class:list={['text-sm font-semibold font-mono tabular-nums', a.text]}>{m.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Content side -->
+                <div class="lg:col-span-7 p-7 lg:p-12">
+                  <h3 class="text-2xl lg:text-[32px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-5">
+                    {opt.headline}
+                  </h3>
+                  <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+                    {opt.body}
+                  </p>
+                  <p class="text-base text-[var(--color-text-body)] leading-relaxed mb-7">
+                    {opt.detail}
+                  </p>
+
+                  <div class:list={['rounded-xl p-5 border', a.bg, a.border]}>
+                    <p class:list={['text-xs font-semibold uppercase tracking-wider mb-2', a.text]}>Best for</p>
+                    <p class="text-[15px] text-[var(--color-text-dark)] leading-relaxed">{opt.fit}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   </section>
 
-  <!-- What's Included: sticky heading + list -->
-  <section class="section-spacing">
+  <!-- WHAT'S INCLUDED -->
+  <section id="included" class="section-spacing scroll-mt-32">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <!-- Left: sticky heading -->
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+      <div class="io-grid items-start mb-14">
+        <div class="col-span-12 lg:col-span-5">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
             What's Included
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            What's included in every package
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Six things in every package.
           </h2>
         </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7 mt-6 lg:mt-0">
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            One predictable monthly fee, no surprise add-ons. The list below is what you get on day one of any China hosting engagement, regardless of which option above you picked.
+          </p>
+        </div>
+      </div>
 
-        <!-- Right: items -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {includedItems.map((item) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {item.title}
-                  </h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {item.body}
-                  </p>
-                </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {includedItems.map((item) => (
+          <article class="group relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)] transition-all duration-300">
+            <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[var(--color-brand-orange)]/8 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative">
+              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5">
+                {item.icon === 'server' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                )}
+                {item.icon === 'cdn' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                )}
+                {item.icon === 'monitor' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                )}
+                {item.icon === 'backup' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                )}
+                {item.icon === 'document' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                )}
+                {item.icon === 'wrench' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                )}
               </div>
+              <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+                {item.title}
+              </h3>
+              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ICP — DARK with documents image -->
+  <section id="icp" class="relative bg-[var(--color-surface-dark)] overflow-hidden scroll-mt-32">
+    <!-- Image backdrop on the right -->
+    <div class="absolute inset-y-0 right-0 w-full lg:w-1/2 opacity-25 lg:opacity-100">
+      <img src="/images/hosting-icp-documents.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/80 lg:via-[var(--color-surface-dark)]/40 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding section-spacing">
+      <div class="io-grid">
+        <div class="col-span-12 lg:col-span-7">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1 mb-6">
+            <span class="text-[11px] font-mono text-white/60">备案 · ICP</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6">
+            The part nobody enjoys.
+            <span class="block text-[var(--color-brand-orange)]">We do it for you.</span>
+          </h2>
+          <p class="text-lg text-white/70 leading-relaxed mb-5 max-w-2xl">
+            If you want your site on mainland China servers, you need an ICP. There is no shortcut and no exception. Without one your hosting provider just shuts the site down. They don't warn you either, it just goes offline.
+          </p>
+          <p class="text-base text-white/60 leading-relaxed max-w-2xl">
+            Two types of ICP exist. We figure out which one applies, get the paperwork together, submit it through the provincial authority, and follow up when the application stalls. So far every ICP we have submitted has eventually gone through.
+          </p>
+        </div>
+      </div>
+
+      <!-- Two ICP types side by side -->
+      <div class="mt-14 lg:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-5">
+        {icpTypes.map((icp, i) => (
+          <article class:list={[
+            'relative bg-white/[0.04] backdrop-blur-sm border rounded-2xl p-7 lg:p-9 overflow-hidden',
+            i === 0 ? 'border-white/15' : 'border-[var(--color-brand-orange)]/30',
+          ]}>
+            {i === 1 && (
+              <div class="absolute -top-20 -right-20 w-48 h-48 bg-[var(--color-brand-orange)]/15 rounded-full blur-3xl"></div>
+            )}
+            <div class="relative">
+              <div class="flex items-baseline justify-between gap-4 mb-5 pb-5 border-b border-white/10">
+                <div>
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-white/40 mb-2">{icp.type}</p>
+                  <h3 class="text-2xl font-medium font-[var(--font-heading)] text-white leading-tight">
+                    {icp.name}
+                  </h3>
+                </div>
+                <span class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none">
+                  {icp.code}
+                </span>
+              </div>
+
+              <p class="text-[15px] text-white/70 leading-relaxed mb-6">
+                {icp.body}
+              </p>
+
+              <div class="flex items-center gap-2 mb-5 text-sm">
+                <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="text-white/50">Typical timing</span>
+                <span class="text-white font-mono ml-auto tabular-nums">{icp.timing}</span>
+              </div>
+
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-white/40 mb-3">What we collect</p>
+              <ul class="space-y-2">
+                {icp.docs.map((doc) => (
+                  <li class="flex items-start gap-2.5 text-sm text-white/70">
+                    <svg class="flex-shrink-0 w-3.5 h-3.5 mt-1 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>{doc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- One heads up -->
+      <div class="mt-8 flex items-start gap-4 bg-white/[0.04] border border-white/10 rounded-2xl p-6 lg:p-7">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-brand-orange)]/15 flex items-center justify-center">
+          <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-white mb-1">One heads up</p>
+          <p class="text-[15px] text-white/70 leading-relaxed">
+            You need a Chinese-registered business entity to even start the filing. If you don't have one yet, that's ok, we can walk you through the alternatives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA COMPLIANCE -->
+  <section id="compliance" class="section-spacing scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <!-- Left: editorial text -->
+        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-32 mb-12 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Data Compliance
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Hosting and Chinese data laws.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Hosting in China isn't only about performance. Certain types of user data on Chinese residents have to live on mainland servers.
+          </p>
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            If your site collects Chinese user data, mainland hosting is the cleanest path to compliance. We configure the architecture so personal data stays in country.
+          </p>
+        </div>
+
+        <!-- Right: 3 law cards -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-4">
+            {complianceLaws.map((law) => (
+              <article class:list={[
+                'group relative bg-white border-2 rounded-2xl p-6 lg:p-7 transition-all duration-300 hover:-translate-y-1',
+                'border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)]/40 hover:shadow-[0_18px_50px_-25px_rgba(0,0,0,0.2)]',
+              ]}>
+                <div class="flex items-start gap-5">
+                  <div class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-16 rounded-xl bg-[var(--color-text-card-blue)]/8 border border-[var(--color-text-card-blue)]/15">
+                    <span class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-card-blue)] tracking-tight leading-none">
+                      {law.abbr}
+                    </span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                      {law.name}
+                    </h3>
+                    <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                      {law.body}
+                    </p>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -251,106 +810,196 @@ const audiences = [
     </div>
   </section>
 
-  <!-- ICP Licence Section -->
-  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+  <!-- TIMELINE -->
+  <section id="timeline" class="section-spacing bg-[var(--color-surface-light)] scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Timeline
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          How long it takes to get live.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          ICP filing usually sits on the critical path. We start the filing on day one and run the build in parallel.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        {timelines.map((tl) => {
+          const a = accentMap[tl.accent];
+          return (
+            <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 mb-6">
+                <div>
+                  <p class:list={['text-xs font-semibold uppercase tracking-wider mb-1', a.text]}>
+                    {tl.label}
+                  </p>
+                  <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                    {tl.title}
+                  </h3>
+                </div>
+                <div class:list={['text-2xl lg:text-3xl font-medium font-[var(--font-heading)] tabular-nums', a.text]}>
+                  {tl.duration}
+                </div>
+              </div>
+
+              <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden flex">
+                {tl.phases.map((phase, i) => {
+                  const phaseAccent = i === tl.phases.length - 1
+                    ? a.bar
+                    : i === 0
+                      ? `${a.bar} opacity-30`
+                      : `${a.bar} opacity-60`;
+                  return (
+                    <div
+                      class:list={['flex items-center px-3 border-r border-white last:border-r-0', phaseAccent]}
+                      style={`width: ${phase.width}`}
+                    >
+                      <span class:list={[
+                        'text-[11px] font-semibold uppercase tracking-wider truncate',
+                        i === tl.phases.length - 1 ? 'text-white' : i === 0 ? 'text-[var(--color-text-dark)]' : 'text-white',
+                      ]}>{phase.name}</span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <p class="mt-4 text-sm text-[var(--color-text-body)] leading-relaxed">
+                {tl.note}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE — visual chart -->
+  <section id="performance" class="section-spacing scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="text-center mb-14 lg:mb-16">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Performance
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight max-w-2xl mx-auto">
+          Where you host changes everything.
+        </h2>
+      </div>
+
+      <div class="max-w-5xl mx-auto bg-white border border-[var(--color-surface-border)] rounded-3xl p-7 lg:p-10">
+        <!-- Chart legend -->
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-6 border-b border-[var(--color-surface-border)]">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Median load time in China</p>
+            <p class="text-sm text-[var(--color-text-body)]">Lower is better. A 12-second load is a website nobody will ever see.</p>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-[var(--color-text-muted)]">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-red-400"></span> Foreign</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-amber-400"></span> Hong Kong</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-[var(--color-brand-orange)]"></span> Mainland</div>
+          </div>
+        </div>
+
+        <!-- Bars -->
+        <div class="space-y-7">
+          {performanceRows.map((row, i) => {
+            const colour = i === 0 ? 'bg-red-400' : i === 1 ? 'bg-amber-400' : 'bg-[var(--color-brand-orange)]';
+            const textColour = i === 0 ? 'text-red-500' : i === 1 ? 'text-amber-600' : 'text-[var(--color-brand-orange)]';
+            // bar widths normalised to 12s = 100%
+            const widthPct = Math.min((row.loadTime / 12) * 100, 100);
+            return (
+              <div class="grid grid-cols-12 gap-4 items-center">
+                <div class="col-span-12 sm:col-span-3">
+                  <p class:list={[
+                    'text-base lg:text-lg font-semibold font-[var(--font-heading)] leading-tight',
+                    row.highlight ? 'text-[var(--color-text-dark)]' : 'text-[var(--color-text-dark)]',
+                  ]}>
+                    {row.location}
+                  </p>
+                  <p class="mt-0.5 text-xs text-[var(--color-text-muted)]">
+                    ICP: {row.icp} · Baidu: {row.baiduBoost}
+                  </p>
+                </div>
+                <div class="col-span-12 sm:col-span-9 flex items-center gap-3">
+                  <div class="flex-1 h-9 bg-[var(--color-surface-light)] rounded-md overflow-hidden">
+                    <div
+                      class:list={['h-full rounded-md transition-all duration-700', colour]}
+                      style={`width: ${widthPct}%; ${row.highlight ? 'box-shadow: 0 0 0 2px rgba(242,95,41,0.15);' : ''}`}
+                    ></div>
+                  </div>
+                  <p class:list={['flex-shrink-0 w-32 text-right text-sm lg:text-base font-semibold font-mono tabular-nums', textColour]}>
+                    {row.loadLabel}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <p class="mt-10 pt-6 border-t border-[var(--color-surface-border)] text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-2xl mx-auto">
+          Chinese users expect pages to load fast and they will leave yours if it doesn't. Mainland hosting with an ICP filing is what closes that gap.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IS THIS FOR -->
+  <WhoIsThisFor heading="Who reaches out to us for hosting" audiences={audiences} footnote="You don't need to understand how any of this works on the technical side. That's what we do. Our team is based in China, we have been doing this for over twenty years, and we handle the infrastructure so you can focus on the parts of your business that you actually care about." background="light" />
+
+  <!-- FAQ -->
+  <section id="faq" class="section-spacing scroll-mt-32">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-start">
         <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            ICP Licence
+            Frequently Asked
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            The part nobody enjoys
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Ten questions we hear about China hosting.
           </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Tap any question to expand. If yours isn't here, ask us directly.
+          </p>
         </div>
 
         <div class="col-span-12 lg:col-span-7 lg:col-start-6">
-          <div class="space-y-6">
-            <p class="text-base text-white/70 leading-relaxed">
-              If you want your site on mainland China servers, you need an ICP. There's no shortcut and no exception. Without one your hosting provider just shuts your site down. They don't warn you either, it just goes offline.
-            </p>
-            <p class="text-base text-white/70 leading-relaxed">
-              Two types exist. ICP Bei'an (备案) is for informational sites, like a company website or a blog. If your site handles transactions or any kind of commercial activity you'll need the full ICP Licence (经营许可证) which is a longer process.
-            </p>
-            <p class="text-base text-white/70 leading-relaxed">
-              We deal with all of it. Figuring out which type applies, getting the paperwork together (business registration, domain certs, site admin ID), submitting everything, following up when it stalls. Bei'an takes about 2 to 4 weeks usually. The commercial licence is slower, figure 2 to 3 months and sometimes a bit more.
-            </p>
-            <p class="text-base text-white/70 leading-relaxed">
-              One heads up: you need a Chinese-registered business entity to even start the filing. If you don't have one that's ok, we can walk you through the alternatives.
-            </p>
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                <p>{faq.answer}</p>
+              </FAQItem>
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Performance Comparison Table -->
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          Performance
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Hosting location changes everything
-        </h2>
-      </div>
-
-      <div class="max-w-4xl mx-auto">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="border-b-2 border-[var(--color-surface-border)]">
-                <th class="py-4 pr-6 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">Where You Host</th>
-                <th class="py-4 pr-6 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">Load Time in China</th>
-                <th class="py-4 pr-6 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">ICP Needed?</th>
-                <th class="py-4 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">Baidu SEO Boost</th>
-              </tr>
-            </thead>
-            <tbody>
-              {performanceRows.map((row, i) => (
-                <tr class:list={[
-                  'border-b border-[var(--color-surface-border)]',
-                  i === performanceRows.length - 1 ? 'bg-[var(--color-brand-orange)]/5' : '',
-                ]}>
-                  <td class="py-4 pr-6 text-base font-medium text-[var(--color-text-dark)]">{row.location}</td>
-                  <td class:list={[
-                    'py-4 pr-6 text-base font-semibold',
-                    i === performanceRows.length - 1 ? 'text-[var(--color-brand-orange)]' : 'text-[var(--color-text-body)]',
-                  ]}>{row.loadTime}</td>
-                  <td class="py-4 pr-6 text-base text-[var(--color-text-body)]">{row.icp}</td>
-                  <td class:list={[
-                    'py-4 text-base font-semibold',
-                    i === performanceRows.length - 1 ? 'text-[var(--color-brand-orange)]' : 'text-[var(--color-text-body)]',
-                  ]}>{row.baiduBoost}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <p class="mt-8 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-2xl mx-auto">
-          A 12-second load time isn't a slow website. It's a website nobody will ever see. People in China expect pages to load fast and they will leave yours if it doesn't.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <WhoIsThisFor heading="Who reaches out to us for hosting" audiences={audiences} footnote="You don't need to understand how any of this works on the technical side. That's what we do. Our team is based in China, we've been doing this for over twenty years, and we handle it so you can focus on the parts of your business you actually care about." background="light" />
-
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0">
+      <img
+        src="/images/hosting-monitoring-shenzhen.webp"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-30"
+        loading="lazy"
+        decoding="async"
+        onerror="this.style.display='none'"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/85 to-[var(--color-surface-dark)]"></div>
+    </div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/8 rounded-full blur-3xl"></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding text-center">
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
         Get Started
       </p>
       <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Let's talk about your setup
+        Let's talk about your setup.
       </h2>
       <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Every project looks a bit different. Your timeline, where you are with ICP, who your audience is, what your budget looks like. Tell us what's going on and we'll come back with a hosting recommendation that fits your situation. No generic proposals.
+        Every project looks a bit different. Your timeline, where you are with the ICP, who your audience is, what your budget looks like. Tell us what is going on and we will come back within two business days with a hosting recommendation that fits your situation. No generic proposals.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/contact/" variant="primary" size="lg">Get a Hosting Recommendation</Button>
@@ -358,5 +1007,56 @@ const audiences = [
       </div>
     </div>
   </section>
+
+  <!-- Tab interaction script -->
+  <script>
+    function initHostingTabs() {
+      const root = document.querySelector('[data-hosting-tabs]');
+      if (!root) return;
+      const triggers = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-tab-target]'));
+      const panels = Array.from(document.querySelectorAll<HTMLDivElement>('[data-tab-panel]'));
+
+      function activate(id: string) {
+        triggers.forEach((t) => {
+          const isActive = t.dataset.tabTarget === id;
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        panels.forEach((p) => {
+          const isActive = p.dataset.tabPanel === id;
+          if (isActive) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+      }
+
+      triggers.forEach((t) => {
+        t.addEventListener('click', () => {
+          const id = t.dataset.tabTarget;
+          if (id) activate(id);
+        });
+      });
+
+      // Keyboard navigation
+      (root as HTMLElement).addEventListener('keydown', (e: KeyboardEvent) => {
+        const currentIndex = triggers.findIndex((t) => t.getAttribute('aria-selected') === 'true');
+        if (currentIndex < 0) return;
+        let nextIndex = currentIndex;
+        if (e.key === 'ArrowRight') nextIndex = (currentIndex + 1) % triggers.length;
+        else if (e.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + triggers.length) % triggers.length;
+        else return;
+        e.preventDefault();
+        const id = triggers[nextIndex].dataset.tabTarget;
+        if (id) {
+          activate(id);
+          triggers[nextIndex].focus();
+        }
+      });
+    }
+
+    initHostingTabs();
+    document.addEventListener('astro:page-load', initHostingTabs);
+  </script>
 
 </PageLayout>

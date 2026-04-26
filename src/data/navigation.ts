@@ -49,6 +49,12 @@ export const mainNav: NavItem[] = [
         subColumn: 'technology',
       },
       {
+        label: 'WeChat',
+        href: '/wechat/',
+        column: 'build',
+        subColumn: 'technology',
+      },
+      {
         label: 'Hosting',
         href: '/services/china-hosting/',
         description: 'Fast, ICP-licensed servers',
