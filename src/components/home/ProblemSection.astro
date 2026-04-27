@@ -22,7 +22,7 @@ const images = [
         Your Brand Doesn’t Land in China. And Translation Won’t Fix It.
       </h2>
       <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-        Most foreign brands launching in China start by translating their global website. Six months later, they sit there wondering why bounce rates are above 80% and the leads pipeline is empty. The reasons are almost never the ones HQ assumes, at least not the ones that matter most.
+        Most foreign brands launch in China by translating their global website. Six months later, bounce rates sit above 80% and the leads pipeline is empty. HQ rarely sees it coming.
       </p>
     </div>
 
@@ -39,19 +39,13 @@ const images = [
             <button
               type="button"
               class="flex w-full items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
-              aria-expanded={i === 0 ? 'true' : 'false'}
+              aria-expanded="false"
             >
-              <h3 class:list={[
-                'text-lg lg:text-xl font-semibold font-[var(--font-heading)] transition-colors duration-200',
-                i === 0 ? 'text-[var(--color-text-dark)]' : 'text-[var(--color-text-muted)]',
-              ]}>
+              <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] transition-colors duration-200 text-[var(--color-text-muted)]">
                 {problem.title}
               </h3>
               <svg
-                class:list={[
-                  'w-5 h-5 flex-shrink-0 ml-4 transition-transform duration-200',
-                  i === 0 ? 'rotate-180 text-[var(--color-text-dark)]' : 'text-[var(--color-text-muted)]',
-                ]}
+                class="w-5 h-5 flex-shrink-0 ml-4 transition-transform duration-200 text-[var(--color-text-muted)]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -60,12 +54,7 @@ const images = [
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div
-              class:list={[
-                'problem-content overflow-hidden transition-all duration-300',
-                i === 0 ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0',
-              ]}
-            >
+            <div class="problem-content overflow-hidden transition-all duration-300 max-h-0 opacity-0">
               <p class="pb-3 text-base text-[var(--color-text-body)] leading-relaxed">
                 {problem.description}
               </p>
@@ -190,15 +179,15 @@ const images = [
         </p>
         <div>
           <p class="text-base text-[var(--color-text-dark)] font-semibold">Strategy and Audit, 1 to 2 weeks</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">We look at your current site, your brand, your category, and your competition in China. You get a written roadmap, with the audience and content gaps identified before any code gets touched.</p>
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">We audit your site, brand and Chinese competition, then deliver a written roadmap before any code is touched.</p>
         </div>
         <div>
           <p class="text-base text-[var(--color-text-dark)] font-semibold">Build or migrate, 4 to 12 weeks</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Localised content, redesigned UX, ICP-licensed hosting, Baidu and AI search structured from day one.</p>
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Localised content, ICP hosting, Baidu and AI search from day one.</p>
         </div>
         <div>
           <p class="text-base text-[var(--color-text-dark)] font-semibold">Grow, ongoing</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Content, search and maintenance on a fixed monthly retainer. Your brand keeps showing up.</p>
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Content, search and maintenance on a monthly retainer.</p>
         </div>
       </div>
 

@@ -7,7 +7,7 @@ export interface Problem {
 export const problems: Problem[] = [
   {
     title: 'Your Content Doesn’t Resonate',
-    description: 'Translated copy isn’t localised copy. Chinese audiences read for trust signals you weren’t taught to send: third-party validation, partnership logos, government-aligned language, founder credibility, certifications, awards. The hero copy that converts in Munich often reads as cold or boastful in Shanghai, and the longer the page goes the worse it gets.',
+    description: 'Translated copy isn’t localised copy. Chinese audiences read for trust signals you weren’t taught to send: third-party validation, partnership logos, founder credibility, certifications, awards. Hero copy that converts in Munich often reads as cold or boastful in Shanghai.',
   },
   {
     title: 'Your UX Feels Foreign',

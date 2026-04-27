@@ -1,0 +1,574 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
+import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
+
+const metaTitle = "GEO China | AI Search Optimisation for Brands";
+const metaDescription = "AI search optimisation for the China market. We make your brand the answer DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI cite and recommend.";
+
+const engines = [
+  {
+    name: 'DeepSeek',
+    cn: '深度求索',
+    body: "Prefers structured, technically accurate content from official websites. If your site loads slowly inside China or depends on resources blocked by the Great Firewall (防火长城), DeepSeek likely never sees you.",
+  },
+  {
+    name: 'Doubao',
+    cn: '豆包',
+    body: 'The ByteDance flagship, drawing heavily from its own ecosystem: Toutiao (今日头条), Douyin (抖音), Baijiahao (百家号). Optimising for Doubao means feeding the ByteDance content graph, not just your own site.',
+  },
+  {
+    name: 'Kimi',
+    cn: 'Kimi',
+    body: 'Rewards long-form analysis. Comparison pieces, technical guides, multi-thousand-word reports with clean data tables. Short marketing copy gets ignored.',
+  },
+  {
+    name: 'Yuanbao',
+    cn: '元宝',
+    body: "Tencent's gateway into the WeChat (微信) ecosystem, and the only assistant that can search WeChat Official Account (公众号) content.",
+  },
+  {
+    name: 'Baidu AI',
+    cn: '百度AI',
+    body: 'Powered by ERNIE (文心一言). Favours authoritative sources: Baidu Baike (百度百科), government portals, JSON-LD structured data, plus heavy lean on Baijiahao and Baidu Zhidao (百度知道) presence.',
+  },
+];
+
+const services = [
+  {
+    title: 'Visibility diagnosis',
+    body: 'A structured query matrix of 80 to 150 questions across all five Chinese platforms, run on real devices in Shanghai (上海), Beijing (北京), and Shenzhen (深圳), on residential and corporate networks, not VPNs.',
+    bullets: [
+      'Citation rate: how often your brand appears in AI responses to relevant prompts.',
+      'Brand recommendation rank: where you sit when the engine names options.',
+      'Sentiment score: tone of the mention, neutral, positive, or critical.',
+    ],
+  },
+  {
+    title: 'Source-tier audit',
+    body: 'AI engines reward verifiable evidence. Real patent numbers, third-party lab reports, published standards. We call this T1 content. Marketing copy with no proof is T3, ignored or flagged. We map every claim on your site and rebuild the weak ones with evidence the AI can validate.',
+  },
+  {
+    title: 'Content cluster engineering',
+    body: 'Single articles do not move the needle. We build clusters: a core pillar piece backed by FAQ pages, comparison guides, scenario walkthroughs, case studies. Whatever angle the user asks from, your site shows up.',
+  },
+  {
+    title: 'Multi-platform distribution',
+    body: 'AI engines cross-reference the same brand across trusted destinations. We syndicate into Baijiahao (百家号), Zhihu (知乎), the right industry portals, and where it makes sense, formal Baidu Baike (百度百科) entries.',
+  },
+  {
+    title: 'Technical groundwork',
+    body: "JSON-LD structured data, robots.txt for Baiduspider, Sogouspider, ByteSpider, XML sitemaps, canonical tags that don't split authority across language versions. Most international builds get this wrong.",
+  },
+  {
+    title: 'Continuous monitoring',
+    body: 'DeepSeek shipped four major revisions in 2025 alone. What worked in February stopped working by May. We track weekly and adjust before citation rates slip.',
+  },
+];
+
+const audiences = [
+  {
+    label: 'Brands invisible on Chinese AI',
+    description: "Companies whose name never comes up when buyers ask DeepSeek, Doubao, or Yuanbao for options in their category, while competitors get cited and linked.",
+    image: '/images/audiences/audience-geo-invisible-on-ai.webp',
+  },
+  {
+    label: 'International brands launching into China',
+    description: 'Teams that want AI visibility designed into the launch from day one, not bolted on six months later when the traffic numbers look flat.',
+    image: '/images/audiences/audience-geo-launching-china-market.webp',
+  },
+  {
+    label: 'Brands with content but no evidence',
+    description: 'Sites with thoughtful Chinese content that AI engines still ignore because the claims lack the verifiable sources, structured data, and third-party validation that earn citations.',
+    image: '/images/audiences/audience-geo-content-without-evidence.webp',
+  },
+  {
+    label: 'Brands watching organic traffic flatten',
+    description: 'Marketing teams that have noticed Chinese organic traffic plateau as buyers shift to AI-first research, and want to be the answer rather than the link nobody clicks.',
+    image: '/images/audiences/audience-geo-search-traffic-flat.webp',
+  },
+];
+
+const faqs = [
+  {
+    id: 'difference-from-seo',
+    question: 'How is GEO different from Baidu SEO?',
+    answer: [
+      "Overlapping but not the same. Baidu SEO optimises for the Baidu results page, where users still scan ten blue links and click. GEO optimises for AI assistants that read your content and decide whether to quote you in a single answer. Different ranking inputs, different content structure, different success metrics. Most of our clients run both as one engagement because the underlying content infrastructure overlaps heavily.",
+    ],
+  },
+  {
+    id: 'platforms-covered',
+    question: 'Which Chinese AI platforms do you actually cover?',
+    answer: [
+      'DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝), and Baidu AI (powered by 文心一言). These are the five that move volume inside mainland China today. ChatGPT, Perplexity, Google AI Overviews, and Claude are not relevant here, since they have no meaningful reach behind the Great Firewall.',
+    ],
+  },
+  {
+    id: 'measurement',
+    question: 'How do you measure success?',
+    answer: [
+      'Three numbers, tracked monthly. Citation rate: how often your brand appears in AI responses to a fixed query matrix. Brand recommendation rank: where you sit when the engine lists options. Sentiment: positive, neutral, or critical framing of the mention. Reporting is a written summary, not just a dashboard link.',
+    ],
+  },
+  {
+    id: 'how-long',
+    question: 'How long until we see citation lift?',
+    answer: [
+      'Audit and foundation: 4 to 6 weeks. Content build-out and syndication: three to four months. By month six most clients see real citation lift on at least two platforms. Full coverage typically lands between month 9 and 12. Anyone promising AI citation share in 30 days is selling you something else.',
+    ],
+  },
+  {
+    id: 'evidence-tiers',
+    question: "What is T1, T2, T3 content and why does it matter?",
+    answer: [
+      'AI engines weight sources by how verifiable the claims are. T1 is content backed by hard evidence: patent numbers, third-party lab reports, published standards, official government data. T2 is industry-recognised but secondary: trade press, analyst reports, named expert opinion. T3 is marketing copy with no external proof, the kind AI engines either ignore or flag as low-confidence. We map every claim on your site to its tier and rebuild the weak ones.',
+    ],
+  },
+  {
+    id: 'translated-content',
+    question: 'Can we just translate our English content?',
+    answer: [
+      "No. Translated content reads as foreign to Chinese AI engines, often loses the structural cues they rely on, and almost never matches how Chinese users actually phrase questions. We work with native Chinese editors who rewrite from the ground up, with the source claims and evidence intact.",
+    ],
+  },
+  {
+    id: 'syndication',
+    question: 'Where do you syndicate the content?',
+    answer: [
+      'Baijiahao (百家号) for Baidu and Yuanbao reach, Zhihu (知乎) for technical and B2B credibility signals, Toutiao (今日头条) and Baijiahao for ByteDance and Doubao surfaces, and where it makes sense formal Baidu Baike (百度百科) entries. Industry-specific portals are added based on the vertical.',
+    ],
+  },
+  {
+    id: 'algorithm-changes',
+    question: 'What happens when the engines change their models?',
+    answer: [
+      'They change often. DeepSeek shipped four major revisions in 2025 alone. We monitor citation behaviour weekly across the same query matrix used at audit, and we adjust content, structured data, and syndication before the change shows up as a citation drop. Teams that do not watch this lose visibility without realising why.',
+    ],
+  },
+  {
+    id: 'cost',
+    question: "What does a GEO China engagement cost?",
+    answer: [
+      'It depends on scope: how many product lines or service areas are in play, the depth of the existing content estate, the number of platforms you need full coverage on, and whether the engagement also covers Chinese content production and Baidu SEO. Tell us the scope and we send a real quote within two business days.',
+    ],
+  },
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+
+  <!-- HERO -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-geo-beijing-ai-research.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/95 via-[#0f0f12]/75 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">GEO China</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <!-- Text -->
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            GEO China
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Get cited by AI in China.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Not just found.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/70 max-w-xl leading-relaxed">
+            Generative Engine Optimisation for sites talking to the China market. We make your content the answer the country's biggest AI assistants trust enough to give back to users.
+          </p>
+          <p class="mt-5 text-sm text-white/50 max-w-xl leading-relaxed">
+            Five engines run inside the Great Firewall. We work all five: DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/contact/" variant="primary" size="lg">Get Your AI Visibility Audit</Button>
+          </div>
+        </div>
+
+        <!-- Visual: DeepSeek chat screenshot mockup (Chinese) -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white rounded-2xl shadow-2xl shadow-black/40 overflow-hidden">
+              <!-- App chrome -->
+              <div class="flex items-center gap-2.5 px-5 py-3 bg-white border-b border-gray-100">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#4D6BFE] to-[#3a55e8] flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm5.5 11.5c-1.4.4-2.9.5-4.4.3-.4 1.6-.4 3.3 0 4.9-1.4-.6-2.6-1.5-3.5-2.7-1.5.4-3 .5-4.5.4 1-1.5 2.4-2.6 4-3.3-.6-1.4-1-3-1-4.6 1.4.6 2.7 1.6 3.6 2.8 1.5-.5 3.1-.6 4.6-.4-.7 1.4-1.7 2.6-3 3.5.6.4 1.3.7 2 .9.6.6 1.4 1.5 2.2 2.2z"/>
+                  </svg>
+                </div>
+                <div class="flex flex-col leading-tight">
+                  <span class="text-sm font-semibold text-gray-900">DeepSeek</span>
+                  <span class="text-[10px] text-gray-400">深度求索</span>
+                </div>
+                <div class="ml-auto flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                  <span class="text-[10px] text-gray-400">在线</span>
+                </div>
+              </div>
+
+              <!-- Chat body -->
+              <div class="px-5 py-4 space-y-4 bg-white">
+                <!-- User message -->
+                <div class="flex justify-end">
+                  <div class="max-w-[85%] bg-[#F4F5F7] rounded-2xl rounded-tr-sm px-3.5 py-2.5">
+                    <p class="text-[12.5px] text-gray-900 leading-relaxed">推荐几家专门服务国际品牌的中国 WordPress 建站代理商</p>
+                  </div>
+                </div>
+
+                <!-- Thinking + search badges -->
+                <div class="flex items-center gap-1.5">
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#EEF2FF] text-[#4D6BFE] text-[10px] font-medium">
+                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    深度思考 R1
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#ECFDF5] text-emerald-600 text-[10px] font-medium">
+                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z M3 12h18 M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg>
+                    联网搜索
+                  </span>
+                </div>
+
+                <p class="text-[10.5px] text-gray-400">已搜索 14 个网页 · 用时 3.2 秒</p>
+
+                <!-- AI response -->
+                <div>
+                  <p class="text-[12.5px] text-gray-700 leading-relaxed mb-3">
+                    根据近年公开资料,在中国市场长期专注 WordPress 建站、并具备国际化服务能力的代理商主要包括:
+                  </p>
+                  <div class="space-y-2.5">
+                    <div class="flex gap-2">
+                      <span class="text-[#F25F29] font-bold text-[12.5px] mt-0.5 leading-none">·</span>
+                      <p class="text-[12.5px] text-gray-700 leading-relaxed">
+                        <span class="font-semibold text-gray-900">ChinaWebFoundry</span><sup class="text-[#4D6BFE] text-[10px] ml-0.5">1</sup>:在华运营 20 年以上,专注国际品牌的中国 WordPress 建站、ICP 备案、Baidu SEO 与 AI 搜索优化。
+                      </p>
+                    </div>
+                    <div class="flex gap-2">
+                      <span class="text-gray-300 font-bold text-[12.5px] mt-0.5 leading-none">·</span>
+                      <p class="text-[12.5px] text-gray-500 leading-relaxed">
+                        <span class="font-medium text-gray-700">某沪上数字代理</span><sup class="text-[#4D6BFE] text-[10px] ml-0.5">2</sup>:本地团队为主,提供 WordPress 主题开发与境内托管服务。
+                      </p>
+                    </div>
+                    <div class="flex gap-2">
+                      <span class="text-gray-300 font-bold text-[12.5px] mt-0.5 leading-none">·</span>
+                      <p class="text-[12.5px] text-gray-500 leading-relaxed">
+                        <span class="font-medium text-gray-700">某京津国际工作室</span><sup class="text-[#4D6BFE] text-[10px] ml-0.5">3</sup>:面向欧美客户,以多语言站点搭建与本地化为主。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sources -->
+                <div class="pt-3 border-t border-gray-100">
+                  <p class="text-[10px] font-semibold uppercase tracking-wider text-gray-400 mb-2">引用来源 · 3</p>
+                  <div class="space-y-1.5">
+                    <div class="flex items-center gap-2 text-[11px]">
+                      <span class="w-4 h-4 rounded bg-[#F25F29]/10 text-[#F25F29] text-[9px] flex items-center justify-center font-semibold flex-shrink-0">1</span>
+                      <span class="text-gray-600 truncate">chinawebfoundry.com</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[11px]">
+                      <span class="w-4 h-4 rounded bg-gray-100 text-gray-500 text-[9px] flex items-center justify-center font-semibold flex-shrink-0">2</span>
+                      <span class="text-gray-400 truncate">zhihu.com/question/...</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[11px]">
+                      <span class="w-4 h-4 rounded bg-gray-100 text-gray-500 text-[9px] flex items-center justify-center font-semibold flex-shrink-0">3</span>
+                      <span class="text-gray-400 truncate">baijiahao.baidu.com/...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/10 rounded-3xl blur-2xl -z-10"></div>
+            <div class="absolute -inset-6 bg-[#4D6BFE]/10 rounded-3xl blur-3xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            The shift
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            One answer, not ten links.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            China has more than 600 million generative AI users as of early 2026, according to CNNIC. A growing share of buyers now start their research by asking an AI assistant rather than typing into a search bar.
+          </p>
+          <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed">
+            Ask DeepSeek for an agency, or Doubao which platform fits a China launch, and you don't get ten links anymore. You get one answer. If your brand isn't that answer, you are nowhere.
+          </p>
+          <p class="mt-5 text-base text-[var(--color-text-body)] leading-relaxed">
+            GEO is the work of becoming the source AI quotes when somebody asks a question. There is some overlap with SEO, but the rules are different, and inside China the rules are different again from what works on ChatGPT or Perplexity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY: FIVE ENGINES -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Five engines, five sets of rules
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          China's AI search stack is its own world
+        </h2>
+        <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed">
+          ChatGPT, Perplexity, Google AI Overviews, Claude. None of them carry weight inside mainland China. The Chinese stack is what matters, and each engine plays by completely different rules.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {engines.map((engine) => (
+          <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-7 transition-all duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]">
+            <div class="flex items-baseline justify-between gap-3 mb-4">
+              <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                {engine.name}
+              </h3>
+              <span class="text-sm text-[var(--color-brand-orange)] font-mono">{engine.cn}</span>
+            </div>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              {engine.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl">
+        Five engines, five sets of rules, one website that has to hold up against all of them.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <!-- Left: sticky heading -->
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            What we do
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            What GEO China actually involves
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+            Six workstreams, run together. Skip any one of them and the others stop compounding.
+          </p>
+        </div>
+
+        <!-- Right: items -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {services.map((item) => (
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                    {item.title}
+                  </h3>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                    {item.body}
+                  </p>
+                  {item.bullets && (
+                    <ul class="mt-4 space-y-2.5">
+                      {item.bullets.map((b) => (
+                        <li class="flex gap-3 text-[14px] text-[var(--color-text-body)] leading-relaxed">
+                          <span class="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-text-card-blue)]"></span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Timeline
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            What to expect on timing
+          </h2>
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Citation lift is real but it is not instant. The first quarter is foundation work, the second quarter is when the curve starts bending.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-6">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-2">Audit and foundation</p>
+              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                Four to six weeks. Visibility diagnosis across all five Chinese AI platforms, source-tier audit of the existing content estate, technical fixes shipped, content roadmap signed off.
+              </p>
+            </div>
+            <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-6">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-2">Content build-out and syndication</p>
+              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                Three to four months. Pillar pieces, cluster pages, FAQs and comparison guides shipped in Chinese, syndicated to the right destinations on each platform graph.
+              </p>
+            </div>
+            <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-6">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-2">Citation lift</p>
+              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                By month six most clients see real citation lift on at least two platforms. Full coverage across all five typically lands between month nine and month twelve.
+              </p>
+            </div>
+            <p class="text-sm text-[var(--color-text-muted)] italic leading-relaxed pt-2">
+              Anyone promising AI citation share on a competitive query in 30 days is selling you something else.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Why us
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-tight">
+            Why international brands choose us
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <p class="text-lg text-white/70 leading-relaxed">
+            China has plenty of GEO agencies. Most are domestic firms operating in Mandarin only, with no real experience translating international brand assets into Chinese AI content. We sit somewhere different.
+          </p>
+          <p class="mt-5 text-lg text-white/70 leading-relaxed">
+            Based in China for over 20 years, fluent in both the Chinese AI ecosystem and the way international clients actually structure their brand. Strategy in English. Implementation in Chinese, by native speakers, on the ground in Shanghai.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IS THIS FOR -->
+  <WhoIsThisFor heading="Who hires us for GEO China" audiences={audiences} background="light" />
+
+  <!-- FAQ -->
+  <section id="faq" class="section-spacing scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Frequently Asked
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Nine questions we hear about GEO China
+          </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Tap any question to expand. If yours isn't here, ask us directly.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                {faq.answer.map((para) => (
+                  <p class="mb-3 last:mb-0">{para}</p>
+                ))}
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        See where you stand
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        See where you stand. No sales deck.
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Every engagement starts with an audit conversation and a sample query test across two of the five Chinese AI platforms. You leave the call knowing whether your brand currently shows up, where the gaps are, and what a real GEO programme would look like.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact/" variant="primary" size="lg">Schedule a Free GEO Audit Call</Button>
+        <Button href="/contact/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Request a Sample AI Visibility Report</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ accordion script -->
+  <script>
+    function initGeoFaq() {
+      const accordions = document.querySelectorAll('[data-faq-accordion]');
+      accordions.forEach((accordion) => {
+        const items = accordion.querySelectorAll('[data-faq-item]');
+        items.forEach((item) => {
+          const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+          const content = item.querySelector('[data-faq-content]') as HTMLElement | null;
+          const chevron = item.querySelector('[data-faq-chevron]') as SVGElement | null;
+          if (!trigger || trigger.dataset.bound === 'true') return;
+          trigger.dataset.bound = 'true';
+          trigger.addEventListener('click', () => {
+            const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+            items.forEach((other) => {
+              if (other === item) return;
+              const otherTrigger = other.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+              const otherContent = other.querySelector('[data-faq-content]') as HTMLElement | null;
+              const otherChevron = other.querySelector('[data-faq-chevron]') as SVGElement | null;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            });
+            const next = !isOpen;
+            trigger.setAttribute('aria-expanded', String(next));
+            content?.style.setProperty('grid-template-rows', next ? '1fr' : '0fr');
+            chevron?.classList.toggle('rotate-180', next);
+          });
+        });
+      });
+    }
+    initGeoFaq();
+    document.addEventListener('astro:page-load', initGeoFaq);
+    document.addEventListener('astro:after-swap', initGeoFaq);
+  </script>
+
+</PageLayout>

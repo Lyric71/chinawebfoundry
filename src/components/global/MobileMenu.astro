@@ -65,26 +65,90 @@ const currentPath = Astro.url.pathname;
             </svg>
           </button>
           <div class="hidden pb-4 pl-4" data-accordion-content>
-            {item.children?.map((child) => (
-              <a
-                href={child.href}
-                class:list={[
-                  'block py-2 text-base no-underline transition-colors',
-                  currentPath === child.href
-                    ? 'text-[var(--color-brand-orange)]'
-                    : 'text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)]',
-                ]}
-              >
-                {child.label}
-                {child.description && (
-                  <span class="block text-xs text-[var(--color-text-muted)] mt-0.5">{child.description}</span>
-                )}
-              </a>
-            ))}
+            {(() => {
+              const hasColumns = item.children?.some((c) => (c as any).column);
+              if (!hasColumns) {
+                return item.children?.map((child) => (
+                  <a
+                    href={child.href}
+                    class:list={[
+                      'block py-2 text-base no-underline transition-colors',
+                      currentPath === child.href
+                        ? 'text-[var(--color-brand-orange)]'
+                        : 'text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)]',
+                    ]}
+                  >
+                    {child.label}
+                    {child.description && (
+                      <span class="block text-xs text-[var(--color-text-muted)] mt-0.5">{child.description}</span>
+                    )}
+                  </a>
+                ));
+              }
+              const groups = [
+                { key: 'plan', label: t('nav.plan'), filter: (c: any) => c.column === 'plan', techFilter: null },
+                { key: 'build', label: t('nav.build'), filter: (c: any) => c.column === 'build' && !c.subColumn, techFilter: (c: any) => c.column === 'build' && c.subColumn === 'technology' },
+                { key: 'grow', label: t('nav.grow'), filter: (c: any) => c.column === 'grow', techFilter: null },
+              ];
+              return groups.map((group) => {
+                const items = item.children?.filter(group.filter) ?? [];
+                const techItems = group.techFilter ? (item.children?.filter(group.techFilter) ?? []) : [];
+                if (items.length === 0 && techItems.length === 0) return null;
+                return (
+                  <div class="mt-3 first:mt-0" data-mobile-sub-accordion>
+                    <button
+                      type="button"
+                      class="flex items-center justify-between w-full py-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] bg-transparent border-none cursor-pointer text-left"
+                      aria-expanded="false"
+                    >
+                      {group.label}
+                      <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div class="hidden pl-3" data-sub-accordion-content>
+                      {items.map((child) => (
+                        <a
+                          href={child.href}
+                          class:list={[
+                            'block py-2 text-base no-underline transition-colors',
+                            currentPath === child.href
+                              ? 'text-[var(--color-brand-orange)]'
+                              : 'text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)]',
+                          ]}
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                      {techItems.length > 0 && (
+                        <>
+                          <p class="mt-3 mb-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                            {t('nav.technology')}
+                          </p>
+                          {techItems.map((child) => (
+                            <a
+                              href={child.href}
+                              class:list={[
+                                'block py-2 text-base no-underline transition-colors',
+                                currentPath === child.href
+                                  ? 'text-[var(--color-brand-orange)]'
+                                  : 'text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)]',
+                              ]}
+                            >
+                              {child.label}
+                            </a>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                );
+              });
+            })()}
             {item.href === localePath('/services/', currentLang) && (
               <a
                 href={localePath('/services/', currentLang)}
-                class="block py-2 text-sm font-medium text-[var(--color-brand-orange)] no-underline mt-2 inline-flex items-center gap-1.5"
+                class="block py-2 text-sm font-medium text-[var(--color-brand-orange)] no-underline mt-4 inline-flex items-center gap-1.5"
               >
                 {t('nav.allServicesMobile')}
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -173,12 +237,27 @@ const currentPath = Astro.url.pathname;
     }
   });
 
-  // Accordion behaviour
+  // Accordion behaviour (top-level: Services, Resources)
   const accordions = document.querySelectorAll('[data-mobile-accordion]');
   accordions.forEach((accordion) => {
-    const btn = accordion.querySelector('button');
-    const content = accordion.querySelector('[data-accordion-content]');
-    const chevron = btn?.querySelector('svg');
+    const btn = accordion.querySelector(':scope > button');
+    const content = accordion.querySelector(':scope > [data-accordion-content]');
+    const chevron = btn?.querySelector(':scope > svg');
+
+    btn?.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      content?.classList.toggle('hidden');
+      chevron?.classList.toggle('rotate-180');
+    });
+  });
+
+  // Sub-accordion behaviour (Plan / Build / Technology / Grow inside Services)
+  const subAccordions = document.querySelectorAll('[data-mobile-sub-accordion]');
+  subAccordions.forEach((accordion) => {
+    const btn = accordion.querySelector(':scope > button');
+    const content = accordion.querySelector(':scope > [data-sub-accordion-content]');
+    const chevron = btn?.querySelector(':scope > svg');
 
     btn?.addEventListener('click', () => {
       const isExpanded = btn.getAttribute('aria-expanded') === 'true';

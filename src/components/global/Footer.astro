@@ -36,14 +36,14 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
             loading="lazy"
           />
         </a>
-        <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-sm">
+        <p class="text-base text-[var(--color-text-body)] leading-relaxed lg:max-w-sm">
           {t('footer.manifesto')}
         </p>
 
-        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mt-8 mb-4">
+        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mt-8 mb-4 text-center sm:text-left">
           {t('footer.connect')}
         </h4>
-        <ul class="space-y-2.5 text-sm">
+        <ul class="space-y-2.5 text-sm text-center sm:text-left">
           <li>
             <a href="mailto:hello@beyondbordergroup.com" class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors inline-flex items-center gap-2">
               <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,8 +55,11 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
         </ul>
       </div>
 
+      <!-- Mobile-only wrapper: centers the 2x2 nav grid; dissolves into parent grid at sm+ -->
+      <div class="col-span-6 grid grid-cols-2 gap-x-8 gap-y-10 max-w-xs mx-auto sm:contents">
+
       <!-- Plan column -->
-      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+      <div class="sm:col-span-6 lg:col-span-2">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           {t('nav.plan')}
         </h4>
@@ -72,7 +75,7 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
       </div>
 
       <!-- Build column -->
-      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+      <div class="sm:col-span-6 lg:col-span-2">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           {t('nav.build')}
         </h4>
@@ -104,7 +107,7 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
       </div>
 
       <!-- Grow column -->
-      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+      <div class="sm:col-span-6 lg:col-span-2">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           {t('nav.grow')}
         </h4>
@@ -120,7 +123,7 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
       </div>
 
       <!-- Company + Connect column -->
-      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+      <div class="sm:col-span-6 lg:col-span-2">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           {t('footer.company')}
         </h4>
@@ -145,6 +148,8 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
             </a>
           </li>
         </ul>
+      </div>
+
       </div>
     </div>
   </div>
@@ -200,13 +205,13 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
         <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
           <span>Copyright {new Date().getFullYear()} - BeyondBorderGroup Ltd - Hong Kong</span>
           <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
-          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 sm:gap-x-4">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-4">
             <a href="https://beyondbordergroup.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">beyondbordergroup.com</a>
-            <span class="text-[var(--color-surface-border)]">|</span>
+            <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
             <a href="https://hubstudio.ai" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">hubstudio.ai</a>
-            <span class="text-[var(--color-surface-border)]">|</span>
+            <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
             <a href="https://nuvora.studio" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">nuvora.studio</a>
-            <span class="text-[var(--color-surface-border)]">|</span>
+            <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
             <a href="https://theredscroll.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">theredscroll.com</a>
           </div>
         </div>

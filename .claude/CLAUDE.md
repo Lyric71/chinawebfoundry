@@ -79,6 +79,14 @@ with structured frontmatter (title, slug, description, icon, order).
 - CRITICAL: All images must be WebP format, max 1050px wide (2x retina for ~525px cards). When adding new case study or content images, convert PNGs/JPGs to WebP and resize with: `npx sharp-cli -i input.png -o output.webp -- resize 1050 --withoutEnlargement`
 - Never commit PNG or JPEG images to `public/images/` - always convert to WebP first
 
+## Image Generation
+- When a page or component needs a new image asset, generate it directly with `scripts/generate-image.mjs` rather than asking the user to supply one or leaving a placeholder.
+- Usage: `node scripts/generate-image.mjs --name <descriptive-kebab-case-name> "<detailed prompt>"`
+- The script calls Wavespeed AI (nano-banana-2), downloads the result, optimises it to WebP, and saves it to `public/images/<name>.webp` automatically. WEBP_QUALITY=80, max width 1600px.
+- Always pass `--name` with a descriptive kebab-case filename (e.g. `hero-baidu-seo-shanghai`), never let it fall back to the `generated-<timestamp>.webp` default.
+- Write detailed, specific prompts: subject, setting, style, lighting, mood, framing. Photorealistic and grounded in China where relevant.
+- Requires `WAVESPEED_API_KEY` in `.env` (already configured locally).
+
 ## Testing
 - Run `npm run build` before committing to catch build errors
 - Run `npx astro check` for TypeScript validation

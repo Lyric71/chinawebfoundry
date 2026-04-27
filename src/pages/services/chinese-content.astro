@@ -1,98 +1,316 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Chinese Content for Websites in China | ChinaWebFoundry';
-const metaDescription = 'Native Chinese copywriting, transcreation and content management for websites in China. Baidu-optimised content by native speakers. Agency in China.';
+const metaTitle = 'Chinese Content | What to Write, How to Structure It | ChinaWebFoundry';
+const metaDescription = "What to write and how to structure your China website. Native Chinese editors decide content, IA, and trust signals before any code gets written.";
 
-const offerings = {
-  strategy: {
-    title: 'Content Strategy for China',
-    body: 'Keyword research first, and not a translation of your English list. Chinese users search with their own phrasing, and the most valuable terms often have no English equivalent. From there: a content architecture Baidu can read, plus an editorial calendar built around the moments that matter.',
-    image: '/images/offerings-strategy-flatlay.webp',
-    keywords: ["Singles' Day", '618', 'Mid-Autumn', 'Golden Week'],
+// What to Write: 5 differences with paired "default vs reality" data
+const differences = [
+  {
+    n: '01',
+    cn: '信任',
+    title: 'The trust signals are different',
+    body: "Chinese readers scan a brand site for things foreign teams under-emphasise: founder credibility, year of founding, factory location, certifications, partnerships, awards, named clients, media coverage, team size. A clean three-bullet hero reads as empty rather than sophisticated. The reader assumes the brand is small, new, or hiding something.",
+    westernLabel: 'Three-bullet hero',
+    westernSub: '"Build better. Faster. Together."',
+    chineseLabel: 'Dense trust panel',
+    chineseSub: 'Founded · Factory · Partners · Awards · Media',
   },
-  copywriting: {
-    title: 'Native Chinese Copywriting',
-    body: 'Native Chinese writers who do commercial content professionally, not translators moonlighting in marketing. They know how to keep readers past the fold, build trust on a product page, and write with Baidu\'s ranking logic in mind.',
+  {
+    n: '02',
+    cn: '决策',
+    title: 'The decision frame is different',
+    body: "Western messaging leads with aspiration. Chinese readers buy on a different sequence: practical proof first, credibility second, aspiration last. Same content, reordered, reads as a credible brand instead of a brochure.",
+    westernLabel: 'Aspiration → proof',
+    westernSub: 'Vision, then specs, then case studies',
+    chineseLabel: 'Proof → credibility → aspiration',
+    chineseSub: 'Specs first, partners next, vision last',
   },
-  transcreation: {
-    title: 'Transcreation and Localisation',
-    body: 'Already have English content? Translation gives you words, transcreation gives you meaning. We keep your brand voice but rebuild the message for a Chinese audience, including date formats, currency, units and disclaimers that comply with Chinese requirements.',
+  {
+    n: '03',
+    cn: '语言',
+    title: 'The category language is different',
+    body: "Translated SEO keywords almost always miss the phrases Chinese users actually search. We do the keyword research in Chinese, from scratch, before any copy gets written.",
+    westernLabel: 'Translated keywords',
+    westernSub: '"enterprise software solutions"',
+    chineseLabel: 'Native search intent',
+    chineseSub: '企业级软件 / SaaS服务 / 数字化解决方案',
   },
-  workflow: {
-    title: 'Editorial Workflow Setup',
-    body: 'Content isn\'t worth much if your team can\'t maintain it. We set up multilingual publishing workflows in your CMS, configure the editor for Chinese, and train your team to run updates without a developer.',
-    image: '/images/offerings-workflow-team.webp',
-    features: ['Multilingual publishing workflows', 'CMS configured for Chinese editorial', 'Team training and handover'],
+  {
+    n: '04',
+    cn: '形式',
+    title: 'The format is different',
+    body: "Long-form, dense, scrollable. Chinese product pages routinely run three to five times the length of their Western equivalents. Information density is a trust signal here, not a UX problem.",
+    westernLabel: 'Minimal, whitespace-led',
+    westernSub: 'One claim per scroll',
+    chineseLabel: 'Long-form, dense',
+    chineseSub: '3 to 5 times the length of the Western page',
   },
-};
-
-const contentTypes = [
-  'Core website pages',
-  'Landing pages built for Baidu Ads',
-  'SEO-driven blog articles',
-  'E-commerce product copy and category pages',
-  'Social content briefs for WeChat, Weibo, RED and Douyin',
-  'Case studies adapted for how business relationships work in China',
-  'Whitepapers and downloadable guides for lead generation',
-  'Email content for Chinese subscriber lists',
+  {
+    n: '05',
+    cn: '法律',
+    title: 'The legal language is different',
+    body: "Chinese advertising law (广告法) regulates what foreign brands routinely say without thinking. Superlatives like \"best\" or \"first\" (最, 第一, 最佳) are restricted. Industry-specific claims (medical, financial, food, cosmetics) have their own separate rules. We write to compliance from the start.",
+    westernLabel: 'Superlatives everywhere',
+    westernSub: '"World-class. Best-in-class. First."',
+    chineseLabel: '广告法-compliant claims',
+    chineseSub: 'Specific, evidenced, audited language',
+  },
 ];
 
-const processSteps = [
+// IA comparison data
+const foreignIA = [
+  { label: 'Home', primary: true },
+  { label: 'About' },
+  { label: 'Products' },
+  { label: 'Resources' },
+  { label: 'Contact' },
+];
+
+const chineseIA = [
+  { label: '首页 / Home', primary: true },
+  { label: 'Brand Story', highlight: true },
+  { label: 'Honors & Awards 荣誉资质', highlight: true },
+  { label: 'Company History 企业历程', highlight: true },
+  { label: 'Industry / Solutions' },
+  { label: 'Cases & Customers', highlight: true },
+  { label: 'Products' },
+  { label: 'Factory 生产基地', highlight: true },
+  { label: 'Partners 合作伙伴', highlight: true },
+  { label: 'News 新闻动态', highlight: true },
+  { label: 'Contact' },
+];
+
+const structurePoints = [
   {
-    phase: 'Plan',
-    title: 'Strategy and Research',
-    body: 'Goals, keyword analysis, competitor audit, editorial planning. Get this wrong and everything after underperforms.',
-    image: '/images/process-strategy-research-baidu-keywords.webp',
-    deliverables: ['Keyword map for Baidu', 'Content architecture', '12-month editorial calendar'],
+    n: '01',
+    title: 'Page hierarchy that Chinese readers expect',
+    body: "Foreign brand sites typically lead with Home, About, Products, Resources, Contact. Chinese brand sites often lead with brand credibility, then category education, then proof, then product. The order matches how Chinese readers actually move through a brand they don't yet trust.",
   },
   {
-    phase: 'Write',
-    title: 'Content Production',
-    body: 'Content matched to your brand tone, optimised for Baidu, ready for publishing. Every piece gets editorial review before it reaches you.',
-    image: '/images/process-content-production-chinese-writer.webp',
-    deliverables: ['Native Chinese drafts', 'Internal editorial review', 'Brand voice alignment'],
+    n: '02',
+    title: 'Trust pages most foreign brands forget',
+    body: "Honors and Awards (荣誉资质). Company History (企业历程). Factory or Office (生产基地). Quality Certifications (质量认证). Major Partners (合作伙伴). Media Mentions (媒体报道). News (新闻动态). Standard on Chinese brand sites and routinely missing from foreign brand sites entering China. We design them in from day one.",
   },
   {
-    phase: 'Publish',
-    title: 'Publishing and Optimisation',
-    body: 'Once approved: CMS formatting, meta data, internal linking, image compression, alt tags.',
-    image: '/images/process-publishing-cms-china.webp',
-    deliverables: ['CMS formatting and metadata', 'Internal linking and image optimisation', 'Live page sign-off'],
+    n: '03',
+    title: 'Baidu-friendly URL and content structure',
+    body: "Baidu indexes structured, original, fresh content from a single primary domain. We design URL patterns Baidu can crawl, internal linking that distributes ranking equity, and a publishing cadence that signals the site is active.",
   },
   {
-    phase: 'Improve',
-    title: 'Monitoring and Iteration',
-    body: 'We track performance in Baidu Analytics and report traffic, rankings and engagement. Underperforming pieces get revised. Publish-and-forget doesn\'t fly in China.',
-    image: '/images/process-monitoring-baidu-analytics.webp',
-    deliverables: ['Baidu Analytics tracking', 'Monthly performance reports', 'Content revisions where needed'],
+    n: '04',
+    title: 'AI-search-friendly content structure',
+    body: "Doubao, Kimi, DeepSeek, and Wenxin parse content differently from Baidu. They reward clean factual structure, schema markup, llms.txt files, and content that maps to how a user phrases a query out loud. We write with both ranking layers in mind. Brands setting this up properly in 2026 will be the ones cited by AI engines in 2027 and 2028.",
+  },
+  {
+    n: '05',
+    title: 'Editorial cadence baked into the structure',
+    body: "A site that hasn't published anything in six months stops ranking on Baidu. The IA needs places where content can keep coming: a real news section, a knowledge base, an editorial blog, customer stories. We build those publishing surfaces from day one, even if the launch content is light.",
+  },
+];
+
+const contentTypes = [
+  {
+    label: 'Core website content',
+    cn: '官网内容',
+    body: 'The brand spine.',
+    items: ['Home', 'About', 'Brand Story', 'Founder Story', 'Team', 'History', 'Honors', 'Quality', 'Factory', 'Partners', 'Contact'],
+    feature: true,
+  },
+  {
+    label: 'Product and category content',
+    cn: '产品内容',
+    body: 'Long-form product pages, technical specifications, application scenarios.',
+  },
+  {
+    label: 'Editorial and SEO content',
+    cn: '内容运营',
+    body: 'Blog articles, knowledge base, industry insights, how-to guides for Baidu and AI search visibility.',
+  },
+  {
+    label: 'Trust and proof content',
+    cn: '品牌背书',
+    body: 'Case studies, customer stories, partner profiles, award announcements, media mentions.',
+  },
+  {
+    label: 'Conversion content',
+    cn: '转化页面',
+    body: 'Landing pages for paid media, lead magnets, gated whitepapers, contact forms.',
+  },
+  {
+    label: 'WeChat ecosystem content',
+    cn: '微信生态',
+    body: 'H5 mini-site copy, Mini Program content, Official Account article briefs.',
+  },
+];
+
+const stages = [
+  {
+    n: '01',
+    cn: '调研',
+    title: 'Discovery and category research',
+    body: "We audit three to five direct competitors end to end, plus the category conversation on Baidu, Zhihu (知乎), and relevant industry sites. Output: a written content strategy naming what your brand should say, what it shouldn't, and where the white space sits.",
+    output: 'Content strategy doc',
+  },
+  {
+    n: '02',
+    cn: '架构',
+    title: 'Information architecture',
+    body: 'Site map and page hierarchy designed for Chinese readers, with the trust pages, editorial surfaces, and Baidu-friendly URL structure built in. Delivered as a written IA document so design and development know what they are building toward.',
+    output: 'IA document + sitemap',
+  },
+  {
+    n: '03',
+    cn: '撰写',
+    title: 'Native Chinese writing',
+    body: 'Chinese editors, not translators. They write to the strategy, in your brand voice (rebuilt for Chinese, not translated).',
+    output: 'Page-by-page drafts',
+  },
+  {
+    n: '04',
+    cn: '迭代',
+    title: 'Editorial review and publishing',
+    body: "Every piece passes through internal review for brand voice, factual accuracy, SEO structure, and 广告法 compliance. After publishing we track performance on Baidu and the AI engines and iterate on underperformers. Publish-and-forget doesn't rank in China.",
+    output: 'Monthly performance + revisions',
   },
 ];
 
 const audiences = [
-  { label: 'Launching a Chinese site', description: 'The content side of things feels like the biggest unknown.', image: '/images/audiences/launching-chinese-website.webp' },
-  { label: 'Outdated translations', description: 'Content was translated ages ago and Baidu rankings have been flat or declining.', image: '/images/audiences/outdated-translated-content.webp' },
-  { label: 'Campaign copy', description: 'Marketing team gearing up for campaigns targeting Chinese consumers.', image: '/images/audiences/campaign-chinese-copy.webp' },
-  { label: 'Product pages', description: 'E-commerce team needs product pages written for the Chinese market properly.', image: '/images/audiences/ecommerce-product-pages-china.webp' },
-  { label: 'Ongoing editorial', description: 'Regular blog publishing, seasonal campaign copy, product updates, all managed inside your CMS.', image: '/images/audiences/ongoing-chinese-editorial.webp' },
+  {
+    label: 'Brands launching in China for the first time',
+    description: 'Companies that need to make the foundational content decisions correctly: what to say, how to structure it, who to be in the Chinese market.',
+    image: '/images/audiences/launching-chinese-website.webp',
+  },
+  {
+    label: "Brands relaunching after a translation didn't work",
+    description: "Foreign sites with translated content that's sat untouched for two or three years, watching Baidu rankings drift down. The fix is usually a content rebuild, not a redesign.",
+    image: '/images/audiences/outdated-translated-content.webp',
+  },
+  {
+    label: 'Brands with a Chinese site but no editorial cadence',
+    description: 'Companies that launched once, never built the publishing engine, and now wonder why their site has gone quiet on Baidu.',
+    image: '/images/audiences/ongoing-chinese-editorial.webp',
+  },
+  {
+    label: 'B2B brands with technical depth',
+    description: 'Industrial, life sciences, pharma, B2B services that need long-form Chinese content with technical accuracy.',
+    image: '/images/audiences/campaign-chinese-copy.webp',
+  },
+  {
+    label: 'Luxury and brand-led businesses',
+    description: 'Brands where the trust signals, founder story, heritage, and cultural fit decide whether the customer buys.',
+    image: '/images/audiences/ecommerce-product-pages-china.webp',
+  },
+];
+
+// Trust phrases for the marquee
+const marqueePhrases = [
+  '荣誉资质', 'Honors',
+  '企业历程', 'History',
+  '生产基地', 'Factory',
+  '质量认证', 'Quality',
+  '合作伙伴', 'Partners',
+  '媒体报道', 'Media',
+  '新闻动态', 'News',
+  '广告法 compliant',
+  'Baidu indexed',
+  'AI-search ready',
+];
+
+const faqs = [
+  {
+    id: 'just-translate',
+    question: "Can't we just translate our existing English content?",
+    answer: [
+      "You can, and a lot of foreign brands do. It almost never works. Translation produces words, not a brand. Chinese readers can tell within a paragraph. Baidu can tell within a crawl. If you only have the budget for translation, our honest recommendation is to wait until you can afford to do this properly.",
+    ],
+  },
+  {
+    id: 'translation-vs-transcreation',
+    question: "What's the difference between translation, transcreation, and what you do?",
+    answer: [
+      "Translation converts words from one language to another. Transcreation rewrites the message for the target culture while keeping the brand voice. What we do starts upstream of both. We decide what your brand should say to a Chinese audience in the first place, then we write that, in Chinese, from scratch.",
+    ],
+  },
+  {
+    id: 'rebuild-from-scratch',
+    question: 'Do we need to rebuild our entire content from scratch?',
+    answer: [
+      "Not always. About a third of our engagements rebuild the core brand pages and product pages. Another third start fresh. The remaining third use parts of the existing content as raw material and rebuild around it. The Strategy and Audit decides which applies.",
+    ],
+  },
+  {
+    id: 'who-writes',
+    question: 'Who actually writes the content?',
+    answer: [
+      "Native Chinese editors based in Shanghai. People whose first language is Mandarin and whose career has been writing commercial content. Not translators, not AI tools, not interns. Every piece goes through editorial review before it reaches you.",
+    ],
+  },
+  {
+    id: 'brand-voice',
+    question: 'Can you match our existing brand voice?',
+    answer: [
+      "Yes, but not by translating it. We work from your global brand guidelines and a sample of your best existing content, then rebuild the voice in Chinese using equivalent registers and rhetorical moves. The result feels like the same brand, in a different language.",
+    ],
+  },
+  {
+    id: 'design-development',
+    question: 'Where does content sit relative to design and development?',
+    answer: [
+      "Upstream of both. The information architecture decides the design, not the other way around. We deliver the IA and content structure first, then design works against that, then development builds it. Reversing the order is one of the most common reasons foreign brand sites in China feel forced.",
+    ],
+  },
+  {
+    id: 'baidu-seo',
+    question: 'How does this connect with Baidu SEO?',
+    answer: [
+      "Tightly. Baidu SEO done well starts with a Baidu keyword map (in Chinese, not translated), then a content architecture that matches search intent, then content written around those topics. Our content team and our Baidu SEO team work as one. Most clients book both as a single engagement.",
+    ],
+  },
+  {
+    id: 'ai-search',
+    question: 'What about AI search visibility on Doubao, Kimi, DeepSeek?',
+    answer: [
+      "We structure content for AI engines from the start. Clean factual answers, schema markup, llms.txt files, content that maps to how Chinese users phrase questions verbally. The brands setting this up properly in 2026 will be the ones cited by AI engines in 2027.",
+    ],
+  },
+  {
+    id: 'ongoing-publishing',
+    question: 'Do you handle ongoing publishing or only launch content?',
+    answer: [
+      "Both, and we recommend the second. Launching with content and never updating the site is the single biggest reason foreign brands lose Baidu visibility over time. Most clients move from launch content to a fixed monthly editorial retainer.",
+    ],
+  },
+  {
+    id: 'cost',
+    question: "What's the cost?",
+    answer: [
+      "It depends on scope: rebuild versus new, page count, editorial cadence, whether the engagement covers Baidu SEO and AI search optimisation too. Tell us the scope and we send a real quote within two business days.",
+    ],
+  },
 ];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
 
-  <!-- Hero: full-bleed dark -->
+  <!-- HERO -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-chinese-content.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+      <img src="/images/hero-chinese-content.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/85 to-[#0f0f12]/60"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px] pointer-events-none"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-text-card-blue)]/20 blur-[140px] pointer-events-none"></div>
     </div>
+
+    <!-- Massive decorative Chinese character -->
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block">写</span>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
       <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-12 md:pb-16">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/#OurServices" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
@@ -101,116 +319,111 @@ const audiences = [
       </nav>
 
       <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
-        <!-- Text: 7 cols -->
+        <!-- Text -->
         <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            Chinese Content
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Content That Speaks to Chinese Audiences.
-            <span class="block mt-2 text-[var(--color-brand-orange)]">Not Just in Chinese.</span>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Chinese Content</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">Native editors, Shanghai</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Content is the brand.
+            <span class="block mt-1.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">Especially in</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">中文.</span>
+            </span>
           </h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            Native Chinese copywriting, transcreation, and editorial management for your website. Built for Baidu, shaped by culture, ready to publish.
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            Translation gives you words, not a brand. We decide what your brand should say in Chinese, how the website should be structured around that, and we write it. <span class="text-white font-medium">Editors, not translators.</span>
           </p>
-          <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/contact/" variant="primary" size="lg">Discuss Your Content Needs</Button>
+
+          <!-- Stat row -->
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">20+</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Years editorial</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">50+</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Brands launched</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">SH</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Shanghai team</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/contact/" variant="primary" size="lg">Talk to our content team</Button>
+            <Button href="#what-to-write" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">See how we write</Button>
           </div>
         </div>
 
-        <!-- Visual: content metrics card -->
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+        <!-- Visual: layered comparison mockup -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0">
           <div class="relative">
-            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-xs text-white/30 ml-2 font-mono">content-audit</span>
+            <!-- Translated card (back, faded) -->
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg] transition-transform duration-500 hover:rotate-[-4deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Translated</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">EN → ZH</span>
               </div>
-              <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Content language</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Native ZH</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Baidu indexed</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">186 pages</span>
-                </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-[75%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Organic traffic</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">+210% QoQ</span>
-                </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-[85%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Keyword rankings</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Top 10: 42</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Content freshness</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Weekly</span>
-                </div>
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Baidu rank: drifting
               </div>
             </div>
-            <!-- Decorative glow -->
-            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- The Problem -->
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Why content in China is not a translation job
-          </h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Companies translate their English site into Chinese, put it live, and wait for traffic that never comes. The problem is rarely SEO or hosting, it's the content itself. Chinese readers don't just read in a different language, they read differently, and structure, tone, and keywords don't map cleanly from English.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Baidu also has a real bias against translated pages. It rewards original Chinese content published on a consistent schedule, and pages nobody has touched in a year stop ranking.
-          </p>
-        </div>
+            <!-- Native card (front, sharp) -->
+            <div class="relative rounded-2xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] backdrop-blur-md border border-white/15 p-6 lg:p-7 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-400/30">
+                  <span class="w-1 h-1 rounded-full bg-green-400"></span>
+                  <span class="text-[10px] font-mono text-green-300 uppercase tracking-wider">Native ZH</span>
+                </span>
+                <span class="ml-auto text-[10px] font-mono text-white/40">brand-cn.md</span>
+              </div>
 
-        <!-- Visual: translated vs native comparison -->
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
-            <div class="absolute inset-3 sm:inset-6 flex flex-col justify-center gap-4 sm:gap-6">
-              <!-- Translated approach -->
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+              <div class="space-y-3.5 font-[var(--font-heading)]">
+                <div class="flex items-baseline gap-2">
+                  <span class="text-[11px] text-white/40 font-mono">H1</span>
+                  <span class="text-[15px] text-white font-medium">内容即品牌</span>
                 </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Translated content</div>
-                  <div class="text-xs text-[var(--color-text-muted)]">English keywords translated, stale copy, no updates</div>
-                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[8%] h-full bg-red-400 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-red-400 mt-1">Baidu ranking: buried</div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-[11px] text-white/40 font-mono">H2</span>
+                  <span class="text-[13px] text-white/85">荣誉资质 · 企业历程 · 生产基地</span>
+                </div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-[11px] text-white/40 font-mono">H2</span>
+                  <span class="text-[13px] text-white/85">质量认证 · 合作伙伴 · 媒体报道</span>
+                </div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-[11px] text-white/40 font-mono">P</span>
+                  <span class="text-[12px] text-white/55 leading-relaxed">由本地编辑撰写，符合广告法，面向 Baidu 与 AI 搜索优化。</span>
                 </div>
               </div>
-              <!-- Native approach -->
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+
+              <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">Baidu</div>
+                  <div class="text-xs font-mono text-green-300">Indexed</div>
                 </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Native Chinese content</div>
-                  <div class="text-xs text-[var(--color-text-muted)]">Original copy, Baidu keywords, regular publishing</div>
-                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[85%] h-full bg-green-500 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-green-500 mt-1">Baidu ranking: climbing</div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">广告法</div>
+                  <div class="text-xs font-mono text-green-300">Compliant</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">AI search</div>
+                  <div class="text-xs font-mono text-green-300">Ready</div>
                 </div>
               </div>
             </div>
@@ -218,171 +431,401 @@ const audiences = [
         </div>
       </div>
     </div>
+
+    <!-- bottom edge fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
   </section>
 
-  <!-- What We Offer: bento layout -->
-  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
-    <!-- Decorative dot grid -->
-    <div class="absolute inset-0 opacity-[0.04] pointer-events-none [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:28px_28px]" aria-hidden="true"></div>
-    <!-- Soft accent glow -->
-    <div class="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.05] blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <!-- WHY: dramatic statement section -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <!-- Header -->
-      <div class="max-w-3xl mb-12 lg:mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          What We Offer
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Content that was born in Chinese
+      <div class="io-grid items-center">
+        <!-- Big number/visual -->
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
+          <div class="relative inline-flex items-baseline">
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent">9</span>
+            <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">seconds</span>
+          </div>
+          <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
+            Median time a Chinese visitor spends on a translated foreign brand site before bouncing.
+          </p>
+        </div>
+
+        <!-- Statement -->
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Why It Matters</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
+            The most important decision in the project.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            You can pick the right hosting, the right framework, the right ICP filing path. If the content doesn't land with Chinese readers, none of it matters. The page loads in under a second and visitors leave in nine because nothing on it speaks to them.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            We treat content as the upstream decision. Before design, before development, before templates, we figure out what the website should actually say.
+          </p>
+
+          <!-- Order pills -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Content
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">IA</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Design</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Build</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO WRITE: comparison cards -->
+  <section id="what-to-write" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none">字</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">What to Write · 写什么</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          What your brand should actually say in China.
         </h2>
-        <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
-          Original content written in Chinese, for Chinese readers, with Baidu ranking factors baked in from the start.
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          The global messaging hierarchy that works in Munich or Boston almost never works in Shanghai. Five things shift, every time.
+        </p>
+      </div>
+
+      <!-- Comparison cards stack -->
+      <div class="space-y-5 lg:space-y-6">
+        {differences.map((d, i) => (
+          <article class:list={[
+            'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+            'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+          ]}>
+            <!-- Left: number + label -->
+            <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none">{d.cn}</span>
+              <div class="relative">
+                <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">No. {d.n} / 05</div>
+                <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{d.cn}</div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">{d.westernLabel.split(' ')[0]} → 中国</div>
+              </div>
+            </div>
+
+            <!-- Middle: title + body -->
+            <div class="lg:col-span-5 p-7 lg:p-9 flex flex-col justify-center">
+              <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+                {d.title}
+              </h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                {d.body}
+              </p>
+            </div>
+
+            <!-- Right: comparison block -->
+            <div class="lg:col-span-4 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-center gap-4">
+              <!-- Western -->
+              <div class="relative pl-4 border-l-2 border-red-300/60">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <svg class="w-3.5 h-3.5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                  <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-red-500">Foreign default</span>
+                </div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)] leading-snug">{d.westernLabel}</div>
+                <div class="text-xs text-[var(--color-text-muted)] mt-0.5 leading-relaxed">{d.westernSub}</div>
+              </div>
+              <!-- Chinese -->
+              <div class="relative pl-4 border-l-2 border-[var(--color-brand-orange)]">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-orange)]">Chinese reader expects</span>
+                </div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)] leading-snug">{d.chineseLabel}</div>
+                <div class="text-xs text-[var(--color-text-muted)] mt-0.5 leading-relaxed">{d.chineseSub}</div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO STRUCTURE: sitemap visualisation -->
+  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[20%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">How to Structure · 信息架构</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          Information architecture is content.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed">
+          Get the structure wrong and the best copy in the world doesn't rank, doesn't convert, and doesn't build trust.
+        </p>
+      </div>
+
+      <!-- Sitemap comparison -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 mb-16 lg:mb-20">
+        <!-- Foreign IA -->
+        <div class="lg:col-span-6 rounded-3xl bg-white/[0.03] border border-white/10 p-7 lg:p-8 backdrop-blur-sm">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-1">Typical foreign brand IA</div>
+              <div class="text-lg font-medium font-[var(--font-heading)] text-white/90">5 pages, product-led</div>
+            </div>
+            <div class="px-2.5 py-1 rounded-full bg-red-500/10 border border-red-400/30">
+              <span class="text-[10px] font-semibold uppercase tracking-wider text-red-300">Buries on Baidu</span>
+            </div>
+          </div>
+          <ul class="space-y-2.5">
+            {foreignIA.map((p) => (
+              <li class:list={[
+                'flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors',
+                p.primary ? 'bg-white/[0.06] border-white/15 text-white' : 'bg-white/[0.02] border-white/8 text-white/55'
+              ]}>
+                <span class:list={['w-1.5 h-1.5 rounded-full', p.primary ? 'bg-white/70' : 'bg-white/25']}></span>
+                <span class="text-sm">{p.label}</span>
+              </li>
+            ))}
+            {[1,2,3,4,5,6].map(() => (
+              <li class="flex items-center gap-3 px-4 py-3 rounded-lg border border-dashed border-white/8">
+                <span class="w-1.5 h-1.5 rounded-full bg-white/10"></span>
+                <span class="text-xs text-white/20 italic">missing</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Chinese IA -->
+        <div class="lg:col-span-6 relative rounded-3xl bg-gradient-to-br from-[var(--color-brand-orange)]/[0.12] via-white/[0.05] to-white/[0.02] border border-[var(--color-brand-orange)]/30 p-7 lg:p-8 backdrop-blur-sm shadow-[0_20px_60px_-20px_rgba(242,95,41,0.3)]">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)]/90 mb-1">Chinese brand IA</div>
+              <div class="text-lg font-medium font-[var(--font-heading)] text-white">11 pages, trust-led</div>
+            </div>
+            <div class="px-2.5 py-1 rounded-full bg-green-500/15 border border-green-400/30">
+              <span class="text-[10px] font-semibold uppercase tracking-wider text-green-300">Indexed + ranking</span>
+            </div>
+          </div>
+          <ul class="space-y-2.5">
+            {chineseIA.map((p) => (
+              <li class:list={[
+                'flex items-center gap-3 px-4 py-3 rounded-lg border transition-all',
+                p.primary
+                  ? 'bg-white/[0.08] border-white/20 text-white'
+                  : p.highlight
+                    ? 'bg-[var(--color-brand-orange)]/[0.12] border-[var(--color-brand-orange)]/30 text-white'
+                    : 'bg-white/[0.03] border-white/10 text-white/75'
+              ]}>
+                <span class:list={[
+                  'w-1.5 h-1.5 rounded-full flex-shrink-0',
+                  p.primary ? 'bg-white' : p.highlight ? 'bg-[var(--color-brand-orange)]' : 'bg-white/40'
+                ]}></span>
+                <span class="text-sm flex-1">{p.label}</span>
+                {p.highlight && (
+                  <span class="text-[9px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]/90 px-1.5 py-0.5 rounded bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20">Trust</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Structure points -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+        {structurePoints.map((p) => (
+          <div class="group relative rounded-2xl bg-white/[0.03] border border-white/10 p-6 lg:p-7 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 hover:-translate-y-0.5">
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0">
+                <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{p.n}</div>
+                <div class="mt-2 w-8 h-px bg-white/15"></div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-medium font-[var(--font-heading)] text-white leading-tight mb-2.5">
+                  {p.title}
+                </h3>
+                <p class="text-sm text-white/60 leading-relaxed">
+                  {p.body}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT TYPES: bento mosaic -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="flex items-end justify-between flex-wrap gap-6 mb-12 lg:mb-14">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Content Types · 我们写什么</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            What we write.
+          </h2>
+        </div>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed max-w-md">
+          From core brand pages to monthly editorial output, written in Chinese for Chinese readers.
         </p>
       </div>
 
       <!-- Bento grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5">
-        <!-- Card 1: Strategy (large, dark, image-led) -->
-        <article class="lg:col-span-7 lg:row-span-2 group relative bg-[var(--color-text-dark)] rounded-3xl overflow-hidden flex flex-col">
-          <div class="relative aspect-[5/3] lg:aspect-auto lg:h-[320px] overflow-hidden flex-shrink-0">
-            <img src={offerings.strategy.image} alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-text-dark)] via-[var(--color-text-dark)]/30 to-transparent"></div>
-          </div>
-          <div class="relative flex-1 flex flex-col p-7 lg:p-9">
-            <h3 class="text-2xl lg:text-[28px] font-semibold font-[var(--font-heading)] text-white leading-tight mb-4">
-              {offerings.strategy.title}
-            </h3>
-            <p class="text-[15px] lg:text-[16px] text-white/65 leading-relaxed mb-6">
-              {offerings.strategy.body}
-            </p>
-            <div class="mt-auto">
-              <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/40 mb-3">
-                Built around
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {offerings.strategy.keywords.map((kw) => (
-                  <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/15 text-[12px] font-medium text-white/85 backdrop-blur-sm">
-                    {kw}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2: Copywriting (compact, top-right with decorative character) -->
-        <article class="lg:col-span-5 group relative bg-white border border-[var(--color-surface-border)] rounded-3xl p-7 lg:p-8 overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/25 hover:shadow-[0_24px_50px_-25px_rgba(15,15,18,0.18)]">
-          <span class="absolute -bottom-12 -right-4 text-[14rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.07] leading-none select-none pointer-events-none transition-all duration-700 group-hover:text-[var(--color-brand-orange)]/[0.1] group-hover:scale-105 origin-bottom-right" aria-hidden="true">写</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5">
+        <!-- Featured: Core website content -->
+        <article class="lg:col-span-8 lg:row-span-2 group relative rounded-3xl bg-gradient-to-br from-[var(--color-text-dark)] via-[#1f1f24] to-[#0f0f12] text-white p-7 lg:p-10 overflow-hidden min-h-[360px] flex flex-col">
+          <span aria-hidden="true" class="absolute -right-12 -bottom-20 text-[20rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none">{contentTypes[0].cn}</span>
           <div class="relative">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 mb-5">
-              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 20h9"/>
-                <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4Z"/>
-              </svg>
+            <div class="flex items-center gap-2 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">Featured · The brand spine</span>
             </div>
-            <h3 class="text-xl lg:text-[22px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
-              {offerings.copywriting.title}
+            <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] leading-tight mb-3">
+              {contentTypes[0].label}
             </h3>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              {offerings.copywriting.body}
+            <p class="text-base text-white/65 leading-relaxed mb-7 max-w-md">
+              {contentTypes[0].body} The pages your Chinese audience will judge you on, written in their register, structured for their attention.
             </p>
+          </div>
+          <div class="relative mt-auto flex flex-wrap gap-2">
+            {contentTypes[0].items?.map((item) => (
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.07] border border-white/15 text-xs text-white/85 backdrop-blur-sm transition-colors duration-200 hover:bg-white/[0.12] hover:border-white/25">
+                {item}
+              </span>
+            ))}
           </div>
         </article>
 
-        <!-- Card 3: Transcreation (compact, with EN→中 indicator) -->
-        <article class="lg:col-span-5 group relative bg-white border border-[var(--color-surface-border)] rounded-3xl p-7 lg:p-8 overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/25 hover:shadow-[0_24px_50px_-25px_rgba(15,15,18,0.18)]">
-          <div class="absolute top-7 right-7 lg:top-8 lg:right-8 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
-            <span class="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">EN</span>
-            <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.25" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14"/>
-              <path d="m12 5 7 7-7 7"/>
-            </svg>
-            <span class="text-[12px] font-semibold text-[var(--color-text-dark)]">中文</span>
-          </div>
-          <div class="relative pt-12 lg:pt-14">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 mb-5">
-              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/>
-                <path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>
-              </svg>
-            </div>
-            <h3 class="text-xl lg:text-[22px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
-              {offerings.transcreation.title}
-            </h3>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              {offerings.transcreation.body}
-            </p>
-          </div>
-        </article>
-
-        <!-- Card 4: Workflow (banner, full-width with image on right) -->
-        <article class="lg:col-span-12 group relative bg-white border border-[var(--color-surface-border)] rounded-3xl overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/25 hover:shadow-[0_30px_60px_-30px_rgba(15,15,18,0.2)]">
-          <div class="grid grid-cols-1 lg:grid-cols-12">
-            <div class="lg:col-span-7 lg:order-1 p-7 sm:p-9 lg:p-12 flex flex-col justify-center">
-              <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 mb-5">
-                <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-                  <path d="M21 3v5h-5"/>
-                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-                  <path d="M3 21v-5h5"/>
-                </svg>
+        <!-- Side cards (5 smaller) -->
+        {contentTypes.slice(1).map((c, i) => (
+          <article class:list={[
+            'lg:col-span-4 group relative rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 lg:p-7 overflow-hidden transition-all duration-300',
+            'hover:bg-white hover:border-[var(--color-brand-orange)]/25 hover:shadow-[0_18px_40px_-18px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+          ]}>
+            <span aria-hidden="true" class="absolute -right-3 -bottom-6 text-[7rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.1] group-hover:scale-110 origin-bottom-right">{c.cn}</span>
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-3.5">
+                <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">{c.cn}</span>
               </div>
-              <h3 class="text-2xl lg:text-[28px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
-                {offerings.workflow.title}
+              <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2.5">
+                {c.label}
               </h3>
-              <p class="text-[15px] lg:text-[16px] text-[var(--color-text-body)] leading-relaxed mb-7">
-                {offerings.workflow.body}
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+                {c.body}
               </p>
-              <ul class="grid sm:grid-cols-2 gap-3 lg:gap-4">
-                {offerings.workflow.features.map((f) => (
-                  <li class="flex items-start gap-3">
-                    <svg class="flex-shrink-0 w-5 h-5 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    <span class="text-[14px] lg:text-[15px] text-[var(--color-text-dark)] leading-snug">{f}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-            <div class="lg:col-span-5 lg:order-2 relative aspect-[5/3] lg:aspect-auto lg:min-h-[360px] overflow-hidden bg-[var(--color-surface-light)]">
-              <img src={offerings.workflow.image} alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </article>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Content Types: dark section -->
-  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="/images/content-types-chinese-editorial-bg.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/95 via-[#0f0f12]/80 to-[#0f0f12]/60"></div>
-      <div class="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0f0f12] to-transparent"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0f0f12] to-transparent"></div>
-    </div>
+  <!-- HOW WE WORK: 4 stages with depth -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px] pointer-events-none"></div>
+
     <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">How We Work · 工作流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
+          From research to ongoing editorial.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Four stages, each one feeding the next. Most engagements continue past launch into a fixed monthly editorial retainer.
+        </p>
+      </div>
+
+      <!-- Stages: connected card row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+        {stages.map((s, i) => (
+          <article class:list={[
+            'group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8 transition-all duration-300 overflow-hidden',
+            'hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+          ]}>
+            <!-- Top accent bar -->
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+
+            <!-- Big CN char (decorative) -->
+            <span aria-hidden="true" class="absolute right-2 top-2 text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-top-right">{s.cn}</span>
+
+            <div class="relative">
+              <!-- Number badge -->
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-text-dark)] text-white text-sm font-semibold font-[var(--font-heading)]">
+                  {s.n}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)]">Stage {i + 1} of 4</span>
+              </div>
+
+              <h3 class="text-lg lg:text-[19px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+                {s.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">
+                {s.body}
+              </p>
+
+              <!-- Output tag -->
+              <div class="pt-4 border-t border-[var(--color-surface-border)]">
+                <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] mb-1.5">Output</div>
+                <div class="flex items-center gap-2 text-sm font-medium text-[var(--color-text-dark)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {s.output}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IS THIS FOR -->
+  <WhoIsThisFor heading="Who hires us for content" audiences={audiences} background="white" />
+
+  <!-- FAQ -->
+  <section id="faq" class="section-spacing bg-[var(--color-surface-light)] scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-start">
         <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Content Types
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            Whatever your Chinese web presence needs
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Ten questions we hear about Chinese content
           </h2>
-          <p class="mt-6 text-lg text-white/60 leading-relaxed">
-            If it goes on your website or plugs into your broader China marketing, we can write it.
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Tap any question to expand. If yours isn't here, ask us directly.
           </p>
+          <div class="mt-7">
+            <Button href="/contact/" variant="secondary" size="md">Ask a different question</Button>
+          </div>
         </div>
 
         <div class="col-span-12 lg:col-span-7 lg:col-start-6">
-          <div class="space-y-5">
-            {contentTypes.map((item) => (
-              <div class="flex items-start gap-5 bg-white/[0.04] rounded-xl px-6 py-5 border border-white/10">
-                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
-                <p class="text-[15px] text-white/70 leading-relaxed">{item}</p>
-              </div>
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                {faq.answer.map((para) => (
+                  <p class="mb-3 last:mb-0">{para}</p>
+                ))}
+              </FAQItem>
             ))}
           </div>
         </div>
@@ -390,178 +833,90 @@ const audiences = [
     </div>
   </section>
 
-  <!-- How We Work: interactive process showcase -->
-  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
-    <!-- Decorative dot grid -->
-    <div class="absolute inset-0 opacity-[0.05] pointer-events-none [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:28px_28px]" aria-hidden="true"></div>
-    <!-- Soft accent glow -->
-    <div class="absolute -top-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <!-- CTA with marquee -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <!-- Marquee strip -->
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+      <!-- fade edges -->
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
+    </div>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding">
-      <!-- Header -->
-      <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          How We Work
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          From research to results
+    <!-- CTA body -->
+    <div class="relative py-20 lg:py-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/8 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">中</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">Ready when you are</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
+          Ready to think about content properly?
         </h2>
-        <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed">
-          Four stages, no shortcuts. Each one feeds the next. Pick a phase to see what happens inside.
+        <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
+          Most projects in our pipeline start with a Strategy and Audit, where the content territory and information architecture get decided alongside the technology and compliance roadmap. If you already know you need content, we can also start there directly.
         </p>
-      </div>
-
-      <!-- Phase switcher -->
-      <div class="phase-switcher" data-phase-switcher>
-        <!-- Tabs row (thumbnail tabs) -->
-        <div role="tablist" aria-label="How we work phases" class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 mb-8 lg:mb-12">
-          <div class="grid grid-cols-4 min-w-[680px] sm:min-w-0 gap-3 lg:gap-4">
-            {processSteps.map((step, i) => (
-              <button
-                type="button"
-                role="tab"
-                id={`phase-tab-${i}`}
-                aria-controls={`phase-panel-${i}`}
-                aria-selected={i === 0 ? 'true' : 'false'}
-                data-phase-tab={String(i)}
-                data-active={i === 0 ? 'true' : 'false'}
-                class="group relative flex flex-col rounded-2xl overflow-hidden bg-white border border-[var(--color-surface-border)] cursor-pointer text-left transition-all duration-300 ease-out hover:border-[var(--color-text-dark)]/20 hover:-translate-y-0.5 data-[active=true]:border-[var(--color-brand-orange)] data-[active=true]:shadow-[0_18px_40px_-18px_rgba(242,95,41,0.4)] data-[active=true]:-translate-y-1.5"
-              >
-                <!-- Thumbnail -->
-                <div class="relative aspect-[5/2] w-full overflow-hidden bg-[var(--color-surface-light)]">
-                  <img
-                    src={step.image}
-                    alt=""
-                    class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out grayscale opacity-50 group-data-[active=true]:grayscale-0 group-data-[active=true]:opacity-100 group-hover:opacity-80"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-white/0 to-white/0 transition-colors duration-500 group-data-[active=true]:from-[var(--color-brand-orange)]/0 group-data-[active=true]:to-transparent"></div>
-                </div>
-                <!-- Tab label -->
-                <div class="px-4 py-3.5 lg:px-5 lg:py-4">
-                  <span class="block text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-orange)] mb-1">
-                    {step.phase}
-                  </span>
-                  <span class="block text-[14px] lg:text-[15px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-                    {step.title}
-                  </span>
-                </div>
-                <!-- Active indicator bar -->
-                <span class="absolute bottom-0 left-0 right-0 h-[3px] bg-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 ease-out group-data-[active=true]:scale-x-100" aria-hidden="true"></span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <!-- Showcase panel: all panels stacked in same grid cell -->
-        <div class="relative grid grid-cols-1 rounded-3xl bg-white border border-[var(--color-surface-border)] shadow-[0_30px_80px_-30px_rgba(15,15,18,0.18)] overflow-hidden">
-          {processSteps.map((step, i) => (
-            <article
-              role="tabpanel"
-              id={`phase-panel-${i}`}
-              aria-labelledby={`phase-tab-${i}`}
-              aria-hidden={i === 0 ? 'false' : 'true'}
-              data-phase-panel={String(i)}
-              data-active={i === 0 ? 'true' : 'false'}
-              class="col-start-1 row-start-1 grid grid-cols-1 lg:grid-cols-12 transition-all duration-500 ease-out opacity-0 translate-y-3 pointer-events-none invisible data-[active=true]:opacity-100 data-[active=true]:translate-y-0 data-[active=true]:pointer-events-auto data-[active=true]:visible"
-            >
-              <!-- Image side -->
-              <div class="relative lg:col-span-6 xl:col-span-7 aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:min-h-[520px] overflow-hidden bg-[var(--color-surface-light)]">
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  class="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <!-- Floating phase chip on image -->
-                <div class="absolute top-5 left-5 lg:top-7 lg:left-7">
-                  <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/95 backdrop-blur-sm shadow-[0_4px_16px_-4px_rgba(0,0,0,0.15)]">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
-                    <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-dark)]">
-                      {step.phase}
-                    </span>
-                  </span>
-                </div>
-              </div>
-
-              <!-- Content side -->
-              <div class="lg:col-span-6 xl:col-span-5 flex flex-col justify-center p-6 sm:p-8 lg:p-10 xl:p-12">
-                <h3 class="text-2xl sm:text-3xl lg:text-[34px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-5">
-                  {step.title}
-                </h3>
-                <p class="text-[16px] lg:text-[17px] text-[var(--color-text-body)] leading-relaxed mb-8">
-                  {step.body}
-                </p>
-
-                <!-- Deliverables -->
-                <div class="border-t border-[var(--color-surface-border)] pt-6">
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] mb-4">
-                    What we deliver
-                  </p>
-                  <ul class="space-y-3">
-                    {step.deliverables.map((d) => (
-                      <li class="flex items-start gap-3">
-                        <svg class="flex-shrink-0 w-5 h-5 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        <span class="text-[15px] text-[var(--color-text-dark)] leading-relaxed">{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </article>
-          ))}
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/contact/" variant="primary" size="lg">Talk to our content team</Button>
+          <Button href="/services/strategy-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Strategy and Audit</Button>
+          <Button href="/services/baidu-seo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Baidu SEO</Button>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Marquee animation -->
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-33.333%); }
+    }
+  </style>
+
+  <!-- FAQ accordion script -->
   <script>
-    document.querySelectorAll('[data-phase-switcher]').forEach((switcher) => {
-      const tabs = switcher.querySelectorAll('[data-phase-tab]');
-      const panels = switcher.querySelectorAll('[data-phase-panel]');
-      const setActive = (phase) => {
-        tabs.forEach((t) => {
-          const active = t.getAttribute('data-phase-tab') === phase;
-          t.setAttribute('data-active', String(active));
-          t.setAttribute('aria-selected', String(active));
+    function initContentFaq() {
+      const accordions = document.querySelectorAll('[data-faq-accordion]');
+      accordions.forEach((accordion) => {
+        const items = accordion.querySelectorAll('[data-faq-item]');
+        items.forEach((item) => {
+          const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+          const content = item.querySelector('[data-faq-content]') as HTMLElement | null;
+          const chevron = item.querySelector('[data-faq-chevron]') as SVGElement | null;
+          if (!trigger || trigger.dataset.bound === 'true') return;
+          trigger.dataset.bound = 'true';
+          trigger.addEventListener('click', () => {
+            const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+            items.forEach((other) => {
+              if (other === item) return;
+              const otherTrigger = other.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+              const otherContent = other.querySelector('[data-faq-content]') as HTMLElement | null;
+              const otherChevron = other.querySelector('[data-faq-chevron]') as SVGElement | null;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            });
+            const next = !isOpen;
+            trigger.setAttribute('aria-expanded', String(next));
+            content?.style.setProperty('grid-template-rows', next ? '1fr' : '0fr');
+            chevron?.classList.toggle('rotate-180', next);
+          });
         });
-        panels.forEach((p) => {
-          const active = p.getAttribute('data-phase-panel') === phase;
-          p.setAttribute('data-active', String(active));
-          p.setAttribute('aria-hidden', String(!active));
-        });
-      };
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => setActive(tab.getAttribute('data-phase-tab')));
       });
-    });
+    }
+    initContentFaq();
+    document.addEventListener('astro:page-load', initContentFaq);
+    document.addEventListener('astro:after-swap', initContentFaq);
   </script>
-
-  <WhoIsThisFor heading="Who should be reading this" audiences={audiences} />
-
-  <!-- CTA -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
-
-    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-        Get Started
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Want content that Chinese audiences will actually read?
-      </h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        It starts with knowing the market and having the right people on it. Tell us what you're trying to do in China and we'll work out a content plan that fits.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/contact/" variant="primary" size="lg">Start Your Content Project</Button>
-        <Button href="/services/baidu-seo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Baidu SEO Services</Button>
-      </div>
-    </div>
-  </section>
 
 </PageLayout>
