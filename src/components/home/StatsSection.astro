@@ -1,47 +1,328 @@
 ---
 /**
- * StatsSection: horizontal band of key metrics with
- * large numbers and supporting labels. Modern dark
- * gradient background for visual contrast.
+ * StatsSection: rich visual data band combining
+ * - hero metric panel with animated bar chart
+ * - product mockup screenshot (China analytics dashboard)
+ * - mini stat cards with progress rings & comparison bars
+ * - background with mesh gradients, dot grid, decorative glyph
  */
-interface Stat {
-  value: string;
+
+interface Industry {
   label: string;
-  count?: number;
-  suffix?: string;
+  cn: string;
+  pct: number;
 }
 
-const stats: Stat[] = [
-  { value: '20+', count: 20, suffix: '+', label: 'Years in China' },
-  { value: '50+', count: 50, suffix: '+', label: 'International Brands Launched' },
-  { value: '5', count: 5, suffix: '', label: 'Industries: luxury, industrial, life sciences, pharma, B2B' },
-  { value: 'Native', label: 'Chinese content team, in-house' },
+const industries: Industry[] = [
+  { label: 'Luxury & lifestyle', cn: '奢侈品', pct: 90 },
+  { label: 'Industrial', cn: '工业', pct: 80 },
+  { label: 'Life sciences', cn: '生命科学', pct: 70 },
+  { label: 'Pharma', cn: '医药', pct: 65 },
+  { label: 'B2B services', cn: 'B2B', pct: 75 },
 ];
+
+const monthlyTrend = [38, 44, 41, 52, 60, 58, 67, 72, 78, 85, 88, 95];
+const monthLabels = ['J','F','M','A','M','J','J','A','S','O','N','D'];
 ---
 
-<section class="relative py-20 md:py-24 overflow-hidden">
-  <!-- Decorative background -->
-  <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f0f12]"></div>
-  <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
-  <div class="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-[var(--color-brand-orange)] opacity-[0.04]" style="filter: blur(80px);"></div>
-  <div class="absolute bottom-0 right-1/4 w-48 h-48 rounded-full bg-blue-500 opacity-[0.03]" style="filter: blur(60px);"></div>
+<section
+  data-stats-section
+  class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[#0a0a0e]"
+>
+  <!-- Background layers -->
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e]/60 via-[#0a0a0e] to-[#0f0f12]"></div>
+    <div class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:38px_38px] opacity-50"></div>
+    <div class="absolute -top-32 left-[12%] w-[520px] h-[520px] rounded-full bg-[var(--color-brand-orange)]/[0.10] blur-[150px]"></div>
+    <div class="absolute -bottom-32 right-[10%] w-[480px] h-[480px] rounded-full bg-[#3b82f6]/[0.10] blur-[160px]"></div>
+    <span class="absolute right-[-5rem] top-[15%] text-[24rem] lg:text-[28rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none hidden md:block" data-parallax="0.1">数据</span>
+  </div>
 
   <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-12">
-      {stats.map((stat) => (
-        <div class="text-center">
-          <div
-            class="text-4xl sm:text-5xl lg:text-6xl font-semibold font-[var(--font-heading)] text-white leading-none"
-            data-count={stat.count}
-            data-count-suffix={stat.suffix}
-          >
-            {stat.value}
+    <!-- Header band -->
+    <div class="grid grid-cols-12 gap-8 mb-14 lg:mb-20 items-end">
+      <div class="col-span-12 lg:col-span-7" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)]">By the numbers · 数据</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.06]">
+          Twenty years.
+          <span class="block">
+            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">Fifty-plus brands.</span>
+          </span>
+          <span class="block text-white/95">One Shanghai office.</span>
+        </h2>
+      </div>
+      <div class="col-span-12 lg:col-span-5" data-reveal data-reveal-delay="120">
+        <p class="text-base lg:text-lg text-white/65 leading-relaxed">
+          Real WordPress and Astro sites, real Baidu rankings, real Chinese audiences — measured, not promised.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main stats bento grid -->
+    <div class="grid grid-cols-12 gap-4 lg:gap-5 mb-5">
+      <!-- Featured metric: Years + chart -->
+      <div
+        class="col-span-12 md:col-span-6 lg:col-span-5 group relative rounded-3xl bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent border border-white/10 p-7 lg:p-8 overflow-hidden backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-brand-orange)]/40"
+        data-reveal
+        data-cursor-spotlight
+      >
+        <span aria-hidden="true" class="absolute -right-12 -bottom-16 text-[16rem] font-medium font-[var(--font-heading)] text-white/[0.03] leading-none select-none">年</span>
+        <div class="relative">
+          <div class="flex items-center gap-2 mb-5">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 14l3-3 4 4 5-7"/></svg>
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-white/45">Years on the ground</span>
           </div>
-          <div class="mt-3 text-sm sm:text-base text-white/50 font-medium">
-            {stat.label}
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-6xl lg:text-7xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">20</span></span>
+            <span class="text-2xl text-white/55 font-medium">years</span>
+          </div>
+          <p class="text-sm text-white/55 mb-6">Same team, same Shanghai office, since 2005.</p>
+
+          <!-- Mini line/area trend -->
+          <div class="flex items-end gap-1 h-20 mt-6 mb-2">
+            {monthlyTrend.map((v) => (
+              <div class="flex-1 flex flex-col justify-end">
+                <div class="w-full rounded-t bg-gradient-to-t from-[var(--color-brand-orange)] to-[#FF9466] transition-all duration-500 hover:opacity-100 opacity-80" style={`height: ${v}%`}></div>
+              </div>
+            ))}
+          </div>
+          <div class="flex justify-between text-[9px] font-mono text-white/35">
+            {monthLabels.map((m) => (<span>{m}</span>))}
+          </div>
+          <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
+            <span class="text-white/55">Brand launches / month, 2025</span>
+            <span class="text-emerald-300 inline-flex items-center gap-1">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4l8 10H4z"/></svg>
+              compounding
+            </span>
           </div>
         </div>
-      ))}
+      </div>
+
+      <!-- Brands launched: progress ring -->
+      <div
+        class="col-span-12 md:col-span-6 lg:col-span-3 group relative rounded-3xl bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent border border-white/10 p-7 lg:p-8 overflow-hidden backdrop-blur-sm transition-all duration-300 hover:border-[#3b82f6]/40"
+        data-reveal
+        data-reveal-delay="80"
+        data-cursor-spotlight
+      >
+        <div class="flex items-center gap-2 mb-5">
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#3b82f6]/15 text-[#7A9DFF]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </span>
+          <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-white/45">Brands</span>
+        </div>
+
+        <!-- SVG progress ring -->
+        <div class="relative w-full aspect-square max-w-[180px] mx-auto my-3">
+          <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.08)" stroke-width="8" fill="none"/>
+            <circle
+              cx="60" cy="60" r="50"
+              stroke="url(#ringGrad)"
+              stroke-width="8"
+              fill="none"
+              stroke-linecap="round"
+              stroke-dasharray="314"
+              stroke-dashoffset="63"
+              data-progress-ring
+              style="transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 1, 0.36, 1);"
+            />
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#7A9DFF"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="text-4xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">50</span></span>
+            <span class="text-[10px] uppercase tracking-wider text-white/45 mt-1.5">Launched</span>
+          </div>
+        </div>
+        <p class="text-xs text-white/55 text-center mt-2">Foreign brands successfully launched in mainland China.</p>
+      </div>
+
+      <!-- Industries breakdown: bar chart -->
+      <div
+        class="col-span-12 md:col-span-6 lg:col-span-4 group relative rounded-3xl bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent border border-white/10 p-7 lg:p-8 overflow-hidden backdrop-blur-sm transition-all duration-300 hover:border-emerald-400/40"
+        data-reveal
+        data-reveal-delay="160"
+        data-cursor-spotlight
+      >
+        <div class="flex items-center justify-between mb-5">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M9 17V9m4 8V5m4 12v-6"/></svg>
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-white/45">Industries</span>
+          </div>
+          <span class="text-[10px] font-mono text-white/35">depth · 5</span>
+        </div>
+        <div class="space-y-2.5">
+          {industries.map((ind) => (
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[11px] font-medium text-white/85">{ind.label}</span>
+                <span class="text-[10px] font-mono text-white/45">{ind.cn}</span>
+              </div>
+              <div class="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-1000 ease-out origin-left"
+                  data-bar
+                  data-bar-pct={ind.pct}
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Second row: dashboard mockup + comparison -->
+    <div class="grid grid-cols-12 gap-4 lg:gap-5">
+      <!-- Real Baidu analytics dashboard mockup -->
+      <div
+        class="col-span-12 lg:col-span-7 relative rounded-3xl overflow-hidden border border-white/10 group bg-gradient-to-br from-white/[0.04] to-transparent"
+        data-reveal
+      >
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] z-10"></div>
+        <div class="relative">
+          <img
+            src="/images/hero-mockup-baidu-dashboard.webp"
+            alt="WordPress site Baidu search ranking dashboard with Chinese analytics"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- Caption overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0e] via-[#0a0a0e]/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.10] backdrop-blur-md border border-white/15 mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/85">WP Analytics · 实时</span>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-snug max-w-md">
+              Baidu rankings tracked weekly. Reported back monthly.
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison: Translated vs Native -->
+      <div
+        class="col-span-12 lg:col-span-5 group relative rounded-3xl bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent border border-white/10 p-7 lg:p-8 overflow-hidden backdrop-blur-sm transition-all duration-300 hover:border-[var(--color-brand-orange)]/40"
+        data-reveal
+        data-reveal-delay="120"
+        data-cursor-spotlight
+      >
+        <div class="flex items-center gap-2 mb-6">
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </span>
+          <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-white/45">Translated vs Native</span>
+        </div>
+
+        <p class="text-sm text-white/65 leading-relaxed mb-6">Median bounce rate, foreign brand sites in China, first 90 days.</p>
+
+        <!-- Translated row -->
+        <div class="mb-5">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-medium text-white/75 inline-flex items-center gap-1.5">
+              <svg class="w-3 h-3 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+              Translated copy
+            </span>
+            <span class="text-sm font-medium font-[var(--font-heading)] text-red-300"><span data-counter data-counter-suffix="%">82</span></span>
+          </div>
+          <div class="h-2 bg-white/[0.06] rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transition-all duration-1000 ease-out" data-bar data-bar-pct="82" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Native row -->
+        <div class="mb-6">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-medium text-white/75 inline-flex items-center gap-1.5">
+              <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Native, in-house
+            </span>
+            <span class="text-sm font-medium font-[var(--font-heading)] text-emerald-300"><span data-counter data-counter-suffix="%">31</span></span>
+          </div>
+          <div class="h-2 bg-white/[0.06] rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full transition-all duration-1000 ease-out" data-bar data-bar-pct="31" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-white/55">Difference</span>
+          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-300">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7-7m0 0l-7 7m7-7v18"/></svg>
+            <span>−51 pts in your favour</span>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  function initStatsBars() {
+    const bars = document.querySelectorAll<HTMLElement>('[data-bar]');
+    const ring = document.querySelector<SVGCircleElement>('[data-progress-ring]');
+
+    if (!bars.length && !ring) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          if (el.dataset.bar !== undefined) {
+            const pct = parseInt(el.dataset.barPct || '0', 10);
+            requestAnimationFrame(() => {
+              el.style.width = `${pct}%`;
+            });
+          }
+          if (el.tagName === 'circle') {
+            const circle = el as unknown as SVGCircleElement;
+            // 50/50 brands launched out of 50 capacity = full ring
+            // Use 80% as visual fill for "50+"
+            const total = 314;
+            const pct = 0.80;
+            requestAnimationFrame(() => {
+              circle.style.strokeDashoffset = String(total * (1 - pct));
+            });
+          }
+          io.unobserve(el);
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    bars.forEach((b) => io.observe(b));
+    if (ring) io.observe(ring as unknown as Element);
+
+    if (reduceMotion) {
+      bars.forEach((b) => {
+        const pct = parseInt(b.dataset.barPct || '0', 10);
+        b.style.transition = 'none';
+        b.style.width = `${pct}%`;
+      });
+      if (ring) {
+        ring.style.strokeDashoffset = String(314 * (1 - 0.8));
+      }
+    }
+  }
+
+  initStatsBars();
+  document.addEventListener('astro:page-load', initStatsBars);
+  document.addEventListener('astro:after-swap', initStatsBars);
+</script>

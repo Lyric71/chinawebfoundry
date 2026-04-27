@@ -1,8 +1,7 @@
 ---
 /**
- * StatsSection (FR): horizontal band of key metrics with
- * large numbers and supporting labels. Modern dark
- * gradient background for visual contrast.
+ * StatsSection (FR) : bandeau horizontal de chiffres clés,
+ * grands nombres et libellés courts, sur fond sombre.
  */
 interface Stat {
   value: string;
@@ -12,22 +11,21 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: '20+', count: 20, suffix: '+', label: 'Années passées en Chine' },
+  { value: '20+', count: 20, suffix: '+', label: 'Années de présence en Chine' },
   { value: '50+', count: 50, suffix: '+', label: 'Marques internationales lancées' },
-  { value: '5', count: 5, suffix: '', label: 'Secteurs : luxe, industrie, sciences de la vie, pharma, B2B' },
-  { value: 'Native', label: 'Équipe de rédaction chinoise, en interne' },
+  { value: '5', count: 5, suffix: '', label: 'Secteurs : luxe, industrie, sciences de la vie, pharmacie, B2B' },
+  { value: 'Native', label: 'Équipe éditoriale chinoise, en interne' },
 ];
 ---
 
 <section class="relative py-20 md:py-24 overflow-hidden">
-  <!-- Decorative background -->
   <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f0f12]"></div>
   <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
   <div class="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-[var(--color-brand-orange)] opacity-[0.04]" style="filter: blur(80px);"></div>
   <div class="absolute bottom-0 right-1/4 w-48 h-48 rounded-full bg-blue-500 opacity-[0.03]" style="filter: blur(60px);"></div>
 
   <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-12">
       {stats.map((stat) => (
         <div class="text-center">
           <div

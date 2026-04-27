@@ -12,25 +12,21 @@ const images = [
 ];
 ---
 
-<!-- Problem section: accordion + image layout -->
 <section class="pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24">
   <div class="mx-auto max-w-[1400px] section-padding">
-    <!-- Section header -->
     <div class="max-w-3xl mb-16 lg:mb-20">
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
         Le vrai constat
       </p>
       <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-        Votre marque ne prend pas en Chine. Et la traduction n\'y changera rien.
+        Votre marque ne prend pas en Chine. Et la traduction n’y changera rien.
       </h2>
       <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-        La plupart des marques étrangères qui se lancent en Chine commencent par traduire leur site international. Six mois plus tard, elles regardent un taux de rebond au-dessus de 80 % et un pipeline commercial à plat, sans comprendre. Les vraies raisons sont rarement celles qu\'on imagine au siège.
+        La plupart des marques étrangères se lancent en Chine en traduisant leur site mondial. Six mois plus tard, le taux de rebond dépasse 80 % et le pipeline commercial reste vide. Au siège, on ne voit presque jamais venir le coup.
       </p>
     </div>
 
-    <!-- Accordion + image grid -->
     <div class="flex flex-col md:flex-row items-start gap-12 lg:gap-16">
-      <!-- Left: accordion -->
       <div class="w-full md:w-1/2" id="problem-accordion">
         {problems.map((problem, i) => (
           <div
@@ -41,19 +37,13 @@ const images = [
             <button
               type="button"
               class="flex w-full items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
-              aria-expanded={i === 0 ? 'true' : 'false'}
+              aria-expanded="false"
             >
-              <h3 class:list={[
-                'text-lg lg:text-xl font-semibold font-[var(--font-heading)] transition-colors duration-200',
-                i === 0 ? 'text-[var(--color-text-dark)]' : 'text-[var(--color-text-muted)]',
-              ]}>
+              <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] transition-colors duration-200 text-[var(--color-text-muted)]">
                 {problem.title}
               </h3>
               <svg
-                class:list={[
-                  'w-5 h-5 flex-shrink-0 ml-4 transition-transform duration-200',
-                  i === 0 ? 'rotate-180 text-[var(--color-text-dark)]' : 'text-[var(--color-text-muted)]',
-                ]}
+                class="w-5 h-5 flex-shrink-0 ml-4 transition-transform duration-200 text-[var(--color-text-muted)]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -62,12 +52,7 @@ const images = [
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div
-              class:list={[
-                'problem-content overflow-hidden transition-all duration-300',
-                i === 0 ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0',
-              ]}
-            >
+            <div class="problem-content overflow-hidden transition-all duration-300 max-h-0 opacity-0">
               <p class="pb-3 text-base text-[var(--color-text-body)] leading-relaxed">
                 {problem.description}
               </p>
@@ -76,7 +61,6 @@ const images = [
                   {problem.citation}
                 </p>
               )}
-              <!-- Mobile-only image -->
               <div class="md:hidden mb-5">
                 <img
                   src={images[i]}
@@ -91,13 +75,12 @@ const images = [
         ))}
       </div>
 
-      <!-- Right: image (desktop only) -->
       <div class="hidden md:block w-1/2 sticky top-28">
         <div class="relative overflow-hidden rounded-2xl bg-[var(--color-surface-light)]">
           <img
             id="problem-image"
             src={images[0]}
-            alt="Illustration des obstacles rencontrés"
+            alt="Illustration du problème"
             class="w-full aspect-[4/3] object-cover transition-opacity duration-300"
             loading="lazy"
             decoding="async"
@@ -109,10 +92,8 @@ const images = [
   </div>
 </section>
 
-<!-- Parallax transition: problem to solution -->
 <section class="parallax-section relative" style="padding: 12px;">
   <div class="relative h-[75vh]">
-    <!-- Sticky image -->
     <div
       class="parallax-sticky sticky top-[12px] z-0 overflow-hidden rounded-3xl"
       style="height: calc(50vh - 24px);"
@@ -127,7 +108,6 @@ const images = [
       <div class="parallax-overlay absolute inset-0 bg-[#0f0f12]/70"></div>
     </div>
 
-    <!-- Overlay text (scrolls over the sticky image) -->
     <div class="parallax-copy absolute left-0 top-0 flex h-[50vh] w-full flex-col items-center justify-center text-white px-6">
       <p class="mb-3 text-center text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] md:mb-4 md:text-base">
         Notre réponse
@@ -138,11 +118,10 @@ const images = [
     </div>
   </div>
 
-  <!-- Content below the sticky image -->
   <div class="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-8 px-4 pb-16 pt-6">
     <div class="col-span-1 md:col-span-5">
       <h2 class="text-2xl sm:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
-        Une agence web en Chine. À Shanghai. Stratégique avant d\'être technique.
+        Une agence web en Chine. À Shanghai. Stratégique avant d’être technique.
       </h2>
     </div>
     <div class="col-span-1 md:col-span-7">
@@ -150,7 +129,6 @@ const images = [
         Nous bâtissons des sites qui touchent vraiment le public chinois. Dans cet ordre :
       </p>
 
-      <!-- Pile de priorités -->
       <div class="mb-6 space-y-3">
         <div class="flex items-start gap-4 p-4 rounded-xl bg-[var(--color-surface-light)]">
           <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] flex items-center justify-center" aria-hidden="true">
@@ -167,7 +145,7 @@ const images = [
           </span>
           <div>
             <p class="text-base font-semibold text-[var(--color-text-dark)]">Visibilité</p>
-            <p class="text-base text-[var(--color-text-body)] leading-relaxed">Baidu et les moteurs d\'IA chinois.</p>
+            <p class="text-base text-[var(--color-text-body)] leading-relaxed">Baidu et les moteurs d’IA chinois.</p>
           </div>
         </div>
         <div class="flex items-start gap-4 p-4 rounded-xl bg-[var(--color-surface-light)]">
@@ -181,26 +159,80 @@ const images = [
         </div>
       </div>
 
-      <p class="text-base text-[var(--color-text-muted)] leading-relaxed mb-8 italic">
-        En prime : nous vous aidons à défendre ces choix de localisation devant le siège.
-      </p>
+      <article class="bg-white rounded-2xl p-6 lg:p-8 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 mb-10">
+        <div class="lg:col-span-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+            En prime
+          </p>
+          <h4 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+            Convaincre le siège
+          </h4>
+        </div>
+        <div class="lg:col-span-8 flex items-center">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Nous vous aidons à défendre les choix de localisation devant le siège : argumentaire écrit, comparatifs marché et points de discussion calibrés pour vos parties prenantes.
+          </p>
+        </div>
+      </article>
 
-      <!-- Comment se déroule un projet -->
-      <div class="mb-8 border-l-2 border-[var(--color-brand-orange)] pl-6 space-y-5">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-dark)]">
-          Le déroulé d\'un projet type
+      <div class="mb-10">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+          Le déroulé d’un projet type
         </p>
-        <div>
-          <p class="text-base text-[var(--color-text-dark)] font-semibold">Stratégie et audit, 1 à 2 semaines</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Nous regardons votre site actuel, votre marque, votre catégorie et la concurrence en Chine. Vous repartez avec une feuille de route écrite, où les écarts d\'audience et de contenu sont identifiés avant qu\'une seule ligne de code ne soit touchée.</p>
-        </div>
-        <div>
-          <p class="text-base text-[var(--color-text-dark)] font-semibold">Construction ou migration, 4 à 12 semaines</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Contenu localisé, UX repensée, hébergement avec licence ICP, structuration pour Baidu et pour la recherche par IA dès le premier jour.</p>
-        </div>
-        <div>
-          <p class="text-base text-[var(--color-text-dark)] font-semibold">Croissance, en continu</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Contenu, référencement et maintenance au forfait mensuel fixe. Votre marque continue d\'apparaître.</p>
+
+        <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-5">
+          <div class="hidden md:block absolute left-5 right-5 top-5 h-[2px] bg-gradient-to-r from-[var(--color-brand-orange)] via-[var(--color-brand-orange)]/50 to-[var(--color-brand-orange)]" aria-hidden="true"></div>
+
+          <div class="relative">
+            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-white border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] inline-flex items-center justify-center shadow-sm" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+              </svg>
+            </span>
+            <div class="mt-4">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <p class="text-base font-semibold text-[var(--color-text-dark)]">Stratégie et audit</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] whitespace-nowrap">1 à 2 semaines</span>
+              </div>
+              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                Nous auditons votre site, votre marque et la concurrence chinoise, puis livrons une feuille de route écrite avant la moindre ligne de code.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-white border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] inline-flex items-center justify-center shadow-sm" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
+              </svg>
+            </span>
+            <div class="mt-4">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <p class="text-base font-semibold text-[var(--color-text-dark)]">Construction ou migration</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] whitespace-nowrap">4 à 12 semaines</span>
+              </div>
+              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                Contenu localisé, hébergement ICP, Baidu et IA dès le premier jour.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-[var(--color-brand-orange)] text-white inline-flex items-center justify-center shadow-sm" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.281m5.94 2.281l-2.28 5.941"/>
+              </svg>
+            </span>
+            <div class="mt-4">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <p class="text-base font-semibold text-[var(--color-text-dark)]">Faire grandir</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)] text-white whitespace-nowrap">En continu</span>
+              </div>
+              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                Contenu, référencement et maintenance au forfait mensuel.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -232,7 +264,6 @@ const images = [
       btn?.addEventListener('click', () => {
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-        // Close all
         items.forEach((other) => {
           const otherBtn = other.querySelector('button');
           const otherContent = other.querySelector('.problem-content') as HTMLElement | null;
@@ -248,7 +279,6 @@ const images = [
           otherChevron?.classList.add('text-[var(--color-text-muted)]');
         });
 
-        // If it was closed, open this one
         if (!isOpen) {
           btn.setAttribute('aria-expanded', 'true');
           content?.classList.remove('max-h-0', 'opacity-0');
@@ -258,7 +288,6 @@ const images = [
           chevron?.classList.add('rotate-180', 'text-[var(--color-text-dark)]');
           chevron?.classList.remove('text-[var(--color-text-muted)]');
 
-          // Update desktop image
           const newImage = item.dataset.image;
           if (image && newImage) {
             image.style.opacity = '0';
@@ -275,7 +304,6 @@ const images = [
   document.addEventListener('DOMContentLoaded', initProblemAccordion);
   document.addEventListener('astro:page-load', initProblemAccordion);
 
-  // Parallax scroll animation (disabled on mobile to avoid Safari jank)
   function initParallax() {
     const isMobile = window.matchMedia('(max-width: 767px)').matches;
     if (isMobile) return;
@@ -291,18 +319,14 @@ const images = [
       const sectionHeight = section!.clientHeight;
       const viewportHeight = window.innerHeight;
 
-      // Progress: 0 when section enters, 1 when section leaves
       const rawProgress = -rect.top / (sectionHeight - viewportHeight);
       const progress = Math.max(0, Math.min(1, rawProgress));
 
-      // Scale the sticky image from 1 to 0.85 as you scroll past
       const scale = 1 - progress * 0.15;
       sticky!.style.transform = `scale(${scale})`;
 
-      // Fade overlay from visible to transparent
       overlay!.style.opacity = String(1 - progress);
 
-      // Text visible immediately, fades out as you scroll past
       let copyOpacity = 1;
       if (progress > 0.5) {
         copyOpacity = 1 - (progress - 0.5) / 0.5;

@@ -1,7 +1,7 @@
 ---
 /**
- * SuccessStories (FR) - horizontal scroll carousel
- * Pure Astro + Tailwind + vanilla JS. No external frameworks.
+ * SuccessStories (FR) - carrousel horizontal défilant.
+ * Pure Astro + Tailwind + vanilla JS. Aucun framework externe.
  */
 import { getCollection } from 'astro:content';
 
@@ -18,9 +18,8 @@ const stories = casestudies.map((cs) => ({
 }));
 ---
 
-<section class="py-24 md:py-32 lg:py-40">
+<section class="py-14 md:py-32 lg:py-40">
   <div class="mx-auto max-w-[1400px] section-padding">
-    <!-- Header -->
     <div class="mb-10 flex flex-col gap-8 md:mb-14 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
@@ -30,10 +29,9 @@ const stories = casestudies.map((cs) => ({
           La preuve par le terrain
         </h2>
         <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-lg">
-          Plusieurs entreprises nous ont confié leur site WordPress pour s'ouvrir un chemin en Chine. Voici ce qu'elles en ont retiré, concrètement.
+          Des entreprises qui nous ont confié leur site WordPress pour s’ouvrir un chemin en Chine. Voici ce qu’elles en ont retiré.
         </p>
       </div>
-      <!-- Nav arrows (md+) -->
       <div class="hidden shrink-0 gap-2 md:flex">
         <button
           id="stories-prev"
@@ -57,9 +55,7 @@ const stories = casestudies.map((cs) => ({
     </div>
   </div>
 
-  <!-- Carousel wrapper with overlay arrows -->
   <div class="relative" id="stories-wrapper">
-    <!-- Left arrow overlay -->
     <button
       id="stories-prev-overlay"
       aria-label="Diapositive précédente"
@@ -70,7 +66,6 @@ const stories = casestudies.map((cs) => ({
       </svg>
     </button>
 
-    <!-- Right arrow overlay -->
     <button
       id="stories-next-overlay"
       aria-label="Diapositive suivante"
@@ -81,7 +76,6 @@ const stories = casestudies.map((cs) => ({
       </svg>
     </button>
 
-    <!-- Carousel track - full bleed, scrolls horizontally -->
     <div
       id="stories-track"
       class="flex gap-5 overflow-x-auto scroll-smooth pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
@@ -111,10 +105,8 @@ const stories = casestudies.map((cs) => ({
                 style={`background: linear-gradient(135deg, ${story.color}, ${story.color}dd)`}
               ></div>
             )}
-            <!-- Dark overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
-            <!-- Text content -->
             <div class="absolute inset-x-0 bottom-0 flex flex-col p-6 md:p-8">
               <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-snug mb-2 md:mb-3">
                 {story.title}
@@ -135,7 +127,6 @@ const stories = casestudies.map((cs) => ({
     </div>
   </div>
 
-  <!-- Dot indicators -->
   <div id="stories-dots" class="mt-8 flex justify-center gap-2">
     {stories.map((_, i) => (
       <button
@@ -174,7 +165,6 @@ const stories = casestudies.map((cs) => ({
     const dots = document.querySelectorAll<HTMLButtonElement>('.stories-dot');
     if (!track) return;
 
-    // Clone all slides for seamless infinite loop
     const originalSlides = Array.from(track.children) as HTMLElement[];
     const total = originalSlides.length;
     originalSlides.forEach((slide) => {
@@ -214,7 +204,6 @@ const stories = casestudies.map((cs) => ({
       });
     }
 
-    // When smooth scroll to a clone finishes, snap back to the real slide
     function snapIfNeeded() {
       if (current >= total) {
         current = current - total;
@@ -232,7 +221,6 @@ const stories = casestudies.map((cs) => ({
     function goPrev() {
       if (isTransitioning) return;
       if (current <= 0) {
-        // Jump to the cloned last slide instantly, then scroll back to the real last slide
         track!.scrollTo({ left: total * getSlideWidth(), behavior: 'instant' });
         current = total;
         setTimeout(() => scrollToSlide(total - 1), 20);
@@ -241,7 +229,6 @@ const stories = casestudies.map((cs) => ({
       }
     }
 
-    // Autoplay
     function startAutoplay() {
       stopAutoplay();
       autoplayTimer = window.setInterval(goNext, 5000);
@@ -259,7 +246,6 @@ const stories = casestudies.map((cs) => ({
       startAutoplay();
     }
 
-    // Button listeners
     prev?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
     next?.addEventListener('click', () => { goNext(); resetAutoplay(); });
     prevOverlay?.addEventListener('click', () => { goPrev(); resetAutoplay(); });
@@ -272,12 +258,10 @@ const stories = casestudies.map((cs) => ({
       });
     });
 
-    // Pause autoplay on hover, resume on leave
     const wrapper = document.getElementById('stories-wrapper');
     wrapper?.addEventListener('mouseenter', stopAutoplay);
     wrapper?.addEventListener('mouseleave', startAutoplay);
 
-    // Sync current slide on manual scroll/swipe
     let scrollTimer: number;
     track.addEventListener('scroll', () => {
       if (isTransitioning) return;
@@ -295,11 +279,9 @@ const stories = casestudies.map((cs) => ({
       }, 100);
     });
 
-    // Reset autoplay on touch interaction
     track.addEventListener('touchstart', stopAutoplay, { passive: true });
     track.addEventListener('touchend', () => { resetAutoplay(); }, { passive: true });
 
-    // Remove disabled states - arrows always work in infinite mode
     prev?.removeAttribute('disabled');
     next?.removeAttribute('disabled');
     prevOverlay?.removeAttribute('disabled');
