@@ -1,76 +1,135 @@
 ---
 /**
- * Nos priorités (FR) : cinq axes stratégiques (Contenu, UX, Baidu, IA, Hébergement),
- * chacun avec un titre, un texte court et un lien vers le service correspondant.
+ * Nos cinq priorités : cartes empilées en trois colonnes.
+ * Même structure que la section "Que rédiger · 写什么" de /fr/services/chinese-content/
+ * - Colonne gauche (sombre) : grand idéogramme + label
+ * - Colonne centrale (blanc) : titre + corps
+ * - Colonne droite (surface claire) : CTA lien + ce qui est inclus
  */
 
-const areas = [
+interface Area {
+  label: string;
+  cn: string;
+  title: string;
+  body: string;
+  link: { href: string; label: string };
+  inside: string[];
+}
+
+const areas: Area[] = [
   {
     label: 'Contenu',
-    title: 'Un contenu qui résonne',
-    body: 'Une copie traduite n’est pas une copie localisée. Nos rédacteurs chinois natifs reprennent vos messages depuis la page blanche, avec les codes culturels, les signaux de confiance et la caution d’un tiers que le public chinois cherche en premier.',
+    cn: '内容',
+    title: 'Un contenu qui touche vraiment',
+    body: 'Une traduction, ce n\'est pas une localisation. Nos rédacteurs chinois natifs réécrivent votre discours avec les codes culturels, les signaux de confiance et les cautions tierces que les internautes chinois cherchent en premier.',
     link: { href: '/fr/services/chinese-content/', label: 'Contenu chinois' },
+    inside: ['Édition native', 'Voix de marque en chinois', 'Conformité 广告法'],
   },
   {
     label: 'UX et UI',
-    title: 'Une UX et une UI calées sur les usages locaux',
-    body: 'Mobile d’abord, navigateur WeChat éprouvé, conception pensée pour la manière dont les internautes chinois balayent une page. Signaux de confiance, QR codes et badges de vérification placés à la chinoise, et non à l’occidentale.',
+    cn: '体验',
+    title: 'Une UX et UI calées sur les usages locaux',
+    body: 'Pensé mobile d\'abord, testé dans le navigateur intégré de WeChat, conçu pour la façon dont les internautes chinois balaient une page. Signaux de confiance, QR codes et badges de vérification dans l\'ordre chinois, pas occidental.',
     link: { href: '/fr/services/ux-ui-design/', label: 'Design UX et UI' },
+    inside: ['Mobile d\'abord', 'Testé dans WeChat', 'Confiance avant tout'],
   },
   {
     label: 'Baidu',
-    title: 'Référencement Baidu',
-    body: 'Baidu n’est pas un Google traduit. Critères de classement différents, exigences techniques plus strictes. Nous posons les fondations dont Baidu a besoin pour vous indexer, avant tout le reste.',
-    link: { href: '/fr/services/baidu-seo/', label: 'Référencement Baidu' },
+    cn: '百度',
+    title: 'SEO Baidu',
+    body: 'Baidu n\'est pas un Google traduit. Critères de classement différents, exigences techniques plus strictes. Nous posons les fondations qu\'il faut pour que Baidu vous explore tout simplement.',
+    link: { href: '/fr/services/baidu-seo/', label: 'SEO Baidu' },
+    inside: ['Recherche de mots-clés en chinois', 'Configuration Baidu Webmaster', 'Construction d\'autorité'],
   },
   {
     label: 'Recherche IA',
-    title: 'GEO China : optimisation pour les moteurs d’IA',
-    body: 'Generative Engine Optimisation. DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA sont devenus la première étape pour beaucoup de consommateurs chinois de moins de trente-cinq ans. Ils interrogent, l’IA répond, le clic n’arrive jamais. Nous structurons votre site pour que ces moteurs sachent citer votre marque dans leurs réponses.',
-    link: { href: '/fr/services/geo/', label: 'GEO China' },
+    cn: 'IA',
+    title: 'GEO Chine : optimisation pour la recherche IA',
+    body: 'Generative Engine Optimisation. DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA sont devenus le premier réflexe de bon nombre de consommateurs chinois de moins de trente-cinq ans. Ils posent la question, l\'IA répond, le clic n\'arrive jamais. Nous structurons votre site pour que ces moteurs citent votre marque dans leurs réponses.',
+    link: { href: '/fr/services/geo/', label: 'GEO Chine' },
+    inside: ['DeepSeek + Doubao', 'Schema et llms.txt', 'Suivi des citations'],
   },
   {
     label: 'Infrastructure',
+    cn: '基础',
     title: 'Hébergement et infrastructure en Chine',
-    body: 'Hébergement rapide, sous licence ICP, sur Aliyun, Tencent Cloud ou Huawei Cloud. Géré de bout en bout : votre équipe ne se connecte jamais à une console d’hébergement chinoise.',
-    link: { href: '/fr/services/china-hosting/', label: 'Hébergement en Chine' },
+    body: 'Hébergement rapide, sous licence ICP, sur Aliyun, Tencent Cloud ou Huawei Cloud. Géré de bout en bout pour que votre équipe n\'ait jamais à se connecter à un panel chinois.',
+    link: { href: '/fr/services/china-hosting/', label: 'Hébergement Chine' },
+    inside: ['Dépôt ICP', 'Aliyun / Tencent Cloud', 'Performances surveillées'],
   },
 ];
 ---
 
-<section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
-  <div class="mx-auto max-w-[1400px] section-padding">
-    <div class="max-w-3xl mb-16 lg:mb-20">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-        Nos priorités
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-        Cinq défis. Une équipe qui les a déjà tous traités.
+<section class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
+  <!-- Idéogramme flottant décoratif -->
+  <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.15">焦</span>
+
+  <div class="relative mx-auto max-w-[1400px] section-padding">
+    <!-- En-tête -->
+    <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Nos cinq priorités · 焦点</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+        Cinq défis. Une équipe qui les a déjà résolus.
       </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+        Contenu, UX, Baidu, recherche IA et infrastructure. Les cinq endroits où les sites de marques étrangères trébuchent en Chine, et les cinq endroits où nous les remettons d'aplomb.
+      </p>
     </div>
 
-    <div class="space-y-4 lg:space-y-6">
-      {areas.map((area) => (
-        <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-          <div class="lg:col-span-3">
-            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
-              {area.label}
-            </p>
-            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
-              {area.title}
-            </h3>
+    <!-- Empilement de cartes en trois colonnes -->
+    <div class="space-y-5 lg:space-y-6">
+      {areas.map((a, i) => (
+        <article
+          data-reveal
+          data-reveal-delay={String(i * 60)}
+          data-cursor-spotlight
+          class:list={[
+            'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+            'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+          ]}
+        >
+          <!-- Gauche : fond sombre avec idéogramme + label -->
+          <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+            <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{a.cn}</span>
+            <div class="relative">
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">{a.label}</div>
+              <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{a.cn}</div>
+              <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">Priorité</div>
+            </div>
           </div>
-          <div class="lg:col-span-9">
-            <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-              {area.body}
+
+          <!-- Centre : titre + corps -->
+          <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+            <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4 transition-colors duration-300 group-hover:text-[var(--color-brand-orange)]">
+              {a.title}
+            </h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+              {a.body}
             </p>
+          </div>
+
+          <!-- Droite : ce qui est inclus + lien CTA -->
+          <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-between gap-5">
+            <div>
+              <div class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)] mb-3">Ce qui est inclus</div>
+              <ul class="space-y-2">
+                {a.inside.map((item) => (
+                  <li class="flex items-start gap-2 text-[13px] text-[var(--color-text-dark)] leading-snug">
+                    <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <a
-              href={area.link.href}
-              class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200"
+              href={a.link.href}
+              class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline transition-all duration-300 group-hover:gap-3.5"
             >
-              {area.link.label}
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              {a.link.label}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.25" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>

@@ -2,11 +2,14 @@
 import Button from '../ui/Button.astro';
 ---
 
+<!-- Pourquoi nous : layout iO-style avec cercle de fond + grille photos -->
 <section class="py-24 md:py-32 lg:py-40 overflow-hidden">
   <div class="mx-auto max-w-[1400px] section-padding">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 xl:gap-20">
 
+      <!-- Gauche : texte dans un grand cercle décoratif -->
       <div class="relative lg:w-[50%] flex-shrink-0">
+        {/* Grand cercle d'arrière-plan */}
         <div class="absolute inset-0 -left-4 sm:-left-16 -top-12 -bottom-12 bg-[var(--color-surface-light)] rounded-full scale-110 lg:scale-125 origin-center"></div>
 
         <div class="relative z-10 py-12 lg:py-16 pr-4 lg:pr-8">
@@ -14,55 +17,60 @@ import Button from '../ui/Button.astro';
             Pourquoi nous
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
-            Votre équipe de marque. Postée derrière le Pare-feu.
+            Votre équipe marque. Derrière le Pare-feu.
           </h2>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            Pour qu’un site touche le public chinois, il faut des gens qui partagent son quotidien. Des rédacteurs chinois natifs. Des designers qui ouvrent le site dans WeChat avant Chrome. Des spécialistes SEO qui se positionnent sur Baidu, pas sur Google.
+            Pour toucher le public chinois, il faut des gens qui vivent avec ce public au quotidien. Des rédacteurs chinois natifs. Des designers qui ouvrent le site dans WeChat avant tout. Des spécialistes SEO qui rankent sur Baidu, pas sur Google.
           </p>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-10">
-            Tous ces profils, sous le même toit, dans un même bureau à Shanghai. Vingt ans à installer durablement des marques internationales sur le marché chinois.
+            Tous internalisés, dans un même bureau à Shanghai. Une équipe dirigeante avec plus de 15 ans à faire atterrir des marques étrangères en Chine, comme il faut.
           </p>
           <div class="flex flex-wrap items-center gap-4">
-            <Button href="/fr/who-we-are/" variant="primary" size="md">Notre parcours</Button>
-            <Button href="/fr/resources/faq/" variant="secondary" size="md">Consulter la FAQ</Button>
+            <Button href="/fr/who-we-are/" variant="primary" size="md">Notre histoire</Button>
+            <Button href="/fr/resources/faq/" variant="secondary" size="md">Lire la FAQ</Button>
           </div>
         </div>
       </div>
 
+      <!-- Droite : grille photo 2x2 avec coins intérieurs arrondis -->
       <div class="lg:w-[50%] flex-shrink-0">
         <div class="grid grid-cols-2 gap-3 lg:gap-4 about-photo-grid">
+          {/* Haut gauche - photo équipe */}
           <div class="aspect-square overflow-hidden about-img-tl">
             <img
-              src="/images/hero-strategy-audit.webp"
-              alt="Audit d’un site WordPress pour le marché chinois"
+              src="/images/team/team-photo.webp"
+              alt="L'équipe ChinaWebFoundry à Shanghai"
               class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
             />
           </div>
+          {/* Haut droit - collaboration */}
           <div class="aspect-square overflow-hidden about-img-tr">
             <img
-              src="/images/hero-technical-integration.webp"
-              alt="Intégration technique de WordPress en Chine"
+              src="/images/who-we-are-collaboration.webp"
+              alt="L'équipe ChinaWebFoundry en collaboration dans un studio shanghaïen"
               class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
             />
           </div>
+          {/* Bas gauche - bureau */}
           <div class="aspect-square overflow-hidden about-img-bl">
             <img
-              src="/images/hero-ux-ui-design.webp"
-              alt="Design UX pensé pour les internautes chinois"
+              src="/images/hero-who-we-are-office.webp"
+              alt="Le bureau ChinaWebFoundry à Shanghai"
               class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
             />
           </div>
+          {/* Bas droit - photo équipe (focus) */}
           <div class="aspect-square overflow-hidden about-img-br">
             <img
-              src="/images/hero-chinese-content.webp"
-              alt="Rédaction en chinois pour WordPress"
-              class="w-full h-full object-cover"
+              src="/images/team/team-photo.webp"
+              alt="Les équipes éditoriale et design de ChinaWebFoundry"
+              class="w-full h-full object-cover object-right"
               loading="lazy"
               decoding="async"
             />
@@ -75,6 +83,7 @@ import Button from '../ui/Button.astro';
 </section>
 
 <style>
+  /* Chaque coin intérieur reçoit un grand rayon circulaire pour créer l'effet */
   .about-img-tl {
     border-radius: 8px 8px 50% 8px;
   }
