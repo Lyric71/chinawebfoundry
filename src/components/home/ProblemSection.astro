@@ -168,26 +168,86 @@ const images = [
         </div>
       </div>
 
-      <p class="text-base text-[var(--color-text-muted)] leading-relaxed mb-8 italic">
-        Plus: we help you defend the localisation decisions back at HQ.
-      </p>
+      <!-- Plus card: HQ defence -->
+      <article class="bg-white rounded-2xl p-6 lg:p-8 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 mb-10">
+        <div class="lg:col-span-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+            Plus
+          </p>
+          <h4 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+            HQ Alignment
+          </h4>
+        </div>
+        <div class="lg:col-span-8 flex items-center">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            We help you defend the localisation decisions back at HQ. Written rationale, comparative benchmarks and stakeholder-ready talking points, included.
+          </p>
+        </div>
+      </article>
 
-      <!-- How a typical engagement runs -->
-      <div class="mb-8 border-l-2 border-[var(--color-brand-orange)] pl-6 space-y-5">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-dark)]">
+      <!-- How a typical engagement runs: horizontal phase tracker -->
+      <div class="mb-10">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
           How a typical engagement runs
         </p>
-        <div>
-          <p class="text-base text-[var(--color-text-dark)] font-semibold">Strategy and Audit, 1 to 2 weeks</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">We audit your site, brand and Chinese competition, then deliver a written roadmap before any code is touched.</p>
-        </div>
-        <div>
-          <p class="text-base text-[var(--color-text-dark)] font-semibold">Build or migrate, 4 to 12 weeks</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Localised content, ICP hosting, Baidu and AI search from day one.</p>
-        </div>
-        <div>
-          <p class="text-base text-[var(--color-text-dark)] font-semibold">Grow, ongoing</p>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">Content, search and maintenance on a monthly retainer.</p>
+
+        <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-5">
+          <!-- Horizontal spine connecting the icons (desktop only) -->
+          <div class="hidden md:block absolute left-5 right-5 top-5 h-[2px] bg-gradient-to-r from-[var(--color-brand-orange)] via-[var(--color-brand-orange)]/50 to-[var(--color-brand-orange)]" aria-hidden="true"></div>
+
+          <!-- Phase 1: Strategy and Audit -->
+          <div class="relative">
+            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-white border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] inline-flex items-center justify-center shadow-sm" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+              </svg>
+            </span>
+            <div class="mt-4">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <p class="text-base font-semibold text-[var(--color-text-dark)]">Strategy and Audit</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] whitespace-nowrap">1 to 2 weeks</span>
+              </div>
+              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                We audit your site, brand and Chinese competition, then deliver a written roadmap before any code is touched.
+              </p>
+            </div>
+          </div>
+
+          <!-- Phase 2: Build or migrate -->
+          <div class="relative">
+            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-white border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] inline-flex items-center justify-center shadow-sm" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
+              </svg>
+            </span>
+            <div class="mt-4">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <p class="text-base font-semibold text-[var(--color-text-dark)]">Build or migrate</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] whitespace-nowrap">4 to 12 weeks</span>
+              </div>
+              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                Localised content, ICP hosting, Baidu and AI search from day one.
+              </p>
+            </div>
+          </div>
+
+          <!-- Phase 3: Grow -->
+          <div class="relative">
+            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-[var(--color-brand-orange)] text-white inline-flex items-center justify-center shadow-sm" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.281m5.94 2.281l-2.28 5.941"/>
+              </svg>
+            </span>
+            <div class="mt-4">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <p class="text-base font-semibold text-[var(--color-text-dark)]">Grow</p>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)] text-white whitespace-nowrap">Ongoing</span>
+              </div>
+              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                Content, search and maintenance on a monthly retainer.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

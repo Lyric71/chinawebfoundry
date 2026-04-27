@@ -69,15 +69,6 @@ const casestudies = defineCollection({
   }),
 });
 
-const faq = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/faq' }),
-  schema: z.object({
-    question: z.string(),
-    order: z.number(),
-    category: z.enum(['team', 'process', 'technical']).optional(),
-  }),
-});
-
 // French collections (same schemas, different source directories)
 const servicesFr = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/services-fr' }),
@@ -157,7 +148,7 @@ const faqFr = defineCollection({
 });
 
 export const collections = {
-  services, testimonials, team, faq, guides, casestudies,
+  services, testimonials, team, guides, casestudies,
   'services-fr': servicesFr,
   'testimonials-fr': testimonialsFr,
   'team-fr': teamFr,

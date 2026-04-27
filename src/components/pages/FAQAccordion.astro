@@ -1,58 +1,87 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { faqTopics } from '../../data/faq';
 import FAQItem from './FAQItem.astro';
+import FAQIcon from './FAQIcon.astro';
 
-const faqs = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+const slugify = (value: string): string =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const topics = faqTopics.map((topic) => ({
+  ...topic,
+  id: slugify(topic.title),
+}));
 ---
 
 <div data-faq-accordion>
-  {faqs.map(async (faq) => {
-    const { Content } = await render(faq);
-    return (
-      <FAQItem question={faq.data.question} id={faq.id}>
-        <Content />
-      </FAQItem>
-    );
-  })}
+  {topics.map((topic) => (
+    <section
+      id={topic.id}
+      class="faq-topic scroll-mt-32 mb-20 sm:mb-24"
+      data-faq-topic
+      data-topic-id={topic.id}
+    >
+      <header class="reveal mb-8 sm:mb-10 flex items-start gap-4 sm:gap-5">
+        <span class="relative grid place-items-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[var(--color-brand-orange)]/10 to-[#FF8A4C]/5 text-[var(--color-brand-orange)] shrink-0 ring-1 ring-[var(--color-brand-orange)]/15">
+          <FAQIcon name={topic.icon} class="w-6 h-6 sm:w-7 sm:h-7" />
+          <span class="absolute -inset-1 rounded-2xl bg-[var(--color-brand-orange)]/5 -z-10 blur-xl"></span>
+        </span>
+        <div class="flex-1 pt-1">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-orange)] mb-1.5">Topic</p>
+          <h2 class="text-2xl sm:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            {topic.title}
+          </h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">
+            {topic.items.length} {topic.items.length === 1 ? 'question' : 'questions'}
+          </p>
+        </div>
+      </header>
+
+      <div class="space-y-3 sm:space-y-4">
+        {topic.items.map((item, itemIndex) => (
+          <div class="reveal" style={`--reveal-delay: ${itemIndex * 40}ms`}>
+            <FAQItem
+              question={item.question}
+              answer={item.answer}
+              id={`${topic.id}-${itemIndex}`}
+              searchKey={`${item.question} ${item.answer}`.toLowerCase()}
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <div data-faq-empty class="hidden text-center py-20">
+    <div class="mx-auto w-14 h-14 rounded-full bg-[var(--color-surface-light)] grid place-items-center mb-5">
+      <svg class="w-6 h-6 text-[var(--color-text-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="6" />
+        <path d="m20 20-4.3-4.3M8 11h6" />
+      </svg>
+    </div>
+    <p class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">No matches yet</p>
+    <p class="text-sm text-[var(--color-text-body)]">Try a different keyword, or send us your question directly.</p>
+  </div>
 </div>
 
-<script>
-  function initFaqAccordion() {
-    const accordions = document.querySelectorAll('[data-faq-accordion]');
-
-    accordions.forEach((accordion) => {
-      const items = accordion.querySelectorAll('[data-faq-item]');
-
-      items.forEach((item) => {
-        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement;
-        const content = item.querySelector('[data-faq-content]') as HTMLElement;
-        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement;
-
-        trigger?.addEventListener('click', () => {
-          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-
-          // Close all other items (single collapsible behaviour)
-          items.forEach((otherItem) => {
-            if (otherItem !== item) {
-              const otherTrigger = otherItem.querySelector('[data-faq-trigger]') as HTMLButtonElement;
-              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-              const otherChevron = otherItem.querySelector('[data-faq-chevron]') as SVGElement;
-              otherTrigger?.setAttribute('aria-expanded', 'false');
-              otherContent?.style.setProperty('grid-template-rows', '0fr');
-              otherChevron?.classList.remove('rotate-180');
-            }
-          });
-
-          // Toggle current item
-          const newState = !isOpen;
-          trigger.setAttribute('aria-expanded', String(newState));
-          content?.style.setProperty('grid-template-rows', newState ? '1fr' : '0fr');
-          chevron?.classList.toggle('rotate-180', newState);
-        });
-      });
-    });
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
   }
-
-  initFaqAccordion();
-  document.addEventListener('astro:after-swap', initFaqAccordion);
-</script>
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
