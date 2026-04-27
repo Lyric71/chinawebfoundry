@@ -23,9 +23,9 @@ import ContactForm from '../components/pages/ContactForm.astro';
     </div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32 lg:pb-40">
-      <div class="io-grid items-start gap-y-16">
-        <!-- Left: heading + contact details -->
-        <div class="col-span-12 lg:col-span-5">
+      <div class="io-grid items-start gap-y-12 lg:gap-y-16">
+        <!-- Left top: heading + intro -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-1 lg:row-start-1 order-1">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
             Contact
           </p>
@@ -35,9 +35,11 @@ import ContactForm from '../components/pages/ContactForm.astro';
           <p class="mt-6 text-lg text-white/60 leading-relaxed">
             Whether you're starting fresh or fixing an existing site, we'll reply within 24 hours with straight answers and a clear path forward.
           </p>
+        </div>
 
-          <!-- Contact info -->
-          <div class="mt-12 space-y-6">
+        <!-- Left bottom: contact details -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-1 lg:row-start-2 order-3">
+          <div class="space-y-6">
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center">
                 <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -93,8 +95,8 @@ import ContactForm from '../components/pages/ContactForm.astro';
           </div>
         </div>
 
-        <!-- Right: contact form -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+        <!-- Right: contact form (spans both rows on desktop) -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 order-2">
           <ContactForm />
         </div>
       </div>

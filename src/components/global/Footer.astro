@@ -12,6 +12,11 @@ const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 const footerNav = getFooterNav(currentLang);
 const legalNav = getLegalNav(currentLang);
+
+const planServices = footerNav.services.filter((s) => s.column === 'plan');
+const buildServices = footerNav.services.filter((s) => s.column === 'build' && !s.subColumn);
+const buildTechnology = footerNav.services.filter((s) => s.column === 'build' && s.subColumn === 'technology');
+const growServices = footerNav.services.filter((s) => s.column === 'grow');
 ---
 
 <!-- Footer: nav columns + social + legal -->
@@ -19,7 +24,7 @@ const legalNav = getLegalNav(currentLang);
   <!-- Main footer content -->
   <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-16">
     <div class="grid grid-cols-6 sm:grid-cols-12 gap-y-10 gap-x-4 lg:gap-x-4 items-start">
-      <!-- Manifesto + logo -->
+      <!-- Manifesto + logo + Connect -->
       <div class="col-span-6 sm:col-span-12 lg:col-span-4">
         <a href={localePath('/', currentLang)} class="inline-block mb-5" aria-label="ChinaWebFoundry - Home">
           <img
@@ -34,15 +39,29 @@ const legalNav = getLegalNav(currentLang);
         <p class="text-base text-[var(--color-text-body)] leading-relaxed max-w-sm">
           {t('footer.manifesto')}
         </p>
-      </div>
 
-      <!-- Services column -->
-      <div class="col-span-3 sm:col-span-4 lg:col-span-3">
-        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-          {t('footer.services')}
+        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mt-8 mb-4">
+          {t('footer.connect')}
         </h4>
         <ul class="space-y-2.5 text-sm">
-          {footerNav.services.map((item) => (
+          <li>
+            <a href="mailto:hello@beyondbordergroup.com" class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors inline-flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              hello@beyondbordergroup.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Plan column -->
+      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+          {t('nav.plan')}
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          {planServices.map((item) => (
             <li>
               <a href={item.href} class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
                 {item.label}
@@ -52,8 +71,56 @@ const legalNav = getLegalNav(currentLang);
         </ul>
       </div>
 
-      <!-- Company column -->
-      <div class="col-span-3 sm:col-span-4 lg:col-span-2">
+      <!-- Build column -->
+      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+          {t('nav.build')}
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          {buildServices.map((item) => (
+            <li>
+              <a href={item.href} class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        {buildTechnology.length > 0 && (
+          <>
+            <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mt-5 mb-3">
+              {t('nav.technology')}
+            </h5>
+            <ul class="space-y-2.5 text-sm">
+              {buildTechnology.map((item) => (
+                <li>
+                  <a href={item.href} class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+
+      <!-- Grow column -->
+      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
+          {t('nav.grow')}
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          {growServices.map((item) => (
+            <li>
+              <a href={item.href} class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company + Connect column -->
+      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
         <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
           {t('footer.company')}
         </h4>
@@ -75,23 +142,6 @@ const legalNav = getLegalNav(currentLang);
           <li>
             <a href={localePath('/contact/', currentLang)} class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
               {t('footer.contact')}
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Social column -->
-      <div class="col-span-6 sm:col-span-4 lg:col-span-3">
-        <h4 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-          {t('footer.connect')}
-        </h4>
-        <ul class="space-y-2.5 text-sm">
-          <li>
-            <a href="mailto:hello@beyondbordergroup.com" class="text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] no-underline transition-colors inline-flex items-center gap-2">
-              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-              </svg>
-              hello@beyondbordergroup.com
             </a>
           </li>
         </ul>

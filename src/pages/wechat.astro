@@ -7,159 +7,183 @@ import ScrollEffects from '../components/global/ScrollEffects.astro';
 const metaTitle = 'WeChat for China | Mini Programs and H5 Sites | ChinaWebFoundry';
 const metaDescription = 'We build WeChat Mini Programs and H5 mini-sites for foreign brands in China. Strategy, registration, development, launch from Shanghai.';
 
-const stats = [
-  { value: 1.41, suffix: 'B', label: 'monthly active users on WeChat in 2025', source: 'Tencent Q4 2024 earnings' },
-  { value: 945, suffix: 'M', label: 'monthly Mini Program users', source: 'QuestMobile, 2025' },
-  { value: 79, suffix: 'min', label: 'spent inside WeChat per Chinese user, every day', source: 'QuestMobile annual report' },
+const dayMoments = [
+  { time: '07:30', icon: 'qr', label: 'Morning coffee', body: 'Scan the bakery QR, pay with WeChat Pay, points credited automatically.' },
+  { time: '10:00', icon: 'card', label: 'Loyalty tier', body: 'Tap the brand membership card before the second coffee. Tier check, free upgrade.' },
+  { time: '12:30', icon: 'cart', label: 'Lunch order', body: 'Mini Program of the noodle place down the street. Pre-ordered, ready on arrival.' },
+  { time: '15:00', icon: 'shield', label: 'Service request', body: 'Warranty status on a kitchen appliance. Brand Mini Program. No login needed.' },
+  { time: '19:00', icon: 'bag', label: 'Evening shopping', body: 'Skincare brand Mini Program. Saved cart, WeChat Pay, ready in order history.' },
+  { time: '21:30', icon: 'video', label: 'Channels livestream', body: 'A favourite presenter on Channels. Tap a product, buy, no checkout interruption.' },
+];
+
+const compareRows = [
+  { label: 'Lives where', mp: 'Inside WeChat, like a native app', h5: 'In WeChat\'s in-app browser, also outside' },
+  { label: 'WeChat Pay', mp: 'Yes, full integration', h5: 'Limited, requires Official Account binding' },
+  { label: 'Native APIs', mp: 'Camera, location, scan, login', h5: 'Browser-only' },
+  { label: 'Build time', mp: '10 to 14 weeks', h5: '4 to 6 weeks' },
+  { label: 'Best for', mp: 'Membership, e-commerce, service', h5: 'Campaigns, brochures, lead capture' },
 ];
 
 const useCases = [
   {
     icon: 'badge',
-    title: 'Membership and loyalty programs',
-    body: 'The most common use case for foreign brands. The Mini Program holds the membership card, tracks points, surfaces benefits, and delivers personalised rewards. Starbucks China runs its entire membership system this way, and so do most of the luxury brands operating in the Chinese market.',
-    span: 'feature',
-    badges: ['Membership cards', 'Points', 'Tiered rewards', 'CRM sync'],
+    title: 'Membership and loyalty',
+    body: 'The most common use case for foreign brands. The Mini Program holds the card, tracks points, delivers personalised rewards. Starbucks China runs its entire membership this way.',
+    image: '/images/wechat-usecase-membership-mockup.webp',
+    span: 'image',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Brand experience',
+    body: 'For luxury, beauty, and lifestyle brands: a curated content hub. Campaign films, founder stories, encyclopedias, store locators, virtual try-on, all inside WeChat.',
+    image: '/images/wechat-usecase-content-hub-mockup.webp',
+    span: 'image',
+  },
+  {
+    icon: 'video',
+    title: 'D2C and Channels livestream',
+    body: 'Sell direct without paying Tmall or JD their commission. Mini Program plus WeChat Pay, with private traffic from community groups and Channels livestreams.',
+    image: '/images/wechat-usecase-livestream-mockup.webp',
+    span: 'image',
   },
   {
     icon: 'rocket',
     title: 'Pre-orders and product launches',
-    body: 'For seasonal drops, limited editions, or campaign-driven launches, a Mini Program lets you handle the pre-order flow inside WeChat without sending users to an external site. The conversion difference is large because the friction is gone.',
-    span: 'normal',
+    body: 'For seasonal drops or campaign launches, the pre-order flow stays inside WeChat. No external site, no friction, much higher conversion.',
+    span: 'text',
   },
   {
     icon: 'users',
     title: 'Post-purchase service and CRM',
-    body: 'After-sales service, warranty registration, repair booking, customer support. Putting these inside WeChat means the customer never has to download anything or remember a password.',
-    span: 'normal',
-  },
-  {
-    icon: 'sparkles',
-    title: 'Brand experience and content hubs',
-    body: 'For luxury, beauty, and lifestyle brands, a Mini Program functions as a curated content hub: campaign films, founder stories, product encyclopedias, store locators, virtual try-on. The kind of content that lives on a website in the West tends to live inside WeChat in China.',
-    span: 'normal',
-  },
-  {
-    icon: 'cart',
-    title: 'D2C e-commerce and Tmall alternatives',
-    body: 'For brands that want to sell direct without paying Tmall and JD their commission, WeChat Mini Programs with WeChat Pay are the cleanest path. Combined with private traffic strategies (community groups, KOC referrals, livestreaming on WeChat Channels), this is how a lot of foreign brands are building real D2C revenue in China right now.',
-    span: 'normal',
+    body: 'After-sales, warranty registration, repair booking, support. The customer never downloads an app or remembers a password.',
+    span: 'text',
   },
   {
     icon: 'briefcase',
-    title: 'B2B brochures and product catalogues',
-    body: 'For B2B brands, an H5 brochure or a Mini Program with the full product catalogue and tech specs is often more useful than a brochure PDF. Salespeople share it in 1-on-1 chats and group chats, and prospects browse it from inside the conversation rather than having to download anything separate.',
-    span: 'normal',
+    title: 'B2B brochures and catalogues',
+    body: 'An H5 brochure or Mini Program catalogue is more useful than a PDF. Salespeople share it in chats, prospects browse from inside the conversation.',
+    span: 'text',
   },
   {
     icon: 'qrcode',
     title: 'Offline-to-online integration',
-    body: 'QR codes on packaging, in stores, at events, on print, all opening directly into a Mini Program. This is the moment foreign brands tend to underestimate. In China the QR code is the link to everything. Without a Mini Program on the other end, the QR code is wasted real estate.',
+    body: 'QR codes on packaging, in stores, on print, all opening straight into a Mini Program. In China the QR code is the link to everything. Without one on the other end, it is wasted real estate.',
     span: 'wide',
     badges: ['Packaging', 'In-store', 'Print', 'Events', 'Out-of-home'],
   },
 ];
 
-const pickMiniProgram = [
-  'Users will return repeatedly (membership, e-commerce, service)',
-  'You need WeChat Pay, WeChat Login, or other native APIs',
-  'The experience needs to feel like an app, not a webpage',
-  'You want offline-to-online QR entry into a real product surface',
-  'You are building for the long term, not a single campaign',
-];
-
-const pickH5 = [
-  'You are running a campaign with a defined end date',
-  'The audience may open it outside WeChat too',
-  'You need to ship in days or weeks, not months',
-  'Content matters more than deep platform integration',
-  'You want analytics to flow into your existing global stack',
-];
-
 const techGroups = [
   {
-    label: 'Native development',
+    label: 'Native',
+    cn: '原生',
     accent: 'emerald',
-    items: [
-      {
-        icon: 'code',
-        title: 'WXML, WXSS, JavaScript',
-        body: 'The official Tencent stack. WXML for markup, WXSS for styling, JavaScript for logic. New APIs land here first, audit reviewers prefer it, and long-term maintainability is at its best.',
-      },
-      {
-        icon: 'zap',
-        title: 'When we pick native',
-        body: 'WeChat-only projects where performance, deep API access, or audit predictability matter most. Membership systems, e-commerce, anything that has to feel like a polished app.',
-      },
-      {
-        icon: 'shield',
-        title: 'Cloud Development',
-        body: 'Tencent\'s serverless backend (微信云开发) when the team wants to stay end to end inside the WeChat ecosystem without standing up separate Chinese cloud infrastructure.',
-      },
-    ],
+    headline: 'WXML, WXSS, JavaScript',
+    body: 'The official Tencent stack. New APIs land here first, audit reviewers prefer it, long-term maintainability is at its best. Our default for WeChat-only projects.',
+    tags: ['WXML', 'WXSS', 'JS', 'Cloud Development'],
   },
   {
     label: 'Cross-platform',
+    cn: '跨端',
     accent: 'orange',
-    items: [
-      {
-        icon: 'layers',
-        title: 'Taro',
-        body: 'React-based, built by JD. One codebase compiles to WeChat, Alipay, Douyin, Baidu, JD, and H5. The right call for React teams shipping to multiple Chinese mini-program platforms.',
-      },
-      {
-        icon: 'blocks',
-        title: 'UniApp',
-        body: 'Vue-based, built by DCloud. The broadest target list of any cross-platform framework, including iOS and Android native compilation. The default for Vue teams.',
-      },
-      {
-        icon: 'sliders',
-        title: 'When we pick cross-platform',
-        body: 'When you need WeChat plus Alipay or Douyin in the same campaign, or when an existing React or Vue team wants to keep a familiar workflow. Native is faster; cross-platform is broader.',
-      },
-    ],
+    headline: 'Taro and UniApp',
+    body: 'One codebase, multiple Chinese mini-program platforms. Taro for React teams, UniApp for Vue teams or the broadest target list. The right call when you need WeChat plus Alipay or Douyin.',
+    tags: ['Taro', 'UniApp', 'React', 'Vue'],
   },
   {
-    label: 'UI and TypeScript',
+    label: 'UI systems',
+    cn: '组件库',
     accent: 'amber',
-    items: [
-      {
-        icon: 'palette',
-        title: 'Vant Weapp',
-        body: 'The default UI library for marketing-led and e-commerce Mini Programs. Battle-tested components, Chinese-design-language defaults, fast to ship.',
-      },
-      {
-        icon: 'briefcase',
-        title: 'TDesign',
-        body: 'Tencent\'s own enterprise design system. The right call for complex B2B applications or large-scale internal tools where consistency across surfaces is required.',
-      },
-      {
-        icon: 'type',
-        title: 'TypeScript everywhere',
-        body: 'On every Mini Program project of any real size. Fewer runtime surprises, cleaner refactors, faster onboarding for the next developer who picks it up.',
-      },
-    ],
+    headline: 'Vant Weapp and TDesign',
+    body: 'Vant Weapp for marketing-led and e-commerce projects. TDesign, Tencent\'s own enterprise design system, for complex B2B applications. TypeScript on every project of any real size.',
+    tags: ['Vant Weapp', 'TDesign', 'TypeScript'],
   },
   {
-    label: 'Backend and compliance',
+    label: 'Backend',
+    cn: '后端',
     accent: 'sky',
+    headline: 'Aliyun, Tencent Cloud, PIPL',
+    body: 'Secure APIs through Aliyun or Tencent Cloud, with Chinese-side authentication. Data localisation handled to comply with PIPL and the Cybersecurity Law. CRM and ERP integration as needed.',
+    tags: ['Aliyun', 'Tencent Cloud', 'PIPL', 'CRM/ERP'],
+  },
+];
+
+const ecosystemStats = [
+  { value: '3M+', label: 'Mini Programs in production' },
+  { value: '450M', label: 'daily active Mini Program users' },
+  { value: '949M', label: 'monthly active Mini Program users' },
+];
+
+const saasCategories = [
+  {
+    icon: 'cart',
+    title: 'E-commerce SaaS',
+    cn: '电商 SaaS',
+    body: 'Storefronts, catalogues, WeChat Pay, group buying (拼团), flash sales (秒杀), vouchers (优惠券). Established players from CNY 6,800/year; newer no-code platforms from CNY 1,000 to 2,000.',
     items: [
-      {
-        icon: 'server',
-        title: 'Aliyun and Tencent Cloud',
-        body: 'For Mini Programs connecting to existing CRM, ERP, or product systems, we wire up secure APIs through Aliyun or Tencent Cloud, with Chinese-side authentication.',
-      },
-      {
-        icon: 'lock',
-        title: 'PIPL and Cybersecurity Law',
-        body: 'Data localisation handled to comply with PIPL and the Cybersecurity Law. What has to stay in China stays in China; the rest can flow to your global stack through documented gateways.',
-      },
-      {
-        icon: 'plug',
-        title: 'CRM and ERP integration',
-        body: 'Salesforce, HubSpot, SAP, in-house product databases. We have wired Mini Programs to all of them. The Chinese side stays clean; the global stack keeps its source of truth.',
-      },
+      { en: 'Youzan', cn: '有赞' },
+      { en: 'Weimob', cn: '微盟' },
+      { en: 'Weidian', cn: '微店' },
+      { en: 'Miaopu', cn: '妙铺' },
+      { en: 'Qiaotuoyun', cn: '乔拓云' },
+      { en: 'Guaguazan', cn: '呱呱赞' },
     ],
+    span: 'feature',
+  },
+  {
+    icon: 'badge',
+    title: 'Loyalty, CRM, SCRM',
+    cn: '会员与营销',
+    body: 'SCRM platforms for member tagging (会员标签), behavioural tracking, automated journeys, personalised messaging through corporate WeChat. Global Salesforce, HubSpot, Zendesk setups wire in through connectors.',
+    items: [
+      { en: 'JINGdigital', cn: '径硕科技' },
+      { en: 'Parllay', cn: '' },
+      { en: 'Weiban', cn: '微伴助手' },
+      { en: 'WeCom', cn: '企业微信' },
+    ],
+    span: 'feature',
+  },
+  {
+    icon: 'utensils',
+    title: 'F&B and restaurant ops',
+    cn: '餐饮',
+    body: 'Most chain restaurants in China run on one of these. Scan-to-order (扫码点餐), reservations, queue management (排队叫号), delivery, member rewards. McDonald\'s China and Starbucks (星享俱乐部) run on this stack.',
+    items: [
+      { en: 'Meituan F&B', cn: '美团餐饮' },
+      { en: 'Keruyun', cn: '客如云' },
+      { en: '2Dfire', cn: '二维火' },
+      { en: 'Hualala', cn: '哗啦啦' },
+      { en: 'Weimob F&B', cn: '微盟智慧餐饮' },
+    ],
+    span: 'normal',
+  },
+  {
+    icon: 'calendar',
+    title: 'Booking, events, content',
+    cn: '预订与内容',
+    body: 'DerbySoft and Tongcheng for hotels (Club Med used DerbySoft for direct-booking growth). Damai, Huodongxing, Yoopay for ticketing. Channels and WeChat Live for livestream. Audemars Piguet uses booking-inside-Mini Program for clienteling.',
+    items: [
+      { en: 'DerbySoft', cn: '' },
+      { en: 'Tongcheng', cn: '同程' },
+      { en: 'Damai', cn: '大麦' },
+      { en: 'Huodongxing', cn: '互动吧' },
+      { en: 'Channels', cn: '视频号' },
+    ],
+    span: 'normal',
+  },
+  {
+    icon: 'layers',
+    title: 'Vertical and B2B',
+    cn: '垂直行业',
+    body: 'Industry-specific SaaS we know well: education (打卡), beauty (美业), property (看房), automotive (售后), healthcare (挂号). B2B sales teams run WeCom + Tencent Meeting.',
+    items: [
+      { en: 'WeCom', cn: '企业微信' },
+      { en: 'Tencent Meeting', cn: '腾讯会议' },
+      { en: 'Education', cn: '教育' },
+      { en: 'Beauty', cn: '美业' },
+      { en: 'Healthcare', cn: '医疗' },
+    ],
+    span: 'normal',
   },
 ];
 
@@ -167,32 +191,32 @@ const handleSteps = [
   {
     icon: 'badge',
     title: 'Account registration and verification',
-    body: 'Whether through your WFOE, a local partner entity, or a service-account-only setup. We handle the documentation, the annual verification fee (around CNY 300), the identity checks, and the back-and-forth with Tencent.',
+    body: 'Through your WFOE, a local partner, or a service-account-only setup. Documentation, fees, identity checks, the Tencent back-and-forth.',
   },
   {
     icon: 'shield',
     title: 'MIIT Mini Program filing (小程序备案)',
-    body: 'Mandatory since 2023. Requires a Chinese business licence, a domain with a valid ICP filing, and category-specific approvals. We handle the filing and the 24-hour SMS verification window that trips up most first-time foreign filings.',
+    body: 'Mandatory since 2023. Chinese business licence, ICP-filed domain, category approvals. We handle the 24-hour SMS window that trips up first-time filings.',
   },
   {
     icon: 'server',
     title: 'ICP filing for the supporting domain',
-    body: 'Mini Programs connecting to a backend need it. We handle the filing, hosted on Aliyun, Tencent Cloud, or Huawei Cloud, depending on the rest of your stack.',
+    body: 'Required for Mini Programs with a backend. Aliyun, Tencent Cloud, or Huawei Cloud, depending on your stack.',
   },
   {
     icon: 'card',
     title: 'WeChat Pay integration',
-    body: 'Merchant account setup, certificate generation, API integration, and the test cycle, end to end. The piece that breaks most often when handled by a foreign agency without local presence.',
+    body: 'Merchant account, certificate generation, API, test cycle, end to end. The piece that breaks most often without local presence.',
   },
   {
     icon: 'lock',
     title: 'Privacy compliance (用户隐私保护指引)',
-    body: 'We write the policy, configure the in-app consent UI, and verify against WeChat\'s audit guidelines so the Mini Program passes review the first time rather than the third.',
+    body: 'Policy, in-app consent UI, audit-ready against WeChat\'s guidelines. So the Mini Program passes review the first time.',
   },
   {
     icon: 'zap',
     title: 'Performance and review readiness',
-    body: 'Bundle size, load time, API call frequency, content moderation hooks, all tuned to what Tencent\'s audit reviewers actually look for. Submission goes in clean.',
+    body: 'Bundle size, load time, API frequency, content moderation. Tuned to what Tencent reviewers actually look for.',
   },
 ];
 
@@ -200,8 +224,8 @@ const wechatStack = [
   { name: 'Mini Program', cn: '小程序', role: 'Application' },
   { name: 'Official Account', cn: '公众号', role: 'Channel' },
   { name: 'WeChat Pay', cn: '微信支付', role: 'Payments' },
-  { name: 'WeChat Channels', cn: '视频号', role: 'Video & live' },
-  { name: 'Enterprise WeChat', cn: '企业微信', role: 'B2B & CRM' },
+  { name: 'WeChat Channels', cn: '视频号', role: 'Video and live' },
+  { name: 'Enterprise WeChat', cn: '企业微信', role: 'B2B and CRM' },
   { name: 'Cloud Development', cn: '微信云开发', role: 'Backend' },
 ];
 
@@ -258,11 +282,11 @@ const faqs = [
   },
 ];
 
-const accentClasses: Record<string, { bg: string; text: string; border: string }> = {
-  amber: { bg: 'bg-amber-500/10', text: 'text-amber-300', border: 'border-amber-500/20' },
-  orange: { bg: 'bg-[var(--color-brand-orange)]/15', text: 'text-[var(--color-brand-orange)]', border: 'border-[var(--color-brand-orange)]/25' },
-  sky: { bg: 'bg-sky-500/10', text: 'text-sky-300', border: 'border-sky-500/20' },
-  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-300', border: 'border-emerald-500/20' },
+const accentMap: Record<string, { dot: string; tag: string }> = {
+  emerald: { dot: 'bg-emerald-400', tag: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/25' },
+  orange: { dot: 'bg-[var(--color-brand-orange)]', tag: 'bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)] border-[var(--color-brand-orange)]/25' },
+  amber: { dot: 'bg-amber-400', tag: 'bg-amber-500/15 text-amber-300 border-amber-500/25' },
+  sky: { dot: 'bg-sky-400', tag: 'bg-sky-500/15 text-sky-300 border-sky-500/25' },
 };
 ---
 
@@ -270,486 +294,465 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
 
   <ScrollEffects />
 
-  <!-- Hero -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+  <!-- ===== HERO ===== -->
+  <section class="relative bg-[#07090a] overflow-hidden">
+    <!-- Right-side phone image -->
     <div class="absolute inset-0">
-      <img src="/images/hero-wechat-china-skyline.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/92 via-[#0f0f12]/72 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+      <img src="/images/wechat-hero-phone-mockup.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-right" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07090a] via-[#07090a]/95 via-40% to-[#07090a]/10"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#07090a] to-transparent"></div>
+      <!-- Subtle emerald aura -->
+      <div class="absolute top-1/2 right-1/4 w-[500px] h-[500px] -translate-y-1/2 bg-emerald-500/10 rounded-full blur-3xl"></div>
     </div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-12">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
           <li class="before:content-['/'] before:mx-2 text-white/60">WeChat</li>
         </ol>
       </nav>
 
-      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
-        <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            Technology
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            WeChat for China.
-            <span class="block mt-2 text-[var(--color-brand-orange)]">The operating system, not the app.</span>
+      <div class="grid grid-cols-12 gap-8 items-center pb-24 md:pb-32 lg:pb-40 pt-8 lg:pt-16">
+        <div class="col-span-12 lg:col-span-7 xl:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-300">Technology · 微信</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[72px] xl:text-[84px] font-medium font-[var(--font-heading)] text-white leading-[0.98] tracking-tight">
+            WeChat is not
+            <span class="block text-white/30">an app.</span>
+            <span class="block mt-2 text-[var(--color-brand-orange)]">It is the operating system.</span>
           </h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            1.4 billion people open WeChat dozens of times a day. Conversations, payments, loyalty cards, the brand relationship itself, all of it lives inside one app. If your brand is not in there, you are mostly invisible.
+          <p class="mt-10 text-lg lg:text-xl text-white/65 max-w-xl leading-relaxed">
+            1.4 billion people open WeChat dozens of times a day. Conversations, payments, loyalty cards, shopping, the brand relationship itself, all of it lives inside one app.
           </p>
-          <p class="mt-4 text-base text-white/40 max-w-xl leading-relaxed">
+          <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
             We build Mini Programs and H5 mini-sites for foreign brands. Twenty years on the ground in Shanghai.
           </p>
-          <div class="mt-10 flex flex-wrap gap-4">
+
+          <div class="mt-12 flex flex-wrap gap-4">
             <Button href="/contact/" variant="primary" size="lg">Talk to our team</Button>
             <Button href="/services/strategy-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Start with strategy</Button>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Decorative phone mockup -->
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
-          <div class="relative">
-            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-[36px] p-3 max-w-[280px] mx-auto">
-              <div class="bg-gradient-to-b from-[#1a1d1f] to-[#0f1112] rounded-[28px] overflow-hidden">
-                <!-- Status bar -->
-                <div class="flex items-center justify-between px-5 pt-4 pb-2 text-[10px] text-white/50 font-mono">
-                  <span>9:41</span>
-                  <span class="flex items-center gap-1">
-                    <span class="w-3 h-3 inline-block rounded-full border border-white/40"></span>
-                    <span>5G</span>
-                  </span>
-                </div>
-                <!-- Mini program header -->
-                <div class="px-5 py-4 border-b border-white/5">
-                  <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center">
-                      <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-[11px] text-white/85 font-medium truncate">Brand Mini Program</p>
-                      <p class="text-[9px] text-white/40 font-mono">小程序</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Progress rows -->
-                <div class="px-5 py-5 space-y-3">
-                  <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                      <span class="text-[10px] text-white/55">WeChat Pay</span>
-                      <span class="text-[10px] font-mono text-emerald-400">Live</span>
-                    </div>
-                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
-                      <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                      <span class="text-[10px] text-white/55">MIIT filing</span>
-                      <span class="text-[10px] font-mono text-emerald-400">Filed</span>
-                    </div>
-                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
-                      <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                      <span class="text-[10px] text-white/55">Privacy review</span>
-                      <span class="text-[10px] font-mono text-emerald-400">Passed</span>
-                    </div>
-                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
-                      <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                      <span class="text-[10px] text-white/55">Bundle size</span>
-                      <span class="text-[10px] font-mono text-[var(--color-brand-orange)]">1.6 MB</span>
-                    </div>
-                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
-                      <div class="w-[78%] h-full bg-gradient-to-r from-[var(--color-brand-orange)] to-amber-400 rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
-                <!-- QR row -->
-                <div class="mx-5 mb-5 mt-1 rounded-xl border border-white/8 bg-white/[0.03] p-3 flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-md bg-white p-1 flex-shrink-0">
-                    <div class="w-full h-full grid grid-cols-5 grid-rows-5 gap-px">
-                      {Array.from({ length: 25 }).map((_, i) => (
-                        <span class:list={['block', [0,1,3,4,5,9,15,19,20,21,23,24,11,13,7,17,8].includes(i) ? 'bg-black' : '']}></span>
-                      ))}
-                    </div>
-                  </div>
-                  <div class="min-w-0">
-                    <p class="text-[10px] text-white/75 font-medium leading-tight">Scan to open</p>
-                    <p class="text-[9px] text-white/35 mt-0.5 font-mono truncate">wxapp://brand</p>
-                  </div>
-                </div>
-              </div>
+  <!-- ===== STAT BANNER ===== -->
+  <section class="relative bg-white border-b border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div class="col-span-12 lg:col-span-5 lg:border-r lg:border-[var(--color-surface-border)] lg:pr-10">
+          <div class="flex items-baseline gap-3">
+            <span class="text-7xl lg:text-[120px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count="1.41" data-count-suffix="B">0</span>
+            <span class="text-4xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none">B</span>
+          </div>
+          <p class="mt-4 text-lg text-[var(--color-text-dark)] font-medium leading-snug">
+            monthly active users on WeChat in 2025.
+          </p>
+          <p class="mt-1 text-sm text-[var(--color-text-muted)]">Tencent Q4 2024 earnings.</p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums" data-count="945" data-count-suffix="M">0</span>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none">M</span>
             </div>
-            <div class="absolute -inset-6 bg-emerald-500/10 rounded-[48px] blur-3xl -z-10"></div>
-            <div class="absolute -inset-2 bg-[var(--color-brand-orange)]/8 rounded-[40px] blur-2xl -z-10"></div>
+            <p class="mt-3 text-sm text-[var(--color-text-body)] leading-snug">
+              monthly Mini Program users
+            </p>
+            <p class="text-xs text-[var(--color-text-muted)] mt-1">QuestMobile, 2025</p>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums" data-count="79" data-count-suffix="">0</span>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none">min</span>
+            </div>
+            <p class="mt-3 text-sm text-[var(--color-text-body)] leading-snug">
+              spent inside WeChat per Chinese user, every day
+            </p>
+            <p class="text-xs text-[var(--color-text-muted)] mt-1">QuestMobile annual report</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stat strip -->
-  <section class="border-y border-[var(--color-surface-border)] bg-white">
-    <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        {stats.map((stat, i) => (
-          <div class:list={[
-            'flex flex-col md:flex-row items-start md:items-center gap-5',
-            i > 0 ? 'md:pl-10 md:border-l md:border-[var(--color-surface-border)]' : '',
-          ]}>
-            <div class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
-              0{stat.suffix}
-            </div>
-            <div class="flex-1">
-              <p class="text-base text-[var(--color-text-dark)] leading-snug font-medium">
-                {stat.label}
-              </p>
-              <p class="mt-1 text-sm text-[var(--color-text-muted)]">
-                {stat.source}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- ===== A DAY INSIDE WECHAT ===== -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <!-- Decorative grid -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px); background-size: 48px 48px;"></div>
 
-  <!-- Why It Works: editorial split with QR-scan image -->
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6">
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-12 gap-6 lg:gap-10 items-end mb-14">
+        <div class="col-span-12 lg:col-span-7">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Why WeChat
+            A day inside WeChat
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            The gravity well of Chinese digital.
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+            From the morning scan
+            <span class="block text-[var(--color-text-muted)]">to the night livestream.</span>
           </h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            For a Chinese consumer, WeChat is the default. Conversations, payments, loyalty cards, service requests, the brand relationship itself, all of it lives inside the app. A regular website still matters for SEO and AI search, but the everyday customer relationship happens in WeChat.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            There is no Instagram, no WhatsApp, no PayPal. WeChat replaces all of them. Most foreign brands also under-invest on the localisation side, translating the UX and keeping a Western flow that reads as foreign.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            We build for how Chinese users actually navigate WeChat, not for how a Western team expects a mobile app to behave.
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            A typical day for a Chinese consumer. Six moments where WeChat is the default. The brand relationship lives in there or it does not exist.
           </p>
         </div>
-
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-12 lg:mt-0">
-          <figure class="relative">
-            <div class="relative aspect-square rounded-2xl overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
-              <img
-                src="/images/wechat-daily-life-qr-scan.webp"
-                alt="A pair of hands holding a smartphone, scanning a QR code on a wooden cafe table in Shanghai"
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
-            </div>
-            <!-- Floating caption card -->
-            <div class="absolute bottom-3 left-3 sm:-bottom-6 sm:-left-6 lg:-left-10 bg-white border border-[var(--color-surface-border)] rounded-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] p-4 sm:p-5 max-w-[240px] sm:max-w-[280px]">
-              <p class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)] font-semibold mb-2">
-                79 minutes a day →
-              </p>
-              <p class="text-sm text-[var(--color-text-body)] leading-snug">
-                Chinese users spend an average of 79 minutes per day inside WeChat. Brands that show up there once and never again are forgotten.
-              </p>
-            </div>
-            <div class="absolute -inset-4 bg-emerald-500/8 rounded-3xl blur-2xl -z-10"></div>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mini Program vs H5: decision split -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-2xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          Mini Program or H5
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          They are not the same thing.
-        </h2>
-        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-          Most foreign brands end up with both, plus an Official Account for content and followers. The Mini Program is the application, the Official Account is the channel, the H5 is the campaign layer.
-        </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <!-- Mini Program -->
-        <div class="relative bg-[var(--color-surface-dark)] border border-white/10 rounded-2xl p-8 lg:p-10 overflow-hidden text-white">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
-          <div class="relative">
-            <div class="flex items-start gap-4 mb-6">
-              <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <!-- Timeline rail -->
+      <div class="relative">
+        <div class="hidden lg:block absolute left-0 right-0 top-[60px] h-px bg-gradient-to-r from-transparent via-[var(--color-brand-orange)]/30 to-transparent"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-3">
+          {dayMoments.map((m, i) => (
+            <div class="group relative">
+              <!-- Time chip with dot -->
+              <div class="flex items-center gap-2 mb-3">
+                <span class="relative flex w-3 h-3 items-center justify-center">
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)]/30"></span>
+                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-brand-orange)]"></span>
+                </span>
+                <span class="text-xs font-mono font-semibold text-[var(--color-brand-orange)] tabular-nums">{m.time}</span>
               </div>
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-1">
-                  Pick a Mini Program
-                </p>
-                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-white leading-tight">
-                  Native, app-feeling, long-term.
+
+              <article class="relative bg-white rounded-2xl border border-[var(--color-surface-border)] p-5 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1 hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.25)] transition-all duration-300 h-full">
+                <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                  {m.icon === 'qr' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h2v2"/><path d="M18 14h3v3"/><path d="M14 18v3"/><path d="M18 21h3"/></svg>
+                  )}
+                  {m.icon === 'card' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                  )}
+                  {m.icon === 'cart' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                  )}
+                  {m.icon === 'shield' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  )}
+                  {m.icon === 'bag' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                  )}
+                  {m.icon === 'video' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  )}
+                </div>
+                <h3 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">
+                  {m.label}
                 </h3>
-              </div>
-            </div>
-            <p class="text-[15px] text-white/70 leading-relaxed mb-6">
-              Native applications living inside WeChat. WXML, WXSS, JavaScript, with full access to WeChat Pay, WeChat Login, location, camera, scan-to-open. The right call for e-commerce, membership, booking, anything that has to feel like an app.
-            </p>
-            <ul class="space-y-3 border-t border-white/10 pt-6">
-              {pickMiniProgram.map((item) => (
-                <li class="flex gap-3 items-start">
-                  <svg class="flex-shrink-0 w-4 h-4 mt-1 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span class="text-[15px] text-white/85 leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <!-- H5 -->
-        <div class="relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10 overflow-hidden">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
-          <div class="relative">
-            <div class="flex items-start gap-4 mb-6">
-              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/15 flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
-                  Pick an H5 mini-site
+                <p class="text-[13px] text-[var(--color-text-body)] leading-relaxed">
+                  {m.body}
                 </p>
-                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-                  Faster, lighter, campaign-grade.
-                </h3>
-              </div>
+              </article>
             </div>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
-              Mobile-optimised webpages that open inside the WeChat in-app browser. Easier to build, faster to ship, and they work outside WeChat too. The trade-off is API access. The right call for campaigns, brochures, lead generation, and content without deep WeChat integration.
-            </p>
-            <ul class="space-y-3 border-t border-[var(--color-surface-border)] pt-6">
-              {pickH5.map((item) => (
-                <li class="flex gap-3 items-start">
-                  <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          ))}
         </div>
       </div>
 
-      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
-        Not sure which fits your project? <a href="/services/strategy-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategy and Audit</a> is where the conversation usually starts.
+      <p class="mt-12 text-center text-base lg:text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed italic">
+        There is no Instagram, no WhatsApp, no PayPal. WeChat replaces all of them.
       </p>
     </div>
   </section>
 
-  <!-- What WeChat Mini Programs are best at: bento -->
-  <section class="section-spacing">
+  <!-- ===== MINI PROGRAM VS H5 ===== -->
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
-        <div class="max-w-2xl">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            What WeChat is For
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            What WeChat Mini Programs are best at.
-          </h2>
-        </div>
-        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed lg:max-w-md">
-          The strongest use cases we see, repeatedly, with international brands.
+      <div class="max-w-3xl mb-16">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Mini Program or H5
         </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+          They live in WeChat,
+          <span class="block text-[var(--color-text-muted)]">but they are not the same thing.</span>
+        </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 auto-rows-fr">
-        {useCases.map((item) => {
-          const spanClass =
-            item.span === 'feature'
-              ? 'lg:col-span-7'
-              : item.span === 'wide'
-                ? 'lg:col-span-12'
-                : 'lg:col-span-4';
-          const isFeature = item.span === 'feature';
-          return (
-            <article class:list={[
-              'group relative rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]',
-              spanClass,
-              isFeature
-                ? 'bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] border-white/10 text-white p-8 lg:p-10'
-                : 'bg-white border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)]/30 p-7',
-            ]}>
-              <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div class="relative h-full flex flex-col">
-                <div class:list={[
-                  'w-11 h-11 rounded-xl flex items-center justify-center mb-5',
-                  isFeature ? 'bg-emerald-500/15 border border-emerald-400/25' : 'bg-[var(--color-brand-orange)]/10',
-                ]}>
-                  {item.icon === 'badge' && (
-                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                  )}
-                  {item.icon === 'rocket' && (
-                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-                  )}
-                  {item.icon === 'users' && (
-                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  )}
-                  {item.icon === 'sparkles' && (
-                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
-                  )}
-                  {item.icon === 'cart' && (
-                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                  )}
-                  {item.icon === 'briefcase' && (
-                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                  )}
-                  {item.icon === 'qrcode' && (
-                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h2v2"/><path d="M18 14h3v3"/><path d="M14 18v3"/><path d="M18 21h3"/></svg>
-                  )}
-                </div>
-
-                <h3 class:list={[
-                  'font-semibold font-[var(--font-heading)] leading-tight mb-3',
-                  isFeature ? 'text-2xl lg:text-[28px] text-white' : 'text-lg text-[var(--color-text-dark)]',
-                ]}>
-                  {item.title}
-                </h3>
-                <p class:list={[
-                  'leading-relaxed flex-1',
-                  isFeature ? 'text-base lg:text-lg text-white/70' : 'text-[15px] text-[var(--color-text-body)]',
-                ]}>
-                  {item.body}
-                </p>
-
-                {item.badges && (
-                  <div class="flex flex-wrap gap-2 mt-6">
-                    {item.badges.map((badge) => (
-                      <span class:list={[
-                        'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border',
-                        isFeature
-                          ? 'bg-white/[0.06] text-white/80 border-white/15'
-                          : 'bg-[var(--color-surface-light)] text-[var(--color-text-body)] border-[var(--color-surface-border)]',
-                      ]}>
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                )}
+      <!-- Phone screenshots side by side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-12">
+        <!-- Mini Program -->
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/30 to-transparent rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+          <div class="relative bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] rounded-3xl overflow-hidden border border-emerald-500/20">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="/images/wechat-mini-program-screen-mockup.webp" alt="Native WeChat Mini Program interface mockup with tab navigation, membership card, and product grid" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-400/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-mono font-semibold text-emerald-300 uppercase tracking-wider">Native</span>
               </div>
-            </article>
-          );
-        })}
+            </div>
+            <div class="p-7 lg:p-8">
+              <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">
+                Mini Program <span class="text-white/40 text-xl">小程序</span>
+              </h3>
+              <p class="text-[15px] text-white/65 leading-relaxed mb-6">
+                Native, lives inside WeChat. Full access to WeChat Pay, Login, camera, location. The right call for anything that has to feel like an app.
+              </p>
+              <ul class="space-y-2.5">
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-white/85">Users will return repeatedly (membership, e-commerce)</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-white/85">You need WeChat Pay or other native APIs</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-white/85">You are building for the long term, not a single campaign</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- H5 -->
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-br from-[var(--color-brand-orange)]/30 to-transparent rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+          <div class="relative bg-white rounded-3xl overflow-hidden border border-[var(--color-surface-border)]">
+            <div class="aspect-[4/3] relative overflow-hidden bg-[var(--color-surface-light)]">
+              <img src="/images/wechat-h5-screen-mockup.webp" alt="H5 mini-site interface mockup with browser address bar, hero image and call-to-action button" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[var(--color-surface-border)] shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                <span class="text-xs font-mono font-semibold text-[var(--color-brand-orange)] uppercase tracking-wider">Web</span>
+              </div>
+            </div>
+            <div class="p-7 lg:p-8">
+              <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+                H5 mini-site
+              </h3>
+              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+                Mobile webpages opened inside WeChat's browser. Faster to ship, work outside WeChat too, but no native APIs. For campaigns, brochures, lead capture.
+              </p>
+              <ul class="space-y-2.5">
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-[var(--color-text-body)]">You are running a campaign with a fixed end date</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-[var(--color-text-body)]">You need to ship in days or weeks</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-[var(--color-text-body)]">Content matters more than deep platform integration</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Astro / H5 compliance callout -->
+      <div class="relative bg-[var(--color-surface-dark)] rounded-2xl border border-[var(--color-brand-orange)]/20 p-6 lg:p-7 mb-12 overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[var(--color-brand-orange)]/10 blur-3xl"></div>
+        <div class="relative flex flex-col md:flex-row md:items-center gap-5 md:gap-7">
+          <div class="flex-shrink-0">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/25">
+              <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.097.388-.225.608-.355.166.473.209.95.151 1.435-.14 1.182-.738 2.094-1.688 2.789-.38.278-.781.527-1.173.79-1.205.81-1.531 1.76-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.554-1.815c-.012-.318-.012-.638-.069-.951-.135-.762-.504-1.103-1.2-1.123-.713-.02-1.277.417-1.426 1.101-.012.053-.029.104-.046.165h-.008zm-7.04-7.013s3.875-1.881 7.747-1.881l2.937-9.067c.108-.434.422-.722.778-.722.355 0 .67.288.778.722l2.937 9.067c4.582 0 7.747 1.881 7.747 1.881L17.18 1.62a1.546 1.546 0 0 0-1.483-1.062H8.302a1.546 1.546 0 0 0-1.482 1.062L.005 13.149h1.313z"/></svg>
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">Astro × H5</span>
+            </div>
+          </div>
+          <p class="text-[15px] lg:text-base text-white/80 leading-relaxed">
+            <strong class="text-white">Good news for Astro sites.</strong> An <a href="/astro/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Astro</a> site built for China is already H5-compliant by default. Static, fast, no blocked dependencies. The H5 deliverable is mostly just the same site, scoped for the campaign.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="bg-[var(--color-surface-light)] rounded-2xl border border-[var(--color-surface-border)] overflow-hidden">
+        <div class="grid grid-cols-3 px-6 lg:px-8 py-4 bg-white border-b border-[var(--color-surface-border)]">
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]"></span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            Mini Program
+          </span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+            H5
+          </span>
+        </div>
+        {compareRows.map((row, i) => (
+          <div class:list={['grid grid-cols-3 px-6 lg:px-8 py-4 text-sm', i < compareRows.length - 1 ? 'border-b border-[var(--color-surface-border)]/60' : '']}>
+            <span class="text-[var(--color-text-muted)] font-medium">{row.label}</span>
+            <span class="text-[var(--color-text-dark)]">{row.mp}</span>
+            <span class="text-[var(--color-text-dark)]">{row.h5}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
+        Not sure which fits? <a href="/services/strategy-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategy and Audit</a> is where the conversation starts.
+      </p>
     </div>
   </section>
 
-  <!-- Tech stack: feature image + bento groups -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0d]"></div>
-
-    <div class="relative">
-      <div class="absolute inset-0">
-        <img
-          src="/images/wechat-mini-program-code-studio.webp"
-          alt=""
-          class="absolute inset-0 w-full h-full object-cover opacity-55"
-          loading="lazy"
-          decoding="async"
-          aria-hidden="true"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/80 to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--color-surface-dark)] to-transparent"></div>
+  <!-- ===== SEVEN WAYS BRANDS USE WECHAT ===== -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          What WeChat is For
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+          Seven ways brands
+          <span class="block text-[var(--color-text-muted)]">use WeChat right now.</span>
+        </h2>
       </div>
 
-      <div class="relative mx-auto max-w-[1400px] section-padding pt-20 pb-16 lg:pt-28 lg:pb-24">
-        <div class="max-w-2xl">
+      <!-- 3 image cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        {useCases.filter((c) => c.span === 'image').map((item) => (
+          <article class="group relative bg-white rounded-2xl overflow-hidden border border-[var(--color-surface-border)] hover:border-emerald-500/30 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.2)] transition-all duration-300">
+            <div class="aspect-[4/3] relative overflow-hidden bg-[#0f1314]">
+              <img src={item.image} alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent"></div>
+            </div>
+            <div class="p-6 lg:p-7">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                  {item.icon === 'badge' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  )}
+                  {item.icon === 'sparkles' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
+                  )}
+                  {item.icon === 'video' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  )}
+                </div>
+                <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  {item.title}
+                </h3>
+              </div>
+              <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- 3 text cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        {useCases.filter((c) => c.span === 'text').map((item) => (
+          <article class="group relative bg-white rounded-2xl border border-[var(--color-surface-border)] p-7 hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-1 hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.18)] transition-all duration-300">
+            <div class="w-10 h-10 rounded-lg bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-4">
+              {item.icon === 'rocket' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+              )}
+              {item.icon === 'users' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              )}
+              {item.icon === 'briefcase' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              )}
+            </div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+              {item.title}
+            </h3>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+              {item.body}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <!-- Wide QR card -->
+      {useCases.filter((c) => c.span === 'wide').map((item) => (
+        <article class="relative bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] rounded-2xl border border-white/10 p-8 lg:p-12 overflow-hidden">
+          <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl"></div>
+          <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[var(--color-brand-orange)]/10 blur-3xl"></div>
+
+          <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="col-span-1 lg:col-span-2 flex justify-center lg:justify-start">
+              <!-- Stylised QR pattern -->
+              <div class="w-28 h-28 lg:w-32 lg:h-32 bg-white rounded-2xl p-3 shadow-[0_20px_60px_-20px_rgba(16,185,129,0.5)]">
+                <div class="w-full h-full grid grid-cols-7 grid-rows-7 gap-px">
+                  {Array.from({ length: 49 }).map((_, i) => {
+                    const corners = [0,1,2,3,4,5,6,7,11,12,13,14,15,21,22,28,35,42,43,44,45,46,47,48,41,34,27,20,9,16,18,25,32,30,38];
+                    return <span class:list={['block rounded-[1px]', corners.includes(i) ? 'bg-black' : '']}></span>;
+                  })}
+                </div>
+              </div>
+            </div>
+            <div class="col-span-1 lg:col-span-7 text-center lg:text-left">
+              <p class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-300 mb-3">
+                Offline-to-online
+              </p>
+              <h3 class="text-2xl lg:text-[34px] font-medium font-[var(--font-heading)] text-white leading-tight mb-4">
+                {item.title}
+              </h3>
+              <p class="text-base lg:text-lg text-white/65 leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+            <div class="col-span-1 lg:col-span-3">
+              <div class="flex flex-wrap gap-2 justify-center lg:justify-end">
+                {item.badges?.map((badge) => (
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border bg-white/[0.06] text-white/85 border-white/15">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== TECH STACK ===== -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/wechat-mini-program-code-studio.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" decoding="async" aria-hidden="true" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)]/95 via-[var(--color-surface-dark)]/90 to-[var(--color-surface-dark)]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-20 pb-20 lg:pt-28 lg:pb-28">
+      <div class="grid grid-cols-12 gap-6 mb-14">
+        <div class="col-span-12 lg:col-span-7">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
             The Technology
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] mb-6">
-            The technology behind it.
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] tracking-tight">
+            Native, cross-platform,
+            <span class="block text-white/40">or a mix.</span>
           </h2>
-          <p class="text-base lg:text-lg text-white/75 leading-relaxed">
-            Native, cross-platform, or a mix. Choosing the right stack is the first decision that ripples through everything else, from audit pass-rate to long-term maintenance cost.
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 self-end">
+          <p class="text-base text-white/60 leading-relaxed">
+            The first decision ripples through everything else, from audit pass-rate to long-term maintenance cost.
           </p>
         </div>
       </div>
-    </div>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding pb-20 lg:pb-28">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {techGroups.map((group) => {
-          const a = accentClasses[group.accent];
+        {techGroups.map((g) => {
+          const a = accentMap[g.accent];
           return (
-            <div class="relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-7 lg:p-8 hover:bg-white/[0.05] transition-colors">
-              <div class="flex items-center gap-3 mb-6 pb-5 border-b border-white/10">
-                <span class:list={['inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-semibold uppercase tracking-wider border', a.bg, a.text, a.border]}>
-                  {group.label}
-                </span>
+            <div class="relative bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-2xl p-7 lg:p-8 hover:bg-white/[0.06] hover:border-white/20 transition-all">
+              <div class="flex items-center gap-3 mb-5">
+                <span class:list={['w-2 h-2 rounded-full', a.dot]}></span>
+                <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-white/50">{g.label}</span>
+                <span class="text-[11px] font-[var(--font-heading)] text-white/30">{g.cn}</span>
               </div>
-
-              <div class="space-y-5">
-                {group.items.map((item) => (
-                  <div class="flex gap-4">
-                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                      {item.icon === 'code' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                      )}
-                      {item.icon === 'zap' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                      )}
-                      {item.icon === 'shield' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                      )}
-                      {item.icon === 'layers' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                      )}
-                      {item.icon === 'blocks' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                      )}
-                      {item.icon === 'sliders' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-                      )}
-                      {item.icon === 'palette' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-                      )}
-                      {item.icon === 'briefcase' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                      )}
-                      {item.icon === 'type' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
-                      )}
-                      {item.icon === 'server' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                      )}
-                      {item.icon === 'lock' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                      )}
-                      {item.icon === 'plug' && (
-                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14a2 2 0 0 1 2 2v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3a2 2 0 0 1 2-2z"/></svg>
-                      )}
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <h3 class="text-base font-semibold font-[var(--font-heading)] text-white leading-tight mb-1.5">
-                        {item.title}
-                      </h3>
-                      <p class="text-[14px] text-white/60 leading-relaxed">
-                        {item.body}
-                      </p>
-                    </div>
-                  </div>
+              <h3 class="text-xl lg:text-2xl font-semibold font-[var(--font-heading)] text-white leading-tight mb-3">
+                {g.headline}
+              </h3>
+              <p class="text-[15px] text-white/65 leading-relaxed mb-5">
+                {g.body}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {g.tags.map((t) => (
+                  <span class:list={['inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono font-medium border', a.tag]}>
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
@@ -759,33 +762,30 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
-  <!-- WeChat ecosystem credibility band -->
+  <!-- ===== WECHAT ECOSYSTEM STRIP ===== -->
   <section class="bg-white border-y border-[var(--color-surface-border)]">
-    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-16">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-14">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
             The WeChat Ecosystem
           </p>
           <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
             The Tencent surfaces we wire your brand into.
           </h2>
         </div>
-        <p class="lg:max-w-xs text-sm text-[var(--color-text-muted)] leading-relaxed">
-          A real China-facing brand uses several of these together. We help you choose which ones, then build them.
-        </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {wechatStack.map((entry) => (
-          <div class="group relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-xl p-5 hover:border-emerald-500/40 hover:bg-white transition-colors">
-            <p class="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
+          <div class="group relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-xl p-4 hover:border-emerald-500/40 hover:bg-white transition-colors">
+            <p class="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] mb-2 font-semibold">
               {entry.role}
             </p>
-            <p class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            <p class="text-[15px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
               {entry.name}
             </p>
-            <p class="text-sm text-[var(--color-text-muted)] font-[var(--font-heading)] mt-1">
+            <p class="text-xs text-[var(--color-text-muted)] font-[var(--font-heading)] mt-1">
               {entry.cn}
             </p>
           </div>
@@ -794,52 +794,193 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
-  <!-- What We Handle: regulatory bento -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-end mb-14">
+  <!-- ===== ECOSYSTEM (We do not reinvent the wheel) ===== -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <!-- Decorative network pattern -->
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 32px 32px;"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Header -->
+      <div class="grid grid-cols-12 gap-6 lg:gap-10 items-end mb-12">
         <div class="col-span-12 lg:col-span-7">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            What We Handle
+            The Ecosystem · 生态
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            What we handle to get your brand live on WeChat.
+          <h2 class="text-3xl sm:text-4xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.02] tracking-tight">
+            We do not
+            <span class="block">reinvent the wheel.</span>
           </h2>
         </div>
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-6 lg:mt-0">
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            The technology is one thing. The regulatory layer is the other, and it is where most foreign brands stall. We carry both.
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+            The Mini Program ecosystem is enormous and mature. Whatever your business does, the odds are good that someone has already solved 70 percent of the problem and packaged it into a SaaS you can license today.
           </p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Stats banner -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mb-12 bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] rounded-2xl border border-white/10 overflow-hidden">
+        {ecosystemStats.map((s, i) => (
+          <div class:list={[
+            'p-7 lg:p-8',
+            i > 0 ? 'md:border-l border-white/10' : '',
+          ]}>
+            <p class="text-4xl lg:text-5xl font-medium font-[var(--font-heading)] text-emerald-400 leading-none tabular-nums mb-3">
+              {s.value}
+            </p>
+            <p class="text-[14px] text-white/60 leading-snug">
+              {s.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bento: top row 2 feature cards, bottom row 3 equal cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+        {saasCategories.filter((c) => c.span === 'feature').map((cat) => (
+          <article class="group relative bg-[var(--color-surface-light)] rounded-2xl border border-[var(--color-surface-border)] p-7 lg:p-8 hover:border-[var(--color-brand-orange)]/30 hover:bg-white hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.18)] transition-all duration-300 overflow-hidden flex flex-col">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-11 h-11 rounded-xl bg-white border border-[var(--color-surface-border)] flex items-center justify-center group-hover:border-[var(--color-brand-orange)]/30 transition-colors">
+                {cat.icon === 'cart' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                )}
+                {cat.icon === 'badge' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                )}
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  {cat.title}
+                </h3>
+                <p class="text-xs text-[var(--color-text-muted)] font-[var(--font-heading)] mt-0.5">
+                  {cat.cn}
+                </p>
+              </div>
+            </div>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed mb-6 flex-1">
+              {cat.body}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {cat.items.map((item) => (
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px] group-hover:border-[var(--color-brand-orange)]/20 transition-colors">
+                  <span class="font-mono font-semibold text-[var(--color-text-dark)]">{item.en}</span>
+                  {item.cn && <span class="font-[var(--font-heading)] text-[var(--color-text-muted)] text-[12px]">{item.cn}</span>}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {saasCategories.filter((c) => c.span === 'normal').map((cat) => (
+          <article class="group relative bg-[var(--color-surface-light)] rounded-2xl border border-[var(--color-surface-border)] p-7 hover:border-[var(--color-brand-orange)]/30 hover:bg-white hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.18)] transition-all duration-300 overflow-hidden flex flex-col">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-white border border-[var(--color-surface-border)] flex items-center justify-center group-hover:border-[var(--color-brand-orange)]/30 transition-colors">
+                {cat.icon === 'utensils' && (
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                )}
+                {cat.icon === 'calendar' && (
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                )}
+                {cat.icon === 'layers' && (
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                )}
+              </div>
+              <div>
+                <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  {cat.title}
+                </h3>
+                <p class="text-xs text-[var(--color-text-muted)] font-[var(--font-heading)] mt-0.5">
+                  {cat.cn}
+                </p>
+              </div>
+            </div>
+            <p class="text-[13px] text-[var(--color-text-body)] leading-relaxed mb-5 flex-1">
+              {cat.body}
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              {cat.items.map((item) => (
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[var(--color-surface-border)] text-[12px] group-hover:border-[var(--color-brand-orange)]/20 transition-colors">
+                  <span class="font-mono font-semibold text-[var(--color-text-dark)]">{item.en}</span>
+                  {item.cn && <span class="font-[var(--font-heading)] text-[var(--color-text-muted)] text-[11px]">{item.cn}</span>}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Closing line -->
+      <div class="mt-12 lg:mt-14 flex flex-col lg:flex-row gap-4 lg:gap-8 items-start lg:items-center bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+        <div class="flex-shrink-0">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20">
+            <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">Aladdin Index · 阿拉丁指数</span>
+          </div>
+        </div>
+        <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+          We watch <strong class="text-[var(--color-text-dark)]">Aladdin Index</strong> monthly to keep track of which SaaS players are rising and which are losing share. The right answer is rarely <em>let us build from scratch</em>. Usually it is <strong class="text-[var(--color-text-dark)]">pick the SaaS that fits 70 percent</strong>, then build the 30 percent that genuinely makes your brand different.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT WE HANDLE ===== -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-12 gap-6 lg:gap-10 mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            What We Handle
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+            The regulatory layer
+            <span class="block text-[var(--color-text-muted)]">where most foreign brands stall.</span>
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 self-end">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            The technology is one thing. The Chinese regulatory layer is the other. We carry both, end to end.
+          </p>
+        </div>
+      </div>
+
+      <!-- Vertical step rhythm -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
         {handleSteps.map((step) => (
-          <article class="group relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)] transition-all duration-300">
-            <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5">
-              {step.icon === 'badge' && (
-                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              )}
-              {step.icon === 'shield' && (
-                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              )}
-              {step.icon === 'server' && (
-                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-              )}
-              {step.icon === 'card' && (
-                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-              )}
-              {step.icon === 'lock' && (
-                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              )}
-              {step.icon === 'zap' && (
-                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              )}
+          <article class="group relative bg-white rounded-2xl border border-[var(--color-surface-border)] p-7 lg:p-8 hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.2)] transition-all duration-300 overflow-hidden">
+            <!-- Side accent bar -->
+            <div class="absolute left-0 top-7 bottom-7 w-1 rounded-r-full bg-[var(--color-brand-orange)]/0 group-hover:bg-[var(--color-brand-orange)] transition-colors"></div>
+
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center">
+                {step.icon === 'badge' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                )}
+                {step.icon === 'shield' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                )}
+                {step.icon === 'server' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                )}
+                {step.icon === 'card' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                )}
+                {step.icon === 'lock' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                )}
+                {step.icon === 'zap' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                )}
+              </div>
             </div>
             <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
               {step.title}
             </h3>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
               {step.body}
             </p>
           </article>
@@ -848,8 +989,8 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
-  <!-- Timeline -->
-  <section class="section-spacing">
+  <!-- ===== TIMELINE ===== -->
+  <section class="bg-[var(--color-surface-light)] section-spacing">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="max-w-2xl mb-12">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
@@ -864,18 +1005,17 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       </div>
 
       <div class="space-y-5">
-        <!-- Mini Program -->
         <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
           <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
-                Mini Program
+              <p class="text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-1">
+                Mini Program · 小程序
               </p>
               <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
                 Native Mini Program build
               </h3>
             </div>
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600 tabular-nums">
               10 – 14 weeks
             </div>
           </div>
@@ -902,7 +1042,6 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           </div>
         </div>
 
-        <!-- H5 -->
         <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
           <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
             <div>
@@ -937,7 +1076,6 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           </div>
         </div>
 
-        <!-- Complex highlight -->
         <div class="flex items-start gap-4 bg-[var(--color-text-card-blue)]/[0.04] border border-[var(--color-text-card-blue)]/20 rounded-2xl p-6 lg:p-7">
           <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-text-card-blue)]/10 flex items-center justify-center">
             <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -953,10 +1091,10 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
+  <!-- ===== FAQ ===== -->
+  <section class="section-spacing">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
+      <div class="grid grid-cols-12 gap-6 items-start">
         <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
             Frequently Asked
@@ -979,17 +1117,10 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ===== CTA ===== -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">
     <div class="absolute inset-0">
-      <img
-        src="/images/wechat-shanghai-bund-night.webp"
-        alt=""
-        class="absolute inset-0 w-full h-full object-cover opacity-30"
-        loading="lazy"
-        decoding="async"
-        onerror="this.style.display='none'"
-      />
+      <img src="/images/wechat-shanghai-bund-night.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30" loading="lazy" decoding="async" onerror="this.style.display='none'" />
       <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/85 to-[var(--color-surface-dark)]"></div>
     </div>
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/8 rounded-full blur-3xl"></div>
@@ -998,10 +1129,11 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
         Get Started
       </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Thinking about WeChat for your brand?
+      <h2 class="text-3xl sm:text-4xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.05] tracking-tight max-w-3xl mx-auto">
+        Thinking about WeChat
+        <span class="block text-white/40">for your brand?</span>
       </h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+      <p class="mt-8 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
         If your brand needs to be inside WeChat and you do not yet have a Mini Program or an H5 mini-site, we can help. Strategy and Audit is where most engagements begin.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
