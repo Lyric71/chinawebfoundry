@@ -1,273 +1,208 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
+import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Maintenance et support WordPress en Chine | ChinaWebFoundry';
-const metaDescription = 'Maintenance WordPress pilotée depuis la Chine : veille Grand Pare-feu, suivi SEO Baidu, sécurité, sauvegardes, support réactif. Une équipe qui voit ce que vos visiteurs voient vraiment.';
+const metaTitle = 'Maintenance et accompagnement | Faire vivre votre site chinois';
+const metaDescription = 'Mises à jour de contenu, suivi SEO et GEO, maintenance technique et hébergement pour votre site chinois. Une seule équipe. Depuis l’intérieur du Pare-feu.';
 
 const includedItems = [
-  {
-    title: 'Maintenance préventive',
-    body: 'Mises à jour du coeur WordPress, des extensions et des thèmes, testées en pré-production avant tout passage en ligne. Sauvegardes quotidiennes stockées hors site. Scans de sécurité en continu, 24 heures sur 24. Contrôles de disponibilité toutes les cinq minutes, depuis des serveurs physiquement implantés en Chine. Nettoyage régulier de la base de données. Veille et renouvellement SSL avec les configurations compatibles du marché chinois.',
-    note: 'N\'importe quelle agence sérieuse propose une version de cela. La vraie différence : nous vérifions tout depuis l\'intérieur du Grand Pare-feu, pas depuis un datacenter en Virginie.',
-  },
-  {
-    title: 'La couche Chine',
-    body: 'Nous surveillons le comportement du Grand Pare-feu en temps réel. Quand un CDN, une bibliothèque de polices ou une API se retrouve bloqué, nous le repérons et mettons en place un remplacement compatible avant que vos statistiques n\'enregistrent les dégâts. Nous suivons les signaux de classement Baidu et ajustons le SEO technique dès que les paramètres bougent. Après chaque cycle de mise à jour, nous vérifions à la main vos intégrations chinoises : connexion WeChat, Alipay, outils d\'analyse locaux. Histoire de s\'assurer que rien n\'a silencieusement flanché.',
-    note: 'Votre agence habituelle ne peut pas assurer cette partie. Il lui faudrait un VPN rien que pour apercevoir le problème.',
-  },
-  {
-    title: 'Dépannage',
-    body: 'Quand un pépin survient, notre équipe en Chine s\'en occupe sans délai. Pas d\'attente d\'une demi-journée pour que quelqu\'un à l\'autre bout du globe relève ses courriels. Corrections de bogues, conflits d\'extensions, incidents de sécurité, ratés de paiement WooCommerce avec Alipay ou WeChat Pay.',
-    note: 'En cas de piratage : isolement, nettoyage, restauration, durcissement. Puis un vrai retour d\'expérience pour que cela ne se reproduise pas.',
-  },
-  {
-    title: 'Évolution du site',
-    body: 'Nouvelles pages, retouches de design, demandes de fonctionnalités, ajustements SEO Baidu, nouvelles intégrations. Le tout couvert par vos heures de support mensuelles. Nos recommandations s\'appuient sur la performance réelle mesurée chez vos utilisateurs chinois, pas sur des articles de bonnes pratiques signés par quelqu\'un qui n\'a jamais vu Baidu de près.',
-    note: '',
-  },
+  { n: '01', cn: '内容', title: 'Mises à jour éditoriales', body: "Deux à quatre pièces par mois pour les clients actifs : un article long format compatible Baidu (1 500 à 2 500 caractères chinois), une étude de cas ou mise à jour produit, une à deux brèves d’actualité. Tout est rédigé en chinois natif, jamais traduit. Nous syndiquons les meilleures pièces sur Baijiahao (百家号), Zhihu (知乎) et Sohu Hao (搜狐号), que les IA traitent comme signaux de vérification.", tag: 'Contenu', chips: ['百家号', '知乎', '搜狐号', 'ZH natif', '双11 / 618 / 春节'] },
+  { n: '02', cn: '搜索', title: 'Suivi SEO Baidu', body: "Rapport mensuel de positions sur vos 30 à 50 mots-clés prioritaires, contrôle d’indexation sur 100+ URL via 百度搜索资源平台, deux à trois correctifs techniques par mois selon ce que disent les chiffres. Nous poussons chaque nouveau contenu via les outils de soumission Baidu le jour de la publication, corrigeons les erreurs de crawl, reconstruisons ce qui sort de l’index.", tag: 'SEO Baidu', chips: ['Rang', '主动推送', 'Index', 'Réponse algo'] },
+  { n: '03', cn: '智能', title: 'Suivi GEO', body: "Contrôles de visibilité hebdomadaires sur DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) et Baidu IA (百度AI), avec une matrice de 40 requêtes fixes par client couvrant marque, catégorie, scénario et concurrence. Les rapports donnent taux de citation, rang de recommandation, sentiment, plus la liste des ajustements à pousser dans le mois.", tag: 'Recherche IA', chips: ['DeepSeek', 'Doubao', 'Kimi', '元宝', '文心X1'] },
+  { n: '04', cn: '技术', title: 'Maintenance technique', body: "Mises à jour cœur WordPress, extensions et thèmes testées en staging avant production. Sauvegardes off-site quotidiennes conservées 30 jours. Scan de sécurité Wordfence ou Sucuri en continu. Contrôles de disponibilité toutes les 5 minutes depuis des serveurs en Chine. Nettoyage trimestriel de la base. Renouvellement des SSL compatibles Chine via Aliyun (阿里云) ou autorités locales.", tag: 'Technique', chips: ['Mises à jour', 'Backups', 'Sécurité', 'Uptime', 'SSL'] },
+  { n: '05', cn: '防火', title: 'La couche Pare-feu', body: "Nous surveillons en temps réel le comportement du Grand Pare-feu. Quand un CDN, une bibliothèque de polices ou une API externe se retrouve bloqué, nous basculons sur un équivalent compatible. Délai moyen entre détection et déploiement : 14 minutes. Nous retestons connexion WeChat (微信), Alipay (支付宝), WeChat Pay (微信支付) et analytics (Baidu Tongji ou 51la) à chaque cycle de mise à jour.", tag: 'Pare-feu', chips: ['CDN', 'Polices', 'WeChat', 'Alipay', 'Analytics'] },
+  { n: '06', cn: '主机', title: 'Hébergement', body: "Serveurs sous licence ICP (ICP备案) sur Aliyun, Tencent Cloud (腾讯云) ou Huawei Cloud (华为云), gérés de bout en bout. Optimisation lors des pics de trafic. Renouvellements Bei’an (备案) suivis sur la console MIIT pour qu’aucun ne tombe. SLA de 99,9 % avec délais documentés : 30 minutes pour les incidents critiques, 4 heures pour les tickets standards.", tag: 'Hébergement', chips: ['ICP 备案', 'Aliyun', 'Tencent', 'Huawei', '99,9% SLA'] },
+  { n: '07', cn: '修复', title: 'Dépannage', body: "Quand quelque chose casse, l’équipe en Chine prend la main immédiatement. Bugs, conflits d’extension, incidents de sécurité, erreurs sur Alipay ou WeChat Pay. En cas de piratage : isoler, nettoyer, restaurer, durcir, post-mortem sous 48 heures.", tag: 'Incident', chips: ['Bugs', 'Conflits', 'Piratage', '48h post-mortem'] },
 ];
 
 const insightItems = [
-  'Une seule ressource bloquée par le Grand Pare-feu suffit à faire voler la mise en page en éclats pour tous vos visiteurs en Chine. Depuis vos bureaux à Paris ou Lyon, tout paraît normal. Vous ne le découvrirez que lorsque quelqu\'un vous le signalera.',
-  'Baidu récompense les sites techniquement bien entretenus. Laissez la maintenance filer deux mois, votre positionnement en prend un coup. Le récupérer demande beaucoup plus d\'efforts que de l\'avoir préservé.',
-  'Un WordPress hébergé en Chine fait face à des menaces de sécurité aux contours spécifiquement régionaux. Des vecteurs d\'attaque pour lesquels vos extensions de sécurité occidentales n\'ont jamais été pensées.',
-  'Votre équipe informatique peut lancer des diagnostics depuis n\'importe où dans le monde. Elle reste incapable de voir ce qu\'un internaute à Canton vit concrètement. Nous, si. Parce que nous sommes là.',
+  { n: '01', cn: '变', title: 'Le numérique chinois bouge plus vite', body: "L’algorithme Baidu a changé onze fois en 2025. DeepSeek a publié quatre révisions majeures de modèle. Doubao a remanié son ingestion de contenu au moins une fois par mois. Le rythme ne ralentit pas." },
+  { n: '02', cn: '退', title: 'Les sites laissés en l’état se dégradent', body: "Les sites lancés correctement et laissés intacts un an finissent presque toujours invisibles au neuvième mois. La dégradation est progressive, puis soudaine." },
+  { n: '03', cn: '增', title: 'Les sites maintenus composent', body: "Les sites qui publient un contenu frais régulier, suivent leurs citations IA chaque semaine et gardent la pile technique propre composent leurs gains. Les positions montent, les mentions IA s’accumulent, le coût pour rester visible baisse." },
+  { n: '04', cn: '盲', title: 'Les agences étrangères passent à côté', body: "Les agences internationales ne voient pas la plupart des modes d’échec sans VPN. Depuis Londres ou Chicago, tout semble aller bien, jusqu’au moment où ce n’est plus le cas." },
+];
+
+const stats = [
+  { value: '14 min', label: 'Détection-déploiement moyen', sub: 'Quand une police, un CDN ou une API se trouve bloqué.' },
+  { value: '99,9 %', label: 'SLA de disponibilité', sub: 'Réponse en 30 minutes sur les incidents critiques.' },
+  { value: '40', label: 'Requêtes IA par semaine', sub: 'Suivi des citations sur 5 moteurs, hebdomadaire.' },
 ];
 
 const audiences = [
-  { label: 'Pas d\'équipe sur place', description: 'Entreprises avec un site WordPress en ligne en Chine, qui cherchent une expertise sans monter une équipe locale.', image: '/images/audiences/wordpress-china-no-local-team.webp' },
-  { label: 'Priorité au marketing', description: 'Directions marketing qui préfèrent piloter leurs campagnes plutôt que déboguer des conflits d\'extensions sur neuf fuseaux horaires.', image: '/images/audiences/marketing-not-debugging.webp' },
-  { label: 'IT sans recrutement Chine', description: 'Équipes IT qui réclament une expertise WordPress en Chine sans pouvoir justifier un poste à temps plein.', image: '/images/audiences/it-team-china-expertise.webp' },
-  { label: 'WooCommerce en Chine', description: 'Entreprises e-commerce sous WooCommerce avec passerelles de paiement chinoises et logistique locale.', image: '/images/audiences/woocommerce-china-payments.webp' },
+  { label: 'Pas d’équipe locale', description: 'Sociétés avec un site chinois en ligne mais sans équipe sur place, qui ont besoin de soutien expert sans tout monter en interne.', image: '/images/audiences/wordpress-china-no-local-team.webp' },
+  { label: 'Marketing d’abord', description: 'Équipes marketing qui préfèrent travailler sur les campagnes que pourchasser des extensions cassées sur neuf fuseaux horaires.', image: '/images/audiences/marketing-not-debugging.webp' },
+  { label: 'IT sans Chinese hire', description: 'Équipes IT qui ont besoin d’expertise Chine mais ne peuvent justifier un poste plein temps à l’organigramme.', image: '/images/audiences/it-team-china-expertise.webp' },
+  { label: 'E-commerce en Chine', description: 'Activités e-commerce sur WooCommerce ou Shopify avec passerelles de paiement chinoises et logistique locale.', image: '/images/audiences/woocommerce-china-payments.webp' },
+];
+
+const marqueePhrases = [
+  '维护', 'Maintenance',
+  '内容', 'GEO', 'SEO',
+  'ICP 备案',
+  'Aliyun · Tencent Cloud',
+  'Wordfence',
+  'WeChat Pay',
+  'Alipay',
+  '99,9% disponibilité',
+  'Veille 24/7',
+  'Une équipe · une facture',
+];
+
+const faqs = [
+  { id: 'why-not-internal', question: 'Pourquoi ne pas confier ça à notre IT interne ?', answer: ["Ils peuvent, en théorie. En pratique, les équipes internes perdent presque toujours la visibilité côté Chine, parce qu’elles n’atteignent pas les tableaux de bord (百度站长资源, console Aliyun, plateforme WeChat) sans VPN, et que les alertes sont en chinois. La plupart de nos clients gardent leur IT pour le global et nous prennent comme bureau Chine."] },
+  { id: 'pricing', question: 'Comment sont tarifés les forfaits ?', answer: ["Forfaits mensuels à partir de 1 200 USD, calibrés sur ce que votre site nécessite vraiment. Le montant dépend du volume de trafic, de la cadence éditoriale, du nombre de moteurs IA suivis et de l’intégration ou non de l’hébergement. Décrivez-nous votre situation, nous renvoyons un vrai devis sous deux jours ouvrés."] },
+  { id: 'response-time', question: 'À quelle vitesse réagissez-vous aux incidents ?', answer: ["Incidents critiques (site down, paiement, piratage) : 30 minutes entre l’alerte et la première action, 24/7. Tickets standards (conflit d’extension, modification de contenu, question dashboard) : 4 heures ouvrées. Tous les délais sont écrits dans le SLA."] },
+  { id: 'content-cadence', question: 'Combien de contenu sortez-vous par mois ?', answer: ["Deux à quatre pièces sur un forfait actif : un article long format Baidu, une étude de cas ou mise à jour produit, une à deux brèves. La cadence monte autour des fenêtres de campagne : 双11, 618, 春节."] },
+  { id: 'baidu-and-geo', question: 'Le SEO Baidu et le GEO sont-ils inclus ou séparés ?', answer: ["Les deux sont inclus dans le forfait pour les clients actifs. Rapport mensuel de positions Baidu et contrôle d’indexation, suivi hebdomadaire des citations IA sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA. Les chantiers structurels lourds (refonte de cartographie de mots-clés, grappes de contenu) sont des projets séparés."] },
+  { id: 'hosting', question: 'Doit-on déplacer notre hébergement chez vous ?', answer: ["Non. Nous travaillons avec ce que vous avez sur Aliyun, Tencent Cloud ou Huawei Cloud. Si l’hébergement entre dans le forfait, nous gérons tout, y compris les renouvellements 备案 sur la console MIIT. Sinon, nous coordonnons avec celui qui le gère."] },
 ];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
 
-  <!-- Hero -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="/images/hero-maintenance-support.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
-    </div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#0f0f12] to-[#1a1a2e]"></div>
+    <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px]"></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Fil d’Ariane" class="pt-20 pb-12">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
-          <li class="before:content-['/'] before:mx-2 text-white/60">Maintenance et support</li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Maintenance et accompagnement</li>
         </ol>
       </nav>
 
-      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+      <div class="io-grid items-center pb-20 lg:pb-32">
         <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            Maintenance et support
-          </p>
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Maintenance et accompagnement</p>
           <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Votre site WordPress en Chine a besoin
-            <span class="block mt-2 text-[var(--color-brand-orange)]">d'une vigie sur place</span>
+            Faire vivre votre site chinois.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Mois après mois.</span>
           </h1>
           <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            Maintenance et support continus par une équipe qui opère vraiment derrière le Grand Pare-feu. Nous repérons les problèmes invisibles depuis votre IT internationale.
+            Contenu, SEO Baidu, GEO sur les cinq moteurs d’IA chinois, maintenance technique et hébergement, dans un seul forfait mensuel piloté depuis Shanghai.
           </p>
-          <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/fr/contact/" variant="primary" size="lg">Parler à notre équipe</Button>
-          </div>
-        </div>
-
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
-          <div class="relative">
-            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-xs text-white/30 ml-2 font-mono">maintenance-status</span>
-              </div>
-              <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Statut pare-feu</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">RAS</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Dernière vérification</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">il y a 2h</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Scan de sécurité</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Validé</span>
-                </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Disponibilité (30 j)</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">99,98 %</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Sauvegardes</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">À jour</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Index Baidu</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Sain</span>
-                </div>
-              </div>
-            </div>
-            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/fr/contact/" variant="primary" size="lg">Demander un forfait</Button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Introduction -->
-  <section class="section-spacing">
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Une police Google se fait bloquer. Votre page d'accueil s'effondre. Personne à Paris ne le voit.
-          </h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Nous voyons ce scénario plus souvent que nous ne le voudrions. Le Grand Pare-feu coupe une police Google un mardi banal. Votre page d'accueil se désagrège pour tous les visiteurs à Shanghai, Shenzhen, Pékin. Votre équipe à Paris ? Aucune idée. De son poste, tout s'affiche normalement.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Ce n'est pas du catastrophisme, c'est la réalité du terrain. WordPress en Chine exige une vigie permanente, capable de voir exactement ce que vos visiteurs chinois voient. Le Grand Pare-feu ne prévient pas avant de bloquer. Baidu remanie son algorithme et votre positionnement chute avant même qu'on en prenne la mesure.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Une mise à jour d'extension qui passe crème sur un hébergement américain ? Elle peut provoquer un tout autre problème sur des serveurs chinois. Notre équipe travaille depuis la Chine. Nous testons depuis les réseaux chinois. Quand ça casse à 3 heures du matin chez vous, nous sommes déjà dessus.
-          </p>
-        </div>
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Inclus</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Sept chantiers menés ensemble.
+        </h2>
+      </div>
 
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
-            <div class="absolute inset-3 sm:inset-6 flex flex-col justify-center gap-4 sm:gap-6">
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">fonts.googleapis.com</div>
-                  <div class="w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-full h-full bg-red-400 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-red-500 mt-1 font-medium">Bloqué par le Grand Pare-feu</div>
-                </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        {includedItems.map((it) => (
+          <article class="bg-[var(--color-surface-light)] rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80">{it.n}</span>
+                <span class="text-2xl text-[var(--color-brand-orange)]/60">{it.cn}</span>
               </div>
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Police de remplacement auto-hébergée</div>
-                  <div class="w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[12%] h-full bg-green-500 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-green-600 mt-1 font-medium">Remplacement effectué en 14 minutes</div>
-                </div>
-              </div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--color-text-muted)]">{it.tag}</span>
             </div>
-          </div>
-        </div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{it.title}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-4">{it.body}</p>
+            <div class="flex flex-wrap gap-1.5">
+              {it.chips.map((c) => (
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-[var(--color-text-body)] border border-[var(--color-surface-border)]">{c}</span>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- What's Included -->
   <section class="section-spacing bg-[var(--color-surface-light)]">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Ce qui est inclus
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Ce que nous faisons concrètement sur votre site
-          </h2>
-          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
-            C'est ici que la plupart des prestataires de maintenance WordPress ne peuvent plus rien pour vous. Nous couvrons les fondamentaux, plus le travail spécifiquement chinois que personne d'autre n'assure.
-          </p>
-        </div>
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Pourquoi le forfait</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Quatre raisons concrètes.
+        </h2>
+      </div>
 
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {includedItems.map((item) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {item.title}
-                  </h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {item.body}
-                  </p>
-                  {item.note && (
-                    <p class="mt-3 text-sm text-[var(--color-text-muted)] italic leading-relaxed">
-                      {item.note}
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {insightItems.map((it) => (
+          <article class="bg-white rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 mb-3">{it.cn}</div>
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{it.title}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{it.body}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Why This Matters -->
-  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Pourquoi c'est important
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            Plus que vous ne le pensez
-          </h2>
-        </div>
-
-        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
-          <div class="space-y-6">
-            {insightItems.map((item) => (
-              <div class="bg-white/[0.04] border border-white/10 rounded-xl p-6">
-                <p class="text-base text-white/70 leading-relaxed">
-                  {item}
-                </p>
-              </div>
-            ))}
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
+        {stats.map((s, i) => (
+          <div class:list={['rounded-3xl p-7 lg:p-8', i === 1 ? 'bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] text-white' : 'bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]']}>
+            <div class:list={['text-[10px] font-mono uppercase tracking-[0.18em] mb-3', i === 1 ? 'text-white/75' : 'text-[var(--color-text-muted)]']}>{s.label}</div>
+            <div class:list={['text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3', i === 1 ? 'text-white' : 'text-[var(--color-text-dark)]']}>
+              {s.value}
+            </div>
+            <p class:list={['text-sm leading-relaxed', i === 1 ? 'text-white/90' : 'text-[var(--color-text-body)]']}>{s.sub}</p>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <WhoIsThisFor heading="Qui nous sollicite pour la maintenance" audiences={audiences} background="light" />
+  <WhoIsThisFor heading="Pour qui ce forfait" audiences={audiences} background="light" />
 
-  <!-- CTA -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+  <section id="faq" class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Six questions sur le forfait.
+        </h2>
+      </div>
+      <div data-faq-accordion>
+        {faqs.map((faq) => (
+          <FAQItem question={faq.question} id={faq.id}>
+            {faq.answer.map((p) => <p class="mb-3 last:mb-0">{p}</p>)}
+          </FAQItem>
+        ))}
+      </div>
+    </div>
+  </section>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-        Lancez-vous
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Le plus dur est fait. Ne laissez pas l'ouvrage se dégrader.
-      </h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Vous avez déjà fait le gros du travail en lançant votre site WordPress pour la Chine. Ne laissez pas l'édifice s'effriter faute de surveillance sur place. Choisissez une formule, ou racontez-nous simplement ce qu'il vous faut.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/fr/contact/" variant="primary" size="lg">Demander une proposition sur mesure</Button>
-        <Button href="/fr/services/china-hosting/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Parcourir les options d'hébergement</Button>
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <div class="relative py-20 lg:py-28">
+      <div class="relative mx-auto max-w-[1100px] section-padding text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6">
+          Une équipe, une facture, un site qui tient.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed mb-10 max-w-2xl mx-auto">
+          Décrivez-nous votre situation. Nous renvoyons sous deux jours ouvrés un forfait calibré.
+        </p>
+        <Button href="/fr/contact/" variant="primary" size="lg">Demander un forfait</Button>
       </div>
     </div>
   </section>

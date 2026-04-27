@@ -3,348 +3,216 @@ import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Design UX/UI WordPress pour le marché chinois | ChinaWebFoundry';
-const metaDescription = 'Nous concevons des sites WordPress pensés pour les utilisateurs chinois. Culturellement juste, mobile-first, par une équipe implantée en Chine depuis plus de vingt ans.';
+const metaTitle = 'Design UX et UI pour WordPress en Chine | ChinaWebFoundry';
+const metaDescription = 'Nous concevons des sites WordPress qui parlent au public chinois. Adaptés culturellement, mobile-first, par une équipe basée en Chine, vingt ans d’ancrage local.';
+
+const stats = [
+  { value: '70%+', label: 'Trafic mobile en Chine' },
+  { value: '6', label: 'Navigateurs testés' },
+  { value: 'WeChat', label: 'Intégration native' },
+  { value: 'ICP', label: 'Conforme par conception' },
+];
 
 const services = [
   {
-    title: 'Recherche UX et connaissance des utilisateurs',
-    body: 'Les maquettes viendront plus tard. Première étape : comprendre qui va utiliser votre site et par quel chemin il y arrivera. Nous étudions la manière dont votre audience spécifique navigue en Chine, nous analysons vos concurrents (les acteurs locaux comme les marques internationales qui visent le même marché) et nous traçons des parcours utilisateurs qui démarrent là où les Chinois démarrent vraiment : sur Douyin, au fil d\'un article WeChat, ou au moment d\'une requête dans Baidu. Tout est conçu mobile first. Pas par effet de mode : plus de 70 % de l\'usage internet en Chine se fait sur smartphone. Tailles d\'écran, navigateurs par défaut, versions d\'OS, tout diffère du terrain de jeu des équipes de design occidentales.',
+    title: 'Recherche utilisateur',
+    body: 'Nous cartographions la manière dont votre public navigue réellement en Chine, mesurons concurrents locaux et internationaux, et concevons des parcours qui partent d’où partent les internautes chinois : Douyin, WeChat ou Baidu.',
+    tag: 'Recherche',
   },
   {
-    title: 'Architecture de l\'information',
-    body: 'Un constat qui surprend beaucoup de nos clients : les audiences chinoises préfèrent les pages denses. Plus de liens visibles, plus de texte, plus d\'options d\'entrée de jeu. Un regard occidental y verra du trop-plein. Pour un lecteur à Pékin, une page au blanc trop généreux et au contenu chiche paraît creuse, voire douteuse. D\'où un vrai travail sur la hiérarchie du contenu et la structure des pages. Les maquettes filaires suivent les schémas de navigation locaux et offrent aux visiteurs la profondeur qu\'ils attendent, sans rendre la page illisible pour l\'équipe au siège qui doit la valider.',
+    title: 'Architecture de l’information',
+    body: 'Le public chinois préfère les pages denses. Plus de liens visibles, plus de texte, plus d’options dès le départ. Nous structurons le contenu à la profondeur attendue, sans le rendre illisible pour le siège.',
+    tag: 'IA',
   },
   {
     title: 'Design visuel',
-    body: 'C\'est là que le travail devient pointu. Des mises en page mobile first calibrées pour les terminaux réellement utilisés en Chine. Les couleurs pèsent lourd symboliquement : le rouge évoque la chance et la prospérité, le blanc est associé au deuil. La typographie doit gérer les caractères chinois correctement, pas en faire un détail secondaire. Les visuels comptent : le public local repère immédiatement quand les photos ne lui sont pas destinées. Les signaux de confiance sont un enjeu majeur : QR codes WeChat, badges de licence commerciale, numéros ICP, widgets de chat en direct, numéros de service client. Les consommateurs chinois cherchent activement ces éléments avant d\'agir. Sans eux, votre crédibilité est déjà entamée. Maquettes livrées dans Figma, au pixel près, prêtes pour les développeurs.',
+    body: 'Mises en page mobile-first pour les appareils que les Chinois utilisent vraiment. Couleur symbolique, typographie qui respecte les caractères, signaux de confiance (QR WeChat, ICP, licence d’entreprise) que les consommateurs chinois vérifient avant d’agir.',
+    tag: 'UI',
   },
   {
-    title: 'Système de design natif Gutenberg',
-    body: 'Nous concevons directement dans l\'éditeur Gutenberg de WordPress. Des blocs sur mesure que votre équipe éditoriale utilise sans appeler un développeur à chaque mise à jour de page. Des composants qui tiennent la cohérence visuelle sur l\'ensemble du site. Des gabarits pensés pour que les profils non techniques gèrent eux-mêmes les modifications de contenu courantes.',
+    title: 'Système de design Gutenberg',
+    body: 'Nous concevons directement dans Gutenberg. Blocs personnalisés que votre équipe contenu utilise sans développeur, composants de cohérence visuelle, templates modifiables sans compétence technique.',
+    tag: 'Système',
   },
 ];
 
 const processSteps = [
-  {
-    title: 'Cadrage et brief',
-    body: 'Aligner la charte graphique, les objectifs et l\'identification de votre cible chinoise. Nous passons en revue ce qui existe déjà et tranchons ce qui doit bouger.',
-  },
-  {
-    title: 'Recherche et analyse concurrentielle',
-    body: 'Votre paysage concurrentiel en Chine, les usages des internautes locaux, les partis pris de design du projet. C\'est la phase d\'immersion.',
-  },
-  {
-    title: 'Maquettes filaires',
-    body: 'Structure des pages, agencements, parcours utilisateurs. Le tout confronté aux attentes réelles des internautes chinois avant de passer au design visuel. Retravailler un filaire coûte infiniment moins cher que reprendre une maquette aboutie.',
-  },
-  {
-    title: 'Design visuel et itérations',
-    body: 'Maquettes haute fidélité, retours clients, ajustements. Nous itérons jusqu\'à obtenir un résultat fidèle à votre marque globale et performant sur le marché chinois.',
-  },
-  {
-    title: 'Système de design et passation',
-    body: 'Composants, lignes directrices de style, spécifications d\'interaction : tout est documenté pour que votre équipe technique développe sans zone d\'ombre.',
-  },
-  {
-    title: 'Recette et validation',
-    body: 'Nous testons sur les navigateurs et appareils chinois. Pas seulement sur Chrome. Un site impeccable dans votre navigateur parisien peut littéralement se déliter sur UC Browser ou QQ Browser, deux navigateurs qui captent encore une part importante du trafic mobile en Chine.',
-  },
+  { phase: '01', title: 'Découverte et brief', body: 'Alignement sur les guidelines de marque, les objectifs et le public que vous cherchez à atteindre en Chine.' },
+  { phase: '02', title: 'Recherche et benchmarking', body: 'Paysage concurrentiel, schémas d’usage locaux, principes de design. La phase de devoirs.' },
+  { phase: '03', title: 'Wireframing', body: 'Structure de pages et flux confrontés aux attentes des internautes chinois. Reprendre un wireframe coûte moins qu’un mockup léché.' },
+  { phase: '04', title: 'Design visuel et itération', body: 'Mockups haute fidélité et tours de retour jusqu’à ce que le design tienne pour la marque mondiale et pour le marché chinois.' },
+  { phase: '05', title: 'Système et passation', body: 'Composants, guidelines de style et specs d’interaction emballés pour que votre équipe dev développe sans deviner.' },
+  { phase: '06', title: 'QA et validation', body: 'Tests sur les navigateurs et appareils chinois. Un site superbe à Londres peut s’effondrer sur UC Browser ou QQ Browser, encore très utilisés en Chine.' },
 ];
 
-const insights = [
-  'Le mobile n\'est pas un canal secondaire ici, c\'est le terrain de jeu principal. Chaque décision de design part de l\'écran du smartphone, parce que c\'est là que se trouve l\'immense majorité de votre audience.',
-  'Les pages denses performent mieux que les pages épurées. Le réflexe occidental d\'alléger tombe à plat : en Chine, la densité d\'information est un signal de confiance. Une page qui paraît vide rend les gens méfiants.',
-  'Faire l\'impasse sur l\'intégration sociale revient à prendre un sérieux risque. QR codes WeChat, boutons de partage, liens vers les Mini Programs : sans ces éléments, vous êtes invisible dans les canaux où les consommateurs chinois passent leur temps.',
-  'La vitesse de chargement est un choix de design, pas un simple enjeu technique. Chaque image, animation et fichier de police est optimisé pour les conditions réseau chinoises. Huit secondes de chargement sur China Mobile anéantissent tout le reste de votre travail.',
-  'Les internautes chinois vérifient avant d\'accorder leur confiance. Licences commerciales, certifications, témoignages authentiques, numéro de téléphone visible ou option de chat : ils scrutent ces détails. Nous les intégrons dès le premier jour, pas à la dernière minute.',
+const intelligence = [
+  { claim: 'La couleur porte un sens', body: 'Le rouge évoque la chance et l’énergie. L’or, le premium. Le blanc seul porte un poids funéraire ; nous l’associons toujours à des accents forts.' },
+  { claim: 'La densité signale la confiance', body: 'Les pages denses au-dessus de la ligne de flottaison rassurent l’internaute chinois. Les designs très aérés peuvent se lire comme vides, inachevés ou évasifs.' },
+  { claim: 'La confiance vit aux marges', body: 'Numéro ICP, licence d’entreprise, badges officiels. Le pied de page est conventionnel. Les QR codes au-dessus de la ligne ancrent la crédibilité.' },
+  { claim: 'WeChat fait partie de la plomberie', body: 'QR codes, liens vers Mini Programs, points de partage, identifiants service client. Infrastructure de base, pas options.' },
+  { claim: 'La typographie pèse', body: 'PingFang SC, Noto Sans SC ou Source Han s’associent à Inter ou aux piles système. L’interlettrage et l’interligne diffèrent du latin.' },
+  { claim: 'La nav du bas, c’est le bouton « accueil »', body: 'La barre de navigation collante en bas est le bouton « accueil » du web mobile chinois. Cinq cibles tactiles, toujours visibles, toujours atteignables au pouce.' },
 ];
 
 const audiences = [
-  { label: 'Créer de zéro', description: 'Vous concevez un site WordPress pour la Chine et voulez que le design soit juste dès le départ.', image: '/images/audiences/building-site-china-design.webp' },
-  { label: 'Résultats décevants', description: 'Votre site chinois est en ligne mais il ne convertit pas, et vous soupçonnez le design d\'être la cause.', image: '/images/audiences/live-site-not-performing.webp' },
-  { label: 'Pages de campagne', description: 'Votre équipe marketing a besoin de pages ciblant les consommateurs chinois qui ne sentent pas la traduction depuis l\'anglais.', image: '/images/audiences/campaign-chinese-consumers.webp' },
-  { label: 'Adapter un design existant', description: 'Vous avez un solide système de design global et cherchez quelqu\'un qui sache le décliner pour la Chine.', image: '/images/audiences/global-design-adapt-china.webp' },
+  { label: 'Démarrer depuis zéro', description: 'Vous bâtissez un site WordPress pour la Chine et voulez poser le bon design dès le départ.', image: '/images/audiences/building-site-china-design.webp' },
+  { label: 'Site live qui ne performe pas', description: 'Votre site chinois est en ligne mais ne convertit pas, et vous soupçonnez le design.', image: '/images/audiences/live-site-not-performing.webp' },
+  { label: 'Pages de campagne', description: 'Vos équipes marketing ont besoin de pages pour des consommateurs chinois, sans effet de traduction.', image: '/images/audiences/campaign-chinese-consumers.webp' },
+  { label: 'Adapter un design global', description: 'Vous avez un design system mondial solide et cherchez quelqu’un qui sait l’adapter pour la Chine.', image: '/images/audiences/global-design-adapt-china.webp' },
+];
+
+const marqueeWords = [
+  '移动优先', 'Mobile d’abord',
+  '微信', 'WeChat',
+  '百度', 'Baidu',
+  '抖音', 'Douyin',
+  '备案', 'Dépôt ICP',
+  'Gutenberg',
+  '中文排版', 'Typographie ZH',
+  '信任信号', 'Signaux de confiance',
+  '色彩文化', 'Couleur culturelle',
+  '密度优先', 'Densité d’abord',
+  'PingFang SC',
+  'UC · QQ · Chrome',
 ];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
 
-  <!-- Hero -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+  <section class="relative bg-[#0a0a0d] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-ux-ui-design.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(242,95,41,0.08),transparent_50%)]"></div>
     </div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Fil d’Ariane" class="pt-20 pb-12">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
-          <li class="before:content-['/'] before:mx-2 text-white/60">Design UX/UI</li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Design UX et UI</li>
         </ol>
       </nav>
 
-      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+      <div class="io-grid items-center pb-20 lg:pb-32">
         <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            Design UX/UI
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Concevoir pour les utilisateurs chinois.
-            <span class="block mt-2 text-[var(--color-brand-orange)]">Pas seulement traduire en chinois.</span>
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-white/70">UX / UI · 设计</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Concevoir <span class="italic font-light text-white/80">pour</span><br/>
+            les internautes chinois.
+            <span class="block mt-3 text-[var(--color-brand-orange)]">Pas seulement en chinois.</span>
           </h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            Nous créons des expériences WordPress qui paraissent natives aux yeux des internautes chinois. Culturellement justes, pensées pour le mobile, modelées par les plateformes et les usages qui gouvernent l'internet local.
-          </p>
-          <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/fr/contact/" variant="primary" size="lg">Lancer votre projet de design</Button>
-          </div>
-        </div>
 
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
-          <div class="relative">
-            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-xs text-white/30 ml-2 font-mono">ux-design-audit</span>
+          <p class="mt-8 text-lg lg:text-xl text-white/60 max-w-[560px] leading-relaxed">
+            Des expériences WordPress qui sonnent natives. Pertinentes culturellement, mobile-first, façonnées autour des plateformes qui font tourner l’internet chinois.
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center gap-5">
+            <Button href="/fr/contact/" variant="primary" size="lg">Démarrer un projet de design</Button>
+          </div>
+
+          <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {stats.map((s) => (
+              <div>
+                <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">{s.value}</div>
+                <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">{s.label}</div>
               </div>
-              <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Mobile-first</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Optimisé</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Signaux de confiance</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">WeChat + ICP</span>
-                </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-[90%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Pertinence culturelle</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Natif Chine</span>
-                </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-[85%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Tests navigateurs</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">UC + QQ + Chrome</span>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Blocs Gutenberg</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Système sur mesure</span>
-                </div>
-              </div>
-            </div>
-            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The Problem -->
-  <section class="section-spacing">
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Un design irréprochable chez vous. Inutilisable en Chine.
-          </h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Le scénario, nous le voyons sans arrêt. Une entreprise investit sérieusement dans son site WordPress, affiche de bons taux de conversion sur son marché domestique. Puis elle le lance en Chine. Le taux de rebond s'envole, personne ne s'engage, les prospects s'évaporent. Techniquement, le site tourne. Mais quelque chose sonne faux pour quiconque navigue depuis Shanghai ou Chengdu.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            L'explication est assez simple, une fois qu'on l'a vue suffisamment souvent. Les internautes chinois n'ont pas grandi sur le même web que vous. Leur manière de parcourir une page, la quantité d'information qu'ils s'attendent à saisir d'un coup d'oeil, tout a été modelé par WeChat, Taobao et Douyin. Pas par Google ni Amazon.
-          </p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Un langage visuel qui convertit à Paris ne convertit pas automatiquement à Chongqing. C'est précisément le fossé que nous comblons. Votre marque reste cohérente à l'échelle mondiale, mais l'expérience sur le terrain est pensée pour la Chine. Parce qu'elle a été conçue pour la Chine.
-          </p>
-        </div>
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Notre prestation</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Quatre chantiers, une seule discipline.
+        </h2>
+      </div>
 
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
-            <div class="absolute inset-3 sm:inset-6 flex flex-col justify-center gap-4 sm:gap-6">
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Design occidental classique</div>
-                  <div class="text-xs text-[var(--color-text-muted)]">Mise en page minimaliste, beaucoup de blanc, aucun signal de confiance</div>
-                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[12%] h-full bg-red-400 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-red-400 mt-1">Engagement Chine : très faible</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Design natif Chine</div>
-                  <div class="text-xs text-[var(--color-text-muted)]">Pages denses, QR WeChat, badge ICP, mobile-first</div>
-                  <div class="mt-2 w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
-                    <div class="w-[88%] h-full bg-green-500 rounded-full"></div>
-                  </div>
-                  <div class="text-xs text-green-500 mt-1">Engagement Chine : conversions</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {services.map((s) => (
+          <article class="rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7">
+            <p class="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">{s.tag}</p>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{s.title}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{s.body}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- What We Offer -->
   <section class="section-spacing bg-[var(--color-surface-light)]">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Ce que nous proposons
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Ce que nous livrons concrètement
-          </h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            De la recherche initiale aux systèmes de design validés, chaque livrable s'appuie sur le comportement réel des internautes chinois.
-          </p>
-        </div>
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Le déroulé</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Six étapes, du brief au QA.
+        </h2>
+      </div>
 
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {services.map((item) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {item.title}
-                  </h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {item.body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {processSteps.map((p) => (
+          <article class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-6">
+            <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none mb-3">{p.phase}</div>
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">{p.title}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{p.body}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- How We Work -->
-  <section class="section-spacing">
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Notre méthode
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Notre processus
-          </h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            Chaque projet suit la même ossature. Cela garantit la prévisibilité pour votre équipe et l'assurance que rien ne passe entre les mailles.
-          </p>
-        </div>
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Six convictions</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Ce que nous tenons pour acquis sur l’UX chinoise.
+        </h2>
+      </div>
 
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          {processSteps.map((step, i) => (
-            <div class="flex">
-              <div class="mr-4 flex flex-col items-center">
-                <div>
-                  {i < processSteps.length - 1 ? (
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[var(--color-brand-orange)]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-[var(--color-brand-orange)]">
-                        <path d="M12 5l0 14"></path>
-                        <path d="M18 13l-6 6"></path>
-                        <path d="M6 13l6 6"></path>
-                      </svg>
-                    </div>
-                  ) : (
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[var(--color-brand-orange)] bg-[var(--color-brand-orange)]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white">
-                        <path d="M5 12l5 5l10 -10"></path>
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                {i < processSteps.length - 1 && (
-                  <div class="h-full w-px bg-[var(--color-surface-border)]"></div>
-                )}
-              </div>
-              <div class:list={["pt-1", i < processSteps.length - 1 ? "pb-8" : ""]}>
-                <p class="mb-2 text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">
-                  {step.title}
-                </p>
-                {step.body && (
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {step.body}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {intelligence.map((it) => (
+          <article class="rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7">
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{it.claim}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{it.body}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- What We've Learned -->
-  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Enseignements clés
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            Ce que des années de design pour le marché chinois nous ont appris
-          </h2>
-        </div>
+  <WhoIsThisFor heading="Pour qui nous concevons" audiences={audiences} background="light" />
 
-        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
-          <div class="space-y-5">
-            {insights.map((item) => (
-              <div class="flex items-start gap-5 bg-white/[0.04] rounded-xl px-6 py-5 border border-white/10">
-                <span class="inline-block mt-1 w-2 h-2 rounded-full bg-[var(--color-brand-orange)] flex-shrink-0"></span>
-                <p class="text-[15px] text-white/70 leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueeWords, ...marqueeWords, ...marqueeWords].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
       </div>
     </div>
-  </section>
 
-  <WhoIsThisFor heading="À qui s'adresse cette page" audiences={audiences} />
-
-  <!-- CTA -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
-
-    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-        Parlons-en
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Concevoir pour la Chine, ce n'est pas faire joli
-      </h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        C'est faire en sorte que les gens utilisent vraiment ce que vous avez bâti. Si cette conversation vous parle, écrivez-nous.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/fr/contact/" variant="primary" size="lg">Lancer votre projet de design</Button>
-        <Button href="/fr/services/chinese-content/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Services de contenu chinois</Button>
+    <div class="relative py-20 lg:py-28">
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6 max-w-3xl mx-auto">
+          Un design pensé pour la Chine, dès la première intention.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed mb-10 max-w-2xl mx-auto">
+          Décrivez-nous le périmètre. Nous renvoyons sous deux jours ouvrés un cadrage et un calendrier.
+        </p>
+        <Button href="/fr/contact/" variant="primary" size="lg">Démarrer un projet</Button>
       </div>
     </div>
   </section>

@@ -1,187 +1,156 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
-import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
+import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Hébergement WordPress en Chine : rapide, conforme ICP';
-const metaDescription = 'Un hébergement WordPress taillé pour la Chine continentale. Serveurs, licence ICP, CDN et supervision pris en charge : votre site charge vite derrière le Grand Pare-feu.';
+const metaTitle = 'Hébergement Chine | Rapide, sous licence ICP, géré';
+const metaDescription = 'Un hébergement qui tient vraiment en Chine continentale. Dépôt ICP géré, CDN configuré, supervision depuis Shanghai. WordPress, Astro ou headless.';
 
-const includedItems = [
-  {
-    title: 'Configuration et optimisation serveur',
-    body: 'Nous paramétrons votre environnement d\'hébergement sur mesure pour WordPress. Réglage fin de PHP et MySQL, OPcache, optimisation des requêtes, gestion mémoire. Certificats SSL compatibles avec les navigateurs chinois. Pare-feu serveur, détection d\'intrusion, protection DDoS. Du classique, mais calibré pour les conditions réelles du terrain chinois, qui diffèrent sensiblement de ce à quoi vous êtes habitué.',
-  },
-  {
-    title: 'CDN chinois',
-    body: 'Nous branchons Alibaba Cloud CDN, Tencent Cloud CDN ou la solution la mieux adaptée à votre projet. Vos images, vos scripts et vos fichiers statiques sont servis depuis des noeuds proches de vos visiteurs. Fini le détour par le Pacifique.',
-  },
-  {
-    title: 'Supervision depuis la Chine',
-    body: 'Le point qui surprend tout le monde : la plupart des outils de monitoring testent votre site depuis l\'extérieur du Grand Pare-feu. Tableau de bord au vert, pendant que vos vrais visiteurs à Shenzhen regardent tourner un sablier. Nous supervisons depuis la Chine. Un détail en apparence, qui change absolument tout.',
-  },
-  {
-    title: 'Sauvegardes quotidiennes',
-    body: 'Automatisées chaque nuit, stockées hors site. En cas d\'incident, nous restaurons le site à un instant précis. Nous tenons aussi à jour un plan de reprise documenté, parce qu\'une panne finit toujours par arriver et qu\'il vaut mieux avoir un protocole sous la main.',
-  },
+const proofStats = [
+  { value: '0,8', suffix: ' s', label: 'Temps de chargement médian sur serveur continental', sub: 'Téléphone chinois milieu de gamme, connexion Shanghai' },
+  { value: '99,97', suffix: '%', label: 'Disponibilité sur les sites que nous hébergeons', sub: 'Moyenne glissante sur 30 jours' },
+  { value: '100', suffix: '%', label: 'Taux de réussite des dépôts ICP', sub: 'Tous nos dossiers ont fini par passer' },
+  { value: '20', suffix: '+', label: 'Ans de présence à Shanghai', sub: 'Même équipe, même ville, depuis 2005' },
 ];
 
 const hostingOptions = [
   {
-    title: 'Hébergement Chine continentale (ICP requis)',
-    body: 'La formule idéale. Votre site tourne sur des serveurs implantés à Pékin, Shanghai, Shenzhen ou Canton. Nous travaillons avec Alibaba Cloud, Tencent Cloud et Huawei Cloud. Des années de pratique nous ont donné la maîtrise de ces environnements, jusqu\'aux moindres paramètres.',
-    details: 'Temps de chargement sous la seconde. Baidu réserve un bonus de classement notable aux sites dotés d\'une licence ICP et hébergés sur des serveurs locaux, un avantage majeur dès que le référencement naturel pèse dans votre stratégie chinoise. Nous pilotons aussi l\'intégralité du dépôt ICP : croyez-nous, c\'est précisément là que la plupart des entreprises s\'ensablent sans aide sur place.',
+    name: 'Chine continentale',
+    tag: 'ICP requis',
+    tagline: 'Serveurs à Pékin, Shanghai, Shenzhen ou Canton.',
+    headline: 'La vraie option. Chargements sous la seconde, plein effet Baidu.',
+    body: 'Votre site vit sur des serveurs en Chine continentale. Selon le projet, nous déployons sur Aliyun, Tencent Cloud ou Huawei Cloud. Nous travaillons avec les trois depuis des années, nous savons précisément ce que chacun apporte.',
+    detail: 'Les temps de chargement passent sous la seconde. Baidu accorde un coup de pouce sensible aux sites qui détiennent une licence ICP sur serveur local, ce qui pèse beaucoup si le SEO fait partie de votre stratégie. Nous portons aussi le dépôt ICP de bout en bout.',
+    fit: 'Marques engagées sur le marché chinois, projets sérieux sur Baidu, e-commerce, sites qui collectent des données utilisateurs chinois.',
+    metrics: [
+      { label: 'Chargement', value: '< 1 s' },
+      { label: 'ICP', value: 'Requis' },
+      { label: 'Effet Baidu', value: 'Fort' },
+      { label: 'Mise en ligne', value: '6 à 10 sem.' },
+    ],
   },
   {
-    title: 'Hébergement Hong Kong (sans ICP)',
-    body: 'Pas encore de licence ICP ? Hong Kong vous met en ligne bien plus vite. Aucun dépôt requis. Avec un bon CDN et un cache bien réglé, comptez 2 à 4 secondes de chargement en Chine continentale. Moins rapide qu\'un hébergement continental, soit, mais comparé à un site servi depuis Francfort ou la Virginie, c\'est une autre planète.',
-    details: 'Nous utilisons souvent cette formule comme solution transitoire, le temps que nos clients décrochent leur ICP.',
+    name: 'Hong Kong',
+    tag: 'Sans ICP',
+    tagline: 'Mise en ligne rapide, sans dépôt gouvernemental.',
+    headline: 'Un pont vers le continent. Rapide à mettre en route.',
+    body: 'Pas encore de licence ICP ? Hong Kong met en ligne plus vite. Sans dépôt. Avec le bon CDN et un cache bien configuré, on parle de deux à quatre secondes de chargement en Chine continentale. Moins rapide que le continental, mais sans commune mesure avec un site servi depuis Francfort ou la Virginie.',
+    detail: 'Nous utilisons souvent cette solution comme transition, le temps que les clients obtiennent leur ICP ou décident de s’engager pleinement. Certains clients de longue date sont restés sur Hong Kong sans jamais ressentir le besoin de bouger.',
+    fit: 'Lancements rapides, solutions transitoires, projets qui ne peuvent pas obtenir l’ICP tout de suite, marques qui testent le marché.',
+    metrics: [
+      { label: 'Chargement', value: '2 à 4 s' },
+      { label: 'ICP', value: 'Pas requis' },
+      { label: 'Effet Baidu', value: 'Faible' },
+      { label: 'Mise en ligne', value: '2 à 3 sem.' },
+    ],
   },
   {
-    title: 'Architecture double (dual-stack)',
-    body: 'Certains clients ne peuvent pas se concentrer uniquement sur la Chine et oublier le reste du monde. Leur site doit performer partout. Pour ces cas-là, nous déployons une architecture scindée : les visiteurs en Chine tapent sur les serveurs locaux, tous les autres passent par votre infrastructure mondiale existante.',
-    details: 'Le DNS gère le routage en coulisses. Un seul back-end WordPress alimente les deux environnements, le contenu se synchronise tout seul.',
+    name: 'Dual-stack',
+    tag: 'Mondial + Chine',
+    tagline: 'Continental pour les visiteurs chinois. Pile mondiale pour les autres.',
+    headline: 'Une marque, deux architectures, sans compromis.',
+    body: 'Certains clients ne peuvent pas tout sacrifier à la Chine. Le site doit fonctionner partout. Pour ces situations, nous montons un partage : les visiteurs depuis la Chine atterrissent sur un serveur continental, les autres restent sur votre dispositif mondial existant.',
+    detail: 'Le DNS gère le routage automatiquement. Un seul backend nourrit les deux côtés, le contenu se synchronise. Le site Chine a son ICP propre, le site mondial reste là où il est. Une seule équipe, un seul flux éditorial.',
+    fit: 'Marques globales avec une vraie audience chinoise, e-commerce multinational, sites où ni la Chine ni le reste du monde ne peuvent être déprioritisés.',
+    metrics: [
+      { label: 'Chargement', value: '< 1 s en CN' },
+      { label: 'ICP', value: 'Requis (CN)' },
+      { label: 'Effet Baidu', value: 'Fort' },
+      { label: 'Mise en ligne', value: '8 à 12 sem.' },
+    ],
   },
 ];
 
-const performanceRows = [
-  { location: 'États-Unis ou Europe', loadTime: '8 à 15 secondes, voire plus', icp: 'Non', baiduBoost: 'Aucun' },
-  { location: 'Hong Kong', loadTime: '2 à 4 secondes', icp: 'Non', baiduBoost: 'Marginal' },
-  { location: 'Chine continentale', loadTime: 'Moins d\'une seconde', icp: 'Oui', baiduBoost: 'Déterminant' },
+const includedItems = [
+  { title: 'Mise en place et optimisation serveur', body: 'Hébergement calibré pour votre pile, SSL compatible Chine, pare-feu serveur et protection DDoS configurés pour la réalité derrière le Pare-feu.' },
+  { title: 'CDN Chine configuré', body: 'CDN Aliyun ou Tencent Cloud branché. Vos assets sont servis depuis Shanghai ou Chengdu, sans rebondir sur le Pacifique.' },
+  { title: 'Supervision depuis la Chine', body: 'La plupart des outils mesurent depuis l’extérieur du Pare-feu, donc les dashboards mentent. Nous surveillons depuis l’intérieur. Détail en apparence, change tout en pratique.' },
+  { title: 'Sauvegardes et reprise', body: 'Sauvegardes automatiques quotidiennes, stockage hors site, point-in-time recovery, plan de reprise documenté. Les choses cassent, parfois.' },
+  { title: 'Dépôt ICP géré de bout en bout', body: 'Dossier, soumissions, va-et-vient avec l’autorité provinciale. Vous ne vous connectez jamais à une console chinoise, ne lisez jamais un formulaire en chinois.' },
+  { title: 'Maintenance continue', body: 'Patches serveur, mises à jour de sécurité, montée en charge, à notre charge. Le site continue de tourner sans que vous ayez à y penser.' },
+];
+
+const icpTypes = [
+  {
+    code: '备案',
+    name: 'ICP Bei\'an',
+    type: 'Sites informationnels',
+    timing: '20+ jours ouvrés',
+    body: 'Site corporate, blog, plaquette : tout ce qui n’implique pas de transaction. Le dépôt le plus courant pour les marques étrangères qui se lancent en Chine.',
+    docs: ['Immatriculation entreprise', 'Certificat de domaine', 'Pièce d’identité de l’admin', 'Entité chinoise enregistrée'],
+  },
+  {
+    code: '经营许可证',
+    name: 'Licence commerciale ICP',
+    type: 'Activité commerciale',
+    timing: '2 à 3 mois',
+    body: 'Sites avec transactions, e-commerce, services payants : tout ce qui est commercial. Procédure plus longue, plus de pièces, examen approfondi de l’autorité provinciale.',
+    docs: ['Tout ce qui est requis pour le Bei\'an', 'Examen du périmètre d’activité', 'Vérification du capital', 'Déclaration de finalité commerciale'],
+  },
+];
+
+const complianceLaws = [
+  { abbr: 'PIPL', name: 'Loi sur la protection des informations personnelles', body: 'Encadre le traitement, le stockage et le transfert des données personnelles des résidents chinois. L’équivalent chinois le plus proche du RGPD.' },
+  { abbr: 'CSL', name: 'Loi sur la cybersécurité', body: 'Texte fondateur depuis 2017. Pose les règles pour les opérateurs de réseau, les infrastructures critiques et la résidence des données.' },
+  { abbr: 'DSL', name: 'Loi sur la sécurité des données', body: 'Classifie les données par sensibilité et impose une protection graduée. Affecte le stockage et les transferts transfrontaliers de données utilisateur chinois.' },
+];
+
+const timelines = [
+  { label: 'Hong Kong', title: 'Lancement Hong Kong', duration: '2 à 3 semaines', note: 'Pas de dépôt ICP. Le chemin le plus court vers une présence en ligne pour le marché chinois.' },
+  { label: 'Continental', title: 'Lancement continental', duration: '6 à 10 semaines', note: 'L’ICP est sur le chemin critique. Nous le démarrons dès le premier jour et menons le reste en parallèle.' },
+  { label: 'Dual-stack', title: 'Lancement dual-stack', duration: '8 à 12 semaines', note: 'Dépend de la configuration mondiale actuelle. La moitié continentale dicte le calendrier.' },
 ];
 
 const audiences = [
-  { label: 'Nouveau site pour la Chine', description: 'Entreprises internationales qui lancent un site neuf destiné au marché chinois.', image: '/images/audiences/new-site-for-china.webp' },
-  { label: 'Lenteur depuis le continent', description: 'Entreprises dont le site existant rame lamentablement pour les visiteurs en Chine continentale.', image: '/images/audiences/slow-site-mainland.webp' },
-  { label: 'Premier dépôt ICP', description: 'Équipes qui affrontent pour la première fois le labyrinthe administratif de l\'ICP.', image: '/images/audiences/icp-paperwork-first-time.webp' },
-  { label: 'E-commerce conforme', description: 'Marques en ligne qui cherchent un hébergement à la fois rapide et en règle avec la réglementation chinoise.', image: '/images/audiences/ecommerce-compliant-hosting.webp' },
+  { label: 'Marques qui se lancent en Chine', description: 'Sociétés qui mettent en ligne leur première vraie présence chinoise et veulent l’infrastructure dès le départ.', image: '/images/audiences/launching-chinese-market.webp' },
+  { label: 'Sites qui rament', description: 'Sites en place mais lents en Chine, mal indexés par Baidu, ou qui dépendent d’un hébergeur étranger qui ne tient pas.', image: '/images/audiences/live-site-not-performing.webp' },
+  { label: 'E-commerce et collecte de données', description: 'Activités qui nécessitent l’ICP commercial et la résidence des données utilisateurs chinois sur le continent.', image: '/images/audiences/ecommerce-china-store.webp' },
+  { label: 'Marques globales avec une vraie audience chinoise', description: 'Multinationales qui veulent garder leur dispositif global et ajouter une moitié continentale conforme.', image: '/images/audiences/multinational-china-entry.webp' },
+];
+
+const faqs = [
+  { id: 'icp-needed', question: 'Avons-nous besoin d’un ICP ?', answer: ['Oui pour héberger sur le continent. Non pour Hong Kong. Si vous comptez sur Baidu pour le trafic organique, l’ICP fait une vraie différence : Baidu favorise les sites avec ICP sur serveur continental, et le crawl est plus régulier. Nous portons le dossier pour vous.'] },
+  { id: 'no-chinese-entity', question: 'Et si nous n’avons pas d’entité chinoise ?', answer: ['Pas d’ICP sans entité chinoise enregistrée. Hong Kong reste possible et donne une bonne expérience pour la majorité des projets B2B. Si vous voulez l’ICP, nous pouvons vous orienter vers des partenaires qui montent l’entité.'] },
+  { id: 'how-fast', question: 'Combien de temps pour mettre en ligne ?', answer: ['Hong Kong : 2 à 3 semaines. Continental avec ICP : 6 à 10 semaines en moyenne, le dépôt ICP étant sur le chemin critique. Dual-stack : 8 à 12 semaines.'] },
+  { id: 'wordpress-fit', question: 'Vous gérez WordPress sur tous les fournisseurs chinois ?', answer: ['Oui. Aliyun, Tencent Cloud et Huawei Cloud, tous configurés pour WordPress. Cache, CDN, sauvegardes, sécurité : la pile complète, calibrée pour la Chine.'] },
+  { id: 'data-residency', question: 'Que faire de la résidence des données ?', answer: ['Sous PIPL et CSL, les données utilisateurs chinois doivent rester sur le continent. Nous concevons l’architecture pour respecter cela dès le premier jour, et non trois mois après le lancement.'] },
+  { id: 'monitoring', question: 'Comment savoir si le site tient en Chine ?', answer: ['Supervision active depuis nos sondes en Chine continentale. Métriques de chargement réelles, alertes en cas d’incident, rapport mensuel écrit. Pas seulement un dashboard.'] },
 ];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
 
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="/images/hero-china-hosting.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
-    </div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#0f0f12] to-[#1a1a2e]"></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Fil d’Ariane" class="pt-20 pb-12">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
-          <li class="before:content-['/'] before:mx-2 text-white/60">Hébergement en Chine</li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Hébergement Chine</li>
         </ol>
       </nav>
 
-      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+      <div class="io-grid items-center pb-20 lg:pb-32">
         <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Hébergement en Chine</p>
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Hébergement Chine</p>
           <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Un hébergement WordPress qui tient la route
-            <span class="block mt-2 text-[var(--color-brand-orange)]">en Chine continentale</span>
+            Un hébergement qui tient en Chine.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Sans appeler le siège.</span>
           </h1>
           <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            Nous déployons et pilotons un hébergement conçu pour l'internet chinois. Chargement éclair, accompagnement ICP, CDN paramétré, conformité complète. Nous absorbons la complexité pour que votre site tourne, point final.
+            Continental sous licence ICP, ou Hong Kong en pont, ou dual-stack. Nous montons l’hébergement, posons le dépôt, branchons le CDN, et nous supervisons l’ensemble depuis Shanghai.
           </p>
-          <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/fr/contact/" variant="primary" size="lg">Découvrir les options d'hébergement</Button>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/fr/contact/" variant="primary" size="lg">Démarrer un hébergement</Button>
           </div>
-        </div>
-
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
-          <div class="relative">
-            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-xs text-white/30 ml-2 font-mono">hosting-status</span>
-              </div>
-              <div class="space-y-4">
-                <div class="flex items-center justify-between"><span class="text-sm text-white/50">Localisation serveur</span><span class="text-sm font-semibold text-green-400 font-mono">Shanghai</span></div>
-                <div class="flex items-center justify-between pt-2"><span class="text-sm text-white/50">Temps de chargement (Chine)</span><span class="text-sm font-semibold text-green-400 font-mono">0,8s</span></div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="w-[8%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div></div>
-                <div class="flex items-center justify-between pt-2"><span class="text-sm text-white/50">Disponibilité (30j)</span><span class="text-sm font-semibold text-green-400 font-mono">99,97 %</span></div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div></div>
-                <div class="flex items-center justify-between pt-2"><span class="text-sm text-white/50">Statut ICP</span><span class="text-sm font-semibold text-green-400 font-mono">Actif</span></div>
-                <div class="flex items-center justify-between pt-2"><span class="text-sm text-white/50">Noeuds CDN</span><span class="text-sm font-semibold text-green-400 font-mono">24 actifs</span></div>
-              </div>
-            </div>
-            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Votre site ne charge probablement pas en Chine</h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">Essayez de l'ouvrir depuis Shanghai. Vous fixez un écran blanc pendant dix secondes. Quinze. Parfois rien du tout.</p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">C'est le Grand Pare-feu. Il ralentit et bloque le trafic venu des serveurs étrangers. Les Google Fonts restent fantômes. Les poignées de main SSL expirent en route. Le CDN que vous payez ? Bridé, ou tout simplement coupé.</p>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Nous travaillons sur le terrain depuis plus de vingt ans et c'est, de loin, le problème le plus répandu chez les entreprises internationales. Votre site file comme un TGV à New York. À Pékin, il est quasi hors service.</p>
-        </div>
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white border border-[var(--color-surface-border)]">
-            <div class="absolute inset-3 sm:inset-6 flex flex-col justify-center gap-4 sm:gap-6">
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Serveur US/EU</div>
-                  <div class="w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden"><div class="w-[85%] h-full bg-red-400 rounded-full"></div></div>
-                  <div class="text-xs text-[var(--color-text-muted)] mt-1">12,4s de chargement</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-[var(--color-text-dark)] mb-1">Serveur Chine</div>
-                  <div class="w-full h-2 bg-[var(--color-surface-border)] rounded-full overflow-hidden"><div class="w-[8%] h-full bg-green-500 rounded-full"></div></div>
-                  <div class="text-xs text-[var(--color-text-muted)] mt-1">0,8s de chargement</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-2xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Options d'hébergement</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Trois manières d'héberger votre site WordPress</h2>
-      </div>
-      <CaseStudyCards items={hostingOptions} />
-    </div>
-  </section>
-
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Ce qui est compris</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Compris dans chaque formule</h2>
-        </div>
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {includedItems.map((item) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{item.title}</h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item.body}</p>
-                </div>
+          <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {proofStats.map((s) => (
+              <div>
+                <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">{s.value}{s.suffix}</div>
+                <div class="text-[11px] text-white/55 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -190,73 +159,163 @@ const audiences = [
     </div>
   </section>
 
-  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+  <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Licence ICP</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">Le passage obligé que personne n'aime</h2>
-        </div>
-        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
-          <div class="space-y-6">
-            <p class="text-base text-white/70 leading-relaxed">Pour héberger votre site sur des serveurs en Chine continentale, l'ICP est incontournable. Pas de raccourci, pas d'exception. Sans licence, l'hébergeur met le site hors ligne. Et il ne vous prévient pas : il s'éteint, fin de la discussion.</p>
-            <p class="text-base text-white/70 leading-relaxed">Il en existe deux. L'ICP Bei'an (备案) couvre les sites informatifs : site vitrine, blog, pages institutionnelles. Si le vôtre traite des transactions ou une activité commerciale, il vous faudra la licence complète (经营许可证), dont le parcours est nettement plus long.</p>
-            <p class="text-base text-white/70 leading-relaxed">Nous prenons tout en charge. Identifier le type applicable, réunir les pièces (enregistrement commercial, certificats de domaine, pièce d'identité du responsable), déposer le dossier, relancer quand la procédure s'enlise. Comptez deux à quatre semaines pour un Bei'an. Deux à trois mois pour une licence commerciale, parfois davantage.</p>
-            <p class="text-base text-white/70 leading-relaxed">Un point capital : il faut disposer d'une entité commerciale immatriculée en Chine pour lancer la démarche. Si vous n'en avez pas, pas de panique : nous vous orientons vers les solutions de repli.</p>
-          </div>
-        </div>
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Trois options</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Continental, Hong Kong, ou les deux.
+        </h2>
       </div>
-    </div>
-  </section>
 
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Performance</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Où vos serveurs tournent change tout</h2>
-      </div>
-      <div class="max-w-4xl mx-auto">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="border-b-2 border-[var(--color-surface-border)]">
-                <th class="py-4 pr-6 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">Lieu d'hébergement</th>
-                <th class="py-4 pr-6 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">Temps de chargement en Chine</th>
-                <th class="py-4 pr-6 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">ICP requis ?</th>
-                <th class="py-4 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">Bonus SEO Baidu</th>
-              </tr>
-            </thead>
-            <tbody>
-              {performanceRows.map((row, i) => (
-                <tr class:list={['border-b border-[var(--color-surface-border)]', i === performanceRows.length - 1 ? 'bg-[var(--color-brand-orange)]/5' : '']}>
-                  <td class="py-4 pr-6 text-base font-medium text-[var(--color-text-dark)]">{row.location}</td>
-                  <td class:list={['py-4 pr-6 text-base font-semibold', i === performanceRows.length - 1 ? 'text-[var(--color-brand-orange)]' : 'text-[var(--color-text-body)]']}>{row.loadTime}</td>
-                  <td class="py-4 pr-6 text-base text-[var(--color-text-body)]">{row.icp}</td>
-                  <td class:list={['py-4 text-base font-semibold', i === performanceRows.length - 1 ? 'text-[var(--color-brand-orange)]' : 'text-[var(--color-text-body)]']}>{row.baiduBoost}</td>
-                </tr>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+        {hostingOptions.map((o) => (
+          <article class="bg-[var(--color-surface-light)] rounded-2xl p-7 lg:p-8 border border-[var(--color-surface-border)] flex flex-col">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">{o.tag}</div>
+            <h3 class="text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{o.name}</h3>
+            <p class="text-sm font-medium text-[var(--color-brand-orange)] mb-4">{o.tagline}</p>
+            <p class="text-base font-medium text-[var(--color-text-dark)] leading-snug mb-3">{o.headline}</p>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-3">{o.body}</p>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">{o.detail}</p>
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              {o.metrics.map((m) => (
+                <div class="rounded-lg bg-white p-3 border border-[var(--color-surface-border)]">
+                  <div class="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">{m.label}</div>
+                  <div class="text-sm font-semibold text-[var(--color-text-dark)] mt-0.5">{m.value}</div>
+                </div>
               ))}
-            </tbody>
-          </table>
-        </div>
-        <p class="mt-8 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-2xl mx-auto">
-          Douze secondes de chargement, ce n'est pas un site lent. C'est un site que personne ne verra. Les internautes chinois attendent des pages véloces et claquent la porte dès qu'elles rament.
-        </p>
+            </div>
+            <p class="text-xs text-[var(--color-text-muted)] italic mt-auto">Pour : {o.fit}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <WhoIsThisFor heading="Qui nous sollicite pour l'hébergement" audiences={audiences} footnote="Pas besoin de comprendre la mécanique technique de tout cela. C'est notre métier. Notre équipe est implantée en Chine, nous faisons ce travail depuis plus de vingt ans, et nous prenons tout en charge pour que vous puissiez vous consacrer à l'essentiel de votre activité." background="light" />
-
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
-    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Passez à l'action</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Parlons de votre configuration</h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Chaque projet a ses singularités : votre calendrier, votre avancée ICP, votre public cible, votre enveloppe budgétaire. Racontez-nous votre situation et nous vous livrerons une recommandation d'hébergement taillée sur mesure. Pas de propositions passe-partout.</p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/fr/contact/" variant="primary" size="lg">Obtenir une recommandation d'hébergement</Button>
-        <Button href="/fr/services/china-migration/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">En savoir plus sur la licence ICP</Button>
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Inclus</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Six choses dans le forfait, à chaque fois.
+        </h2>
       </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {includedItems.map((it) => (
+          <article class="bg-white rounded-2xl p-6 border border-[var(--color-surface-border)]">
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{it.title}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{it.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Le dépôt ICP</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Deux types de licence, deux calendriers.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {icpTypes.map((t) => (
+          <article class="bg-[var(--color-surface-light)] rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 mb-3">{t.code}</div>
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-1">{t.name}</h3>
+            <p class="text-sm text-[var(--color-text-muted)] mb-4">{t.type} · {t.timing}</p>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">{t.body}</p>
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-2">Pièces requises</div>
+            <ul class="space-y-1.5">
+              {t.docs.map((d) => (
+                <li class="text-xs text-[var(--color-text-body)] flex gap-2">
+                  <span class="text-[var(--color-brand-orange)]">·</span>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Conformité</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Trois lois qui encadrent les données chinoises.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {complianceLaws.map((l) => (
+          <article class="bg-white rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <div class="text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-brand-orange)] mb-2">{l.abbr}</div>
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{l.name}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{l.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Calendrier</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Trois chemins, trois calendriers.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {timelines.map((t) => (
+          <article class="bg-[var(--color-surface-light)] rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">{t.label}</div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-1">{t.title}</h3>
+            <p class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{t.duration}</p>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{t.note}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="Qui nous mandate pour l’hébergement" audiences={audiences} background="light" />
+
+  <section id="faq" class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Six questions sur l’hébergement.
+        </h2>
+      </div>
+
+      <div data-faq-accordion>
+        {faqs.map((faq) => (
+          <FAQItem question={faq.question} id={faq.id}>
+            {faq.answer.map((p) => <p class="mb-3 last:mb-0">{p}</p>)}
+          </FAQItem>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 bg-[var(--color-surface-dark)]">
+    <div class="mx-auto max-w-[1100px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6">
+        Prêts à mettre votre site en ligne en Chine ?
+      </h2>
+      <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+        Décrivez-nous le périmètre. Nous renvoyons sous deux jours ouvrés un cadrage et un calendrier.
+      </p>
+      <Button href="/fr/contact/" variant="primary" size="lg">Démarrer</Button>
     </div>
   </section>
 
