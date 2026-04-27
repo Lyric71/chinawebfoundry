@@ -7,7 +7,7 @@ try { process.loadEnvFile('.env'); } catch {}
 const WAVESPEED_API_URL = 'https://api.wavespeed.ai/api/v3';
 const MODEL = 'google/nano-banana-2/text-to-image';
 const WEBP_QUALITY = 80;
-const MAX_WIDTH = 1600;
+const MAX_WIDTH = 1050;
 
 const apiKey = process.env.WAVESPEED_API_KEY;
 if (!apiKey) {
