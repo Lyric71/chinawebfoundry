@@ -1,37 +1,168 @@
 ---
-import Button from '../ui/Button.astro';
+/**
+ * Final homepage CTA: a single bold invitation to /contact/.
+ * No exposed email / WeChat / LinkedIn — every interaction routes
+ * through the contact page.
+ *
+ * Layout:
+ * - LEFT: Eyebrow + huge gradient headline + subhead + single CTA
+ * - RIGHT: Hero photo (Shanghai team) with floating "Live · Office open" badge
+ * - Decorative parallax glyph + gradient orbs + dot grid
+ */
 ---
 
-<!-- CTA section with gradient background -->
-<section class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
-  <!-- Background -->
-  <div class="absolute inset-0 bg-[var(--color-surface-light)]"></div>
+<section
+  data-final-cta
+  class="relative py-24 md:py-32 lg:py-40 overflow-hidden bg-white"
+>
+  <!-- Background layers -->
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-light)] via-white to-[var(--color-surface-light)]"></div>
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:34px_34px] opacity-[0.035]"></div>
+    <div class="absolute -top-40 left-[10%] w-[560px] h-[560px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[150px]" data-float="slow"></div>
+    <div class="absolute -bottom-40 right-[8%] w-[480px] h-[480px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[160px]" data-float></div>
+  </div>
+  <span aria-hidden="true" class="absolute right-[-3rem] top-[8%] text-[20rem] lg:text-[26rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.12">联系</span>
 
-  <!-- Decorative elements -->
-  <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-[var(--color-brand-orange)] opacity-[0.03]" style="filter: blur(100px);"></div>
-  <div class="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-blue-500 opacity-[0.02]" style="filter: blur(80px);"></div>
-  <div class="hidden lg:block absolute top-16 right-[15%] w-16 h-16 border border-[var(--color-brand-orange)]/[0.08] rounded-2xl" style="animation: float-cta 12s ease-in-out infinite;"></div>
-  <div class="hidden lg:block absolute bottom-20 left-[10%] w-10 h-10 border border-[var(--color-surface-border)] rounded-full" style="animation: float-cta 8s ease-in-out infinite reverse;"></div>
+  <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
+    <div class="grid grid-cols-12 gap-8 lg:gap-16 items-center">
+      <!-- LEFT: Headline + CTA -->
+      <div class="col-span-12 lg:col-span-7" data-reveal>
+        <!-- Eyebrow -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)]">Get in touch · 联系我们</span>
+        </div>
 
-  <div class="relative z-10 mx-auto max-w-[1400px] section-padding text-center">
-    <div class="max-w-2xl mx-auto">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-        Get Started
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-        Stay Ahead of the China Web Curve
-      </h2>
-      <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-10">
-        Receive practical insights on WordPress in China -- hosting updates, compliance changes, and Baidu SEO tips -- directly in your inbox.
-      </p>
-      <Button href="/contact/" variant="primary" size="lg">Get in touch</Button>
+        <!-- Big headline -->
+        <h2 class="text-4xl sm:text-5xl lg:text-[64px] xl:text-[76px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[0.98] tracking-tight mb-6">
+          Talk to a real person.
+          <span class="block">
+            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">In Shanghai.</span>
+          </span>
+        </h2>
+        <p class="text-base lg:text-xl text-[var(--color-text-body)] leading-relaxed max-w-xl mb-9">
+          Send us a brief or pick a 30-minute call. We answer in your timezone. No bots, no chatbots, no ticketing system.
+        </p>
+
+        <!-- Single CTA -->
+        <div class="flex flex-wrap items-center gap-5 mb-8">
+          <a
+            href="/contact/"
+            class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-[var(--radius-pill)] bg-[var(--color-brand-orange)] text-white text-base lg:text-lg font-semibold font-[var(--font-button)] no-underline transition-all duration-300 hover:bg-[var(--color-brand-orange-hover)] hover:-translate-y-1 hover:shadow-[0_22px_55px_-12px_rgba(242,95,41,0.5)] active:translate-y-0 overflow-hidden"
+          >
+            <!-- Pulsing aura -->
+            <span class="absolute inset-0 rounded-[var(--radius-pill)] bg-[var(--color-brand-orange)] opacity-40 animate-ping" style="animation-duration: 3s;"></span>
+            <!-- Shimmer sweep -->
+            <span class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+            <span class="relative">Contact us</span>
+            <svg class="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Live status row (open/closed driven by Shanghai business hours) -->
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+          <div class="inline-flex items-center gap-2.5" data-office-status>
+            <span class="relative flex h-2 w-2" data-office-dot>
+              <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60 animate-ping" data-office-ping></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" data-office-core></span>
+            </span>
+            <span class="text-[var(--color-text-dark)] font-medium" data-office-label>Office open</span>
+            <span class="text-[var(--color-text-muted)] font-mono text-xs">Shanghai · <span data-final-clock>--:--</span></span>
+          </div>
+          <div class="inline-flex items-center gap-2 text-[var(--color-text-muted)]">
+            <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>We answer within 24h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Hero photo with floating overlay -->
+      <div class="col-span-12 lg:col-span-5" data-reveal data-reveal-delay="120">
+        <div
+          class="relative rounded-3xl overflow-hidden border border-[var(--color-surface-border)] shadow-[0_40px_80px_-30px_rgba(15,15,18,0.25)] group"
+          data-cursor-spotlight
+        >
+          <div class="relative aspect-[5/4]">
+            <img
+              src="/images/shanghai-team-street-view.webp"
+              alt="ChinaWebFoundry team working in their Shanghai street-level office"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              loading="lazy"
+              decoding="async"
+            />
+            <!-- Top accent bar -->
+            <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] z-10"></div>
+            <!-- Bottom gradient for legibility of overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0e]/85 via-[#0a0a0e]/20 to-transparent"></div>
+
+            <!-- Top-right floating "Live" badge -->
+            <div class="absolute top-5 right-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.10] backdrop-blur-md border border-white/20">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-white">Live · Shanghai</span>
+            </div>
+
+            <!-- Bottom caption overlay -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/65 mb-2">Studio · 上海工作室</div>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-snug">
+                The same team you'll work with, every step.
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<style>
-  @keyframes float-cta {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(5deg); }
+<script>
+  function initFinalCta() {
+    const clock = document.querySelector<HTMLElement>('[data-final-clock]');
+    const label = document.querySelector<HTMLElement>('[data-office-label]');
+    const ping = document.querySelector<HTMLElement>('[data-office-ping]');
+    const core = document.querySelector<HTMLElement>('[data-office-core]');
+
+    // Shanghai office hours: 9:00 to 20:00 CST (UTC+8). Open Mon-Fri.
+    const OPEN_HOUR = 9;
+    const CLOSE_HOUR = 20;
+
+    const update = () => {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const sh = new Date(utc + 3600000 * 8);
+      const hh = String(sh.getHours()).padStart(2, '0');
+      const mm = String(sh.getMinutes()).padStart(2, '0');
+      if (clock) clock.textContent = `${hh}:${mm}`;
+
+      const day = sh.getDay(); // 0 = Sun, 6 = Sat
+      const hour = sh.getHours();
+      const isWeekday = day >= 1 && day <= 5;
+      const isOpen = isWeekday && hour >= OPEN_HOUR && hour < CLOSE_HOUR;
+
+      if (label) label.textContent = isOpen ? 'Office open' : 'Office closed';
+
+      if (ping) {
+        ping.classList.toggle('bg-emerald-500', isOpen);
+        ping.classList.toggle('bg-[var(--color-text-muted)]', !isOpen);
+        // Stop pinging when closed
+        ping.classList.toggle('animate-ping', isOpen);
+      }
+      if (core) {
+        core.classList.toggle('bg-emerald-500', isOpen);
+        core.classList.toggle('bg-[var(--color-text-muted)]', !isOpen);
+      }
+    };
+    update();
+    setInterval(update, 30000);
   }
-</style>
+
+  initFinalCta();
+  document.addEventListener('astro:page-load', initFinalCta);
+  document.addEventListener('astro:after-swap', initFinalCta);
+</script>
