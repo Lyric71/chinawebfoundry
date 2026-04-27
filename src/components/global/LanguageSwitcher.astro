@@ -17,6 +17,8 @@ const isEn = currentLang === 'en';
   <a
     href={isEn ? Astro.url.pathname : alternateUrl}
     class:list={[
+      'lang-switch-link',
+      isEn ? 'lang-switch-active' : 'lang-switch-inactive',
       'px-1.5 py-0.5 rounded no-underline transition-colors duration-200 font-medium',
       isEn
         ? heroPage
@@ -32,12 +34,14 @@ const isEn = currentLang === 'en';
     EN
   </a>
   <span class:list={[
-    'text-xs',
+    'lang-switch-sep text-xs',
     heroPage ? 'text-white/30' : 'text-[var(--color-text-muted)]',
   ]}>|</span>
   <a
     href={isEn ? alternateUrl : Astro.url.pathname}
     class:list={[
+      'lang-switch-link',
+      !isEn ? 'lang-switch-active' : 'lang-switch-inactive',
       'px-1.5 py-0.5 rounded no-underline transition-colors duration-200 font-medium',
       !isEn
         ? heroPage

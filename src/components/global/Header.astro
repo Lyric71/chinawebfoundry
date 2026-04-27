@@ -100,6 +100,18 @@ const t = useTranslations(currentLang);
           el.classList.remove('text-white');
           el.classList.add('text-[var(--color-text-body)]');
         });
+        header?.querySelectorAll('.lang-switch-active').forEach((el) => {
+          el.classList.remove('text-white');
+          el.classList.add('text-[var(--color-text-dark)]');
+        });
+        header?.querySelectorAll('.lang-switch-inactive').forEach((el) => {
+          el.classList.remove('text-white/50', 'hover:text-white');
+          el.classList.add('text-[var(--color-text-muted)]', 'hover:text-[var(--color-text-dark)]');
+        });
+        header?.querySelectorAll('.lang-switch-sep').forEach((el) => {
+          el.classList.remove('text-white/30');
+          el.classList.add('text-[var(--color-text-muted)]');
+        });
       }
     } else {
       if (isHeroPage) {
@@ -117,6 +129,18 @@ const t = useTranslations(currentLang);
         header?.querySelectorAll('.mobile-menu-btn').forEach((el) => {
           el.classList.add('text-white');
           el.classList.remove('text-[var(--color-text-body)]');
+        });
+        header?.querySelectorAll('.lang-switch-active').forEach((el) => {
+          el.classList.add('text-white');
+          el.classList.remove('text-[var(--color-text-dark)]');
+        });
+        header?.querySelectorAll('.lang-switch-inactive').forEach((el) => {
+          el.classList.add('text-white/50', 'hover:text-white');
+          el.classList.remove('text-[var(--color-text-muted)]', 'hover:text-[var(--color-text-dark)]');
+        });
+        header?.querySelectorAll('.lang-switch-sep').forEach((el) => {
+          el.classList.add('text-white/30');
+          el.classList.remove('text-[var(--color-text-muted)]');
         });
       }
     }
