@@ -1,78 +1,135 @@
 ---
 /**
- * Focus Areas: five strategic priorities (Content, UX, Baidu, AI, Hosting),
- * each with a short headline, body and link to the related service.
+ * What We Focus On: stacked tri-column cards.
+ * Same pattern as the "What to Write · 写什么" section on /services/chinese-content/
+ * - Left col (dark): big Chinese glyph + label
+ * - Middle col (white): title + body
+ * - Right col (light surface): link CTA + what's inside
  */
 
-const areas = [
+interface Area {
+  label: string;
+  cn: string;
+  title: string;
+  body: string;
+  link: { href: string; label: string };
+  inside: string[];
+}
+
+const areas: Area[] = [
   {
     label: 'Content',
+    cn: '内容',
     title: 'Content That Resonates',
     body: 'Translated copy is not localised copy. Native Chinese writers rewrite your messaging with the cultural cues, trust signals and third-party validation Chinese audiences look for first.',
     link: { href: '/services/chinese-content/', label: 'Chinese Content' },
+    inside: ['Native editorial', 'Brand voice in Chinese', '广告法 compliance'],
   },
   {
     label: 'UX and UI',
+    cn: '体验',
     title: 'UX and UI That Fits Local Habits',
     body: 'Mobile-first, WeChat-browser tested, designed for the way Chinese users scan a page. Trust signals, QR codes and verification badges in the Chinese order, not the Western one.',
     link: { href: '/services/ux-ui-design/', label: 'UX and UI Design' },
+    inside: ['Mobile-first', 'WeChat in-app tested', 'Trust signals first'],
   },
   {
     label: 'Baidu',
+    cn: '百度',
     title: 'Baidu SEO',
     body: 'Baidu is not translated Google. Different ranking factors, stricter technical requirements. We set the foundation Baidu needs to crawl you in the first place.',
     link: { href: '/services/baidu-seo/', label: 'Baidu SEO' },
+    inside: ['Keyword research in Chinese', 'Baidu Webmaster setup', 'Authority building'],
   },
   {
     label: 'AI Search',
+    cn: 'AI',
     title: 'GEO China: AI Search Optimisation',
     body: 'Generative Engine Optimisation. DeepSeek, Doubao, Kimi, Yuanbao and Baidu AI are now the first stop for many Chinese consumers under thirty-five. They ask, the AI answers, the click never happens. We structure your site so these engines can cite your brand back to users.',
     link: { href: '/services/geo/', label: 'GEO China' },
+    inside: ['DeepSeek + Doubao', 'Schema and llms.txt', 'Citation tracking'],
   },
   {
     label: 'Infrastructure',
+    cn: '基础',
     title: 'Hosting and Infrastructure in China',
     body: 'Fast, ICP-licensed hosting on Aliyun, Tencent Cloud or Huawei Cloud. Managed end to end so your team never logs into a Chinese hosting panel.',
     link: { href: '/services/china-hosting/', label: 'China Hosting' },
+    inside: ['ICP licensing', 'Aliyun / Tencent Cloud', 'Performance monitored'],
   },
 ];
 ---
 
-<section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
-  <div class="mx-auto max-w-[1400px] section-padding">
-    <!-- Section header -->
-    <div class="max-w-3xl mb-16 lg:mb-20">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-        What We Focus On
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+<section class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
+  <!-- Decorative floating glyph -->
+  <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.15">焦</span>
+
+  <div class="relative mx-auto max-w-[1400px] section-padding">
+    <!-- Header -->
+    <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">What We Focus On · 焦点</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
         Five challenges. One team that has solved them before.
       </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+        Content, UX, Baidu, AI search and infrastructure. The five places foreign brand sites in China go wrong, and the five places we get them right.
+      </p>
     </div>
 
-    <!-- Areas list -->
-    <div class="space-y-4 lg:space-y-6">
-      {areas.map((area) => (
-        <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-          <div class="lg:col-span-3">
-            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
-              {area.label}
-            </p>
-            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
-              {area.title}
-            </h3>
+    <!-- Stack of tri-column cards -->
+    <div class="space-y-5 lg:space-y-6">
+      {areas.map((a, i) => (
+        <article
+          data-reveal
+          data-reveal-delay={String(i * 60)}
+          data-cursor-spotlight
+          class:list={[
+            'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+            'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+          ]}
+        >
+          <!-- Left: dark with chinese glyph + label -->
+          <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+            <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{a.cn}</span>
+            <div class="relative">
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">{a.label}</div>
+              <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{a.cn}</div>
+              <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">Focus</div>
+            </div>
           </div>
-          <div class="lg:col-span-9">
-            <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-              {area.body}
+
+          <!-- Middle: title + body -->
+          <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+            <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4 transition-colors duration-300 group-hover:text-[var(--color-brand-orange)]">
+              {a.title}
+            </h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+              {a.body}
             </p>
+          </div>
+
+          <!-- Right: what's inside + link CTA -->
+          <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-between gap-5">
+            <div>
+              <div class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)] mb-3">What's inside</div>
+              <ul class="space-y-2">
+                {a.inside.map((item) => (
+                  <li class="flex items-start gap-2 text-[13px] text-[var(--color-text-dark)] leading-snug">
+                    <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <a
-              href={area.link.href}
-              class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all duration-200"
+              href={a.link.href}
+              class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline transition-all duration-300 group-hover:gap-3.5"
             >
-              {area.link.label}
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              {a.link.label}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.25" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
@@ -81,3 +138,5 @@ const areas = [
     </div>
   </div>
 </section>
+</content>
+</invoke>

@@ -1,98 +1,567 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
+import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
 
-const metaTitle = 'Stratégie et audit WordPress pour la Chine | ChinaWebFoundry';
-const metaDescription = 'Audit complet de votre site WordPress pour la Chine. Nous identifions les blocages, préparons votre licence ICP et livrons une feuille de route priorisée.';
+const metaTitle = 'Stratégie et audit Chine | Feuille de route digitale';
+const metaDescription = 'Avant de bâtir, décider. Nous auditons votre dispositif chinois et livrons une feuille de route stratégique : site, WeChat, contenu, hébergement, recherche.';
 
-const auditItems = [
-  { title: 'Tests de vitesse depuis la Chine', body: 'Sessions de navigation réelles depuis quatre grandes métropoles. La plupart des sites dépassent quinze secondes de chargement. Certains n\'aboutissent tout simplement jamais.', icon: 'speed' },
-  { title: 'Chasse aux ressources bloquées', body: 'Chaque extension, police, script et appel API passé au crible face au Grand Pare-feu. Nous signalons ce qui est coupé et ce qui tourne en mode dégradé.', icon: 'shield' },
-  { title: 'Revue de conformité', body: 'SSL, traitement des données et hébergement évalués à l\'aune de la Loi sur la cybersécurité, de la PIPL et de la Loi sur la sécurité des données.', icon: 'compliance' },
-  { title: 'Expérience utilisateur chinoise', body: 'Votre site sur un Xiaomi avec QQ Browser : rendu typographique, navigation, adaptation mobile.', icon: 'mobile' },
-  { title: 'Bilan de santé SEO Baidu', body: 'Indexation, sitemaps, compatibilité Outils Webmaster Baidu, alignement avec les intentions de recherche. Vos classements Google ne comptent pas ici.', icon: 'search' },
-  { title: 'Audit d\'infrastructure', body: 'Hébergement, DNS, CDN et performance de la base de données. Votre stack WordPress tiendra-t-elle en environnement chinois ?', icon: 'server' },
+const questions = [
+  {
+    n: '01',
+    cn: '品牌',
+    title: 'Votre marque touche-t-elle vraiment le public chinois ?',
+    body: "Nous regardons comment votre marque se lit pour le public chinois. Une copie traduite n’est pas une copie localisée. Les consommateurs chinois réagissent à des signaux de confiance que les marques étrangères sous-pondèrent presque toujours : crédibilité du fondateur, certifications, logos de partenaires, vocabulaire en phase avec le discours officiel, prix et distinctions, caution d’un tiers. Nous comparons votre discours actuel avec vos concurrents directs en Chine et nommons précisément ce qui ne passe pas.",
+    tag: 'Positionnement de marque',
+    chips: ['Fondateur', 'Certifications', 'Partenaires', 'Prix', 'Médias'],
+  },
+  {
+    n: '02',
+    cn: '搜索',
+    title: 'Où le public chinois vous trouve-t-il, en réalité ?',
+    body: "Baidu pèse encore environ la moitié de la recherche en Chine. Les assistants Doubao, Kimi, DeepSeek et Wenxin sont devenus la première étape pour beaucoup de consommateurs chinois, surtout chez les moins de trente-cinq ans. La recherche WeChat est un écosystème à part, avec sa propre logique de classement. Nous cartographions votre visibilité actuelle sur chaque surface et nommons les écarts qu’on peut combler en trois mois et ceux qui prendront dix-huit.",
+    tag: 'Surfaces de découverte',
+    chips: ['Baidu', 'Doubao', 'Kimi', 'DeepSeek', 'Wenxin', 'Recherche WeChat'],
+  },
+  {
+    n: '03',
+    cn: '技术',
+    title: 'Quelle technologie vous correspond ?',
+    body: "WordPress, Astro, montages headless, Mini Programs WeChat, H5, applications natives : chacun répond à des besoins distincts. La plupart des marques étrangères en font tourner deux ou trois ensemble. Nous regardons votre processus éditorial, votre équipe, vos volumes de trafic, vos ambitions e-commerce, et nous vous disons quoi bâtir sur quelle pile. Honnêtement. Y compris quand la réponse pousse vers un projet que nous ne ferions pas nous-mêmes.",
+    tag: 'Stack technologique',
+    chips: ['WordPress', 'Astro', 'Headless', 'Mini Program', 'H5', 'Natif'],
+  },
+  {
+    n: '04',
+    cn: '微信',
+    title: 'Quelle est votre stratégie WeChat ?',
+    body: "Presque toutes les marques étrangères ont besoin d’être à l’intérieur de WeChat. Presque aucune n’a tranché entre Mini Program, compte officiel, dispositif WeCom, présence sur Channels (视频号), ou une combinaison. Nous calons l’empreinte WeChat sur votre modèle économique et votre audience : quelles surfaces comptent, ce qu’on peut livrer en phase un, ce qui se construit ensuite. Y compris la question que les marques étrangères oublient le plus souvent : faut-il s’appuyer sur l’écosystème SaaS local (有赞, 微店, Meituan, 客如云, Aliyun) plutôt que de tout bâtir sur mesure ?",
+    tag: 'Écosystème WeChat',
+    chips: ['Mini Program', 'Compte officiel', 'WeCom', '视频号', 'SaaS local'],
+  },
+  {
+    n: '05',
+    cn: '合规',
+    title: 'Qu’est-ce qui est réellement conforme ?',
+    body: "ICP, MIIT, PIPL, Loi sur la cybersécurité, Loi sur la sécurité des données, dépôt des Mini Programs WeChat. Chaque couche réglementaire qui touche une marque étrangère opérant dans le digital chinois. Nous évaluons où vous en êtes, où sont les risques, ce qu’il faut déposer et selon quel calendrier.",
+    tag: 'Réglementaire',
+    chips: ['ICP', 'MIIT', 'PIPL', 'CSL', 'DSL', 'Mini Program'],
+  },
 ];
 
-const roadmapItems = [
-  { title: 'Stratégie d\'entrée sur le marché', body: 'Hébergement continental, Hong Kong avec CDN, ou WeChat et Xiaohongshu ? Nous cartographions chaque option avec ses vrais arbitrages, sans embellir.' },
-  { title: 'Parcours licence ICP', body: 'Type de dépôt, structure d\'entité, éligibilité du fournisseur, délais réalistes. Se tromper ici, c\'est perdre des mois.' },
-  { title: 'Architecture technique', body: 'Hébergement, CDN, DNS pour les résolveurs chinois et une stack WordPress éprouvée en conditions réelles sur le terrain.' },
-  { title: 'Contenu et SEO Baidu', body: 'Quoi publier en priorité, comment le structurer pour Baidu Spider et les règles d\'indexation mobile-first.' },
-  { title: 'Liste de substitution des extensions', body: 'Google Analytics vers Baidu Tongji. Maps vers Amap. reCAPTCHA vers Tencent Captcha. Sans oublier la correspondance CRM et ERP.' },
-  { title: 'Calendrier et budget', body: 'Des jalons phasés calés sur des délais réalistes, pas sur des voeux pieux.' },
+const deliverables = [
+  {
+    n: '01',
+    title: 'Diagnostic de préparation Chine',
+    body: "Une lecture nette de votre marque et de vos actifs aujourd’hui. Contenu, UX, visibilité (Baidu et IA), performance technique, conformité, présence WeChat. Ce qui marche, ce qui ne marche pas, ce qu’il faut reconstruire plutôt que reprendre.",
+    pageRef: 'p.04',
+  },
+  {
+    n: '02',
+    title: 'Recommandation de positionnement',
+    body: "Comment votre marque doit apparaître au public chinois dans votre catégorie. Les signaux de confiance qui comptent. Les choix de voix et de ton. Les territoires de contenu à occuper. Ce qui change par rapport à votre positionnement mondial, et pourquoi.",
+    pageRef: 'p.10',
+  },
+  {
+    n: '03',
+    title: 'Architecture technologique',
+    body: "Pile recommandée : site, WeChat, gestion de contenu, hébergement. Comprend le choix WordPress / Astro, l’arbitrage Mini Program / H5, et la question dual-stack global / Chine.",
+    pageRef: 'p.16',
+  },
+  {
+    n: '04',
+    title: 'Feuille de route séquencée',
+    body: "Ce qu’on livre en phase un (mise en ligne), phase deux (croissance et visibilité), phase trois (montée en charge et IA). Chaque phase avec son périmètre, ses dépendances, son calendrier et sa fourchette budgétaire. Le dépôt ICP placé sur le chemin critique pour ne pas bloquer la phase un.",
+    pageRef: 'p.22',
+  },
+  {
+    n: '05',
+    title: 'Carte de conformité',
+    body: "ICP, MIIT, PIPL, résidence des données, vérification WeChat, dépôt Mini Program. Ce qui s’applique, ce qui ne s’applique pas, le délai associé à chaque démarche, et ce que nous recommandons d’engager en premier.",
+    pageRef: 'p.30',
+  },
+  {
+    n: '06',
+    title: 'Dossier prêt pour le siège',
+    body: "Le livrable que les responsables marques étrangères nous demandent le plus. Une synthèse exécutive de deux pages, les paragraphes de raisonnement que le siège réclamera, et des comparatifs côte à côte qui expliquent pourquoi les arbitrages chinois s’écartent des standards mondiaux.",
+    pageRef: 'p.36',
+  },
+];
+
+const stages = [
+  {
+    n: '01',
+    cn: '启动',
+    title: 'Lancement',
+    body: "Une session de travail avec votre équipe. Objectifs, audience, dispositif chinois actuel s’il existe, questions que vous portez en entrant, contraintes politiques internes que nous devons connaître côté siège.",
+    output: 'Périmètre aligné',
+  },
+  {
+    n: '02',
+    cn: '调研',
+    title: 'Découverte et tests',
+    body: "Nous testons votre site depuis la Chine continentale, auditons votre empreinte WeChat le cas échéant, relisons votre contenu existant, mesurons votre visibilité sur Baidu et les moteurs d’IA. Vrais navigateurs, vrais téléphones chinois, vraies conditions réseau.",
+    output: 'Constats du diagnostic',
+  },
+  {
+    n: '03',
+    cn: '对标',
+    title: 'Revue concurrentielle',
+    body: "Nous regardons trois à cinq concurrents directs présents en Chine et cartographions ce qu’ils déploient sur le site, sur WeChat, en contenu et en recherche. Nous ne copions pas. Nous calons simplement la marque sur l’état réel de la catégorie.",
+    output: 'Repère sectoriel',
+  },
+  {
+    n: '04',
+    cn: '策略',
+    title: 'Atelier stratégique',
+    body: "Session de travail avec votre équipe pour caler la direction stratégique avant l’écriture de la feuille de route. Les décisions prises ensemble tiennent. Les décisions prises pour le client se défont en six mois.",
+    output: 'Direction alignée',
+  },
+  {
+    n: '05',
+    cn: '交付',
+    title: 'Livraison écrite',
+    body: "Le document de feuille de route, plus un appel de restitution de 90 minutes pour parcourir les constats et les prochaines étapes recommandées.",
+    output: 'PDF + appel de 90 min',
+  },
 ];
 
 const audiences = [
-  { label: 'Première entrée en Chine', description: 'Votre site WordPress doit tenir debout derrière le Grand Pare-feu.', image: '/images/audiences/first-time-china-entry.webp' },
-  { label: 'Sous-performance sur place', description: 'Chargements poussifs, visibilité Baidu en berne, ou rendus cassés sur les navigateurs du continent.', image: '/images/audiences/underperforming-china-site.webp' },
-  { label: 'Équipes de campagne', description: 'Besoin d\'une page d\'atterrissage rapide et conforme pour les audiences chinoises.', image: '/images/audiences/campaign-team-china.webp' },
-  { label: 'Direction technique', description: 'Besoin d\'un état des lieux précis des exigences ICP, MIIT et infrastructure.', image: '/images/audiences/technical-leadership-icp.webp' },
-  { label: 'E-commerce et B2B', description: 'Des clients chinois perdus parce que le tunnel de paiement casse derrière le Grand Pare-feu.', image: '/images/audiences/ecommerce-china-checkout.webp' },
+  {
+    label: 'Première entrée en Chine',
+    description: 'Marques internationales qui lancent leur première vraie présence chinoise et veulent prendre les bonnes décisions du premier coup.',
+    image: '/images/audiences/first-time-china-entry.webp',
+  },
+  {
+    label: 'Présence chinoise sous-performante',
+    description: 'Marques avec un dispositif chinois qui ne livre pas, et une direction qui demande pourquoi. La réponse est presque toujours stratégique, pas technique.',
+    image: '/images/audiences/underperforming-china-site.webp',
+  },
+  {
+    label: 'Marques qui consolident un dispositif éclaté',
+    description: 'Sociétés qui ont monté leur présence chinoise par bribes : un site, un Mini Program, un déploiement WeCom, trois prestataires qui ne se parlent pas, et qui veulent maintenant un plan cohérent.',
+    image: '/images/audiences/multinational-china-entry.webp',
+  },
+  {
+    label: 'Marques qui préparent une refonte ou une migration',
+    description: 'Entreprises qui savent déjà qu’il faut reconstruire ou migrer, et veulent une fondation stratégique avant le démarrage de la phase de build.',
+    image: '/images/audiences/agency-migration-clients.webp',
+  },
+];
+
+const marqueePhrases = [
+  '策略', 'Stratégie',
+  '路线图', 'Feuille de route',
+  '审计', 'Audit',
+  'Dépôt ICP',
+  'Stratégie WeChat',
+  'Visibilité Baidu',
+  'Prêt pour l’IA',
+  'Validé par le siège',
+  'Phase 1 · 2 · 3',
+  'Carte de conformité',
+];
+
+const faqs = [
+  {
+    id: 'mandatory',
+    question: "L’étape stratégie est-elle vraiment obligatoire ? Peut-on attaquer le build directement ?",
+    answer: [
+      "Oui, elle est obligatoire. Nous ne lançons pas de mission de build sans elle, et nous ne le ferons pas. La raison est simple : nous avons assez vu de projets échouer pour avoir sauté les fondations stratégiques. Toutes les marques que nous avons mises en ligne avec succès en Chine sont passées par l’étape stratégie d’abord, même celles qui pensaient déjà savoir ce qu’elles voulaient. Environ un tiers de ces clients sont arrivés convaincus d’avoir besoin d’une chose, et sont repartis avec un plan différent qui a fonctionné. Les deux tiers restants ont vu leurs hypothèses confirmées, mais avec les dépendances correctement séquencées, un budget réaliste et la conformité cadrée avant qu’elle ne devienne un point bloquant.",
+      "Si une autre agence vous dit qu’elle peut sauter la stratégie et passer directement au build, vous achetez son hypothèse selon laquelle votre situation ressemble à son dernier projet. Parfois ça passe. Le plus souvent, non, et le coût pour s’en rendre compte se compte en mois de reprise.",
+    ],
+  },
+  {
+    id: 'build-after',
+    question: 'Sommes-nous obligés de vous engager pour le build après l’audit ?',
+    answer: [
+      "Non. L’audit et la feuille de route vous appartiennent. La plupart des clients enchaînent avec nous parce que c’est le chemin le plus simple, mais le document est à vous : vous pouvez le partager avec votre équipe interne, avec une autre agence, ou le garder pour un projet futur.",
+    ],
+  },
+  {
+    id: 'remote',
+    question: 'Travaillez-vous à distance ou faut-il être en Chine ?',
+    answer: [
+      "Nous menons la mission à distance depuis notre bureau de Shanghai. Vous et votre équipe pouvez être n’importe où. La plupart de nos clients Stratégie et Audit sont en Europe, aux États-Unis ou au Royaume-Uni, avec une petite équipe Chine ou pas d’équipe Chine du tout.",
+    ],
+  },
+  {
+    id: 'site-scan-difference',
+    question: 'Quelle différence avec le scan gratuit du site Chine ?',
+    answer: [
+      "Le scan gratuit est un contrôle automatisé de votre site existant qui repère les problèmes techniques évidents. C’est utile, c’est gratuit, mais c’est étroit. La Stratégie et Audit est une mission stratégique qui va bien au-delà du site : positionnement de marque, stratégie WeChat, territoire de contenu, visibilité de recherche, séquencement, budget et la feuille de route complète sur laquelle votre équipe pourra réellement agir.",
+    ],
+  },
+  {
+    id: 'already-decided',
+    question: 'Et si nous savons déjà ce que nous voulons construire ?',
+    answer: [
+      "Alors nous ne sommes probablement pas le bon partenaire pour cette mission, et nous vous le dirons dès le premier appel. La Stratégie et Audit s’adresse aux marques qui veulent s’assurer qu’elles construisent la bonne chose. Si la décision est déjà prise, passez directement à l’une de nos missions de build.",
+    ],
+  },
+  {
+    id: 'who-does-the-work',
+    question: 'Qui fait réellement le travail ?',
+    answer: [
+      "Notre équipe stratégique senior à Shanghai, pilotée à chaque mission par un stratège de niveau associé. Le stratège est appuyé par un chercheur chinois qui mène la revue concurrentielle, et par un rédacteur qui prépare la recommandation de positionnement. Vous n’avez pas un junior qui déroule des templates.",
+    ],
+  },
+  {
+    id: 'audit-validity',
+    question: 'Combien de temps l’audit reste-t-il valable ?',
+    answer: [
+      "Réalistement, douze à dix-huit mois. Le paysage digital chinois bouge vite. La réglementation évolue, la recherche par IA bascule rapidement, l’écosystème WeChat change chaque trimestre. Le positionnement et les analyses sectorielles vieillissent moins vite. Si vous démarrez le build dans les six mois, tout reste pertinent. Au-delà de deux ans, nous proposons une mission de rafraîchissement avant le démarrage.",
+    ],
+  },
+  {
+    id: 'evaluate-other-agencies',
+    question: 'Pouvons-nous utiliser l’audit pour évaluer d’autres agences ?',
+    answer: [
+      "Oui, et certains clients le font. La feuille de route est suffisamment précise sur le périmètre, les dépendances, le calendrier et les fourchettes budgétaires pour qu’on la confie à d’autres agences afin qu’elles chiffrent à armes égales. Nous sommes assez sûrs du travail pour l’accepter. La plupart continuent malgré tout avec nous, mais le livrable est volontairement portable.",
+    ],
+  },
+  {
+    id: 'fine-as-is',
+    question: 'Direz-vous que notre dispositif chinois actuel suffit, si c’est le cas ?',
+    answer: [
+      "Oui. Environ une mission Stratégie et Audit sur dix se termine par un constat : le dispositif tient, le bon mouvement est l’amélioration progressive, pas la refonte. Nous n’inventons pas de problèmes pour vendre des solutions. Le document est alors plus court, avec une recommandation claire de trois actions à mener sur les six prochains mois.",
+    ],
+  },
+  {
+    id: 'price-included',
+    question: 'Qu’est-ce qui est compris dans le prix, et qu’est-ce qui ne l’est pas ?',
+    answer: [
+      "Compris : session de lancement, audit côté Chine, revue concurrentielle, atelier stratégique, document de feuille de route, appel de restitution. Non compris : la mise en œuvre des recommandations, le dépôt ICP, la production de contenu, le design, le développement. Ce sont des missions séparées qui suivent l’audit, chiffrées sur la base de ce que l’audit recommande.",
+    ],
+  },
 ];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+
+  <ScrollEffects />
+
+  <!-- HERO -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="absolute inset-0"><img src="/images/hero-strategy-audit.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" /><div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div><div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div></div>
+    <div class="absolute inset-0">
+      <img src="/images/hero-strategy-shenzhen-waimai.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/85 to-[#0f0f12]/60"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-text-card-blue)]/20 blur-[140px] pointer-events-none" data-float></div>
+    </div>
+
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">策</span>
+
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <nav aria-label="Fil d'Ariane" class="pt-20 pb-16 md:pb-20"><ol class="flex items-center gap-2 text-sm text-white/40"><li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li><li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li><li class="before:content-['/'] before:mx-2 text-white/60">Stratégie et audit</li></ol></nav>
+      <nav aria-label="Fil d’Ariane" class="pt-20 pb-12 md:pb-16">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Stratégie et audit</li>
+        </ol>
+      </nav>
+
       <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
-        <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">Tout projet démarre ici</p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">Entrez en Chine en confiance.<span class="block mt-2 text-[var(--color-brand-orange)]">Commencez par la stratégie.</span></h1>
-          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">Nous confrontons votre site WordPress aux contraintes techniques réelles de la Chine, puis traçons la route pour performer derrière le Grand Pare-feu.</p>
-          <div class="mt-10"><Button href="/fr/contact/" variant="primary" size="lg">Caler un appel découverte</Button></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-center">
-        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">La plupart des sites WordPress ne franchissent pas le Grand Pare-feu</h2>
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Les Google Fonts ne s'affichent pas, reCAPTCHA tourne dans le vide, les vidéos YouTube restent noires. Nous testons depuis Pékin, Shanghai, Shenzhen et Chengdu sur de vrais navigateurs, puis bâtissons la feuille de route : quoi corriger, quoi remplacer, quoi construire de zéro.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-2xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">L'audit</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Audit WordPress : votre site est-il prêt pour la Chine ?</h2>
-        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">Nous chiffrons ce que chaque problème vous coûte en vitesse, en positions Baidu et en conversions.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {auditItems.map((item) => (
-          <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-7 transition-all duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]">
-            <div class="w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-            </div>
-            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">{item.title}</h3>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item.body}</p>
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Stratégie et audit</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">Équipe senior, Shanghai</span>
           </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Avant de bâtir,
+            <span class="block mt-1.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">décidez ce qu’il faut</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">bâtir.</span>
+            </span>
+          </h1>
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            La Stratégie et Audit, c’est la mission qui précède le build. Nous auditons ce que vous avez aujourd’hui, cartographions ce dont votre audience a réellement besoin, et écrivons la feuille de route qui mène à une présence chinoise solide, dans le bon ordre. <span class="text-white font-medium">Une feuille de route, pas une liste d’extensions.</span>
+          </p>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">20</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Ans à Shanghai</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">50</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Marques lancées</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">3-4 sem.</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Jusqu’à la livraison</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/fr/contact/" variant="primary" size="lg">Démarrer par la stratégie</Button>
+            <Button href="#engagement" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Comment se déroule la mission</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
+          <div class="relative">
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg] transition-transform duration-500 hover:rotate-[-4deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Audit seul</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">périmètre étroit</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Marque, WeChat, recherche : exclus
+              </div>
+            </div>
+
+            <div data-tilt class="relative rounded-2xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] backdrop-blur-md border border-white/15 p-6 lg:p-7 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-400/30">
+                  <span class="w-1 h-1 rounded-full bg-green-400"></span>
+                  <span class="text-[10px] font-mono text-green-300 uppercase tracking-wider">Feuille de route complète</span>
+                </span>
+                <span class="ml-auto text-[10px] font-mono text-white/40">feuille-de-route-chine.pdf</span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Phase 1 · Mise en ligne</span>
+                    <span class="text-[10px] text-[var(--color-brand-orange)] font-mono">Sem. 1-12</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-full bg-gradient-to-r from-[var(--color-brand-orange)] to-[#FF8956] rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Phase 2 · Croissance et recherche</span>
+                    <span class="text-[10px] text-white/45 font-mono">Mois 4-9</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[65%] bg-gradient-to-r from-[var(--color-brand-orange)]/70 to-[var(--color-brand-orange)]/30 rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Phase 3 · IA et passage à l’échelle</span>
+                    <span class="text-[10px] text-white/45 font-mono">An 2+</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[35%] bg-gradient-to-r from-[var(--color-brand-orange)]/40 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">ICP</div>
+                  <div class="text-xs font-mono text-green-300">En parallèle</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">Dossier siège</div>
+                  <div class="text-xs font-mono text-green-300">2 pages</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">Pages</div>
+                  <div class="text-xs font-mono text-green-300">25-40</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- POURQUOI -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0" data-reveal="left">
+          <div class="relative inline-flex items-baseline">
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-duration="1800">4</span>
+            <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">mois</span>
+          </div>
+          <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
+            Perdus en refonte avant que l’équipe ne réalise que son hébergeur ne pouvait pas porter le dépôt ICP. Nous l’avons vu arriver.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7" data-reveal="right">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Pourquoi cela compte</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
+            La décision qui précède toutes les autres.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Vous pouvez choisir le bon hébergeur, le bon framework, le bon parcours ICP. Si la stratégie sous-jacente est fausse, rien ne tient. Le site sort, le siège demande pourquoi personne n’a acheté.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            Nous traitons la stratégie comme la décision en amont. Avant le contenu, avant le design, avant le développement, nous décidons à quoi ressemble vraiment votre présence chinoise.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Stratégie
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Contenu</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Design</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Build</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LES QUESTIONS -->
+  <section id="questions" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden scroll-mt-32">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">问</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Les questions · 我们要回答的</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          Ce que nous décidons vraiment.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Cinq questions stratégiques nourrissent une seule feuille de route écrite. Les réponses dictent chaque arbitrage des phases un, deux et trois.
+        </p>
+      </div>
+
+      <div class="space-y-5 lg:space-y-6">
+        {questions.map((q, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 60)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+              'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none">{q.cn}</span>
+              <div class="relative">
+                <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">N° {q.n} / 05</div>
+                <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{q.cn}</div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">{q.tag}</div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+              <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+                {q.title}
+              </h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                {q.body}
+              </p>
+            </div>
+
+            <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-center gap-3">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">Ce qu’on cartographie</div>
+              <div class="flex flex-wrap gap-1.5">
+                {q.chips.map((c) => (
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-[var(--color-text-body)] border border-[var(--color-surface-border)]">{c}</span>
+                ))}
+              </div>
+            </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">La feuille de route</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Une feuille de route stratégique</h2>
-          <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed mb-8">L'audit pose le diagnostic. La feuille de route trace le chemin.</p>
+  <!-- LIVRABLES -->
+  <section id="deliverables" class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[15%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Livrables · 交付物</span>
         </div>
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {roadmapItems.map((item) => (
-              <div class="flex gap-5"><div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div><div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]"><h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{item.title}</h3><p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item.body}</p></div></div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          Ce que vous emportez.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed">
+          Un document écrit. En général 25 à 40 pages. Structuré autour de votre situation. À garder, portable vers n’importe quelle agence.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        <div class="lg:col-span-5 lg:sticky lg:top-32 lg:self-start" data-reveal="left">
+          <div class="relative w-full max-w-[360px] mx-auto lg:mx-0">
+            <div class="absolute top-6 left-4 w-full aspect-[3/4] rounded-xl bg-white/[0.04] border border-white/10 rotate-[5deg] backdrop-blur-sm"></div>
+            <div class="absolute top-3 left-2 w-full aspect-[3/4] rounded-xl bg-white/[0.06] border border-white/15 rotate-[2deg] backdrop-blur-sm shadow-lg"></div>
+            <div class="relative w-full aspect-[3/4] rounded-xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] border border-white/20 backdrop-blur-md shadow-2xl p-6 lg:p-7 flex flex-col">
+              <div class="border-b border-white/10 pb-4 mb-5">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">ChinaWebFoundry · 2026</div>
+                <div class="text-base font-semibold text-white mt-2 font-[var(--font-heading)] leading-tight">
+                  Stratégie<br/>et feuille de route
+                </div>
+                <div class="text-[11px] font-mono text-white/40 mt-2">Préparé pour · Marque ACME</div>
+              </div>
+              <div class="space-y-2.5 flex-1">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-1">Sommaire</div>
+                {deliverables.map((d) => (
+                  <div class="flex items-center justify-between gap-2 text-[12px]">
+                    <span class="text-white/75 truncate">{d.title}</span>
+                    <span class="font-mono text-white/40 flex-shrink-0">{d.pageRef}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="mt-4 pt-4 border-t border-white/10">
+                <div class="bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 rounded-md px-3 py-2 text-center">
+                  <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-brand-orange)]">À garder · Portable</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="space-y-3">
+            {deliverables.map((d, i) => (
+              <div data-reveal data-reveal-delay={String(i * 70)} class="group relative rounded-2xl bg-white/[0.03] border border-white/10 p-6 lg:p-7 transition-all duration-300 hover:bg-white/[0.06] hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-0.5">
+                <div class="flex items-start gap-5">
+                  <div class="flex-shrink-0">
+                    <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{d.n}</div>
+                    <div class="mt-2 w-8 h-px bg-white/15"></div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-baseline justify-between gap-3 mb-2">
+                      <h3 class="text-lg font-semibold font-[var(--font-heading)] text-white leading-tight">
+                        {d.title}
+                      </h3>
+                      <span class="text-[10px] font-mono uppercase tracking-wider text-white/40 flex-shrink-0">{d.pageRef}</span>
+                    </div>
+                    <p class="text-sm text-white/65 leading-relaxed">
+                      {d.body}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -100,18 +569,278 @@ const audiences = [
     </div>
   </section>
 
-  <WhoIsThisFor heading="Pour les équipes qui prennent la Chine au sérieux" audiences={audiences} />
+  <!-- DÉROULÉ -->
+  <section id="engagement" class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden scroll-mt-32">
+    <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px] pointer-events-none"></div>
 
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
-    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">Passez à l'action</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">Prêt à voir comment votre site se comporte en Chine ?</h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">Nous testons depuis la Chine continentale et vous livrons un plan d'action concret.</p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/fr/contact/" variant="primary" size="lg">Caler un appel découverte</Button>
-        <Button href="/fr/contact/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Télécharger notre guide du marché chinois</Button>
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Notre déroulé · 工作流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
+          Trois à quatre semaines, cinq étapes.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Du lancement à la livraison écrite, avec un appel de restitution de 90 minutes pour clore.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+        {stages.map((s, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 70)}
+            class:list={[
+              'group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 overflow-hidden',
+              'hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+            <span aria-hidden="true" class="absolute right-2 top-2 text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-top-right">{s.cn}</span>
+
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-text-dark)] text-white text-sm font-semibold font-[var(--font-heading)]">
+                  {s.n}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)]">Étape {i + 1} sur 5</span>
+              </div>
+
+              <h3 class="text-lg lg:text-[19px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+                {s.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">
+                {s.body}
+              </p>
+
+              <div class="pt-4 border-t border-[var(--color-surface-border)]">
+                <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] mb-1.5">Livrable</div>
+                <div class="flex items-center gap-2 text-sm font-medium text-[var(--color-text-dark)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {s.output}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
+
+  <!-- INVESTISSEMENT -->
+  <section id="investment" class="relative section-spacing bg-white overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Investissement · 投入</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Calendrier et budget.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Forfait fixe, calibré par mission. Le montant dépend de votre situation : entrée en Chine à froid ou audit d’une pile vieille de cinq ans.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 mb-10">
+        <div data-reveal data-reveal-delay="0" class="group relative rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)] mb-3">Durée</div>
+          <div class="flex items-baseline gap-1 mb-3">
+            <span class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums">3-4</span>
+            <span class="text-base text-[var(--color-text-muted)]">sem.</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-body)] leading-relaxed">Du lancement à la livraison écrite, avec un appel de restitution de 90 minutes.</p>
+        </div>
+
+        <div data-reveal data-reveal-delay="90" class="group relative rounded-3xl bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] p-7 lg:p-8 text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-22px_rgba(242,95,41,0.4)] overflow-hidden">
+          <span aria-hidden="true" class="absolute -right-4 -bottom-8 text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.08] leading-none select-none pointer-events-none">¥</span>
+          <div class="relative">
+            <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/75 mb-3">Tarification</div>
+            <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3">Forfait</div>
+            <p class="text-sm text-white/90 leading-relaxed">Un forfait calibré. Pas de facturation à l’heure. Aucune surprise après signature.</p>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="180" class="group relative rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)] mb-3">Devis sous</div>
+          <div class="flex items-baseline gap-1 mb-3">
+            <span class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums">2</span>
+            <span class="text-base text-[var(--color-text-muted)]">jours</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-body)] leading-relaxed">Décrivez le périmètre. Un vrai chiffre, pas un ordre de grandeur.</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7 lg:p-8">
+        <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+          Le livrable Stratégie et Audit vous appartient et reste portable, y compris vers votre équipe interne ou une autre agence. <span class="text-[var(--color-text-dark)] font-medium">Nous ne verrouillons pas le travail à une mission de suivi.</span> La plupart des clients enchaînent avec nous parce que c’est le chemin le plus simple, mais le document est volontairement portable.
+        </p>
+        <div class="mt-5">
+          <a href="/fr/contact/" class="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-dark)] hover:text-[var(--color-brand-orange)] transition-colors">
+            Envoyez-nous votre périmètre
+            <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="Qui nous mandate pour la stratégie et l’audit" audiences={audiences} background="light" />
+
+  <!-- COMPARAISON -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <span aria-hidden="true" class="absolute -bottom-24 left-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">智</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pourquoi commencer ici · 为什么先做战略</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          Pourquoi la plupart des projets sautent l’étape, à tort.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          La plupart des agences sont ravies de démarrer la production tout de suite. Elles chiffrent le build, elles le facturent, elles le livrent. Que ce soit la bonne chose à bâtir : c’est votre problème.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
+        <article data-reveal="left" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-50 via-white to-red-50/30 border border-red-200/50 p-7 lg:p-9">
+          <div class="absolute top-0 right-0 w-48 h-48 bg-red-500/5 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-200">
+                <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-red-600">Sauter la stratégie</span>
+              </div>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-red-500/80 leading-none">4 mois perdus</span>
+            </div>
+            <p class="text-base lg:text-[17px] text-[var(--color-text-body)] leading-[1.7] mb-5">
+              Les deux modes d’échec qui reviennent. La marque qui a passé quatre mois à reconstruire pour la Chine avant de découvrir que son hébergeur ne supportait pas le dépôt ICP. La marque qui a sorti un site, puis un Mini Program, puis une présence Channels, et s’est retrouvée avec trois systèmes déconnectés sans aucune donnée client partagée.
+            </p>
+            <ul class="space-y-2.5">
+              {[
+                'Quatre mois perdus avant que le verrou ICP ne remonte',
+                'Trois systèmes déconnectés, aucune donnée partagée',
+                'Pression du siège après le lancement sur des arbitrages jamais posés',
+              ].map((item) => (
+                <li class="flex gap-3 items-start text-sm text-red-700/90">
+                  <span class="text-red-400 mt-0.5">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+
+        <article data-reveal="right" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-emerald-50/30 border border-emerald-200/50 p-7 lg:p-9">
+          <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">Stratégie d’abord</span>
+              </div>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600/80 leading-none">3-4 sem. en amont</span>
+            </div>
+            <p class="text-base lg:text-[17px] text-[var(--color-text-body)] leading-[1.7] mb-5">
+              Le scénario qui marche est tout autre. Les marques qui ont mené la Stratégie et Audit en amont sont sorties dans les délais, ICP déjà déposé en parallèle, la bonne pile choisie du premier coup, l’empreinte WeChat calibrée sur ce que leur équipe pouvait maintenir, et une feuille de route que le siège avait déjà validée.
+            </p>
+            <ul class="space-y-2.5">
+              {[
+                'Sortie dans les délais, ICP en parallèle',
+                'Bonne pile choisie du premier coup',
+                'Feuille de route déjà validée par le siège',
+              ].map((item) => (
+                <li class="flex gap-3 items-start text-sm text-emerald-800/90">
+                  <span class="text-emerald-500 mt-0.5">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section-spacing bg-[var(--color-surface-light)] scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32" data-reveal="left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Dix questions sur la Stratégie et l’Audit
+          </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Cliquez pour déplier. Si la vôtre n’y est pas, posez-la directement.
+          </p>
+          <div class="mt-7">
+            <Button href="/fr/contact/" variant="secondary" size="md">Poser une autre question</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="right">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                {faq.answer.map((para) => (
+                  <p class="mb-3 last:mb-0">{para}</p>
+                ))}
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + marquee -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
+    </div>
+
+    <div class="relative py-20 lg:py-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/8 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">策</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">Prêts quand vous l’êtes</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
+          Prêt à démarrer par la stratégie ?
+        </h2>
+        <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
+          Dites-nous où en est votre présence chinoise aujourd’hui et ce qu’elle doit accomplir pour votre marque. Nous renvoyons sous deux jours ouvrés une proposition cadrée, un calendrier et un vrai chiffre.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/fr/contact/" variant="primary" size="lg">Démarrer par la stratégie</Button>
+          <Button href="/fr/china-site-scanner/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Lancer le scan gratuit</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </PageLayout>
