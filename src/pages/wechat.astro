@@ -1,0 +1,1064 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Button from '../components/ui/Button.astro';
+import FAQItem from '../components/pages/FAQItem.astro';
+import ScrollEffects from '../components/global/ScrollEffects.astro';
+
+const metaTitle = 'WeChat for China | Mini Programs and H5 Sites | ChinaWebFoundry';
+const metaDescription = 'We build WeChat Mini Programs and H5 mini-sites for foreign brands in China. Strategy, registration, development, launch from Shanghai.';
+
+const stats = [
+  { value: 1.41, suffix: 'B', label: 'monthly active users on WeChat in 2025', source: 'Tencent Q4 2024 earnings' },
+  { value: 945, suffix: 'M', label: 'monthly Mini Program users', source: 'QuestMobile, 2025' },
+  { value: 79, suffix: 'min', label: 'spent inside WeChat per Chinese user, every day', source: 'QuestMobile annual report' },
+];
+
+const useCases = [
+  {
+    icon: 'badge',
+    title: 'Membership and loyalty programs',
+    body: 'The most common use case for foreign brands. The Mini Program holds the membership card, tracks points, surfaces benefits, and delivers personalised rewards. Starbucks China runs its entire membership system this way, and so do most of the luxury brands operating in the Chinese market.',
+    span: 'feature',
+    badges: ['Membership cards', 'Points', 'Tiered rewards', 'CRM sync'],
+  },
+  {
+    icon: 'rocket',
+    title: 'Pre-orders and product launches',
+    body: 'For seasonal drops, limited editions, or campaign-driven launches, a Mini Program lets you handle the pre-order flow inside WeChat without sending users to an external site. The conversion difference is large because the friction is gone.',
+    span: 'normal',
+  },
+  {
+    icon: 'users',
+    title: 'Post-purchase service and CRM',
+    body: 'After-sales service, warranty registration, repair booking, customer support. Putting these inside WeChat means the customer never has to download anything or remember a password.',
+    span: 'normal',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Brand experience and content hubs',
+    body: 'For luxury, beauty, and lifestyle brands, a Mini Program functions as a curated content hub: campaign films, founder stories, product encyclopedias, store locators, virtual try-on. The kind of content that lives on a website in the West tends to live inside WeChat in China.',
+    span: 'normal',
+  },
+  {
+    icon: 'cart',
+    title: 'D2C e-commerce and Tmall alternatives',
+    body: 'For brands that want to sell direct without paying Tmall and JD their commission, WeChat Mini Programs with WeChat Pay are the cleanest path. Combined with private traffic strategies (community groups, KOC referrals, livestreaming on WeChat Channels), this is how a lot of foreign brands are building real D2C revenue in China right now.',
+    span: 'normal',
+  },
+  {
+    icon: 'briefcase',
+    title: 'B2B brochures and product catalogues',
+    body: 'For B2B brands, an H5 brochure or a Mini Program with the full product catalogue and tech specs is often more useful than a brochure PDF. Salespeople share it in 1-on-1 chats and group chats, and prospects browse it from inside the conversation rather than having to download anything separate.',
+    span: 'normal',
+  },
+  {
+    icon: 'qrcode',
+    title: 'Offline-to-online integration',
+    body: 'QR codes on packaging, in stores, at events, on print, all opening directly into a Mini Program. This is the moment foreign brands tend to underestimate. In China the QR code is the link to everything. Without a Mini Program on the other end, the QR code is wasted real estate.',
+    span: 'wide',
+    badges: ['Packaging', 'In-store', 'Print', 'Events', 'Out-of-home'],
+  },
+];
+
+const pickMiniProgram = [
+  'Users will return repeatedly (membership, e-commerce, service)',
+  'You need WeChat Pay, WeChat Login, or other native APIs',
+  'The experience needs to feel like an app, not a webpage',
+  'You want offline-to-online QR entry into a real product surface',
+  'You are building for the long term, not a single campaign',
+];
+
+const pickH5 = [
+  'You are running a campaign with a defined end date',
+  'The audience may open it outside WeChat too',
+  'You need to ship in days or weeks, not months',
+  'Content matters more than deep platform integration',
+  'You want analytics to flow into your existing global stack',
+];
+
+const techGroups = [
+  {
+    label: 'Native development',
+    accent: 'emerald',
+    items: [
+      {
+        icon: 'code',
+        title: 'WXML, WXSS, JavaScript',
+        body: 'The official Tencent stack. WXML for markup, WXSS for styling, JavaScript for logic. New APIs land here first, audit reviewers prefer it, and long-term maintainability is at its best.',
+      },
+      {
+        icon: 'zap',
+        title: 'When we pick native',
+        body: 'WeChat-only projects where performance, deep API access, or audit predictability matter most. Membership systems, e-commerce, anything that has to feel like a polished app.',
+      },
+      {
+        icon: 'shield',
+        title: 'Cloud Development',
+        body: 'Tencent\'s serverless backend (微信云开发) when the team wants to stay end to end inside the WeChat ecosystem without standing up separate Chinese cloud infrastructure.',
+      },
+    ],
+  },
+  {
+    label: 'Cross-platform',
+    accent: 'orange',
+    items: [
+      {
+        icon: 'layers',
+        title: 'Taro',
+        body: 'React-based, built by JD. One codebase compiles to WeChat, Alipay, Douyin, Baidu, JD, and H5. The right call for React teams shipping to multiple Chinese mini-program platforms.',
+      },
+      {
+        icon: 'blocks',
+        title: 'UniApp',
+        body: 'Vue-based, built by DCloud. The broadest target list of any cross-platform framework, including iOS and Android native compilation. The default for Vue teams.',
+      },
+      {
+        icon: 'sliders',
+        title: 'When we pick cross-platform',
+        body: 'When you need WeChat plus Alipay or Douyin in the same campaign, or when an existing React or Vue team wants to keep a familiar workflow. Native is faster; cross-platform is broader.',
+      },
+    ],
+  },
+  {
+    label: 'UI and TypeScript',
+    accent: 'amber',
+    items: [
+      {
+        icon: 'palette',
+        title: 'Vant Weapp',
+        body: 'The default UI library for marketing-led and e-commerce Mini Programs. Battle-tested components, Chinese-design-language defaults, fast to ship.',
+      },
+      {
+        icon: 'briefcase',
+        title: 'TDesign',
+        body: 'Tencent\'s own enterprise design system. The right call for complex B2B applications or large-scale internal tools where consistency across surfaces is required.',
+      },
+      {
+        icon: 'type',
+        title: 'TypeScript everywhere',
+        body: 'On every Mini Program project of any real size. Fewer runtime surprises, cleaner refactors, faster onboarding for the next developer who picks it up.',
+      },
+    ],
+  },
+  {
+    label: 'Backend and compliance',
+    accent: 'sky',
+    items: [
+      {
+        icon: 'server',
+        title: 'Aliyun and Tencent Cloud',
+        body: 'For Mini Programs connecting to existing CRM, ERP, or product systems, we wire up secure APIs through Aliyun or Tencent Cloud, with Chinese-side authentication.',
+      },
+      {
+        icon: 'lock',
+        title: 'PIPL and Cybersecurity Law',
+        body: 'Data localisation handled to comply with PIPL and the Cybersecurity Law. What has to stay in China stays in China; the rest can flow to your global stack through documented gateways.',
+      },
+      {
+        icon: 'plug',
+        title: 'CRM and ERP integration',
+        body: 'Salesforce, HubSpot, SAP, in-house product databases. We have wired Mini Programs to all of them. The Chinese side stays clean; the global stack keeps its source of truth.',
+      },
+    ],
+  },
+];
+
+const handleSteps = [
+  {
+    icon: 'badge',
+    title: 'Account registration and verification',
+    body: 'Whether through your WFOE, a local partner entity, or a service-account-only setup. We handle the documentation, the annual verification fee (around CNY 300), the identity checks, and the back-and-forth with Tencent.',
+  },
+  {
+    icon: 'shield',
+    title: 'MIIT Mini Program filing (小程序备案)',
+    body: 'Mandatory since 2023. Requires a Chinese business licence, a domain with a valid ICP filing, and category-specific approvals. We handle the filing and the 24-hour SMS verification window that trips up most first-time foreign filings.',
+  },
+  {
+    icon: 'server',
+    title: 'ICP filing for the supporting domain',
+    body: 'Mini Programs connecting to a backend need it. We handle the filing, hosted on Aliyun, Tencent Cloud, or Huawei Cloud, depending on the rest of your stack.',
+  },
+  {
+    icon: 'card',
+    title: 'WeChat Pay integration',
+    body: 'Merchant account setup, certificate generation, API integration, and the test cycle, end to end. The piece that breaks most often when handled by a foreign agency without local presence.',
+  },
+  {
+    icon: 'lock',
+    title: 'Privacy compliance (用户隐私保护指引)',
+    body: 'We write the policy, configure the in-app consent UI, and verify against WeChat\'s audit guidelines so the Mini Program passes review the first time rather than the third.',
+  },
+  {
+    icon: 'zap',
+    title: 'Performance and review readiness',
+    body: 'Bundle size, load time, API call frequency, content moderation hooks, all tuned to what Tencent\'s audit reviewers actually look for. Submission goes in clean.',
+  },
+];
+
+const wechatStack = [
+  { name: 'Mini Program', cn: '小程序', role: 'Application' },
+  { name: 'Official Account', cn: '公众号', role: 'Channel' },
+  { name: 'WeChat Pay', cn: '微信支付', role: 'Payments' },
+  { name: 'WeChat Channels', cn: '视频号', role: 'Video & live' },
+  { name: 'Enterprise WeChat', cn: '企业微信', role: 'B2B & CRM' },
+  { name: 'Cloud Development', cn: '微信云开发', role: 'Backend' },
+];
+
+const faqs = [
+  {
+    id: 'wechat-foreign-entity',
+    question: 'Can our foreign company register a WeChat Mini Program directly?',
+    answer: 'Yes, but with limited functionality. A foreign-entity Mini Program can be registered through apply.wechat.com, but the resulting account is not fully visible inside mainland China and cannot access WeChat Pay or full advertising features. For a real China-facing Mini Program you need a Chinese business licence, either through your own WFOE or through a local partner.',
+  },
+  {
+    id: 'wechat-wfoe',
+    question: 'Do we need a WFOE to launch on WeChat?',
+    answer: 'For full functionality (mainland visibility, WeChat Pay, full advertising, all native APIs), in practice yes, you need a Chinese business entity. Setting up a WFOE takes three to six months. The faster alternative is launching under a partner\'s Chinese licence, which we can help arrange.',
+  },
+  {
+    id: 'wechat-oa-vs-mp',
+    question: 'What is the difference between an Official Account and a Mini Program?',
+    answer: 'The Official Account (公众号) is your brand presence and content channel inside WeChat: followers, push articles, customer service. The Mini Program (小程序) is the actual application: e-commerce, membership, booking, anything functional. Most foreign brands need both. The Official Account is the marketing channel, the Mini Program is the product.',
+  },
+  {
+    id: 'wechat-discovery',
+    question: 'How do users find a Mini Program?',
+    answer: 'Multiple entry points: search inside WeChat, QR code scan, share from a friend, link from your Official Account, ad in WeChat Moments, link from Xiaohongshu, NFC tap, voice command. The Mini Program ecosystem has roughly fifteen entry surfaces and we design discovery into the project from day one.',
+  },
+  {
+    id: 'wechat-crm-integration',
+    question: 'Can we use our existing CRM and back-end with a Mini Program?',
+    answer: 'Yes. We wire up secure APIs that connect the Mini Program to your existing CRM, ERP, or product system. Data that has to stay in China stays in China for PIPL compliance, the rest can flow through to your global stack.',
+  },
+  {
+    id: 'wechat-cost',
+    question: 'How much does a Mini Program cost to build?',
+    answer: 'It varies. A simple membership or brochure Mini Program is a smaller engagement. A full e-commerce platform with Mini Program, H5 catalogue, WeChat Pay, livestreaming hooks, and CRM integration is a much larger project. Tell us the scope and we send a real quote within two business days.',
+  },
+  {
+    id: 'wechat-taro-uniapp',
+    question: 'Can we use Taro or UniApp instead of native development?',
+    answer: 'Yes, and we do, often. Taro and UniApp let one codebase ship to WeChat, Alipay, Douyin, Baidu, and H5 simultaneously. Worth doing when you need multi-platform presence. For WeChat-only projects we usually recommend native development for performance and API access.',
+  },
+  {
+    id: 'wechat-updates',
+    question: 'How do Mini Program updates work?',
+    answer: 'You publish a new version through the WeChat developer console, Tencent reviews it (usually 24 to 48 hours), and the new version rolls out automatically the next time users open the Mini Program. No app store review, no user action required. This is one of the real advantages over a native iOS or Android app.',
+  },
+  {
+    id: 'wechat-rejection',
+    question: 'What happens if our Mini Program gets rejected or suspended?',
+    answer: 'Both happen, especially on first submissions. Rejections are usually about content compliance, privacy policy, or performance scoring. Suspensions are rarer but can happen for content violations or compliance failures. We handle the resubmission and the appeal process. So far every Mini Program we have submitted has eventually gone live.',
+  },
+  {
+    id: 'wechat-enterprise',
+    question: 'What about Enterprise WeChat (企业微信) for B2B?',
+    answer: 'Different product, different use case. Enterprise WeChat is Tencent\'s B2B and internal-communications tool, used for sales teams, customer service flows, and CRM-style relationship management with Chinese clients. We build inside Enterprise WeChat too, usually for B2B brands where the sales relationship runs through individual reps rather than through a public Mini Program.',
+  },
+];
+
+const accentClasses: Record<string, { bg: string; text: string; border: string }> = {
+  amber: { bg: 'bg-amber-500/10', text: 'text-amber-300', border: 'border-amber-500/20' },
+  orange: { bg: 'bg-[var(--color-brand-orange)]/15', text: 'text-[var(--color-brand-orange)]', border: 'border-[var(--color-brand-orange)]/25' },
+  sky: { bg: 'bg-sky-500/10', text: 'text-sky-300', border: 'border-sky-500/20' },
+  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-300', border: 'border-emerald-500/20' },
+};
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+
+  <ScrollEffects />
+
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-wechat-china-skyline.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/92 via-[#0f0f12]/72 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">WeChat</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            Technology
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            WeChat for China.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">The operating system, not the app.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            1.4 billion people open WeChat dozens of times a day. Conversations, payments, loyalty cards, the brand relationship itself, all of it lives inside one app. If your brand is not in there, you are mostly invisible.
+          </p>
+          <p class="mt-4 text-base text-white/40 max-w-xl leading-relaxed">
+            We build Mini Programs and H5 mini-sites for foreign brands. Twenty years on the ground in Shanghai.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/contact/" variant="primary" size="lg">Talk to our team</Button>
+            <Button href="/services/strategy-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Start with strategy</Button>
+          </div>
+        </div>
+
+        <!-- Decorative phone mockup -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-[36px] p-3 max-w-[280px] mx-auto">
+              <div class="bg-gradient-to-b from-[#1a1d1f] to-[#0f1112] rounded-[28px] overflow-hidden">
+                <!-- Status bar -->
+                <div class="flex items-center justify-between px-5 pt-4 pb-2 text-[10px] text-white/50 font-mono">
+                  <span>9:41</span>
+                  <span class="flex items-center gap-1">
+                    <span class="w-3 h-3 inline-block rounded-full border border-white/40"></span>
+                    <span>5G</span>
+                  </span>
+                </div>
+                <!-- Mini program header -->
+                <div class="px-5 py-4 border-b border-white/5">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-[11px] text-white/85 font-medium truncate">Brand Mini Program</p>
+                      <p class="text-[9px] text-white/40 font-mono">小程序</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Progress rows -->
+                <div class="px-5 py-5 space-y-3">
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="text-[10px] text-white/55">WeChat Pay</span>
+                      <span class="text-[10px] font-mono text-emerald-400">Live</span>
+                    </div>
+                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
+                      <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="text-[10px] text-white/55">MIIT filing</span>
+                      <span class="text-[10px] font-mono text-emerald-400">Filed</span>
+                    </div>
+                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
+                      <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="text-[10px] text-white/55">Privacy review</span>
+                      <span class="text-[10px] font-mono text-emerald-400">Passed</span>
+                    </div>
+                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
+                      <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="text-[10px] text-white/55">Bundle size</span>
+                      <span class="text-[10px] font-mono text-[var(--color-brand-orange)]">1.6 MB</span>
+                    </div>
+                    <div class="w-full h-1 bg-white/8 rounded-full overflow-hidden">
+                      <div class="w-[78%] h-full bg-gradient-to-r from-[var(--color-brand-orange)] to-amber-400 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- QR row -->
+                <div class="mx-5 mb-5 mt-1 rounded-xl border border-white/8 bg-white/[0.03] p-3 flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-md bg-white p-1 flex-shrink-0">
+                    <div class="w-full h-full grid grid-cols-5 grid-rows-5 gap-px">
+                      {Array.from({ length: 25 }).map((_, i) => (
+                        <span class:list={['block', [0,1,3,4,5,9,15,19,20,21,23,24,11,13,7,17,8].includes(i) ? 'bg-black' : '']}></span>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-[10px] text-white/75 font-medium leading-tight">Scan to open</p>
+                    <p class="text-[9px] text-white/35 mt-0.5 font-mono truncate">wxapp://brand</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -inset-6 bg-emerald-500/10 rounded-[48px] blur-3xl -z-10"></div>
+            <div class="absolute -inset-2 bg-[var(--color-brand-orange)]/8 rounded-[40px] blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat strip -->
+  <section class="border-y border-[var(--color-surface-border)] bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {stats.map((stat, i) => (
+          <div class:list={[
+            'flex flex-col md:flex-row items-start md:items-center gap-5',
+            i > 0 ? 'md:pl-10 md:border-l md:border-[var(--color-surface-border)]' : '',
+          ]}>
+            <div class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
+              0{stat.suffix}
+            </div>
+            <div class="flex-1">
+              <p class="text-base text-[var(--color-text-dark)] leading-snug font-medium">
+                {stat.label}
+              </p>
+              <p class="mt-1 text-sm text-[var(--color-text-muted)]">
+                {stat.source}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Works: editorial split with QR-scan image -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Why WeChat
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            The gravity well of Chinese digital.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            For a Chinese consumer, WeChat is the default. Conversations, payments, loyalty cards, service requests, the brand relationship itself, all of it lives inside the app. A regular website still matters for SEO and AI search, but the everyday customer relationship happens in WeChat.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            There is no Instagram, no WhatsApp, no PayPal. WeChat replaces all of them. Most foreign brands also under-invest on the localisation side, translating the UX and keeping a Western flow that reads as foreign.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            We build for how Chinese users actually navigate WeChat, not for how a Western team expects a mobile app to behave.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-12 lg:mt-0">
+          <figure class="relative">
+            <div class="relative aspect-square rounded-2xl overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
+              <img
+                src="/images/wechat-daily-life-qr-scan.webp"
+                alt="A pair of hands holding a smartphone, scanning a QR code on a wooden cafe table in Shanghai"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
+            </div>
+            <!-- Floating caption card -->
+            <div class="absolute bottom-3 left-3 sm:-bottom-6 sm:-left-6 lg:-left-10 bg-white border border-[var(--color-surface-border)] rounded-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] p-4 sm:p-5 max-w-[240px] sm:max-w-[280px]">
+              <p class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)] font-semibold mb-2">
+                79 minutes a day →
+              </p>
+              <p class="text-sm text-[var(--color-text-body)] leading-snug">
+                Chinese users spend an average of 79 minutes per day inside WeChat. Brands that show up there once and never again are forgotten.
+              </p>
+            </div>
+            <div class="absolute -inset-4 bg-emerald-500/8 rounded-3xl blur-2xl -z-10"></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mini Program vs H5: decision split -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Mini Program or H5
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          They are not the same thing.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Most foreign brands end up with both, plus an Official Account for content and followers. The Mini Program is the application, the Official Account is the channel, the H5 is the campaign layer.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <!-- Mini Program -->
+        <div class="relative bg-[var(--color-surface-dark)] border border-white/10 rounded-2xl p-8 lg:p-10 overflow-hidden text-white">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-1">
+                  Pick a Mini Program
+                </p>
+                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-white leading-tight">
+                  Native, app-feeling, long-term.
+                </h3>
+              </div>
+            </div>
+            <p class="text-[15px] text-white/70 leading-relaxed mb-6">
+              Native applications living inside WeChat. WXML, WXSS, JavaScript, with full access to WeChat Pay, WeChat Login, location, camera, scan-to-open. The right call for e-commerce, membership, booking, anything that has to feel like an app.
+            </p>
+            <ul class="space-y-3 border-t border-white/10 pt-6">
+              {pickMiniProgram.map((item) => (
+                <li class="flex gap-3 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-1 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-[15px] text-white/85 leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- H5 -->
+        <div class="relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/15 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                  Pick an H5 mini-site
+                </p>
+                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  Faster, lighter, campaign-grade.
+                </h3>
+              </div>
+            </div>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+              Mobile-optimised webpages that open inside the WeChat in-app browser. Easier to build, faster to ship, and they work outside WeChat too. The trade-off is API access. The right call for campaigns, brochures, lead generation, and content without deep WeChat integration.
+            </p>
+            <ul class="space-y-3 border-t border-[var(--color-surface-border)] pt-6">
+              {pickH5.map((item) => (
+                <li class="flex gap-3 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
+        Not sure which fits your project? <a href="/services/strategy-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategy and Audit</a> is where the conversation usually starts.
+      </p>
+    </div>
+  </section>
+
+  <!-- What WeChat Mini Programs are best at: bento -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            What WeChat is For
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            What WeChat Mini Programs are best at.
+          </h2>
+        </div>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed lg:max-w-md">
+          The strongest use cases we see, repeatedly, with international brands.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 auto-rows-fr">
+        {useCases.map((item) => {
+          const spanClass =
+            item.span === 'feature'
+              ? 'lg:col-span-7'
+              : item.span === 'wide'
+                ? 'lg:col-span-12'
+                : 'lg:col-span-4';
+          const isFeature = item.span === 'feature';
+          return (
+            <article class:list={[
+              'group relative rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]',
+              spanClass,
+              isFeature
+                ? 'bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] border-white/10 text-white p-8 lg:p-10'
+                : 'bg-white border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)]/30 p-7',
+            ]}>
+              <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative h-full flex flex-col">
+                <div class:list={[
+                  'w-11 h-11 rounded-xl flex items-center justify-center mb-5',
+                  isFeature ? 'bg-emerald-500/15 border border-emerald-400/25' : 'bg-[var(--color-brand-orange)]/10',
+                ]}>
+                  {item.icon === 'badge' && (
+                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  )}
+                  {item.icon === 'rocket' && (
+                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                  )}
+                  {item.icon === 'users' && (
+                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  )}
+                  {item.icon === 'sparkles' && (
+                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
+                  )}
+                  {item.icon === 'cart' && (
+                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                  )}
+                  {item.icon === 'briefcase' && (
+                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  )}
+                  {item.icon === 'qrcode' && (
+                    <svg class:list={['w-5 h-5', isFeature ? 'text-emerald-400' : 'text-[var(--color-brand-orange)]']} fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h2v2"/><path d="M18 14h3v3"/><path d="M14 18v3"/><path d="M18 21h3"/></svg>
+                  )}
+                </div>
+
+                <h3 class:list={[
+                  'font-semibold font-[var(--font-heading)] leading-tight mb-3',
+                  isFeature ? 'text-2xl lg:text-[28px] text-white' : 'text-lg text-[var(--color-text-dark)]',
+                ]}>
+                  {item.title}
+                </h3>
+                <p class:list={[
+                  'leading-relaxed flex-1',
+                  isFeature ? 'text-base lg:text-lg text-white/70' : 'text-[15px] text-[var(--color-text-body)]',
+                ]}>
+                  {item.body}
+                </p>
+
+                {item.badges && (
+                  <div class="flex flex-wrap gap-2 mt-6">
+                    {item.badges.map((badge) => (
+                      <span class:list={[
+                        'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border',
+                        isFeature
+                          ? 'bg-white/[0.06] text-white/80 border-white/15'
+                          : 'bg-[var(--color-surface-light)] text-[var(--color-text-body)] border-[var(--color-surface-border)]',
+                      ]}>
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech stack: feature image + bento groups -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0d]"></div>
+
+    <div class="relative">
+      <div class="absolute inset-0">
+        <img
+          src="/images/wechat-mini-program-code-studio.webp"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-55"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/80 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--color-surface-dark)] to-transparent"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding pt-20 pb-16 lg:pt-28 lg:pb-24">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            The Technology
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] mb-6">
+            The technology behind it.
+          </h2>
+          <p class="text-base lg:text-lg text-white/75 leading-relaxed">
+            Native, cross-platform, or a mix. Choosing the right stack is the first decision that ripples through everything else, from audit pass-rate to long-term maintenance cost.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pb-20 lg:pb-28">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {techGroups.map((group) => {
+          const a = accentClasses[group.accent];
+          return (
+            <div class="relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-7 lg:p-8 hover:bg-white/[0.05] transition-colors">
+              <div class="flex items-center gap-3 mb-6 pb-5 border-b border-white/10">
+                <span class:list={['inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-semibold uppercase tracking-wider border', a.bg, a.text, a.border]}>
+                  {group.label}
+                </span>
+              </div>
+
+              <div class="space-y-5">
+                {group.items.map((item) => (
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                      {item.icon === 'code' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                      )}
+                      {item.icon === 'zap' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                      )}
+                      {item.icon === 'shield' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      )}
+                      {item.icon === 'layers' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                      )}
+                      {item.icon === 'blocks' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                      )}
+                      {item.icon === 'sliders' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                      )}
+                      {item.icon === 'palette' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                      )}
+                      {item.icon === 'briefcase' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                      )}
+                      {item.icon === 'type' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                      )}
+                      {item.icon === 'server' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                      )}
+                      {item.icon === 'lock' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                      )}
+                      {item.icon === 'plug' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14a2 2 0 0 1 2 2v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3a2 2 0 0 1 2-2z"/></svg>
+                      )}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-base font-semibold font-[var(--font-heading)] text-white leading-tight mb-1.5">
+                        {item.title}
+                      </h3>
+                      <p class="text-[14px] text-white/60 leading-relaxed">
+                        {item.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- WeChat ecosystem credibility band -->
+  <section class="bg-white border-y border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-16">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
+            The WeChat Ecosystem
+          </p>
+          <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            The Tencent surfaces we wire your brand into.
+          </h2>
+        </div>
+        <p class="lg:max-w-xs text-sm text-[var(--color-text-muted)] leading-relaxed">
+          A real China-facing brand uses several of these together. We help you choose which ones, then build them.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {wechatStack.map((entry) => (
+          <div class="group relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-xl p-5 hover:border-emerald-500/40 hover:bg-white transition-colors">
+            <p class="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
+              {entry.role}
+            </p>
+            <p class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+              {entry.name}
+            </p>
+            <p class="text-sm text-[var(--color-text-muted)] font-[var(--font-heading)] mt-1">
+              {entry.cn}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Handle: regulatory bento -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-end mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            What We Handle
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            What we handle to get your brand live on WeChat.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-6 lg:mt-0">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            The technology is one thing. The regulatory layer is the other, and it is where most foreign brands stall. We carry both.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {handleSteps.map((step) => (
+          <article class="group relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)] transition-all duration-300">
+            <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5">
+              {step.icon === 'badge' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              )}
+              {step.icon === 'shield' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              )}
+              {step.icon === 'server' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              )}
+              {step.icon === 'card' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              )}
+              {step.icon === 'lock' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              )}
+              {step.icon === 'zap' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              )}
+            </div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+              {step.title}
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              {step.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Timeline
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          How long it takes.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Account registration and MIIT filing usually sit on the critical path and run in parallel with design and build. We start them on day one.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <!-- Mini Program -->
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                Mini Program
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                Native Mini Program build
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+              10 – 14 weeks
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[22%] bg-emerald-500/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-700 truncate">Strategy</span>
+            </div>
+            <div class="absolute inset-y-0 left-[22%] w-[20%] bg-emerald-500/35 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Filing</span>
+            </div>
+            <div class="absolute inset-y-0 left-[42%] w-[42%] bg-emerald-500/55 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Design and build</span>
+            </div>
+            <div class="absolute inset-y-0 left-[84%] right-0 bg-emerald-600 flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Launch</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Week 1</span>
+            <span>Week 4</span>
+            <span>Week 9</span>
+            <span>Week 14</span>
+          </div>
+        </div>
+
+        <!-- H5 -->
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                H5 mini-site
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                H5 campaign or brochure
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+              4 – 6 weeks
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[28%] bg-[var(--color-brand-orange)]/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] truncate">Concept</span>
+            </div>
+            <div class="absolute inset-y-0 left-[28%] w-[50%] bg-[var(--color-brand-orange)]/40 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Design and build</span>
+            </div>
+            <div class="absolute inset-y-0 left-[78%] right-0 bg-[var(--color-brand-orange)] flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Launch</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Week 1</span>
+            <span>Week 2</span>
+            <span>Week 4</span>
+            <span>Week 6</span>
+          </div>
+        </div>
+
+        <!-- Complex highlight -->
+        <div class="flex items-start gap-4 bg-[var(--color-text-card-blue)]/[0.04] border border-[var(--color-text-card-blue)]/20 rounded-2xl p-6 lg:p-7">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-text-card-blue)]/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">Complex projects run longer</p>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              Deep ERP or CRM integration, full e-commerce, or multi-platform compilation through Taro or UniApp typically stretches the timeline to four or five months. We map this out clearly in the strategy phase.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Frequently Asked
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Ten questions we hear about WeChat in China.
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div data-faq-accordion class="bg-white rounded-2xl border border-[var(--color-surface-border)] px-6 lg:px-8">
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                <p>{faq.answer}</p>
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">
+    <div class="absolute inset-0">
+      <img
+        src="/images/wechat-shanghai-bund-night.webp"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-30"
+        loading="lazy"
+        decoding="async"
+        onerror="this.style.display='none'"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/85 to-[var(--color-surface-dark)]"></div>
+    </div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/8 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Get Started
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Thinking about WeChat for your brand?
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        If your brand needs to be inside WeChat and you do not yet have a Mini Program or an H5 mini-site, we can help. Strategy and Audit is where most engagements begin.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact/" variant="primary" size="lg">Talk to our team</Button>
+        <Button href="/services/strategy-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Strategy and Audit</Button>
+      </div>
+      <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm">
+        <a href="/wordpress/" class="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors no-underline">
+          <span>WordPress for China</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="hidden sm:inline text-white/20">·</span>
+        <a href="/astro/" class="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors no-underline">
+          <span>Astro for China</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>
+
+<script>
+  function initFaqAccordion() {
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement;
+
+        trigger?.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          items.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherTrigger = otherItem.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+              const otherChevron = otherItem.querySelector('[data-faq-chevron]') as SVGElement;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            }
+          });
+
+          const newState = !isOpen;
+          trigger.setAttribute('aria-expanded', String(newState));
+          content?.style.setProperty('grid-template-rows', newState ? '1fr' : '0fr');
+          chevron?.classList.toggle('rotate-180', newState);
+        });
+      });
+    });
+  }
+
+  initFaqAccordion();
+  document.addEventListener('astro:after-swap', initFaqAccordion);
+</script>
