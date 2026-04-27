@@ -1,16 +1,166 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
 
-const metaTitle = 'Astro';
-const metaDescription = 'Astro';
+const metaTitle = 'Astro en Chine | Sites statiques rapides derrière le Pare-feu | ChinaWebFoundry';
+const metaDescription = 'Sites Astro pensés pour la Chine. Performance native, hébergement local, contenu géré par votre équipe. Quand la vitesse compte plus que la flexibilité éditoriale.';
+
+const reasons = [
+  {
+    title: 'Le bon choix quand la vitesse prime',
+    body: 'Pages compilées à l’avance, JavaScript distribué à la demande. Premiers pixels affichés en moins d’une seconde derrière le Pare-feu, sans recourir à un cache complexe.',
+  },
+  {
+    title: 'Une architecture qui vieillit bien',
+    body: 'Pas d’admin PHP à maintenir, pas de plug-ins à auditer chaque mois. Le contenu vit dans des fichiers Markdown ou un CMS headless, le code reste propre et lisible.',
+  },
+  {
+    title: 'Pertinent pour le marketing produit et la documentation',
+    body: 'Sites de marque, pages de campagne, blogs techniques, documentations produit : Astro excelle dès que la fréquence éditoriale n’exige pas un CMS riche.',
+  },
+];
+
+const stack = [
+  { label: 'Hébergement', body: 'Vercel, Netlify ou Aliyun selon le périmètre. CDN edge calibré pour la Chine continentale et préfixage ICP quand nécessaire.' },
+  { label: 'Contenu', body: 'Markdown, MDX ou collections Astro pour les équipes techniques. Sanity, Contentful ou Strapi pour les équipes marketing autonomes.' },
+  { label: 'Performance', body: 'Score Lighthouse au-dessus de 95 sans astuce. Tests réels depuis Pékin, Shanghai et Shenzhen.' },
+  { label: 'Conformité', body: 'Licence ICP, robots.txt taillé pour Baidu, données utilisateur stockées en Chine quand l’usage l’impose.' },
+];
+
+const faqs = [
+  {
+    id: 'astro-vs-wordpress',
+    question: 'Astro ou WordPress, comment choisir ?',
+    answer: 'Astro si la priorité est la vitesse, la maintenance long terme et un contenu structuré stable. WordPress si vos équipes marketing modifient le site chaque semaine et qu’elles ont besoin d’un éditeur visuel familier. Nous tranchons en audit, sans religion technologique.',
+  },
+  {
+    id: 'editing',
+    question: 'Comment l’équipe marketing met-elle à jour le site ?',
+    answer: 'Trois options : Markdown directement dans le dépôt pour les équipes techniques, un CMS headless connecté à Astro, ou un éditeur visuel comme TinaCMS. Nous calibrons selon votre maturité technique.',
+  },
+  {
+    id: 'china-hosting',
+    question: 'Astro tourne-t-il en Chine sans accroc ?',
+    answer: 'Oui, à condition d’héberger sur un fournisseur sous licence ICP et de retirer les dépendances bloquées : Google Fonts, polices Adobe externes, certains scripts d’analytics. Nous traitons cela en intégration.',
+  },
+  {
+    id: 'maintenance',
+    question: 'Quelle maintenance après la mise en ligne ?',
+    answer: 'Beaucoup plus légère que sur WordPress. Surveillance, mises à jour de dépendances trimestrielles, ajustements éditoriaux, déploiements continus. Au forfait mensuel.',
+  },
+];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} lang="fr">
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-        Astro
-      </h1>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#0f0f12] to-[#1a1a2e]"></div>
+      <div class="absolute -top-40 left-[10%] w-[500px] h-[500px] rounded-full bg-[#FF7E47]/15 blur-[140px] pointer-events-none"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 lg:pb-32">
+      <nav aria-label="Fil d’Ariane" class="mb-12">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Astro</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 mb-7">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Astro en Chine</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.04]">
+          Astro, quand la vitesse pèse plus que la flexibilité éditoriale.
+        </h1>
+        <p class="mt-7 text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl">
+          Sites compilés à l’avance, JavaScript distribué à la demande, pile minimale et pages qui s’affichent immédiatement, même derrière le Pare-feu. Pour les marques qui veulent un site rapide, propre et durable, sans usine à plug-ins à entretenir.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <Button href="/fr/contact/" variant="primary" size="lg">Parler d’un projet Astro</Button>
+          <Button href="/fr/wordpress/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Comparer avec WordPress</Button>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section class="py-24 md:py-32 bg-white">
+    <div class="mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Pourquoi Astro</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Trois raisons concrètes.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {reasons.map((r) => (
+          <article class="bg-[var(--color-surface-light)] rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3 leading-snug">
+              {r.title}
+            </h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+              {r.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">La pile</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Ce qui tourne sous le capot.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {stack.map((s) => (
+          <div class="bg-white rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">{s.label}</p>
+            <p class="text-base text-[var(--color-text-body)] leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 bg-white">
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Les quatre questions qui reviennent.
+        </h2>
+      </div>
+
+      <div data-faq-accordion>
+        {faqs.map((faq) => (
+          <FAQItem question={faq.question} id={faq.id}>
+            <p>{faq.answer}</p>
+          </FAQItem>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 bg-[var(--color-surface-dark)]">
+    <div class="mx-auto max-w-[1100px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6">
+        Site Astro à monter en Chine ?
+      </h2>
+      <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+        Décrivez-nous le périmètre. Nous renvoyons un cadrage et une fourchette sous deux jours ouvrés.
+      </p>
+      <Button href="/fr/contact/" variant="primary" size="lg">Nous écrire</Button>
+    </div>
+  </section>
+
 </PageLayout>

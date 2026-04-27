@@ -1,0 +1,212 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
+
+const metaTitle = 'WeChat en Chine | Mini Programs et sites H5 | ChinaWebFoundry';
+const metaDescription = 'Nous concevons des Mini Programs et sites H5 WeChat pour les marques étrangères en Chine. Stratégie, dépôt, développement, mise en ligne, depuis Shanghai.';
+
+const compareRows = [
+  { label: 'Là où ça vit', mp: 'À l’intérieur de WeChat, comme une application native', h5: 'Dans le navigateur intégré de WeChat, et au-delà' },
+  { label: 'WeChat Pay', mp: 'Oui, intégration complète', h5: 'Limité, nécessite un compte officiel lié' },
+  { label: 'API natives', mp: 'Caméra, géolocalisation, scan, identification', h5: 'Navigateur uniquement' },
+  { label: 'Délais de production', mp: '10 à 14 semaines', h5: '4 à 6 semaines' },
+  { label: 'Cas d’usage', mp: 'Fidélité, e-commerce, service', h5: 'Campagnes, brochures, captation de leads' },
+];
+
+const useCases = [
+  {
+    title: 'Programmes de fidélité',
+    body: 'Le cas d’usage le plus courant pour les marques étrangères. Le Mini Program porte la carte, suit les points, délivre les récompenses. Starbucks Chine fait tourner toute son adhésion ainsi.',
+  },
+  {
+    title: 'Expérience de marque',
+    body: 'Pour le luxe, la beauté, le lifestyle : un univers éditorial maîtrisé. Films de campagne, récit du fondateur, encyclopédies, locator, essayage virtuel, le tout dans WeChat.',
+  },
+  {
+    title: 'D2C et lives sur Channels',
+    body: 'Vendre en direct sans payer la commission de Tmall ou JD. Mini Program plus WeChat Pay, soutenu par le trafic privé des groupes communautaires et des lives Channels.',
+  },
+  {
+    title: 'Précommandes et lancements',
+    body: 'Pour les drops saisonniers ou les lancements, le tunnel de précommande reste dans WeChat. Pas de site externe, pas de friction, des conversions nettement plus élevées.',
+  },
+  {
+    title: 'Service après-vente et CRM',
+    body: 'SAV, garantie, prise de rendez-vous, support. Le client ne télécharge aucune appli et n’a aucun mot de passe à retenir.',
+  },
+  {
+    title: 'Brochures et catalogues B2B',
+    body: 'Un H5 ou un Mini Program catalogue rend plus de service qu’un PDF. Les commerciaux les partagent dans les conversations, les prospects parcourent depuis le fil.',
+  },
+];
+
+const faqs = [
+  {
+    id: 'mp-vs-h5',
+    question: 'Mini Program ou H5, comment trancher ?',
+    answer: 'Mini Program si vous avez besoin de WeChat Pay, d’un programme de fidélité, d’API natives ou d’un usage récurrent. H5 si vous lancez une campagne courte ou que vous avez besoin de partager le lien hors de WeChat. La plupart des marques finissent par avoir les deux.',
+  },
+  {
+    id: 'foreign-entity',
+    question: 'Peut-on déposer un Mini Program sans entité chinoise ?',
+    answer: 'Pas pour un Mini Program complet. Tencent exige une entité enregistrée en Chine continentale et une licence ICP. Nous gérons l’enchaînement avec un partenaire local quand vous n’avez pas encore d’entité.',
+  },
+  {
+    id: 'timeline',
+    question: 'Combien de temps pour mettre en ligne ?',
+    answer: 'Mini Program e-commerce : 10 à 14 semaines, dépôt et certification compris. Site H5 : 4 à 6 semaines. La phase la plus longue reste l’audit Tencent, qu’il faut anticiper dès le brief.',
+  },
+  {
+    id: 'maintenance',
+    question: 'Et après la mise en ligne ?',
+    answer: 'Surveillance, mises à jour Tencent, ajustements de fidélité, mise à jour des contenus, pilotage des campagnes Channels. Au forfait mensuel, depuis Shanghai.',
+  },
+];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+
+  <!-- HERO -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#0f0f12] to-[#1a1a2e]"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-emerald-500/10 blur-[140px] pointer-events-none"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[140px] pointer-events-none"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 lg:pb-32">
+      <nav aria-label="Fil d’Ariane" class="mb-12">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">WeChat</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 mb-7">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">WeChat · 微信</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.04] tracking-tight">
+          Le canal direct vers le quotidien chinois.
+        </h1>
+        <p class="mt-7 text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl">
+          Pour la plupart des marques étrangères, le site sert de vitrine ; WeChat sert de magasin, de carte de fidélité, de SAV et de chaîne de vente. Nous concevons les Mini Programs et les sites H5 qui font tenir cette équation.
+        </p>
+
+        <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+          <div class="border-l-2 border-emerald-400/60 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">3M+</div>
+            <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Mini Programs en production</div>
+          </div>
+          <div class="border-l-2 border-white/15 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">450M</div>
+            <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Utilisateurs actifs quotidiens</div>
+          </div>
+          <div class="border-l-2 border-white/15 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">949M</div>
+            <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Utilisateurs actifs mensuels</div>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          <Button href="/fr/contact/" variant="primary" size="lg">Lancer votre projet WeChat</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MP VS H5 -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Mini Program ou H5</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Deux briques, deux usages, à choisir selon le projet.
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[var(--color-surface-border)]">
+        <table class="w-full text-left">
+          <thead class="bg-[var(--color-surface-light)]">
+            <tr>
+              <th class="px-6 py-4 text-sm font-semibold text-[var(--color-text-muted)]"></th>
+              <th class="px-6 py-4 text-sm font-semibold text-[var(--color-text-dark)]">Mini Program</th>
+              <th class="px-6 py-4 text-sm font-semibold text-[var(--color-text-dark)]">Site H5</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row, i) => (
+              <tr class:list={[i % 2 === 1 ? 'bg-[var(--color-surface-light)]/50' : 'bg-white']}>
+                <td class="px-6 py-4 text-sm font-medium text-[var(--color-text-muted)]">{row.label}</td>
+                <td class="px-6 py-4 text-sm text-[var(--color-text-body)]">{row.mp}</td>
+                <td class="px-6 py-4 text-sm text-[var(--color-text-body)]">{row.h5}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="py-24 md:py-32 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Cas d’usage</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Ce que nos clients confient à WeChat.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {useCases.map((u) => (
+          <article class="bg-white rounded-2xl border border-[var(--color-surface-border)] p-7 transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.18)] hover:-translate-y-1">
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3 leading-snug">
+              {u.title}
+            </h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+              {u.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Quatre questions qui reviennent.
+        </h2>
+      </div>
+
+      <div data-faq-accordion>
+        {faqs.map((faq) => (
+          <FAQItem question={faq.question} id={faq.id}>
+            <p>{faq.answer}</p>
+          </FAQItem>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-28 bg-[var(--color-surface-dark)]">
+    <div class="mx-auto max-w-[1100px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6">
+        Vous démarrez sur WeChat, ou vous reprenez en main un projet bloqué ?
+      </h2>
+      <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+        Décrivez-nous le périmètre. Nous revenons sous 24 heures avec un cadrage clair et un calendrier réaliste.
+      </p>
+      <Button href="/fr/contact/" variant="primary" size="lg">Nous écrire</Button>
+    </div>
+  </section>
+
+</PageLayout>

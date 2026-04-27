@@ -1,4 +1,10 @@
 ---
+/**
+ * The Real Problem: light bento with images.
+ * - Header band: eyebrow + headline + stat panel
+ * - 5 problem cards in a bento (1 featured + 4 standard), each with an image
+ * - Cursor spotlight + hover lift + decorative parallax glyph
+ */
 import { problems } from '../../data/problems';
 
 const images = [
@@ -8,359 +14,128 @@ const images = [
   '/images/problem-slow-load-times.webp',
   '/images/problem-unreliable-hosting.webp',
 ];
+
+const tags = ['Content', 'UX', 'Search', 'AI', 'Infra'];
 ---
 
-<!-- Problem section: accordion + image layout -->
-<section class="pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24">
-  <div class="mx-auto max-w-[1400px] section-padding">
-    <!-- Section header -->
-    <div class="max-w-3xl mb-16 lg:mb-20">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-        The Real Problem
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-        Your Brand Doesn’t Land in China. And Translation Won’t Fix It.
-      </h2>
-      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-        Most foreign brands launch in China by translating their global website. Six months later, bounce rates sit above 80% and the leads pipeline is empty. HQ rarely sees it coming.
-      </p>
+<section
+  data-problem-section
+  class="relative overflow-hidden bg-white py-24 md:py-32 lg:py-40"
+>
+  <!-- Subtle background layers -->
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-[var(--color-surface-light)] to-white"></div>
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:34px_34px] opacity-[0.035]"></div>
+    <div class="absolute -top-32 left-[8%] w-[520px] h-[520px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[150px]"></div>
+    <div class="absolute -bottom-32 right-[5%] w-[480px] h-[480px] rounded-full bg-[var(--color-brand-orange)]/[0.05] blur-[160px]"></div>
+  </div>
+  <span aria-hidden="true" class="absolute right-[-4rem] top-[10%] text-[22rem] lg:text-[28rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.12">问题</span>
+
+  <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
+    <!-- HEADER BAND -->
+    <div class="grid grid-cols-12 gap-8 lg:gap-12 mb-14 lg:mb-20 items-end">
+      <!-- Left: eyebrow + headline -->
+      <div class="col-span-12 lg:col-span-7" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)]">The Real Problem · 真正的问题</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.04]">
+          Your brand doesn't land in China.
+          <span class="block mt-2">
+            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
+              And translation won't fix it.
+            </span>
+          </span>
+        </h2>
+        <p class="mt-7 text-lg lg:text-xl text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+          Most foreign brands launch in China by translating their global website. Six months later, the leads pipeline is empty.
+          <span class="text-[var(--color-text-dark)] font-medium">HQ rarely sees it coming.</span>
+        </p>
+      </div>
+
+      <!-- Right: stat panel -->
+      <div class="col-span-12 lg:col-span-5 lg:pl-10" data-reveal data-reveal-delay="120">
+        <div class="relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-9 overflow-hidden shadow-[0_30px_60px_-30px_rgba(15,15,18,0.15)]">
+          <span aria-hidden="true" class="absolute -right-8 -bottom-12 text-[14rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none">82</span>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181"/></svg>
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Bounce rate, first 90 days</span>
+            </div>
+            <div class="flex items-baseline gap-3">
+              <span class="text-7xl lg:text-[110px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none">
+                <span data-counter data-counter-suffix="%">82</span>
+              </span>
+            </div>
+            <p class="mt-4 text-sm text-[var(--color-text-body)] leading-relaxed">
+              Median bounce rate of translated foreign brand sites in mainland China during the first ninety days after launch.
+            </p>
+            <p class="mt-3 text-[10px] font-mono uppercase tracking-wider text-[var(--color-text-muted)]">
+              Source · Internal benchmark, 2023 to 2025
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Accordion + image grid -->
-    <div class="flex flex-col md:flex-row items-start gap-12 lg:gap-16">
-      <!-- Left: accordion -->
-      <div class="w-full md:w-1/2" id="problem-accordion">
-        {problems.map((problem, i) => (
-          <div
-            class="problem-item border-b border-[var(--color-surface-border)]"
-            data-index={i}
-            data-image={images[i]}
+    <!-- BENTO: 5 problem cards with images -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+      {problems.map((p, i) => {
+        const img = images[i];
+        const tag = tags[i];
+        const isFeatured = i === 0;
+        const cardClass = isFeatured
+          ? 'md:col-span-2 lg:col-span-2 group relative rounded-3xl overflow-hidden transition-all duration-500 bg-white border border-[var(--color-surface-border)] hover:-translate-y-1.5 hover:border-[var(--color-brand-orange)]/40 hover:shadow-[0_30px_60px_-20px_rgba(15,15,18,0.18)]'
+          : 'group relative rounded-3xl overflow-hidden transition-all duration-500 bg-white border border-[var(--color-surface-border)] hover:-translate-y-1 hover:border-[var(--color-brand-orange)]/40 hover:shadow-[0_22px_50px_-22px_rgba(15,15,18,0.15)]';
+
+        return (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 70)}
+            data-cursor-spotlight
+            class:list={[cardClass]}
           >
-            <button
-              type="button"
-              class="flex w-full items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
-              aria-expanded="false"
-            >
-              <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] transition-colors duration-200 text-[var(--color-text-muted)]">
-                {problem.title}
+            <!-- Image: top of card with subtle gradient overlay -->
+            <div class:list={['relative overflow-hidden', isFeatured ? 'aspect-[16/7]' : 'aspect-[16/9]']}>
+              <img
+                src={img}
+                alt={p.title}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                loading="lazy"
+                decoding="async"
+              />
+              <!-- Bottom gradient for legibility of tag -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f12]/60 via-transparent to-transparent"></div>
+              <!-- Tag pill bottom-left -->
+              <div class="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.10] backdrop-blur-md border border-white/20">
+                <span class="w-1 h-1 rounded-full bg-[var(--color-brand-orange)]"></span>
+                <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-white">{tag}</span>
+              </div>
+              <!-- Top accent bar (slides on hover) -->
+              <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100 z-10"></div>
+            </div>
+
+            <!-- Body -->
+            <div class="p-7 lg:p-8 flex flex-col">
+              <h3 class:list={['font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3 transition-colors duration-300 group-hover:text-[var(--color-brand-orange)]', isFeatured ? 'text-2xl lg:text-3xl' : 'text-xl lg:text-2xl']}>
+                {p.title}
               </h3>
-              <svg
-                class="w-5 h-5 flex-shrink-0 ml-4 transition-transform duration-200 text-[var(--color-text-muted)]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div class="problem-content overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-              <p class="pb-3 text-base text-[var(--color-text-body)] leading-relaxed">
-                {problem.description}
+              <p class:list={['text-[var(--color-text-body)] leading-relaxed', isFeatured ? 'text-base lg:text-lg' : 'text-[15px]']}>
+                {p.description}
               </p>
-              {problem.citation && (
-                <p class="pb-5 text-sm text-[var(--color-text-muted)] leading-relaxed border-l-2 border-[var(--color-brand-orange)] pl-4 italic">
-                  {problem.citation}
+
+              {p.citation && (
+                <p class="mt-5 pt-5 border-t border-[var(--color-surface-border)] text-xs text-[var(--color-text-muted)] leading-relaxed italic">
+                  {p.citation}
                 </p>
               )}
-              <!-- Mobile-only image -->
-              <div class="md:hidden mb-5">
-                <img
-                  src={images[i]}
-                  alt={problem.title}
-                  class="w-full h-auto rounded-xl object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- Right: image (desktop only) -->
-      <div class="hidden md:block w-1/2 sticky top-28">
-        <div class="relative overflow-hidden rounded-2xl bg-[var(--color-surface-light)]">
-          <img
-            id="problem-image"
-            src={images[0]}
-            alt="Problem illustration"
-            class="w-full aspect-[4/3] object-cover transition-opacity duration-300"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Parallax transition: problem to solution -->
-<section class="parallax-section relative" style="padding: 12px;">
-  <div class="relative h-[75vh]">
-    <!-- Sticky image -->
-    <div
-      class="parallax-sticky sticky top-[12px] z-0 overflow-hidden rounded-3xl"
-      style="height: calc(50vh - 24px);"
-    >
-      <img
-        src="/images/parallax-solution-before-after.webp"
-        alt=""
-        class="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
-        decoding="async"
-      />
-      <div class="parallax-overlay absolute inset-0 bg-[#0f0f12]/70"></div>
-    </div>
-
-    <!-- Overlay text (scrolls over the sticky image) -->
-    <div class="parallax-copy absolute left-0 top-0 flex h-[50vh] w-full flex-col items-center justify-center text-white px-6">
-      <p class="mb-3 text-center text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] md:mb-4 md:text-base">
-        The Solution
-      </p>
-      <p class="text-center text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-[1.12] max-w-4xl">
-        We solve every one of these problems.
-      </p>
-    </div>
-  </div>
-
-  <!-- Content below the sticky image -->
-  <div class="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-8 px-4 pb-16 pt-6">
-    <div class="col-span-1 md:col-span-5">
-      <h2 class="text-2xl sm:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
-        A China web agency. In Shanghai. Strategic, not just technical.
-      </h2>
-    </div>
-    <div class="col-span-1 md:col-span-7">
-      <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-6">
-        We build websites that land with Chinese audiences. In that order:
-      </p>
-
-      <!-- Priority stack -->
-      <div class="mb-6 space-y-3">
-        <div class="flex items-start gap-4 p-4 rounded-xl bg-[var(--color-surface-light)]">
-          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] flex items-center justify-center" aria-hidden="true">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.562.562 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-          </span>
-          <div>
-            <p class="text-base font-semibold text-[var(--color-text-dark)]">Brand</p>
-            <p class="text-base text-[var(--color-text-body)] leading-relaxed">Content that reads native, UX that feels local.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4 p-4 rounded-xl bg-[var(--color-surface-light)]">
-          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] flex items-center justify-center" aria-hidden="true">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </span>
-          <div>
-            <p class="text-base font-semibold text-[var(--color-text-dark)]">Visibility</p>
-            <p class="text-base text-[var(--color-text-body)] leading-relaxed">Baidu and the Chinese AI engines.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4 p-4 rounded-xl bg-[var(--color-surface-light)]">
-          <span class="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] flex items-center justify-center" aria-hidden="true">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
-          </span>
-          <div>
-            <p class="text-base font-semibold text-[var(--color-text-dark)]">Infrastructure</p>
-            <p class="text-base text-[var(--color-text-body)] leading-relaxed">ICP, hosting and performance, in the background.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Plus card: HQ defence -->
-      <article class="bg-white rounded-2xl p-6 lg:p-8 border border-[var(--color-surface-border)] grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 mb-10">
-        <div class="lg:col-span-4">
-          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
-            Plus
-          </p>
-          <h4 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
-            HQ Alignment
-          </h4>
-        </div>
-        <div class="lg:col-span-8 flex items-center">
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            We help you defend the localisation decisions back at HQ. Written rationale, comparative benchmarks and stakeholder-ready talking points, included.
-          </p>
-        </div>
-      </article>
-
-      <!-- How a typical engagement runs: horizontal phase tracker -->
-      <div class="mb-10">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-          How a typical engagement runs
-        </p>
-
-        <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-5">
-          <!-- Horizontal spine connecting the icons (desktop only) -->
-          <div class="hidden md:block absolute left-5 right-5 top-5 h-[2px] bg-gradient-to-r from-[var(--color-brand-orange)] via-[var(--color-brand-orange)]/50 to-[var(--color-brand-orange)]" aria-hidden="true"></div>
-
-          <!-- Phase 1: Strategy and Audit -->
-          <div class="relative">
-            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-white border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] inline-flex items-center justify-center shadow-sm" aria-hidden="true">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
-              </svg>
-            </span>
-            <div class="mt-4">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <p class="text-base font-semibold text-[var(--color-text-dark)]">Strategy and Audit</p>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] whitespace-nowrap">1 to 2 weeks</span>
-              </div>
-              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
-                We audit your site, brand and Chinese competition, then deliver a written roadmap before any code is touched.
-              </p>
-            </div>
-          </div>
-
-          <!-- Phase 2: Build or migrate -->
-          <div class="relative">
-            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-white border-2 border-[var(--color-brand-orange)] text-[var(--color-brand-orange)] inline-flex items-center justify-center shadow-sm" aria-hidden="true">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
-              </svg>
-            </span>
-            <div class="mt-4">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <p class="text-base font-semibold text-[var(--color-text-dark)]">Build or migrate</p>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)]/10 text-[var(--color-brand-orange)] whitespace-nowrap">4 to 12 weeks</span>
-              </div>
-              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
-                Localised content, ICP hosting, Baidu and AI search from day one.
-              </p>
-            </div>
-          </div>
-
-          <!-- Phase 3: Grow -->
-          <div class="relative">
-            <span class="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-[var(--color-brand-orange)] text-white inline-flex items-center justify-center shadow-sm" aria-hidden="true">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.281m5.94 2.281l-2.28 5.941"/>
-              </svg>
-            </span>
-            <div class="mt-4">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <p class="text-base font-semibold text-[var(--color-text-dark)]">Grow</p>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-brand-orange)] text-white whitespace-nowrap">Ongoing</span>
-              </div>
-              <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
-                Content, search and maintenance on a monthly retainer.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <a
-        href="/contact/"
-        class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] bg-[var(--color-brand-orange)] text-white no-underline transition-all duration-200 hover:bg-[var(--color-brand-orange-hover)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(242,95,41,0.3)]"
-      >
-        Talk to us
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
+          </article>
+        );
+      })}
     </div>
   </div>
 </section>
-
-<script>
-  function initProblemAccordion() {
-    const items = document.querySelectorAll<HTMLElement>('.problem-item');
-    const image = document.getElementById('problem-image') as HTMLImageElement | null;
-    if (!items.length) return;
-
-    items.forEach((item) => {
-      const btn = item.querySelector('button');
-      const content = item.querySelector('.problem-content') as HTMLElement | null;
-      const title = item.querySelector('h3');
-      const chevron = item.querySelector('svg');
-
-      btn?.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-        // Close all
-        items.forEach((other) => {
-          const otherBtn = other.querySelector('button');
-          const otherContent = other.querySelector('.problem-content') as HTMLElement | null;
-          const otherTitle = other.querySelector('h3');
-          const otherChevron = other.querySelector('svg');
-
-          otherBtn?.setAttribute('aria-expanded', 'false');
-          otherContent?.classList.remove('max-h-[800px]', 'opacity-100');
-          otherContent?.classList.add('max-h-0', 'opacity-0');
-          otherTitle?.classList.remove('text-[var(--color-text-dark)]');
-          otherTitle?.classList.add('text-[var(--color-text-muted)]');
-          otherChevron?.classList.remove('rotate-180', 'text-[var(--color-text-dark)]');
-          otherChevron?.classList.add('text-[var(--color-text-muted)]');
-        });
-
-        // If it was closed, open this one
-        if (!isOpen) {
-          btn.setAttribute('aria-expanded', 'true');
-          content?.classList.remove('max-h-0', 'opacity-0');
-          content?.classList.add('max-h-[800px]', 'opacity-100');
-          title?.classList.remove('text-[var(--color-text-muted)]');
-          title?.classList.add('text-[var(--color-text-dark)]');
-          chevron?.classList.add('rotate-180', 'text-[var(--color-text-dark)]');
-          chevron?.classList.remove('text-[var(--color-text-muted)]');
-
-          // Update desktop image
-          const newImage = item.dataset.image;
-          if (image && newImage) {
-            image.style.opacity = '0';
-            setTimeout(() => {
-              image.src = newImage;
-              image.style.opacity = '1';
-            }, 150);
-          }
-        }
-      });
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', initProblemAccordion);
-  document.addEventListener('astro:page-load', initProblemAccordion);
-
-  // Parallax scroll animation (disabled on mobile to avoid Safari jank)
-  function initParallax() {
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    if (isMobile) return;
-
-    const section = document.querySelector('.parallax-section');
-    const sticky = document.querySelector('.parallax-sticky') as HTMLElement | null;
-    const overlay = document.querySelector('.parallax-overlay') as HTMLElement | null;
-    const copy = document.querySelector('.parallax-copy') as HTMLElement | null;
-    if (!section || !sticky || !overlay || !copy) return;
-
-    function onScroll() {
-      const rect = section!.getBoundingClientRect();
-      const sectionHeight = section!.clientHeight;
-      const viewportHeight = window.innerHeight;
-
-      // Progress: 0 when section enters, 1 when section leaves
-      const rawProgress = -rect.top / (sectionHeight - viewportHeight);
-      const progress = Math.max(0, Math.min(1, rawProgress));
-
-      // Scale the sticky image from 1 to 0.85 as you scroll past
-      const scale = 1 - progress * 0.15;
-      sticky!.style.transform = `scale(${scale})`;
-
-      // Fade overlay from visible to transparent
-      overlay!.style.opacity = String(1 - progress);
-
-      // Text visible immediately, fades out as you scroll past
-      let copyOpacity = 1;
-      if (progress > 0.5) {
-        copyOpacity = 1 - (progress - 0.5) / 0.5;
-      }
-      copy!.style.opacity = String(copyOpacity);
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  document.addEventListener('DOMContentLoaded', initParallax);
-  document.addEventListener('astro:page-load', initParallax);
-</script>

@@ -1,16 +1,166 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
 
-const metaTitle = 'WordPress';
-const metaDescription = 'WordPress';
+const metaTitle = 'WordPress en Chine | Conception et hébergement | ChinaWebFoundry';
+const metaDescription = 'Sites WordPress conçus, hébergés et maintenus en Chine. ICP, performance derrière le Pare-feu, intégrations WeChat et Baidu. Vingt ans à Shanghai.';
+
+const reasons = [
+  {
+    title: 'Toujours le bon choix pour le contenu',
+    body: 'Pour un site éditorial dense, des landing pages de campagne, un blog d’expertise ou un catalogue produit, WordPress reste la base la plus rentable. Nos rédacteurs et nos clients s’y retrouvent en quelques minutes.',
+  },
+  {
+    title: 'Un écosystème adapté à la Chine',
+    body: 'Multilingue géré nativement, intégrations Aliyun et Tencent Cloud rodées, plug-ins de cache éprouvés derrière le Pare-feu. Nous savons quels modules tiennent et lesquels lâchent.',
+  },
+  {
+    title: 'Pris en main par votre équipe',
+    body: 'Vos équipes marketing modifient les pages sans dépendre d’un développeur. La gouvernance des extensions et le pipeline de mise en ligne restent chez nous.',
+  },
+];
+
+const stack = [
+  { label: 'Hébergement', body: 'Aliyun, Tencent Cloud ou Huawei Cloud, sous licence ICP. Cache et CDN configurés pour la Chine continentale.' },
+  { label: 'Performance', body: 'Tests réels depuis Pékin, Shanghai et Shenzhen. Trois secondes ou moins, sans VPN.' },
+  { label: 'Sécurité', body: 'WAF, audit d’extensions, sauvegardes chiffrées, suivi des CVE. PIPL et résidence des données respectées.' },
+  { label: 'SEO Baidu', body: 'Outils webmaster, sitemap au bon format, indexation, contenu structuré pour les robots locaux.' },
+];
+
+const faqs = [
+  {
+    id: 'wordpress-china',
+    question: 'WordPress fonctionne-t-il en Chine ?',
+    answer: 'Oui, à condition de ne pas dépendre des Google Fonts, reCAPTCHA, Jetpack, Cloudflare Turnstile ou autres ressources bloquées. Nous remplaçons systématiquement ces dépendances par des équivalents qui passent le Pare-feu.',
+  },
+  {
+    id: 'plugins',
+    question: 'Quels plug-ins gardez-vous, lesquels écartez-vous ?',
+    answer: 'Nous tenons une liste à jour. Yoast, ACF, WP Rocket, WPML : conservés. Jetpack, Elementor (selon les modules), tout ce qui appelle Google ou WordPress.com en arrière-plan : remplacés. Audit réalisé page par page.',
+  },
+  {
+    id: 'migration',
+    question: 'Migration ou refonte ?',
+    answer: 'Migration si la marque, l’UX et l’architecture tiennent encore. Refonte si le site international ne fait pas sens auprès du public chinois, ce qui est souvent le cas. Notre audit stratégique tranche.',
+  },
+  {
+    id: 'ongoing',
+    question: 'Que comprend la maintenance mensuelle ?',
+    answer: 'Mises à jour cœur et extensions, tests de régression, monitoring de performance et de disponibilité, sauvegardes, support, petites évolutions éditoriales. Au forfait mensuel.',
+  },
+];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} lang="fr">
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-        WordPress
-      </h1>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#0f0f12] to-[#1a1a2e]"></div>
+      <div class="absolute -top-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[140px] pointer-events-none"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 lg:pb-32">
+      <nav aria-label="Fil d’Ariane" class="mb-12">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">WordPress</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 mb-7">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">WordPress en Chine</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.04]">
+          WordPress, choisi quand il sert vraiment le projet.
+        </h1>
+        <p class="mt-7 text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl">
+          Vingt ans de mise en production de WordPress derrière le Pare-feu, avec licence ICP, cache local et écosystème d’extensions calibré pour le marché chinois. Quand WordPress est la bonne réponse, nous savons exactement ce qu’il faut pour qu’il tienne.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <Button href="/fr/contact/" variant="primary" size="lg">Parler de votre projet WordPress</Button>
+          <Button href="/fr/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Comparer avec Astro</Button>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section class="py-24 md:py-32 bg-white">
+    <div class="mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Pourquoi WordPress</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Trois raisons précises, et aucune par défaut.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {reasons.map((r) => (
+          <article class="bg-[var(--color-surface-light)] rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3 leading-snug">
+              {r.title}
+            </h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+              {r.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">La pile</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Ce qui se trouve sous le capot.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {stack.map((s) => (
+          <div class="bg-white rounded-2xl p-7 border border-[var(--color-surface-border)]">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">{s.label}</p>
+            <p class="text-base text-[var(--color-text-body)] leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 bg-white">
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Les quatre questions qui reviennent.
+        </h2>
+      </div>
+
+      <div data-faq-accordion>
+        {faqs.map((faq) => (
+          <FAQItem question={faq.question} id={faq.id}>
+            <p>{faq.answer}</p>
+          </FAQItem>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 bg-[var(--color-surface-dark)]">
+    <div class="mx-auto max-w-[1100px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6">
+        Site WordPress à monter ou à reprendre en Chine ?
+      </h2>
+      <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+        Audit, migration ou refonte : nous chiffrons sous deux jours ouvrés. Pas de discours commercial.
+      </p>
+      <Button href="/fr/contact/" variant="primary" size="lg">Nous écrire</Button>
+    </div>
+  </section>
+
 </PageLayout>
