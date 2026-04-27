@@ -1,47 +1,103 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
+import ScrollEffects from '../../components/pages/ScrollEffects.astro';
 
 const metaTitle = 'Maintenance & Support | Run Your China Site Right';
 const metaDescription = 'Ongoing content updates, SEO and GEO follow-up, technical maintenance and hosting for your China site. One team. From inside the Firewall.';
 
 const includedItems = [
   {
+    n: '01',
+    cn: '内容',
     title: 'Content updates',
-    body: 'Two to four new pieces per month for active clients: typically one long-form Baidu-friendly article (1,500 to 2,500 Chinese characters), one case study or product update, and one or two short news posts. All written in real Chinese by native speakers, not translated from English drafts. We syndicate the strongest pieces to Baijiahao (百家号), Zhihu (知乎), and Sohu Hao (搜狐号), which AI engines treat as verification signals when deciding what to cite. More frequency around campaign windows: 双11, 618, Chinese New Year (春节).',
+    body: 'Two to four new pieces per month for active clients: typically one long-form Baidu-friendly article (1,500 to 2,500 Chinese characters), one case study or product update, and one or two short news posts. All written in real Chinese by native speakers, not translated. We syndicate the strongest pieces to Baijiahao (百家号), Zhihu (知乎), and Sohu Hao (搜狐号), which AI engines treat as verification signals when deciding what to cite.',
+    tag: 'Content',
+    chips: ['百家号', '知乎', '搜狐号', 'Native ZH', '双11 / 618 / 春节'],
   },
   {
+    n: '02',
+    cn: '搜索',
     title: 'Baidu SEO follow-up',
-    body: "Monthly ranking report covering your top 30 to 50 keywords, indexing check on 100+ priority URLs through Baidu Ziyuan (百度站长资源), and two to three technical SEO fixes per month based on what the data shows. We push new content into Baidu's submission tools the day it goes live, fix crawl errors as they appear, and rebuild whatever drops out of the index. When Baidu adjusts its algorithm (eleven times in 2025, by our count) we adapt within the week, not the quarter.",
+    body: "Monthly ranking report covering your top 30 to 50 keywords, indexing check on 100+ priority URLs through 百度搜索资源平台, and two to three technical SEO fixes per month based on what the data shows. We push new content into Baidu's submission tools the day it goes live, fix crawl errors as they appear, and rebuild whatever drops out of the index.",
+    tag: 'Baidu SEO',
+    chips: ['Rank report', '主动推送', 'Index check', 'Algo response'],
   },
   {
+    n: '03',
+    cn: '智能',
     title: 'GEO follow-up',
-    body: 'Weekly visibility checks across DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝), and Baidu AI (百度AI), running a fixed 40-question query matrix per client covering brand, category, scenario, and competitor questions. Reports show citation rate, recommendation rank, and sentiment score, with a list of content adjustments to push that month. When a model update changes who gets cited (DeepSeek shipped four major revisions in 2025) we adjust before competitors notice.',
+    body: 'Weekly visibility checks across DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝), and Baidu AI (百度AI), running a fixed 40-question query matrix per client covering brand, category, scenario, and competitor questions. Reports show citation rate, recommendation rank, and sentiment score, with a list of content adjustments to push that month.',
+    tag: 'AI search',
+    chips: ['DeepSeek', 'Doubao', 'Kimi', '元宝', '文心X1'],
   },
   {
+    n: '04',
+    cn: '技术',
     title: 'Technical maintenance',
-    body: 'WordPress core, plugin, and theme updates tested on staging before going live. Daily off-site backups retained 30 days. Security scanning via Wordfence or Sucuri running 24/7. Uptime checks every 5 minutes from servers physically inside China. Quarterly database cleanup. SSL renewals on China-compatible certificates from Aliyun (阿里云) or local CAs. The standard stuff, but verified from inside the Firewall, not from a Virginia datacenter.',
+    body: 'WordPress core, plugin, and theme updates tested on staging before going live. Daily off-site backups retained 30 days. Security scanning via Wordfence or Sucuri running 24/7. Uptime checks every 5 minutes from servers physically inside China. Quarterly database cleanup. SSL renewals on China-compatible certificates from Aliyun (阿里云) or local CAs.',
+    tag: 'Tech ops',
+    chips: ['Updates', 'Backups', 'Security', 'Uptime', 'SSL'],
   },
   {
+    n: '05',
+    cn: '防火',
     title: 'The China layer',
-    body: 'We watch Great Firewall behaviour in real time. When a CDN, font library, or external API gets blocked, we swap in a China-friendly replacement, average response time 14 minutes from detection to deploy. We re-test WeChat (微信) login, Alipay (支付宝), WeChat Pay (微信支付), and analytics (Baidu Tongji or 51la) after every update cycle. Most international agencies cannot see any of this without a VPN.',
+    body: 'We watch Great Firewall behaviour in real time. When a CDN, font library, or external API gets blocked, we swap in a China-friendly replacement, average response time 14 minutes from detection to deploy. We re-test WeChat (微信) login, Alipay (支付宝), WeChat Pay (微信支付), and analytics (Baidu Tongji or 51la) after every update cycle.',
+    tag: 'Firewall watch',
+    chips: ['CDN swap', 'Font swap', 'WeChat login', 'Alipay', 'Analytics'],
   },
   {
+    n: '06',
+    cn: '主机',
     title: 'Hosting',
     body: "ICP-licensed (ICP备案) servers on Aliyun, Tencent Cloud (腾讯云), or Huawei Cloud (华为云), managed end to end. Performance tuning when traffic spikes. Bei'an (备案) renewals tracked through the MIIT console so nothing lapses. 99.9% uptime SLA with documented response times: 30 minutes for critical incidents, 4 hours for standard tickets.",
+    tag: 'Hosting',
+    chips: ['ICP 备案', 'Aliyun', 'Tencent Cloud', 'Huawei Cloud', '99.9% SLA'],
   },
   {
+    n: '07',
+    cn: '修复',
     title: 'Break-fix',
     body: 'When something breaks, our team in China picks it up immediately. Bug fixes, plugin conflicts, security incidents, payment gateway errors with Alipay or WeChat Pay. If a site gets hacked: isolate, clean, restore, harden, post-mortem within 48 hours.',
+    tag: 'Incident',
+    chips: ['Bugs', 'Plugin conflicts', 'Hack response', '48h post-mortem'],
   },
 ];
 
 const insightItems = [
-  "China's digital environment moves faster than the West. Baidu's algorithm changed eleven times in 2025. DeepSeek shipped four major model revisions. Doubao reworked its content ingestion at least monthly.",
-  'Sites that launch right and sit untouched for a year almost always end up invisible by month nine. The decay is gradual, and then sudden.',
-  'The reverse is also true. Sites that publish steady fresh content, watch their AI citations weekly, and keep the technical stack clean tend to compound. Rankings climb, AI mentions grow, the cost of staying visible drops.',
-  'International agencies cannot see most of this work without a VPN. From an office in London or Chicago, everything looks fine right up until it does not.',
+  {
+    n: '01',
+    cn: '变',
+    title: "China's digital environment moves faster",
+    body: "Baidu's algorithm changed eleven times in 2025. DeepSeek shipped four major model revisions. Doubao reworked its content ingestion at least monthly. The pace doesn't slow.",
+  },
+  {
+    n: '02',
+    cn: '退',
+    title: 'Untouched sites decay',
+    body: 'Sites that launch right and sit untouched for a year almost always end up invisible by month nine. The decay is gradual, and then sudden.',
+  },
+  {
+    n: '03',
+    cn: '增',
+    title: 'Maintained sites compound',
+    body: 'Sites that publish steady fresh content, watch their AI citations weekly, and keep the technical stack clean tend to compound. Rankings climb, AI mentions grow, the cost of staying visible drops.',
+  },
+  {
+    n: '04',
+    cn: '盲',
+    title: 'Foreign agencies are blind to most of this',
+    body: 'International agencies cannot see most of the failure modes without a VPN. From an office in London or Chicago, everything looks fine right up until it does not.',
+  },
+];
+
+const stats = [
+  { value: '14m', label: 'Avg. detection-to-deploy', sub: 'When a font, CDN or API gets blocked.' },
+  { value: '99.9%', label: 'Uptime SLA', sub: '30-min response on critical incidents.' },
+  { value: '40', label: 'AI queries / wk', sub: 'Citation tracking across 5 engines, weekly.' },
 ];
 
 const audiences = [
@@ -66,191 +122,435 @@ const audiences = [
     image: '/images/audiences/woocommerce-china-payments.webp',
   },
 ];
+
+const marqueePhrases = [
+  '维护', 'Maintenance',
+  '内容', 'GEO', 'SEO',
+  'ICP 备案',
+  'Aliyun · Tencent Cloud',
+  'Wordfence',
+  'WeChat Pay',
+  'Alipay',
+  '99.9% uptime',
+  '24/7 watch',
+  'One team · One bill',
+];
+
+const faqs = [
+  {
+    id: 'why-not-internal',
+    question: "Why not just have our internal IT team handle it?",
+    answer: [
+      "They can, in theory. In practice, internal teams almost always lose visibility on the China-side because they cannot reach the dashboards (百度站长资源, the Aliyun console, WeChat platform) from outside China without a VPN, and the alerts they need are in Chinese. Most of our clients run an internal team for global ops and us as the China desk.",
+    ],
+  },
+  {
+    id: 'pricing',
+    question: 'How are retainers priced?',
+    answer: [
+      "Monthly retainers from US$ 1,200, scoped to what your site actually needs. The number depends on traffic volume, content cadence, the number of AI engines we cover, and whether hosting is in scope. Tell us where you are and we send a real quote within two business days.",
+    ],
+  },
+  {
+    id: 'response-time',
+    question: 'How fast do you respond to incidents?',
+    answer: [
+      'Critical incidents (site down, payment failure, hack): 30 minutes from alert to first action, 24/7. Standard tickets (plugin conflict, content edit, dashboard question): 4 business hours. All response times are documented in the SLA.',
+    ],
+  },
+  {
+    id: 'content-cadence',
+    question: 'How much content do you ship per month?',
+    answer: [
+      'Two to four pieces for an active retainer. Typically one long-form Baidu-friendly article (1,500 to 2,500 Chinese characters), one case study or product update, and one to two short news posts. Cadence ramps around campaign windows: 双11, 618, 春节.',
+    ],
+  },
+  {
+    id: 'baidu-and-geo',
+    question: 'Is Baidu SEO and GEO included or separate?',
+    answer: [
+      'Both run inside the maintenance retainer for active clients. Monthly Baidu rank report and indexing check, weekly GEO citation tracking across DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI. Bigger structural rebuilds (full keyword map refresh, content cluster builds) are separate projects.',
+    ],
+  },
+  {
+    id: 'hosting',
+    question: 'Do we have to move our hosting to you?',
+    answer: [
+      "No. We work with whatever stack you have on Aliyun, Tencent Cloud, or Huawei Cloud. If hosting is part of the retainer we manage everything end to end, including 备案 renewals through the MIIT console. If you keep hosting in-house we coordinate with whoever runs it.",
+    ],
+  },
+  {
+    id: 'firewall',
+    question: 'What happens when the Great Firewall blocks something?',
+    answer: [
+      'We watch behaviour in real time and swap in China-friendly replacements when a CDN, font library, or external API stops resolving. Average response: 14 minutes from detection to deploy. Quarterly we re-test WeChat login, Alipay, WeChat Pay, and Baidu Tongji, because regressions there are silent.',
+    ],
+  },
+  {
+    id: 'reporting',
+    question: 'What does reporting look like?',
+    answer: [
+      "Monthly written summary covering content shipped, Baidu rank movement, GEO citation tracking, technical work done, incidents resolved, and the recommended priorities for the next month. Plus a live status dashboard you can check any time.",
+    ],
+  },
+];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
 
+  <ScrollEffects />
+
   <!-- HERO -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-maintenance-beijing-team-office.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/95 via-[#0f0f12]/75 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+      <img src="/images/hero-maintenance-beijing-team-office.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/85 to-[#0f0f12]/60"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[140px] pointer-events-none" data-float></div>
     </div>
 
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">维</span>
+
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-12 md:pb-16">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
-          <li class="before:content-['/'] before:mx-2 text-white/60">Maintenance & Support</li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Maintenance &amp; Support</li>
         </ol>
       </nav>
 
       <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
-        <!-- Text -->
-        <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            Maintenance & Support
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            A live China site needs someone
-            <span class="block mt-2 text-[var(--color-brand-orange)]">watching it from the inside.</span>
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Maintenance &amp; Support</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">Inside the Firewall, 24/7</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            A live China site needs
+            <span class="block mt-1.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">someone watching</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">it.</span>
+            </span>
           </h1>
-          <p class="mt-8 text-lg text-white/70 max-w-xl leading-relaxed">
-            Ongoing content, SEO and GEO follow-up, technical maintenance, hosting. All handled by a team that operates behind the Great Firewall every day.
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            Ongoing content, SEO and GEO follow-up, technical maintenance, hosting. All handled by a team that operates behind the Great Firewall every day. <span class="text-white font-medium">One team. One bill. No finger-pointing across nine time zones.</span>
           </p>
-          <p class="mt-5 text-sm text-white/50 max-w-xl leading-relaxed">
-            One team. One bill. No finger-pointing across nine time zones.
-          </p>
-          <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/contact/" variant="primary" size="lg">Talk to Our Team</Button>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-emerald-400/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">99.9<span class="text-base text-white/60">%</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Uptime SLA</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter>14</span><span class="text-base text-white/60">m</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Detect → deploy</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">24/7</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">China-side watch</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/contact/" variant="primary" size="lg">Talk to our team</Button>
+            <Button href="#whats-included" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">See what's included</Button>
           </div>
         </div>
 
-        <!-- Visual: maintenance status card -->
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+        <!-- Visual: layered status dashboard -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
           <div class="relative">
-            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-xs text-white/30 ml-2 font-mono">site-status</span>
+            <!-- Back: "untouched site" mock -->
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Untouched · 9 mo</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">no team</span>
               </div>
-              <div class="space-y-4">
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Baidu rank: drifting
+              </div>
+            </div>
+
+            <!-- Front: live dashboard -->
+            <div data-tilt class="relative rounded-2xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] backdrop-blur-md border border-white/15 p-6 lg:p-7 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div class="flex items-center gap-2 mb-5">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-300/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-400/80"></span>
+                </div>
+                <span class="text-[10px] font-mono text-white/45 ml-2">site-status · live</span>
+                <span class="ml-auto inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/30">
+                  <span class="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="text-[9px] font-mono text-emerald-300 uppercase">Healthy</span>
+                </span>
+              </div>
+
+              <div class="space-y-3.5">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Firewall watch</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Clear</span>
+                  <span class="text-[13px] text-white/75">Firewall watch</span>
+                  <span class="text-[12px] font-mono text-emerald-300">Clear</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Content cadence</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">3 / mo</span>
+                  <span class="text-[13px] text-white/75">Content cadence</span>
+                  <span class="text-[12px] font-mono text-emerald-300">3 / mo</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Baidu index</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Healthy</span>
+                  <span class="text-[13px] text-white/75">Baidu index</span>
+                  <span class="text-[12px] font-mono text-emerald-300">Healthy</span>
                 </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">AI citations (wk)</span>
-                  <span class="text-sm font-semibold text-[var(--color-brand-orange)] font-mono">+12%</span>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/75">AI citations (wk)</span>
+                    <span class="text-[12px] font-mono text-[var(--color-brand-orange)]">+<span data-counter data-counter-suffix="%">12</span></span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden shimmer-bar">
+                    <div class="h-full w-[72%] bg-gradient-to-r from-[var(--color-brand-orange)] to-[#FF8956] rounded-full"></div>
+                  </div>
                 </div>
-                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/75">Uptime · 30d</span>
+                    <span class="text-[12px] font-mono text-emerald-300">99.98%</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[99%] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full"></div>
+                  </div>
                 </div>
-                <div class="flex items-center justify-between pt-1">
-                  <span class="text-sm text-white/50">Uptime (30d)</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">99.98%</span>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">Backups</div>
+                  <div class="text-xs font-mono text-emerald-300">Current</div>
                 </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">Backups</span>
-                  <span class="text-sm font-semibold text-green-400 font-mono">Current</span>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">ICP 备案</div>
+                  <div class="text-xs font-mono text-white/70">2027</div>
                 </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-white/50">ICP 备案</span>
-                  <span class="text-sm font-semibold text-white/70 font-mono">Renewed 2027</span>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">SSL</div>
+                  <div class="text-xs font-mono text-emerald-300">Valid</div>
                 </div>
               </div>
             </div>
-            <!-- Decorative glow -->
-            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
   </section>
 
-  <!-- INTRODUCTION -->
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            The reality
+  <!-- WHY: dramatic statement -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0" data-reveal="left">
+          <div class="relative inline-flex items-baseline">
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-duration="1800">9</span>
+            <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">months</span>
+          </div>
+          <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
+            Average time it takes a launched-and-untouched China site to drift into invisibility. Gradual decay, then sudden disappearance from rankings.
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+        </div>
+
+        <div class="col-span-12 lg:col-span-7" data-reveal="right">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Why It Matters</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
             Launching is the easy part.
           </h2>
-        </div>
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            A China site is not something you launch and walk away from. Baidu drops rankings for sites that stop publishing. AI engines like DeepSeek and Doubao update their crawling logic every few weeks. A Google Font your developer left in the theme gets blocked on a random Tuesday and the homepage breaks for every visitor in Shanghai (上海), Shenzhen (深圳), and Beijing (北京). From your office in London or Chicago, everything looks fine.
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            A China site is not something you launch and walk away from. Baidu drops rankings for sites that stop publishing. AI engines update crawling logic every few weeks. A Google Font your developer left in the theme gets blocked on a random Tuesday and the homepage breaks for every visitor in Shanghai, Shenzhen, and Beijing.
           </p>
-          <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed">
-            This is what we run after launch. Content, search, technical, infrastructure. One team, one bill, no finger-pointing across time zones.
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            From your office in London or Chicago, everything looks fine right up until it doesn't. We run the watch, the content, the search work, and the technical layer as one engagement.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- WHAT IS INSIDE THE SERVICE -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <!-- Left: sticky heading -->
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            What's included
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            What's actually inside the service
-          </h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            Seven workstreams, run in parallel. The first three keep the site visible. The next three keep it standing. The last one catches what neither can.
-          </p>
-        </div>
-
-        <!-- Right: items -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {includedItems.map((item) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {item.title}
-                  </h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {item.body}
-                  </p>
-                </div>
-              </div>
-            ))}
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Watch
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Publish</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Maintain</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Compound</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY IT MATTERS -->
-  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Why it has to be ongoing
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            Untouched sites go invisible.
-          </h2>
-          <p class="mt-6 text-base text-white/60 leading-relaxed">
-            Maintained sites compound. The gap between the two opens fast.
-          </p>
-        </div>
+  <!-- WHAT'S INCLUDED: comparison cards -->
+  <section id="whats-included" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden scroll-mt-32">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">守</span>
 
-        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
-          <div class="space-y-6">
-            {insightItems.map((item) => (
-              <div class="bg-white/[0.04] border border-white/10 rounded-xl p-6">
-                <p class="text-base text-white/70 leading-relaxed">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">What's Included · 服务内容</span>
         </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          Seven workstreams. One retainer.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          The first three keep the site visible. The next three keep it standing. The last one catches what neither can.
+        </p>
+      </div>
+
+      <div class="space-y-5 lg:space-y-6">
+        {includedItems.map((q, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 50)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+              'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{q.cn}</span>
+              <div class="relative">
+                <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">No. {q.n} / 07</div>
+                <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{q.cn}</div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">{q.tag}</div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+              <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+                {q.title}
+              </h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                {q.body}
+              </p>
+            </div>
+
+            <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-center gap-3">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">Stack / surfaces</div>
+              <div class="flex flex-wrap gap-1.5">
+                {q.chips.map((c) => (
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-[var(--color-text-body)] border border-[var(--color-surface-border)]">{c}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ONGOING: 4 insights as bento cards -->
+  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[15%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none" data-float></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Why Ongoing · 为什么要持续</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          Untouched sites go invisible.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed">
+          Maintained sites compound. The gap between the two opens fast.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+        {insightItems.map((p, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 80)}
+            class:list={[
+              'group relative rounded-3xl bg-white/[0.03] border border-white/10 p-7 lg:p-8 overflow-hidden transition-all duration-300',
+              'hover:bg-white/[0.06] hover:border-white/20 hover:-translate-y-0.5',
+            ]}
+          >
+            <span aria-hidden="true" class="absolute -right-3 -bottom-6 text-[8rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-bottom-right">{p.cn}</span>
+            <div class="relative">
+              <div class="flex items-center gap-3 mb-5">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)] text-sm font-semibold font-[var(--font-heading)]">
+                  {p.n}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40">Insight {p.n} of 04</span>
+              </div>
+              <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-tight mb-3">
+                {p.title}
+              </h3>
+              <p class="text-base text-white/65 leading-relaxed">
+                {p.body}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Service Numbers · 数据</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Numbers we hit, every month.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Documented in the SLA. Visible in the live dashboard. Reported monthly with a written summary.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
+        {stats.map((s, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 90)}
+            class:list={[
+              'group relative rounded-3xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden',
+              i === 1
+                ? 'bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] text-white hover:shadow-[0_24px_50px_-22px_rgba(242,95,41,0.4)]'
+                : 'bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            {i === 1 && <span aria-hidden="true" class="absolute -right-4 -bottom-8 text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.08] leading-none select-none pointer-events-none">守</span>}
+            <div class="relative">
+              <div class:list={['text-[10px] font-mono uppercase tracking-[0.18em] mb-3', i === 1 ? 'text-white/75' : 'text-[var(--color-text-muted)]']}>{s.label}</div>
+              <div class:list={['text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3', i === 1 ? 'text-white' : 'text-[var(--color-text-dark)]']}>
+                {s.value}
+              </div>
+              <p class:list={['text-sm leading-relaxed', i === 1 ? 'text-white/90' : 'text-[var(--color-text-body)]']}>{s.sub}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -258,23 +558,75 @@ const audiences = [
   <!-- WHO IS THIS FOR -->
   <WhoIsThisFor heading="Who reaches out to us" audiences={audiences} background="light" />
 
-  <!-- CTA -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+  <!-- FAQ -->
+  <section id="faq" class="section-spacing bg-white scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32" data-reveal="left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Eight questions we hear about Maintenance &amp; Support
+          </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Tap any question to expand. If yours isn't here, ask us directly.
+          </p>
+          <div class="mt-7">
+            <Button href="/contact/" variant="secondary" size="md">Ask a different question</Button>
+          </div>
+        </div>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-        Get started
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        You did the hard part. Don't let it slip.
-      </h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Tell us where you are. We come back with a plan covering content cadence, SEO and GEO action items, technical maintenance, and hosting. Monthly retainers from US$ 1,200, scoped to what your site actually needs.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/contact/" variant="primary" size="lg">Request a Custom Proposal</Button>
-        <Button href="/services/china-hosting/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Explore Hosting Options</Button>
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="right">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                {faq.answer.map((para) => (
+                  <p class="mb-3 last:mb-0">{para}</p>
+                ))}
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with marquee -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
+    </div>
+
+    <div class="relative py-20 lg:py-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">维</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">Don't let it slip</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
+          You did the hard part. Don't let it slip.
+        </h2>
+        <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
+          Tell us where you are. We come back with a plan covering content cadence, SEO and GEO action items, technical maintenance, and hosting. Monthly retainers from US$ 1,200, scoped to what your site actually needs.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/contact/" variant="primary" size="lg">Request a custom proposal</Button>
+          <Button href="/services/china-hosting/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Hosting options</Button>
+          <Button href="/services/baidu-seo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Baidu SEO</Button>
+        </div>
       </div>
     </div>
   </section>

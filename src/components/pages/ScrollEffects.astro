@@ -1,0 +1,323 @@
+---
+/**
+ * Shared scroll-driven UI effects for service pages.
+ *
+ * Drop this component once at the top of a page (right after <PageLayout>)
+ * and decorate elements with the data attributes below.
+ *
+ *   data-reveal             fade-up on enter
+ *   data-reveal="left"      slide in from left
+ *   data-reveal="right"     slide in from right
+ *   data-reveal="zoom"      scale-in
+ *   data-reveal-delay="100" stagger delay in ms (max 600)
+ *
+ *   data-parallax="0.2"     translateY * scroll * factor (decorative)
+ *
+ *   data-counter            element text becomes target number; counts on enter
+ *   data-counter-suffix="+" suffix appended after the number
+ *   data-counter-duration   ms (default 1400)
+ *
+ *   data-tilt               cursor-follow 3D tilt on hover (cards)
+ *
+ *   data-cursor-spotlight   adds a soft spotlight that follows pointer inside the element
+ *
+ *   data-scroll-progress    fills :before width based on scroll progress (sticky bars)
+ *
+ * The script is idempotent and re-runs on Astro view transitions.
+ */
+---
+
+<style is:global>
+  [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  [data-reveal="left"]  { transform: translate3d(-32px, 0, 0); }
+  [data-reveal="right"] { transform: translate3d(32px, 0, 0); }
+  [data-reveal="zoom"]  { transform: scale(0.96); }
+
+  [data-reveal].is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  [data-tilt] {
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  [data-cursor-spotlight] {
+    position: relative;
+    isolation: isolate;
+  }
+  [data-cursor-spotlight]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgba(242, 95, 41, 0.18),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  [data-cursor-spotlight]:hover::after { opacity: 1; }
+
+  /* Floating decorative glyphs gentle drift */
+  [data-float] {
+    animation: drift 11s ease-in-out infinite;
+  }
+  [data-float="slow"] { animation-duration: 18s; }
+  [data-float="fast"] { animation-duration: 7s; }
+  @keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(0, -14px, 0); }
+  }
+
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+
+  @keyframes shimmer {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .shimmer-bar {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 100%
+    );
+    animation: shimmer 2.6s ease-in-out infinite;
+  }
+
+  /* Scroll progress indicator (used in sticky FAQ heading on chinese-content/strategy) */
+  [data-scroll-progress] {
+    position: relative;
+  }
+  [data-scroll-progress]::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-brand-orange), #FF7E47);
+    transform: scaleX(var(--progress, 0));
+    transform-origin: left;
+    transition: transform 0.15s linear;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-tilt],
+    [data-float] {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  function clamp(n: number, min: number, max: number) {
+    return Math.min(Math.max(n, min), max);
+  }
+
+  function initReveal() {
+    const els = document.querySelectorAll<HTMLElement>('[data-reveal]:not([data-reveal-bound])');
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          const delay = clamp(parseInt(el.dataset.revealDelay || '0', 10) || 0, 0, 600);
+          window.setTimeout(() => el.classList.add('is-revealed'), delay);
+          io.unobserve(el);
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+    );
+    els.forEach((el) => {
+      el.dataset.revealBound = 'true';
+      io.observe(el);
+    });
+  }
+
+  function initParallax() {
+    const els = Array.from(document.querySelectorAll<HTMLElement>('[data-parallax]'));
+    if (!els.length) return;
+
+    let ticking = false;
+    function update() {
+      const vh = window.innerHeight;
+      els.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const factor = parseFloat(el.dataset.parallax || '0.2');
+        const center = rect.top + rect.height / 2 - vh / 2;
+        const offset = clamp(center * factor * -1, -120, 120);
+        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+      });
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+  }
+
+  function initCounters() {
+    const els = document.querySelectorAll<HTMLElement>('[data-counter]:not([data-counter-bound])');
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          io.unobserve(el);
+          const raw = (el.textContent || '0').trim();
+          const target = parseFloat(raw.replace(/[^\d.\-]/g, '')) || 0;
+          const suffix = el.dataset.counterSuffix ?? '';
+          const duration = parseInt(el.dataset.counterDuration || '1400', 10);
+          const start = performance.now();
+          const isInt = Number.isInteger(target);
+          function step(now: number) {
+            const t = clamp((now - start) / duration, 0, 1);
+            // easeOutCubic
+            const eased = 1 - Math.pow(1 - t, 3);
+            const value = target * eased;
+            el.textContent = (isInt ? Math.round(value).toString() : value.toFixed(1)) + suffix;
+            if (t < 1) requestAnimationFrame(step);
+            else el.textContent = (isInt ? Math.round(target).toString() : target.toFixed(1)) + suffix;
+          }
+          requestAnimationFrame(step);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    els.forEach((el) => {
+      el.dataset.counterBound = 'true';
+      io.observe(el);
+    });
+  }
+
+  function initTilt() {
+    const els = document.querySelectorAll<HTMLElement>('[data-tilt]:not([data-tilt-bound])');
+    els.forEach((el) => {
+      el.dataset.tiltBound = 'true';
+      let raf = 0;
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const rx = (0.5 - y) * 6;
+        const ry = (x - 0.5) * 6;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+        });
+      });
+      el.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(raf);
+        el.style.transform = 'perspective(900px) rotateX(0) rotateY(0)';
+      });
+    });
+  }
+
+  function initSpotlight() {
+    const els = document.querySelectorAll<HTMLElement>('[data-cursor-spotlight]:not([data-spot-bound])');
+    els.forEach((el) => {
+      el.dataset.spotBound = 'true';
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
+        el.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
+      });
+    });
+  }
+
+  function initScrollProgress() {
+    const els = document.querySelectorAll<HTMLElement>('[data-scroll-progress]');
+    if (!els.length) return;
+
+    function update() {
+      const doc = document.documentElement;
+      const scrolled = window.scrollY;
+      const max = doc.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? clamp(scrolled / max, 0, 1) : 0;
+      els.forEach((el) => el.style.setProperty('--progress', String(progress)));
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+  }
+
+  function initFaq() {
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement | null;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement | null;
+        if (!trigger || trigger.dataset.bound === 'true') return;
+        trigger.dataset.bound = 'true';
+        trigger.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+          items.forEach((other) => {
+            if (other === item) return;
+            const otherTrigger = other.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+            const otherContent = other.querySelector('[data-faq-content]') as HTMLElement | null;
+            const otherChevron = other.querySelector('[data-faq-chevron]') as SVGElement | null;
+            otherTrigger?.setAttribute('aria-expanded', 'false');
+            otherContent?.style.setProperty('grid-template-rows', '0fr');
+            otherChevron?.classList.remove('rotate-180');
+          });
+          const next = !isOpen;
+          trigger.setAttribute('aria-expanded', String(next));
+          content?.style.setProperty('grid-template-rows', next ? '1fr' : '0fr');
+          chevron?.classList.toggle('rotate-180', next);
+        });
+      });
+    });
+  }
+
+  function bootScrollEffects() {
+    initReveal();
+    initParallax();
+    initCounters();
+    initTilt();
+    initSpotlight();
+    initScrollProgress();
+    initFaq();
+  }
+
+  bootScrollEffects();
+  document.addEventListener('astro:page-load', bootScrollEffects);
+  document.addEventListener('astro:after-swap', bootScrollEffects);
+</script>

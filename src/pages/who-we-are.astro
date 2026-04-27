@@ -1,293 +1,785 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Button from '../components/ui/Button.astro';
-import FAQAccordion from '../components/pages/FAQAccordion.astro';
+import FAQItem from '../components/pages/FAQItem.astro';
+import ScrollEffects from '../components/pages/ScrollEffects.astro';
 import { getCollection } from 'astro:content';
 
 const teamMembers = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
 
-const departments = [
+const disciplines = [
   {
-    title: 'WordPress Engineering',
-    subtitle: '5+ years China-focused experience per engineer',
-    description: 'Senior developers specialising in multisite/multilingual architectures, headless WordPress, plugin governance, CI/CD pipelines, and performance tuning specifically for China\u2019s network conditions.',
+    title: 'Strategists',
+    cn: '战略',
+    icon: 'compass',
+    accent: '#F25F29',
+    description: 'Senior people who have built China go-to-market plans for global brands across luxury, consumer, B2B, SaaS, and professional services. Audit, positioning, roadmap. The work that decides whether the next twelve months pay off or get wasted.',
+    chips: ['Audit', 'Positioning', 'Roadmap', 'GTM'],
   },
   {
-    title: 'Infrastructure & DevOps',
-    subtitle: 'Alibaba Cloud, Tencent Cloud, and Private Server Operations',
-    description: 'Engineers managing our own servers and cloud deployments with expertise in CDN optimisation, caching, observability, disaster recovery, and cost-performance tuning for mainland China.',
+    title: 'Content specialists',
+    cn: '内容',
+    icon: 'pen',
+    accent: '#EF4444',
+    description: 'Native Chinese copywriters who don’t translate, they rewrite. Articles built around real Baidu keyword research. Case studies written for AI engines to cite. Product pages structured for how Chinese buyers actually scan and decide.',
+    chips: ['Native rewrite', 'Baidu intent', 'AI-citable', 'Product pages'],
   },
   {
-    title: 'Chinese UX/UI Design',
-    subtitle: 'Purely Local Design Team',
-    description: 'Designers who build for actual Chinese user expectations including WeChat/Alipay integrations, mobile-first layouts, payment UX, and navigation patterns that feel native to Chinese users.',
+    title: 'UX/UI designers',
+    cn: '设计',
+    icon: 'layers',
+    accent: '#4D6BFE',
+    description: 'Local team building for Chinese user expectations from the start. Mobile-first because over 80 percent of traffic is mobile. WeChat (微信) and Alipay (支付宝) flows that feel native. The trust signals that move conversions in China.',
+    chips: ['Mobile-first', 'WeChat', 'Alipay', 'Trust signals'],
   },
   {
-    title: 'Chinese Copywriting & Localisation',
-    subtitle: 'Beyond Translation',
-    description: 'Native copywriters who rewrite English content with culturally relevant tone, local search intent alignment, and SEO optimisation so it reads naturally in Chinese and persuades local audiences.',
+    title: 'Tech integrators',
+    cn: '技术',
+    icon: 'code',
+    accent: '#10B981',
+    description: 'Senior developers with five years or more of China-specific experience each. WordPress and Astro builds, headless setups, plugin governance, CI/CD tuned for Chinese network conditions. ICP-licensed (ICP备案) hosting on Aliyun, Tencent Cloud, or Huawei Cloud, end to end.',
+    chips: ['WordPress', 'Astro', 'Headless', 'ICP hosting'],
   },
   {
-    title: 'Baidu SEO & China Search Optimisation',
-    subtitle: 'Native Baidu Expertise',
-    description: 'SEO specialists who optimise for Baidu\u2019s unique ranking factors, crawlability requirements, and Chinese search behaviour. Not Western SEO practices translated to China.',
-  },
-  {
-    title: 'Security & Compliance',
-    subtitle: 'WordPress Hardening and Local Regulatory Guidance',
-    description: 'Specialists implementing WAF, plugin audits, encrypted backups, vulnerability management, and providing guidance on ICP/\u5907\u6848 licensing and data residency requirements.',
-  },
-  {
-    title: 'Project Management & Client Success',
-    subtitle: 'Bilingual PMs Who Bridge Global and China Teams',
-    description: 'Project managers running sprints, tracking progress, managing risks, and ensuring clear communication with defined acceptance criteria, continuous delivery, and monthly reporting.',
+    title: 'SEO and GEO experts',
+    cn: '搜索',
+    icon: 'search',
+    accent: '#F59E0B',
+    description: 'Baidu SEO specialists who optimise for how Baiduspider actually crawls. GEO specialists running weekly visibility checks across DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI, adjusting content and syndication as the models evolve.',
+    chips: ['Baidu SEO', 'DeepSeek', 'Doubao', 'Yuanbao'],
   },
 ];
 
-const values = [
+const ticker = [
+  'Strategy', '战略',
+  'Content', '内容',
+  'Design', '设计',
+  'Technology', '技术',
+  'Hosting', 'ICP备案',
+  'Baidu SEO', '百度',
+  'GEO', 'AI search',
+  'WeChat', '微信',
+  'Alipay', '支付宝',
+  'Aliyun', '阿里云',
+  'Tencent Cloud', '腾讯云',
+  'Huawei Cloud', '华为云',
+  'DeepSeek', '深度求索',
+  'Doubao', '豆包',
+  'Kimi', 'Yuanbao',
+];
+
+const faqs = [
   {
-    title: 'China-First Execution, Not Adaptation',
-    description: 'We don\u2019t retrofit Western solutions for China. We build from a China-native perspective, knowing the infrastructure, the user behaviours, the regulatory landscape, and the platforms that matter. Our work is designed to succeed in China from day one.',
+    id: 'who-actually-works',
+    question: 'Who actually works on our project?',
+    answer: 'The team you meet at proposal stage is the team that does the work. Strategist, designer, developer, SEO lead all join kickoff. No bait and switch where seniors pitch and juniors deliver.',
   },
   {
-    title: 'Measurable Outcomes Over Buzzwords',
-    description: 'We define success in metrics you can verify: Core Web Vitals from mainland China, crawlability on Baidu, uptime, localised content performance. Every deliverable ties to a measurable commitment.',
+    id: 'how-involved-week-to-week',
+    question: 'How involved do we need to be week to week?',
+    answer: 'Most clients commit two to three hours: a 45-minute weekly check-in, async review of work in progress, a longer monthly review. We don’t need approvals on every comma, but we do need a clear point of contact who can decide without escalating for two weeks.',
   },
   {
-    title: 'Transparency & Accountability',
-    description: 'We work with clear roadmaps, acceptance criteria, and risk logs. You know what\u2019s being built, why, and when. If something blocks progress, you hear it from us first, with a mitigation plan already in motion.',
+    id: 'time-difference-handling',
+    question: 'How do you handle the time difference?',
+    answer: 'Project managers overlap with European hours in the morning and North American teams in our evening. Weekly written updates land before you log on. Slack, Teams, Zoom, whatever you use.',
   },
   {
-    title: 'Long-Term Partnership',
-    description: 'Launching a WordPress site in China isn\u2019t a one-time event. We\u2019re structured for ongoing optimisation, security, performance monitoring, and continuous improvement. We succeed when your China presence thrives over time.',
+    id: 'strategy-execution-alignment',
+    question: 'How do you make sure strategy doesn’t drift from execution?',
+    answer: 'The person who writes the strategy briefs the writer, the designer, and the developer. No handoff documents that get reinterpreted six times. When strategy flexes, the change happens in one room, not across three agencies.',
+  },
+  {
+    id: 'existing-team-or-agency',
+    question: 'What if we already have an internal team or another agency?',
+    answer: 'We work alongside in-house teams and other agencies often, especially when clients keep global brand teams in place while we handle China execution. Scope boundaries written up front, joint stand-ups when it helps.',
+  },
+  {
+    id: 'keep-us-in-the-loop',
+    question: 'How do you keep us in the loop?',
+    answer: 'Weekly written update covering shipped, in-progress, blocked, and what we need from you. Shared dashboard with live metrics. A 45-minute call weekly, longer monthly. That’s it.',
+  },
+  {
+    id: 'when-we-disagree',
+    question: 'What happens when we disagree?',
+    answer: 'We say it. If we think a brief will fail in China, we push back before work starts, with reasoning and an alternative. Better the uncomfortable conversation in week two than a failed deliverable in month six.',
+  },
+  {
+    id: 'after-launch',
+    question: 'What does the relationship look like after launch?',
+    answer: 'Most clients move into an ongoing engagement: content, SEO and GEO follow-up, technical maintenance, hosting. Same team. No re-explaining your brand to a new account manager every quarter.',
   },
 ];
 ---
 
 <PageLayout
-  title="Who We Are | ChinaWebFoundry - WordPress China Agency"
-  description="Meet the China-based team behind ChinaWebFoundry. 30+ specialists in WordPress engineering, Baidu SEO, Chinese UX, and infrastructure - built for China delivery."
+  title="Who We Are | ChinaWebFoundry"
+  description="Strategists, content specialists, UX/UI designers, tech integrators, SEO and GEO experts. One team, in China, for 20 years."
   heroPage={true}
 >
-  <!-- Hero intro -->
+  <ScrollEffects />
+
+  <!-- HERO -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
       <img
-        src="/images/hero-who-we-are.webp"
+        src="/images/hero-who-we-are-office.webp"
         alt=""
-        class="absolute inset-0 w-full h-full object-cover"
+        class="absolute inset-0 w-full h-full object-cover opacity-70"
         loading="eager"
         decoding="async"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/80 to-[#0f0f12]/55"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[5%] w-[520px] h-[520px] rounded-full bg-[#4D6BFE]/15 blur-[140px] pointer-events-none" data-float></div>
     </div>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32 lg:pb-40">
-      <div class="io-grid items-start gap-y-10">
-        <div class="col-span-12 lg:col-span-6">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-            Who We Are
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
-            Grounded Locally, Built for Global Standards
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[26rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">团</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-12 md:pb-16">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Who We Are</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Who We Are</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">5 disciplines, 1 team</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">Grounded locally.</span>
+            <span class="block mt-1.5 text-white/95">Built for global standards.</span>
           </h1>
-        </div>
-        <div class="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-10">
-          <p class="text-lg text-white/60 leading-relaxed">
-            If you're outside China but need a WordPress presence inside China, we bridge that gap. We speak both languages - literally and technically.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Team departments: split layout with divider list -->
-  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start gap-y-16">
-        <!-- Left: heading + CTA -->
-        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-            Our Team
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            If you sit outside China but need a serious presence inside China, we close that gap. A full multidisciplinary team that has been doing this work, on the ground, for over <span class="text-white font-medium">twenty years</span>.
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-            Built for China Delivery
-          </h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            We're a cross-functional, bilingual team organised around one goal: making WordPress work reliably and performantly for the Chinese market.
-          </p>
-          <div class="mt-10">
-            <Button href="/contact/" variant="primary" size="md">Work with us</Button>
-          </div>
-        </div>
 
-        <!-- Right: department list with dividers -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="divider-list border-t border-[var(--color-surface-border)]">
-            {departments.map((dept) => (
-              <div class="py-8">
-                <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
-                  {dept.title}
-                </h3>
-                <p class="mt-1 text-sm font-medium text-[var(--color-brand-orange)]">
-                  {dept.subtitle}
-                </p>
-                <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
-                  {dept.description}
-                </p>
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">
+                <span data-counter data-counter-suffix="+">20</span>
               </div>
-            ))}
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Years in China</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">
+                <span data-counter>5</span>
+              </div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Disciplines</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">
+                <span data-counter data-counter-suffix="%">100</span>
+              </div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">In-house, in China</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/contact/" variant="primary" size="lg">Work with us</Button>
+            <Button href="#leadership" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Meet the team</Button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Leadership -->
-  <section class="py-24 md:py-32 lg:py-40">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start gap-y-16">
-        <div class="col-span-12 lg:col-span-5">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-            Leadership
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-            Meet the people behind ChinaWebFoundry
-          </h2>
-        </div>
+        <!-- Right: layered floating discipline chips -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
+          <div class="relative h-[420px]">
+            <!-- Back card: client outside China -->
+            <div class="absolute top-0 left-0 right-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg]">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-[10px] font-mono text-white/40 uppercase tracking-wider">You</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">outside China</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-2.5 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+              </div>
+            </div>
 
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-12">
-            {teamMembers.map((member) => (
-              <div class="flex flex-col sm:flex-row gap-6 items-start">
-                {member.data.linkedin ? (
-                  <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" class="flex-shrink-0">
-                    <img
-                      src={member.data.photo}
-                      alt={`Photo of ${member.data.name}`}
-                      class="w-32 h-32 rounded-full object-cover"
-                      width="128"
-                      height="128"
-                      loading="lazy"
-                    />
-                  </a>
-                ) : (
-                  <img
-                    src={member.data.photo}
-                    alt={`Photo of ${member.data.name}`}
-                    class="w-32 h-32 rounded-full object-cover flex-shrink-0"
-                    width="128"
-                    height="128"
-                    loading="lazy"
-                  />
-                )}
-                <div>
-                  <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
-                    {member.data.name}
-                  </h3>
-                  <p class="text-sm font-medium text-[var(--color-brand-orange)] mt-1">
-                    {member.data.role}
-                  </p>
-                  <p class="mt-3 text-base text-[var(--color-text-body)] leading-relaxed">
-                    {member.data.bio}
-                  </p>
-                  {(member.data.linkedin || member.data.substack) && (
-                    <div class="flex items-center gap-4 mt-3">
-                      {member.data.linkedin && (
-                        <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] transition-colors" aria-label={`${member.data.name} on LinkedIn`}>
-                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                          </svg>
-                        </a>
-                      )}
-                      {member.data.substack && (
-                        <a href={member.data.substack} target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] transition-colors" aria-label={`${member.data.name} on Substack`}>
-                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
-                          </svg>
-                        </a>
-                      )}
-                    </div>
-                  )}
+            <!-- Middle: connection line -->
+            <div class="absolute top-[120px] left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-white/30 to-[var(--color-brand-orange)]/60"></div>
+
+            <!-- Front card: stacked disciplines -->
+            <div data-tilt class="absolute top-[160px] left-4 right-0 rounded-2xl bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] overflow-hidden">
+              <div class="flex items-center gap-2.5 px-5 py-3 bg-white border-b border-gray-100">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[var(--color-brand-orange)] to-[#FF7E47] flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-7m0 0V3m0 11h11m6 7v-7m0 0V3m0 11h-6"/></svg>
+                </div>
+                <div class="flex flex-col leading-tight">
+                  <span class="text-sm font-semibold text-gray-900">ChinaWebFoundry</span>
+                  <span class="text-[10px] text-gray-400">在中国 · Shanghai</span>
+                </div>
+                <div class="ml-auto flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span class="text-[10px] text-gray-400">在线</span>
                 </div>
               </div>
-            ))}
+
+              <div class="px-5 py-4 space-y-2.5 bg-white">
+                {disciplines.map((d, i) => (
+                  <div class="flex items-center gap-3" data-reveal data-reveal-delay={String(i * 80)}>
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={`background-color: ${d.accent}15; color: ${d.accent}`}>
+                      <span class="text-[11px] font-medium">{d.cn}</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[12.5px] font-medium text-gray-900 truncate">{d.title}</div>
+                    </div>
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                ))}
+              </div>
+
+              <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-[10px] font-mono text-gray-500">One team. One brief. One Slack.</span>
+                <span class="text-[10px] font-mono text-emerald-600">No handoff tax</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Marquee strip -->
+    <div class="relative border-t border-white/[0.08] bg-[#0f0f12]/60 backdrop-blur-sm overflow-hidden">
+      <div class="flex whitespace-nowrap py-4 gap-10" style="animation: marquee 50s linear infinite; width: 300%;">
+        {[...ticker, ...ticker, ...ticker].map((item) => (
+          <span class="text-sm text-white/40 font-medium tracking-wider flex items-center gap-10">
+            <span>{item}</span>
+            <span class="text-[var(--color-brand-orange)]/40">●</span>
+          </span>
+        ))}
+      </div>
+    </div>
   </section>
 
-  <!-- Values: dark section -->
+  <!-- INTRO STATEMENT -->
+  <section class="relative py-24 md:py-32 lg:py-40 bg-white overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-[0.04]">
+      <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-[var(--color-brand-orange)] to-transparent blur-3xl"></div>
+    </div>
+
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] text-center mb-6" data-reveal>One team. One brief.</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] text-center font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]" data-reveal data-reveal-delay="80">
+        Not a tech agency that picked up some marketing.<br class="hidden sm:block" />
+        Not a marketing agency that bolted on a developer.
+      </h2>
+      <p class="mt-8 text-xl text-center text-[var(--color-text-body)] max-w-3xl mx-auto leading-relaxed" data-reveal data-reveal-delay="160">
+        We are a full team built around one job: making your website actually work for the China market. <span class="text-[var(--color-text-dark)] font-medium">Strategy, content, design, technology, and search</span> all under the same roof.
+      </p>
+
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-5 gap-px bg-[var(--color-surface-border)] border border-[var(--color-surface-border)] rounded-2xl overflow-hidden" data-reveal data-reveal-delay="240">
+        {disciplines.map((d) => (
+          <div class="bg-white p-6 text-center hover:bg-[var(--color-surface-light)] transition-colors group">
+            <div class="text-3xl font-medium font-[var(--font-heading)] mb-2 transition-transform group-hover:scale-110" style={`color: ${d.accent}`}>{d.cn}</div>
+            <div class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{d.title}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FIVE DISCIPLINES -->
+  <section id="disciplines" class="relative py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none">
+      <div class="absolute top-1/4 left-0 w-96 h-96 rounded-full bg-[var(--color-brand-orange)] blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-0 w-96 h-96 rounded-full bg-[#4D6BFE] blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-16 lg:mb-20" data-reveal>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">What We Do</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05]">
+          Five disciplines.<br />
+          <span class="text-[var(--color-brand-orange)]">One team.</span>
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+          Senior people in every seat. No outsourcing, no white-labelling, no offshore handoffs. The whole stack, in one office.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 auto-rows-fr">
+        {disciplines.map((d, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 90)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative bg-white rounded-2xl p-7 lg:p-8 border border-[var(--color-surface-border)] overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.25)] hover:-translate-y-1 flex flex-col',
+              i === 0 && 'lg:col-span-7',
+              i === 1 && 'lg:col-span-5',
+              i === 2 && 'lg:col-span-4',
+              i === 3 && 'lg:col-span-4',
+              i === 4 && 'md:col-span-2 lg:col-span-4',
+            ]}
+          >
+            <!-- decorative Chinese watermark -->
+            <span aria-hidden="true" class="absolute -right-4 -top-4 text-[9rem] font-medium font-[var(--font-heading)] leading-none select-none pointer-events-none transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" style={`color: ${d.accent}; opacity: 0.07`}>{d.cn}</span>
+
+            <div class="relative flex flex-col flex-1">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={`background-color: ${d.accent}15; color: ${d.accent}`}>
+                {d.icon === 'compass' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 8l-2 5-5 2 2-5z"/></svg>
+                )}
+                {d.icon === 'pen' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 4l4 4-12 12H4v-4L16 4zM14 6l4 4"/></svg>
+                )}
+                {d.icon === 'layers' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 18l9 5 9-5"/></svg>
+                )}
+                {d.icon === 'code' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+                )}
+                {d.icon === 'search' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.5-4.5"/></svg>
+                )}
+              </div>
+
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">
+                {d.title}
+              </h3>
+              <p class="text-base text-[var(--color-text-body)] leading-relaxed mb-6 flex-1">
+                {d.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-5 border-t border-[var(--color-surface-border)]">
+                {d.chips.map((chip) => (
+                  <span class="text-[11px] font-medium px-2.5 py-1 rounded-full bg-[var(--color-surface-light)] text-[var(--color-text-body)] border border-[var(--color-surface-border)] group-hover:border-[var(--color-brand-orange)]/30 transition-colors">
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS MIX WORKS -->
   <section class="relative bg-[var(--color-surface-dark)] py-24 md:py-32 lg:py-40 overflow-hidden">
-    <!-- Subtle background decoration -->
-    <div class="absolute inset-0 opacity-[0.04]">
-      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white to-transparent"></div>
-      <div class="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-[var(--color-brand-orange)]" style="filter: blur(120px);"></div>
+    <div class="absolute inset-0 opacity-[0.06]">
+      <div class="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)] blur-[160px]"></div>
+      <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#4D6BFE] blur-[160px]"></div>
     </div>
 
     <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-start gap-y-16">
-        <!-- Left: heading -->
-        <div class="col-span-12 lg:col-span-5">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-            Our Values
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.1]">
-            The Principles That Guide Every Project We Deliver
+        <div class="col-span-12 lg:col-span-5" data-reveal>
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">Why It Works</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+            No handoff tax<br />between disciplines.
           </h2>
+          <p class="mt-6 text-lg text-white/65 leading-relaxed">
+            Most agencies sell strategy, then hand execution to a different team that doesn’t have the local context. Slides look good, the work falls apart across months of back-and-forth.
+          </p>
+          <p class="mt-4 text-lg text-white/65 leading-relaxed">
+            We built it so that doesn’t happen. The strategist briefs the writer directly. The designer co-builds the page with the developer. The SEO lead reviews content before it ships.
+          </p>
+
+          <div class="mt-10 grid grid-cols-2 gap-3 max-w-md">
+            <div class="rounded-xl bg-red-500/[0.07] border border-red-500/20 p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-red-300/80">Most agencies</span>
+              </div>
+              <p class="text-sm text-white/70 leading-snug">3 vendors, 6 handoffs, slides that look great</p>
+            </div>
+            <div class="rounded-xl bg-emerald-500/[0.07] border border-emerald-500/20 p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-300/80">ChinaWebFoundry</span>
+              </div>
+              <p class="text-sm text-white/70 leading-snug">1 team, 0 handoffs, work that ships</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Right: values list -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-10">
-            {values.map((v) => (
-              <div>
-                <h3 class="text-xl sm:text-2xl font-medium font-[var(--font-heading)] text-white leading-snug">
-                  {v.title}
-                </h3>
-                <p class="mt-3 text-base text-white/60 leading-relaxed">
-                  {v.description}
-                </p>
+        <!-- Right: connected disciplines diagram -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7" data-reveal="right" data-reveal-delay="120">
+          <div class="relative aspect-square max-w-[520px] mx-auto">
+            <svg viewBox="0 0 520 520" class="absolute inset-0 w-full h-full" aria-hidden="true">
+              <!-- connecting lines: every node to every node -->
+              <g stroke="url(#diagram-gradient)" stroke-width="1" fill="none" opacity="0.4" class="diagram-lines">
+                <line x1="260" y1="80" x2="442" y2="220" />
+                <line x1="260" y1="80" x2="370" y2="430" />
+                <line x1="260" y1="80" x2="150" y2="430" />
+                <line x1="260" y1="80" x2="78" y2="220" />
+                <line x1="442" y1="220" x2="370" y2="430" />
+                <line x1="442" y1="220" x2="150" y2="430" />
+                <line x1="442" y1="220" x2="78" y2="220" />
+                <line x1="370" y1="430" x2="150" y2="430" />
+                <line x1="370" y1="430" x2="78" y2="220" />
+                <line x1="150" y1="430" x2="78" y2="220" />
+              </g>
+
+              <!-- decorative pulsing orbits -->
+              <circle cx="260" cy="260" r="140" stroke="rgba(242,95,41,0.15)" stroke-width="1" stroke-dasharray="4 6" fill="none" class="diagram-orbit-slow" />
+              <circle cx="260" cy="260" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="2 8" fill="none" class="diagram-orbit-fast" />
+
+              <defs>
+                <linearGradient id="diagram-gradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#F25F29" stop-opacity="0.7" />
+                  <stop offset="100%" stop-color="#4D6BFE" stop-opacity="0.5" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <!-- 5 nodes positioned around a pentagon -->
+            <div class="absolute" style="left: 50%; top: 80px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#F25F29]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">战略</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Strategy</div>
               </div>
-            ))}
+            </div>
+            <div class="absolute" style="left: 442px; top: 220px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#EF4444]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">内容</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Content</div>
+              </div>
+            </div>
+            <div class="absolute" style="left: 370px; top: 430px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#4D6BFE]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">设计</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Design</div>
+              </div>
+            </div>
+            <div class="absolute" style="left: 150px; top: 430px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#10B981]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">技术</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Tech</div>
+              </div>
+            </div>
+            <div class="absolute" style="left: 78px; top: 220px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#F59E0B]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">搜索</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Search</div>
+              </div>
+            </div>
+
+            <!-- centre: one team -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[var(--color-brand-orange)] to-[#FF7E47] flex flex-col items-center justify-center shadow-[0_20px_60px_-10px_rgba(242,95,41,0.5)]">
+                <div class="text-3xl font-medium font-[var(--font-heading)] text-white leading-none">1</div>
+                <div class="text-[10px] uppercase tracking-[0.2em] text-white/90 mt-1">One team</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ: split layout -->
-  <section class="py-24 md:py-32 lg:py-40">
+  <!-- TEAM PHOTO FEATURE -->
+  <section class="relative overflow-hidden">
+    <div class="relative h-[520px] lg:h-[640px]">
+      <img
+        src="/images/team/team-photo.webp"
+        alt="The ChinaWebFoundry team"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+        data-parallax="0.08"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f12]/95 via-[#0f0f12]/40 to-[#0f0f12]/20"></div>
+
+      <div class="absolute inset-x-0 bottom-0 mx-auto max-w-[1400px] section-padding pb-12 lg:pb-20">
+        <div class="io-grid items-end" data-reveal>
+          <div class="col-span-12 lg:col-span-7">
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">The team</p>
+            <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+              On the ground.<br />In China. <span class="text-white/60">For two decades.</span>
+            </h2>
+          </div>
+
+          <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-8 lg:mt-0">
+            <div class="grid grid-cols-3 gap-4">
+              <div class="rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/15 p-4">
+                <div class="text-2xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">20</span></div>
+                <div class="text-[10px] uppercase tracking-wider text-white/60 mt-1">Years</div>
+              </div>
+              <div class="rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/15 p-4">
+                <div class="text-2xl font-medium font-[var(--font-heading)] text-white"><span data-counter>5</span></div>
+                <div class="text-[10px] uppercase tracking-wider text-white/60 mt-1">Disciplines</div>
+              </div>
+              <div class="rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/15 p-4">
+                <div class="text-2xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="%">100</span></div>
+                <div class="text-[10px] uppercase tracking-wider text-white/60 mt-1">In China</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="relative py-24 md:py-32 lg:py-40 bg-white overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none">
+      <div class="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-[var(--color-brand-orange)] blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-16 lg:mb-20" data-reveal>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">Leadership</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05]">
+          Meet the leadership.
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+          The people who set the bar, brief the team, and answer the phone when it matters.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {teamMembers.map((member, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 120)}
+            data-cursor-spotlight
+            data-tilt
+            class="group relative bg-[var(--color-surface-light)] rounded-3xl overflow-hidden border border-[var(--color-surface-border)] transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]"
+          >
+            <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white">
+              <img
+                src={member.data.photo}
+                alt={`Photo of ${member.data.name}`}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f12]/40 via-transparent to-transparent"></div>
+
+              <!-- floating role badge -->
+              <div class="absolute top-5 left-5">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/40 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-dark)]">{member.data.role}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative p-7 lg:p-8">
+              <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                {member.data.name}
+              </h3>
+              <p class="text-base text-[var(--color-text-body)] leading-relaxed mt-3">
+                {member.data.bio}
+              </p>
+
+              {(member.data.linkedin || member.data.substack) && (
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6 pt-6 border-t border-[var(--color-surface-border)]">
+                  {member.data.linkedin && (
+                    <a
+                      href={member.data.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] transition-colors no-underline group/link"
+                      aria-label={`${member.data.name} on LinkedIn`}
+                    >
+                      <span class="w-8 h-8 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] flex items-center justify-center group-hover/link:bg-[var(--color-brand-orange)] group-hover/link:border-[var(--color-brand-orange)] group-hover/link:text-white transition-all">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                      </span>
+                      LinkedIn
+                    </a>
+                  )}
+                  {member.data.substack && (
+                    <a
+                      href={member.data.substack}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] transition-colors no-underline group/link"
+                    >
+                      <span class="w-8 h-8 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] flex items-center justify-center group-hover/link:bg-[var(--color-brand-orange)] group-hover/link:border-[var(--color-brand-orange)] group-hover/link:text-white transition-all">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                        </svg>
+                      </span>
+                      Substack
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLABORATION FEATURE -->
+  <section class="relative py-24 md:py-32 bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center gap-y-12">
+        <div class="col-span-12 lg:col-span-6" data-reveal>
+          <div class="relative rounded-3xl overflow-hidden shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]">
+            <img
+              src="/images/who-we-are-collaboration.webp"
+              alt="ChinaWebFoundry team collaborating in a Shanghai studio"
+              class="w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
+            <!-- floating live badge -->
+            <div class="absolute top-5 left-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/40">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-dark)]">Shanghai studio</span>
+              </div>
+            </div>
+            <!-- floating chip -->
+            <div class="absolute bottom-5 right-5 hidden sm:block">
+              <div class="rounded-xl bg-white/95 backdrop-blur-md border border-white/40 px-4 py-3 shadow-lg">
+                <div class="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">Daily standup</div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)] mt-0.5">All disciplines, one room</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8" data-reveal="right" data-reveal-delay="120">
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">How we work</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+            Strategy. Content. Design. Tech. Search.<br />
+            <span class="text-[var(--color-brand-orange)]">In one room.</span>
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+            The strategist briefs the writer directly. The designer co-builds the page with the developer. The SEO lead reviews content before it ships. No translation tax between disciplines.
+          </p>
+
+          <ul class="mt-8 space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[var(--color-brand-orange)] mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-base text-[var(--color-text-body)]">One team you meet at proposal stage. Same team that ships.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[var(--color-brand-orange)] mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-base text-[var(--color-text-body)]">Weekly written updates, monthly long review.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[var(--color-brand-orange)] mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-base text-[var(--color-text-body)]">Disagreement surfaced in week two, not month six.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK TOGETHER / FAQ -->
+  <section class="py-24 md:py-32 lg:py-40 bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-start gap-y-16">
-        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-            FAQ
-          </p>
+        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24" data-reveal>
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">FAQ</p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
-            Common questions about working with our team
+            How we work<br />together.
           </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-md">
+            Eight questions every client asks before they sign. Honest answers, no consultant-speak.
+          </p>
+
+          <div class="mt-10 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-body)]">Ask anything else</span>
+            <a href="/contact/" class="text-[11px] font-medium text-[var(--color-brand-orange)] no-underline hover:underline">Contact us →</a>
+          </div>
         </div>
 
         <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <FAQAccordion />
+          <div data-faq-accordion>
+            {faqs.map((faq, i) => (
+              <div data-reveal data-reveal-delay={String(i * 60)}>
+                <FAQItem question={faq.question} id={faq.id}>
+                  <p>{faq.answer}</p>
+                </FAQItem>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding text-center">
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-        Want to work with us?
+  <section class="relative py-24 md:py-32 lg:py-40 bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.08]">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)] blur-[140px]" data-float></div>
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-[#4D6BFE] blur-[140px]" data-float="slow"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1100px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-6" data-reveal>Let's talk</p>
+      <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.05]" data-reveal data-reveal-delay="80">
+        Want to <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">work with us?</span>
       </h2>
-      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">
-        We'd love to hear about your project. Get in touch and we'll respond within 24 hours.
+      <p class="mt-8 text-lg lg:text-xl text-white/65 leading-relaxed max-w-2xl mx-auto" data-reveal data-reveal-delay="160">
+        Tell us about your project. We come back within <span class="text-white font-medium">24 hours</span> with a real conversation, not a sales script.
       </p>
-      <Button href="/contact/" variant="primary" size="lg">Contact Us</Button>
+
+      <div class="mt-12 flex flex-wrap justify-center items-center gap-4" data-reveal data-reveal-delay="240">
+        <Button href="/contact/" variant="primary" size="lg">Contact us</Button>
+        <a href="mailto:hello@chinawebfoundry.com" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors no-underline">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          hello@chinawebfoundry.com
+        </a>
+      </div>
     </div>
   </section>
 </PageLayout>
+
+<style>
+  /* Diagram orbits */
+  .diagram-orbit-slow {
+    animation: orbit-spin 60s linear infinite;
+    transform-origin: 260px 260px;
+  }
+  .diagram-orbit-fast {
+    animation: orbit-spin 40s linear infinite reverse;
+    transform-origin: 260px 260px;
+  }
+  @keyframes orbit-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Diagram lines: animated draw on scroll */
+  .diagram-lines line {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .diagram-lines line:nth-child(2) { animation-delay: 0.1s; }
+  .diagram-lines line:nth-child(3) { animation-delay: 0.2s; }
+  .diagram-lines line:nth-child(4) { animation-delay: 0.3s; }
+  .diagram-lines line:nth-child(5) { animation-delay: 0.4s; }
+  .diagram-lines line:nth-child(6) { animation-delay: 0.5s; }
+  .diagram-lines line:nth-child(7) { animation-delay: 0.6s; }
+  .diagram-lines line:nth-child(8) { animation-delay: 0.7s; }
+  .diagram-lines line:nth-child(9) { animation-delay: 0.8s; }
+  .diagram-lines line:nth-child(10) { animation-delay: 0.9s; }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .diagram-orbit-slow,
+    .diagram-orbit-fast,
+    .diagram-lines line {
+      animation: none !important;
+    }
+    .diagram-lines line {
+      stroke-dashoffset: 0 !important;
+    }
+  }
+</style>

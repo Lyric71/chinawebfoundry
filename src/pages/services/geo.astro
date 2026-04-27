@@ -3,68 +3,172 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
+import ScrollEffects from '../../components/pages/ScrollEffects.astro';
 
 const metaTitle = "GEO China | AI Search Optimisation for Brands";
 const metaDescription = "AI search optimisation for the China market. We make your brand the answer DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI cite and recommend.";
 
 const engines = [
   {
+    n: '01',
+    cn: '深度',
     name: 'DeepSeek',
-    cn: '深度求索',
+    enLabel: '深度求索',
     body: "Prefers structured, technically accurate content from official websites. If your site loads slowly inside China or depends on resources blocked by the Great Firewall (防火长城), DeepSeek likely never sees you.",
+    tag: 'Long-form, structured',
+    chips: ['JSON-LD', 'SSR', 'Speed', 'No blocked deps'],
   },
   {
-    name: 'Doubao',
+    n: '02',
     cn: '豆包',
+    name: 'Doubao',
+    enLabel: '字节跳动',
     body: 'The ByteDance flagship, drawing heavily from its own ecosystem: Toutiao (今日头条), Douyin (抖音), Baijiahao (百家号). Optimising for Doubao means feeding the ByteDance content graph, not just your own site.',
+    tag: 'ByteDance graph',
+    chips: ['Toutiao', 'Douyin', 'Baijiahao', 'Syndication'],
   },
   {
-    name: 'Kimi',
+    n: '03',
     cn: 'Kimi',
+    name: 'Kimi',
+    enLabel: 'Moonshot AI',
     body: 'Rewards long-form analysis. Comparison pieces, technical guides, multi-thousand-word reports with clean data tables. Short marketing copy gets ignored.',
+    tag: 'Depth + tables',
+    chips: ['Comparisons', 'Guides', 'Data tables', 'Long-form'],
   },
   {
-    name: 'Yuanbao',
+    n: '04',
     cn: '元宝',
+    name: 'Yuanbao',
+    enLabel: '腾讯混元',
     body: "Tencent's gateway into the WeChat (微信) ecosystem, and the only assistant that can search WeChat Official Account (公众号) content.",
+    tag: 'WeChat-aware',
+    chips: ['公众号', '视频号', 'Mini Program', 'WeCom'],
   },
   {
+    n: '05',
+    cn: '文心',
     name: 'Baidu AI',
-    cn: '百度AI',
+    enLabel: '文心一言',
     body: 'Powered by ERNIE (文心一言). Favours authoritative sources: Baidu Baike (百度百科), government portals, JSON-LD structured data, plus heavy lean on Baijiahao and Baidu Zhidao (百度知道) presence.',
+    tag: 'Authority-led',
+    chips: ['百度百科', '百度知道', 'JSON-LD', 'Baijiahao'],
   },
 ];
 
 const services = [
   {
+    n: '01',
     title: 'Visibility diagnosis',
-    body: 'A structured query matrix of 80 to 150 questions across all five Chinese platforms, run on real devices in Shanghai (上海), Beijing (北京), and Shenzhen (深圳), on residential and corporate networks, not VPNs.',
+    body: 'A structured query matrix of 80 to 150 questions across all five Chinese platforms, run on real devices in Shanghai, Beijing, and Shenzhen, on residential and corporate networks, not VPNs.',
     bullets: [
       'Citation rate: how often your brand appears in AI responses to relevant prompts.',
       'Brand recommendation rank: where you sit when the engine names options.',
       'Sentiment score: tone of the mention, neutral, positive, or critical.',
     ],
+    tag: 'p.04',
   },
   {
+    n: '02',
     title: 'Source-tier audit',
     body: 'AI engines reward verifiable evidence. Real patent numbers, third-party lab reports, published standards. We call this T1 content. Marketing copy with no proof is T3, ignored or flagged. We map every claim on your site and rebuild the weak ones with evidence the AI can validate.',
+    tag: 'p.10',
   },
   {
+    n: '03',
     title: 'Content cluster engineering',
     body: 'Single articles do not move the needle. We build clusters: a core pillar piece backed by FAQ pages, comparison guides, scenario walkthroughs, case studies. Whatever angle the user asks from, your site shows up.',
+    tag: 'p.16',
   },
   {
+    n: '04',
     title: 'Multi-platform distribution',
     body: 'AI engines cross-reference the same brand across trusted destinations. We syndicate into Baijiahao (百家号), Zhihu (知乎), the right industry portals, and where it makes sense, formal Baidu Baike (百度百科) entries.',
+    tag: 'p.22',
   },
   {
+    n: '05',
     title: 'Technical groundwork',
     body: "JSON-LD structured data, robots.txt for Baiduspider, Sogouspider, ByteSpider, XML sitemaps, canonical tags that don't split authority across language versions. Most international builds get this wrong.",
+    tag: 'p.28',
   },
   {
+    n: '06',
     title: 'Continuous monitoring',
     body: 'DeepSeek shipped four major revisions in 2025 alone. What worked in February stopped working by May. We track weekly and adjust before citation rates slip.',
+    tag: 'p.34',
   },
+];
+
+const stages = [
+  {
+    n: '01',
+    cn: '诊断',
+    title: 'Visibility diagnosis',
+    body: 'Run the query matrix across all five engines from real devices in Shanghai, Beijing, and Shenzhen. Output: a baseline citation report with named gaps per platform.',
+    output: 'Citation baseline',
+  },
+  {
+    n: '02',
+    cn: '证据',
+    title: 'Evidence + source audit',
+    body: 'Map every claim on your site to T1, T2, or T3. Rebuild the weak ones with patents, lab reports, named experts, and structured data the engines can validate.',
+    output: 'Evidence map',
+  },
+  {
+    n: '03',
+    cn: '内容',
+    title: 'Cluster + write',
+    body: 'Native Chinese pillar pieces, FAQs, comparison guides, scenario walkthroughs, case studies. Built so any angle of the user question lands on your site.',
+    output: 'Cluster pages live',
+  },
+  {
+    n: '04',
+    cn: '分发',
+    title: 'Syndicate + structure',
+    body: '百家号, 知乎, 百度百科 (where ready), industry portals, plus JSON-LD, robots.txt, llms.txt, canonical, and sitemap work shipped together.',
+    output: 'Cross-graph presence',
+  },
+  {
+    n: '05',
+    cn: '迭代',
+    title: 'Monitor + iterate',
+    body: 'Weekly query-matrix re-runs across all five engines. Adjust before model updates land as a citation drop. Monthly written report.',
+    output: 'Weekly tracking',
+  },
+];
+
+const evidenceTiers = [
+  {
+    label: 'T1',
+    title: 'Hard evidence',
+    body: 'Patent numbers, third-party lab reports, published standards, official government data.',
+    weight: 100,
+    color: 'green',
+    examples: ['Patent CN10X', 'SGS report', 'GB/T standard', 'CNNIC data'],
+  },
+  {
+    label: 'T2',
+    title: 'Industry recognised',
+    body: 'Trade press coverage, analyst reports, named expert opinion, industry awards.',
+    weight: 60,
+    color: 'amber',
+    examples: ['36Kr', '艾瑞咨询', 'Named expert', 'Industry award'],
+  },
+  {
+    label: 'T3',
+    title: 'Marketing copy',
+    body: 'Unsupported brand claims with no external proof. Ignored or flagged as low confidence.',
+    weight: 15,
+    color: 'red',
+    examples: ['"Best in class"', '"Industry leading"', 'No source', 'Slogan only'],
+  },
+];
+
+const stats = [
+  { value: '600M+', label: 'Chinese AI users · 2026', sub: 'CNNIC count of generative AI users in China.' },
+  { value: '20%+', label: 'Baidu SERPs with AI answers', sub: '文心X1 + DeepSeek now embedded in results.' },
+  { value: '4', label: 'DeepSeek revisions in 2025', sub: 'What worked in February stopped working by May.' },
 ];
 
 const audiences = [
@@ -88,6 +192,19 @@ const audiences = [
     description: 'Marketing teams that have noticed Chinese organic traffic plateau as buyers shift to AI-first research, and want to be the answer rather than the link nobody clicks.',
     image: '/images/audiences/audience-geo-search-traffic-flat.webp',
   },
+];
+
+const marqueePhrases = [
+  'GEO China',
+  'DeepSeek', '深度求索',
+  'Doubao', '豆包',
+  'Kimi', '元宝',
+  '文心一言',
+  'Cited not bypassed',
+  'T1 evidence',
+  'JSON-LD',
+  'llms.txt',
+  '百家号 · 知乎 · 百度百科',
 ];
 
 const faqs = [
@@ -159,17 +276,21 @@ const faqs = [
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
 
+  <ScrollEffects />
+
   <!-- HERO -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/hero-geo-beijing-ai-research.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/95 via-[#0f0f12]/75 to-[#0f0f12]/30"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+      <img src="/images/hero-geo-beijing-ai-research.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/85 to-[#0f0f12]/60"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#4D6BFE]/15 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[140px] pointer-events-none" data-float></div>
     </div>
 
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">答</span>
+
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="pt-20 pb-16 md:pb-20">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-12 md:pb-16">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/" class="hover:text-white/70 transition-colors no-underline">Home</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
@@ -178,31 +299,70 @@ const faqs = [
       </nav>
 
       <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
-        <!-- Text -->
-        <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
-            GEO China
-          </p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
-            Get cited by AI in China.
-            <span class="block mt-2 text-[var(--color-brand-orange)]">Not just found.</span>
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">GEO China</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">5 engines, one programme</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Get cited by AI.
+            <span class="block mt-1.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">Not just</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">found.</span>
+            </span>
           </h1>
-          <p class="mt-8 text-lg text-white/70 max-w-xl leading-relaxed">
-            Generative Engine Optimisation for sites talking to the China market. We make your content the answer the country's biggest AI assistants trust enough to give back to users.
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            Generative Engine Optimisation for sites talking to the China market. We make your content the answer DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI trust enough to give back to users. <span class="text-white font-medium">One answer, not ten links.</span>
           </p>
-          <p class="mt-5 text-sm text-white/50 max-w-xl leading-relaxed">
-            Five engines run inside the Great Firewall. We work all five: DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI.
-          </p>
-          <div class="mt-10 flex flex-wrap gap-4">
-            <Button href="/contact/" variant="primary" size="lg">Get Your AI Visibility Audit</Button>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter>5</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Engines covered</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">600M</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Chinese AI users</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">150</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Queries per audit</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/contact/" variant="primary" size="lg">Get an AI Visibility Audit</Button>
+            <Button href="#engines" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">See the five engines</Button>
           </div>
         </div>
 
-        <!-- Visual: DeepSeek chat screenshot mockup (Chinese) -->
-        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+        <!-- Visual: layered DeepSeek mockup -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
           <div class="relative">
-            <div class="bg-white rounded-2xl shadow-2xl shadow-black/40 overflow-hidden">
-              <!-- App chrome -->
+            <!-- Back: "not cited" mock -->
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Not cited</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">competitor wins</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Citation rate: 0%
+              </div>
+            </div>
+
+            <!-- Front: DeepSeek chat -->
+            <div data-tilt class="relative bg-white rounded-2xl shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] overflow-hidden">
               <div class="flex items-center gap-2.5 px-5 py-3 bg-white border-b border-gray-100">
                 <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#4D6BFE] to-[#3a55e8] flex items-center justify-center">
                   <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -214,35 +374,30 @@ const faqs = [
                   <span class="text-[10px] text-gray-400">深度求索</span>
                 </div>
                 <div class="ml-auto flex items-center gap-1.5">
-                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
                   <span class="text-[10px] text-gray-400">在线</span>
                 </div>
               </div>
 
-              <!-- Chat body -->
               <div class="px-5 py-4 space-y-4 bg-white">
-                <!-- User message -->
                 <div class="flex justify-end">
                   <div class="max-w-[85%] bg-[#F4F5F7] rounded-2xl rounded-tr-sm px-3.5 py-2.5">
                     <p class="text-[12.5px] text-gray-900 leading-relaxed">推荐几家专门服务国际品牌的中国 WordPress 建站代理商</p>
                   </div>
                 </div>
 
-                <!-- Thinking + search badges -->
                 <div class="flex items-center gap-1.5">
                   <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#EEF2FF] text-[#4D6BFE] text-[10px] font-medium">
-                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     深度思考 R1
                   </span>
                   <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#ECFDF5] text-emerald-600 text-[10px] font-medium">
-                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z M3 12h18 M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg>
                     联网搜索
                   </span>
                 </div>
 
                 <p class="text-[10.5px] text-gray-400">已搜索 14 个网页 · 用时 3.2 秒</p>
 
-                <!-- AI response -->
                 <div>
                   <p class="text-[12.5px] text-gray-700 leading-relaxed mb-3">
                     根据近年公开资料,在中国市场长期专注 WordPress 建站、并具备国际化服务能力的代理商主要包括:
@@ -260,16 +415,9 @@ const faqs = [
                         <span class="font-medium text-gray-700">某沪上数字代理</span><sup class="text-[#4D6BFE] text-[10px] ml-0.5">2</sup>:本地团队为主,提供 WordPress 主题开发与境内托管服务。
                       </p>
                     </div>
-                    <div class="flex gap-2">
-                      <span class="text-gray-300 font-bold text-[12.5px] mt-0.5 leading-none">·</span>
-                      <p class="text-[12.5px] text-gray-500 leading-relaxed">
-                        <span class="font-medium text-gray-700">某京津国际工作室</span><sup class="text-[#4D6BFE] text-[10px] ml-0.5">3</sup>:面向欧美客户,以多语言站点搭建与本地化为主。
-                      </p>
-                    </div>
                   </div>
                 </div>
 
-                <!-- Sources -->
                 <div class="pt-3 border-t border-gray-100">
                   <p class="text-[10px] font-semibold uppercase tracking-wider text-gray-400 mb-2">引用来源 · 3</p>
                   <div class="space-y-1.5">
@@ -289,217 +437,406 @@ const faqs = [
                 </div>
               </div>
             </div>
+
             <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/10 rounded-3xl blur-2xl -z-10"></div>
             <div class="absolute -inset-6 bg-[#4D6BFE]/10 rounded-3xl blur-3xl -z-10"></div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
   </section>
 
-  <!-- INTRO -->
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            The shift
+  <!-- WHY: dramatic statement -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0" data-reveal="left">
+          <div class="relative inline-flex items-baseline">
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-duration="1800">1</span>
+            <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">answer</span>
+          </div>
+          <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
+            Where Chinese users used to scan ten links, the AI now writes one answer. If your brand isn't in it, you are nowhere on that question.
           </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            One answer, not ten links.
-          </h2>
         </div>
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            China has more than 600 million generative AI users as of early 2026, according to CNNIC. A growing share of buyers now start their research by asking an AI assistant rather than typing into a search bar.
+
+        <div class="col-span-12 lg:col-span-7" data-reveal="right">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Why It Matters</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
+            One answer. Not ten links.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            China has more than 600 million generative AI users in 2026, per CNNIC. A growing share of buyers start research by asking DeepSeek, Doubao, or Yuanbao, not by typing into a search bar.
           </p>
-          <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed">
-            Ask DeepSeek for an agency, or Doubao which platform fits a China launch, and you don't get ten links anymore. You get one answer. If your brand isn't that answer, you are nowhere.
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            GEO is the work of becoming the source AI quotes when somebody asks a question. There's overlap with SEO, but the rules are different, and inside China the rules differ again from anything that works on ChatGPT or Perplexity.
           </p>
-          <p class="mt-5 text-base text-[var(--color-text-body)] leading-relaxed">
-            GEO is the work of becoming the source AI quotes when somebody asks a question. There is some overlap with SEO, but the rules are different, and inside China the rules are different again from what works on ChatGPT or Perplexity.
-          </p>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Diagnose
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Evidence</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Cluster</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Cite</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY: FIVE ENGINES -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-2xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          Five engines, five sets of rules
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          China's AI search stack is its own world
+  <!-- ENGINES: comparison cards -->
+  <section id="engines" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden scroll-mt-32">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">智</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Five Engines · 五大引擎</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          China's AI search stack is its own world.
         </h2>
-        <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed">
-          ChatGPT, Perplexity, Google AI Overviews, Claude. None of them carry weight inside mainland China. The Chinese stack is what matters, and each engine plays by completely different rules.
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          ChatGPT, Perplexity, Google AI Overviews, Claude. None carry weight inside mainland China. Five domestic engines do. Each plays by different rules.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {engines.map((engine) => (
-          <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-7 transition-all duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]">
-            <div class="flex items-baseline justify-between gap-3 mb-4">
-              <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-                {engine.name}
-              </h3>
-              <span class="text-sm text-[var(--color-brand-orange)] font-mono">{engine.cn}</span>
+      <div class="space-y-5 lg:space-y-6">
+        {engines.map((q, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 60)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+              'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{q.cn}</span>
+              <div class="relative">
+                <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">Engine {q.n} / 05</div>
+                <div class="text-4xl lg:text-5xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{q.name}</div>
+                <div class="text-xs text-[var(--color-brand-orange)]/90 font-mono">{q.enLabel}</div>
+              </div>
             </div>
-            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              {engine.body}
-            </p>
-          </div>
+
+            <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+              <h3 class="text-xl lg:text-[22px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+                {q.tag}
+              </h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                {q.body}
+              </p>
+            </div>
+
+            <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-center gap-3">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">Optimise for</div>
+              <div class="flex flex-wrap gap-1.5">
+                {q.chips.map((c) => (
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-[var(--color-text-body)] border border-[var(--color-surface-border)]">{c}</span>
+                ))}
+              </div>
+            </div>
+          </article>
         ))}
       </div>
 
-      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl">
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl" data-reveal>
         Five engines, five sets of rules, one website that has to hold up against all of them.
       </p>
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="section-spacing">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <!-- Left: sticky heading -->
-        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            What we do
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            What GEO China actually involves
-          </h2>
-          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            Six workstreams, run together. Skip any one of them and the others stop compounding.
-          </p>
-        </div>
+  <!-- EVIDENCE TIERS: visual differentiator -->
+  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[15%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none" data-float></div>
 
-        <!-- Right: items -->
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            {services.map((item) => (
-              <div class="flex gap-5">
-                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
-                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
-                    {item.title}
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Evidence Tiers · 证据等级</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          AI engines weight what you can prove.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed">
+          Every claim on your site sits on one of three tiers. Citations follow the tier, not the prose. We rebuild T3 marketing copy into T1 evidence.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+        {evidenceTiers.map((t, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 100)}
+            class:list={[
+              'relative rounded-3xl p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:-translate-y-1',
+              t.color === 'green'
+                ? 'bg-gradient-to-br from-emerald-500/15 via-white/[0.04] to-white/[0.02] border border-emerald-400/30 hover:border-emerald-400/50 hover:shadow-[0_24px_50px_-22px_rgba(16,185,129,0.25)]'
+                : t.color === 'amber'
+                  ? 'bg-gradient-to-br from-amber-500/12 via-white/[0.04] to-white/[0.02] border border-amber-400/30 hover:border-amber-400/50 hover:shadow-[0_24px_50px_-22px_rgba(245,158,11,0.22)]'
+                  : 'bg-gradient-to-br from-red-500/12 via-white/[0.04] to-white/[0.02] border border-red-400/25 hover:border-red-400/40 hover:shadow-[0_24px_50px_-22px_rgba(239,68,68,0.22)]',
+            ]}
+          >
+            <div class="flex items-start justify-between mb-6">
+              <div class:list={[
+                'inline-flex items-center justify-center w-14 h-14 rounded-2xl font-medium font-[var(--font-heading)] text-2xl',
+                t.color === 'green'
+                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40'
+                  : t.color === 'amber'
+                    ? 'bg-amber-500/20 text-amber-300 border border-amber-400/40'
+                    : 'bg-red-500/20 text-red-300 border border-red-400/40',
+              ]}>{t.label}</div>
+              <div class:list={[
+                'text-[10px] font-mono uppercase tracking-wider',
+                t.color === 'green' ? 'text-emerald-300' : t.color === 'amber' ? 'text-amber-300' : 'text-red-300',
+              ]}>Citation weight</div>
+            </div>
+
+            <!-- Weight bar -->
+            <div class="mb-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <span class="text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="%">{t.weight}</span></span>
+                <span class:list={[
+                  'text-[10px] font-mono uppercase tracking-wider',
+                  t.color === 'green' ? 'text-emerald-300/70' : t.color === 'amber' ? 'text-amber-300/70' : 'text-red-300/70',
+                ]}>relative</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div
+                  class:list={[
+                    'h-full rounded-full',
+                    t.color === 'green'
+                      ? 'bg-gradient-to-r from-emerald-400 to-emerald-300'
+                      : t.color === 'amber'
+                        ? 'bg-gradient-to-r from-amber-400 to-amber-300'
+                        : 'bg-gradient-to-r from-red-400 to-red-300',
+                  ]}
+                  style={`width: ${t.weight}%;`}
+                ></div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-tight mb-2">
+              {t.title}
+            </h3>
+            <p class="text-sm text-white/65 leading-relaxed mb-5">
+              {t.body}
+            </p>
+
+            <div class="pt-4 border-t border-white/10">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/40 mb-2.5">Examples</div>
+              <div class="flex flex-wrap gap-1.5">
+                {t.examples.map((e) => (
+                  <span class="text-[11px] font-mono px-2 py-1 rounded-md bg-white/[0.06] text-white/75 border border-white/10">{e}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO: dark with sticky doc -->
+  <section id="what-we-do" class="relative section-spacing bg-white overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">What We Do · 做什么</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          What GEO China actually involves.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Six workstreams, run together. Skip any one of them and the others stop compounding.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+        {services.map((d, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 80)}
+            data-cursor-spotlight
+            class="group relative rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 hover:bg-white hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_18px_40px_-18px_rgba(15,15,18,0.18)] hover:-translate-y-1 overflow-hidden"
+          >
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+            <div class="flex items-start gap-5 relative">
+              <div class="flex-shrink-0">
+                <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{d.n}</div>
+                <div class="mt-2 w-8 h-px bg-[var(--color-surface-border)]"></div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                    {d.title}
                   </h3>
-                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                    {item.body}
-                  </p>
-                  {item.bullets && (
-                    <ul class="mt-4 space-y-2.5">
-                      {item.bullets.map((b) => (
-                        <li class="flex gap-3 text-[14px] text-[var(--color-text-body)] leading-relaxed">
-                          <span class="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-text-card-blue)]"></span>
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--color-text-muted)] flex-shrink-0">{d.tag}</span>
+                </div>
+                <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+                  {d.body}
+                </p>
+                {d.bullets && (
+                  <ul class="mt-4 space-y-2">
+                    {d.bullets.map((b) => (
+                      <li class="flex gap-3 text-[13px] text-[var(--color-text-body)] leading-relaxed">
+                        <span class="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK: 5 stages -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">How We Run It · 工作流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
+          Five stages, citation lift compounding.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Audit and foundation in 4 to 6 weeks. Citation lift on at least two engines by month six.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+        {stages.map((s, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 70)}
+            class:list={[
+              'group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 overflow-hidden',
+              'hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+            <span aria-hidden="true" class="absolute right-2 top-2 text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-top-right">{s.cn}</span>
+
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-text-dark)] text-white text-sm font-semibold font-[var(--font-heading)]">
+                  {s.n}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)]">Stage {i + 1} of 5</span>
+              </div>
+
+              <h3 class="text-lg lg:text-[19px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+                {s.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">
+                {s.body}
+              </p>
+
+              <div class="pt-4 border-t border-[var(--color-surface-border)]">
+                <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] mb-1.5">Output</div>
+                <div class="flex items-center gap-2 text-sm font-medium text-[var(--color-text-dark)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {s.output}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- TIMELINE -->
-  <section class="section-spacing bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Timeline
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            What to expect on timing
-          </h2>
-          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Citation lift is real but it is not instant. The first quarter is foundation work, the second quarter is when the curve starts bending.
-          </p>
-        </div>
+  <!-- TIMELINE STATS -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
 
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <div class="space-y-6">
-            <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-6">
-              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-2">Audit and foundation</p>
-              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                Four to six weeks. Visibility diagnosis across all five Chinese AI platforms, source-tier audit of the existing content estate, technical fixes shipped, content roadmap signed off.
-              </p>
-            </div>
-            <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-6">
-              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-2">Content build-out and syndication</p>
-              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                Three to four months. Pillar pieces, cluster pages, FAQs and comparison guides shipped in Chinese, syndicated to the right destinations on each platform graph.
-              </p>
-            </div>
-            <div class="bg-white border border-[var(--color-surface-border)] rounded-xl p-6">
-              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-2">Citation lift</p>
-              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                By month six most clients see real citation lift on at least two platforms. Full coverage across all five typically lands between month nine and month twelve.
-              </p>
-            </div>
-            <p class="text-sm text-[var(--color-text-muted)] italic leading-relaxed pt-2">
-              Anyone promising AI citation share on a competitive query in 30 days is selling you something else.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Why us
-          </p>
-          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-tight">
-            Why international brands choose us
+      <div class="io-grid items-start mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Numbers · 数据</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            The shift, in numbers.
           </h2>
         </div>
-        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
-          <p class="text-lg text-white/70 leading-relaxed">
-            China has plenty of GEO agencies. Most are domestic firms operating in Mandarin only, with no real experience translating international brand assets into Chinese AI content. We sit somewhere different.
-          </p>
-          <p class="mt-5 text-lg text-white/70 leading-relaxed">
-            Based in China for over 20 years, fluent in both the Chinese AI ecosystem and the way international clients actually structure their brand. Strategy in English. Implementation in Chinese, by native speakers, on the ground in Shanghai.
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Why the brands setting GEO up properly in 2026 will be the ones cited by AI engines in 2027 and 2028.
           </p>
         </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
+        {stats.map((s, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 90)}
+            class:list={[
+              'group relative rounded-3xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden',
+              i === 1
+                ? 'bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] text-white hover:shadow-[0_24px_50px_-22px_rgba(242,95,41,0.4)]'
+                : 'bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            {i === 1 && <span aria-hidden="true" class="absolute -right-4 -bottom-8 text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.08] leading-none select-none pointer-events-none">智</span>}
+            <div class="relative">
+              <div class:list={['text-[10px] font-mono uppercase tracking-[0.18em] mb-3', i === 1 ? 'text-white/75' : 'text-[var(--color-text-muted)]']}>{s.label}</div>
+              <div class:list={['text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3', i === 1 ? 'text-white' : 'text-[var(--color-text-dark)]']}>
+                {s.value}
+              </div>
+              <p class:list={['text-sm leading-relaxed', i === 1 ? 'text-white/90' : 'text-[var(--color-text-body)]']}>{s.sub}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- WHO IS THIS FOR -->
+  <!-- WHO HIRES US -->
   <WhoIsThisFor heading="Who hires us for GEO China" audiences={audiences} background="light" />
 
   <!-- FAQ -->
-  <section id="faq" class="section-spacing scroll-mt-32">
+  <section id="faq" class="section-spacing bg-white scroll-mt-32">
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid items-start">
-        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Frequently Asked
-          </p>
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32" data-reveal="left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+          </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
             Nine questions we hear about GEO China
           </h2>
           <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
             Tap any question to expand. If yours isn't here, ask us directly.
           </p>
+          <div class="mt-7">
+            <Button href="/contact/" variant="secondary" size="md">Ask a different question</Button>
+          </div>
         </div>
 
-        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="right">
           <div data-faq-accordion>
             {faqs.map((faq) => (
               <FAQItem question={faq.question} id={faq.id}>
@@ -514,61 +851,43 @@ const faqs = [
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+  <!-- CTA with marquee -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
+    </div>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-        See where you stand
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        See where you stand. No sales deck.
-      </h2>
-      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Every engagement starts with an audit conversation and a sample query test across two of the five Chinese AI platforms. You leave the call knowing whether your brand currently shows up, where the gaps are, and what a real GEO programme would look like.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/contact/" variant="primary" size="lg">Schedule a Free GEO Audit Call</Button>
-        <Button href="/contact/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Request a Sample AI Visibility Report</Button>
+    <div class="relative py-20 lg:py-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">答</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">See where you stand</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
+          See where you stand. No sales deck.
+        </h2>
+        <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
+          Every engagement starts with an audit conversation and a sample query test across two of the five Chinese AI platforms. You leave the call knowing whether your brand currently shows up, where the gaps are, and what a real GEO programme would look like.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/contact/" variant="primary" size="lg">Schedule a Free GEO Audit Call</Button>
+          <Button href="/services/baidu-seo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Baidu SEO</Button>
+          <Button href="/services/chinese-content/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Chinese Content</Button>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- FAQ accordion script -->
-  <script>
-    function initGeoFaq() {
-      const accordions = document.querySelectorAll('[data-faq-accordion]');
-      accordions.forEach((accordion) => {
-        const items = accordion.querySelectorAll('[data-faq-item]');
-        items.forEach((item) => {
-          const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
-          const content = item.querySelector('[data-faq-content]') as HTMLElement | null;
-          const chevron = item.querySelector('[data-faq-chevron]') as SVGElement | null;
-          if (!trigger || trigger.dataset.bound === 'true') return;
-          trigger.dataset.bound = 'true';
-          trigger.addEventListener('click', () => {
-            const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-            items.forEach((other) => {
-              if (other === item) return;
-              const otherTrigger = other.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
-              const otherContent = other.querySelector('[data-faq-content]') as HTMLElement | null;
-              const otherChevron = other.querySelector('[data-faq-chevron]') as SVGElement | null;
-              otherTrigger?.setAttribute('aria-expanded', 'false');
-              otherContent?.style.setProperty('grid-template-rows', '0fr');
-              otherChevron?.classList.remove('rotate-180');
-            });
-            const next = !isOpen;
-            trigger.setAttribute('aria-expanded', String(next));
-            content?.style.setProperty('grid-template-rows', next ? '1fr' : '0fr');
-            chevron?.classList.toggle('rotate-180', next);
-          });
-        });
-      });
-    }
-    initGeoFaq();
-    document.addEventListener('astro:page-load', initGeoFaq);
-    document.addEventListener('astro:after-swap', initGeoFaq);
-  </script>
 
 </PageLayout>
