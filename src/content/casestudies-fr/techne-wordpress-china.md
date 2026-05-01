@@ -28,7 +28,7 @@ L'usine était là. Le site, non. Techné avait besoin d'une vitrine chinoise po
 
 Avant même d'aborder le design, il a fallu régler la question de l'architecture éditoriale. Joints statiques, joints dynamiques, joints hydrauliques, joints aseptiques, garnitures découpées, bagues, joints à ressort énergisé, et la liste n'est pas close. Chaque type de produit répond à une industrie différente, avec des exigences distinctes.
 
-Nous avons travaillé avec Techné pour comprendre comment les acheteurs chinois chercheraient concrètement les produits, s'il valait mieux organiser par type ou par secteur (nous avons fait les deux), et quel niveau de détail technique chaque page devait réellement afficher. Sur un catalogue B2B industriel, ce n'est pas un choix esthétique. C'est ce qui sépare un site qui génère des demandes de devis d'un site que l'on quitte au bout de deux clics.
+Nous avons travaillé avec Techné pour comprendre comment les acheteurs chinois chercheraient concrètement les produits, s'il valait mieux organiser par type ou par secteur (nous avons fait les deux), et quel niveau de détail technique chaque page devait réellement afficher. Sur un catalogue B2B industriel, c'est ce qui sépare un site qui génère des demandes de devis d'un site que l'on quitte au bout de deux clics.
 
 ## Design, développement et intégration du catalogue
 

@@ -25,9 +25,9 @@ services: ["strategy-audit", "china-migration", "china-hosting", "maintenance-su
 
 IMHOF is a Swiss luxury watch brand headquartered in Biel, Switzerland. The brand traces its origins to La Chaux-de-Fonds, a town so deeply tied to watchmaking that UNESCO gave it World Heritage status. IMHOF's Arthur Collection, a line of handcrafted timepieces with coloured dials and mechanical movements, is sold worldwide through their online store built on WordPress with WooCommerce and Elementor.
 
-China is one of the world's largest markets for Swiss luxury watches, accounting by some estimates for nearly a third of global luxury purchases. Chinese consumers don't just buy watches. They research them online, compare them, and more and more often, they purchase them directly through brand websites. For IMHOF, reaching that audience with a working, high-quality online store was a business necessity, not a nice-to-have.
+China is one of the world's largest markets for Swiss luxury watches, accounting by some estimates for nearly a third of global luxury purchases. Chinese consumers research watches online, compare them, and increasingly buy them directly through brand websites. For IMHOF, reaching that audience with a working, high-quality online store was a business necessity.
 
-## A Beautiful Website That Nobody in China Could Use
+## A Beautiful Website Broken Behind the Firewall
 
 But the website, as it existed, was essentially broken for anyone trying to access it from mainland China. Web fonts were blocked. The payment system didn't function. Google Analytics couldn't connect. Even the contact form wouldn't go through. For any website that's a problem, but for a luxury brand selling timepieces that retail for thousands of dollars, where the buying experience needs to feel as considered as the product itself, it was untenable.
 
@@ -50,7 +50,7 @@ The issues touched almost every part of the site:
 
 After the audit we moved into the migration itself. We registered the domain for the Chinese market, handled the ICP filing, and got hosting up on servers inside mainland China. Then we started going through the technical fixes one at a time: replacing blocked fonts with locally hosted alternatives, swapping out Google Analytics for a China-compatible tracking tool, reconfiguring WooCommerce payments to actually work for Chinese buyers, and rebuilding the contact form so it could route through services that were accessible from the mainland.
 
-> For an e-commerce site selling luxury goods, the checkout experience isn't just functional. It's part of the brand.
+> For an e-commerce site selling luxury goods, the checkout experience is part of the brand.
 
 We also ran a thorough content check across the whole site. Every product page, every image, every block of copy. For an e-commerce site with detailed product listings and a lot of lifestyle photography, you can't just assume the migration carried everything over cleanly. That step took real attention.
 

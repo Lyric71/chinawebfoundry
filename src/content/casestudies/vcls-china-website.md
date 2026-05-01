@@ -13,7 +13,7 @@ services: ["china-migration", "chinese-content", "china-hosting", "maintenance-s
 
 VCLS is a global life sciences consulting firm that helps pharma, biotech, and medtech companies navigate regulatory pathways and bring HealthTech products to market. They cover regulatory strategy, clinical trials, market access, and post-approval compliance across the US, Europe, and China.
 
-When VCLS opened a physical office in China, there was a gap on the digital side. The global site at voisinconsulting.com was built for Western audiences. It couldn't load reliably from the mainland, the content wasn't adapted for Chinese life sciences professionals, and there was no local hosting. For a consulting firm in this space, a weak or inaccessible website isn't a minor issue. It's the first thing a potential client in Shanghai looks at when deciding whether to take a meeting.
+When VCLS opened a physical office in China, there was a gap on the digital side. The global site at voisinconsulting.com was built for Western audiences. It couldn't load reliably from the mainland, the content wasn't adapted for Chinese life sciences professionals, and there was no local hosting. For a consulting firm in this space, the website is the first thing a potential client in Shanghai looks at when deciding whether to take a meeting.
 
 | | |
 |---|---|

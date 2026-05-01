@@ -8,7 +8,7 @@ published: true
 category: Search
 ---
 
-Take your top-performing Google keywords, run them through a translator, plug them into your China strategy. That's what most foreign companies do. And it fails almost every time. Not because the translation is bad, but because Chinese users search in ways that have nothing to do with how English speakers search. Different phrases. Different sentence structures. And a language where the number of keyword combinations for any single concept is orders of magnitude larger than English. Below are the three tools that give you real Baidu data, plus a look at why Chinese keyword research has to be treated as its own thing.
+Take your top-performing Google keywords, run them through a translator, plug them into your China strategy. That's what most foreign companies do. And it fails almost every time. Chinese users search in ways that have almost nothing to do with how English speakers search. Different phrases. Different sentence structures. And a language where the number of keyword combinations for any single concept is orders of magnitude larger than English. Below are the three tools that give you real Baidu data, plus a look at why Chinese keyword research has to be treated as its own thing.
 
 ## Baidu Index
 
@@ -42,13 +42,13 @@ A lot of companies hit that wall at step one and never figure out a way around i
 
 Lives inside Baidu's ad platform. Same general idea as Google Ads Keyword Planner: monthly search volumes, related keyword suggestions, CPC estimates.
 
-Getting in is the hard part. Full access needs a valid China business registration, plus a Baidu PPC account. That means going through Baidu's advertiser onboarding, which is neither quick nor particularly straightforward if you're not familiar with the process.
+Getting in is the hard part. Full access needs a valid China business registration, plus a Baidu PPC account. That means going through Baidu's advertiser onboarding, which is neither quick nor obvious if you're not familiar with the process.
 
-But most people miss something here. You don't have to actually run paid campaigns to get value from the data. The keyword volumes, competition metrics, related suggestions, all of that is just as useful for organic SEO planning. The PPC account is basically your ticket to the research. You're paying for access to the data, not committing to an ad budget.
+But most people miss something here. You don't have to actually run paid campaigns to get value from the data. The keyword volumes, competition metrics, related suggestions, all of that is just as useful for organic SEO planning. The PPC account is your ticket to the research. The ad budget is optional.
 
 > You don't need to run Baidu ads to use the Keyword Planner. The search data alone makes the onboarding process worth it, even if you never spend a yuan on PPC.
 
-## 5118.com - Where the Real Data Lives
+## 5118.com - where the real data lives
 
 | | |
 |---|---|
@@ -60,15 +60,15 @@ But most people miss something here. You don't have to actually run paid campaig
 
 If there's one tool that Chinese SEO people rely on daily, this is it. 5118 gets closer to Baidu's actual search volume numbers than anything else on the market. Think of it as China's version of Ahrefs, but built from the ground up for Baidu.
 
-Long-tail keyword discovery, CPC estimates, competition scoring. The core features you'd expect from a serious SEO platform. On top of that there's an AI-powered content optimisation layer that lets you check how well your pages match what Baidu considers relevant for a given search term. Pretty useful for understanding why a competitor outranks you on a specific query.
+Long-tail keyword discovery, CPC estimates, competition scoring. The core features you'd expect from a serious SEO platform. There's also an AI-powered content optimisation layer that lets you check how well your pages match what Baidu considers relevant for a given search term. Pretty useful for understanding why a competitor outranks you on a specific query.
 
 Free tier gives you a taste. Real functionality is behind paid plans. For companies doing sustained Baidu SEO this is probably the most important tool subscription you'll pay for.
 
-## Why Chinese Search Queries Are a Different Animal
+## Why Chinese search queries are a different animal
 
 Most companies rush past this section. It's actually the one that matters the most.
 
-**Chinese is character-based, not word-based.**
+**Chinese is character-based.**
 
 | | Chinese | English |
 |---|---|---|
@@ -84,7 +84,7 @@ Each character carries meaning on its own, and characters combine to form concep
 
 Short-head keywords are usually one or two characters. Long-tail starts at three and up. But because every individual character already means something, even a short Chinese keyword has more packed into it semantically than a typical English one.
 
-Then there's how people actually use Baidu. Chinese users tend to type out full questions when they search. Not the clipped two-word keyword strings you see on Google. Someone in Shanghai looking for office space is going to type something that reads more like a question you'd ask a colleague than a search query. That habit changes everything about how you need to approach keyword research.
+Then there's how people actually use Baidu. Chinese users tend to type out full questions when they search instead of the clipped two-word keyword strings you see on Google. Someone in Shanghai looking for office space will type something that reads like a question you'd ask a colleague. That habit changes everything about how you need to approach keyword research.
 
 The thing is, if you take your English keyword list and translate it, you capture almost nothing useful. The overlap between translated keywords and what Chinese users actually type into Baidu is basically zero. You're optimising for phrases nobody searches for.
 

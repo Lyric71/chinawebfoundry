@@ -8,9 +8,9 @@ published: true
 category: Search
 ---
 
-724 million people use Baidu every month. 3.3 billion searches a day. Somewhere between 56% and 64% of China's search market, depending whose numbers you go by. If you're a foreign company trying to reach Chinese customers online, this is the search engine you need to crack. Not Google - Google barely registers in China. But what makes Baidu tricky is that almost nothing you know from Google SEO transfers over. The ranking logic is different. The crawling is different. Even the ecosystem around it works in ways most Western marketers have never dealt with.
+724 million people use Baidu every month. 3.3 billion searches a day. Somewhere between 56% and 64% of China's search market, depending whose numbers you go by. If you're a foreign company trying to reach Chinese customers online, this is the search engine you need to crack. Google barely registers in China. But what makes Baidu tricky is that almost nothing you know from Google SEO transfers over. The ranking logic is different. The crawling is different. Even the ecosystem around it works in ways most Western marketers have never dealt with.
 
-## Baidu by the Numbers
+## Baidu by the numbers
 
 | Metric | Value |
 |---|---|
@@ -23,7 +23,7 @@ category: Search
 | Male users | 74.3% |
 | Users aged 24 to 35 | 50%+ |
 
-What jumps out first is how domestic the whole thing is. 93.9% of Baidu traffic originates inside China. This isn't a platform with global ambitions - it's a Chinese search engine for Chinese users, indexing Chinese content, under Chinese regulations. Full stop.
+What jumps out first is how domestic the whole thing is. 93.9% of Baidu traffic originates inside China. Baidu is a Chinese search engine for Chinese users, indexing Chinese content, under Chinese regulations.
 
 Demographics lean young and lean male. 74.3% male, and over half of all users are between 24 and 35. If that matches your customer profile, well, now you know where they go when they need to find something.
 
@@ -31,7 +31,7 @@ Demographics lean young and lean male. 74.3% male, and over half of all users ar
 
 That 34.9% number matters a lot for your off-page strategy, which we'll get to further down.
 
-## Ranking Factors: Baidu vs. Google
+## Ranking factors: Baidu vs. Google
 
 If you've been doing Google SEO for any length of time, prepare to have some of your assumptions broken.
 
@@ -57,9 +57,9 @@ A few of these hit harder than others when you're coming from a Google backgroun
 
 **JavaScript.** Here's where a lot of companies get burned without realising it. If your site is a single-page application running on React, Vue, Angular - Baidu's crawler often just can't render it. The crawler hits the page, sees nothing, moves on. Your beautiful frontend might as well not exist. Stick with server-rendered HTML if Baidu rankings matter to you.
 
-**Language.** 83%+ of top-ranking Baidu pages are in Simplified Chinese. And I mean written natively in Simplified Chinese, not run through a translation tool. There's a noticeable gap in how Baidu treats the two.
+**Language.** 83%+ of top-ranking Baidu pages are in Simplified Chinese. And I mean written natively in Simplified Chinese. Translation tools don't get you there. There's a noticeable gap in how Baidu treats the two.
 
-## On-Page Optimisation
+## On-page optimisation
 
 **Title tags** - put your target keyword right at the start. Baidu truncates at 27 Chinese characters in the SERPs. What comes first is what people see.
 
@@ -71,11 +71,11 @@ A few of these hit harder than others when you're coming from a Google backgroun
 
 **Structured data** - schema markup for title, author, date. Helps Baidu categorise your pages and can improve how they display in results.
 
-**Alt text** - Chinese-language descriptions on every image. Written by a person, not a machine. You'd be surprised how many sites still skip this or auto-translate it.
+**Alt text** - Chinese-language descriptions on every image. Written by a real person. You'd be surprised how many sites still skip this or auto-translate it.
 
 > 83%+ of top-ranking Baidu pages are written in native Simplified Chinese. Machine translation doesn't cut it.
 
-## Off-Page and Ecosystem Strategy
+## Off-page and ecosystem strategy
 
 Go back to that 34.9% number. More than a third of all top 10 results on Baidu come from platforms that Baidu owns. If you're absent from those platforms, you're essentially conceding a huge chunk of available real estate to whoever is present on them.
 
@@ -87,9 +87,9 @@ Go back to that 34.9% number. More than a third of all top 10 results on Baidu c
 
 **Baidu News Protocol** - if you're publishing content that qualifies as news, submitting through Baidu's protocol gets you priority indexing. Not every company can use this, but for those that can, it's a real advantage.
 
-**Social presence** - WeChat, Weibo, Xiaohongshu. These are the platforms that shape how Baidu perceives your brand. Not Facebook, not Instagram, not YouTube. All three are blocked in China. Links pointing to them are dead ends for your audience, and they tell Baidu that whoever built your site wasn't thinking about this market.
+**Social presence** - WeChat, Weibo, Xiaohongshu. These are the platforms that shape how Baidu perceives your brand. Facebook, Instagram, and YouTube are all blocked in China. Links pointing to them are dead ends for your audience, and they tell Baidu that whoever built your site wasn't thinking about this market.
 
-## Mistakes Foreign Companies Keep Making
+## Mistakes foreign companies keep making
 
 Nearly every foreign company that struggles with Baidu is making some version of the same errors. They take what worked in their home market and assume it'll carry over.
 

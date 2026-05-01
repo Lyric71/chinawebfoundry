@@ -15,7 +15,7 @@ SNF is a French-headquartered industrial chemical group and the world's leading 
 
 In China, SNF runs two production sites in Jiangsu province (Taixing and Rudong) and six sales offices across Beijing, Shanghai, Guangzhou, Chengdu, Wuhan, and Xi'an. China is now the group's third-largest market in the world. The scale of the operation is not small.
 
-With that kind of footprint the website isn't a side channel. It's infrastructure that supports commercial operations, product information, and customer communication across a massive geographic spread.
+With that kind of footprint the website is core infrastructure: commercial operations, product information, and customer communication all run through it across a massive geographic spread.
 
 | | |
 |---|---|
@@ -32,7 +32,7 @@ We provide hosting, technical integration, and maintenance for SNF China's WordP
 
 The technical work goes beyond basic setup. For a company at SNF's scale, the site has to reliably serve product information, technical specs, and customer-facing content across multiple business lines. We keep all external dependencies and third-party services working behind the Great Firewall and maintain compliance with local hosting requirements as they evolve.
 
-Maintenance covers security patches, performance monitoring, and content updates as SNF keeps expanding in China. When you're supporting a site for a company with two factories and six offices across the country, uptime isn't an abstract concern. It's an operational requirement.
+Maintenance covers security patches, performance monitoring, and content updates as SNF keeps expanding in China. When you're supporting a site for a company with two factories and six offices across the country, uptime is an operational requirement.
 
 **Scope of work:** WordPress hosting in mainland China, technical integration, support and maintenance.
 

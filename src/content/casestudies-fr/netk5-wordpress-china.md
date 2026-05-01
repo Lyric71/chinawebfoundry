@@ -13,7 +13,7 @@ services: ["chinese-content", "china-hosting", "technical-integration", "mainten
 
 NETK5 fournit des services d'infrastructure informatique aux entreprises étrangères en Chine depuis 2002. Installation réseau, helpdesk, architecture Wi-Fi, cybersécurité, hébergement cloud, sauvegarde de données. Parmi ses clients : De Beers et Orpea, avec des interventions qui vont des boutiques phares de Shanghai aux sites industriels.
 
-Sur l'IT en Chine, rares sont ceux qui rivalisent avec leur niveau d'expertise. Mais maîtriser l'infrastructure et savoir traduire plus de vingt ans d'expérience en un site limpide pour un nouveau visiteur, ce sont deux sujets distincts. Le défi n'était pas technique. Il était éditorial. Comment structurer un tel spectre de compétences pour ne pas perdre le prospect au premier clic ?
+Sur l'IT en Chine, rares sont ceux qui rivalisent avec leur niveau d'expertise. Mais maîtriser l'infrastructure et savoir traduire plus de vingt ans d'expérience en un site limpide pour un nouveau visiteur, ce sont deux sujets distincts. Le défi se jouait sur l'éditorial. Comment structurer un tel spectre de compétences pour ne pas perdre le prospect au premier clic ?
 
 | | |
 |---|---|
@@ -25,7 +25,7 @@ Sur l'IT en Chine, rares sont ceux qui rivalisent avec leur niveau d'expertise. 
 
 ## Donner une colonne vertébrale à vingt ans de savoir-faire
 
-Nous avons démarré par la structure et la stratégie éditoriale. L'offre de NETK5 est étendue : infogérance, installation réseau, audits Wi-Fi, hébergement, helpdesk, cybersécurité, cloud. La clientèle va de la PME à la multinationale, avec des besoins répartis entre bureaux, usines, entrepôts et points de vente. Pas question de lister ce qu'ils savent faire. Il fallait organiser ce savoir-faire de telle sorte que chaque profil de visiteur (un responsable IT qui évalue l'externalisation, un directeur des opérations qui monte une usine, un dirigeant qui veut simplement un Wi-Fi qui tient) tombe vite sur ce qui le concerne.
+Nous avons démarré par la structure et la stratégie éditoriale. L'offre de NETK5 est étendue : infogérance, installation réseau, audits Wi-Fi, hébergement, helpdesk, cybersécurité, cloud. La clientèle va de la PME à la multinationale, avec des besoins répartis entre bureaux, usines, entrepôts et points de vente. Tout le travail consistait à organiser ce savoir-faire de telle sorte que chaque profil de visiteur (un responsable IT qui évalue l'externalisation, un directeur des opérations qui monte une usine, un dirigeant qui veut simplement un Wi-Fi qui tient) tombe vite sur ce qui le concerne.
 
 ## WordPress, hébergement et intégration
 

@@ -28,7 +28,7 @@ The factory was there. The website wasn't. Techné needed a Chinese site to supp
 
 Before touching design we had to work out the content structure. Static seals, dynamic seals, hydraulic seals, aseptic seals, cut gaskets, bushings, spring energised seals, and that's still not the full list. Each product type serves different industries with different requirements.
 
-We worked with Techné to figure out how Chinese buyers would search for products, whether to organise by type or industry (we did both), and what level of technical detail each page actually needed. For an industrial B2B catalogue this isn't cosmetic. It's the difference between a site that generates inquiries and one that gets abandoned after two clicks.
+We worked with Techné to figure out how Chinese buyers would search for products, whether to organise by type or industry (we did both), and what level of technical detail each page actually needed. For an industrial B2B catalogue, this is the difference between a site that generates inquiries and one that gets abandoned after two clicks.
 
 ## Design, Build, and Product Integration
 

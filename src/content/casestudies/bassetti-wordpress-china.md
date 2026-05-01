@@ -17,7 +17,7 @@ services: ["strategy-audit", "china-migration", "china-hosting", "maintenance-su
 
 Bassetti is a technology company with operations spread across Europe, the Americas, and Asia. When the decision came to build out their digital presence in mainland China, the team quickly realised their existing website wasn't going to cut it. The WordPress site, built on Elementor, worked fine for users in Europe or North America. From Shanghai or Beijing though? Different story. Google Fonts, reCAPTCHA, external CDN calls, various third-party plugins: most of it was either blocked outright or so slow it might as well have been.
 
-And that's the thing most international companies don't fully appreciate until they try. A WordPress site that runs perfectly well in the West can be almost entirely broken in China, because so much of the modern web stack depends on services that the Great Firewall blocks or throttles.
+International companies usually find this out the hard way. A WordPress site that runs perfectly well in the West can be almost entirely broken in China, because so much of the modern web stack depends on services that the Great Firewall blocks or throttles.
 
 For Bassetti, this meant their Chinese prospects and partners simply could not reliably access the website. That's a serious problem when you're actively trying to build business in a new market, and it needed to be solved.
 
@@ -47,7 +47,7 @@ The findings were pretty much what we expected:
 
 ## The Fix: Clean Swaps, Custom Code, and Real Testing
 
-Some of these were straightforward replacements. But there were also a few theme-level issues that didn't have any clean plug-and-play fix, so we ended up writing custom code patches for those. Everything got tested from real connections inside mainland China. No VPNs, no proxies, just actual conditions on the ground.
+Some of these were quick swaps. But a few theme-level issues had no clean off-the-shelf fix, so we wrote custom code patches for those. Everything got tested from real connections inside mainland China. No VPNs, no proxies, just actual conditions on the ground.
 
 On the operations side, we took care of the .cn domain setup, and guided Bassetti through the ICP filing process. If you've never been through an ICP filing, it's one of those regulatory steps that catches most foreign companies off guard the first time. After that we got hosting set up on servers located in China, and put together an ongoing support and maintenance plan.
 

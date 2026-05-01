@@ -17,7 +17,7 @@ services: ["strategy-audit", "china-migration", "china-hosting", "maintenance-su
 
 Bassetti, groupe technologique présent en Europe, sur le continent américain et en Asie, a décidé de muscler son dispositif numérique en Chine continentale. Première constatation de l'équipe : le site existant ne tiendrait pas la route. Bâti sur WordPress et Elementor, il tournait parfaitement pour les internautes européens ou nord-américains. Depuis Shanghai ou Pékin, changement de décor. Google Fonts, reCAPTCHA, appels vers des CDN étrangers, extensions tierces : l'essentiel de ces briques était bloqué net ou si ralenti qu'il en devenait inutilisable.
 
-C'est un constat que les entreprises internationales font généralement sur le tard. Un site WordPress qui file comme un métronome en Occident peut tomber en rade en Chine, parce qu'une part décisive de l'infrastructure web moderne s'appuie sur des services que le Grand Pare-feu bloque ou ralentit.
+Les entreprises internationales le découvrent souvent à leurs dépens. Un site WordPress qui file comme un métronome en Occident peut tomber en rade en Chine, parce qu'une part décisive de l'infrastructure web moderne s'appuie sur des services que le Grand Pare-feu bloque ou ralentit.
 
 Résultat très concret : les prospects et partenaires chinois de Bassetti n'arrivaient tout simplement pas à accéder au site de façon fiable. Un vrai frein quand on veut prendre pied sur un nouveau marché, et un dossier qui exigeait une réponse rapide.
 

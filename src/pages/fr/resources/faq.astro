@@ -1,12 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
 import FAQAccordion from '../../../components/pages/FAQAccordionFr.astro';
+
+const totalQuestions = (await getCollection('faq-fr')).length;
 ---
 
 <PageLayout
-  title="FAQ WordPress en Chine : 30 réponses sans détour"
-  description="Licence ICP, référencement Baidu, Grand Pare-feu, hébergement local : les trente questions qui reviennent sur WordPress en Chine, avec des réponses directes."
+  title={`FAQ WordPress en Chine : ${totalQuestions} réponses sans détour`}
+  description={`Licence ICP, référencement Baidu, Grand Pare-feu, hébergement local : les ${totalQuestions} questions qui reviennent sur WordPress en Chine, avec des réponses directes.`}
   lang="fr"
 >
   <!-- Hero -->
@@ -14,7 +17,7 @@ import FAQAccordion from '../../../components/pages/FAQAccordionFr.astro';
     <div class="mx-auto max-w-[1400px] section-padding">
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
       <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] max-w-2xl">Vos questions, nos réponses</h1>
-      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">ICP, hébergement, Baidu, Grand Pare-feu : les mêmes interrogations reviennent chaque semaine. Voici trente réponses franches, écrites depuis la Chine par ceux qui y travaillent.</p>
+      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">ICP, hébergement, Baidu, Grand Pare-feu : les mêmes interrogations reviennent chaque semaine. Voici {totalQuestions} réponses franches, écrites depuis la Chine par ceux qui y travaillent.</p>
     </div>
   </section>
 
@@ -29,7 +32,7 @@ import FAQAccordion from '../../../components/pages/FAQAccordionFr.astro';
   <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
     <div class="mx-auto max-w-[1400px] section-padding text-center">
       <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Votre question ne figure pas ici ?</h2>
-      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">Écrivez-nous. Réponse sous 24 heures, avec des éléments concrets, pas des généralités.</p>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">Écrivez-nous. Réponse sous 24 heures, du concret pour avancer.</p>
       <Button href="/fr/contact/" variant="primary" size="lg">Nous soumettre votre question</Button>
     </div>
   </section>

@@ -13,7 +13,7 @@ services: ["china-migration", "chinese-content", "china-hosting", "maintenance-s
 
 VCLS est un cabinet international de conseil spécialisé dans les sciences de la vie. Il accompagne les laboratoires pharmaceutiques, les sociétés de biotechnologie et les acteurs medtech sur leurs parcours réglementaires et la mise sur le marché de produits HealthTech. Stratégie réglementaire, essais cliniques, accès au marché, conformité post-autorisation : le cabinet intervient aux États-Unis, en Europe et en Chine.
 
-Quand VCLS a ouvert un bureau physique en Chine, le volet numérique affichait un vrai décalage. Le site mondial voisinconsulting.com avait été pensé pour une audience occidentale. Vu depuis la Chine continentale, les temps de chargement étaient erratiques, les contenus n'étaient pas taillés pour les professionnels chinois des sciences de la vie, et aucun hébergement local n'était en place. Dans le conseil en sciences de la vie, un site lent ou inaccessible n'est pas un détail. C'est la première chose qu'un prospect basé à Shanghai vérifie avant d'accorder un rendez-vous.
+Quand VCLS a ouvert un bureau physique en Chine, le volet numérique affichait un vrai décalage. Le site mondial voisinconsulting.com avait été pensé pour une audience occidentale. Vu depuis la Chine continentale, les temps de chargement étaient erratiques, les contenus n'étaient pas taillés pour les professionnels chinois des sciences de la vie, et aucun hébergement local n'était en place. Dans le conseil en sciences de la vie, le site est la première chose qu'un prospect basé à Shanghai vérifie avant d'accorder un rendez-vous.
 
 | | |
 |---|---|

@@ -26,7 +26,7 @@ ZeinLey est un fabricant d'emballages pharmaceutiques installé à Ningbo. L'ent
 
 ZeinLey venait d'achever un repositionnement de fond : nouvelle identité, nouveau discours, nouvelle direction visuelle. Restait à lui doter d'un site à la mesure de la refonte. Pas un site parmi d'autres. ZeinLey avait besoin d'une plateforme bilingue capable de servir en parallèle le marché chinois et les acheteurs pharmaceutiques internationaux, avec une infrastructure distincte pour chacun.
 
-L'enjeu n'était pourtant pas technique. Il était éditorial. Rien n'existait. Pas d'arborescence, pas de structure de pages, pas un paragraphe, pas même une idée arrêtée de ce qui devait aller où.
+L'enjeu central, c'était l'éditorial. Rien n'existait. Pas d'arborescence, pas de structure de pages, pas un paragraphe, pas même une idée arrêtée de ce qui devait aller où.
 
 Dans le pharmaceutique, où les spécifications produit ne souffrent aucune approximation et où la crédibilité réglementaire fait foi, on ne bouche pas ce vide avec un gabarit et quelques textes de remplissage. ZeinLey avait besoin d'une équipe capable de partir de rien : définir ce que le site devait dire, en dessiner la structure, l'écrire dans deux langues, puis tout intégrer dans WordPress sur deux environnements d'hébergement séparés.
 
@@ -36,11 +36,11 @@ Le projet a démarré là où il devait vraiment commencer, par la stratégie de
 
 Cette phase dépasse les attentes de la plupart des clients. L'idée que l'intelligence artificielle peut aujourd'hui torcher le contenu d'un site circule beaucoup. C'est partiellement vrai quand on part d'une matière première existante. Mais quand on démarre de rien, pas de contenu déjà écrit, pas de documentation interne, pas de cadre de messages, l'IA n'apporte pas grand-chose. Il faut toujours quelqu'un pour conduire les entretiens, trancher sur la structure, arbitrer ce qui va où, puis faire valider chaque ligne par ceux qui connaissent réellement les produits. Chez ZeinLey, ce socle n'existait pas. C'est donc par là que nous avons commencé.
 
-## Écrire pour deux marchés, sans traduire de l'un à l'autre
+## Écrire chaque marché dans sa propre langue
 
-L'arborescence une fois posée, nous avons rédigé l'intégralité des textes nativement en chinois et en anglais. Non pas traduits d'une langue à l'autre, mais écrits séparément pour chaque audience, avec le ton et le vocabulaire technique propres à chaque marché. Quand on décrit des dispositifs d'administration de médicaments et des produits de qualité pharmaceutique, le registre doit être irréprochable. L'à-peu-près ne fait pas que nuire à l'image : il fragilise la crédibilité auprès d'acheteurs qui connaissent exactement ces produits et savent comment on en parle.
+L'arborescence une fois posée, nous avons rédigé l'intégralité des textes nativement en chinois et en anglais. Chaque langue a été écrite séparément pour son public, avec le ton et le vocabulaire technique propres à chaque marché. Quand on décrit des dispositifs d'administration de médicaments et des produits de qualité pharmaceutique, le registre doit être irréprochable. L'à-peu-près fragilise la crédibilité auprès d'acheteurs qui connaissent exactement ces produits et savent comment on en parle.
 
-> Rédiger pour le marché chinois n'a rien d'un exercice de traduction. C'est un travail éditorial autonome, avec ses codes, ses tournures et ses présupposés sur ce que le lecteur sait déjà.
+> Rédiger pour le marché chinois est un travail éditorial à part entière, avec ses codes, ses tournures et ses présupposés sur ce que le lecteur sait déjà.
 
 Le design est venu après le contenu. Nous avons bâti des maquettes fidèles à la nouvelle identité de ZeinLey, en veillant à ce que la structure bilingue reste lisible et que chaque utilisateur, quelle que soit sa langue, retrouve ses repères. L'ensemble a été intégré sous WordPress avec un support multilingue complet.
 

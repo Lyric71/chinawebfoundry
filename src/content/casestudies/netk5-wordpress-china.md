@@ -13,7 +13,7 @@ services: ["chinese-content", "china-hosting", "technical-integration", "mainten
 
 NETK5 has been providing IT infrastructure services to international companies in China since 2002. Network installation, helpdesk, Wi-Fi design, cybersecurity, cloud hosting, data backup. Clients include De Beers and Orpea, covering everything from Shanghai flagship stores to factory floors.
 
-They know IT in China better than almost anyone. But knowing infrastructure and knowing how to turn 20+ years of experience into a website that communicates clearly to a new visitor are two very different problems. The issue wasn't technical skill. It was content. How do you organise that breadth of expertise so a prospective client doesn't get lost on the first click?
+They know IT in China better than almost anyone. But knowing infrastructure and knowing how to turn 20+ years of experience into a website that communicates clearly to a new visitor are two very different problems. The issue was content. How do you organise that breadth of expertise so a prospective client doesn't get lost on the first click?
 
 | | |
 |---|---|
@@ -25,7 +25,7 @@ They know IT in China better than almost anyone. But knowing infrastructure and 
 
 ## Organising Two Decades of Expertise
 
-We started with content structure and strategy. NETK5's offering is broad: managed IT, network installation, Wi-Fi surveys, hosting, helpdesk, cybersecurity, cloud. They serve SMEs and multinationals across offices, factories, warehouses, retail. The question wasn't what they could do. It was how to organise it so different visitors, an IT manager evaluating outsourcing, an operations director setting up a factory, a business owner who just needs the Wi-Fi handled, could each find what mattered to them.
+We started with content structure and strategy. NETK5's offering is broad: managed IT, network installation, Wi-Fi surveys, hosting, helpdesk, cybersecurity, cloud. They serve SMEs and multinationals across offices, factories, warehouses, retail. The challenge was how to organise all of it so different visitors, an IT manager evaluating outsourcing, an operations director setting up a factory, a business owner who just needs the Wi-Fi handled, could each find what mattered to them.
 
 ## WordPress, Hosting, and Integration
 

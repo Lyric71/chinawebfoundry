@@ -25,7 +25,7 @@ services: ["strategy-audit", "china-migration", "china-hosting", "maintenance-su
 
 IMHOF est une maison suisse d'horlogerie de luxe basée à Bienne. Ses racines plongent à La Chaux-de-Fonds, ville dont l'identité horlogère est telle que l'UNESCO lui a reconnu le statut de patrimoine mondial. La Arthur Collection, une ligne de garde-temps façonnés à la main, cadrans colorés et mouvements mécaniques, se vend dans le monde entier via une boutique en ligne WordPress adossée à WooCommerce et Elementor.
 
-La Chine pèse parmi les tout premiers marchés de la montre suisse de luxe, représentant selon certaines études près du tiers des achats de luxe au niveau mondial. Les consommateurs chinois ne se contentent plus d'acheter : ils se documentent, comparent, et de plus en plus souvent passent commande directement sur les sites des maisons. Pour IMHOF, offrir à cette clientèle une boutique en ligne à la hauteur n'avait rien d'un caprice, c'était une nécessité commerciale.
+La Chine pèse parmi les tout premiers marchés de la montre suisse de luxe, représentant selon certaines études près du tiers des achats de luxe au niveau mondial. Les consommateurs chinois se documentent en ligne, comparent les modèles et passent de plus en plus souvent commande directement sur les sites des maisons. Pour IMHOF, offrir à cette clientèle une boutique en ligne à la hauteur relevait de la nécessité commerciale.
 
 ## Une belle vitrine, inutilisable depuis Pékin
 
@@ -50,7 +50,7 @@ Les blocages touchaient la quasi-totalité des pages :
 
 Audit bouclé, place à la migration. Réservation du domaine pour le marché chinois, pilotage de l'enregistrement ICP, mise en production de l'hébergement sur des serveurs en Chine continentale. Puis les correctifs techniques, un par un : substitution des polices bloquées par des alternatives hébergées localement, remplacement de Google Analytics par un outil de mesure compatible, reconfiguration des paiements WooCommerce pour les acheteurs chinois, reconstruction du formulaire de contact afin qu'il passe par des services accessibles depuis le continent.
 
-> Sur un site marchand de luxe, l'expérience de paiement n'est pas qu'une mécanique. C'est un pan entier de la marque.
+> Sur un site marchand de luxe, l'expérience de paiement fait partie intégrante de la marque.
 
 Nous avons aussi passé au peigne fin l'ensemble des contenus. Chaque fiche produit, chaque visuel, chaque bloc de texte. Sur un site marchand riche en fiches détaillées et en galerie photographique, rien ne dit qu'une migration a tout rapatrié proprement. Cette étape réclame une vigilance soutenue.
 

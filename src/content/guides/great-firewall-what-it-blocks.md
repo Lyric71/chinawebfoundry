@@ -8,9 +8,9 @@ published: true
 category: Technology
 ---
 
-The Great Firewall doesn't work the way most people imagine. It's not a blacklist. It's a layered system that poisons DNS queries, blocks entire IP ranges, reads the contents of your data packets in real time, and actively hunts for VPN connections. For foreign companies, that means any website with even one dependency on a blocked service - a font file, a tracking script, a map embed - is delivering a broken experience to users in China. And usually nobody on the team knows it's happening.
+The Great Firewall doesn't work the way most people imagine. It's a layered system that poisons DNS queries, blocks entire IP ranges, reads the contents of your data packets in real time, and actively hunts for VPN connections. For foreign companies, that means any website with even one dependency on a blocked service - a font file, a tracking script, a map embed - is delivering a broken experience to users in China. And usually nobody on the team knows it's happening.
 
-## How the Great Firewall Actually Works
+## How the Great Firewall actually works
 
 Five systems running in parallel. They catch different things at different levels.
 
@@ -26,15 +26,15 @@ Five systems running in parallel. They catch different things at different level
 
 **IP blocking** is cruder. Entire IP ranges tied to known foreign services get cut off at the network level. Get past DNS poisoning with an alternate resolver and you still can't connect because the IP itself is blocked.
 
-**Deep Packet Inspection** is the layer that matters most. The system doesn't just check where traffic is headed. It reads what's inside the packets. If the content matches flagged patterns, the connection gets killed mid-transfer. This is what makes China's firewall a different animal from simpler national filtering systems.
+**Deep Packet Inspection** is the layer that matters most. The system reads what's inside the packets, going past the destination header. If the content matches flagged patterns, the connection gets killed mid-transfer. This is what makes China's firewall a different animal from simpler national filtering systems.
 
-> Deep Packet Inspection reads the contents of your traffic, not just the destination. That's the layer that makes the Great Firewall fundamentally harder to bypass than anything else out there.
+> Deep Packet Inspection reads the contents of your traffic at the payload level. That's the layer that makes the Great Firewall fundamentally harder to bypass than anything else out there.
 
-**URL filtering** works at the page level. A domain might stay accessible, but specific URLs with certain keywords get filtered. Surgical rather than blanket.
+**URL filtering** works at the page level. A domain might stay accessible, but specific URLs with certain keywords get filtered. Surgical filtering at the page level.
 
 **VPN detection** is the newest addition. The firewall identifies VPN protocols by their traffic signatures and throttles or blocks them. A consumer VPN that worked reliably two years ago may not connect at all today. The system keeps getting better at recognising them.
 
-## What's Blocked (And Why It Breaks Your Website)
+## What's blocked (and why it breaks your website)
 
 Foreign companies tend to focus on the political side of the Great Firewall. What actually matters for your website is the technical dependencies.
 
@@ -55,11 +55,11 @@ Workplace tools that Western companies depend on: Dropbox, Slack, Notion, Trello
 
 Netflix, Spotify, Twitch. All blocked. Most major Western news sites including the New York Times, Wall Street Journal, and BBC. Blocked.
 
-The part that catches most companies off guard is that it's not just the services themselves. It's every script, font, widget, and API call that touches a blocked domain. One forgotten Google Fonts link buried in your CSS can add seconds to your load time for every single user in China. One analytics tag can hold up your entire page render.
+The part that catches most companies off guard goes past the blocked services themselves. Every script, font, widget, and API call that touches a blocked domain breaks too. One forgotten Google Fonts link buried in your CSS can add seconds to your load time for every single user in China. One analytics tag can hold up your entire page render.
 
-> One forgotten Google Fonts link in your CSS can add seconds to load time for every user in China. It's not the blocked websites that hurt you. It's the blocked dependencies hiding in your code.
+> One forgotten Google Fonts link in your CSS can add seconds to load time for every user in China. The damage hides in your code, in the dependencies you forgot were even there.
 
-## Strategies for Foreign Businesses
+## Strategies for foreign businesses
 
 You can't punch through the firewall. But you can build so your site doesn't need to cross it.
 
@@ -71,7 +71,7 @@ You can't punch through the firewall. But you can build so your site doesn't nee
 | Hong Kong hosting | Middle ground, no ICP needed |
 | VPN awareness | Legal grey area, corporate vs. consumer distinction |
 
-**Host in mainland China with an ICP licence.** This is the most straightforward path. Site lives inside the firewall, not fighting through it. Fastest loads, best Baidu rankings, full compliance. If you're committed to the Chinese market this is where you want to be.
+**Host in mainland China with an ICP licence.** This is the cleanest path. Site lives inside the firewall instead of fighting through it. Fastest loads, best Baidu rankings, full compliance. If you're committed to the Chinese market this is where you want to be.
 
 **Use a China CDN** to cache content at edge nodes inside mainland China. Even with an origin server sitting outside the country, a CDN with mainland PoPs serves cached pages to Chinese users without every request having to fight through the firewall.
 

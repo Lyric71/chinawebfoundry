@@ -10,7 +10,7 @@ category: Legal
 
 Every website on a mainland Chinese server needs an ICP registration. That part is simple enough. What trips foreign companies up is that there are two separate types of ICP with very different rules. One is quick, cheap, and open to most foreign businesses. The other takes months, costs real money, and has an ownership restriction that blocks most foreign companies outright. Getting them confused, or skipping both, means slower pages, lower rankings, and a site that Chinese users may never trust.
 
-## ICP at a Glance
+## ICP at a glance
 
 | | ICP Bei'an (备案) | ICP Commercial Licence (经营性许可证) |
 |---|---|---|
@@ -20,7 +20,7 @@ Every website on a mainland Chinese server needs an ICP registration. That part 
 | **Timeline** | 1 to 4 weeks | 2 to 6 months |
 | **Cost** | Free or minimal admin fees | RMB 5,000 to 20,000+ |
 
-## ICP Bei'an - The Filing You Can Actually Get
+## ICP Bei'an - the filing you can actually get
 
 ICP Bei'an is the baseline. Mandatory for all websites hosted on mainland Chinese servers, whether the site makes money or not. Company profiles, blogs, educational pages, product information - doesn't matter what's on it. If it's hosted in China, it needs Bei'an.
 
@@ -32,7 +32,7 @@ For most foreign companies entering China with a basic company site or content h
 
 The next part is a different story.
 
-## ICP Commercial Licence - The One That Blocks Most Foreign Companies
+## ICP Commercial Licence - the one that blocks most foreign companies
 
 If your website generates revenue in any form - e-commerce, SaaS, online advertising, subscriptions, paid content - you need the ICP Commercial Licence on top of the Bei'an filing.
 
@@ -42,7 +42,7 @@ The ownership restriction is the part that stops most foreign companies cold. Th
 
 Timeline is 2 to 6 months. Costs run from RMB 5,000 to north of RMB 20,000 depending on how complex the application gets. And the compliance process after approval takes some effort too.
 
-## What Happens If You Skip the ICP Entirely
+## What happens if you skip the ICP entirely
 
 Some companies look at all this and decide to just host outside China. Avoid the paperwork, avoid the ownership questions, run the site from a server in Singapore or Frankfurt. Sounds reasonable. But the tradeoffs are worse than most people expect going in.
 
@@ -53,11 +53,11 @@ Some companies look at all this and decide to just host outside China. Avoid the
 | **Great Firewall** | Risk of site being blocked entirely |
 | **User trust** | 78% of Chinese users prefer sites with valid ICP |
 
-The most obvious problem is speed. A website hosted outside mainland China loads 200% or more slower for users in China. That's not a subtle degradation. It's the kind of delay where people close the tab before the page finishes rendering.
+The most obvious problem is speed. A website hosted outside mainland China loads 200% or more slower for users in China. The delay is heavy enough that people close the tab before the page finishes rendering.
 
 Rankings take a hit too. Baidu treats ICP registration as a trust signal. Without one, you're trying to compete on China's biggest search engine with a handicap that no amount of keyword optimisation alone will fix.
 
-The Great Firewall is the other risk. Sites hosted overseas without an ICP aren't just slow, they can get blocked entirely. Doesn't happen to every site, but it happens, and there's no reliable way to predict when or why.
+The Great Firewall is the other risk. Sites hosted overseas without an ICP can get blocked entirely on top of the slow loads. Doesn't happen to every site, but it happens, and there's no reliable way to predict when or why.
 
 And user trust. 78% of Chinese internet users prefer websites with a valid ICP licence number displayed. It's usually down in the footer, and Chinese users absolutely check for it. A site without one reads as either foreign or unprofessional. Not the impression you want to make on a potential customer.
 

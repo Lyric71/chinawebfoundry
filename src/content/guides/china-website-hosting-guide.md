@@ -1,6 +1,6 @@
 ---
 title: "Website Hosting in China: Where You Host Decides Whether You Load"
-subtitle: "For Chinese users, the difference between a site hosted in Shanghai and one hosted in Frankfurt isn't milliseconds. It's whether your page loads at all."
+subtitle: "For Chinese users, the difference between a site hosted in Shanghai and one hosted in Frankfurt comes down to whether your page loads at all."
 summary: "Where you host your China website affects speed, Baidu rankings and compliance. Compare mainland, Hong Kong and overseas hosting plus top cloud providers."
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
@@ -10,7 +10,7 @@ category: Hosting
 
 Hosting is the most underestimated decision in any China web strategy. Pick the wrong server location and your site takes five seconds to load, if it loads at all. Pick the wrong provider and you miss ecosystem integrations your competitors are already using. China's cloud market is dominated by local players, each one wired into a different part of the Chinese internet. The server location question comes down to three tiers with very different tradeoffs. And the CDN you choose here matters more than it does anywhere else in the world.
 
-## China's Cloud Providers
+## China's cloud providers
 
 | Provider | Market Share | Strength |
 |---|---|---|
@@ -24,17 +24,17 @@ China's cloud market doesn't look like what you're used to. AWS and Azure exist 
 
 Alibaba Cloud is the dominant force. 36% to 39% of the market. If your business already touches Alibaba's e-commerce or payments infrastructure, it's the natural choice. For companies entering China without a strong ecosystem preference, Alibaba is also the safe default - widest documentation, biggest partner network, most mature platform overall.
 
-Huawei Cloud and Tencent Cloud split the next tier. Huawei sits between 12% and 19% and is the go-to for enterprise and government work. If you're dealing with Chinese state-owned enterprises or anything government-adjacent, Huawei is often the expected pick, not just a preference. Tencent holds 11% to 16% and is the obvious choice if your strategy involves WeChat mini-programs or QQ services. The WeChat integration alone makes it the default for companies building around that platform.
+Huawei Cloud and Tencent Cloud split the next tier. Huawei sits between 12% and 19% and is the go-to for enterprise and government work. If you're dealing with Chinese state-owned enterprises or anything government-adjacent, Huawei is often the expected pick. Tencent holds 11% to 16% and is the obvious choice if your strategy involves WeChat mini-programs or QQ services. The WeChat integration alone makes it the default for companies building around that platform.
 
 Baidu Cloud is niche. Around 5% share, focused on AI and machine learning. Relevant if your stack is AI-heavy. Not where most companies start for general hosting.
 
-Then there's AWS China. Foreign companies gravitate toward it because the name is familiar. About 7% share, operated through local partners Sinnet and NWCD. Important thing to understand: AWS China is a completely separate entity. Separate accounts. Separate billing. Separate compliance process. It's not your global AWS with a Chinese region bolted on.
+Then there's AWS China. Foreign companies gravitate toward it because the name is familiar. About 7% share, operated through local partners Sinnet and NWCD. Important thing to understand: AWS China is a completely separate entity. Separate accounts. Separate billing. Separate compliance process. The global AWS account you already have buys you nothing here.
 
 > AWS China is a completely separate entity from global AWS. Different accounts, different billing, different compliance. Don't assume it's the same product.
 
 Companies that assume otherwise get surprised during setup.
 
-## Mainland vs. Hong Kong vs. Overseas
+## Mainland vs. Hong Kong vs. overseas
 
 | | Mainland China | Hong Kong | Overseas (US/EU) |
 |---|---|---|---|
@@ -50,11 +50,11 @@ Where your servers physically sit determines everything else - provider choice, 
 
 > Mainland-hosted sites load in under one second. Overseas-hosted sites hit 300 to 500ms before the Great Firewall even gets involved.
 
-**Hong Kong** works as a stepping stone. No ICP needed, latency to the mainland runs 50 to 150 milliseconds, and it's a reasonable option for companies testing the market before going through the full ICP process. Also decent for sites serving both Chinese and international audiences from one location. But don't kid yourself - it's a compromise. Not a long-term play for anyone who wants to rank on Baidu or meet PIPL requirements.
+**Hong Kong** works as a stepping stone. No ICP needed, latency to the mainland runs 50 to 150 milliseconds, and it's a reasonable option for companies testing the market before going through the full ICP process. Also decent for sites serving both Chinese and international audiences from one location. But don't kid yourself, it's a compromise. For anyone who wants to rank on Baidu or meet PIPL requirements, it's a stopgap.
 
-And then there's **overseas hosting from the US or Europe.** This is what companies choose when they want to avoid the ICP process entirely. The tradeoff is rough. Latency hits 300 to 500 milliseconds minimum. The Great Firewall adds packet loss on top of that. And there's a genuine risk the site gets blocked altogether. No Baidu trust signal, no PIPL compliance, and load times so slow that most Chinese users will close the tab before your page finishes rendering. If you're hosting in Frankfurt to serve users in Shenzhen, you're losing them before they see your homepage.
+And then there's **overseas hosting from the US or Europe.** This is what companies choose when they want to avoid the ICP process entirely. The tradeoff is rough. Latency hits 300 to 500 milliseconds minimum. The Great Firewall layers packet loss into the picture. And there's a genuine risk the site gets blocked altogether. No Baidu trust signal, no PIPL compliance, and load times so slow that most Chinese users will close the tab before your page finishes rendering. If you're hosting in Frankfurt to serve users in Shenzhen, you're losing them before they see your homepage.
 
-## CDN Providers That Actually Work in China
+## CDN providers that actually work in China
 
 | Provider | Key Advantage |
 |---|---|
