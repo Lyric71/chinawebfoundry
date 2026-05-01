@@ -4,11 +4,11 @@ import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
-const metaTitle = 'WordPress en Chine | Ce qui marche, ce qu’il faut changer | ChinaWebFoundry';
-const metaDescription = 'WordPress fonctionne en Chine quand il est conçu pour. Les cas d’usage adaptés, les ajustements imposés par le Pare-feu, et les alternatives qui ne tiennent pas la route.';
+const metaTitle = 'WordPress en Chine | Ce qui tient, ce qu’il faut revoir | ChinaWebFoundry';
+const metaDescription = 'WordPress passe en Chine, à condition d’y être préparé. Les usages où il s’impose, les ajustements imposés par le Pare-feu, et les alternatives qui ne tiennent pas la distance.';
 
 const stats = [
-  { value: 43, suffix: '%', label: 'des sites web tournent sous WordPress', source: 'W3Techs, 2024' },
+  { value: 43, suffix: '%', label: 'des sites Web fonctionnent sous WordPress', source: 'W3Techs, 2024' },
   { value: 20, suffix: '+', label: 'ans de WordPress en Chine', source: 'Implantés à Shanghai depuis 2005' },
   { value: 50, suffix: '+', label: 'sites internationaux mis en ligne derrière le Pare-feu', source: 'Tous secteurs confondus' },
 ];
@@ -17,57 +17,57 @@ const useCases = [
   {
     icon: 'cart',
     title: 'E-commerce avec WooCommerce',
-    body: 'Pour les marques qui vendent en Chine en dehors de Tmall ou JD, WooCommerce reste ce qui se rapproche le plus d’un vrai socle e-commerce ouvert. Avec Alipay, WeChat Pay et UnionPay branchés, on couvre l’essentiel.',
+    body: 'Pour les marques qui vendent en Chine hors des marketplaces Tmall et JD, WooCommerce reste ce qui se rapproche le plus d’un vrai socle e-commerce ouvert. Une fois Alipay, WeChat Pay et UnionPay intégrés au tunnel, l’essentiel des paiements est couvert.',
     span: 'feature',
     badges: ['WooCommerce', 'Alipay', 'WeChat Pay', 'UnionPay'],
   },
   {
     icon: 'pen',
     title: 'Sites à fort volume éditorial',
-    body: 'Des centaines de pages, une publication régulière, plusieurs auteurs. WordPress a été pensé pour ça. Les rédacteurs qui le connaissent déjà n’ont rien à apprendre.',
+    body: 'Des centaines de pages, une cadence de publication soutenue, plusieurs signatures à coordonner. WordPress a été pensé exactement pour cet usage. Les rédacteurs déjà familiers de l’outil n’ont rien à réapprendre.',
     span: 'normal',
   },
   {
     icon: 'languages',
     title: 'Sites multilingues',
-    body: 'Le chinois aux côtés de l’anglais, du français, de l’allemand ou du japonais. WordPress avec WPML ou Polylang gère trois langues ou plus proprement, avec des sitemaps séparés pour Baidu et Google.',
+    body: 'Le chinois aux côtés de l’anglais, du français, de l’allemand ou du japonais. Couplé à WPML ou Polylang, WordPress encaisse trois langues ou davantage sans broncher, avec des sitemaps distincts pour Baidu et pour Google.',
     span: 'normal',
   },
   {
     icon: 'users',
     title: 'Mis à jour par des non-développeurs',
-    body: 'Équipes marketing, content managers, bureaux régionaux : tous mettent le site à jour sans pipeline de déploiement. Pour une équipe Chine indépendante, cette souplesse compte plus que la vitesse brute.',
+    body: 'Équipes marketing, responsables éditoriaux, bureaux régionaux : chacun publie sans déclencher le moindre pipeline de déploiement. Pour une équipe Chine autonome, cette souplesse pèse souvent plus lourd que la vitesse brute.',
     span: 'normal',
   },
   {
     icon: 'sliders',
-    title: 'Sites à workflows métier',
-    body: 'Espaces membres, capture de leads conditionnelle, contenu réservé, outillage commercial. L’écosystème d’extensions couvre l’essentiel sans développement spécifique.',
+    title: 'Sites à logique métier',
+    body: 'Espaces membres, captation de prospects conditionnelle, contenus réservés, outillage commercial. L’écosystème d’extensions couvre l’essentiel sans le moindre développement sur mesure.',
     span: 'normal',
   },
   {
     icon: 'layers',
-    title: 'Sites construits avec un page builder',
-    body: 'La plupart des sites qu’on reprend sont sous Elementor, Divi ou Gutenberg. Les trois fonctionnent une fois les dépendances nettoyées. Gutenberg reste le plus léger et le plus facile à garder rapide sur un serveur chinois.',
+    title: 'Sites bâtis avec un constructeur de pages',
+    body: 'La majorité des sites que nous reprenons reposent sur Elementor, Divi ou Gutenberg. Les trois tiennent la route une fois les dépendances purgées. Gutenberg garde l’avantage : plus léger, plus simple à maintenir rapide sur un serveur chinois.',
     span: 'wide',
     badges: ['Elementor', 'Divi', 'Gutenberg'],
   },
 ];
 
 const pickAstro = [
-  'Le site est principalement composé de pages marketing, mises à jour une fois par mois ou moins',
-  'La vitesse de chargement est non négociable (landing pages publicitaires, campagnes payantes)',
-  'Vous voulez réduire la surface d’attaque et la charge de maintenance',
-  'Les mises à jour de contenu peuvent passer par un développeur ou par nous',
-  'Vous n’avez pas besoin d’une interface CMS pour des éditeurs non techniques',
+  'Le site se compose pour l’essentiel de pages marketing, actualisées une fois par mois, voire moins',
+  'La vitesse de chargement n’est pas négociable (pages d’atterrissage publicitaires, campagnes payantes)',
+  'Vous cherchez à réduire la surface d’attaque et la charge de maintenance',
+  'Les mises à jour de contenu peuvent passer par un développeur, ou par notre équipe',
+  'Vous n’avez pas besoin d’une interface CMS pour des rédacteurs non techniques',
 ];
 
 const pickWordPress = [
-  'Le travail éditorial est quotidien, pas occasionnel',
-  'Vous gérez trois langues ou plus',
-  'Vous avez du e-commerce ou un espace membres',
-  'Votre équipe maîtrise déjà WordPress et vous ne voulez pas la former à autre chose',
-  'Vous avez besoin d’extensions pour les formulaires, le SEO, le marketing automation ou la conformité',
+  'Le travail éditorial se fait au quotidien',
+  'Vous gérez trois langues ou davantage',
+  'Vous avez une boutique en ligne ou un espace membres',
+  'Votre équipe maîtrise déjà WordPress, et vous n’avez pas envie de la former à un nouvel outil',
+  'Vous avez besoin d’extensions pour les formulaires, le SEO, l’automatisation marketing ou la conformité',
 ];
 
 const changeGroups = [
@@ -78,17 +78,17 @@ const changeGroups = [
       {
         icon: 'type',
         title: 'Polices',
-        body: 'Google Fonts ne charge pas. On auto-héberge ou on remplace par des alternatives compatibles chinois qui livrent les glyphes latins et CJK dans un seul fichier.',
+        body: 'Google Fonts ne se charge pas en Chine. Nous auto-hébergeons les fontes, ou nous les remplaçons par des polices qui couvrent à la fois les glyphes latins et CJK dans un même fichier.',
       },
       {
         icon: 'palette',
         title: 'Thèmes',
-        body: 'La majorité des thèmes ThemeForest appellent des CDN externes, intègrent Google Maps ou chargent des scripts distants qui tombent derrière le Pare-feu. On audite, on remplace, on substitue.',
+        body: 'La majorité des thèmes ThemeForest appellent des CDN étrangers, embarquent Google Maps ou chargent des scripts distants qui s’effondrent derrière le Pare-feu. Nous les passons au crible et nous remplaçons les composants fautifs un à un.',
       },
       {
         icon: 'blocks',
-        title: 'Page builders',
-        body: 'Chacun demande un nettoyage ciblé. On supprime les chargeurs Google Fonts, on remplace les bibliothèques d’icônes externes par des locales, on désactive tout ce qui ping un service bloqué.',
+        title: 'Constructeurs de pages',
+        body: 'Chaque builder réclame un nettoyage ciblé. Nous coupons les chargeurs Google Fonts, nous rapatrions les bibliothèques d’icônes externes en local, et nous désactivons tout appel vers un service bloqué.',
       },
     ],
   },
@@ -98,18 +98,18 @@ const changeGroups = [
     items: [
       {
         icon: 'play',
-        title: 'Embeds',
-        body: 'YouTube devient Youku ou Bilibili. Vimeo devient Tencent Video. Les pixels Facebook deviennent WeChat ou Weibo. Google Maps devient Baidu Map ou Amap.',
+        title: 'Contenus intégrés',
+        body: 'YouTube cède la place à Youku ou Bilibili. Vimeo passe à Tencent Video. Les pixels Facebook deviennent WeChat ou Weibo. Google Maps fait place à Baidu Map ou Amap.',
       },
       {
         icon: 'card',
         title: 'Paiements',
-        body: 'WooCommerce seul ne prendra pas l’argent d’un consommateur chinois. On ajoute Alipay, WeChat Pay et UnionPay, et on configure le checkout selon les usages réels de paiement en Chine.',
+        body: 'WooCommerce seul ne suffit pas pour encaisser le règlement d’un consommateur chinois. Nous ajoutons Alipay, WeChat Pay et UnionPay, puis nous reconfigurons le tunnel de commande selon les habitudes réelles du marché chinois.',
       },
       {
         icon: 'plug',
         title: 'Extensions',
-        body: 'Yoast SEO doit recevoir le support du sitemap Baidu. Google Analytics est remplacé par Baidu Tongji. reCAPTCHA passe à un équivalent chinois. On tient une liste à jour.',
+        body: 'Yoast SEO est étendu au sitemap Baidu. Google Analytics laisse la place à Baidu Tongji. reCAPTCHA bascule sur un équivalent chinois. Nous tenons une liste de correspondances à jour.',
       },
     ],
   },
@@ -120,17 +120,17 @@ const changeGroups = [
       {
         icon: 'server',
         title: 'Hébergement',
-        body: 'Serveur en Chine continentale, licence ICP valide sur le domaine. Aliyun, Tencent Cloud ou Huawei Cloud, selon le projet.',
+        body: 'Serveur en Chine continentale, licence ICP en règle sur le domaine. Aliyun, Tencent Cloud ou Huawei Cloud, selon la nature du projet.',
       },
       {
         icon: 'refresh',
         title: 'Mises à jour automatiques',
-        body: 'Le cœur et les extensions appellent wordpress.org et tombent souvent en timeout depuis la Chine. On route les mises à jour via un proxy ou on planifie des fenêtres manuelles.',
+        body: 'Le noyau et les extensions interrogent wordpress.org, et l’appel arrive souvent à expiration depuis la Chine. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles.',
       },
       {
         icon: 'shield',
         title: 'Sécurité',
-        body: 'Durcissement standard : édition de fichiers admin désactivée, xmlrpc verrouillé, double authentification imposée, WAF sur le cloud chinois. La discipline de mise à jour est plus stricte ici.',
+        body: 'Durcissement standard : édition de fichiers depuis l’admin coupée, XML-RPC verrouillé, double authentification imposée, WAF posé sur le cloud chinois. La discipline de mise à jour, elle, demande davantage de rigueur ici qu’ailleurs.',
       },
     ],
   },
@@ -141,12 +141,12 @@ const changeGroups = [
       {
         icon: 'zap',
         title: 'Performance',
-        body: 'CDN configuré pour la livraison en Chine continentale. Cache empilé. Base de données réglée pour les serveurs cloud chinois. Cible : moins de trois secondes pour le first meaningful paint sur un mobile chinois milieu de gamme.',
+        body: 'CDN paramétré pour la livraison en Chine continentale. Couches de cache empilées. Base de données calibrée pour les serveurs cloud chinois. Cible : moins de trois secondes pour le first meaningful paint sur un téléphone chinois de milieu de gamme.',
       },
       {
         icon: 'search',
         title: 'SEO et recherche IA',
-        body: 'Le contenu critique est en HTML. Outils webmaster Baidu branchés. Site structuré pour que Doubao, Kimi, DeepSeek et Wenxin puissent le lire et le citer.',
+        body: 'Le contenu critique reste servi en HTML. Outils webmaster Baidu raccordés. Site structuré pour que Doubao, Kimi, DeepSeek et Wenxin puissent le lire et le citer.',
       },
     ],
   },
@@ -154,19 +154,19 @@ const changeGroups = [
 
 const pluginBuckets = [
   {
-    eyebrow: 'Premier choix',
-    title: 'Trouver un remplaçant',
-    body: 'Ce qu’on fait dans la majorité des cas. Google Analytics devient Baidu Tongji. reCAPTCHA devient un captcha local. Google Maps devient Amap. Les rédacteurs ne voient pas la différence.',
+    eyebrow: 'Première option',
+    title: 'Trouver une équivalence',
+    body: 'Le réflexe par défaut, dans la majorité des cas. Google Analytics laisse la place à Baidu Tongji. reCAPTCHA cède à un captcha local. Google Maps devient Amap. Côté rédaction, la transition reste invisible.',
   },
   {
-    eyebrow: 'Quand ça s’y prête',
-    title: 'Le retirer',
-    body: 'Si l’extension n’a aucun sens pour un public chinois, on la retire. Moins d’extensions, site plus rapide, surface d’attaque réduite.',
+    eyebrow: 'Quand le contexte le permet',
+    title: 'La désinstaller',
+    body: 'Si l’extension n’a aucune utilité pour un public chinois, nous la désinstallons. Le site s’allège, gagne en rapidité, et offre moins de prise aux attaques.',
   },
   {
     eyebrow: 'Dernier recours',
     title: 'Modifier le code de l’extension',
-    body: 'Extension critique, aucun remplaçant : on modifie le code. Reroute d’un appel API via un proxy, ou substitution d’une URL CDN codée en dur. Uniquement quand la licence le permet.',
+    body: 'Extension critique, aucune équivalence disponible : nous patchons le code. Un appel API redirigé via un proxy, une URL de CDN codée en dur substituée. Uniquement quand la licence l’autorise.',
   },
 ];
 
@@ -182,19 +182,19 @@ const chinaStack = [
 const elementorItems = [
   {
     label: 'Polices',
-    body: 'Elementor charge Google Fonts par défaut, ce qui ne résout pas en Chine. On auto-héberge ou on remplace par des alternatives compatibles chinois.',
+    body: 'Elementor charge Google Fonts par défaut, et l’appel échoue à résoudre en Chine. Nous auto-hébergeons les fontes, ou nous les remplaçons par des polices qui couvrent à la fois les glyphes latins et chinois.',
   },
   {
     label: 'Widgets et composants',
-    body: 'Certains widgets appellent des services bloqués (Google Maps, YouTube, Facebook, reCAPTCHA). On les remplace par des équivalents chinois ou par des composants sur mesure.',
+    body: 'Certains widgets appellent des services bloqués (Google Maps, YouTube, Facebook, reCAPTCHA). Nous les remplaçons par des équivalents chinois, ou par des composants conçus sur mesure.',
   },
   {
     label: 'Bibliothèques d’icônes et CDN',
-    body: 'Les actifs externes sont reroutés pour être chargés localement depuis le serveur chinois.',
+    body: 'Les ressources externes sont rapatriées et servies localement depuis le serveur chinois.',
   },
   {
-    label: 'Templates',
-    body: 'La plupart des templates Elementor partent d’hypothèses qui ne tiennent pas en Chine. On les audite et on les nettoie un par un.',
+    label: 'Modèles',
+    body: 'La plupart des modèles Elementor partent de présupposés qui ne tiennent pas en Chine. Nous les passons en revue un à un et nous les assainissons.',
   },
 ];
 
@@ -202,52 +202,52 @@ const faqs = [
   {
     id: 'wp-icp',
     question: 'Notre site WordPress a-t-il besoin d’une licence ICP pour fonctionner en Chine ?',
-    answer: 'S’il est hébergé en Chine continentale, oui. Si vous hébergez à Hong Kong, non, mais le site sera mesurablement plus lent et Baidu le traitera comme étranger. Pour la plupart des marques étrangères sérieuses sur le marché chinois, la licence ICP vaut le coup.',
+    answer: 'Hébergé en Chine continentale, oui. Hébergé à Hong Kong, non, mais le site y perdra en vitesse de manière mesurable, et Baidu le traitera comme étranger. Pour la plupart des marques étrangères sérieuses sur le marché chinois, la licence ICP justifie l’investissement.',
   },
   {
     id: 'wp-marketing-team',
     question: 'Notre équipe marketing pourra-t-elle continuer à mettre à jour le site WordPress ?',
-    answer: 'Oui. WordPress reste WordPress. L’interface admin est la même, le workflow éditorial est le même, et les rôles fonctionnent comme ils l’ont toujours fait. Les changements qu’on opère sous le capot sont, pour l’essentiel, invisibles pour l’équipe éditoriale.',
+    answer: 'Oui. WordPress reste WordPress. L’interface d’administration ne bouge pas, le circuit éditorial non plus, et les rôles utilisateurs continuent de se comporter comme à l’accoutumée. Les retouches que nous opérons en arrière-plan restent, pour l’essentiel, invisibles côté rédaction.',
   },
   {
     id: 'wp-vs-astro-speed',
     question: 'WordPress est-il plus lent qu’Astro en Chine ?',
-    answer: 'En temps de chargement brut, oui, toutes choses égales par ailleurs. WordPress est dynamique, Astro est statique. En pratique, un site WordPress bien réglé sur Aliyun avec la bonne couche de cache atteint des cibles de performance qui satisfont à la fois les utilisateurs chinois et Baidu. L’écart pèse plus pour certains projets que pour d’autres.',
+    answer: 'En temps de chargement brut, oui, à conditions égales. WordPress est dynamique, Astro est statique. Dans la réalité, un site WordPress correctement réglé sur Aliyun, avec les bonnes couches de cache, atteint les seuils de performance attendus à la fois par les utilisateurs chinois et par Baidu. L’écart pèse davantage sur certains projets que sur d’autres.',
   },
   {
     id: 'wp-elementor-divi',
     question: 'Notre site Elementor ou Divi existant fonctionnera-t-il en Chine ?',
-    answer: 'Probablement pas en l’état. Mais on peut généralement le rendre fonctionnel. On retire les dépendances Google, on change les polices et on reroute les intégrations. La majorité des sites Elementor et Divi qu’on reprend tournent proprement derrière le Pare-feu en quelques semaines.',
+    answer: 'Probablement pas en l’état. Mais le rendre opérationnel reste à notre portée la plupart du temps. Nous retirons les dépendances Google, nous remplaçons les polices, et nous redirigeons les intégrations. La plupart des sites Elementor et Divi que nous reprenons tournent proprement derrière le Pare-feu au bout de quelques semaines.',
   },
   {
     id: 'wp-auto-updates',
     question: 'Et les mises à jour automatiques d’extensions depuis wordpress.org ?',
-    answer: 'Elles échouent ou expirent souvent depuis la Chine, parce que le dépôt wordpress.org est lent ou inaccessible sur les réseaux chinois. On configure le routage des mises à jour via un proxy ou on planifie des fenêtres manuelles. Dans tous les cas, votre équipe n’a pas à s’en occuper au quotidien.',
+    answer: 'Elles échouent ou arrivent à expiration le plus souvent depuis la Chine, parce que le dépôt wordpress.org répond mal, voire pas du tout, sur les réseaux chinois. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles. Dans les deux cas, votre équipe n’a pas à s’en occuper au quotidien.',
   },
   {
     id: 'wp-multilingual',
     question: 'Peut-on garder WPML ou Polylang pour le multilingue ?',
-    answer: 'Oui, les deux fonctionnent bien en Chine une fois le reste du site nettoyé. WPML reste le choix le plus courant pour les sites avec trois langues ou plus et des workflows de traduction complexes. Polylang est plus léger et convient parfaitement à deux ou trois langues. On a beaucoup utilisé l’un comme l’autre. Le choix tient plus à votre processus éditorial qu’à des contraintes propres à la Chine.',
+    answer: 'Oui, les deux passent en Chine sans difficulté, une fois le reste du site assaini. WPML reste le choix le plus courant pour les sites à trois langues ou davantage, et pour les circuits de traduction complexes. Polylang, plus léger, convient parfaitement à deux ou trois langues. Nous avons beaucoup pratiqué l’un comme l’autre. Le choix tient bien plus à votre processus éditorial qu’à des contraintes propres à la Chine.',
   },
   {
     id: 'wp-woocommerce-china',
     question: 'WooCommerce convient-il pour vendre à des consommateurs chinois ?',
-    answer: 'WooCommerce en lui-même fonctionne très bien. Le travail se fait sur la couche checkout. Les consommateurs chinois s’attendent à payer via Alipay, WeChat Pay ou UnionPay, presque toujours sur mobile, presque toujours via QR code. On ajoute ces passerelles de paiement avec des extensions dédiées, et on redessine le tunnel d’achat pour la façon dont les utilisateurs chinois achètent réellement. WooCommerce part du principe qu’on paie par carte ou via PayPal, ce qui n’a pas cours ici.',
+    answer: 'WooCommerce en lui-même tourne très bien. Le travail se concentre sur la couche du tunnel de commande. Le consommateur chinois règle via Alipay, WeChat Pay ou UnionPay, presque toujours sur mobile, presque toujours par scan de QR code. Nous greffons ces passerelles de paiement à l’aide d’extensions dédiées, puis nous redessinons le parcours d’achat pour coller à la façon dont les Chinois achètent vraiment. WooCommerce part du principe d’un paiement par carte bancaire ou via PayPal, hypothèse qui ne s’applique tout simplement pas en Chine.',
   },
   {
     id: 'wp-single-vs-dual',
     question: 'Peut-on faire tourner un seul site WordPress pour la Chine et le reste du monde ?',
-    answer: 'Techniquement oui, avec WordPress Multisite ou un setup multilingue. En pratique, on recommande généralement deux installations WordPress distinctes, une hors de Chine et une sur un serveur chinois continental. La raison est la performance : avec une installation globale unique, les utilisateurs chinois tirent les ressources depuis des serveurs hors du Pare-feu, ce qui annule l’intérêt. Deux installations partagent les workflows éditoriaux quand c’est utile et restent indépendantes quand il le faut.',
+    answer: 'Techniquement, oui, via WordPress Multisite ou une installation multilingue. Dans la pratique, nous recommandons le plus souvent deux installations WordPress distinctes : une à l’extérieur de la Chine, une sur un serveur chinois continental. La raison tient à la performance. Avec une seule installation mondiale, l’utilisateur chinois va chercher ses ressources sur des serveurs situés hors du Pare-feu, ce qui ruine l’intérêt de l’opération. Deux installations peuvent mutualiser les circuits éditoriaux quand c’est utile, et rester indépendantes quand il le faut.',
   },
   {
     id: 'wp-security-china',
     question: 'Comment sécuriser notre site WordPress en Chine ?',
-    answer: 'Le durcissement WordPress standard reste valable. On désactive l’édition de fichiers dans l’admin, on verrouille xmlrpc, on impose la double authentification et on déploie un Web Application Firewall configuré pour le cloud chinois. La discipline supplémentaire en Chine porte sur les mises à jour d’extensions : quand l’auto-update échoue, le site peut rester sur une version périmée plus longtemps qu’une équipe occidentale n’en a l’habitude. On surveille et on patche selon un calendrier fixe.',
+    answer: 'Le durcissement WordPress standard tient toujours. Nous coupons l’édition de fichiers depuis l’admin, nous verrouillons XML-RPC, nous imposons la double authentification, et nous déployons un Web Application Firewall paramétré pour le cloud chinois. La rigueur supplémentaire propre à la Chine porte sur les mises à jour d’extensions : quand l’auto-update tombe en échec, le site peut rester bloqué sur une version vieillissante plus longtemps qu’une équipe occidentale n’en a l’habitude. Nous surveillons, et nous appliquons les correctifs selon un calendrier arrêté à l’avance.',
   },
   {
     id: 'wp-hosting-provider',
-    question: 'Quel hébergeur WordPress est le meilleur pour la Chine ?',
-    answer: 'On utilise Aliyun, Tencent Cloud et Huawei Cloud selon les projets. Les trois disposent de licences continentales, les trois performent bien et les trois supportent correctement la pile WordPress. Aliyun est généralement le choix par défaut pour les sites marketing, Tencent Cloud est solide pour les sites qui s’intègrent à WeChat, et Huawei Cloud revient plus souvent chez les clients qui utilisent déjà l’infrastructure Huawei ailleurs. On gère le compte d’hébergement, le dépôt ICP et les opérations serveur au quotidien, pour que vous n’ayez jamais à vous connecter à un panel d’hébergement chinois vous-même.',
+    question: 'Quel hébergeur WordPress convient le mieux pour la Chine ?',
+    answer: 'Nous travaillons avec Aliyun, Tencent Cloud et Huawei Cloud selon les projets. Les trois disposent de licences continentales, les trois affichent de bonnes performances, et les trois portent correctement la pile WordPress. Aliyun reste le choix par défaut sur les sites marketing. Tencent Cloud se montre solide sur les projets qui s’intègrent à WeChat. Huawei Cloud revient plus souvent chez les clients déjà installés sur l’écosystème Huawei par ailleurs. Nous pilotons le compte d’hébergement, le dépôt ICP et les opérations serveur au quotidien, pour que vous n’ayez jamais à entrer dans un panneau de contrôle d’hébergement chinois par vous-même.',
   },
 ];
 
@@ -300,16 +300,16 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
 
           <h1 class="text-4xl sm:text-5xl lg:text-[72px] xl:text-[84px] font-medium font-[var(--font-heading)] text-white leading-[0.98] tracking-tight">
             WordPress en Chine.
-            <span class="block mt-2 text-[var(--color-brand-orange)]">Oui, ça marche.</span>
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Oui, ça tient.</span>
           </h1>
           <p class="mt-10 text-lg lg:text-xl text-white/65 max-w-xl leading-relaxed">
-            La plupart des clients arrivent déjà sur WordPress. La vraie question, c’est de savoir si ça tient en Chine, et ce qu’il faut changer pour y arriver.
+            La plupart de nos clients arrivent déjà avec WordPress. Reste à savoir si l’installation passe derrière le Pare-feu, et ce qu’il faut revoir pour qu’elle y reste.
           </p>
           <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
-            Vingt ans à Shanghai. Plus de cinquante sites internationaux mis en ligne.
+            Vingt ans d’expérience à Shanghai. Plus de cinquante sites internationaux mis en ligne.
           </p>
           <div class="mt-12 flex flex-wrap gap-4">
-            <Button href="/fr/contact/" variant="primary" size="lg">Parler à notre équipe</Button>
+            <Button href="/fr/contact/" variant="primary" size="lg">Échanger avec l’équipe</Button>
             <Button href="/fr/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro en Chine</Button>
           </div>
         </div>
@@ -349,19 +349,19 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       <div class="io-grid items-center">
         <div class="col-span-12 lg:col-span-6">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Pourquoi ça marche
+            Pourquoi ça tient
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            La plateforme n’est pas le problème.
+            Le moteur WordPress fonctionne en Chine.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            WordPress tourne en Chine. Le cœur, wordpress.org, le workflow de publication standard : tout fonctionne pareil sur un serveur de Shanghai que sur un serveur de Londres, et wp-admin est joignable sans VPN.
+            WordPress fonctionne en Chine. Le noyau, le code livré par wordpress.org, le circuit de publication standard : tout se comporte de la même manière sur un serveur shanghaien que sur un serveur londonien. Le wp-admin reste accessible sans VPN.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Le problème, ce sont ses dépendances par défaut. Les thèmes chargent Google Fonts. Les extensions appellent des API hors du Pare-feu. Les bibliothèques tirent depuis des CDN bloqués. Les embeds pointent vers YouTube. L’analytics appelle Google.
+            L’écueil vient de ses dépendances par défaut. Les thèmes appellent Google Fonts. Les extensions interrogent des API situées hors du Pare-feu. Les bibliothèques se chargent depuis des CDN bloqués. Les contenus intégrés pointent vers YouTube. L’outil de mesure d’audience interroge Google.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Une fois ces dépendances retirées et remplacées par des équivalents locaux, il reste un site WordPress rapide, conforme, indexé par Baidu, et toujours administrable par une équipe qui le maîtrise déjà.
+            Une fois ces dépendances retirées et remplacées par des équivalents chinois, le résultat reste un site WordPress, rapide, conforme, indexé par Baidu, et administrable par une équipe qui le connaît déjà.
           </p>
         </div>
 
@@ -384,7 +384,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
                 Le même wp-admin →
               </p>
               <p class="text-sm text-[var(--color-text-body)] leading-snug">
-                Un site WordPress administré depuis la Chine fait tourner le wp-admin que vous connaissez déjà, sur une infrastructure réglée pour le réseau local.
+                Côté éditeur, le wp-admin reste celui que votre équipe connaît, posé sur une infrastructure pensée pour le réseau chinois.
               </p>
             </div>
             <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
@@ -400,14 +400,14 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
         <div class="max-w-2xl">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            À quoi ça sert
+            Là où il s’impose
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Là où WordPress excelle, en Chine.
+            Les usages où WordPress garde l’avantage, en Chine.
           </h2>
         </div>
         <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed lg:max-w-md">
-          La bonne réponse pour un ensemble précis de cas d’usage. Sur ceux-là, c’est encore le meilleur outil disponible.
+          La bonne réponse pour un éventail précis de besoins. Sur ces terrains, l’outil reste devant.
         </p>
       </div>
 
@@ -497,13 +497,13 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="max-w-2xl mb-14">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-          Quand ce n’est pas le bon choix
+          Quand WordPress n’est pas indiqué
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Quand vous voudriez plutôt Astro.
+          Les cas où Astro l’emporte.
         </h2>
         <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-          On construit avec les deux, ce qui nous permet d’être honnêtes sur ce qui convient. Astro est statique-first, très rapide sur les réseaux mobiles chinois, et la meilleure réponse pour certains projets.
+          Nous construisons avec les deux, ce qui nous autorise à être honnêtes sur le bon outil pour le bon projet. Astro joue la carte du statique d’abord. Il file vite sur les réseaux mobiles chinois et représente la meilleure réponse pour une partie des projets.
         </p>
       </div>
 
@@ -521,7 +521,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
                 Choisir Astro
               </p>
               <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-                Statique-first, orienté marketing.
+                Statique d’abord, orienté marketing.
               </h3>
             </div>
           </div>
@@ -568,7 +568,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       </div>
 
       <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
-        En cas de doute, la <a href="/fr/services/strategy-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Stratégie et Audit</a> est généralement le point de départ de la conversation.
+        Au moindre doute, la <a href="/fr/services/strategy-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Stratégie et Audit</a> reste l’amorce naturelle de la discussion.
       </p>
     </div>
   </section>
@@ -596,13 +596,13 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       <div class="relative mx-auto max-w-[1400px] section-padding pt-20 pb-16 lg:pt-28 lg:pb-24">
         <div class="max-w-2xl">
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-            Ce qu’il faut changer
+            Ce qu’il faut revoir
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] mb-6">
-            Ce qu’on modifie pour que WordPress tienne en Chine.
+            Ce que nous retouchons pour que WordPress tienne en Chine.
           </h2>
           <p class="text-base lg:text-lg text-white/75 leading-relaxed">
-            Une installation WordPress par défaut tombe en Chine dès le premier chargement. Voici ce qu’on modifie, regroupé par couche de travail.
+            Une installation WordPress par défaut s’effondre en Chine dès le premier chargement. Voici ce que nous retouchons, regroupé par couche de travail.
           </p>
         </div>
       </div>
@@ -683,14 +683,14 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
         <div>
           <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
-            Bâti sur la pile chinoise
+            Adossé à la pile chinoise
           </p>
           <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Les hébergeurs et services auxquels on branche WordPress.
+            Les hébergeurs et services auxquels nous raccordons WordPress.
           </h2>
         </div>
         <p class="lg:max-w-xs text-sm text-[var(--color-text-muted)] leading-relaxed">
-          Des fournisseurs sous licence continentale, des performances réelles sur les réseaux chinois, et les services grand public que votre audience utilise vraiment.
+          Des fournisseurs sous licence continentale, des performances mesurées sur les réseaux chinois, et les services grand public que votre audience utilise au quotidien.
         </p>
       </div>
 
@@ -728,14 +728,14 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             </p>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Oui, Elementor fonctionne en Chine.
-            <span class="block text-[var(--color-brand-orange)]">Avec un peu de réglage.</span>
+            Oui, Elementor passe en Chine.
+            <span class="block text-[var(--color-brand-orange)]">À condition de le régler.</span>
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Un site Elementor qui tourne sans accroc à Paris cassera ou ralentira presque à coup sûr depuis Shanghai. Le builder n’est pas en cause, ce sont ses paramètres par défaut.
+            Un site Elementor qui file sans accroc à Paris se traîne ou s’effondre presque toujours depuis Shanghai. Ses réglages d’usine en sont la cause directe.
           </p>
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Une fois réglé, Elementor convient bien aux marques internationales dont l’équipe Chine doit pouvoir mettre le site à jour sans qu’un développeur soit dans la boucle.
+            Une fois assaini, Elementor sert convenablement les marques internationales dont l’équipe Chine doit pouvoir mettre le site à jour sans dépendre d’un développeur.
           </p>
         </div>
 
@@ -769,12 +769,12 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             Migration d’extensions
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Comment on traite les extensions qui ne tiennent pas en Chine.
+            Comment nous traitons les extensions qui ne passent pas en Chine.
           </h2>
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-6 lg:mt-0">
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            La plupart des sites WordPress étrangers arrivent avec 30 à 60 extensions ; beaucoup tombent derrière le Pare-feu. Chacune finit dans l’une des trois catégories suivantes.
+            La plupart des sites WordPress étrangers débarquent chez nous avec 30 à 60 extensions installées. Beaucoup s’effondrent derrière le Pare-feu. Chacune se range dans l’une des trois catégories qui suivent.
           </p>
         </div>
       </div>
@@ -810,7 +810,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       </div>
 
       <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl">
-        Chaque décision est documentée. Si vous nous quittez, l’équipe suivante reprend la main proprement.
+        Chaque décision est consignée. Le jour où vous nous quitterez, l’équipe qui prendra la suite saura précisément où mettre les mains.
       </p>
     </div>
   </section>
@@ -823,10 +823,10 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           Calendrier
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-          Combien de temps ça prend.
+          Le temps que cela demande.
         </h2>
         <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-          Le dépôt ICP est presque toujours sur le chemin critique. On le lance dès le premier jour.
+          Le dépôt ICP se trouve presque toujours sur le chemin critique. Nous le lançons dès le premier jour.
         </p>
       </div>
 
@@ -839,7 +839,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
                 Nouveau site
               </p>
               <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
-                Construction WordPress neuve
+                Construction WordPress depuis zéro
               </h3>
             </div>
             <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
@@ -874,7 +874,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
                 Migration
               </p>
               <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
-                Site existant, prêt pour la Chine
+                Site existant, mis à niveau pour la Chine
               </h3>
             </div>
             <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
@@ -909,7 +909,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           <div class="flex-1">
             <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">Le dépôt ICP avance en parallèle</p>
             <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              Vingt jours ouvrés au minimum à l’échelon provincial, parfois plus. On lance le dépôt dès le premier jour pour qu’il ne bloque jamais la mise en ligne.
+              Vingt jours ouvrés au minimum à l’échelon provincial, parfois davantage. Nous engageons la procédure dès le premier jour, pour qu’elle ne se retrouve jamais sur le chemin critique de la mise en ligne.
             </p>
           </div>
         </div>
@@ -926,7 +926,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             Questions fréquentes
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Dix questions qui reviennent sur WordPress en Chine.
+            Dix questions qui reviennent à propos de WordPress en Chine.
           </h2>
         </div>
 
@@ -960,16 +960,16 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
 
     <div class="relative mx-auto max-w-[1400px] section-padding text-center">
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
-        Démarrer
+        Pour commencer
       </p>
       <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
-        Vous réfléchissez à WordPress pour la Chine ?
+        Vous envisagez WordPress pour la Chine ?
       </h2>
       <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Déjà sur WordPress et le site ne tient pas en Chine ? On peut généralement le remettre d’aplomb. Vous partez de zéro et hésitez entre WordPress et Astro ? La Stratégie et Audit est le point d’entrée habituel.
+        Déjà sous WordPress, mais le site ne tient pas en Chine ? Nous arrivons le plus souvent à le remettre en état. Vous partez de zéro et hésitez encore entre WordPress et Astro ? La Stratégie et Audit reste le point d’entrée le plus naturel.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href="/fr/contact/" variant="primary" size="lg">Parler à notre équipe</Button>
+        <Button href="/fr/contact/" variant="primary" size="lg">Échanger avec l’équipe</Button>
         <Button href="/fr/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro en Chine</Button>
       </div>
     </div>
