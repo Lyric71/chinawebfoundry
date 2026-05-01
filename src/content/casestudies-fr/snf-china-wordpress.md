@@ -13,7 +13,7 @@ services: ["china-hosting", "technical-integration", "maintenance-support"]
 
 SNF est un groupe chimique industriel dont le siège est en France. Premier producteur mondial de polymères hydrosolubles, l'entreprise fournit floculants, coagulants et produits chimiques de spécialité à des secteurs aussi divers que le traitement de l'eau, le pétrole et le gaz, l'exploitation minière ou la papeterie. Plus de 8 000 salariés dans le monde, des opérations sur quatre continents.
 
-En Chine, SNF opère deux sites de production dans la province du Jiangsu, à Taixing et Rudong, et s'appuie sur six bureaux commerciaux déployés entre Pékin, Shanghai, Canton, Chengdu, Wuhan et Xi'an. La Chine est devenue le troisième marché du groupe à l'échelle mondiale. Rien d'une présence d'affichage.
+En Chine, SNF opère deux sites de production dans la province du Jiangsu, à Taixing et Rudong, et s'appuie sur six bureaux commerciaux déployés entre Pékin, Shanghai, Canton, Chengdu, Wuhan et Xi'an. La Chine est devenue le troisième marché du groupe à l'échelle mondiale. L'envergure de l'opération est considérable.
 
 Dans un dispositif de cette envergure, le site web fait partie intégrante de l'infrastructure : opérations commerciales, documentation produit et communication client passent toutes par lui, sur un territoire immense.
 

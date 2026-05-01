@@ -1,7 +1,7 @@
 ---
 title: "Référencement Baidu"
 shortTitle: "SEO"
-description: "Baidu obéit à ses propres lois. Ses critères de classement, ses robots, ses exigences techniques : rien ne ressemble à Google. Nous repensons l'ossature de votre site WordPress, de la structure au netlinking, pour parler la langue de l'algorithme chinois."
+description: "Se positionner sur Baidu demande une stratégie radicalement différente de Google. Nous optimisons la structure de votre site WordPress, ses métadonnées, son contenu et son profil de liens pour l'algorithme de Baidu et ses protocoles de soumission."
 metaTitle: "SEO Baidu pour WordPress en Chine continentale"
 metaDescription: "Spécialistes du SEO Baidu depuis la Chine continentale. Audit technique, mots-clés natifs, ligne éditoriale et acquisition d'autorité : une approche mesurable, pensée pour WordPress."
 icon: "search"
@@ -12,7 +12,7 @@ relatedServices: ["chinese-content", "strategy-audit"]
 
 ## Notre intervention
 
-Baidu n'est pas un Google chinois. Le moteur a sa grammaire propre, ses robots, ses exigences techniques. Nous reprenons votre site WordPress à la racine : configuration serveur, architecture éditoriale, mots-clés, balisage on-page et construction d'autorité dans l'écosystème local.
+Baidu utilise des signaux de classement différents de Google. Nous optimisons votre site WordPress spécifiquement pour Baidu : configuration technique, structure du contenu, recherche de mots-clés, optimisation on-page et construction d'autorité dans l'écosystème web chinois.
 
 ## Ce que nous livrons
 
@@ -25,4 +25,4 @@ Baidu n'est pas un Google chinois. Le moteur a sa grammaire propre, ses robots, 
 
 ## Pour qui
 
-Votre site WordPress ne décolle pas sur Baidu. Vous ouvrez un nouveau terrain en Chine. Votre équipe marketing cherche à sortir du tout-payant. Ou vos référenceurs maîtrisent Google mais butent sur Baidu et ont besoin d'un relais sur le terrain. Dans chacun de ces cas, nous prenons la main.
+Entreprises dont le site WordPress en Chine ne génère pas de trafic organique. Sociétés lançant un nouveau site sur le marché chinois. Équipes marketing qui veulent réduire leur dépendance à l'acquisition payante en Chine. Référenceurs qui maîtrisent Google mais ont besoin d'une équipe locale pour Baidu.

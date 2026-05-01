@@ -12,4 +12,4 @@ relatedServices: ["technical-integration", "china-migration"]
 
 ## Notre intervention
 
-Nous concevons des extensions WordPress taillées pour l'internet chinois, de la première maquette au déploiement. Nous remettons aussi d'aplomb celles qui s'effondrent une fois passées derrière le Grand Pare-feu. WeChat, Alipay, suivi Baidu : nos intégrations couvrent les piliers de l'écosystème local.
+Nous développons des extensions WordPress sur mesure pour l'internet chinois, et nous corrigeons celles qui se cassent derrière le Grand Pare-feu. Intégrations WeChat, Alipay, SEO Baidu et plus encore.

@@ -8,7 +8,7 @@ published: true
 category: Legal
 ---
 
-Beaucoup d'entreprises étrangères s'imaginent que les lois chinoises sur la protection des données ne visent que les sociétés disposant d'un bureau à Pékin ou à Shanghai. C'est faux. Le PIPL, l'équivalent chinois du RGPD, couvre toute entité qui traite des informations personnelles de résidents chinois, peu importe où cette entité se trouve. Si votre site dépose des cookies, collecte des adresses e-mail ou suit le comportement de visiteurs situés en Chine, vous êtes dans le périmètre. En cas d'infraction grave, l'addition grimpe jusqu'à 50 millions de RMB ou 5 % du chiffre d'affaires de l'exercice précédent. Les audits de conformité sont obligatoires depuis mai 2025. Il ne s'agit plus d'un risque à venir. C'est déjà le présent.
+Beaucoup d'entreprises étrangères s'imaginent que les lois chinoises sur la protection des données ne visent que les sociétés disposant d'un bureau à Pékin ou à Shanghai. C'est faux. Le PIPL, l'équivalent chinois du RGPD, couvre toute entité qui traite des informations personnelles de résidents chinois, peu importe où cette entité se trouve. Si votre site dépose des cookies, collecte des adresses e-mail ou suit le comportement de visiteurs situés en Chine, vous êtes dans le périmètre. En cas d'infraction grave, l'addition grimpe jusqu'à 50 millions de RMB ou 5 % du chiffre d'affaires de l'exercice précédent. Les audits de conformité sont obligatoires depuis mai 2025. C'est en cours.
 
 ## Trois lois, un panorama
 
@@ -59,13 +59,13 @@ Si votre entreprise collecte ou traite des données d'utilisateurs chinois sous 
 | Audits de conformité | Obligatoires au titre du PIPL depuis mai 2025 |
 | Procédure de notification en cas de violation | À établir avant qu'un incident ne survienne |
 
-**Nommer un DPD.** Au-delà d'un million de personnes dont les données sont traitées, la désignation d'un délégué à la protection des données est impérative. Exigence du PIPL, pas une recommandation.
+**Nommer un DPD.** Au-delà d'un million de personnes dont les données sont traitées, la désignation d'un délégué à la protection des données est imposée par le PIPL.
 
 **Classifier ses données** : recenser ce qui est collecté, mesurer son niveau de sensibilité, établir la correspondance avec les catégories du DSL. Les données fondamentales de l'État et les données sensibles entraînent des obligations renforcées.
 
 **Stocker les données des utilisateurs chinois en Chine.** Les données personnelles des résidents chinois doivent résider sur des serveurs physiquement installés en Chine continentale. Exigence de la loi sur la cybersécurité, prolongée par le PIPL.
 
-**Recueillir un consentement réel.** Avant toute collecte d'informations personnelles, un consentement explicite et éclairé est requis. Pas une case pré-cochée. Pas des conditions générales enterrées dans un pied de page que personne ne lit. Un accord que l'utilisateur donne activement.
+**Recueillir un consentement réel.** Avant toute collecte d'informations personnelles, un consentement explicite et éclairé doit être donné activement par l'utilisateur. Les cases pré-cochées ne suffisent pas. Les conditions enfouies dans un pied de page que personne ne lit non plus.
 
 > Consentement explicite signifie que l'utilisateur accepte activement. Les cases pré-cochées et le consentement implicite par la poursuite de la navigation ne satisfont pas au PIPL.
 
@@ -73,6 +73,6 @@ Ce point bouscule nombre d'entreprises rodées à l'approche « en poursuivant v
 
 **Encadrer les transferts transfrontaliers.** Si des données d'utilisateurs chinois doivent quitter le territoire, vers des serveurs en Europe ou aux États-Unis par exemple, il faut passer par une évaluation de sécurité gouvernementale, des contrats types ou une certification. Ni raccourci ni seuil d'exemption pour les faibles volumes.
 
-**Mener des audits de conformité.** Obligatoires au titre du PIPL depuis mai 2025. Non pas un exercice ponctuel mais un processus récurrent, sous le regard des auditeurs.
+**Mener des audits de conformité.** Obligatoires au titre du PIPL depuis mai 2025. Un processus continu, sous le regard des auditeurs.
 
 **Préparer les procédures de notification** avant d'en avoir besoin. En cas de violation de données, l'obligation de notifier autorités et personnes concernées s'applique dans des délais imposés. Les entreprises qui n'écrivent leur procédure qu'une fois l'incident survenu se retrouvent en bien plus mauvaise posture.

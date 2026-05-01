@@ -33,7 +33,7 @@ L'issue passait par une migration de fond en comble. Nouveau domaine, enregistre
 
 ## L'audit : mettre le doigt sur ce qui coinçait
 
-Nous avons commencé par un audit complet du site. Pas un survol : une radiographie, dépendance par dépendance, appel d'extension par appel d'extension, chaque composant sollicitant un service hors de Chine y est passé. Le travail s'est fait main dans la main avec l'équipe technique de Bassetti. Ils connaissaient leur infrastructure sur le bout des doigts. Ce qui leur manquait, c'était la visibilité sur son comportement réel derrière le pare-feu.
+Nous avons commencé par un audit complet du site. Une revue approfondie, dépendance par dépendance, appel d'extension par appel d'extension, de chaque composant sollicitant un service hors de Chine. Le travail s'est fait main dans la main avec l'équipe technique de Bassetti. Ils connaissaient leur infrastructure sur le bout des doigts. Ce qui leur manquait, c'était la visibilité sur son comportement réel derrière le pare-feu.
 
 Les conclusions ont confirmé nos hypothèses :
 
@@ -47,15 +47,15 @@ Les conclusions ont confirmé nos hypothèses :
 
 ## La réponse : substitutions ciblées, code sur mesure et tests grandeur nature
 
-Certains correctifs relevaient de la simple permutation. D'autres, liés au thème, n'avaient pas de solution sur étagère. Nous avons écrit du code sur mesure pour chacun d'eux. L'ensemble a été testé depuis de vraies connexions en Chine continentale. Pas de VPN, pas de proxy, la réalité du terrain.
+Certains correctifs relevaient de la simple permutation. D'autres, liés au thème, n'avaient pas de solution sur étagère. Nous avons écrit du code sur mesure pour chacun d'eux. L'ensemble a été testé depuis de vraies connexions en Chine continentale, dans les conditions réelles du terrain.
 
 Côté opérationnel, nous avons pris en main la configuration du domaine .cn et accompagné Bassetti tout au long de la procédure d'enregistrement ICP. Pour qui n'y a jamais goûté, l'ICP est de ces étapes réglementaires qui désarçonnent la plupart des entreprises étrangères la première fois. Nous avons ensuite mis en production l'hébergement sur des serveurs situés en Chine, puis bâti un contrat de support et de maintenance.
 
 ## Le verdict : en ligne en six semaines
 
-Six semaines du coup d'envoi à la mise en ligne. Le site chinois de Bassetti est sorti en pleine conformité, avec des temps de chargement nerveux depuis le continent, zéro ressource bloquée, zéro dépendance résiduelle pointant hors de Chine.
+Six semaines du coup d'envoi à la mise en ligne. Le site chinois de Bassetti est sorti en pleine conformité, avec des temps de chargement rapides depuis le continent, sans ressource bloquée ni dépendance résiduelle pointant hors de Chine.
 
-Les équipes sur place pouvaient enfin partager une URL à leurs interlocuteurs chinois en sachant qu'elle se chargerait. Après six semaines de chantier, c'est ce qui comptait vraiment à leurs yeux.
+Les équipes sur place pouvaient enfin partager une URL à leurs interlocuteurs chinois en sachant qu'elle se chargerait. Après six semaines de chantier, c'est ce qui comptait à leurs yeux.
 
 > « Ce qui nous a le plus marqués, c'est leur double culture. Ils maîtrisent WordPress de bout en bout et savent précisément ce que réclame le marché chinois. Jamais eu besoin de nous répéter. »
 >

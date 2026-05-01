@@ -23,7 +23,7 @@ category: Search
 | Utilisateurs masculins | 74,3 % |
 | Utilisateurs de 24 à 35 ans | 50 % et plus |
 
-Premier constat marquant : le caractère profondément domestique du moteur. 93,9 % du trafic Baidu vient de Chine. Il ne s'agit pas d'un acteur à vocation mondiale, mais d'un outil chinois conçu pour des utilisateurs chinois, indexant du contenu chinois, sous la réglementation chinoise. Point.
+Premier constat marquant : le caractère profondément domestique du moteur. 93,9 % du trafic Baidu vient de Chine. Baidu est un moteur chinois conçu pour des utilisateurs chinois, indexant du contenu chinois, sous la réglementation chinoise.
 
 Côté démographie, le public est jeune et majoritairement masculin. 74,3 % d'hommes, et plus d'un sur deux a entre 24 et 35 ans. Si ce profil colle à votre cible, vous savez désormais par quelle porte elle passe.
 
@@ -87,7 +87,7 @@ Revenons au 34,9 %. Plus d'un résultat sur trois du top 10 de Baidu provient d'
 
 **Protocole Baidu News** : pour les entreprises qui produisent du contenu d'actualité, la soumission via ce protocole débouche sur une indexation prioritaire. Toutes ne peuvent y prétendre, mais pour celles qui le peuvent, le gain est réel.
 
-**Présence sur les réseaux sociaux** : WeChat, Weibo, Xiaohongshu. Ce sont ces plateformes qui façonnent la perception que Baidu se fait de votre marque. Pas Facebook, pas Instagram, pas YouTube, tous trois bloqués en Chine. Les liens vers ces services sont des impasses pour votre audience et signalent à Baidu que votre site n'a pas été pensé pour ce marché.
+**Présence sur les réseaux sociaux** : WeChat, Weibo, Xiaohongshu. Ce sont ces plateformes qui façonnent la perception que Baidu se fait de votre marque. Facebook, Instagram et YouTube sont tous bloqués en Chine. Les liens vers ces services sont des impasses pour votre audience et signalent à Baidu que votre site n'a pas été pensé pour ce marché.
 
 ## Les erreurs que commettent systématiquement les entreprises étrangères
 
@@ -101,6 +101,6 @@ Presque toutes les entreprises étrangères qui peinent sur Baidu reproduisent l
 
 **Des liens vers des plateformes bloquées.** Facebook, YouTube, Twitter : tous coincés derrière le Grand Pare-feu. Chaque lien sortant vers ces services est une impasse pour les utilisateurs en Chine. Et un signal limpide envoyé à Baidu : votre contenu a été conçu pour un autre public.
 
-**La traduction directe des mots-clés.** Les termes de recherche anglais n'ont quasi aucun rapport avec ce que les internautes chinois saisissent sur Baidu. Traduire sa liste Google plutôt que mener une vraie recherche en chinois, c'est optimiser pour des expressions que personne ne tape.
+**La traduction directe des mots-clés.** Les termes de recherche anglais n'ont quasi aucun rapport avec ce que les internautes chinois saisissent sur Baidu. Traduire sa liste Google plutôt que mener une recherche fraîche en chinois, c'est optimiser pour des expressions que personne ne tape.
 
 **L'approche ponctuelle.** Certaines entreprises traitent le référencement Baidu comme un projet borné dans le temps. Audit, corrections, passage à autre chose. Or la fraîcheur du contenu pèse lourd dans le classement : celles qui tiennent leurs positions sont celles qui continuent de publier et de mettre à jour. Celles qui s'arrêtent décrochent en quelques mois, parfois plus vite.

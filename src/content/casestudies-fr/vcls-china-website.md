@@ -27,7 +27,7 @@ Quand VCLS a ouvert un bureau physique en Chine, le volet numérique affichait u
 
 Nous avons bâti le site chinois à partir de voisinconsulting.com. L'identité de marque est restée cohérente, mais les contenus ont fait l'objet d'un travail d'adaptation qui dépasse de loin la simple traduction.
 
-VCLS conseille ses clients sur les dossiers adressés à la National Medical Products Administration (NMPA) et à d'autres autorités chinoises. Le contenu devait donc manier la terminologie réglementaire qui convient et répondre aux questions que se posent réellement les dirigeants pharmaceutiques chinois au moment d'évaluer un partenaire conseil. Ce cabinet a-t-il l'expérience des soumissions NMPA ? Peut-il véritablement ouvrir les portes du marché chinois, ou s'agit-il d'une ligne marketing ?
+VCLS conseille ses clients sur les dossiers adressés à la National Medical Products Administration (NMPA) et à d'autres autorités chinoises. Le contenu devait donc manier la terminologie réglementaire qui convient et répondre aux questions que se posent les dirigeants pharmaceutiques chinois au moment d'évaluer un partenaire conseil. Ce cabinet a-t-il l'expérience des soumissions NMPA ? Peut-il vraiment ouvrir les portes du marché chinois, ou s'agit-il d'une ligne marketing ?
 
 Nous avons repris le site section par section. Certaines pages ont été entièrement réécrites pour le public chinois. D'autres ont demandé un travail plus chirurgical : actualisation des références, réagencement des priorités, substitution d'exemples qui ne parlaient pas au marché local.
 

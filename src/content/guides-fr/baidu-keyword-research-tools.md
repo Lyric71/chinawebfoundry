@@ -8,7 +8,7 @@ published: true
 category: Search
 ---
 
-Exporter ses meilleurs mots-clés Google, les passer dans un traducteur, puis les intégrer à sa stratégie Chine. Voilà le réflexe de la plupart des entreprises étrangères. Et voilà pourquoi elles échouent presque toutes. La traduction n'est pas en cause. Les internautes chinois, eux, ne cherchent tout simplement pas comme les anglophones. Autres formulations, autre grammaire, et une langue où les combinaisons possibles autour d'un seul concept se chiffrent en milliers. Voici les trois outils qui ouvrent réellement les données de Baidu, et les raisons pour lesquelles la recherche de mots-clés en chinois constitue une discipline distincte.
+Exporter ses meilleurs mots-clés Google, les passer dans un traducteur, puis les intégrer à sa stratégie Chine. Voilà le réflexe de la plupart des entreprises étrangères. Et voilà pourquoi elles échouent presque toutes. La traduction n'est pas en cause. Les internautes chinois, eux, ne cherchent tout simplement pas comme les anglophones. Autres formulations, autre grammaire, et une langue où les combinaisons possibles autour d'un seul concept se chiffrent en milliers. Voici les trois outils qui donnent accès aux vraies données de Baidu, et les raisons pour lesquelles la recherche de mots-clés en chinois constitue une discipline distincte.
 
 ## Baidu Index
 

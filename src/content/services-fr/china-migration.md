@@ -13,7 +13,7 @@ relatedServices: ["strategy-audit", "china-hosting"]
 
 ## Notre intervention
 
-Une migration WordPress complète vers une infrastructure calibrée pour la Chine. Nous orchestrons chaque étape, côté technique comme côté réglementaire. Votre site actuel reste en production jusqu'au moment où le nouvel environnement a été testé, éprouvé et validé.
+Migration complète de votre site WordPress vers une infrastructure conforme aux exigences chinoises. Nous orchestrons chaque étape technique et réglementaire. Votre site actuel reste en production jusqu'à la validation du nouvel environnement.
 
 ## Ce que nous livrons
 
@@ -26,4 +26,4 @@ Une migration WordPress complète vers une infrastructure calibrée pour la Chin
 
 ## Pour qui
 
-Vous exploitez un site WordPress en production et devez le rapatrier sur des serveurs chinois. Conformité totale, zéro perturbation sur votre plateforme internationale.
+Entreprises dont le site WordPress doit être déplacé sur des serveurs chinois en pleine conformité, sans perturber le site international existant.

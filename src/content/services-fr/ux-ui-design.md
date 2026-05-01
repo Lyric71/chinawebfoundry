@@ -24,4 +24,4 @@ Nous dessinons des sites WordPress qui sonnent juste pour un public chinois. Maq
 
 ## Pour qui
 
-Vous bâtissez un site WordPress pour la Chine et voulez viser juste dès la première version. Votre site chinois existant patine. Vos équipes marketing préparent des campagnes pour les consommateurs locaux. Ou votre design system global doit être adapté au pixel près pour le marché chinois. Dans chacun de ces scénarios, nous sommes l'équipe qu'il vous faut.
+Entreprises qui construisent un site WordPress pour la Chine et veulent un design solide dès le départ. Sociétés dont le site chinois existant sous-performe. Équipes marketing qui préparent des campagnes pour les consommateurs chinois. Organisations avec un design system global à adapter pour le marché chinois.

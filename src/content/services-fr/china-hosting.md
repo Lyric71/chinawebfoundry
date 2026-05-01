@@ -1,7 +1,7 @@
 ---
 title: "Hébergement en Chine"
 shortTitle: "Hébergement"
-description: "Un hébergement WordPress solide, ancré en Chine continentale. Serveurs véloces, licence ICP, disponibilité garantie, centres de données locaux. Nos équipes opèrent l'ensemble. Vous n'ouvrirez jamais une console d'administration en chinois."
+description: "Hébergement WordPress fiable en Chine continentale. Serveurs rapides, infrastructure sous licence ICP, disponibilité garantie et centres de données locaux. Nous gérons tout, vous n'ouvrez jamais une console d'administration en chinois."
 metaTitle: "Hébergement WordPress en Chine, rapide et conforme ICP"
 metaDescription: "Un hébergement WordPress calibré pour la Chine continentale. Serveurs locaux, licence ICP, CDN et supervision : nous opérons la chaîne complète pour un site rapide derrière le Grand Pare-feu."
 icon: "server"
@@ -12,7 +12,7 @@ relatedServices: ["china-migration", "maintenance-support"]
 
 ## Notre intervention
 
-Votre WordPress tourne sur Alibaba Cloud, hébergé en Chine continentale. Des temps de réponse courts pour les visiteurs chinois, une conformité réglementaire sans faille, et une infrastructure entièrement pilotée par nos équipes.
+Nous gérons votre hébergement WordPress sur l'infrastructure Alibaba Cloud située en Chine continentale. Votre site charge vite pour les visiteurs chinois et respecte les exigences locales d'hébergement.
 
 ## Ce qui compose l'offre
 
@@ -25,4 +25,4 @@ Votre WordPress tourne sur Alibaba Cloud, hébergé en Chine continentale. Des t
 
 ## Pour qui
 
-Pour les entreprises qui exigent un hébergement WordPress rapide, stable et pleinement conforme, implanté directement en Chine continentale.
+Entreprises qui ont besoin d'un hébergement WordPress fiable, rapide et conforme en Chine continentale.

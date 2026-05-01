@@ -77,7 +77,7 @@ Coentreprise entre Alibaba et UCWeb, Shenma est intégré dans UC Browser, qui p
 
 > Shenma touche 80 % des utilisateurs mobiles chinois. Exclusivement mobile. Aucune version bureau. Et la plupart des entreprises étrangères n'en ont jamais entendu parler.
 
-Point déterminant pour le commerce en ligne : les produits référencés sur Taobao et Tmall bénéficient d'un classement prioritaire dans les résultats de Shenma. Pour les entreprises qui vendent via les places de marché d'Alibaba, c'est là que leurs fiches produits obtiennent leur meilleure visibilité organique sur mobile. Shenma n'est pas un moteur secondaire pour ces acteurs. C'est un canal de vente surmonté d'une barre de recherche.
+Point déterminant pour le commerce en ligne : les produits référencés sur Taobao et Tmall bénéficient d'un classement prioritaire dans les résultats de Shenma. Pour les entreprises qui vendent via les places de marché d'Alibaba, c'est là que leurs fiches produits obtiennent leur meilleure visibilité organique sur mobile. Shenma fonctionne pour eux comme un canal de vente surmonté d'une barre de recherche.
 
 ## Toutiao Search, l'offensive discrète de ByteDance
 
@@ -95,6 +95,6 @@ Les bonnes pratiques SEO pour Toutiao Search restent peu documentées. L'optimis
 
 Mais ByteDance est ByteDance. Douyin, Toutiao, et une constellation de services qui brassent des centaines de millions d'utilisateurs. Pas le genre de groupe à lancer un projet pour le laisser mourir. Si vous produisez déjà du contenu pour Douyin, Toutiao Search constitue un canal supplémentaire où ce contenu peut émerger. Ce n'est pas une priorité pour la plupart des entreprises aujourd'hui.
 
-> ByteDance a racheté Hudong Baike pour alimenter Toutiao Search en contenu encyclopédique. Le signal est clair : un projet de long terme, pas une initiative marginale.
+> ByteDance a racheté Hudong Baike pour alimenter Toutiao Search en contenu encyclopédique. Le signal d'une ambition de long terme.
 
 Mais les moyens et la base d'utilisateurs qui portent cette initiative laissent penser que la donne pourrait bouger plus vite qu'on ne l'imagine.

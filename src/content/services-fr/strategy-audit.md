@@ -13,7 +13,7 @@ relatedServices: ["china-migration", "technical-integration"]
 
 ## Notre intervention
 
-Votre site WordPress passe sous le scalpel. Tout ce qui pèse sur la performance, la conformité et la visibilité en Chine continentale est examiné, mesuré, consigné.
+Analyse complète de votre site WordPress sur tous les facteurs qui influent sur la performance, la conformité et la visibilité en Chine continentale.
 
 ## Ce que nous livrons
 
@@ -26,4 +26,4 @@ Votre site WordPress passe sous le scalpel. Tout ce qui pèse sur la performance
 
 ## Pour qui
 
-Vous avez un site WordPress et voulez savoir, noir sur blanc, ce qu'il faudra faire pour qu'il tienne en Chine. Avant d'engager une migration, vous attendez des réponses nettes. Cet audit les apporte.
+Entreprises qui ont déjà un site WordPress et veulent savoir précisément ce qu'il faudra faire pour qu'il fonctionne en Chine, avant de s'engager dans une migration complète.

@@ -31,7 +31,7 @@ La Chine pèse parmi les tout premiers marchés de la montre suisse de luxe, rep
 
 Dans les faits, le site était injouable pour qui s'y connectait depuis la Chine continentale. Les polices web étaient bloquées. Le paiement ne passait pas. Google Analytics restait muet. Le formulaire de contact se heurtait à un mur. Pour n'importe quel site, c'est un problème. Pour une maison de luxe qui commercialise des garde-temps à plusieurs milliers de dollars, où le parcours d'achat doit être aussi soigné que le produit, c'était rédhibitoire.
 
-IMHOF nous a sollicités pour tout remettre d'aplomb : déménager l'intégralité de la boutique WordPress et WooCommerce en Chine, régler chaque dépendance défaillante et offrir aux acheteurs chinois l'expérience que la marque avait réellement pensée.
+IMHOF nous a sollicités pour tout remettre d'aplomb : déménager l'intégralité de la boutique WordPress et WooCommerce en Chine, régler chaque dépendance défaillante et offrir aux acheteurs chinois l'expérience prévue par la marque.
 
 ## Démonter la mécanique : l'audit technique
 

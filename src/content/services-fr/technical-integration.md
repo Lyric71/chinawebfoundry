@@ -12,7 +12,7 @@ relatedServices: ["plugins-extensions", "china-hosting", "china-migration"]
 
 ## Notre intervention
 
-Nous reprenons chaque strate de votre site WordPress pour qu'il tourne vraiment en Chine. Serveurs, extensions, paiements, analytics, conformité : tout est remis sur les rails.
+Nous reprenons chaque strate de votre site WordPress pour qu'il fonctionne en Chine. Configuration serveur, correctifs d'extensions, paiements locaux, analytics, conformité.
 
 ## Les chantiers couverts
 
@@ -25,4 +25,4 @@ Nous reprenons chaque strate de votre site WordPress pour qu'il tourne vraiment 
 
 ## Pour qui
 
-Votre pile WordPress doit être refondue pour l'internet chinois. Pas un simple échange d'extensions : une reconstruction technique complète. C'est notre terrain.
+Entreprises dont la pile WordPress entière doit être reconstruite pour l'internet chinois, au-delà d'un simple échange d'extensions.

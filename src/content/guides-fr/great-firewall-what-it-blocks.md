@@ -8,7 +8,7 @@ published: true
 category: Technology
 ---
 
-Le Grand Pare-feu n'a rien de ce qu'on imagine. Ce n'est pas une liste noire. C'est un dispositif multicouche qui empoisonne les requêtes DNS, coupe des plages entières d'adresses IP, lit en temps réel le contenu de vos paquets et traque activement les connexions VPN. Pour les entreprises étrangères, la conséquence est brutale : un site qui embarque ne serait-ce qu'une seule dépendance vers un service bloqué, un fichier de police, un script de suivi, une carte, livre une expérience dégradée aux utilisateurs en Chine. Et le plus souvent, personne dans l'équipe ne s'en aperçoit.
+Le Grand Pare-feu fonctionne autrement que ce qu'on imagine. C'est un dispositif multicouche qui empoisonne les requêtes DNS, coupe des plages entières d'adresses IP, lit en temps réel le contenu de vos paquets et traque activement les connexions VPN. Pour les entreprises étrangères, la conséquence est brutale : un site qui embarque ne serait-ce qu'une seule dépendance vers un service bloqué, un fichier de police, un script de suivi, une carte, livre une expérience dégradée aux utilisateurs en Chine. Et le plus souvent, personne dans l'équipe ne s'en aperçoit.
 
 ## Comment fonctionne vraiment le Grand Pare-feu
 
@@ -30,7 +30,7 @@ Cinq dispositifs tournent en parallèle. Chacun intercepte un type de trafic dif
 
 > L'inspection approfondie des paquets analyse le contenu de votre trafic, pas seulement sa destination. C'est cette couche qui rend le Grand Pare-feu fondamentalement plus difficile à contourner que tout autre système existant.
 
-**Le filtrage d'URL** opère à l'échelle de la page. Un domaine peut rester accessible, mais certaines URL contenant des mots-clés précis sont filtrées. Intervention chirurgicale, pas blocage de masse.
+**Le filtrage d'URL** opère à l'échelle de la page. Un domaine peut rester accessible, mais certaines URL contenant des mots-clés précis sont filtrées. Une intervention chirurgicale au niveau de la page.
 
 **La détection VPN** est le mécanisme le plus récent. Le pare-feu reconnaît les protocoles VPN à leur signature et les ralentit ou les coupe. Un VPN grand public qui passait il y a deux ans peut être devenu inutilisable. La capacité de détection progresse en continu.
 
@@ -55,9 +55,9 @@ Les outils professionnels dont vivent les entreprises occidentales : Dropbox, Sl
 
 Netflix, Spotify, Twitch. Bloqués. La plupart des grands titres de presse occidentaux, dont le New York Times, le Wall Street Journal et la BBC. Bloqués.
 
-Ce qui surprend le plus les entreprises, ce ne sont pas les services en tant que tels. Ce sont les scripts, polices, widgets et appels API qui sollicitent en arrière-plan un domaine bloqué. Un simple lien Google Fonts oublié dans le CSS peut ajouter des secondes au chargement pour chaque visiteur en Chine. Une seule balise analytique peut geler le rendu de la page.
+Ce qui surprend le plus les entreprises se joue au-delà des services bloqués eux-mêmes. Chaque script, police, widget ou appel API qui sollicite en arrière-plan un domaine bloqué casse aussi. Un simple lien Google Fonts oublié dans le CSS peut ajouter des secondes au chargement pour chaque visiteur en Chine. Une seule balise analytique peut geler le rendu de la page.
 
-> Un simple lien Google Fonts oublié dans votre CSS peut ajouter des secondes au temps de chargement pour chaque utilisateur en Chine. Le problème ne vient pas des sites bloqués. Il vient des dépendances bloquées planquées dans votre code.
+> Un simple lien Google Fonts oublié dans votre CSS peut ajouter des secondes au temps de chargement pour chaque utilisateur en Chine. Le mal se cache dans votre code, dans les dépendances dont vous aviez oublié l'existence.
 
 ## Stratégies pour les entreprises étrangères
 

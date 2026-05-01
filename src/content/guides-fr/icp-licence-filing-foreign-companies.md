@@ -57,7 +57,7 @@ Le premier problème est la vitesse. Un site hébergé hors de Chine continental
 
 Le référencement suit. Baidu traite l'enregistrement ICP comme un signal de confiance. Sans lui, la compétition sur le premier moteur de recherche chinois démarre avec un handicap qu'aucune optimisation de mots-clés ne rattrapera à elle seule.
 
-Le Grand Pare-feu est l'autre risque. Les sites hébergés à l'étranger sans ICP ne sont pas seulement lents : ils peuvent être purement et simplement bloqués. Ce n'est pas systématique, mais cela arrive, sans qu'on puisse prédire ni quand ni pourquoi.
+Le Grand Pare-feu est l'autre risque. Les sites hébergés à l'étranger sans ICP peuvent, en plus de leur lenteur, être purement et simplement bloqués. Ce n'est pas systématique, mais cela arrive, sans qu'on puisse prédire ni quand ni pourquoi.
 
 Et puis il y a la confiance. 78 % des internautes chinois privilégient les sites qui affichent un numéro ICP valide. Ce numéro figure dans le pied de page, et les utilisateurs chinois le vérifient. Un site qui en est dépourvu passe pour étranger ou peu professionnel. Pas l'impression qu'on cherche à produire auprès d'un prospect.
 

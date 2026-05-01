@@ -12,11 +12,11 @@ L'internet chinois a un mot pour qualifier l'effet d'un marketing de contenu ré
 
 ## Le modèle 种草 (Zhongcao)
 
-À l'heure du déjeuner, une jeune femme fait défiler son fil Xiaohongshu. Tombe sur une note photo signée par quelqu'un qui lui ressemble, montrant un produit de soin inconnu. Rien d'une publicité. Une vraie personne, un vrai avant-après. Elle enregistre la publication et passe à autre chose. Quinze jours plus tard, sur Douyin, la même marque réapparaît dans une courte vidéo. Un mois après, le 11 novembre arrive, elle achète sans réfléchir. Le zhongcao avait fait son travail des semaines plus tôt. L'achat n'a été que la dernière étape.
+À l'heure du déjeuner, une jeune femme fait défiler son fil Xiaohongshu. Tombe sur une note photo signée par quelqu'un qui lui ressemble, montrant un produit de soin inconnu. Une personne ordinaire qui partage un avant-après. Elle enregistre la publication et passe à autre chose. Quinze jours plus tard, sur Douyin, la même marque réapparaît dans une courte vidéo. Un mois après, le 11 novembre arrive, elle achète sans réfléchir. Le zhongcao avait fait son travail des semaines plus tôt. L'achat n'a été que la dernière étape.
 
-C'est tout le principe. Le contenu construit la notoriété et la curiosité bien en amont de l'intention d'achat. On ne vise pas la vente immédiate. On dépose quelque chose qui germe tout seul.
+C'est tout le principe. Le contenu construit la notoriété et la curiosité bien en amont de l'intention d'achat. On dépose quelque chose qui germe tout seul.
 
-> 种草 (zhongcao) : planter l'herbe. On ne vend pas. On installe un désir et on le laisse mûrir jusqu'au passage à l'acte.
+> 种草 (zhongcao) : planter l'herbe. On installe un désir dans la tête de quelqu'un et on le laisse mûrir jusqu'au passage à l'acte.
 
 Les plateformes où cette graine prend racine : Xiaohongshu, Douyin, Weibo, Zhihu, WeChat et Bilibili.
 
@@ -37,9 +37,9 @@ Chaque plateforme joue une partition propre. Certaines servent à la découverte
 
 **Douyin** carbure à la vitesse et au divertissement. 15 à 60 secondes, drôle ou instructif, idéalement les deux. Surfer sur les tendances fait partie du jeu : sons populaires, formats du moment, hashtags en vogue. Si Xiaohongshu est le premier contact avec une marque, Douyin est l'endroit où elle resurgit sans qu'on l'ait cherchée.
 
-**WeChat** ne ressemble à aucune autre plateforme de cette liste. C'est le territoire de la profondeur. Articles longs, 2 000 à 5 000 mots. Récits. Contenu éducatif. Identité de marque. WeChat n'est pas le lieu de la découverte, mais celui où les personnes déjà intéressées s'engagent plus avant. Une plateforme de relation, pas de conquête.
+**WeChat** ne ressemble à aucune autre plateforme de cette liste. C'est le territoire de la profondeur. Articles longs, 2 000 à 5 000 mots. Récits. Contenu éducatif. Identité de marque. WeChat est le lieu où les personnes déjà intéressées s'engagent plus avant. Une plateforme de relation.
 
-> WeChat n'est pas un outil de découverte. C'est un espace de relation. Articles longs, récits, profondeur. On y construit la fidélité, pas la notoriété.
+> WeChat est la plateforme de la relation. Articles longs, récits, profondeur éducative. C'est là que se construit la fidélité.
 
 **Zhihu** est le territoire de la crédibilité. Réponses fouillées aux questions des internautes, articles de fond, analyses sectorielles. Le public y attend expertise et substance. Le discours marketing de surface ne tient pas la route. On gagne la confiance sur Zhihu en démontrant une vraie maîtrise de son domaine.
 
@@ -64,7 +64,7 @@ En Chine, le marketing de contenu est rythmé par le calendrier avec une intensi
 
 **Le Festival 618 (18 juin)** est le grand rendez-vous de mi-année, porté par JD.com. Même mécanique que le Double 11, à une échelle un cran en dessous. Promotions agressives, trafic considérable. La planification éditoriale démarre en avril ou mai.
 
-**Le Nouvel An chinois (janvier-février)** est la fête culturelle la plus importante de l'année. Moins orienté e-commerce que le Double 11, davantage tourné vers l'émotion. Campagnes d'enveloppes rouges, récits de famille, imagerie de retrouvailles. Les dépenses sont bien réelles, mais le registre relève de la chaleur humaine, pas de la promotion.
+**Le Nouvel An chinois (janvier-février)** est la fête culturelle la plus importante de l'année. Moins orienté e-commerce que le Double 11, davantage tourné vers l'émotion. Campagnes d'enveloppes rouges, récits de famille, imagerie de retrouvailles. Les dépenses sont bien réelles, et le ton penche vers la chaleur humaine.
 
 **La Journée des femmes (8 mars)** est devenue un événement commercial majeur en Chine, sans commune mesure avec ce qu'elle représente en Occident. Les campagnes et promotions à destination des femmes y obtiennent d'excellents résultats.
 

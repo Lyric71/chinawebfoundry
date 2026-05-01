@@ -24,11 +24,11 @@ Le paysage chinois du cloud n'a pas d'équivalent ailleurs. AWS et Azure sont bi
 
 Alibaba Cloud domine la catégorie. 36 à 39 % du marché. Pour toute activité déjà reliée aux rails du e-commerce ou du paiement Alibaba, le choix s'impose de lui-même. Et pour une entreprise qui débarque en Chine sans préférence écosystémique, Alibaba fait figure de valeur sûre : documentation la plus fournie, réseau de partenaires le plus dense, plateforme la plus mûre.
 
-Huawei Cloud et Tencent Cloud se disputent la deuxième place. Huawei, entre 12 et 19 %, s'est imposé dans les projets d'entreprise et le secteur public. Face à des interlocuteurs issus d'entreprises d'État ou d'organismes proches du pouvoir, Huawei n'est pas seulement préféré, il est attendu. Tencent, entre 11 et 16 %, devient le réflexe dès lors qu'une stratégie s'appuie sur les mini-programmes WeChat ou les services QQ. Son intégration à WeChat en fait le choix par défaut de toute entreprise qui se construit autour de la plateforme.
+Huawei Cloud et Tencent Cloud se disputent la deuxième place. Huawei, entre 12 et 19 %, s'est imposé dans les projets d'entreprise et le secteur public. Face à des interlocuteurs issus d'entreprises d'État ou d'organismes proches du pouvoir, Huawei est souvent le choix attendu. Tencent, entre 11 et 16 %, devient le réflexe dès lors qu'une stratégie s'appuie sur les mini-programmes WeChat ou les services QQ. Son intégration à WeChat en fait le choix par défaut de toute entreprise qui se construit autour de la plateforme.
 
 Baidu Cloud occupe une niche. Environ 5 % du marché, centré sur l'intelligence artificielle et l'apprentissage automatique. Pertinent pour une infrastructure technique fortement orientée IA. Rarement un point de départ pour de l'hébergement classique.
 
-Reste AWS Chine. Les entreprises étrangères s'y précipitent par réflexe, le nom leur étant familier. Environ 7 % du marché, opéré via les partenaires locaux Sinnet et NWCD. Attention : AWS Chine est une entité strictement distincte. Comptes séparés. Facturation séparée. Conformité séparée. Ce n'est pas votre AWS mondial augmenté d'une région chinoise.
+Reste AWS Chine. Les entreprises étrangères s'y précipitent par réflexe, le nom leur étant familier. Environ 7 % du marché, opéré via les partenaires locaux Sinnet et NWCD. Attention : AWS Chine est une entité strictement distincte du AWS mondial. Comptes séparés. Facturation séparée. Conformité séparée. Le compte AWS mondial dont vous disposez déjà ne vous donne aucun accès ici.
 
 > AWS Chine est une entité totalement distincte d'AWS mondial. Comptes différents, facturation différente, conformité différente. Ne partez pas du principe que c'est le même produit.
 
