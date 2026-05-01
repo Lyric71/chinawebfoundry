@@ -2,165 +2,985 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
-const metaTitle = 'Astro en Chine | Sites statiques rapides derrière le Pare-feu | ChinaWebFoundry';
-const metaDescription = 'Sites Astro pensés pour la Chine. Performance native, hébergement local, contenu géré par votre équipe. Quand la vitesse compte plus que la flexibilité éditoriale.';
+const metaTitle = 'Astro en Chine | Sites statiques rapides pour le continent | ChinaWebFoundry';
+const metaDescription = 'Astro est la voie la plus rapide pour publier un site marketing en Chine. Ce que c’est, quand l’utiliser, et les ajustements qui le font tenir derrière le Pare-feu.';
 
-const reasons = [
+const stats = [
+  { value: 100, suffix: '', label: 'Score Lighthouse type d’un site Astro, sans réglage manuel', source: 'Sitepins, Astro en 2026' },
+  { value: 60, suffix: '%', label: 'des sites Astro passent les seuils « Good » des Core Web Vitals', source: 'Contre 38 % sur WordPress' },
+  { value: 50, suffix: '%', label: 'de LCP en moins qu’un WordPress comparable, même hébergeur chinois', source: 'Mesures ChinaWebFoundry' },
+];
+
+const useCases = [
   {
-    title: 'Le bon choix quand la vitesse prime',
-    body: 'Pages compilées à l’avance, JavaScript distribué à la demande. Premiers pixels affichés en moins d’une seconde derrière le Pare-feu, sans recourir à un cache complexe.',
+    icon: 'rocket',
+    title: 'Sites marketing et sites de marque',
+    body: 'Sites de marque, pages produit, landing pages, microsites de campagne. La vitesse doit être excellente et le contenu bouge une fois par semaine ou moins. C’est exactement le terrain pour lequel Astro a été pensé, et là où l’avantage de performance saute aux yeux.',
+    span: 'feature',
+    badges: ['Sites de marque', 'Landing pages', 'Microsites'],
   },
   {
-    title: 'Une architecture qui vieillit bien',
-    body: 'Pas d’admin PHP à maintenir, pas de plug-ins à auditer chaque mois. Le contenu vit dans des fichiers Markdown ou un CMS headless, le code reste propre et lisible.',
+    icon: 'book',
+    title: 'Documentation et bibliothèques de ressources',
+    body: 'Starlight, le framework de documentation maison d’Astro, est ce qui se fait de plus solide dans l’écosystème. Pour la documentation technique, les bases de connaissances et les centres de ressources en Chine, le contenu reste rapide à charger et la navigation propre à suivre.',
+    span: 'normal',
   },
   {
-    title: 'Pertinent pour le marketing produit et la documentation',
-    body: 'Sites de marque, pages de campagne, blogs techniques, documentations produit : Astro excelle dès que la fréquence éditoriale n’exige pas un CMS riche.',
+    icon: 'pen',
+    title: 'Sites éditoriaux et blogs',
+    body: 'Les Content Collections offrent un Markdown et un MDX typés, validés au build. Le flux de travail va plus vite que tout ce qu’on a connu sur WordPress, et le rendu est nettement plus léger sur les réseaux mobiles chinois.',
+    span: 'normal',
+  },
+  {
+    icon: 'languages',
+    title: 'Sites marketing multilingues',
+    body: 'Astro intègre nativement le routage i18n. Faire cohabiter le chinois avec l’anglais, le français, l’allemand ou le japonais se fait sans peine. Nous avons livré des sites Astro à dix langues ou plus, sans accroc.',
+    span: 'normal',
+  },
+  {
+    icon: 'zap',
+    title: 'Sites où les Core Web Vitals dictent le budget',
+    body: 'Quand l’achat média dépend de la vitesse de la landing page, ou que votre SEO dépend de l’indexation Baidu, Astro est le framework qui vous y emmène avec le moins de friction. Chargement sous la seconde sur un téléphone chinois milieu de gamme.',
+    span: 'normal',
+  },
+  {
+    icon: 'shield',
+    title: 'Sites à forte exigence de sécurité',
+    body: 'Du HTML statique, donc pas de base de données à attaquer, pas de PHP à exploiter, pas de connexion admin à forcer. Pour les marques déjà piratées par le passé, ou qui opèrent dans des secteurs régulés où la sécurité remonte au comité de direction, la surface d’attaque réduite pèse vraiment dans la balance.',
+    span: 'wide',
+    badges: ['Sans base de données', 'Sans runtime PHP', 'Sans login admin', 'Livraison statique'],
   },
 ];
 
-const stack = [
-  { label: 'Hébergement', body: 'Vercel, Netlify ou Aliyun selon le périmètre. CDN edge calibré pour la Chine continentale et préfixage ICP quand nécessaire.' },
-  { label: 'Contenu', body: 'Markdown, MDX ou collections Astro pour les équipes techniques. Sanity, Contentful ou Strapi pour les équipes marketing autonomes.' },
-  { label: 'Performance', body: 'Score Lighthouse au-dessus de 95 sans astuce. Tests réels depuis Pékin, Shanghai et Shenzhen.' },
-  { label: 'Conformité', body: 'Licence ICP, robots.txt taillé pour Baidu, données utilisateur stockées en Chine quand l’usage l’impose.' },
+const pickAstro = [
+  'Le site est avant tout du contenu et du marketing',
+  'La vitesse de page est une exigence chiffrée et non négociable',
+  'L’équipe accepte un flux piloté par la tech, ou on branche un CMS headless',
+  'Vous voulez réduire les coûts d’hébergement et de maintenance sur la durée',
+  'La sécurité et une surface d’attaque réduite comptent plus que la souplesse éditoriale',
+];
+
+const pickWordPress = [
+  'Votre équipe contenu publie tous les jours sans appeler un développeur',
+  'Vous gérez du e-commerce avec des centaines ou des milliers de références via WooCommerce',
+  'Vous dépendez d’extensions WordPress précises (adhésion, LMS, marketing automation)',
+  'L’équipe marketing utilise Elementor ou Divi et n’a pas envie de migrer',
+  'Le projet est très interactif (tableaux de bord connectés, fonctionnalités temps réel)',
+];
+
+const changeGroups = [
+  {
+    label: 'Frontend',
+    accent: 'amber',
+    items: [
+      {
+        icon: 'type',
+        title: 'Polices',
+        body: 'Les starters Astro chargent souvent depuis Google Fonts. Nous coupons le loader et hébergeons les polices nous-mêmes, ou nous les remplaçons par des polices compatibles chinois qui livrent le latin et le CJK dans un seul fichier.',
+      },
+      {
+        icon: 'palette',
+        title: 'Ressources externes et images',
+        body: 'Certains thèmes Astro pointent vers des CDN occidentaux (jsdelivr, unpkg) pour les icônes ou les bibliothèques. Nous redirigeons tout vers un CDN chinois ou nous embarquons les ressources dans le build. Les images sont servies depuis Aliyun OSS ou Tencent COS dans des formats modernes.',
+      },
+      {
+        icon: 'blocks',
+        title: 'Scripts tiers',
+        body: 'Tout ce qui ping un service bloqué est retiré ou remplacé. Cartes, polices, mesure d’audience, captchas et embeds reçoivent chacun un équivalent compatible Chine pendant le build, avant que le rendu statique ne parte en production.',
+      },
+    ],
+  },
+  {
+    label: 'Intégrations et CMS',
+    accent: 'orange',
+    items: [
+      {
+        icon: 'plug',
+        title: 'CMS headless, quand il faut',
+        body: 'Quand l’équipe éditoriale a besoin d’une interface visuelle, on branche Storyblok, Sanity, Decap ou WordPress headless. Le CMS vit hors de Chine, le contenu se synchronise au build et le site statique vit sur un serveur continental.',
+      },
+      {
+        icon: 'card',
+        title: 'Formulaires et widgets',
+        body: 'Les formulaires tournent en Astro Islands. Google reCAPTCHA devient un captcha chinois. Google Maps devient Baidu Map ou Amap. Les blocs interactifs continuent de fonctionner sans dépendance externe.',
+      },
+      {
+        icon: 'chart',
+        title: 'Analytics',
+        body: 'Vercel Analytics ou Plausible cèdent la place à Baidu Tongji ou à un outil auto-hébergé. Les mêmes tableaux de bord dont l’équipe a besoin, sans aucun endpoint bloqué.',
+      },
+    ],
+  },
+  {
+    label: 'Hébergement et build',
+    accent: 'sky',
+    items: [
+      {
+        icon: 'server',
+        title: 'Hébergement',
+        body: 'Serveur en Chine continentale, dépôt ICP valide sur le domaine. Aliyun, Tencent Cloud ou Huawei Cloud, devant un CDN chinois. Le CDN propre de Cloudflare donne de mauvais résultats sur le continent, donc nous n’y déployons pas.',
+      },
+      {
+        icon: 'refresh',
+        title: 'Pipeline de build',
+        body: 'Le build tourne hors de Chine sur un pipeline CI (GitHub Actions, GitLab CI). Le rendu statique est poussé vers l’hébergeur chinois. Push sur main et le site se met à jour en quelques minutes.',
+      },
+      {
+        icon: 'shield',
+        title: 'Posture de sécurité',
+        body: 'Pas de base de données, pas de runtime PHP, pas de login admin. Le travail de sécurité se déplace vers le pipeline de build et vers le bord du cloud chinois, plutôt que vers un runtime à patcher chaque semaine.',
+      },
+    ],
+  },
+  {
+    label: 'Performance et SEO',
+    accent: 'emerald',
+    items: [
+      {
+        icon: 'zap',
+        title: 'Performance',
+        body: 'Du HTML statique sur un CDN continental, c’est dur à battre. On vise un premier rendu utile sous la seconde sur un téléphone chinois milieu de gamme, et on l’atteint la plupart du temps.',
+      },
+      {
+        icon: 'search',
+        title: 'Baidu et recherche IA',
+        body: 'Baidu n’indexe pas comme Google, donc on cale les métadonnées proprement, on configure Baidu Webmaster Tools et on structure le site pour que Doubao, Kimi, DeepSeek et Wenxin puissent le lire et le citer. Des fichiers en clair dans Git rendent les données structurées et le llms.txt faciles à générer.',
+      },
+    ],
+  },
+];
+
+const fitBuckets = [
+  {
+    eyebrow: 'Astro convient',
+    title: 'Sites marketing à interactivité légère',
+    body: 'Un site marketing avec une petite vitrine produit, un formulaire de contact ou quelques widgets interactifs : c’est exactement pour ça qu’Astro a été conçu. Pages statiques, chargements rapides, JavaScript uniquement là où il a sa raison d’être.',
+  },
+  {
+    eyebrow: 'WordPress convient mieux',
+    title: 'E-commerce et éditorial quotidien',
+    body: 'Des milliers de références gérées au quotidien par une équipe non technique, des dépendances profondes à des extensions, des équipes marketing qui vivent dans un page builder. WooCommerce sur WordPress reste la bonne réponse dans la plupart des cas.',
+  },
+  {
+    eyebrow: 'Tout autre outil',
+    title: 'Expériences proches d’une application',
+    body: 'Tableaux de bord connectés, collaboration en temps réel, espaces sociaux, tout ce qui ressemble plus à une application qu’à un site. Au-delà de cette ligne, Next.js ou Remix sont mieux adaptés qu’Astro.',
+  },
+];
+
+const chinaStack = [
+  { name: 'Aliyun', cn: '阿里云', role: 'Hébergement' },
+  { name: 'Tencent Cloud', cn: '腾讯云', role: 'Hébergement' },
+  { name: 'Huawei Cloud', cn: '华为云', role: 'Hébergement' },
+  { name: 'Baidu', cn: '百度', role: 'Recherche et SEO' },
+  { name: 'WeChat', cn: '微信', role: 'Auth et messagerie' },
+  { name: 'Alipay', cn: '支付宝', role: 'Paiements' },
 ];
 
 const faqs = [
   {
-    id: 'astro-vs-wordpress',
-    question: 'Astro ou WordPress, comment choisir ?',
-    answer: 'Astro si la priorité est la vitesse, la maintenance long terme et un contenu structuré stable. WordPress si vos équipes marketing modifient le site chaque semaine et qu’elles ont besoin d’un éditeur visuel familier. Nous tranchons en audit, sans religion technologique.',
+    id: 'astro-icp',
+    question: 'Notre site Astro a-t-il besoin d’une licence ICP pour fonctionner en Chine ?',
+    answer: 'S’il est hébergé en Chine continentale, oui. Si l’hébergement passe par Hong Kong ou Cloudflare, non, mais le site sera mesurément plus lent pour les utilisateurs continentaux et Baidu le traitera comme un site étranger. Pour les marques sérieuses sur le marché chinois, le dépôt ICP vaut le coup.',
   },
   {
-    id: 'editing',
-    question: 'Comment l’équipe marketing met-elle à jour le site ?',
-    answer: 'Trois options : Markdown directement dans le dépôt pour les équipes techniques, un CMS headless connecté à Astro, ou un éditeur visuel comme TinaCMS. Nous calibrons selon votre maturité technique.',
+    id: 'astro-marketing-team',
+    question: 'L’équipe marketing pourra-t-elle continuer à mettre à jour le site ?',
+    answer: 'Cela dépend de la configuration retenue. Avec Markdown et les Content Collections, les modifications passent par Git et requièrent un développeur ou un utilisateur technique à l’aise. Avec un CMS headless connecté (Storyblok, Sanity, Decap), l’équipe éditoriale a une interface visuelle et met le site à jour sans toucher au code. Nous choisissons le bon modèle selon la façon dont l’équipe travaille vraiment.',
   },
   {
-    id: 'china-hosting',
-    question: 'Astro tourne-t-il en Chine sans accroc ?',
-    answer: 'Oui, à condition d’héberger sur un fournisseur sous licence ICP et de retirer les dépendances bloquées : Google Fonts, polices Adobe externes, certains scripts d’analytics. Nous traitons cela en intégration.',
+    id: 'astro-vs-wp-speed',
+    question: 'Astro est-il vraiment plus rapide que WordPress en Chine ?',
+    answer: 'En chiffres bruts, oui. Astro livre du HTML statique avec quasiment zéro JavaScript, ce qui réduit les transferts, accélère le parsing et limite les allers-retours serveur. Nous avons mesuré 40 à 60 % de Largest Contentful Paint en moins sur Astro par rapport à un WordPress comparable, sur le même hébergeur chinois.',
   },
   {
-    id: 'maintenance',
-    question: 'Quelle maintenance après la mise en ligne ?',
-    answer: 'Beaucoup plus légère que sur WordPress. Surveillance, mises à jour de dépendances trimestrielles, ajustements éditoriaux, déploiements continus. Au forfait mensuel.',
+    id: 'astro-headless-cms',
+    question: 'Peut-on utiliser un CMS headless avec Astro ?',
+    answer: 'Oui, c’est l’un des modèles les plus solides d’Astro. Nous avons livré des sites avec Storyblok, Sanity, Decap et WordPress headless. Le CMS vit hors de Chine, là où les rédacteurs travaillent sans soucis de VPN, le frontend statique vit sur un serveur continental, le contenu se synchronise au build. L’équipe éditoriale garde l’interface qu’elle connaît et l’audience chinoise reçoit un site rapide.',
+  },
+  {
+    id: 'astro-ecommerce',
+    question: 'Et le e-commerce sur Astro ?',
+    answer: 'Pour les catalogues petits à moyens (moins de cinq cents références), Astro s’associe bien au commerce headless : Shopify Storefront, Snipcart ou Stripe Checkout pour les paiements internationaux, plus des intégrations sur mesure pour Alipay et WeChat Pay côté consommateurs chinois. Pour le gros e-commerce avec des milliers de références et une équipe non technique qui pilote l’inventaire au quotidien, WooCommerce sur WordPress reste la bonne réponse dans la plupart des cas.',
+  },
+  {
+    id: 'astro-multilingual',
+    question: 'Comment Astro gère-t-il le multilingue côté Chine ?',
+    answer: 'Astro intègre nativement le routage i18n, ce qui rend la cohabitation du chinois avec l’anglais, le français ou n’importe quelle autre langue propre et structurée. URL, balises hreflang et sitemaps par langue fonctionnent dès le départ. Nous avons livré des sites Astro à dix langues ou plus.',
+  },
+  {
+    id: 'astro-migrate-wp',
+    question: 'Peut-on migrer notre WordPress existant vers Astro ?',
+    answer: 'Oui, et nous le faisons régulièrement. Le contenu est exporté de WordPress, restructuré en Content Collections Astro ou redirigé vers un CMS headless, et le design est reconstruit pour la nouvelle pile. Le délai habituel se situe entre quatre et huit semaines. Le résultat : un site plus rapide et des coûts de fonctionnement plus bas, mais on perd l’interface admin WordPress, sauf si on la conserve en backend headless.',
+  },
+  {
+    id: 'astro-hosting',
+    question: 'Quel hébergement utilisez-vous pour Astro en Chine ?',
+    answer: 'Nous hébergeons sur Aliyun, Tencent Cloud ou Huawei Cloud selon le projet. Le build tourne hors de Chine sur un pipeline CI, le rendu statique est poussé vers l’hébergeur chinois, devant un CDN continental. Nous gérons le compte d’hébergement, le dépôt ICP et le pipeline de déploiement, donc votre équipe n’a jamais à se connecter à un panneau d’hébergeur chinois.',
+  },
+  {
+    id: 'astro-maintenance',
+    question: 'Quelle maintenance demande un site Astro ?',
+    answer: 'Beaucoup moins qu’un WordPress, et de loin. Pas de base de données à sauvegarder, pas d’extensions à mettre à jour, pas de versions PHP à upgrader, pas de patchs de sécurité à appliquer toutes les deux semaines. Le framework lui-même reçoit quelques mises à jour par an, les dépendances méritent une revue de temps en temps, et c’est à peu près tout. Pour la plupart des sites marketing, une passe trimestrielle suffit.',
+  },
+  {
+    id: 'astro-cloudflare',
+    question: 'Et le rachat d’Astro par Cloudflare, ça change quoi pour la Chine ?',
+    answer: 'Oui et non. L’investissement plus profond de Cloudflare signifie qu’Astro est désormais soutenu par une infrastructure de trente milliards de dollars, ce qui rassure les clients inquiets de la viabilité long terme. Le framework reste sous licence MIT et déployable n’importe où, y compris chez les fournisseurs cloud chinois. Le CDN propre de Cloudflare donne de mauvais résultats sur le continent, mais les sites Astro se déploient très bien sur Aliyun ou Tencent Cloud sans rien perdre en fonctionnalités.',
   },
 ];
+
+const accentClasses: Record<string, { bg: string; text: string; border: string }> = {
+  amber: { bg: 'bg-amber-500/10', text: 'text-amber-300', border: 'border-amber-500/20' },
+  orange: { bg: 'bg-[var(--color-brand-orange)]/15', text: 'text-[var(--color-brand-orange)]', border: 'border-[var(--color-brand-orange)]/25' },
+  sky: { bg: 'bg-sky-500/10', text: 'text-sky-300', border: 'border-sky-500/20' },
+  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-300', border: 'border-emerald-500/20' },
+};
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
 
+  <ScrollEffects />
+
+  <!-- Hero -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
     <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#0f0f12] to-[#1a1a2e]"></div>
-      <div class="absolute -top-40 left-[10%] w-[500px] h-[500px] rounded-full bg-[#FF7E47]/15 blur-[140px] pointer-events-none"></div>
+      <img src="/images/hero-astro-china-skyline.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
     </div>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 lg:pb-32">
-      <nav aria-label="Fil d’Ariane" class="mb-12">
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Fil d’Ariane" class="pt-20 pb-16 md:pb-20">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
           <li class="before:content-['/'] before:mx-2 text-white/60">Astro</li>
         </ol>
       </nav>
 
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 mb-7">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Astro en Chine</span>
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7">
+          <!-- Astro logo brand mark -->
+          <div class="flex items-center gap-4 mb-8">
+            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-brand-orange)] to-[#EF4444] flex items-center justify-center shadow-[0_8px_30px_rgba(242,95,41,0.4)]">
+              <svg class="h-8 w-auto text-white" viewBox="0 0 85 107" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Astro logo">
+                <path d="M27.5893 91.1365C22.7555 86.7178 21.3443 77.4335 23.3583 70.7072C26.8503 74.948 31.6888 76.2914 36.7005 77.0497C44.4374 78.2199 52.0358 77.7822 59.2231 74.2459C60.0453 73.841 60.8052 73.3027 61.7036 72.7574C62.378 74.714 62.5535 76.6892 62.3179 78.6996C61.7452 83.5957 59.3086 87.3778 55.4332 90.2448C53.8835 91.3916 52.2437 92.4167 50.6432 93.4979C45.7262 96.8213 44.3959 100.718 46.2435 106.386C46.2874 106.525 46.3267 106.663 46.426 107C43.9155 105.876 42.0817 104.24 40.6844 102.089C39.2086 99.8193 38.5065 97.3081 38.4696 94.5909C38.4511 93.2686 38.4511 91.9345 38.2733 90.6309C37.8391 87.4527 36.3471 86.0297 33.5364 85.9478C30.6518 85.8636 28.37 87.6469 27.7649 90.4554C27.7187 90.6707 27.6517 90.8837 27.5847 91.1341L27.5893 91.1365Z"/>
+                <path d="M0 69.5866C0 69.5866 14.3139 62.6137 28.6678 62.6137L39.4901 29.1204C39.8953 27.5007 41.0783 26.3999 42.4139 26.3999C43.7495 26.3999 44.9325 27.5007 45.3377 29.1204L56.1601 62.6137C73.1601 62.6137 84.8278 69.5866 84.8278 69.5866C84.8278 69.5866 60.5145 3.35233 60.467 3.21944C59.7692 1.2612 58.5911 0 57.0029 0H27.8274C26.2392 0 25.1087 1.2612 24.3634 3.21944C24.3108 3.34983 0 69.5866 0 69.5866Z"/>
+              </svg>
+              <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[var(--color-brand-orange)] ring-2 ring-[#0f0f12] animate-pulse"></span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/25">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">Framework · Astro</span>
+            </div>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Astro en Chine.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Conçu pour la vitesse.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            Le framework frontend moderne pour les sites portés par le contenu. Statique d’abord, JavaScript proche de zéro, et très tolérant aux réseaux mobiles chinois lents.
+          </p>
+          <p class="mt-4 text-base text-white/40 max-w-xl leading-relaxed">
+            Repris par Cloudflare depuis janvier 2026. Nous concevons aussi bien Astro que WordPress, donc nous savons dire lequel convient.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/fr/contact/" variant="primary" size="lg">Parler à notre équipe</Button>
+            <Button href="/fr/wordpress/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">WordPress en Chine</Button>
+          </div>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.04]">
-          Astro, quand la vitesse pèse plus que la flexibilité éditoriale.
-        </h1>
-        <p class="mt-7 text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl">
-          Sites compilés à l’avance, JavaScript distribué à la demande, pile minimale et pages qui s’affichent immédiatement, même derrière le Pare-feu. Pour les marques qui veulent un site rapide, propre et durable, sans usine à plug-ins à entretenir.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-3">
-          <Button href="/fr/contact/" variant="primary" size="lg">Parler d’un projet Astro</Button>
-          <Button href="/fr/wordpress/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Comparer avec WordPress</Button>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-white/30 ml-2 font-mono">astro-china-build</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-white/50">Lighthouse</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">100 / 100</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">JS livré</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">~0 Ko</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Edge</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Aliyun</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Dépôt ICP</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Déposé</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-24 md:py-32 bg-white">
-    <div class="mx-auto max-w-[1200px] section-padding">
-      <div class="max-w-3xl mb-12">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Pourquoi Astro</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
-          Trois raisons concrètes.
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {reasons.map((r) => (
-          <article class="bg-[var(--color-surface-light)] rounded-2xl p-7 border border-[var(--color-surface-border)]">
-            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3 leading-snug">
-              {r.title}
-            </h3>
-            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
-              {r.body}
-            </p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 md:py-32 bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1100px] section-padding">
-      <div class="max-w-3xl mb-12">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">La pile</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
-          Ce qui tourne sous le capot.
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {stack.map((s) => (
-          <div class="bg-white rounded-2xl p-7 border border-[var(--color-surface-border)]">
-            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">{s.label}</p>
-            <p class="text-base text-[var(--color-text-body)] leading-relaxed">{s.body}</p>
+  <!-- Stat strip -->
+  <section class="border-y border-[var(--color-surface-border)] bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {stats.map((stat, i) => (
+          <div class:list={[
+            'flex flex-col md:flex-row items-start md:items-center gap-5',
+            i > 0 ? 'md:pl-10 md:border-l md:border-[var(--color-surface-border)]' : '',
+          ]}>
+            <div class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
+              0{stat.suffix}
+            </div>
+            <div class="flex-1">
+              <p class="text-base text-[var(--color-text-dark)] leading-snug font-medium">
+                {stat.label}
+              </p>
+              <p class="mt-1 text-sm text-[var(--color-text-muted)]">
+                {stat.source}
+              </p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-24 md:py-32 bg-white">
-    <div class="mx-auto max-w-[1100px] section-padding">
-      <div class="max-w-3xl mb-12">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
-          Les quatre questions qui reviennent.
-        </h2>
+  <!-- Why It Works: editorial split with code editor image -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Pourquoi ça marche
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Du HTML statique, sans bagarre avec le Pare-feu.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Astro compile les pages en HTML statique et les livre via un CDN. Pas de PHP, pas de base de données, du JavaScript uniquement là où c’en est utile. Le nom technique est l’architecture en îlots, et c’est Astro qui l’a popularisée.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            En Chine, cette forme tombe juste. Moins de données sur des réseaux mobiles saturés, moins de pièces qui peuvent casser en silence derrière le Pare-feu, et Baidu comme les moteurs IA chinois lisent le contenu sans avoir un runtime JavaScript en travers du chemin.
+          </p>
+        </div>
+
+        <!-- Astro code editor screenshot -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-12 lg:mt-0">
+          <figure class="relative">
+            <div class="relative aspect-square rounded-2xl overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
+              <img
+                src="/images/astro-code-editor.webp"
+                alt="Un éditeur de code moderne montrant la structure d’un projet Astro, des fichiers Markdown de Content Collection dans la barre latérale et une page statique rendue à droite"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
+            </div>
+            <!-- Floating caption card -->
+            <div class="absolute bottom-3 left-3 sm:-bottom-6 sm:-left-6 lg:-left-10 bg-white border border-[var(--color-surface-border)] rounded-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] p-4 sm:p-5 max-w-[220px] sm:max-w-[260px]">
+              <p class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)] font-semibold mb-2">
+                Des fichiers en clair, dans Git →
+              </p>
+              <p class="text-sm text-[var(--color-text-body)] leading-snug">
+                Contenu Markdown, Content Collections typées et composants Astro vivent dans la gestion de versions. Le build produit du HTML statique, prêt pour un CDN chinois.
+              </p>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Astro is For: icon cards -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            À quoi ça sert
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Là où Astro brille, en Chine.
+          </h2>
+        </div>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed lg:max-w-md">
+          Pensé pour les sites portés par le contenu. Dans cette catégorie, dur à battre aujourd’hui.
+        </p>
       </div>
 
-      <div data-faq-accordion>
-        {faqs.map((faq) => (
-          <FAQItem question={faq.question} id={faq.id}>
-            <p>{faq.answer}</p>
-          </FAQItem>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 auto-rows-fr">
+        {useCases.map((item) => {
+          const spanClass =
+            item.span === 'feature'
+              ? 'lg:col-span-7'
+              : item.span === 'wide'
+                ? 'lg:col-span-12'
+                : 'lg:col-span-4';
+          const isFeature = item.span === 'feature';
+          return (
+            <article class:list={[
+              'group relative rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]',
+              spanClass,
+              isFeature
+                ? 'bg-gradient-to-br from-[var(--color-surface-dark)] to-[#1a1a20] border-white/10 text-white p-8 lg:p-10'
+                : 'bg-white border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)]/30 p-7',
+            ]}>
+              <!-- Hover glow -->
+              <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[var(--color-brand-orange)]/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative h-full flex flex-col">
+                <div class:list={[
+                  'w-11 h-11 rounded-xl flex items-center justify-center mb-5',
+                  isFeature ? 'bg-[var(--color-brand-orange)]/15' : 'bg-[var(--color-brand-orange)]/10',
+                ]}>
+                  {item.icon === 'rocket' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                  )}
+                  {item.icon === 'book' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  )}
+                  {item.icon === 'pen' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5Z"/></svg>
+                  )}
+                  {item.icon === 'languages' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+                  )}
+                  {item.icon === 'zap' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  )}
+                  {item.icon === 'shield' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  )}
+                </div>
+
+                <h3 class:list={[
+                  'font-semibold font-[var(--font-heading)] leading-tight mb-3',
+                  isFeature ? 'text-2xl lg:text-[28px] text-white' : 'text-lg text-[var(--color-text-dark)]',
+                ]}>
+                  {item.title}
+                </h3>
+                <p class:list={[
+                  'leading-relaxed flex-1',
+                  isFeature ? 'text-base lg:text-lg text-white/70' : 'text-[15px] text-[var(--color-text-body)]',
+                ]}>
+                  {item.body}
+                </p>
+
+                {item.badges && (
+                  <div class="flex flex-wrap gap-2 mt-6">
+                    {item.badges.map((badge) => (
+                      <span class:list={[
+                        'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border',
+                        isFeature
+                          ? 'bg-white/[0.06] text-white/80 border-white/15'
+                          : 'bg-[var(--color-surface-light)] text-[var(--color-text-body)] border-[var(--color-surface-border)]',
+                      ]}>
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Astro vs WordPress: decision split -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Quand ce n’est pas le bon choix
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Quand WordPress est sans doute la bonne réponse.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Nous concevons les deux, donc nous pouvons être honnêtes sur ce qui convient. WordPress reste la bonne réponse pour les sites pilotés par l’éditorial, le e-commerce à grande échelle et les flux gouvernés par les extensions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <!-- Pick Astro (highlighted) -->
+        <div class="relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/15 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.097.388-.225.608-.355.166.473.209.95.151 1.435-.14 1.182-.738 2.094-1.688 2.789-.38.278-.781.527-1.173.79-1.205.81-1.531 1.76-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.554-1.815c-.012-.318-.012-.638-.069-.951-.135-.762-.504-1.103-1.2-1.123-.713-.02-1.277.417-1.426 1.101-.012.053-.029.104-.046.165h-.008zm-7.04-7.013s3.875-1.881 7.747-1.881l2.937-9.067c.108-.434.422-.722.778-.722.355 0 .67.288.778.722l2.937 9.067c4.582 0 7.747 1.881 7.747 1.881L17.18 1.62a1.546 1.546 0 0 0-1.483-1.062H8.302a1.546 1.546 0 0 0-1.482 1.062L.005 13.149h1.313z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                  Choisir Astro
+                </p>
+                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  Statique d’abord, marketing en tête.
+                </h3>
+              </div>
+            </div>
+            <ul class="space-y-3 mt-6">
+              {pickAstro.map((item) => (
+                <li class="flex gap-3 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pick WordPress -->
+        <div class="relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-11 h-11 rounded-xl bg-[var(--color-text-card-blue)]/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+              <svg class="w-6 h-6 text-[var(--color-text-card-blue)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3.42 12c0-1.24.27-2.41.74-3.47L8.13 19.6C5.32 18.24 3.42 15.35 3.42 12zm14.36-.43c0-1.06-.38-1.79-.71-2.36-.43-.71-.84-1.31-.84-2.02 0-.79.6-1.53 1.45-1.53.04 0 .07 0 .11.01-1.54-1.41-3.59-2.27-5.84-2.27-3.02 0-5.68 1.55-7.22 3.9.2.01.39.01.55.01.9 0 2.29-.11 2.29-.11.46-.03.52.66.05.71 0 0-.47.06-.99.09l3.14 9.34 1.89-5.66-1.34-3.68c-.46-.03-.9-.09-.9-.09-.46-.02-.41-.74.06-.71 0 0 1.42.11 2.27.11.9 0 2.29-.11 2.29-.11.46-.03.52.66.05.71 0 0-.47.06-.99.09l3.11 9.27.86-2.87c.37-1.19.66-2.04.66-2.78zM12.15 12.81 9.57 20.32c.77.23 1.59.35 2.43.35.99 0 1.95-.17 2.83-.49-.02-.04-.04-.07-.06-.11l-2.62-7.26zM19.6 7.86c.04.27.06.56.06.87 0 .86-.16 1.83-.65 3.04l-2.61 7.55c2.55-1.49 4.27-4.25 4.27-7.42 0-1.49-.38-2.89-1.05-4.11"/>
+                <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 19.54c-5.27 0-9.55-4.28-9.55-9.55S6.73 2.45 12 2.45 21.55 6.73 21.55 12 17.27 21.55 12 21.55z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-card-blue)] mb-1">
+                Choisir WordPress
+              </p>
+              <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                Le travail éditorial comme quotidien.
+              </h3>
+            </div>
+          </div>
+          <ul class="space-y-3 mt-6">
+            {pickWordPress.map((item) => (
+              <li class="flex gap-3 items-start">
+                <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
+        Dans le doute, <a href="/fr/services/strategy-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Stratégie et audit</a> est l’endroit où la conversation démarre habituellement.
+      </p>
+    </div>
+  </section>
+
+  <!-- What we change: feature image + bento group grid -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0d]"></div>
+
+    <!-- Top: code editor as feature backdrop -->
+    <div class="relative">
+      <div class="absolute inset-0">
+        <img
+          src="/images/astro-code-editor.webp"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-60"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/80 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--color-surface-dark)] to-transparent"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding pt-14 pb-12 sm:pt-20 sm:pb-16 lg:pt-28 lg:pb-24">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Ce qu’il faut changer
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] mb-6">
+            Ce que nous ajustons pour qu’Astro tourne en Chine.
+          </h2>
+          <p class="text-base lg:text-lg text-white/75 leading-relaxed">
+            Astro arrive plus près d’être prêt pour la Chine, sortie de boîte, que la plupart des piles. Quelques réglages par défaut demandent encore d’être ajustés avant que le site ne tourne correctement sur le continent.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bento grid of groups -->
+    <div class="relative mx-auto max-w-[1400px] section-padding pb-14 sm:pb-20 lg:pb-28">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {changeGroups.map((group) => {
+          const a = accentClasses[group.accent];
+          return (
+            <div class:list={['relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-7 lg:p-8 hover:bg-white/[0.05] transition-colors']}>
+              <div class="flex items-center gap-3 mb-6 pb-5 border-b border-white/10">
+                <span class:list={['inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-semibold uppercase tracking-wider border', a.bg, a.text, a.border]}>
+                  {group.label}
+                </span>
+              </div>
+
+              <div class="space-y-5">
+                {group.items.map((item) => (
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                      {item.icon === 'type' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                      )}
+                      {item.icon === 'palette' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                      )}
+                      {item.icon === 'blocks' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                      )}
+                      {item.icon === 'play' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      )}
+                      {item.icon === 'card' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                      )}
+                      {item.icon === 'plug' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14a2 2 0 0 1 2 2v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3a2 2 0 0 1 2-2z"/></svg>
+                      )}
+                      {item.icon === 'chart' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                      )}
+                      {item.icon === 'server' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                      )}
+                      {item.icon === 'refresh' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                      )}
+                      {item.icon === 'shield' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      )}
+                      {item.icon === 'zap' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                      )}
+                      {item.icon === 'search' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                      )}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-base font-semibold font-[var(--font-heading)] text-white leading-tight mb-1.5">
+                        {item.title}
+                      </h3>
+                      <p class="text-[14px] text-white/60 leading-relaxed">
+                        {item.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Chinese stack credibility band -->
+  <section class="bg-white border-y border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-16">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
+            Construit sur la pile chinoise
+          </p>
+          <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Les hébergeurs et services sur lesquels nous déployons Astro.
+          </h2>
+        </div>
+        <p class="lg:max-w-xs text-sm text-[var(--color-text-muted)] leading-relaxed">
+          Des fournisseurs licenciés sur le continent, des performances réelles sur les réseaux chinois, et les services grand public que votre audience utilise vraiment.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {chinaStack.map((entry) => (
+          <div class="group relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-xl p-5 hover:border-[var(--color-brand-orange)]/30 hover:bg-white transition-colors">
+            <p class="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
+              {entry.role}
+            </p>
+            <p class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+              {entry.name}
+            </p>
+            <p class="text-sm text-[var(--color-text-muted)] font-[var(--font-heading)] mt-1">
+              {entry.cn}
+            </p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-20 md:py-28 bg-[var(--color-surface-dark)]">
-    <div class="mx-auto max-w-[1100px] section-padding text-center">
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6">
-        Site Astro à monter en Chine ?
-      </h2>
-      <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">
-        Décrivez-nous le périmètre. Nous renvoyons un cadrage et une fourchette sous deux jours ouvrés.
+  <!-- Where Astro doesn't fit: priority cards -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-end mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Là où ça colle
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Astro est pensé pour le contenu. Pas pour les applications complètes.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-6 lg:mt-0">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Nous le disons aux clients dès le départ. Chaque projet tombe dans l’une des trois cases.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {fitBuckets.map((bucket, i) => (
+          <article class:list={[
+            'relative rounded-2xl p-8 lg:p-10 border transition-all duration-300',
+            i === 0 ? 'bg-[var(--color-brand-orange)]/[0.04] border-[var(--color-brand-orange)]/20' : '',
+            i === 1 ? 'bg-white border-[var(--color-surface-border)]' : '',
+            i === 2 ? 'bg-[var(--color-surface-dark)] border-white/10' : '',
+          ]}>
+            <p class:list={[
+              'text-xs font-semibold uppercase tracking-wider mb-3',
+              i === 2 ? 'text-[var(--color-brand-orange)]' : 'text-[var(--color-brand-orange)]',
+            ]}>
+              {bucket.eyebrow}
+            </p>
+            <h3 class:list={[
+              'text-2xl lg:text-[28px] font-medium font-[var(--font-heading)] leading-tight mb-5',
+              i === 2 ? 'text-white' : 'text-[var(--color-text-dark)]',
+            ]}>
+              {bucket.title}
+            </h3>
+            <p class:list={[
+              'text-[15px] leading-relaxed',
+              i === 2 ? 'text-white/65' : 'text-[var(--color-text-body)]',
+            ]}>
+              {bucket.body}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl">
+        Au-delà du périmètre site marketing, on commence à se battre contre le framework au lieu de travailler avec lui. Nous vous dirons quand cette ligne approche.
       </p>
-      <Button href="/fr/contact/" variant="primary" size="lg">Nous écrire</Button>
+    </div>
+  </section>
+
+  <!-- Timeline: visual phase bar -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Calendrier
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Combien de temps ça prend.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Le dépôt ICP s’invite presque toujours sur le chemin critique. Nous le lançons dès le jour un.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <!-- New site -->
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                Nouveau site
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                Construction Astro neuve
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+              6 à 10 semaines
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[28%] bg-[var(--color-brand-orange)]/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] truncate">Cadrage</span>
+            </div>
+            <div class="absolute inset-y-0 left-[28%] w-[44%] bg-[var(--color-brand-orange)]/40 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Conception</span>
+            </div>
+            <div class="absolute inset-y-0 left-[72%] right-0 bg-[var(--color-brand-orange)] flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Mise en ligne</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Semaine 1</span>
+            <span>Semaine 3</span>
+            <span>Semaine 7</span>
+            <span>Semaine 10</span>
+          </div>
+        </div>
+
+        <!-- Migration -->
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                Migration
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                De WordPress à Astro
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+              4 à 8 semaines
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[25%] bg-sky-500/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-sky-700 truncate">Audit</span>
+            </div>
+            <div class="absolute inset-y-0 left-[25%] w-[55%] bg-sky-500/40 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Reconstruction</span>
+            </div>
+            <div class="absolute inset-y-0 left-[80%] right-0 bg-sky-600 flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Bascule</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Semaine 1</span>
+            <span>Semaine 2</span>
+            <span>Semaine 6</span>
+            <span>Semaine 8</span>
+          </div>
+        </div>
+
+        <!-- ICP highlight -->
+        <div class="flex items-start gap-4 bg-[var(--color-text-card-blue)]/[0.04] border border-[var(--color-text-card-blue)]/20 rounded-2xl p-6 lg:p-7">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-text-card-blue)]/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">Le dépôt ICP avance en parallèle</p>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              Vingt jours ouvrés minimum à l’échelon provincial, parfois plus. Nous lançons le dépôt dès le jour un pour qu’il ne bloque jamais la mise en ligne.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Questions fréquentes
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Dix questions qu’on nous pose sur Astro en Chine.
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                <p>{faq.answer}</p>
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">
+    <div class="absolute inset-0">
+      <img
+        src="/images/astro-china-edge-network.webp"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-25"
+        loading="lazy"
+        decoding="async"
+        onerror="this.style.display='none'"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/85 to-[var(--color-surface-dark)]"></div>
+    </div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Démarrer
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Astro pour la Chine, ça vous trotte dans la tête ?
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Vous démarrez de zéro et vous voulez le site le plus rapide possible pour le marché chinois ? Astro est habituellement la réponse. Déjà sur WordPress et la migration commence à sentir le retard ? Nous pouvons vous aider à monter le dossier et à mener le projet.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/fr/contact/" variant="primary" size="lg">Parler à notre équipe</Button>
+        <Button href="/fr/wordpress/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">WordPress en Chine</Button>
+      </div>
     </div>
   </section>
 
 </PageLayout>
+
+<script>
+  function initFaqAccordion() {
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement;
+
+        trigger?.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          items.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherTrigger = otherItem.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+              const otherChevron = otherItem.querySelector('[data-faq-chevron]') as SVGElement;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            }
+          });
+
+          const newState = !isOpen;
+          trigger.setAttribute('aria-expanded', String(newState));
+          content?.style.setProperty('grid-template-rows', newState ? '1fr' : '0fr');
+          chevron?.classList.toggle('rotate-180', newState);
+        });
+      });
+    });
+  }
+
+  initFaqAccordion();
+  document.addEventListener('astro:after-swap', initFaqAccordion);
+</script>

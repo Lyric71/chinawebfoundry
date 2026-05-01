@@ -1,39 +1,421 @@
 ---
-import { getCollection } from 'astro:content';
 import PageLayout from '../../../layouts/PageLayout.astro';
-import Button from '../../../components/ui/Button.astro';
-import FAQAccordion from '../../../components/pages/FAQAccordionFr.astro';
+import FAQAccordion from '../../../components/pages/FAQAccordionFrFull.astro';
+import FAQTopicNav from '../../../components/pages/FAQTopicNavFr.astro';
+import { faqTopicsFr } from '../../../data/faq-fr';
 
-const totalQuestions = (await getCollection('faq-fr')).length;
+const totalQuestions = faqTopicsFr.reduce((sum, t) => sum + t.items.length, 0);
+const totalTopics = faqTopicsFr.length;
 ---
 
 <PageLayout
-  title={`FAQ WordPress en Chine : ${totalQuestions} réponses sans détour`}
-  description={`Licence ICP, référencement Baidu, Grand Pare-feu, hébergement local : les ${totalQuestions} questions qui reviennent sur WordPress en Chine, avec des réponses directes.`}
+  title="Questions fréquentes | ChinaWebFoundry"
+  description={`${totalQuestions} questions que les clients posent vraiment avant et pendant un projet web en Chine. Des réponses franches, écrites depuis Shanghai.`}
   lang="fr"
 >
+  <!-- Reading progress bar -->
+  <div
+    id="faq-progress"
+    class="fixed top-[60px] left-0 right-0 h-[2px] z-40 pointer-events-none"
+    aria-hidden="true"
+  >
+    <div
+      id="faq-progress-bar"
+      class="h-full bg-gradient-to-r from-[var(--color-brand-orange)] to-[#FF8A4C] origin-left scale-x-0 transition-transform duration-150 ease-out"
+    ></div>
+  </div>
+
   <!-- Hero -->
-  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-[var(--color-surface-light)]">
+  <section class="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-20">
+    <!-- gradient mesh background -->
+    <div class="absolute inset-0 -z-10 bg-[var(--color-surface-light)]"></div>
+    <div class="absolute inset-0 -z-10 opacity-90 [background:radial-gradient(60%_50%_at_85%_0%,rgba(242,95,41,0.16),transparent_60%),radial-gradient(45%_45%_at_10%_100%,rgba(52,68,128,0.10),transparent_60%)]"></div>
+    <div class="absolute inset-0 -z-10 opacity-[0.35] [background-image:radial-gradient(rgba(33,33,33,0.18)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"></div>
+
     <div class="mx-auto max-w-[1400px] section-padding">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">FAQ</p>
-      <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] max-w-2xl">Vos questions, nos réponses</h1>
-      <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">ICP, hébergement, Baidu, Grand Pare-feu : les mêmes interrogations reviennent chaque semaine. Voici {totalQuestions} réponses franches, écrites depuis la Chine par ceux qui y travaillent.</p>
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-end">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-[var(--color-surface-border)] shadow-[0_2px_8px_rgba(33,33,33,0.04)] mb-6">
+            <span class="relative flex w-2 h-2">
+              <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-60 animate-ping"></span>
+              <span class="relative inline-flex rounded-full w-2 h-2 bg-[var(--color-brand-orange)]"></span>
+            </span>
+            <span class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-dark)]">FAQ · {totalQuestions} réponses</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[60px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.04] tracking-[-0.01em]">
+            Vraies questions.
+            <span class="block">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7A3C] to-[#FF8A4C] bg-clip-text text-transparent">Réponses franches.</span>
+            </span>
+          </h1>
+
+          <p class="mt-6 text-lg sm:text-xl text-[var(--color-text-body)] leading-relaxed max-w-[560px]">
+            Tout ce qui suit vient de vrais premiers appels avec nos clients. Les {totalQuestions} questions qui reviennent le plus souvent, écrites noir sur blanc. Si la vôtre n'y est pas, posez-la-nous.
+          </p>
+
+          <!-- Search -->
+          <form class="mt-8 max-w-[520px]" data-faq-search-form onsubmit="return false">
+            <label class="relative block group">
+              <span class="sr-only">Rechercher une question</span>
+              <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)] group-focus-within:text-[var(--color-brand-orange)] transition-colors">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6" />
+                  <path d="m20 20-4.3-4.3" />
+                </svg>
+              </span>
+              <input
+                type="search"
+                id="faq-search"
+                placeholder="Cherchez ICP, hébergement, Baidu, tarifs…"
+                autocomplete="off"
+                class="w-full pl-12 pr-12 py-4 rounded-full bg-white border border-[var(--color-surface-border)] text-base text-[var(--color-text-dark)] placeholder:text-[var(--color-text-muted)] shadow-[0_4px_20px_rgba(33,33,33,0.04)] focus:outline-none focus:border-[var(--color-brand-orange)] focus:shadow-[0_4px_24px_rgba(242,95,41,0.18)] transition-all"
+              />
+              <button
+                type="button"
+                id="faq-search-clear"
+                class="hidden absolute right-3 top-1/2 -translate-y-1/2 grid place-items-center w-7 h-7 rounded-full text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)] hover:bg-[var(--color-surface-light)] transition-colors"
+                aria-label="Effacer la recherche"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </label>
+            <p class="mt-3 ml-1 text-xs text-[var(--color-text-muted)]" data-search-status>
+              Astuce : tapez «&nbsp;ICP&nbsp;», «&nbsp;Baidu&nbsp;», «&nbsp;WeChat&nbsp;» ou «&nbsp;tarifs&nbsp;».
+            </p>
+          </form>
+        </div>
+
+        <!-- Stats card -->
+        <div class="relative">
+          <div class="relative grid grid-cols-3 gap-px overflow-hidden rounded-3xl bg-[var(--color-surface-border)]/60 shadow-[0_20px_60px_rgba(33,33,33,0.08)] ring-1 ring-[var(--color-surface-border)]/60">
+            <div class="bg-white p-6 sm:p-8">
+              <p class="text-4xl sm:text-5xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tracking-[-0.02em]">{totalQuestions}</p>
+              <p class="mt-2 text-xs sm:text-sm text-[var(--color-text-muted)] leading-snug">Questions traitées</p>
+            </div>
+            <div class="bg-white p-6 sm:p-8">
+              <p class="text-4xl sm:text-5xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tracking-[-0.02em]">{totalTopics}</p>
+              <p class="mt-2 text-xs sm:text-sm text-[var(--color-text-muted)] leading-snug">Thèmes couverts</p>
+            </div>
+            <div class="bg-white p-6 sm:p-8">
+              <p class="text-4xl sm:text-5xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tracking-[-0.02em]">中国</p>
+              <p class="mt-2 text-xs sm:text-sm text-[var(--color-text-muted)] leading-snug">Là d'où l'on travaille</p>
+            </div>
+          </div>
+          <!-- floating accent shapes -->
+          <span aria-hidden="true" class="hidden lg:block absolute -top-6 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-[var(--color-brand-orange)]/30 to-transparent blur-2xl"></span>
+          <span aria-hidden="true" class="hidden lg:block absolute -bottom-8 -left-6 w-32 h-32 rounded-full bg-gradient-to-tr from-[#344480]/20 to-transparent blur-3xl"></span>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Sticky topic nav -->
+  <FAQTopicNav />
+
   <!-- FAQ Accordion -->
   <section class="pt-12 pb-24 md:pt-16 md:pb-32">
-    <div class="mx-auto max-w-[800px] section-padding">
+    <div class="mx-auto max-w-[860px] section-padding">
       <FAQAccordion />
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)]">
-    <div class="mx-auto max-w-[1400px] section-padding text-center">
-      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">Votre question ne figure pas ici ?</h2>
-      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl mx-auto mb-10">Écrivez-nous. Réponse sous 24 heures, du concret pour avancer.</p>
-      <Button href="/fr/contact/" variant="primary" size="lg">Nous soumettre votre question</Button>
+  <!-- CTA cards -->
+  <section class="relative pb-24 md:pb-32">
+    <div class="mx-auto max-w-[1280px] section-padding">
+      <div class="max-w-3xl mb-14 sm:mb-16">
+        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-orange)] mb-4">Toujours curieux ?</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-[-0.01em]">
+          La vôtre n'est<br class="hidden sm:block" /> peut-être pas listée.
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-xl">
+          Envoyez-la-nous. Quelqu'un de l'équipe vous répondra personnellement.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Discovery Call card -->
+        <a
+          href="/fr/contact/"
+          class="cta-card group block relative isolate overflow-hidden rounded-3xl bg-[#0F0F11] shadow-[0_20px_50px_rgba(33,33,33,0.18)] transform-gpu transition-transform duration-500 ease-out hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-orange)] focus-visible:ring-offset-4"
+        >
+          <!-- Image -->
+          <div class="relative h-56 sm:h-64 md:h-60 lg:h-72 overflow-hidden">
+            <img
+              src="/images/faq-cta-discovery-call-chengdu.webp"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <!-- bottom fade into panel -->
+            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0F0F11] from-15% to-transparent"></span>
+
+            <!-- Tag chip -->
+            <div class="absolute top-5 left-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/45 backdrop-blur-md ring-1 ring-white/15">
+              <span class="relative flex w-1.5 h-1.5">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-[#5EEAA9] opacity-70 animate-ping"></span>
+                <span class="relative inline-flex rounded-full w-1.5 h-1.5 bg-[#5EEAA9]"></span>
+              </span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-white">Réservation · 30 min</span>
+            </div>
+          </div>
+
+          <!-- Solid dark content panel -->
+          <div class="relative px-7 sm:px-9 py-8 sm:py-10 text-white">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">Parler à un humain</p>
+            <h3 class="text-2xl sm:text-3xl lg:text-[34px] font-medium font-[var(--font-heading)] !text-white leading-[1.1] tracking-[-0.01em] mb-4">
+              Réservez un appel découverte.
+            </h3>
+            <p class="text-white/75 leading-relaxed mb-7 max-w-sm text-[15px]">
+              30 minutes, sans pitch. Nous écoutons votre situation et vous disons ce qui est réaliste côté Chine.
+            </p>
+            <span class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-[var(--color-brand-orange)] text-white font-medium font-[var(--font-button)] text-sm shadow-[0_8px_24px_rgba(242,95,41,0.35)] transition-all duration-300 group-hover:bg-[var(--color-brand-orange-hover)] group-hover:translate-x-1">
+              Planifier un appel
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Free Audit card -->
+        <a
+          href="/fr/china-site-scanner/"
+          class="cta-card group block relative isolate overflow-hidden rounded-3xl bg-[#0F0F11] shadow-[0_20px_50px_rgba(33,33,33,0.18)] transform-gpu transition-transform duration-500 ease-out hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-orange)] focus-visible:ring-offset-4"
+        >
+          <!-- Image -->
+          <div class="relative h-56 sm:h-64 md:h-60 lg:h-72 overflow-hidden">
+            <img
+              src="/images/faq-cta-china-audit-chongqing.webp"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0F0F11] from-15% to-transparent"></span>
+
+            <!-- Tag chip -->
+            <div class="absolute top-5 left-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/45 backdrop-blur-md ring-1 ring-white/15">
+              <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 9-9" />
+                <path d="M3 5v4h4" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-white">Audit gratuit</span>
+            </div>
+          </div>
+
+          <!-- Solid dark content panel -->
+          <div class="relative px-7 sm:px-9 py-8 sm:py-10 text-white">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">Voir les chiffres</p>
+            <h3 class="text-2xl sm:text-3xl lg:text-[34px] font-medium font-[var(--font-heading)] !text-white leading-[1.1] tracking-[-0.01em] mb-4">
+              Lancez un audit Chine gratuit.
+            </h3>
+            <p class="text-white/75 leading-relaxed mb-7 max-w-sm text-[15px]">
+              Voyez comment votre site charge depuis Shanghai, ce qui est bloqué, et là où Baidu ne vous voit pas. Des chiffres réels en une semaine.
+            </p>
+            <span class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white text-[var(--color-text-dark)] font-medium font-[var(--font-button)] text-sm shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-all duration-300 group-hover:translate-x-1">
+              Scanner mon site
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Floating back-to-top -->
+  <button
+    type="button"
+    id="faq-back-to-top"
+    class="fixed bottom-6 right-6 z-40 grid place-items-center w-12 h-12 rounded-full bg-[var(--color-text-dark)] text-white shadow-[0_8px_24px_rgba(33,33,33,0.25)] opacity-0 translate-y-3 pointer-events-none transition-all duration-300 hover:bg-[var(--color-brand-orange)] hover:-translate-y-1 data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0 data-[visible=true]:pointer-events-auto cursor-pointer"
+    aria-label="Retour en haut"
+  >
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+<script>
+  function initFaqPage() {
+    const accordion = document.querySelector('[data-faq-accordion]');
+    if (!accordion) return;
+
+    const items = accordion.querySelectorAll<HTMLElement>('[data-faq-item]');
+    const topicSections = accordion.querySelectorAll<HTMLElement>('[data-faq-topic]');
+    const chips = document.querySelectorAll<HTMLAnchorElement>('[data-chip]');
+    const topicNav = document.querySelector<HTMLElement>('[data-topic-nav]');
+    const searchInput = document.getElementById('faq-search') as HTMLInputElement | null;
+    const searchClear = document.getElementById('faq-search-clear');
+    const searchStatus = document.querySelector<HTMLElement>('[data-search-status]');
+    const emptyState = accordion.querySelector<HTMLElement>('[data-faq-empty]');
+    const progressBar = document.getElementById('faq-progress-bar');
+    const backToTop = document.getElementById('faq-back-to-top');
+
+    // 1. Accordion toggle (allow multiple open)
+    items.forEach((item) => {
+      const trigger = item.querySelector<HTMLButtonElement>('[data-faq-trigger]');
+      const content = item.querySelector<HTMLElement>('[data-faq-content]');
+      if (!trigger || !content) return;
+
+      trigger.addEventListener('click', () => {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        const next = !isOpen;
+        trigger.setAttribute('aria-expanded', String(next));
+        item.setAttribute('data-open', String(next));
+        content.style.gridTemplateRows = next ? '1fr' : '0fr';
+      });
+    });
+
+    // 2. Live search
+    function applySearch(query: string) {
+      const q = query.trim().toLowerCase();
+      let visibleCount = 0;
+      const visibleByTopic = new Map<string, number>();
+
+      items.forEach((item) => {
+        const haystack = item.getAttribute('data-search') || '';
+        const match = q === '' || haystack.includes(q);
+        const wrapper = item.parentElement; // .reveal wrapper
+        if (wrapper) wrapper.classList.toggle('hidden', !match);
+        if (match) visibleCount += 1;
+      });
+
+      topicSections.forEach((section) => {
+        const itemsInSection = section.querySelectorAll<HTMLElement>('[data-faq-item]');
+        let visibleInSection = 0;
+        itemsInSection.forEach((it) => {
+          const wrapper = it.parentElement;
+          if (wrapper && !wrapper.classList.contains('hidden')) visibleInSection += 1;
+        });
+        const topicId = section.getAttribute('data-topic-id') || '';
+        visibleByTopic.set(topicId, visibleInSection);
+        section.classList.toggle('hidden', visibleInSection === 0);
+      });
+
+      chips.forEach((chip) => {
+        const target = chip.getAttribute('data-target') || '';
+        const count = visibleByTopic.get(target) ?? 0;
+        chip.classList.toggle('opacity-40', q !== '' && count === 0);
+      });
+
+      if (emptyState) emptyState.classList.toggle('hidden', visibleCount > 0);
+
+      if (searchStatus) {
+        if (q === '') {
+          searchStatus.textContent = 'Astuce : tapez « ICP », « Baidu », « WeChat » ou « tarifs ».';
+        } else {
+          searchStatus.textContent = `${visibleCount} ${visibleCount <= 1 ? 'résultat' : 'résultats'} pour « ${query.trim()} »`;
+        }
+      }
+
+      if (searchClear) searchClear.classList.toggle('hidden', q === '');
+    }
+
+    searchInput?.addEventListener('input', (e) => {
+      applySearch((e.target as HTMLInputElement).value);
+    });
+    searchClear?.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+        applySearch('');
+      }
+    });
+
+    // 3. Topic chip click: smooth scroll
+    chips.forEach((chip) => {
+      chip.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = chip.getAttribute('data-target');
+        if (!target) return;
+        const el = document.getElementById(target);
+        if (!el) return;
+        const navHeight = topicNav?.offsetHeight ?? 0;
+        const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // 4. Active topic via IntersectionObserver
+    const setActiveChip = (id: string) => {
+      chips.forEach((chip) => {
+        const isActive = chip.getAttribute('data-target') === id;
+        chip.setAttribute('data-active', String(isActive));
+        if (isActive) {
+          chip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      });
+    };
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const id = (visible.target as HTMLElement).getAttribute('data-topic-id');
+          if (id) setActiveChip(id);
+        }
+      },
+      { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    topicSections.forEach((section) => sectionObserver.observe(section));
+
+    // 5. Reveal-on-scroll
+    const revealEls = accordion.querySelectorAll<HTMLElement>('.reveal');
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -60px 0px', threshold: 0.1 }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    // 6. Reading progress + back-to-top + sticky-shadow
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const scrolled = window.scrollY;
+      const max = doc.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(1, scrolled / max) : 0;
+      if (progressBar) progressBar.style.transform = `scaleX(${ratio})`;
+      if (backToTop) backToTop.setAttribute('data-visible', String(scrolled > 600));
+      if (topicNav) topicNav.classList.toggle('is-stuck', scrolled > 200);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    backToTop?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 7. Keyboard shortcut: '/' focuses search
+    document.addEventListener('keydown', (e) => {
+      const target = e.target as HTMLElement | null;
+      const isTyping = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
+      if (e.key === '/' && !isTyping) {
+        e.preventDefault();
+        searchInput?.focus();
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInput && searchInput) {
+        searchInput.value = '';
+        applySearch('');
+        searchInput.blur();
+      }
+    });
+  }
+
+  initFaqPage();
+  document.addEventListener('astro:after-swap', initFaqPage);
+</script>
 </PageLayout>

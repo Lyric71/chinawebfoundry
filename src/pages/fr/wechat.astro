@@ -2,42 +2,43 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
 const metaTitle = 'WeChat en Chine | Mini Programs et sites H5 | ChinaWebFoundry';
-const metaDescription = 'Nous concevons des Mini Programs et sites H5 WeChat pour les marques étrangères en Chine. Stratégie, dépôt, développement, mise en ligne, depuis Shanghai.';
+const metaDescription = 'Mini Programs et sites H5 WeChat pour les marques étrangères en Chine. Stratégie, dépôt Tencent, développement, mise en ligne. Tout est mené depuis Shanghai.';
 
 const compareRows = [
-  { label: 'Là où ça vit', mp: 'À l’intérieur de WeChat, comme une application native', h5: 'Dans le navigateur intégré de WeChat, et au-delà' },
-  { label: 'WeChat Pay', mp: 'Oui, intégration complète', h5: 'Limité, nécessite un compte officiel lié' },
-  { label: 'API natives', mp: 'Caméra, géolocalisation, scan, identification', h5: 'Navigateur uniquement' },
+  { label: 'Là où ça vit', mp: 'À l’intérieur de WeChat, comme une appli native', h5: 'Dans le navigateur intégré à WeChat, et au-delà' },
+  { label: 'WeChat Pay', mp: 'Oui, intégration complète', h5: 'Limité, suppose un compte officiel lié' },
+  { label: 'API natives', mp: 'Caméra, géolocalisation, scan, identification', h5: 'Limité au navigateur' },
   { label: 'Délais de production', mp: '10 à 14 semaines', h5: '4 à 6 semaines' },
-  { label: 'Cas d’usage', mp: 'Fidélité, e-commerce, service', h5: 'Campagnes, brochures, captation de leads' },
+  { label: 'Cas d’usage', mp: 'Fidélité, e-commerce, service', h5: 'Campagnes, brochures, captation de prospects' },
 ];
 
 const useCases = [
   {
     title: 'Programmes de fidélité',
-    body: 'Le cas d’usage le plus courant pour les marques étrangères. Le Mini Program porte la carte, suit les points, délivre les récompenses. Starbucks Chine fait tourner toute son adhésion ainsi.',
+    body: 'Le cas d’usage le plus fréquent chez les marques étrangères. Le Mini Program porte la carte, suit les points, délivre les récompenses. Starbucks Chine y fait tourner l’intégralité de son programme d’adhésion.',
   },
   {
     title: 'Expérience de marque',
-    body: 'Pour le luxe, la beauté, le lifestyle : un univers éditorial maîtrisé. Films de campagne, récit du fondateur, encyclopédies, locator, essayage virtuel, le tout dans WeChat.',
+    body: 'Pour le luxe, la beauté, l’art de vivre : un univers éditorial maîtrisé. Films de campagne, récit du fondateur, encyclopédies produit, localisateur de boutiques, essayage virtuel, le tout dans WeChat.',
   },
   {
-    title: 'D2C et lives sur Channels',
-    body: 'Vendre en direct sans payer la commission de Tmall ou JD. Mini Program plus WeChat Pay, soutenu par le trafic privé des groupes communautaires et des lives Channels.',
+    title: 'D2C et directs sur Channels',
+    body: 'Vendre en direct sans verser de commission à Tmall ou JD. Mini Program couplé à WeChat Pay, alimenté par le trafic privé des groupes communautaires et les directs sur Channels.',
   },
   {
     title: 'Précommandes et lancements',
-    body: 'Pour les drops saisonniers ou les lancements, le tunnel de précommande reste dans WeChat. Pas de site externe, pas de friction, des conversions nettement plus élevées.',
+    body: 'Pour les sorties saisonnières ou les lancements, le tunnel de précommande reste à l’intérieur de WeChat. Pas de site externe à ouvrir, pas de friction, des conversions nettement plus élevées.',
   },
   {
     title: 'Service après-vente et CRM',
-    body: 'SAV, garantie, prise de rendez-vous, support. Le client ne télécharge aucune appli et n’a aucun mot de passe à retenir.',
+    body: 'SAV, garantie, prise de rendez-vous, support technique. Le client ne télécharge aucune appli et n’a aucun mot de passe à retenir.',
   },
   {
     title: 'Brochures et catalogues B2B',
-    body: 'Un H5 ou un Mini Program catalogue rend plus de service qu’un PDF. Les commerciaux les partagent dans les conversations, les prospects parcourent depuis le fil.',
+    body: 'Un H5 ou un Mini Program catalogue rend plus de service qu’un PDF. Les commerciaux le partagent en conversation, les prospects le parcourent directement depuis le fil de discussion.',
   },
 ];
 
@@ -45,80 +46,120 @@ const faqs = [
   {
     id: 'mp-vs-h5',
     question: 'Mini Program ou H5, comment trancher ?',
-    answer: 'Mini Program si vous avez besoin de WeChat Pay, d’un programme de fidélité, d’API natives ou d’un usage récurrent. H5 si vous lancez une campagne courte ou que vous avez besoin de partager le lien hors de WeChat. La plupart des marques finissent par avoir les deux.',
+    answer: 'Mini Program si vous avez besoin de WeChat Pay, d’un programme de fidélité, d’API natives ou d’un usage récurrent. H5 quand il s’agit d’une campagne courte ou d’un lien à partager hors de WeChat. La plupart des marques finissent par déployer les deux.',
   },
   {
     id: 'foreign-entity',
     question: 'Peut-on déposer un Mini Program sans entité chinoise ?',
-    answer: 'Pas pour un Mini Program complet. Tencent exige une entité enregistrée en Chine continentale et une licence ICP. Nous gérons l’enchaînement avec un partenaire local quand vous n’avez pas encore d’entité.',
+    answer: 'Pas pour un Mini Program complet. Tencent exige une entité enregistrée en Chine continentale et une licence ICP. On orchestre l’enchaînement avec un partenaire local quand l’entité n’est pas encore en place.',
   },
   {
     id: 'timeline',
     question: 'Combien de temps pour mettre en ligne ?',
-    answer: 'Mini Program e-commerce : 10 à 14 semaines, dépôt et certification compris. Site H5 : 4 à 6 semaines. La phase la plus longue reste l’audit Tencent, qu’il faut anticiper dès le brief.',
+    answer: 'Mini Program e-commerce : 10 à 14 semaines, dépôt et certification inclus. Site H5 : 4 à 6 semaines. La phase la plus longue reste l’audit Tencent, à anticiper dès le brief.',
   },
   {
     id: 'maintenance',
     question: 'Et après la mise en ligne ?',
-    answer: 'Surveillance, mises à jour Tencent, ajustements de fidélité, mise à jour des contenus, pilotage des campagnes Channels. Au forfait mensuel, depuis Shanghai.',
+    answer: 'Supervision, mises à jour Tencent, ajustements du programme de fidélité, rafraîchissement des contenus, pilotage des campagnes Channels. Au forfait mensuel, depuis Shanghai.',
   },
 ];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
 
-  <!-- HERO -->
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+  <ScrollEffects />
+
+  <section class="relative bg-[#07090a] overflow-hidden">
     <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#0f0f12] to-[#1a1a2e]"></div>
-      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-emerald-500/10 blur-[140px] pointer-events-none"></div>
-      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[140px] pointer-events-none"></div>
+      <img src="/images/hero-wechat-loyalty-consumer.webp" alt="Une jeune Chinoise dans un café de Shanghai utilise un Mini Program de fidélité de marque sur WeChat depuis son smartphone" class="absolute inset-0 w-full h-full object-cover object-right" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07090a] via-[#07090a]/92 via-35% to-[#07090a]/10"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#07090a] to-transparent"></div>
+      <div class="absolute top-1/2 right-[20%] w-[500px] h-[500px] -translate-y-1/2 bg-emerald-500/12 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 lg:pb-32">
-      <nav aria-label="Fil d’Ariane" class="mb-12">
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Fil d’Ariane" class="pt-20 pb-12">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
           <li class="before:content-['/'] before:mx-2 text-white/60">WeChat</li>
         </ol>
       </nav>
 
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 mb-7">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">WeChat · 微信</span>
-        </div>
-
-        <h1 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.04] tracking-tight">
-          Le canal direct vers le quotidien chinois.
-        </h1>
-        <p class="mt-7 text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl">
-          Pour la plupart des marques étrangères, le site sert de vitrine ; WeChat sert de magasin, de carte de fidélité, de SAV et de chaîne de vente. Nous concevons les Mini Programs et les sites H5 qui font tenir cette équation.
-        </p>
-
-        <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
-          <div class="border-l-2 border-emerald-400/60 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">3M+</div>
-            <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Mini Programs en production</div>
+      <div class="grid grid-cols-12 gap-8 items-center pb-24 md:pb-32 lg:pb-40 pt-8 lg:pt-16">
+        <div class="col-span-12 lg:col-span-7 xl:col-span-7">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shadow-[0_8px_30px_rgba(16,185,129,0.4)]">
+              <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor" aria-label="WeChat logo">
+                <path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/>
+              </svg>
+              <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-[#07090a] animate-pulse"></span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25">
+              <span class="text-xs font-semibold uppercase tracking-wider text-emerald-300">Technologie · 微信</span>
+            </div>
           </div>
-          <div class="border-l-2 border-white/15 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">450M</div>
-            <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Utilisateurs actifs quotidiens</div>
-          </div>
-          <div class="border-l-2 border-white/15 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">949M</div>
-            <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Utilisateurs actifs mensuels</div>
-          </div>
-        </div>
 
-        <div class="mt-10 flex flex-wrap gap-3">
-          <Button href="/fr/contact/" variant="primary" size="lg">Lancer votre projet WeChat</Button>
+          <h1 class="text-4xl sm:text-5xl lg:text-[72px] xl:text-[84px] font-medium font-[var(--font-heading)] text-white leading-[0.98] tracking-tight">
+            WeChat, le système d’exploitation
+            <span class="block mt-2 text-[var(--color-brand-orange)]">du quotidien chinois.</span>
+          </h1>
+          <p class="mt-10 text-lg lg:text-xl text-white/65 max-w-xl leading-relaxed">
+            1,4 milliard de personnes ouvrent WeChat des dizaines de fois par jour. Conversations, paiements, cartes de fidélité, achats, lien à la marque : tout vit à l’intérieur d’une seule appli.
+          </p>
+          <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
+            Nous concevons des Mini Programs et des sites H5 pour les marques étrangères. Vingt ans à Shanghai.
+          </p>
+
+          <div class="mt-12 flex flex-wrap gap-4">
+            <Button href="/fr/contact/" variant="primary" size="lg">Parler à notre équipe</Button>
+            <Button href="/fr/services/strategy-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Démarrer par la stratégie</Button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MP VS H5 -->
+  <section class="relative bg-white border-b border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div class="col-span-12 lg:col-span-5 lg:border-r lg:border-[var(--color-surface-border)] lg:pr-10">
+          <div class="flex items-baseline gap-3">
+            <span class="text-7xl lg:text-[120px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count="1.41" data-count-suffix="">0</span>
+            <span class="text-4xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none">Md</span>
+          </div>
+          <p class="mt-4 text-lg text-[var(--color-text-dark)] font-medium leading-snug">
+            d’utilisateurs actifs mensuels sur WeChat en 2025.
+          </p>
+          <p class="mt-1 text-sm text-[var(--color-text-muted)]">Résultats Tencent T4 2024.</p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums" data-count="945" data-count-suffix="">0</span>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none">M</span>
+            </div>
+            <p class="mt-3 text-sm text-[var(--color-text-body)] leading-snug">
+              utilisateurs mensuels de Mini Programs
+            </p>
+            <p class="text-xs text-[var(--color-text-muted)] mt-1">QuestMobile, 2025</p>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums" data-count="79" data-count-suffix="">0</span>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none">min</span>
+            </div>
+            <p class="mt-3 text-sm text-[var(--color-text-body)] leading-snug">
+              passées dans WeChat par utilisateur chinois, chaque jour
+            </p>
+            <p class="text-xs text-[var(--color-text-muted)] mt-1">Rapport annuel QuestMobile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-24 md:py-32 bg-white">
     <div class="mx-auto max-w-[1200px] section-padding">
       <div class="max-w-3xl mb-12">

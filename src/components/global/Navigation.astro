@@ -25,7 +25,7 @@ const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? 
   {mainNav.map((item) => {
     const isActive = currentPath === item.href || (item.children && currentPath.startsWith(item.href));
     const hasChildren = item.children && item.children.length > 0;
-    const isServices = item.label === 'Services';
+    const isServices = item.href === localePath('/services/', currentLang);
 
     return hasChildren ? (
       <div class="relative group" data-dropdown>

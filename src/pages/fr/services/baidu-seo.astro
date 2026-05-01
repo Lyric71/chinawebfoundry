@@ -6,14 +6,14 @@ import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
 
 const metaTitle = "Référencement Baidu | Se positionner sur le vrai moteur chinois | ChinaWebFoundry";
-const metaDescription = "Référencement Baidu piloté depuis la Chine. Outils officiels Baidu, suivi des algorithmes (知心算法, 飓风算法 3.0), optimisation IA sur 文心X1 et DeepSeek.";
+const metaDescription = "Référencement Baidu piloté depuis la Chine, sur les outils officiels du moteur. Suivi des algorithmes 知心算法 et 飓风算法 3.0, optimisation pour la recherche IA 文心X1 et DeepSeek.";
 
 const whyDifferent = [
   {
     n: '01',
     cn: '算法',
     title: 'Baidu récompense d’autres choses',
-    body: '知心算法 (Zhixin) reconnaît désormais plus de 200 relations sémantiques dans les requêtes en chinois. 飓风算法 3.0 sanctionne le contenu IA de faible qualité. La copie traduite mot pour mot perd vite des positions.',
+    body: '知心算法 (Zhixin) reconnaît désormais plus de 200 relations sémantiques dans les requêtes en chinois. 飓风算法 3.0 sanctionne le contenu IA mal relu. La copie traduite mot pour mot perd vite ses positions.',
     tag: 'Critères de classement',
     chips: ['知心算法', '飓风算法 3.0', 'Original ZH', 'Sémantique'],
   },
@@ -21,15 +21,15 @@ const whyDifferent = [
     n: '02',
     cn: '蜘蛛',
     title: 'Baidu Spider joue avec un autre rythme',
-    body: "Baidu Spider rend le JavaScript avec des années de retard sur Googlebot : le contenu côté client passe souvent à la trappe. Le crawl mobile-first est exigé, le chargement sous trois secondes est un seuil dur, le HTTPS un signal positif.",
+    body: "Baidu Spider rend le JavaScript avec plusieurs années de retard sur Googlebot : tout contenu chargé côté client passe souvent à la trappe. Le crawl en priorité mobile est exigé, le chargement sous trois secondes est un seuil dur, le HTTPS un signal positif.",
     tag: 'Crawl et rendu',
-    chips: ['Baiduspider', 'Mobile-first', 'SSR / static', 'HTTPS'],
+    chips: ['Baiduspider', 'Priorité mobile', 'SSR / static', 'HTTPS'],
   },
   {
     n: '03',
     cn: '主机',
     title: 'L’emplacement de l’hébergement est un signal',
-    body: 'Les sites sans dépôt ICP sont pénalisés dans l’index. Un hébergement continental surclasse un contenu identique hébergé à Hong Kong ou à l’étranger. Structurel, pas anecdotique.',
+    body: 'Les sites sans dépôt ICP sont pénalisés dans l’index. À contenu identique, un hébergement continental surclasse un site logé à Hong Kong ou à l’étranger. Un signal structurel, qui pèse sur chaque requête.',
     tag: 'Infrastructure',
     chips: ['ICP', 'Continental', 'Aliyun', 'Tencent Cloud'],
   },
@@ -37,7 +37,7 @@ const whyDifferent = [
     n: '04',
     cn: '推送',
     title: 'Le modèle de soumission est différent',
-    body: "Baidu ne trouve pas votre contenu de lui-même. Il attend que vous lui poussiez les nouvelles URL via 主动推送 (Active Push) dans les minutes qui suivent la publication. Nous câblons le push dans le CMS.",
+    body: "Baidu ne trouve pas votre contenu tout seul. Il attend qu’on lui pousse les nouvelles URL via 主动推送 (Active Push) dans les minutes qui suivent la publication. On câble le push directement dans le CMS.",
     tag: 'Soumission',
     chips: ['主动推送', '自动推送', 'Sitemap', '手工提交'],
   },
@@ -45,7 +45,7 @@ const whyDifferent = [
     n: '05',
     cn: '关键词',
     title: 'La recherche de mots-clés se fait en chinois, depuis la page blanche',
-    body: 'Ce que les internautes chinois cherchent réellement n’a presque rien à voir avec une liste de mots-clés anglais traduite. Nous travaillons avec 百度指数 (Baidu Index) et 百度关键词规划师 pour bâtir la cartographie.',
+    body: 'Ce que les internautes chinois cherchent réellement n’a presque rien à voir avec une liste de mots-clés anglais traduite. On travaille avec 百度指数 (Baidu Index) et 百度关键词规划师 pour bâtir la cartographie depuis la page blanche.',
     tag: 'Découverte',
     chips: ['百度指数', '关键词规划师', '5118', 'Longue traîne'],
   },
@@ -55,7 +55,7 @@ const services = [
   {
     n: '01',
     title: 'SEO technique pour Baidu',
-    body: 'Vérification du site sur 百度搜索资源平台. Les quatre méthodes de soumission d’URL configurées par ordre de priorité, plus 死链提交, 站点子链 et la vérification du crawl mobile-first. Vitesse mesurée depuis la Chine continentale.',
+    body: 'Vérification du site sur 百度搜索资源平台. Les quatre méthodes de soumission d’URL configurées par ordre de priorité, plus 死链提交, 站点子链 et la vérification du crawl en priorité mobile. Vitesse mesurée depuis la Chine continentale.',
     bullets: [
       '主动推送 (Active Push) câblé dans le CMS pour la soumission en temps réel.',
       '自动推送 (Auto Push) en JS pour rattraper les URL visitées avant le déclenchement du hook CMS.',
@@ -67,26 +67,61 @@ const services = [
   {
     n: '02',
     title: 'Contenu chinois natif, structuré pour Baidu',
-    body: 'Baidu valorise 深度原创. 飓风算法 déclasse les pages minces ou copiées, 飓风算法 3.0 vise le contenu IA sans relecture humaine. Nous écrivons avec des éditeurs chinois natifs : long format, balisage Schema, réponses factuelles que les IA peuvent citer.',
+    body: 'Baidu valorise 深度原创. 飓风算法 déclasse les pages minces ou copiées, 飓风算法 3.0 vise le contenu IA sans relecture humaine. On écrit avec des éditeurs natifs chinois : format long, balisage Schema, réponses factuelles que les IA peuvent citer.',
     tag: 'p.10',
   },
   {
     n: '03',
     title: 'Optimisation pour la recherche IA (文心X1, DeepSeek, Doubao, Kimi)',
-    body: "Plus de 20 % des résultats Baidu en 2025 contenaient une réponse générée par IA. Baidu intègre désormais 文心X1 et la recherche profonde DeepSeek directement dans la page de résultats. Nous structurons le contenu pour que ces moteurs lisent, comprennent et citent votre marque.",
+    body: "Plus de 20 % des résultats Baidu en 2025 contenaient une réponse générée par IA. Baidu intègre désormais 文心X1 et la recherche profonde DeepSeek directement dans la page de résultats. On structure le contenu pour que ces moteurs le lisent, le comprennent, et nomment votre marque dans la réponse.",
     tag: 'p.16',
   },
   {
     n: '04',
     title: 'Autorité dans l’écosystème web chinois',
-    body: "Vos backlinks internationaux ne pèsent presque rien sur Baidu. Les plateformes qui font bouger les classements : 百度百科, 百度知道, 百度贴吧, 知乎, 百家号, 百度爱采购, plus les portails B2B sectoriels et les signaux WeChat / Weibo. Nous bâtissons la présence et pilotons la syndication.",
+    body: "Vos backlinks internationaux ne pèsent presque rien sur Baidu. Les plateformes qui font réellement bouger les classements : 百度百科, 百度知道, 百度贴吧, 知乎, 百家号, 百度爱采购, plus les portails B2B sectoriels et les signaux WeChat / Weibo. On bâtit la présence et on pilote la syndication.",
     tag: 'p.22',
   },
   {
     n: '05',
     title: 'Optimisation continue et réponse aux algorithmes',
-    body: "Baidu n’annonce pas la plupart de ses mises à jour, et les annonces officielles sont en chinois sur le blog 百度搜索资源平台. Douze mois à suivre les évolutions de 知心算法, 飓风算法 3.0 et l’intégration 文心X1 + DeepSeek. Chacune a redéfini ce qui gagne.",
+    body: "Baidu n’annonce pas la plupart de ses mises à jour, et celles qui sortent paraissent en chinois sur le blog 百度搜索资源平台. Sur les douze derniers mois, on a suivi les évolutions de 知心算法, de 飓风算法 3.0 et l’intégration de 文心X1 + DeepSeek. Chacune a redéfini ce qui gagne.",
     tag: 'p.30',
+  },
+];
+
+const tools = [
+  {
+    name: '百度搜索资源平台',
+    en: 'Plateforme webmaster Baidu',
+    cn: '资源',
+    body: 'La console webmaster officielle : vérification du site, soumission d’URL, sitemaps, rapports d’indexation, test mobile, signalement de liens morts, fil d’annonces algorithmiques.',
+    feature: true,
+    items: ['Vérification du site', 'API de push d’URL', 'Sitemap', 'Rapports d’indexation', 'Test mobile', '死链提交', 'Fil algo'],
+  },
+  {
+    name: '百度统计',
+    en: 'Baidu Tongji',
+    cn: '统计',
+    body: 'L’équivalent Baidu de Google Analytics. Indispensable pour toute mesure sérieuse côté Chine.',
+  },
+  {
+    name: '百度指数',
+    en: 'Baidu Index et Keyword Planner',
+    cn: '指数',
+    body: 'Le point de départ d’une vraie recherche de mots-clés en chinois, plutôt qu’une liste anglaise traduite. À utiliser avec 百度关键词规划师.',
+  },
+  {
+    name: '5118 · 爱站 · 站长之家',
+    en: 'Outils SEO chinois tiers',
+    cn: '工具',
+    body: 'Souvent une intelligence concurrentielle et un historique de positions plus profonds que les outils officiels.',
+  },
+  {
+    name: 'API webmaster Baidu',
+    en: 'Intégration Active Push',
+    cn: '接口',
+    body: 'Pour 主动推送, on câble directement dans le CMS plutôt que de passer par les tableaux de bord.',
   },
 ];
 
@@ -129,7 +164,7 @@ const stages = [
 ];
 
 const stats = [
-  { value: '24-72h', label: 'Indexation via 主动推送', sub: 'Nouvelles URL dans Baidu en heures, pas en semaines.' },
+  { value: '24-72h', label: 'Indexation via 主动推送', sub: 'Nouvelles URL dans Baidu en quelques heures, là où le crawl naturel demande des semaines.' },
   { value: '11', label: 'Mises à jour algo suivies en 2025', sub: '知心算法, 飓风算法 3.0, intégration 文心X1.' },
   { value: '20%+', label: 'Pages Baidu avec réponse IA', sub: '文心X1 et DeepSeek désormais intégrés aux résultats.' },
 ];
@@ -142,17 +177,17 @@ const audiences = [
   },
   {
     label: 'Marques avec un contenu traduit, ancien',
-    description: 'Sites étrangers dont les pages chinoises sont restées des traductions et n’ont pas bougé depuis le lancement.',
+    description: 'Sites étrangers dont les pages chinoises sont restées de simples traductions et n’ont pas évolué depuis le lancement.',
     image: '/images/audiences/outdated-translated-content.webp',
   },
   {
     label: 'Marques qui se lancent depuis zéro',
-    description: 'Entreprises qui veulent une visibilité Baidu dès le premier jour, intégrée au build, pas ajoutée trois mois après le lancement.',
+    description: 'Entreprises qui veulent une visibilité Baidu dès le premier jour, intégrée à la conception du site et au calendrier de mise en ligne.',
     image: '/images/audiences/launching-chinese-market.webp',
   },
   {
     label: 'Marques sérieuses sur la recherche IA',
-    description: 'Équipes qui voient les réponses IA s’afficher en haut des résultats Baidu et veulent y être citées plutôt que contournées.',
+    description: 'Équipes qui voient les réponses IA s’afficher en haut des résultats Baidu et veulent que ces moteurs nomment leur marque dans la réponse.',
     image: '/images/audiences/seo-pro-needs-baidu.webp',
   },
 ];
@@ -173,7 +208,7 @@ const faqs = [
     id: 'outside-china',
     question: 'Peut-on piloter le SEO Baidu depuis l’étranger ?',
     answer: [
-      "Techniquement oui, mais avec de fortes limites. La vérification Baidu attend des numéros chinois, le tableau de bord est en chinois, la documentation n’est pas traduite, et beaucoup d’outils Baidu limitent ou bloquent les IP étrangères. La plupart des équipes étrangères qui s’y essaient abandonnent en un trimestre. Nous le pilotons depuis Shanghai parce que c’est là que le travail se fait vraiment.",
+      "Techniquement oui, mais avec de fortes limites. La vérification Baidu attend des numéros chinois, le tableau de bord est en chinois, la documentation n’est pas traduite, et beaucoup d’outils Baidu limitent ou bloquent les adresses IP étrangères. La plupart des équipes étrangères qui s’y essaient abandonnent en un trimestre. Nous pilotons depuis Shanghai parce que c’est là que le travail se fait vraiment.",
     ],
   },
   {
@@ -187,56 +222,56 @@ const faqs = [
     id: 'no-icp',
     question: 'Et si notre site n’a pas de dépôt ICP ?',
     answer: [
-      'Il se positionnera, mais avec un handicap mesurable. Baidu traite les sites de Hong Kong et offshore comme étrangers, les crawle moins souvent et les classe sous les sites continentaux. Pour une marque sérieuse sur Baidu, l’ICP sur hébergement continental reste le bon choix.',
+      'Il se positionnera, mais avec un handicap mesurable. Baidu traite les sites de Hong Kong et offshore comme étrangers, les crawle moins souvent, et les classe en dessous des sites continentaux. Pour une marque sérieuse sur Baidu, l’ICP sur hébergement continental reste le bon choix.',
     ],
   },
   {
     id: 'baidu-ads',
     question: 'Pilotez-vous aussi Baidu Ads (SEM) ?',
     answer: [
-      "Non, nous nous concentrons sur le SEO Baidu organique. Le payant est un autre métier, mené par d’autres équipes. Nous travaillons aux côtés des partenaires media et veillons à ce que le contenu SEO et les pages d’atterrissage payantes ne se tirent pas dans les pattes.",
+      "Non, nous nous concentrons sur le SEO Baidu organique. Le payant est un métier distinct, mené par d’autres équipes. Nous travaillons aux côtés des partenaires média et veillons à ce que le contenu SEO et les pages d’atterrissage payantes ne se tirent pas dans les pattes.",
     ],
   },
   {
     id: 'chinese-content',
     question: 'Comment cela s’articule avec le travail de contenu chinois ?',
     answer: [
-      'Étroitement. Le SEO Baidu sans contenu chinois natif est un effort gâché. La plupart de nos clients prennent les deux en une seule mission, équipe contenu et équipe SEO travaillant sur la même cartographie de mots-clés et la même architecture éditoriale.',
+      'Étroitement. Faire du SEO Baidu sans contenu chinois natif revient à creuser dans le vide. La plupart de nos clients prennent les deux en une seule mission, l’équipe contenu et l’équipe SEO travaillant sur la même cartographie de mots-clés et la même architecture éditoriale.',
     ],
   },
   {
     id: 'ai-search',
     question: 'Quid de la visibilité IA sur Doubao, Kimi, DeepSeek, 文心X1 ?',
     answer: [
-      'De plus en plus le même chantier. Baidu intègre désormais 文心X1 et DeepSeek dans plus de 20 % de ses pages de résultats. Structurer le contenu pour les IA (réponses factuelles propres, balisage Schema, llms.txt, structure sémantique) recoupe largement la structure pour Baidu. Nous traitons les deux ensemble.',
+      'De plus en plus le même chantier. Baidu intègre désormais 文心X1 et DeepSeek dans plus de 20 % de ses pages de résultats. Structurer le contenu pour les IA (réponses factuelles propres, balisage Schema, llms.txt, structure sémantique) recoupe largement la structure attendue par Baidu. On traite les deux ensemble.',
     ],
   },
   {
     id: 'links',
     question: 'Faites-vous du netlinking ?',
     answer: [
-      "Nous bâtissons l’autorité sur les plateformes chinoises (百度百科, 百度知道, 知乎, 百家号, 百度爱采购, portails B2B sectoriels) où la présence fait réellement bouger les classements Baidu. Acheter des backlinks génériques chez un broker occidental ne marche pas et fait courir un risque 飓风算法. L’autorité en Chine se gagne sur les plateformes chinoises, ou pas du tout.",
+      "On bâtit l’autorité sur les plateformes chinoises (百度百科, 百度知道, 知乎, 百家号, 百度爱采购, portails B2B sectoriels) où la présence fait réellement bouger les classements Baidu. Acheter des backlinks génériques chez un courtier occidental ne marche pas et fait courir un risque 飓风算法. L’autorité en Chine se gagne sur les plateformes chinoises, ou pas du tout.",
     ],
   },
   {
     id: 'measurement',
     question: 'Comment mesurez-vous le succès ?',
     answer: [
-      'Inclusion dans l’index (nombre de pages indexées), positions sur mots-clés (suivi hebdomadaire), trafic organique Baidu (via 百度统计), attribution des conversions, part de visibilité face à trois à cinq concurrents nommés. Reporting : synthèse mensuelle écrite, doublée d’un dashboard live.',
+      'Inclusion dans l’index (nombre de pages indexées), positions sur mots-clés (suivi hebdomadaire), trafic organique Baidu (via 百度统计), attribution des conversions, part de voix face à trois à cinq concurrents nommés. Restitution : synthèse mensuelle écrite, doublée d’un tableau de bord en direct.',
     ],
   },
   {
     id: 'algorithm-changes',
     question: 'Que faites-vous quand Baidu change son algorithme ?',
     answer: [
-      "Nous suivons chaque semaine les annonces du 百度搜索资源平台 et réagissons dans la même semaine quand quelque chose de matériel sort. Sur les douze derniers mois : extensions de 知心算法, 飓风算法 3.0 contre le contenu IA, intégration 文心X1 dans les résultats, plus plusieurs ajustements mineurs.",
+      "On suit chaque semaine les annonces du 百度搜索资源平台 et on réagit dans la semaine quand quelque chose de matériel sort. Sur les douze derniers mois : extensions de 知心算法, 飓风算法 3.0 contre le contenu IA, intégration de 文心X1 dans les résultats, plus plusieurs ajustements mineurs.",
     ],
   },
   {
     id: 'cost',
     question: 'Quel coût ?',
     answer: [
-      'Cela dépend du périmètre : taille du site, volume de contenu, intensité concurrentielle, et intégration ou non de la production de contenu chinois et de l’optimisation IA. Décrivez-nous le périmètre, nous renvoyons un vrai devis sous deux jours ouvrés.',
+      'Cela dépend du périmètre : taille du site, volume de contenu, intensité concurrentielle, intégration ou non de la production de contenu chinois et de l’optimisation IA. Décrivez-nous le périmètre, nous revenons sous deux jours ouvrés avec un chiffre ferme.',
     ],
   },
 ];
@@ -272,7 +307,7 @@ const faqs = [
             <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
             <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Référencement Baidu</span>
             <span class="text-white/30">·</span>
-            <span class="text-[11px] font-medium text-white/55">Derrière le Pare-feu, à Shanghai</span>
+            <span class="text-[11px] font-medium text-white/55">Derrière le Great Firewall, à Shanghai</span>
           </div>
 
           <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
@@ -284,7 +319,7 @@ const faqs = [
           </h1>
 
           <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
-            Baidu joue avec son propre crawler, son propre index, sa propre API de soumission, son propre cycle algorithmique, plus une couche IA (文心X1, DeepSeek) qui rédige plus de vingt pour cent des résultats. <span class="text-white font-medium">Pilotage depuis Shanghai, sur les outils maison de Baidu.</span>
+            Baidu joue avec son propre crawler, son propre index, sa propre API de soumission, son propre cycle algorithmique, et désormais une couche IA (文心X1, DeepSeek) qui rédige plus de vingt pour cent des résultats. <span class="text-white font-medium">Pilotage depuis Shanghai, sur les outils maison de Baidu.</span>
           </p>
 
           <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
@@ -307,6 +342,87 @@ const faqs = [
             <Button href="#what-we-do" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Voir les chantiers</Button>
           </div>
         </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
+          <div class="relative">
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg] transition-transform duration-500 hover:rotate-[-4deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Sans dépôt</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">site hors continent</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Index : 4 / 312 pages
+              </div>
+            </div>
+
+            <div data-tilt class="relative rounded-2xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] backdrop-blur-md border border-white/15 p-6 lg:p-7 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div class="flex items-center gap-2 mb-5">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-300/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-400/80"></span>
+                </div>
+                <span class="text-[10px] font-mono text-white/45 ml-2">百度搜索资源平台</span>
+                <span class="ml-auto inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-green-500/15 border border-green-400/30">
+                  <span class="w-1 h-1 rounded-full bg-green-400 animate-pulse"></span>
+                  <span class="text-[9px] font-mono text-green-300 uppercase">En ligne</span>
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">主动推送 (Push actif)</span>
+                    <span class="text-[10px] text-[var(--color-brand-orange)] font-mono">Branché</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden shimmer-bar">
+                    <div class="h-full w-full bg-gradient-to-r from-[var(--color-brand-orange)] to-[#FF8956] rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Pages indexées</span>
+                    <span class="text-[10px] text-white/55 font-mono"><span data-counter>342</span> / 412</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[83%] bg-gradient-to-r from-[var(--color-brand-orange)]/80 to-[var(--color-brand-orange)]/30 rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Score 知心算法</span>
+                    <span class="text-[10px] text-white/55 font-mono">Solide</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[72%] bg-gradient-to-r from-[var(--color-brand-orange)]/60 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">ICP</div>
+                  <div class="text-xs font-mono text-green-300">Déposé</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">文心X1</div>
+                  <div class="text-xs font-mono text-green-300">Cité</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">飓风 3.0</div>
+                  <div class="text-xs font-mono text-green-300">RAS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -321,43 +437,56 @@ const faqs = [
       <div class="io-grid items-center">
         <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0" data-reveal="left">
           <div class="relative inline-flex items-baseline">
-            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent">50%</span>
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-suffix="%" data-counter-duration="1800">50</span>
           </div>
           <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
-            La part de marché de Baidu sur la recherche en Chine, devant Bing et Sogou. Google reste sous les 3 %.
+            La part de la recherche chinoise qui passe encore par Baidu. La sauter, c’est rater la moitié des points d’entrée du pays avant même que l’IA n’entre dans l’équation.
           </p>
         </div>
 
         <div class="col-span-12 lg:col-span-7" data-reveal="right">
           <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Pourquoi cela compte</p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
-            Le moteur que votre public chinois utilise vraiment.
+            La recette Google ne s’exporte pas.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            La recette Google ne s’exporte pas. Baidu a sa propre console de soumission, ses propres algorithmes, sa propre culture du contenu, sa propre couche IA. Le chemin pour s’y faire référencer est différent de bout en bout.
+            Crawler distinct, API de soumission distincte, cycle algorithmique distinct, définition de l’autorité distincte. Onze évolutions algorithmiques sur 2025, sans compter les deux moteurs IA désormais branchés directement sur les résultats.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            Nous travaillons depuis Shanghai, sur les outils officiels de Baidu, en chinois, et nous suivons chaque mise à jour algorithmique dans la semaine où elle sort.
+            On traite Baidu comme une discipline à part. Une équipe à Shanghai qui surveille les tableaux de bord chaque jour.
           </p>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Audit
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Cartographie</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Déploiement</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Itération</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- POURQUOI BAIDU EST DIFFÉRENT -->
-  <section class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
-    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">索</span>
+  <section id="differences" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden scroll-mt-32">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">异</span>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
       <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Cinq différences · 五大差异</span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pourquoi c’est différent · 为什么不同</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
-          Cinq endroits où Baidu joue selon ses propres règles.
+          Cinq endroits où chaque équipe se cogne.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Algorithme, crawler, hébergement, soumission, mots-clés. Sur chacun, le chemin diverge.
+          Même les équipes SEO chevronnées tombent sur les mêmes cinq murs une fois passé le Great Firewall. Chacun défait un réflexe que la recette Google a mis des années à graver.
         </p>
       </div>
 
@@ -366,10 +495,14 @@ const faqs = [
           <article
             data-reveal
             data-reveal-delay={String(i * 60)}
-            class="group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1"
+            data-cursor-spotlight
+            class:list={[
+              'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+              'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
           >
             <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
-              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none">{q.cn}</span>
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{q.cn}</span>
               <div class="relative">
                 <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">N° {q.n} / 05</div>
                 <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{q.cn}</div>
@@ -400,62 +533,173 @@ const faqs = [
     </div>
   </section>
 
-  <!-- CE QUE NOUS FAISONS -->
-  <section id="what-we-do" class="relative section-spacing bg-white overflow-hidden scroll-mt-32">
-    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+  <!-- CE QUE NOUS FAISONS : fond sombre + console sticky -->
+  <section id="what-we-do" class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[15%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none" data-float></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
       <div class="max-w-3xl mb-14" data-reveal>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Ce que nous faisons · 做什么</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Ce que nous faisons · 做什么</span>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
-          Cinq chantiers, menés ensemble.
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          À quoi ressemble vraiment le SEO Baidu.
         </h2>
-        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Sautez l’un d’eux et la progression s’arrête.
+        <p class="text-lg text-white/65 leading-relaxed">
+          Cinq chantiers, menés en parallèle. Sautez-en un et les autres cessent de capitaliser.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
-        {services.map((d, i) => (
-          <div data-reveal data-reveal-delay={String(i * 80)} class="group relative rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 hover:bg-white hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_18px_40px_-18px_rgba(15,15,18,0.18)] hover:-translate-y-1 overflow-hidden">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
-            <div class="flex items-start gap-5 relative">
-              <div class="flex-shrink-0">
-                <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{d.n}</div>
-                <div class="mt-2 w-8 h-px bg-[var(--color-surface-border)]"></div>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="flex items-baseline justify-between gap-3 mb-2">
-                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-                    {d.title}
-                  </h3>
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--color-text-muted)] flex-shrink-0">{d.tag}</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        <!-- Console sticky -->
+        <div class="lg:col-span-5 lg:sticky lg:top-32 lg:self-start" data-reveal="left">
+          <div class="relative w-full max-w-[400px] mx-auto lg:mx-0">
+            <div class="absolute top-6 left-4 w-full aspect-[3/4] rounded-xl bg-white/[0.04] border border-white/10 rotate-[5deg] backdrop-blur-sm"></div>
+            <div class="absolute top-3 left-2 w-full aspect-[3/4] rounded-xl bg-white/[0.06] border border-white/15 rotate-[2deg] backdrop-blur-sm shadow-lg"></div>
+            <div class="relative w-full aspect-[3/4] rounded-xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] border border-white/20 backdrop-blur-md shadow-2xl p-6 lg:p-7 flex flex-col">
+              <div class="border-b border-white/10 pb-4 mb-5">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">百度搜索资源平台 · 2026</div>
+                <div class="text-base font-semibold text-white mt-2 font-[var(--font-heading)] leading-tight">
+                  Chantiers<br/>SEO Baidu
                 </div>
-                <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
-                  {d.body}
-                </p>
-                {d.bullets && (
-                  <ul class="mt-4 space-y-2">
-                    {d.bullets.map((b) => (
-                      <li class="flex gap-3 text-[13px] text-[var(--color-text-body)] leading-relaxed">
-                        <span class="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <div class="text-[11px] font-mono text-white/40 mt-2">En direct · équipe Shanghai</div>
+              </div>
+              <div class="space-y-2.5 flex-1">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-1">Modules</div>
+                {services.map((d) => (
+                  <div class="flex items-center justify-between gap-2 text-[12px]">
+                    <span class="text-white/75 truncate">{d.title}</span>
+                    <span class="font-mono text-white/40 flex-shrink-0">{d.tag}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="mt-4 pt-4 border-t border-white/10">
+                <div class="bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 rounded-md px-3 py-2 text-center">
+                  <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-brand-orange)]">Pris en une seule mission</div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Liste des chantiers -->
+        <div class="lg:col-span-7">
+          <div class="space-y-3">
+            {services.map((d, i) => (
+              <div data-reveal data-reveal-delay={String(i * 80)} class="group relative rounded-2xl bg-white/[0.03] border border-white/10 p-6 lg:p-7 transition-all duration-300 hover:bg-white/[0.06] hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-0.5">
+                <div class="flex items-start gap-5">
+                  <div class="flex-shrink-0">
+                    <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{d.n}</div>
+                    <div class="mt-2 w-8 h-px bg-white/15"></div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-baseline justify-between gap-3 mb-2">
+                      <h3 class="text-lg font-semibold font-[var(--font-heading)] text-white leading-tight">
+                        {d.title}
+                      </h3>
+                      <span class="text-[10px] font-mono uppercase tracking-wider text-white/40 flex-shrink-0">{d.tag}</span>
+                    </div>
+                    <p class="text-sm text-white/65 leading-relaxed">
+                      {d.body}
+                    </p>
+                    {d.bullets && (
+                      <ul class="mt-4 space-y-2">
+                        {d.bullets.map((b) => (
+                          <li class="flex gap-3 text-[13px] text-white/65 leading-relaxed">
+                            <span class="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTILS : bento -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="flex items-end justify-between flex-wrap gap-6 mb-12 lg:mb-14" data-reveal>
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Outils · 工具栈</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            À l’intérieur de la console Baidu.
+          </h2>
+        </div>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed max-w-md">
+          L’outillage côté chinois forme un écosystème à part. La plupart des outils n’ont pas d’équivalent Google, et les tableaux de bord sont en mandarin.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5">
+        <!-- Mis en avant -->
+        <article class="lg:col-span-8 lg:row-span-2 group relative rounded-3xl bg-gradient-to-br from-[var(--color-text-dark)] via-[#1f1f24] to-[#0f0f12] text-white p-7 lg:p-10 overflow-hidden min-h-[360px] flex flex-col" data-reveal data-cursor-spotlight>
+          <span aria-hidden="true" class="absolute -right-12 -bottom-20 text-[20rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none">{tools[0].cn}</span>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">À la une · La console officielle</span>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] leading-tight mb-1">
+              {tools[0].name}
+            </h3>
+            <p class="text-sm text-[var(--color-brand-orange)]/90 font-mono mb-4">{tools[0].en}</p>
+            <p class="text-base text-white/65 leading-relaxed mb-7 max-w-md">
+              {tools[0].body}
+            </p>
+          </div>
+          <div class="relative mt-auto flex flex-wrap gap-2">
+            {tools[0].items?.map((item) => (
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.07] border border-white/15 text-xs text-white/85 backdrop-blur-sm transition-colors duration-200 hover:bg-white/[0.12] hover:border-white/25">
+                {item}
+              </span>
+            ))}
+          </div>
+        </article>
+
+        {tools.slice(1).map((c, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 80)}
+            class:list={[
+              'lg:col-span-4 group relative rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 lg:p-7 overflow-hidden transition-all duration-300',
+              'hover:bg-white hover:border-[var(--color-brand-orange)]/25 hover:shadow-[0_18px_40px_-18px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <span aria-hidden="true" class="absolute -right-3 -bottom-6 text-[7rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.1] group-hover:scale-110 origin-bottom-right">{c.cn}</span>
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-3.5">
+                <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">{c.cn}</span>
+              </div>
+              <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-1">
+                {c.name}
+              </h3>
+              <p class="text-[11px] text-[var(--color-text-muted)] font-mono mb-3">{c.en}</p>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+                {c.body}
+              </p>
+            </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- DÉROULÉ -->
-  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+  <!-- DÉROULÉ : 5 étapes -->
+  <section id="engagement" class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden scroll-mt-32">
     <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px] pointer-events-none"></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
@@ -464,13 +708,23 @@ const faqs = [
           <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Notre déroulé · 工作流程</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
-          Cinq étapes, du diagnostic à l’itération.
+          Cinq étapes, menées comme un seul programme.
         </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Audit dès le premier jour. Indexation en ligne dès la sixième semaine. Citations et progression qui composent à partir du troisième mois.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
         {stages.map((s, i) => (
-          <article data-reveal data-reveal-delay={String(i * 70)} class="group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30">
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 70)}
+            class:list={[
+              'group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 overflow-hidden',
+              'hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
             <span aria-hidden="true" class="absolute right-2 top-2 text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-top-right">{s.cn}</span>
 
@@ -508,9 +762,35 @@ const faqs = [
     <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
+      <div class="io-grid items-start mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Calendrier · 时间线</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Délais réalistes sur Baidu.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            L’indexation va plus vite que la plupart des équipes étrangères ne l’imaginent. Le classement sur les têtes de requête concurrentielles, beaucoup moins. Quiconque promet les deux en moins de trente jours vend autre chose.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 mb-10">
         {stats.map((s, i) => (
-          <div class:list={['group relative rounded-3xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden', i === 1 ? 'bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] text-white' : 'bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]']}>
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 90)}
+            class:list={[
+              'group relative rounded-3xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden',
+              i === 1
+                ? 'bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] text-white hover:shadow-[0_24px_50px_-22px_rgba(242,95,41,0.4)]'
+                : 'bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            {i === 1 && <span aria-hidden="true" class="absolute -right-4 -bottom-8 text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.08] leading-none select-none pointer-events-none">百</span>}
             <div class="relative">
               <div class:list={['text-[10px] font-mono uppercase tracking-[0.18em] mb-3', i === 1 ? 'text-white/75' : 'text-[var(--color-text-muted)]']}>{s.label}</div>
               <div class:list={['text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3', i === 1 ? 'text-white' : 'text-[var(--color-text-dark)]']}>
@@ -524,7 +804,7 @@ const faqs = [
     </div>
   </section>
 
-  <WhoIsThisFor heading="Qui nous mandate pour le SEO Baidu" audiences={audiences} background="light" />
+  <WhoIsThisFor heading="À qui s’adresse le SEO Baidu" audiences={audiences} background="light" />
 
   <!-- FAQ -->
   <section id="faq" class="section-spacing bg-white scroll-mt-32">
@@ -537,6 +817,9 @@ const faqs = [
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
             Dix questions sur le SEO Baidu
           </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Cliquez sur une question pour la dérouler. Si la vôtre n’y est pas, demandez-nous directement.
+          </p>
           <div class="mt-7">
             <Button href="/fr/contact/" variant="secondary" size="md">Poser une autre question</Button>
           </div>
@@ -568,20 +851,29 @@ const faqs = [
           </span>
         ))}
       </div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
     </div>
 
     <div class="relative py-20 lg:py-28">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/8 rounded-full blur-[140px] pointer-events-none"></div>
-      <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">索</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">Quand vous voulez</span>
+        </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
-          Prêt à devenir trouvable sur Baidu ?
+          Prêt à vraiment vous classer sur Baidu ?
         </h2>
         <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
-          Décrivez-nous le périmètre. Nous renvoyons sous deux jours ouvrés un cadrage et un vrai chiffre.
+          La plupart des projets en cours associent SEO Baidu, contenu chinois et optimisation pour la recherche IA, parce que les trois sont indissociables sur le terrain. Si vous avez besoin des trois, l’audit stratégique est le point d’entrée habituel.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button href="/fr/contact/" variant="primary" size="lg">Demander un audit Baidu</Button>
-          <Button href="/fr/services/geo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Voir GEO China</Button>
+          <Button href="/fr/services/chinese-content/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Contenu chinois</Button>
+          <Button href="/fr/services/strategy-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Stratégie et audit</Button>
         </div>
       </div>
     </div>

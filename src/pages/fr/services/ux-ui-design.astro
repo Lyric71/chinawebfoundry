@@ -4,61 +4,113 @@ import Button from '../../../components/ui/Button.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
 const metaTitle = 'Design UX et UI pour WordPress en Chine | ChinaWebFoundry';
-const metaDescription = 'Nous concevons des sites WordPress qui parlent au public chinois. Adaptés culturellement, mobile-first, par une équipe basée en Chine, vingt ans d’ancrage local.';
+const metaDescription = 'Nous concevons des sites WordPress qui parlent au public chinois. Pensés pour le mobile, ancrés culturellement, livrés par une équipe basée en Chine depuis vingt ans.';
 
 const stats = [
   { value: '70%+', label: 'Trafic mobile en Chine' },
   { value: '6', label: 'Navigateurs testés' },
   { value: 'WeChat', label: 'Intégration native' },
-  { value: 'ICP', label: 'Conforme par conception' },
+  { value: 'ICP', label: 'Conforme dès la conception' },
 ];
 
 const services = [
   {
     title: 'Recherche utilisateur',
-    body: 'Nous cartographions la manière dont votre public navigue réellement en Chine, mesurons concurrents locaux et internationaux, et concevons des parcours qui partent d’où partent les internautes chinois : Douyin, WeChat ou Baidu.',
+    body: 'On cartographie la manière dont votre public navigue réellement en Chine, on mesure les concurrents locaux et internationaux, et on conçoit des parcours qui démarrent là où démarrent vraiment les internautes chinois : Douyin, WeChat ou Baidu.',
+    icon: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607Z',
     tag: 'Recherche',
   },
   {
     title: 'Architecture de l’information',
-    body: 'Le public chinois préfère les pages denses. Plus de liens visibles, plus de texte, plus d’options dès le départ. Nous structurons le contenu à la profondeur attendue, sans le rendre illisible pour le siège.',
-    tag: 'IA',
+    body: 'Le public chinois préfère les pages denses. Plus de liens visibles, plus de texte, plus d’options dès le premier écran. On structure le contenu à la profondeur attendue, sans le rendre illisible côté siège.',
+    icon: 'M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5',
+    tag: 'Architecture',
   },
   {
     title: 'Design visuel',
-    body: 'Mises en page mobile-first pour les appareils que les Chinois utilisent vraiment. Couleur symbolique, typographie qui respecte les caractères, signaux de confiance (QR WeChat, ICP, licence d’entreprise) que les consommateurs chinois vérifient avant d’agir.',
+    body: 'Mises en page pensées pour le mobile, sur les appareils que les Chinois utilisent vraiment. Couleur symbolique, typographie qui respecte les caractères, signaux de confiance (QR WeChat, numéro ICP, licence d’entreprise) que les consommateurs chinois vérifient avant d’agir.',
+    icon: 'M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42',
     tag: 'UI',
   },
   {
     title: 'Système de design Gutenberg',
-    body: 'Nous concevons directement dans Gutenberg. Blocs personnalisés que votre équipe contenu utilise sans développeur, composants de cohérence visuelle, templates modifiables sans compétence technique.',
+    body: 'On conçoit directement dans Gutenberg. Blocs personnalisés que vos équipes contenu utilisent sans dépendre d’un développeur, composants de cohérence visuelle, gabarits modifiables sans compétence technique.',
+    icon: 'M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3',
     tag: 'Système',
   },
 ];
 
 const processSteps = [
-  { phase: '01', title: 'Découverte et brief', body: 'Alignement sur les guidelines de marque, les objectifs et le public que vous cherchez à atteindre en Chine.' },
-  { phase: '02', title: 'Recherche et benchmarking', body: 'Paysage concurrentiel, schémas d’usage locaux, principes de design. La phase de devoirs.' },
-  { phase: '03', title: 'Wireframing', body: 'Structure de pages et flux confrontés aux attentes des internautes chinois. Reprendre un wireframe coûte moins qu’un mockup léché.' },
-  { phase: '04', title: 'Design visuel et itération', body: 'Mockups haute fidélité et tours de retour jusqu’à ce que le design tienne pour la marque mondiale et pour le marché chinois.' },
-  { phase: '05', title: 'Système et passation', body: 'Composants, guidelines de style et specs d’interaction emballés pour que votre équipe dev développe sans deviner.' },
-  { phase: '06', title: 'QA et validation', body: 'Tests sur les navigateurs et appareils chinois. Un site superbe à Londres peut s’effondrer sur UC Browser ou QQ Browser, encore très utilisés en Chine.' },
+  { phase: '01', title: 'Cadrage et brief', body: 'Cadrage avec votre charte de marque, les objectifs visés et le public que vous voulez atteindre en Chine.' },
+  { phase: '02', title: 'Recherche et veille concurrentielle', body: 'Cartographie de la concurrence, schémas d’usage locaux, principes de design propres au marché. La phase « devoirs ». On y passe le temps qu’il faut.' },
+  { phase: '03', title: 'Maquettes filaires', body: 'Structure des pages et flux confrontés aux attentes des internautes chinois. Reprendre une maquette filaire coûte beaucoup moins cher qu’une maquette finalisée.' },
+  { phase: '04', title: 'Design visuel et itérations', body: 'Maquettes haute fidélité et tours de retour jusqu’à ce que le design tienne à la fois pour la marque mondiale et pour le marché chinois.' },
+  { phase: '05', title: 'Système et passation', body: 'Composants, règles de style et spécifications d’interaction réunis dans un livrable, pour que vos développeurs avancent sans deviner.' },
+  { phase: '06', title: 'Recette et validation', body: 'Tests sur les navigateurs et appareils chinois. Un site magnifique à Londres peut s’effondrer sur UC Browser ou QQ Browser, encore très utilisés sur le continent.' },
+];
+
+const colours = [
+  { name: 'Rouge auspicieux', hex: '#E11D2E', meaning: 'Chance, énergie, action' },
+  { name: 'Orange de marque', hex: '#F25F29', meaning: 'Vitalité, accent' },
+  { name: 'Vert de confiance', hex: '#52C41A', meaning: 'Validation, WeChat' },
+  { name: 'Encre', hex: '#1F1F1F', meaning: 'Titres, ancrage' },
+  { name: 'Nuage', hex: '#FAFAFA', meaning: 'Fond, jamais seul' },
+];
+
+const typeScale = [
+  { label: 'H1', size: '32', cn: '中文标题', en: 'Titre principal' },
+  { label: 'H2', size: '24', cn: '副标题', en: 'Sous-titre de section' },
+  { label: 'Body', size: '16', cn: '正文段落', en: 'Paragraphe courant' },
+  { label: 'Caption', size: '12', cn: '辅助说明', en: 'Légende / méta' },
+];
+
+const spacingTokens = [
+  { name: '4 · XS', width: 'w-2' },
+  { name: '8 · S', width: 'w-4' },
+  { name: '16 · M', width: 'w-8' },
+  { name: '24 · L', width: 'w-12' },
+  { name: '32 · XL', width: 'w-16' },
+  { name: '48 · 2XL', width: 'w-24' },
 ];
 
 const intelligence = [
-  { claim: 'La couleur porte un sens', body: 'Le rouge évoque la chance et l’énergie. L’or, le premium. Le blanc seul porte un poids funéraire ; nous l’associons toujours à des accents forts.' },
-  { claim: 'La densité signale la confiance', body: 'Les pages denses au-dessus de la ligne de flottaison rassurent l’internaute chinois. Les designs très aérés peuvent se lire comme vides, inachevés ou évasifs.' },
-  { claim: 'La confiance vit aux marges', body: 'Numéro ICP, licence d’entreprise, badges officiels. Le pied de page est conventionnel. Les QR codes au-dessus de la ligne ancrent la crédibilité.' },
-  { claim: 'WeChat fait partie de la plomberie', body: 'QR codes, liens vers Mini Programs, points de partage, identifiants service client. Infrastructure de base, pas options.' },
-  { claim: 'La typographie pèse', body: 'PingFang SC, Noto Sans SC ou Source Han s’associent à Inter ou aux piles système. L’interlettrage et l’interligne diffèrent du latin.' },
-  { claim: 'La nav du bas, c’est le bouton « accueil »', body: 'La barre de navigation collante en bas est le bouton « accueil » du web mobile chinois. Cinq cibles tactiles, toujours visibles, toujours atteignables au pouce.' },
+  {
+    claim: 'La couleur porte un sens',
+    body: 'Le rouge évoque la chance et l’énergie. L’or, le haut de gamme. Le blanc, seul, porte une lourdeur funéraire : on l’associe toujours à des accents forts.',
+    visual: 'colour',
+  },
+  {
+    claim: 'La densité signale la confiance',
+    body: 'Les pages denses au-dessus de la ligne de flottaison rassurent l’internaute chinois. Les designs très aérés se lisent souvent comme inachevés, voire évasifs.',
+    visual: 'density',
+  },
+  {
+    claim: 'La confiance vit aux marges',
+    body: 'Numéro ICP, licence d’entreprise, badges officiels. Le pied de page reste l’emplacement conventionnel. Les QR codes posés au-dessus de la ligne de flottaison ancrent la crédibilité plus fort.',
+    visual: 'trust',
+  },
+  {
+    claim: 'WeChat fait partie de la plomberie',
+    body: 'QR codes, liens vers Mini Programs, points de partage, identifiants service client. À traiter comme l’infrastructure de base d’un site, au même rang que la navigation principale.',
+    visual: 'wechat',
+  },
+  {
+    claim: 'La typographie pèse',
+    body: 'PingFang SC, Noto Sans SC ou Source Han s’associent à Inter ou aux piles système. L’interlettrage et l’interligne suivent des règles différentes des langues latines.',
+    visual: 'type',
+  },
+  {
+    claim: 'La barre du bas, c’est le bouton « accueil »',
+    body: 'La barre de navigation collée en bas joue le rôle de bouton « accueil » du web mobile chinois. Cinq cibles tactiles, toujours visibles, toujours atteignables au pouce.',
+    visual: 'nav',
+  },
 ];
 
 const audiences = [
   { label: 'Démarrer depuis zéro', description: 'Vous bâtissez un site WordPress pour la Chine et voulez poser le bon design dès le départ.', image: '/images/audiences/building-site-china-design.webp' },
-  { label: 'Site live qui ne performe pas', description: 'Votre site chinois est en ligne mais ne convertit pas, et vous soupçonnez le design.', image: '/images/audiences/live-site-not-performing.webp' },
-  { label: 'Pages de campagne', description: 'Vos équipes marketing ont besoin de pages pour des consommateurs chinois, sans effet de traduction.', image: '/images/audiences/campaign-chinese-consumers.webp' },
-  { label: 'Adapter un design global', description: 'Vous avez un design system mondial solide et cherchez quelqu’un qui sait l’adapter pour la Chine.', image: '/images/audiences/global-design-adapt-china.webp' },
+  { label: 'Site en ligne qui ne convertit pas', description: 'Votre site chinois tourne mais les conversions ne suivent pas. Vous soupçonnez le design d’en être la cause.', image: '/images/audiences/live-site-not-performing.webp' },
+  { label: 'Pages de campagne', description: 'Vos équipes marketing ont besoin de pages destinées aux consommateurs chinois, sans cet effet « page traduite » qui se voit immédiatement.', image: '/images/audiences/campaign-chinese-consumers.webp' },
+  { label: 'Adapter un design global', description: 'Vous disposez d’un système de design global solide et cherchez quelqu’un qui sait l’adapter au marché chinois.', image: '/images/audiences/global-design-adapt-china.webp' },
 ];
 
 const marqueeWords = [
@@ -79,22 +131,27 @@ const marqueeWords = [
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
 
+  <!-- HERO: composition éditoriale avec maquette mobile -->
   <section class="relative bg-[#0a0a0d] overflow-hidden">
     <div class="absolute inset-0">
       <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px]"></div>
+      <div class="absolute -bottom-40 right-1/3 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/5 blur-[100px]"></div>
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(242,95,41,0.08),transparent_50%)]"></div>
+      <!-- grille discrète -->
+      <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px); background-size: 64px 64px;"></div>
     </div>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
       <nav aria-label="Fil d’Ariane" class="pt-20 pb-12">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/fr/" class="hover:text-white/70 transition-colors no-underline">Accueil</a></li>
-          <li class="before:content-['/'] before:mx-2"><a href="/fr/services/" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/fr/#OurServices" class="hover:text-white/70 transition-colors no-underline">Services</a></li>
           <li class="before:content-['/'] before:mx-2 text-white/60">Design UX et UI</li>
         </ol>
       </nav>
 
       <div class="io-grid items-center pb-20 lg:pb-32">
+        <!-- Texte -->
         <div class="col-span-12 lg:col-span-7">
           <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 mb-8">
             <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
@@ -108,113 +165,533 @@ const marqueeWords = [
           </h1>
 
           <p class="mt-8 text-lg lg:text-xl text-white/60 max-w-[560px] leading-relaxed">
-            Des expériences WordPress qui sonnent natives. Pertinentes culturellement, mobile-first, façonnées autour des plateformes qui font tourner l’internet chinois.
+            Des expériences WordPress qui sonnent natives au lecteur chinois. Ancrées culturellement, pensées d’abord pour le mobile, façonnées autour des plateformes qui font tourner l’internet en Chine.
           </p>
 
           <div class="mt-10 flex flex-wrap items-center gap-5">
             <Button href="/fr/contact/" variant="primary" size="lg">Démarrer un projet de design</Button>
+            <a href="#notre-prestation" class="group inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors">
+              Voir le système
+              <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
           </div>
+        </div>
 
-          <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {stats.map((s) => (
-              <div>
-                <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">{s.value}</div>
-                <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">{s.label}</div>
+        <!-- Visuel : maquette mobile encadrée comme un artboard -->
+        <div class="col-span-12 lg:col-span-5 mt-16 lg:mt-0">
+          <div class="relative">
+            <div class="absolute -inset-8 bg-[var(--color-brand-orange)]/15 rounded-[40px] blur-3xl -z-10"></div>
+
+            <!-- Étiquette artboard -->
+            <div class="flex items-center justify-between mb-3 px-1">
+              <div class="flex items-center gap-2 text-[11px] font-mono text-white/40">
+                <span class="w-1.5 h-1.5 rounded-sm bg-[var(--color-brand-orange)]"></span>
+                <span>home-mobile.fig</span>
               </div>
-            ))}
+              <div class="text-[11px] font-mono text-white/30">375 × 812</div>
+            </div>
+
+            <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent">
+              <img
+                src="/images/ux-design-china-mobile-wordpress-mockup.webp"
+                alt="Page d’accueil mobile WordPress conçue pour le public chinois, avec accents rouges, QR code WeChat et licence ICP"
+                class="w-full h-auto block"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+
+            <!-- Pastille flottante : Mobile d’abord -->
+            <div class="hidden sm:flex absolute -left-6 top-20 items-center gap-2.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 px-4 py-2 shadow-2xl">
+              <span class="w-2 h-2 rounded-full bg-green-400"></span>
+              <span class="text-xs font-medium text-white">Mobile d’abord</span>
+            </div>
+
+            <!-- Pastille flottante : signaux de confiance -->
+            <div class="hidden sm:flex absolute -right-4 bottom-24 items-center gap-2.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 px-4 py-2 shadow-2xl">
+              <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+              <span class="text-xs font-medium text-white">WeChat + ICP</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-spacing bg-white">
-    <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-3xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Notre prestation</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
-          Quatre chantiers, une seule discipline.
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {services.map((s) => (
-          <article class="rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7">
-            <p class="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">{s.tag}</p>
-            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{s.title}</h3>
-            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{s.body}</p>
-          </article>
+  <!-- BANDEAU VOCABULAIRE -->
+  <section aria-hidden="true" class="bg-[#0a0a0d] border-y border-white/5 overflow-hidden py-5">
+    <div class="marquee-mask">
+      <div class="marquee-track flex items-center gap-10 whitespace-nowrap">
+        {[...marqueeWords, ...marqueeWords].map((word, i) => (
+          <div class="flex items-center gap-10 flex-shrink-0">
+            <span class={`text-base font-medium ${i % 2 === 0 ? 'text-white/40' : 'text-white/70'}`}>{word}</span>
+            <span class="w-1 h-1 rounded-full bg-[var(--color-brand-orange)]/60 flex-shrink-0"></span>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- BANDEAU CHIFFRES -->
+  <section class="bg-white border-b border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[var(--color-surface-border)] py-10 lg:py-12 -mx-4 sm:-mx-6 lg:-mx-8">
+        {stats.map((stat) => (
+          <div class="px-4 sm:px-6 lg:px-8">
+            <div class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] tracking-tight leading-none">
+              {stat.value}
+            </div>
+            <div class="mt-3 text-sm text-[var(--color-text-muted)]">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LE PROBLÈME -->
+  <section class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-12 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Le problème
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-8 tracking-tight">
+            Pourquoi le design occidental<br/>
+            <span class="text-[var(--color-text-muted)]">tombe à plat en Chine.</span>
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Une entreprise fait tourner son site WordPress chez elle, le lance en Chine, et le taux de rebond explose. Techniquement, le site reste impeccable, mais quelque chose sonne faux pour qui le consulte depuis Shanghai ou Chengdu.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            Les internautes chinois n’ont pas grandi sur le même web. Leur façon de naviguer, la quantité d’informations qu’ils s’attendent à voir d’un coup d’œil, tout cela porte la marque de WeChat, de Taobao et de Douyin.
+          </p>
+          <blockquote class="border-l-2 border-[var(--color-brand-orange)] pl-6 py-1">
+            <p class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug">
+              Un langage visuel qui convertit à Chicago ne fonctionne pas d’office à Chongqing.
+            </p>
+          </blockquote>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6">
+          <div class="relative">
+            <div class="rounded-2xl overflow-hidden border border-[var(--color-surface-border)] shadow-xl shadow-black/5">
+              <img
+                src="/images/ux-design-china-vs-western-mobile-comparison.webp"
+                alt="Deux téléphones côte à côte, l’un montrant un site occidental épuré, l’autre un site chinois dense avec QR WeChat et signaux de confiance"
+                class="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="mt-5 grid grid-cols-2 gap-4 text-center">
+              <div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Style occidental</div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)]">Aéré, peu d’engagement</div>
+              </div>
+              <div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">Style chinois</div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)]">Dense, et qui convertit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRILLE DES CONVICTIONS UX CHINE -->
   <section class="section-spacing bg-[var(--color-surface-light)]">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-3xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Le déroulé</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
-          Six étapes, du brief au QA.
-        </h2>
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-20">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Savoir de terrain
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+            Six leçons que la Chine<br/>nous a apprises sur le design.
+          </h2>
+        </div>
+        <p class="text-base text-[var(--color-text-muted)] max-w-md font-mono uppercase tracking-wider text-xs">
+          A.01 à A.06 / Heuristiques UX Chine
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {processSteps.map((p) => (
-          <article class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-6">
-            <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none mb-3">{p.phase}</div>
-            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">{p.title}</h3>
-            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{p.body}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {intelligence.map((card, idx) => (
+          <article class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] overflow-hidden hover:border-[var(--color-brand-orange)]/40 hover:shadow-xl hover:shadow-black/5 transition-all duration-300">
+            <!-- Zone d’artefact visuel -->
+            <div class="relative h-44 bg-gradient-to-br from-[var(--color-surface-light)] to-white border-b border-[var(--color-surface-border)] overflow-hidden">
+              <div class="absolute top-3 left-4 text-[11px] font-mono text-[var(--color-text-muted)] uppercase tracking-wider">
+                A.0{idx + 1}
+              </div>
+
+              {card.visual === 'colour' && (
+                <div class="absolute inset-0 flex items-center justify-center px-6">
+                  <div class="flex items-end gap-1">
+                    <div class="w-12 h-20 rounded-md bg-[#E11D2E] shadow-md"></div>
+                    <div class="w-12 h-16 rounded-md bg-[#F25F29] shadow-md"></div>
+                    <div class="w-12 h-12 rounded-md bg-[#D4AF37] shadow-md"></div>
+                    <div class="w-12 h-8 rounded-md bg-[#52C41A] shadow-md"></div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'density' && (
+                <div class="absolute inset-0 flex items-center justify-center px-8">
+                  <div class="w-full max-w-[180px] space-y-1.5">
+                    <div class="h-3 bg-[var(--color-brand-orange)]/80 rounded-sm"></div>
+                    <div class="grid grid-cols-3 gap-1.5">
+                      <div class="h-8 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                      <div class="h-8 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                      <div class="h-8 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                    </div>
+                    <div class="h-3 bg-[var(--color-text-dark)]/20 rounded-sm"></div>
+                    <div class="h-3 bg-[var(--color-text-dark)]/20 rounded-sm w-3/4"></div>
+                    <div class="grid grid-cols-2 gap-1.5">
+                      <div class="h-6 bg-[var(--color-brand-orange)]/30 rounded-sm"></div>
+                      <div class="h-6 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'trust' && (
+                <div class="absolute inset-0 flex items-center justify-center px-6">
+                  <div class="flex items-center gap-2.5">
+                    <div class="px-3 py-2 rounded-md border border-[var(--color-surface-border)] bg-white text-[10px] font-mono text-[var(--color-text-body)]">
+                      ICP 沪B2-2024<br/>0123456号
+                    </div>
+                    <div class="w-12 h-12 rounded-md bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white text-[10px] font-bold">营业<br/>执照</div>
+                    <div class="w-10 h-10 rounded-md bg-[#52C41A] flex items-center justify-center">
+                      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'wechat' && (
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="relative w-24 h-24 bg-white rounded-xl border border-[var(--color-surface-border)] p-2">
+                    <div class="grid grid-cols-7 gap-px h-full w-full">
+                      {Array.from({ length: 49 }).map((_, i) => {
+                        const filled = [0,1,2,3,5,6,8,12,14,15,18,20,22,24,28,29,30,32,34,36,40,42,43,44,46,47,48].includes(i);
+                        return <div class={filled ? 'bg-[var(--color-text-dark)] rounded-[1px]' : ''}></div>;
+                      })}
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-[#52C41A] border-2 border-white flex items-center justify-center">
+                      <span class="text-white text-[9px] font-bold">微信</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {card.visual === 'type' && (
+                <div class="absolute inset-0 flex items-center justify-center gap-3 px-6">
+                  <span class="text-[80px] leading-none font-medium text-[var(--color-text-dark)]">中</span>
+                  <div class="h-16 w-px bg-[var(--color-surface-border)]"></div>
+                  <span class="text-[72px] leading-none font-light text-[var(--color-text-dark)] italic">Aa</span>
+                </div>
+              )}
+
+              {card.visual === 'nav' && (
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="relative w-20 h-32 rounded-xl border-2 border-[var(--color-text-dark)]/30 bg-white p-1.5 flex flex-col">
+                    <div class="flex-1 space-y-1">
+                      <div class="h-1.5 bg-[var(--color-text-dark)]/15 rounded-sm"></div>
+                      <div class="h-3 bg-[var(--color-text-dark)]/10 rounded-sm"></div>
+                      <div class="h-1.5 bg-[var(--color-text-dark)]/15 rounded-sm w-3/4"></div>
+                      <div class="h-3 bg-[var(--color-brand-orange)]/30 rounded-sm"></div>
+                    </div>
+                    <div class="mt-1 flex items-center justify-around bg-[var(--color-brand-orange)]/10 rounded-md px-1 py-1.5 border-t border-[var(--color-brand-orange)]/30">
+                      {Array.from({ length: 5 }).map(() => (
+                        <div class="w-1 h-1 rounded-full bg-[var(--color-brand-orange)]"></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <!-- Corps -->
+            <div class="p-7">
+              <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3 tracking-tight">
+                {card.claim}
+              </h3>
+              <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+                {card.body}
+              </p>
+            </div>
           </article>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- NOTRE PRESTATION : bento -->
+  <section id="notre-prestation" class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14 lg:mb-20">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Notre prestation
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+          Quatre disciplines.<br/>Un seul résultat.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 lg:gap-6">
+        {services.map((service, idx) => {
+          const span = idx === 0 ? 'lg:col-span-7' : idx === 1 ? 'lg:col-span-5' : idx === 2 ? 'lg:col-span-5' : 'lg:col-span-7';
+          return (
+            <article class:list={[
+              'group relative rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5',
+              span,
+            ]}>
+              <div class="flex items-start gap-5">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center group-hover:bg-[var(--color-brand-orange)]/15 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="w-6 h-6 text-[var(--color-brand-orange)]">
+                    <path stroke-linecap="round" stroke-linejoin="round" d={service.icon} />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <span class="block text-[11px] font-mono uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">/ {service.tag}</span>
+                  <h3 class="text-xl lg:text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4 tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                    {service.body}
+                  </p>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENS DE DESIGN VIVANTS -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-20">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Au cœur du système
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+            Des tokens documentés<br/>jusqu’au plus petit détail.
+          </h2>
+        </div>
+        <p class="text-base text-[var(--color-text-body)] max-w-md leading-relaxed">
+          Chaque design livré arrive avec son système. Les tokens de couleur, de typographie et d’espacement passent de Figma à Gutenberg sans déformation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+        <!-- PANNEAU COULEUR -->
+        <div class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-mono uppercase tracking-wider text-[var(--color-text-muted)]">/ Couleur</h3>
+            <span class="text-[11px] font-mono text-[var(--color-text-muted)]/60">5 / tokens</span>
+          </div>
+          <ul class="space-y-3">
+            {colours.map((c) => (
+              <li class="flex items-center gap-4">
+                <div class="w-11 h-11 rounded-lg border border-[var(--color-surface-border)] flex-shrink-0" style={`background:${c.hex}`}></div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-sm font-medium text-[var(--color-text-dark)] truncate">{c.name}</span>
+                    <span class="text-[11px] font-mono text-[var(--color-text-muted)] flex-shrink-0">{c.hex}</span>
+                  </div>
+                  <span class="text-xs text-[var(--color-text-muted)]">{c.meaning}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- PANNEAU TYPO -->
+        <div class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-mono uppercase tracking-wider text-[var(--color-text-muted)]">/ Typographie</h3>
+            <span class="text-[11px] font-mono text-[var(--color-text-muted)]/60">PingFang · Inter</span>
+          </div>
+          <ul class="space-y-5">
+            {typeScale.map((t) => (
+              <li class="flex items-baseline gap-4 pb-4 border-b border-[var(--color-surface-border)] last:border-0 last:pb-0">
+                <div class="w-14 flex-shrink-0">
+                  <div class="text-[11px] font-mono text-[var(--color-text-muted)]">{t.label}</div>
+                  <div class="text-[10px] font-mono text-[var(--color-text-muted)]/60">{t.size}px</div>
+                </div>
+                <div class="flex-1 flex items-baseline gap-3">
+                  <span class={`font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none ${t.label === 'H1' ? 'text-2xl' : t.label === 'H2' ? 'text-lg' : t.label === 'Body' ? 'text-base' : 'text-xs'}`}>{t.cn}</span>
+                  <span class={`text-[var(--color-text-muted)] leading-none ${t.label === 'H1' ? 'text-2xl' : t.label === 'H2' ? 'text-lg' : t.label === 'Body' ? 'text-base' : 'text-xs'}`}>{t.en}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- PANNEAU ESPACEMENT -->
+        <div class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-mono uppercase tracking-wider text-[var(--color-text-muted)]">/ Espacement</h3>
+            <span class="text-[11px] font-mono text-[var(--color-text-muted)]/60">Échelle base 4</span>
+          </div>
+          <ul class="space-y-4">
+            {spacingTokens.map((s) => (
+              <li class="flex items-center gap-4">
+                <div class="w-20 flex-shrink-0 text-xs font-mono text-[var(--color-text-muted)]">{s.name}</div>
+                <div class="flex-1 flex items-center">
+                  <div class={`h-2.5 bg-[var(--color-brand-orange)]/80 rounded-sm ${s.width}`}></div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-7 pt-5 border-t border-[var(--color-surface-border)] text-[11px] font-mono text-[var(--color-text-muted)]/70 leading-relaxed">
+            Tout l’espacement repose sur 4 px.<br/>Rythme vertical calé sur 8 px.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VITRINE FIGMA -->
+  <section class="relative bg-[#0a0a0d] overflow-hidden section-spacing">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[var(--color-brand-orange)]/8 blur-[120px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Système de design · passation
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.1] tracking-tight mb-8">
+            Conçu dans Figma.<br/>Livré prêt à coder.
+          </h2>
+          <ul class="space-y-4">
+            {[
+              'Bibliothèque de composants calibrée pour la typographie chinoise',
+              'Système de tokens : couleur, espacement, échelle typographique',
+              'Maquettes filaires mobile et desktop pour chaque page clé',
+              'Spécifications d’interaction directement exploitables par vos développeurs',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-white/70">
+                <svg class="flex-shrink-0 w-5 h-5 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                <span class="text-[15px] leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7">
+          <div class="relative">
+            <div class="absolute -inset-6 bg-gradient-to-tr from-[var(--color-brand-orange)]/15 to-transparent rounded-3xl blur-2xl -z-10"></div>
+            <!-- Cadre fenêtre -->
+            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+              <div class="flex items-center gap-2 px-4 py-2.5 bg-white/[0.04] border-b border-white/10">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="ml-2 text-[11px] font-mono text-white/40">WordPress CN / Bibliothèque de composants</span>
+              </div>
+              <img
+                src="/images/ux-design-figma-china-component-system.webp"
+                alt="Plan de travail Figma montrant la bibliothèque de composants WordPress pensée pour le public chinois"
+                class="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT NOUS TRAVAILLONS -->
   <section class="section-spacing bg-white">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <div class="max-w-3xl mb-14">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Six convictions</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
-          Ce que nous tenons pour acquis sur l’UX chinoise.
-        </h2>
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-20">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Comment nous travaillons
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+            Un chemin lisible<br/>du brief à la passation.
+          </h2>
+        </div>
+        <p class="text-base text-[var(--color-text-muted)] max-w-md font-mono uppercase tracking-wider text-xs">
+          P.01 à P.06 / Déroulé de mission
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {intelligence.map((it) => (
-          <article class="rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7">
-            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{it.claim}</h3>
-            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{it.body}</p>
-          </article>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {processSteps.map((step) => (
+          <div class="group relative rounded-2xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-8 hover:border-[var(--color-brand-orange)]/40 hover:shadow-lg hover:shadow-black/5 transition-all">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono text-[var(--color-brand-orange)] tracking-wider">P.{step.phase}</span>
+              <div class="h-px flex-1 mx-4 bg-gradient-to-r from-[var(--color-brand-orange)]/30 to-transparent"></div>
+              <div class="w-2 h-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+            </div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3 tracking-tight">
+              {step.title}
+            </h3>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+              {step.body}
+            </p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <WhoIsThisFor heading="Pour qui nous concevons" audiences={audiences} background="light" />
+  <WhoIsThisFor heading="À qui cette page s’adresse" audiences={audiences} />
 
-  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
-    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
-      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
-        {[...marqueeWords, ...marqueeWords, ...marqueeWords].map((phrase) => (
-          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40">
-            {phrase}
-            <span class="text-white/15">·</span>
-          </span>
-        ))}
-      </div>
-    </div>
+  <!-- CTA -->
+  <section class="relative bg-[#0a0a0d] overflow-hidden py-16 sm:py-20 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/8 rounded-full blur-3xl"></div>
 
-    <div class="relative py-20 lg:py-28">
-      <div class="relative mx-auto max-w-[1400px] section-padding text-center">
-        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.1] mb-6 max-w-3xl mx-auto">
-          Un design pensé pour la Chine, dès la première intention.
-        </h2>
-        <p class="text-lg text-white/65 leading-relaxed mb-10 max-w-2xl mx-auto">
-          Décrivez-nous le périmètre. Nous renvoyons sous deux jours ouvrés un cadrage et un calendrier.
-        </p>
-        <Button href="/fr/contact/" variant="primary" size="lg">Démarrer un projet</Button>
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Parlons-en
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.1] max-w-3xl mx-auto tracking-tight">
+        Concevoir pour la Chine se mesure<br/>à l’usage que les gens font du site.
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        L’esthétique vient ensuite. Si cette conversation vous parle, prenons le temps d’en discuter.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/fr/contact/" variant="primary" size="lg">Démarrer un projet de design</Button>
+        <Button href="/fr/services/chinese-content/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Services contenu chinois</Button>
       </div>
     </div>
   </section>
 
 </PageLayout>
+
+<style>
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+    width: max-content;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+</style>

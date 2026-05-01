@@ -1,0 +1,89 @@
+---
+import { faqTopicsFr } from '../../data/faq-fr';
+import FAQItem from './FAQItem.astro';
+import FAQIcon from './FAQIcon.astro';
+
+const slugify = (value: string): string =>
+  value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const topics = faqTopicsFr.map((topic) => ({
+  ...topic,
+  id: slugify(topic.title),
+}));
+---
+
+<div data-faq-accordion>
+  {topics.map((topic) => (
+    <section
+      id={topic.id}
+      class="faq-topic scroll-mt-32 mb-20 sm:mb-24"
+      data-faq-topic
+      data-topic-id={topic.id}
+    >
+      <header class="reveal mb-8 sm:mb-10 flex items-start gap-4 sm:gap-5">
+        <span class="relative grid place-items-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[var(--color-brand-orange)]/10 to-[#FF8A4C]/5 text-[var(--color-brand-orange)] shrink-0 ring-1 ring-[var(--color-brand-orange)]/15">
+          <FAQIcon name={topic.icon} class="w-6 h-6 sm:w-7 sm:h-7" />
+          <span class="absolute -inset-1 rounded-2xl bg-[var(--color-brand-orange)]/5 -z-10 blur-xl"></span>
+        </span>
+        <div class="flex-1 pt-1">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-orange)] mb-1.5">Thème</p>
+          <h2 class="text-2xl sm:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            {topic.title}
+          </h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">
+            {topic.items.length} {topic.items.length === 1 ? 'question' : 'questions'}
+          </p>
+        </div>
+      </header>
+
+      <div class="space-y-3 sm:space-y-4">
+        {topic.items.map((item, itemIndex) => (
+          <div class="reveal" style={`--reveal-delay: ${itemIndex * 40}ms`}>
+            <FAQItem
+              question={item.question}
+              answer={item.answer}
+              id={`${topic.id}-${itemIndex}`}
+              searchKey={`${item.question} ${item.answer}`.toLowerCase()}
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <div data-faq-empty class="hidden text-center py-20">
+    <div class="mx-auto w-14 h-14 rounded-full bg-[var(--color-surface-light)] grid place-items-center mb-5">
+      <svg class="w-6 h-6 text-[var(--color-text-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="6" />
+        <path d="m20 20-4.3-4.3M8 11h6" />
+      </svg>
+    </div>
+    <p class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Aucun résultat</p>
+    <p class="text-sm text-[var(--color-text-body)]">Essayez un autre mot-clé, ou envoyez-nous votre question directement.</p>
+  </div>
+</div>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

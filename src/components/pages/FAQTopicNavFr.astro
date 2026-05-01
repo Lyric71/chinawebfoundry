@@ -1,0 +1,68 @@
+---
+import { faqTopicsFr } from '../../data/faq-fr';
+import FAQIcon from './FAQIcon.astro';
+
+const slugify = (value: string): string =>
+  value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const topics = faqTopicsFr.map((topic) => ({
+  ...topic,
+  id: slugify(topic.title),
+  count: topic.items.length,
+}));
+---
+
+<div
+  id="faq-topic-nav"
+  class="sticky top-[60px] z-30 -mx-4 sm:mx-0 bg-white/85 backdrop-blur-md border-b border-[var(--color-surface-border)]/60 transition-shadow duration-300"
+  data-topic-nav
+>
+  <div class="mx-auto max-w-[1400px] section-padding py-3">
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:inline-block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] shrink-0">Aller à</span>
+      <div class="relative flex-1 min-w-0">
+        <div
+          class="flex gap-2 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-1"
+          data-topic-chips
+          role="tablist"
+          aria-label="Thèmes de la FAQ"
+        >
+          {topics.map((topic) => (
+            <a
+              href={`#${topic.id}`}
+              data-chip
+              data-target={topic.id}
+              class="group snap-start shrink-0 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[var(--color-surface-light)] border border-transparent text-sm font-medium font-[var(--font-button)] text-[var(--color-text-body)] hover:text-[var(--color-text-dark)] hover:bg-white hover:border-[var(--color-surface-border)] transition-all duration-200 data-[active=true]:bg-[var(--color-text-dark)] data-[active=true]:text-white data-[active=true]:border-[var(--color-text-dark)] data-[active=true]:shadow-[0_4px_14px_rgba(33,33,33,0.18)]"
+              role="tab"
+            >
+              <span class="text-[var(--color-brand-orange)] group-data-[active=true]:text-[#FFB68F] transition-colors">
+                <FAQIcon name={topic.icon} class="w-4 h-4" />
+              </span>
+              <span class="whitespace-nowrap">{topic.shortTitle}</span>
+              <span class="text-xs tabular-nums text-[var(--color-text-muted)] group-data-[active=true]:text-white/60">{topic.count}</span>
+            </a>
+          ))}
+        </div>
+        <span class="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white/85 to-transparent"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  [data-topic-nav].is-stuck {
+    box-shadow: 0 6px 24px rgba(33, 33, 33, 0.06);
+  }
+</style>
