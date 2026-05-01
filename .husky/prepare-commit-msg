@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Auto-prepend a MMDD-HHMM timestamp when committing without -m / -F / template.
+# Mirrors the legacy .git/hooks/prepare-commit-msg that husky's hooksPath redirect bypassed.
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+if [ -z "$COMMIT_SOURCE" ]; then
+  TIMESTAMP=$(date +"%m%d-%H%M")
+  ORIGINAL_MSG=$(cat "$COMMIT_MSG_FILE")
+  printf "%s\n%s\n" "$TIMESTAMP" "$ORIGINAL_MSG" > "$COMMIT_MSG_FILE"
+fi
