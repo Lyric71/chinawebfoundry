@@ -6,4 +6,4 @@ photo: "/images/testimonials/fana-k.webp"
 order: 2
 ---
 
-Cela faisait des mois que nous butions sur l'accessibilité de notre site WordPress en Chine. ChinaWebFoundry nous a mis en production sur des serveurs chinois, avec la licence ICP et un référencement Baidu, en six semaines. Bien plus vite que tout ce que nous avions envisagé.
+Notre site WordPress restait inaccessible en Chine depuis des mois. ChinaWebFoundry l'a mis en ligne sur des serveurs chinois, avec licence ICP et indexation Baidu, en six semaines. Bien en deçà du calendrier le plus optimiste que nous avions en tête.

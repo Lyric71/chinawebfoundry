@@ -6,4 +6,4 @@ photo: "/images/testimonials/oliver-q.webp"
 order: 3
 ---
 
-À Shanghai, notre site chargeait en 14 secondes. Après la migration, il tombe sous la barre des 2 secondes. Ce seul changement a complètement relancé notre taux de conversion auprès des clients chinois.
+À Shanghai, notre site mettait quatorze secondes à s'afficher. Après la migration, il passe sous la barre des deux secondes. À lui seul, ce gain a relancé notre taux de conversion auprès de nos clients chinois.

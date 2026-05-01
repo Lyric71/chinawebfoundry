@@ -1,6 +1,6 @@
 ---
 import { getMainNav } from '../../i18n/navigation';
-import { getLangFromUrl, localePath, useTranslations } from '../../i18n/utils';
+import { getAlternateUrl, getLangFromUrl, localePath, useTranslations } from '../../i18n/utils';
 import type { Locale } from '../../i18n/ui';
 
 interface Props {
@@ -13,13 +13,15 @@ const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 const mainNav = getMainNav(currentLang);
 const currentPath = Astro.url.pathname;
+const isEn = currentLang === 'en';
+const alternateUrl = getAlternateUrl(currentPath, currentLang);
 ---
 
 <!-- Mobile menu button -->
 <button
   id="mobile-menu-toggle"
   class:list={[
-    'mobile-menu-btn md:hidden p-2.5 transition-colors',
+    'mobile-menu-btn lg:hidden p-2.5 transition-colors',
     heroPage
       ? 'text-white hover:text-white/70'
       : 'text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)]',
@@ -39,7 +41,7 @@ const currentPath = Astro.url.pathname;
 <!-- Mobile menu panel -->
 <div
   id="mobile-menu"
-  class="hidden fixed inset-0 top-[60px] z-[9999] bg-white md:hidden overflow-y-auto"
+  class="hidden fixed inset-0 top-[60px] z-[9999] bg-white lg:hidden overflow-y-auto"
   aria-label="Mobile navigation"
 >
   <nav class="flex flex-col px-6 py-8">
@@ -191,6 +193,36 @@ const currentPath = Astro.url.pathname;
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
+      </a>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-[var(--color-surface-border)] flex items-center justify-center gap-2 text-base">
+      <a
+        href={isEn ? currentPath : alternateUrl}
+        class:list={[
+          'px-3 py-1.5 rounded no-underline transition-colors duration-200 font-medium',
+          isEn
+            ? 'text-[var(--color-text-dark)]'
+            : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
+        ]}
+        aria-label="English"
+        aria-current={isEn ? 'page' : undefined}
+      >
+        EN
+      </a>
+      <span class="text-[var(--color-text-muted)]">|</span>
+      <a
+        href={!isEn ? currentPath : alternateUrl}
+        class:list={[
+          'px-3 py-1.5 rounded no-underline transition-colors duration-200 font-medium',
+          !isEn
+            ? 'text-[var(--color-text-dark)]'
+            : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
+        ]}
+        aria-label="Français"
+        aria-current={!isEn ? 'page' : undefined}
+      >
+        FR
       </a>
     </div>
   </nav>
