@@ -1,5 +1,16 @@
 # ChinaWebFoundry - Project Context for Claude Code
 
+## MANDATORY READING - Copywriting Voice
+Before generating, editing, or revising ANY user-facing copy on this project (page content, hero text, headings, button labels, microcopy, blog/guide articles, meta descriptions, og:tags, alt text, email copy, social posts, marketing prose, French translations included), you MUST first read [.claude/anti-ai-writing-style.md](.claude/anti-ai-writing-style.md) in full and apply its rules.
+
+This is non-negotiable and applies to:
+- Any new copy you write
+- Any rewrite or edit of existing copy
+- Any translation between English and French
+- Any AI-generated draft you are reviewing
+
+The banned words, banned phrases, and banned structures (especially Section 3F: negative parallelisms / reframe constructions) are HARD RULES. Pure code edits with no copy involved are exempt.
+
 ## Project Overview
 ChinaWebFoundry is a marketing website for a WordPress agency in China
 that helps international companies launch and maintain WordPress websites
