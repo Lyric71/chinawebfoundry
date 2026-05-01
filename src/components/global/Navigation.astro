@@ -21,7 +21,7 @@ const buildTechnology = mainNav[0].children?.filter((s) => s.column === 'build' 
 const growServices = mainNav[0].children?.filter((s) => s.column === 'grow') ?? [];
 ---
 
-<nav class:list={['hidden lg:flex items-center gap-8', className]} aria-label="Main navigation">
+<nav class:list={['hidden lg:flex items-center gap-5 xl:gap-8', className]} aria-label="Main navigation">
   {mainNav.map((item) => {
     const isActive = currentPath === item.href || (item.children && currentPath.startsWith(item.href));
     const hasChildren = item.children && item.children.length > 0;
