@@ -8,7 +8,7 @@ published: true
 category: Design
 ---
 
-1,3 milliard d'internautes, quasiment tous sur leur téléphone. 969 millions qui paient en scannant un QR code. WeChat à lui seul qui absorbe 34 % de tout le trafic internet du pays. La Chine n'a pas traversé l'ère du bureau comme l'Occident. Elle est passée directement au mobile, et le fossé entre ce qu'attendent les utilisateurs chinois d'une expérience mobile et ce que proposent la plupart des entreprises étrangères est vertigineux. Concevoir d'abord pour le bureau, puis ajouter des points de rupture responsive, c'est bâtir pour un internet que les Chinois ont déserté depuis longtemps.
+1,3 milliard d'internautes, quasiment tous sur leur téléphone. 969 millions qui paient en scannant un QR code. WeChat à lui seul absorbe 34 % de tout le trafic internet du pays. La Chine n'a jamais traversé l'ère du bureau comme l'Occident. Elle est passée directement au mobile, et le fossé entre ce que les utilisateurs chinois attendent d'une expérience mobile et ce que proposent la plupart des entreprises étrangères donne le tournis. Concevoir d'abord pour le bureau, puis ajouter des points de rupture responsive, c'est bâtir pour un internet que les Chinois ont déserté depuis longtemps.
 
 ## L'internet mobile chinois en chiffres
 
@@ -49,15 +49,15 @@ Le basculement est radical : penser mobile-only. Quand plus de 95 % de vos utili
 
 Le navigateur intégré de WeChat reste la grande source de confusion. Il repose sur une vieille version de WebKit : du CSS et du JavaScript parfaitement lisibles dans les navigateurs modernes peuvent s'y casser. Se limiter à Chrome et Safari pour les tests revient à ne pas tester pour ses vrais utilisateurs. Il faut ouvrir le site dans le navigateur WeChat et tout vérifier.
 
-Zones tactiles : 44 par 44 pixels au minimum, 48 par 48 en visée, 8 pixels d'espacement entre les éléments. Considérez ce seuil comme un plancher. De petits boutons pensés pour un curseur de souris ne fonctionnent pas quand on navigue au pouce dans un métro bondé aux heures de pointe.
+Zones tactiles : 44 par 44 pixels au minimum, 48 par 48 en visée, 8 pixels d'espacement entre les éléments. Considérez ce seuil comme un plancher. Les petits boutons pensés pour un curseur de souris ne fonctionnent pas quand on navigue au pouce dans un métro bondé aux heures de pointe.
 
-Les appels à l'action principaux doivent vivre dans le tiers inférieur de l'écran. C'est la zone naturelle du pouce en tenue à une main. Un CTA collé en haut oblige à changer de prise ou à mobiliser les deux mains. Friction légère, mais friction quand même : les conversions y laissent des plumes.
+Les appels à l'action principaux doivent vivre dans le tiers inférieur de l'écran. C'est la zone naturelle du pouce en tenue à une main. Un CTA collé en haut oblige à changer de prise ou à mobiliser les deux mains. Friction légère, friction quand même : les conversions y laissent des plumes.
 
 Le défilement vertical est le standard. Les utilisateurs mobiles chinois passent leur journée à scroller des flux verticaux sur WeChat, Douyin, Weibo. Balayages horizontaux, menus burger, structures imbriquées paraissent étrangers et maladroits.
 
-Côté paiement : un QR code qui déclenche Alipay ou WeChat Pay. C'est ainsi qu'on paie sur mobile en Chine. Si votre tunnel demande la saisie manuelle des 16 chiffres d'une carte, vous avez déjà perdu vos utilisateurs.
+Côté paiement : un QR code qui déclenche Alipay ou WeChat Pay. C'est ainsi qu'on paie sur mobile en Chine. Si votre tunnel demande la saisie manuelle des 16 chiffres d'une carte, vos utilisateurs sont déjà partis.
 
-> Paiement par QR code via Alipay ou WeChat Pay. C'est le standard. Un tunnel qui demande de taper des numéros de carte exige des utilisateurs chinois un geste qu'ils n'ont plus fait depuis des années.
+> Paiement par QR code via Alipay ou WeChat Pay. Le standard. Un tunnel qui demande de taper des numéros de carte exige des utilisateurs chinois un geste qu'ils n'ont plus fait depuis des années.
 
 ## L'écosystème des super-apps
 
@@ -67,7 +67,7 @@ WeChat, Alipay, Meituan. Chacune est une super-app qui rassemble messagerie, com
 
 Les mini-programmes ont largement remplacé les applications natives pour les tâches du quotidien. Au lieu de télécharger une application dédiée sur l'App Store, on ouvre un mini-programme dans WeChat ou Alipay. 949 millions de personnes s'en servent. Commander un repas, réserver une voiture, s'enregistrer à l'hôtel, acheter un produit : le mini-programme est la voie attendue. Télécharger une application autonome devient le plan B.
 
-> 949 millions de personnes utilisent les mini-programmes WeChat. Pour la plupart des tâches du quotidien, le mini-programme est le produit. Le téléchargement depuis l'App Store est le plan B.
+> 949 millions de personnes utilisent les mini-programmes WeChat. Pour la plupart des tâches du quotidien, le mini-programme est le produit. Le téléchargement depuis l'App Store reste un plan B.
 
 Les attentes à l'intérieur de ces plateformes sont implacables. Paiement instantané, sans saisie de carte. Connexion automatique via le SSO WeChat. Partage en un geste vers contacts et groupes. Des années d'expériences fluides ont rendu les utilisateurs allergiques à toute étape superflue. La moindre friction, et ils décrochent.
 
@@ -77,4 +77,4 @@ Les attentes à l'intérieur de ces plateformes sont implacables. Paiement insta
 | Mini-programme WeChat | Commodité et découverte dans l'application |
 | Application native | Uniquement si le produit l'exige |
 
-Pour les marques étrangères, la configuration vers laquelle convergent la plupart des équipes ressemble à ceci : un site web mobile responsive pour le référencement Baidu et la visibilité en recherche organique, un mini-programme WeChat pour la commodité dans l'application, et une application native uniquement si le produit le justifie. La plupart n'ont pas besoin de cette dernière. Site mobile et mini-programme couvrent l'essentiel de ce qu'un utilisateur chinois attend d'une marque.
+Pour les marques étrangères, la configuration vers laquelle convergent la plupart des équipes ressemble à ceci : un site web mobile responsive pour le référencement Baidu et la visibilité en recherche organique, un mini-programme WeChat pour la commodité dans l'application, et une application native uniquement si le produit le justifie. La plupart n'en ont pas besoin. Site mobile et mini-programme couvrent l'essentiel de ce qu'un utilisateur chinois attend d'une marque.

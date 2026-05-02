@@ -56,7 +56,7 @@ const visuals = casestudy.data.visuals || [];
         <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
-        Toutes les études de cas
+        Toutes les études
       </a>
       <div class="max-w-3xl">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
@@ -82,7 +82,7 @@ const visuals = casestudy.data.visuals || [];
           <aside class="hidden lg:block lg:w-[260px] shrink-0">
             <nav class="sticky top-28">
               <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">
-                Dans cette étude de cas
+                Sommaire de l'étude
               </p>
               <ul class="space-y-1 border-l border-[var(--color-surface-border)]">
                 {tocItems.map((heading) => (
@@ -110,14 +110,14 @@ const visuals = casestudy.data.visuals || [];
           {visuals.length > 0 && (
             <div class="mt-12">
               <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">
-                Le site
+                Aperçu du site
               </h2>
               <div class="grid grid-cols-1 gap-4">
                 {visuals.map((src: string, i: number) => (
                   <div class="rounded-xl overflow-hidden border border-[var(--color-surface-border)] bg-[var(--color-surface-light)]">
                     <img
                       src={src}
-                      alt={`Capture d'écran ${casestudy.data.title} ${i + 1}`}
+                      alt={`Aperçu ${casestudy.data.title} ${i + 1}`}
                       class="w-full h-auto"
                       loading="lazy"
                       decoding="async"
@@ -132,7 +132,7 @@ const visuals = casestudy.data.visuals || [];
           {relatedServices.length > 0 && (
             <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
               <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">
-                Services mobilisés sur ce projet
+                Services engagés sur ce projet
               </h2>
               <div class="flex flex-wrap gap-3">
                 {relatedServices.map((service: any) => (
@@ -150,12 +150,12 @@ const visuals = casestudy.data.visuals || [];
           <!-- CTA -->
           <div class="mt-16 pt-12 border-t border-[var(--color-surface-border)]">
             <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">
-              Vous voulez des résultats du même ordre ?
+              Un projet du même ordre à conduire ?
             </h2>
             <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
-              Parlez-nous de votre projet. On posera ensemble ce qu'il faut pour faire tenir votre site WordPress en Chine.
+              Décrivez-nous votre situation. Nous cadrons ensemble les étapes pour qu'un site WordPress tienne durablement en Chine.
             </p>
-            <Button href="/fr/contact/" variant="primary" size="md">Parlons-en</Button>
+            <Button href="/fr/contact/" variant="primary" size="md">Prendre contact</Button>
           </div>
         </div>
 
