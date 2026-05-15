@@ -1,9 +1,9 @@
 ---
 title: "China Hosting"
 shortTitle: "Hosting"
-description: "Reliable WordPress hosting within mainland China. Fast servers, ICP-licensed infrastructure, guaranteed uptime, and local data centres \u2014 managed entirely by our team so you never deal with a Chinese hosting panel."
-metaTitle: "WordPress China Hosting - Fast & ICP Compliant"
-metaDescription: "WordPress hosting optimized for mainland China. We handle servers, ICP licensing, CDN, and monitoring so your site loads fast behind the Great Firewall."
+description: "Reliable WordPress hosting within mainland China. Fast servers, ICP-licensed infrastructure, guaranteed uptime, and local data centres, all managed by our team so you never have to log into a Chinese hosting panel yourself."
+metaTitle: "Managed hosting for websites in China | ChinaWebFoundry"
+metaDescription: "Hosting that holds up under mainland Chinese network conditions. Filing handled end to end, monitored from Shanghai, with 99.97% uptime across the international sites we run."
 icon: "server"
 order: 8
 keywords: ["wordpress hosting china", "alibaba cloud wordpress", "china wordpress server"]

@@ -1,10 +1,13 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../lib/schema';
 import Button from '../../components/ui/Button.astro';
 import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
 
-const metaTitle = 'Technical integration for China websites | ChinaWebFoundry';
-const metaDescription = 'The integration work that decides whether a foreign site holds up in China. Senior developers in Shanghai, 50+ launches, deep familiarity with every block, slowdown and compliance trap.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services', 'technical-integration'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const serverItems = [
   {
@@ -94,9 +97,11 @@ const processSteps = [
     body: 'You get the documentation, your team takes it from there. Everything documented, everything built to WordPress standards so someone else can maintain it if they need to.',
   },
 ];
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} jsonLd={pageLd}>
 
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">

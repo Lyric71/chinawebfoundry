@@ -1,11 +1,14 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../lib/schema';
 import Button from '../../components/ui/Button.astro';
 import CaseStudyCards from '../../components/ui/CaseStudyCards.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Custom WordPress plugins for the China market | ChinaWebFoundry';
-const metaDescription = 'Bespoke WordPress plugins built by a senior Shanghai team. We replace what breaks behind the Great Firewall and build what is missing for your Chinese audience.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services', 'plugins-extensions'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const buildItems = [
   {
@@ -49,9 +52,11 @@ const audiences = [
   { label: 'Dev teams', description: 'Dev teams who want China plugins from people who actually work in this environment daily.', image: '/images/audiences/dev-team-china-plugins.webp' },
   { label: 'Agencies', description: 'Other agencies building China sites for their own clients who need plugin work they can trust.', image: '/images/audiences/agency-china-clients.webp' },
 ];
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} jsonLd={pageLd}>
 
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">

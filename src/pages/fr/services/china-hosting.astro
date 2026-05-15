@@ -1,12 +1,15 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
 import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../../components/global/ScrollEffects.astro';
 
-const metaTitle = 'Hébergement infogéré pour sites en Chine | ChinaWebFoundry';
-const metaDescription = 'Un hébergement qui tient sous les conditions réseau du continent. Démarches administratives instruites de bout en bout, supervision depuis Shanghai, disponibilité de 99,97 % constatée.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-fr', 'china-hosting'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const proofStats = [
   { value: '0,8', suffix: ' s', label: 'Temps de chargement médian depuis le continent', sub: 'Mesuré sur smartphone chinois milieu de gamme, réseau Shanghai' },
@@ -284,9 +287,12 @@ const accentMap: Record<string, { dot: string; bg: string; text: string; border:
     bar: 'bg-emerald-500',
   },
 };
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
 
   <ScrollEffects />
 

@@ -10,6 +10,13 @@ interface TocItem {
   depth: number;
 }
 
+interface AuthorInfo {
+  name: string;
+  role?: string;
+  url?: string;
+  bio?: string;
+}
+
 interface Props {
   title: string;
   subtitle: string;
@@ -17,17 +24,73 @@ interface Props {
   visual?: string;
   tocItems: TocItem[];
   lang?: Locale;
+  author?: AuthorInfo;
+  publishedAt?: Date;
+  updatedAt?: Date;
 }
 
-const { title, subtitle, summary, visual, tocItems, lang } = Astro.props;
+const { title, subtitle, summary, visual, tocItems, lang, author, publishedAt, updatedAt } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://chinawebfoundry.com';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const guideIndexUrl = currentLang === 'fr'
+  ? `${siteOrigin}/fr/resources/china-web-guide/`
+  : `${siteOrigin}/resources/china-web-guide/`;
+const homeUrl = currentLang === 'fr' ? `${siteOrigin}/fr/` : `${siteOrigin}/`;
+const guideIndexLabel = t('guide.backLink');
+const homeLabel = t('service.home');
+
+const dateFormatter = new Intl.DateTimeFormat(currentLang === 'fr' ? 'fr-FR' : 'en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const authorPersonLd = author
+  ? {
+      '@type': 'Person',
+      name: author.name,
+      ...(author.role && { jobTitle: author.role }),
+      ...(author.url && { url: author.url, sameAs: [author.url] }),
+      ...(author.bio && { description: author.bio }),
+    }
+  : { '@type': 'Organization', '@id': `${siteOrigin}/#organization`, name: 'ChinaWebFoundry' };
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: summary,
+  url: pageUrl,
+  inLanguage: currentLang === 'fr' ? 'fr-FR' : 'en-GB',
+  ...(visual && { image: new URL(visual, Astro.site).toString() }),
+  author: authorPersonLd,
+  publisher: { '@id': `${siteOrigin}/#organization` },
+  ...(publishedAt && { datePublished: publishedAt.toISOString() }),
+  ...(updatedAt && { dateModified: updatedAt.toISOString() }),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: homeLabel, item: homeUrl },
+    { '@type': 'ListItem', position: 2, name: guideIndexLabel, item: guideIndexUrl },
+    { '@type': 'ListItem', position: 3, name: title, item: pageUrl },
+  ],
+};
+
+const jsonLd = [articleLd, breadcrumbLd];
 ---
 
 <PageLayout
   title={`${title} | ${t('guide.backLink')} | ChinaWebFoundry`}
   description={summary}
   lang={currentLang}
+  jsonLd={jsonLd}
 >
   <!-- Hero header -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
@@ -49,6 +112,32 @@ const t = useTranslations(currentLang);
         <p class="text-lg lg:text-xl text-[var(--color-brand-orange)] font-medium leading-relaxed">
           {subtitle}
         </p>
+        {(author || publishedAt || updatedAt) && (
+          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/55">
+            {author && (
+              <span>
+                {currentLang === 'fr' ? 'Par' : 'By'}{' '}
+                {author.url
+                  ? <a href={author.url} class="text-white/80 hover:text-[var(--color-brand-orange)] no-underline" rel="author">{author.name}</a>
+                  : <span class="text-white/80">{author.name}</span>
+                }
+                {author.role && <span class="text-white/40">, {author.role}</span>}
+              </span>
+            )}
+            {publishedAt && (
+              <span class="text-white/40">
+                <span class="hidden sm:inline">·</span>{' '}
+                <time datetime={publishedAt.toISOString()}>{dateFormatter.format(publishedAt)}</time>
+              </span>
+            )}
+            {updatedAt && updatedAt.getTime() !== publishedAt?.getTime() && (
+              <span class="text-white/40">
+                · {currentLang === 'fr' ? 'mis à jour le' : 'updated'}{' '}
+                <time datetime={updatedAt.toISOString()}>{dateFormatter.format(updatedAt)}</time>
+              </span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   </section>

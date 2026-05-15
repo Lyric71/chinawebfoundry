@@ -7,8 +7,8 @@ const services = defineCollection({
     title: z.string(),
     shortTitle: z.string(),
     description: z.string(),
-    metaTitle: z.string().max(60),
-    metaDescription: z.string().max(155),
+    metaTitle: z.string().max(80),
+    metaDescription: z.string().max(220),
     icon: z.string(),
     order: z.number(),
     heroSubtitle: z.string().optional(),
@@ -51,6 +51,9 @@ const guides = defineCollection({
     order: z.number(),
     published: z.boolean().default(true),
     category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
+    author: z.string().default('cyril-drouin'),
+    publishedAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional(),
   }),
 });
 
@@ -120,6 +123,9 @@ const guidesFr = defineCollection({
     order: z.number(),
     published: z.boolean().default(true),
     category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
+    author: z.string().default('cyril-drouin'),
+    publishedAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional(),
   }),
 });
 

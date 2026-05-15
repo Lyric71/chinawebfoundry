@@ -1,10 +1,13 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Migrer votre site vers la Chine continentale | ChinaWebFoundry';
-const metaDescription = 'Déplacez votre site vers la Chine continentale sans perdre votre audience. Une équipe shanghaïenne reprend ce qui doit l’être pour qu’il charge vite, parle local et soit trouvable.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-fr', 'china-migration'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const layers = [
   {
@@ -200,9 +203,12 @@ const audiences = [
   { label: 'Marques e-commerce', description: 'Lancer une boutique chinoise avec les bonnes passerelles de paiement, la logistique et le service client posés dès la mise en ligne.', image: '/images/audiences/ecommerce-china-store.webp' },
   { label: 'Médias et édition', description: 'Des organisations qui s’adressent directement au public chinois, avec un dispositif éditorial pensé spécifiquement pour lui.', image: '/images/audiences/media-publishing-china.webp' },
 ];
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
 
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">

@@ -1,11 +1,14 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
 import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Extensions WordPress sur mesure pour le marché chinois | ChinaWebFoundry';
-const metaDescription = 'Extensions WordPress conçues par une équipe senior à Shanghai. Nous remplaçons ce que le Grand Pare-feu casse et bâtissons ce qui manque pour parler à votre audience chinoise.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-fr', 'plugins-extensions'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const buildItems = [
   {
@@ -49,9 +52,11 @@ const audiences = [
   { label: 'Équipes techniques', description: 'Développeurs qui veulent des extensions pensées pour la Chine, signées par des pros qui travaillent chaque jour dans cet environnement.', image: '/images/audiences/dev-team-china-plugins.webp' },
   { label: 'Agences', description: 'Agences qui bâtissent des sites pour la Chine au nom de leurs propres clients et cherchent un travail d\'extension fiable.', image: '/images/audiences/agency-china-clients.webp' },
 ];
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
 
   <!-- Hero -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">

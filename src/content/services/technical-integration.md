@@ -2,8 +2,8 @@
 title: "Technical Integration"
 shortTitle: "Integration"
 description: "Full WordPress integration for China. Server config, blocked plugin fixes, WeChat Pay, Baidu analytics, and data compliance. Based in China."
-metaTitle: "WordPress Technical Integration for China Market"
-metaDescription: "Full WordPress integration for China. We handle server config, blocked plugins, WeChat Pay, Baidu analytics, and data compliance. Based in China."
+metaTitle: "Technical integration for China websites | ChinaWebFoundry"
+metaDescription: "The integration work that decides whether a foreign site holds up in China. Senior developers in Shanghai, 50+ launches, deep familiarity with every block, slowdown and compliance trap."
 icon: "plug"
 order: 4
 keywords: ["wordpress china integration", "wordpress wechat pay", "wordpress technical china", "wordpress great firewall"]

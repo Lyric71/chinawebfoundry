@@ -2,8 +2,8 @@
 title: "GEO China"
 shortTitle: "GEO"
 description: "L’optimisation pour les moteurs génératifs sur le marché chinois. Nous faisons de votre contenu la source que DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA jugent assez fiable pour la recommander."
-metaTitle: "GEO China | Optimisation pour les moteurs d’IA chinois"
-metaDescription: "Optimisation pour la recherche par IA en Chine. Nous faisons de votre marque la réponse citée par DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA."
+metaTitle: "Visibilité sur la recherche IA en Chine | GEO pour marques internationales"
+metaDescription: "Devenez la marque que les assistants IA chinois recommandent quand un acheteur pose la question à laquelle votre produit répond. Suivi hebdomadaire et ajustements menés depuis Shanghai."
 icon: "ai"
 order: 7
 keywords: ["geo china", "optimisation ia chine", "deepseek seo", "doubao optimisation", "kimi geo", "yuanbao", "baidu ia", "moteurs génératifs chine"]

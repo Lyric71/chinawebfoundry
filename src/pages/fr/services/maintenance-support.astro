@@ -1,12 +1,15 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
 import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
 
-const metaTitle = 'Maintenance d’un site en Chine | ChinaWebFoundry';
-const metaDescription = 'Faire vivre un site chinois après la mise en ligne. Une équipe senior à Shanghai surveille le contenu, la visibilité dans la recherche et la disponibilité, et corrige avant que vous ne le voyiez.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-fr', 'maintenance-support'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const includedItems = [
   {
@@ -178,9 +181,11 @@ const faqs = [
     ],
   },
 ];
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
 
   <ScrollEffects />
 

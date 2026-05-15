@@ -2,8 +2,8 @@
 title: "China Migration"
 shortTitle: "Migration"
 description: "Seamless migration of your existing WordPress site to China-compliant hosting. We handle ICP licensing, DNS configuration, database transfers, and ensure zero downtime during the switch."
-metaTitle: "WordPress China Migration | ChinaWebFoundry"
-metaDescription: "Migrate your WordPress site to China-compliant hosting with zero downtime. ICP licensing, DNS, database transfers, and plugin replacements handled."
+metaTitle: "Move your website into mainland China | ChinaWebFoundry"
+metaDescription: "Move your site into mainland China without losing your audience. A Shanghai team rebuilds what needs rebuilding so the site lands fast, reads native and surfaces where buyers look."
 icon: "arrow-right-circle"
 order: 2
 heroSubtitle: "Move your site behind the Great Firewall"

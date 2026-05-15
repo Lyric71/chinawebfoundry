@@ -32,9 +32,12 @@ const trustBadges = [
     <img
       src="/images/hero-wordpress-china-skyline.webp"
       alt=""
+      width="1050"
+      height="573"
       class="absolute inset-0 w-full h-full object-cover scale-105"
       loading="eager"
       decoding="async"
+      fetchpriority="high"
       data-hero-bg
     />
     <!-- Layered gradient overlays for depth and text contrast -->
@@ -414,7 +417,7 @@ const trustBadges = [
     }
 
     function onMove(e: MouseEvent) {
-      const rect = hero.getBoundingClientRect();
+      const rect = hero!.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
       targetX = (x - 0.5) * 2;  // -1 to 1

@@ -2,8 +2,8 @@
 title: "Baidu SEO"
 shortTitle: "SEO"
 description: "Ranking on Baidu requires a fundamentally different strategy than Google. We optimise your WordPress site's structure, metadata, content, and backlink profile for Baidu's algorithm and submission protocols."
-metaTitle: "Baidu SEO for WordPress in China"
-metaDescription: "We optimise WordPress sites for Baidu from inside China. Technical SEO, keyword research, content strategy and authority building for real rankings."
+metaTitle: "Baidu SEO for international brands in China | ChinaWebFoundry"
+metaDescription: "Get found by Chinese buyers on the search engine they actually use. Baidu SEO run from inside China by specialists who track every algorithm change as it happens."
 icon: "search"
 order: 6
 keywords: ["baidu seo wordpress", "wordpress baidu optimisation", "china seo", "baidu ranking", "chinese keyword research"]

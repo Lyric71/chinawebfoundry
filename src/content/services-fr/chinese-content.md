@@ -2,8 +2,8 @@
 title: "Contenu chinois"
 shortTitle: "Contenu"
 description: "Rédaction native, transcréation et gestion éditoriale pour WordPress en Chine. Des textes taillés pour Baidu, signés par des plumes chinoises, publiés directement dans votre CMS."
-metaTitle: "Contenu chinois pour WordPress en Chine | CWF"
-metaDescription: "Rédaction chinoise native, transcréation et gestion de contenu pour WordPress. Des textes optimisés pour Baidu, écrits par des professionnels de langue maternelle. Agence implantée en Chine."
+metaTitle: "Rédaction en chinois pour marques internationales | ChinaWebFoundry"
+metaDescription: "Des plumes chinoises natives à Shanghai qui écrivent pour le lecteur local, dès la première ligne. Messages, articles et fiches produits qui font bouger un acheteur, pas des traductions."
 icon: "languages"
 order: 5
 keywords: ["contenu chinois wordpress", "traduction wordpress chinois", "localisation chine", "rédaction chinoise", "contenu baidu", "transcréation chinois"]

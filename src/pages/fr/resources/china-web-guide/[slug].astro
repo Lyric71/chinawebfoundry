@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import GuideLayout from '../../../../layouts/GuideLayout.astro';
 
 export async function getStaticPaths() {
@@ -15,6 +15,18 @@ export async function getStaticPaths() {
 const { guide } = Astro.props;
 const { Content, headings } = await render(guide);
 const tocItems = headings.filter((h) => h.depth === 2);
+
+// Author lookup: prefer FR team entry, fall back to EN team if no FR mirror.
+const teamFrEntry = await getEntry('team-fr', guide.data.author).catch(() => undefined);
+const teamEntry = teamFrEntry ?? await getEntry('team', guide.data.author);
+const author = teamEntry
+  ? {
+      name: teamEntry.data.name,
+      role: teamEntry.data.role,
+      url: teamEntry.data.linkedin,
+      bio: teamEntry.data.bio,
+    }
+  : undefined;
 ---
 
 <GuideLayout
@@ -24,6 +36,9 @@ const tocItems = headings.filter((h) => h.depth === 2);
   visual={guide.data.visual}
   tocItems={tocItems}
   lang="fr"
+  author={author}
+  publishedAt={guide.data.publishedAt}
+  updatedAt={guide.data.updatedAt}
 >
   <Content />
 </GuideLayout>

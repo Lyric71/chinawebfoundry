@@ -2,8 +2,8 @@
 title: "UX/UI Design"
 shortTitle: "Design"
 description: "We design WordPress experiences built for Chinese users. Culturally adapted layouts, mobile-first, optimised for local platforms, browsers, and trust signals."
-metaTitle: "UX/UI Design for WordPress in China"
-metaDescription: "We design WordPress sites that work for Chinese users. Culturally adapted, mobile-first, built by a China-based team with 20 years local experience."
+metaTitle: "UX/UI design for the Chinese audience | ChinaWebFoundry"
+metaDescription: "Design built around how Chinese users actually scan, decide and buy. Mobile-first by default, trust signals and payment flows your audience expects, shipped from Shanghai."
 icon: "palette"
 order: 3
 keywords: ["ux design china", "ui design wordpress china", "chinese web design", "mobile first china", "wordpress design china"]

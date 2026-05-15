@@ -2,8 +2,8 @@
 title: "Design UX/UI"
 shortTitle: "Design"
 description: "Des expériences WordPress conçues pour le public chinois. Maquettes ancrées culturellement, approche mobile d’abord, compatibilité avec les plateformes, les navigateurs et les repères de confiance locaux."
-metaTitle: "Design UX/UI pour WordPress en Chine"
-metaDescription: "Des sites WordPress qui parlent au public chinois. Adaptation culturelle, approche mobile d’abord, livrés par une équipe installée en Chine et forte de vingt ans de terrain."
+metaTitle: "Design UX et UI pour le public chinois | ChinaWebFoundry"
+metaDescription: "Un design pensé pour la manière dont l’internaute chinois lit, décide et achète. Mobile d’abord, signaux de confiance et parcours de paiement attendus localement, livré depuis Shanghai."
 icon: "palette"
 order: 3
 keywords: ["design ux chine", "design ui wordpress chine", "web design chinois", "mobile first chine", "design wordpress chine"]

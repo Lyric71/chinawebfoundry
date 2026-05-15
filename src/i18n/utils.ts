@@ -44,8 +44,9 @@ export function getAlternateUrl(currentPath: string, currentLang: Locale): strin
  */
 export function getHreflangUrls(basePath: string, site: string) {
   const clean = basePath.replace(/^\/fr/, '') || '/';
+  // Always emit a trailing slash on the home so canonical and hreflang agree.
   return {
-    en: `${site}${clean === '/' ? '' : clean}`,
+    en: `${site}${clean === '/' ? '/' : clean}`,
     fr: `${site}/fr${clean === '/' ? '/' : clean}`,
   };
 }

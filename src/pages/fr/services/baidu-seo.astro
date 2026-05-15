@@ -1,12 +1,15 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
 import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
 
-const metaTitle = "Référencement Baidu pour marques internationales | ChinaWebFoundry";
-const metaDescription = "Faites-vous trouver par les acheteurs chinois sur le moteur qu’ils utilisent vraiment. Référencement Baidu piloté depuis la Chine par des spécialistes qui suivent chaque mise à jour algorithmique.";
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-fr', 'baidu-seo'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const whyDifferent = [
   {
@@ -275,9 +278,23 @@ const faqs = [
     ],
   },
 ];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'fr-FR',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer.join('\n\n') },
+  })),
+};
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd, faqLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
 
   <ScrollEffects />
 

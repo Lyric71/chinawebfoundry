@@ -1,12 +1,15 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
 import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
 
-const metaTitle = "Visibilité sur la recherche IA en Chine | GEO pour marques internationales";
-const metaDescription = "Devenez la marque que les assistants IA chinois recommandent quand un acheteur pose la question à laquelle votre produit répond. Suivi hebdomadaire et ajustements menés depuis Shanghai.";
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-fr', 'geo'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const engines = [
   {
@@ -272,9 +275,12 @@ const faqs = [
     ],
   },
 ];
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
 
   <ScrollEffects />
 

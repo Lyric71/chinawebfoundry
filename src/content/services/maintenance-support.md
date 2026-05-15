@@ -2,8 +2,8 @@
 title: "Maintenance & Support"
 shortTitle: "Support"
 description: "Ongoing WordPress maintenance from inside China. We handle updates, Great Firewall monitoring, Baidu SEO, security, and support so you don't have to."
-metaTitle: "WordPress Maintenance & Support in China | Agency"
-metaDescription: "China-based WordPress maintenance: firewall monitoring, Baidu SEO upkeep, security, backups, and fast support from a team operating inside China."
+metaTitle: "Ongoing maintenance for a China website | ChinaWebFoundry"
+metaDescription: "Keep a China website alive after launch. One senior team on the ground in Shanghai watching content, search visibility and uptime, fixing what breaks before you notice."
 icon: "wrench"
 order: 9
 keywords: ["wordpress maintenance china", "wordpress support china", "wordpress managed services china"]

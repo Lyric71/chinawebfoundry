@@ -1,9 +1,54 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { existsSync, statSync } from 'node:fs';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
-// https://astro.build/config
+
+// Map a sitemap URL pathname to the most likely on-disk source file.
+// Returns the first existing candidate so we can use its mtime as lastmod.
+function sourceFileForPath(pathname) {
+  const isFr = pathname.startsWith('/fr/') || pathname === '/fr';
+  const enPath = isFr ? (pathname.replace(/^\/fr/, '') || '/') : pathname;
+  const trim = (s) => s.replace(/^\//, '').replace(/\/$/, '');
+
+  const candidates = [];
+
+  // Home pages
+  if (enPath === '/' || enPath === '') {
+    candidates.push(isFr ? './src/pages/fr/index.astro' : './src/pages/index.astro');
+  }
+
+  // Service detail
+  const svcMatch = enPath.match(/^\/services\/([^/]+)\/?$/);
+  if (svcMatch) {
+    candidates.push(`./src/content/services${isFr ? '-fr' : ''}/${svcMatch[1]}.md`);
+  }
+
+  // Case study detail
+  const workMatch = enPath.match(/^\/work\/([^/]+)\/?$/);
+  if (workMatch) {
+    candidates.push(`./src/content/casestudies${isFr ? '-fr' : ''}/${workMatch[1]}.md`);
+  }
+
+  // Guide article
+  const guideMatch = enPath.match(/^\/resources\/china-web-guide\/([^/]+)\/?$/);
+  if (guideMatch) {
+    candidates.push(`./src/content/guides${isFr ? '-fr' : ''}/${guideMatch[1]}.md`);
+  }
+
+  // Top-level static pages (single-segment paths)
+  const slug = trim(enPath);
+  if (slug && !slug.includes('/')) {
+    candidates.push(`./src/pages${isFr ? '/fr' : ''}/${slug}.astro`);
+  }
+
+  // Index pages for sections that exist as folders
+  candidates.push(`./src/pages${isFr ? '/fr' : ''}${enPath.endsWith('/') ? enPath : enPath + '/'}index.astro`);
+
+  return candidates.find(existsSync);
+}
+
 export default defineConfig({
   site: 'https://chinawebfoundry.com',
   output: 'static',
@@ -26,19 +71,14 @@ export default defineConfig({
           fr: 'fr',
         },
       },
-      // Per-page SEO defaults. Google uses these to prioritise crawl.
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
       // Skip 404 page from sitemap.
       filter: (page) => !page.includes('/404'),
-      // Adjust priority by route + add x-default hreflang for the EN canonical.
+      // Per-route priority + per-file lastmod from source mtime + x-default hreflang.
       serialize(item) {
-        const url = item.url;
-        const path = new URL(url).pathname;
-        const isFr = path.startsWith('/fr/') || path === '/fr';
+        const path = new URL(item.url).pathname;
 
-        // Priority by route type
+        // Priority by route type. (Google ignores priority/changefreq, but Bing
+        // and other engines still read them. Cheap to set, no downside.)
         if (path === '/' || path === '/fr/') {
           item.priority = 1.0;
           item.changefreq = 'weekly';
@@ -62,8 +102,16 @@ export default defineConfig({
           item.changefreq = 'yearly';
         }
 
+        // Per-file lastmod: use source file mtime when we can locate it.
+        // Honest signal beats a uniform build timestamp on every URL.
+        const src = sourceFileForPath(path);
+        if (src) {
+          item.lastmod = statSync(src).mtime;
+        } else {
+          delete item.lastmod;
+        }
+
         // Add x-default hreflang pointing to the EN canonical for this page.
-        // (Google picks x-default when no language preference matches.)
         if (item.links && item.links.length > 0) {
           const enLink = item.links.find((l) => l.lang === 'en');
           if (enLink && !item.links.find((l) => l.lang === 'x-default')) {

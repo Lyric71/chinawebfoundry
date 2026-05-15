@@ -2,8 +2,8 @@
 title: "Intégration technique"
 shortTitle: "Intégration"
 description: "Une intégration WordPress de bout en bout pour la Chine. Serveurs, extensions bloquées, WeChat Pay, statistiques Baidu, conformité des données : chaque couche est reprise. Agence sur le terrain."
-metaTitle: "Intégration technique WordPress pour le marché chinois"
-metaDescription: "Une intégration WordPress complète pour la Chine. Serveurs, extensions bloquées, WeChat Pay, statistiques Baidu, conformité des données. Équipe basée en Chine."
+metaTitle: "Intégration technique de sites en Chine | ChinaWebFoundry"
+metaDescription: "L’intégration qui décide si un site étranger tient en Chine. Développeurs seniors à Shanghai, plus de 50 mises en ligne, connaissance fine des blocages, lenteurs et pièges de conformité."
 icon: "plug"
 order: 4
 keywords: ["intégration wordpress chine", "wordpress wechat pay", "wordpress technique chine", "wordpress grand pare-feu"]

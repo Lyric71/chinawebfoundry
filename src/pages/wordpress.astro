@@ -251,6 +251,16 @@ const faqs = [
   },
 ];
 
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
 const accentClasses: Record<string, { bg: string; text: string; border: string }> = {
   amber: { bg: 'bg-amber-500/10', text: 'text-amber-300', border: 'border-amber-500/20' },
   orange: { bg: 'bg-[var(--color-brand-orange)]/15', text: 'text-[var(--color-brand-orange)]', border: 'border-[var(--color-brand-orange)]/25' },
@@ -259,7 +269,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
 };
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} jsonLd={[faqLd]}>
 
   <ScrollEffects />
 

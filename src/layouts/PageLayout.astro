@@ -13,13 +13,15 @@ interface Props {
   /** When true, header overlays content (transparent bg), no spacer. Used for hero pages. */
   heroPage?: boolean;
   lang?: Locale;
+  /** Per-page JSON-LD blocks (e.g. Service, Article, FAQPage) emitted alongside sitewide schema. */
+  jsonLd?: Record<string, unknown>[];
 }
 
-const { title, description, canonical, ogImage, heroPage = false, lang } = Astro.props;
+const { title, description, canonical, ogImage, heroPage = false, lang, jsonLd } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} lang={currentLang}>
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} lang={currentLang} jsonLd={jsonLd}>
   <Header heroPage={heroPage} lang={currentLang} />
   <main>
     <slot />

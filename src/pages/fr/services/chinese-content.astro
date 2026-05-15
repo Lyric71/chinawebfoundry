@@ -1,12 +1,15 @@
 ---
 import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
 import FAQItem from '../../../components/pages/FAQItem.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
 
-const metaTitle = 'Rédaction en chinois pour marques internationales | ChinaWebFoundry';
-const metaDescription = 'Des plumes chinoises natives à Shanghai qui écrivent pour le lecteur local, dès la première ligne. Messages, articles et fiches produits qui font bouger un acheteur, pas des traductions.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-fr', 'chinese-content'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 // What to Write: 5 differences with paired "default vs reality" data
 const differences = [
@@ -293,9 +296,12 @@ const faqs = [
     ],
   },
 ];
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
 
   <ScrollEffects />
 

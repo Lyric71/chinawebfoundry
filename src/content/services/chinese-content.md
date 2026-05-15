@@ -2,8 +2,8 @@
 title: "Chinese Content"
 shortTitle: "Content"
 description: "Native Chinese copywriting, transcreation and content management for WordPress in China. Baidu-optimised content by native speakers, managed in your CMS."
-metaTitle: "Chinese Content for WordPress in China | CWF"
-metaDescription: "Native Chinese copywriting, transcreation & content management for WordPress in China. Baidu-optimized content by native speakers. Agency in China."
+metaTitle: "Chinese content writing for international brands | ChinaWebFoundry"
+metaDescription: "Native Chinese copywriters in Shanghai who write for the Chinese reader from scratch. Messaging, articles and product pages that move buyers in your category, never translations."
 icon: "languages"
 order: 5
 keywords: ["chinese content wordpress", "wordpress translation chinese", "china localisation", "chinese copywriting", "baidu content", "transcreation chinese"]

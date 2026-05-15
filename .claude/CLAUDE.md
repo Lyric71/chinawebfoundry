@@ -76,7 +76,8 @@ with structured frontmatter (title, slug, description, icon, order).
 - SectionHeading component handles eyebrow + title + subtitle pattern
 
 ## SEO
-- Primary keywords: "wordpress china", "agency wordpress china"
+- Primary keyword family: "web agency" (stack-neutral). Variants: "web agency china", "china web agency", "web agency shanghai", and the French equivalents "agence web", "agence web chine", "agence web shanghai".
+- Do NOT lead with "WordPress agency" or "Astro agency" anywhere in titles, H1s, meta descriptions, schema, or anchor text. WordPress and Astro are stack choices, not the positioning. See [[feedback_stack_neutral]].
 - Every page needs: unique <title>, meta description, canonical URL, og:tags
 - Sitemap auto-generated via @astrojs/sitemap
 - robots.txt in public/

@@ -2,8 +2,8 @@
 title: "Strategy & Audit"
 shortTitle: "Strategy"
 description: "Comprehensive analysis of your WordPress site's China-readiness. We identify blocking issues, performance bottlenecks, and compliance gaps, then deliver a clear roadmap for successful market entry."
-metaTitle: "WordPress China Strategy & Audit | ChinaWebFoundry"
-metaDescription: "Assess your WordPress site's China-readiness. We identify blocking issues, performance gaps, and compliance risks with a clear action plan."
+metaTitle: "China digital strategy and audit | 4-week roadmap | ChinaWebFoundry"
+metaDescription: "Three to four weeks to decide what to build in China, why, and when. A written roadmap from a Shanghai team that has launched 50+ international websites since 2005."
 icon: "clipboard-check"
 order: 1
 heroSubtitle: "Assess your China-readiness before you commit"

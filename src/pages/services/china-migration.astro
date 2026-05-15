@@ -1,10 +1,13 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../lib/schema';
 import Button from '../../components/ui/Button.astro';
 import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 
-const metaTitle = 'Move your website into mainland China | ChinaWebFoundry';
-const metaDescription = 'Move your site into mainland China without losing your audience. A Shanghai team rebuilds what needs rebuilding so the site lands fast, reads native and surfaces where buyers look.';
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services', 'china-migration'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
 
 const layers = [
   {
@@ -200,9 +203,11 @@ const audiences = [
   { label: 'E-commerce brands', description: 'Launching a China-ready store with the right payment, logistics and customer service integrations from day one.', image: '/images/audiences/ecommerce-china-store.webp' },
   { label: 'Media and publishing', description: 'Organisations that need to reach Chinese audiences properly, not through a translated mirror.', image: '/images/audiences/media-publishing-china.webp' },
 ];
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} jsonLd={pageLd}>
 
   <!-- Hero: full-bleed dark -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">

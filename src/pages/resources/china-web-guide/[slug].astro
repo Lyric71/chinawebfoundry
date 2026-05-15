@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import GuideLayout from '../../../layouts/GuideLayout.astro';
 
 export async function getStaticPaths() {
@@ -15,6 +15,17 @@ export async function getStaticPaths() {
 const { guide } = Astro.props;
 const { Content, headings } = await render(guide);
 const tocItems = headings.filter((h) => h.depth === 2);
+
+// Look up the author from the team collection (defaults to cyril-drouin via schema).
+const teamEntry = await getEntry('team', guide.data.author);
+const author = teamEntry
+  ? {
+      name: teamEntry.data.name,
+      role: teamEntry.data.role,
+      url: teamEntry.data.linkedin,
+      bio: teamEntry.data.bio,
+    }
+  : undefined;
 ---
 
 <GuideLayout
@@ -23,6 +34,9 @@ const tocItems = headings.filter((h) => h.depth === 2);
   summary={guide.data.summary}
   visual={guide.data.visual}
   tocItems={tocItems}
+  author={author}
+  publishedAt={guide.data.publishedAt}
+  updatedAt={guide.data.updatedAt}
 >
   <Content />
 </GuideLayout>

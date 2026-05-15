@@ -2,8 +2,8 @@
 title: "Hébergement en Chine"
 shortTitle: "Hébergement"
 description: "Un hébergement WordPress qui tient en Chine continentale. Serveurs locaux sous licence ICP, CDN intégré, supervision depuis Shanghai. Vous n'ouvrez jamais une console d'administration en chinois."
-metaTitle: "Hébergement WordPress en Chine, performant et sous licence ICP"
-metaDescription: "Un hébergement WordPress calibré pour la Chine continentale. Serveurs locaux, dépôt ICP, CDN et supervision : nous opérons l'ensemble de la chaîne pour un site qui se charge vite derrière le Grand Pare-feu."
+metaTitle: "Hébergement infogéré pour sites en Chine | ChinaWebFoundry"
+metaDescription: "Un hébergement qui tient sous les conditions réseau du continent. Démarches administratives instruites de bout en bout, supervision depuis Shanghai, disponibilité de 99,97 % constatée."
 icon: "server"
 order: 8
 keywords: ["hébergement wordpress chine", "alibaba cloud wordpress", "serveur wordpress chine"]

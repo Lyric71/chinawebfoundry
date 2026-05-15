@@ -2,8 +2,8 @@
 title: "Migration vers la Chine"
 shortTitle: "Migration"
 description: "Nous transférons votre site WordPress sur une infrastructure conforme à la réglementation chinoise. Licence ICP, bascule DNS, transfert de la base de données : chaque maillon est couvert, sans la moindre interruption de service."
-metaTitle: "Migration WordPress vers la Chine | ChinaWebFoundry"
-metaDescription: "Migrez votre WordPress vers un hébergement conforme en Chine, sans coupure. Licence ICP, DNS, transfert de la base et remplacement des extensions bloquées : l’ensemble est orchestré."
+metaTitle: "Migrer votre site vers la Chine continentale | ChinaWebFoundry"
+metaDescription: "Déplacez votre site vers la Chine continentale sans perdre votre audience. Une équipe shanghaïenne reprend ce qui doit l’être pour qu’il charge vite, parle local et soit trouvable."
 icon: "arrow-right-circle"
 order: 2
 heroSubtitle: "Installez votre site derrière le Grand Pare-feu"
