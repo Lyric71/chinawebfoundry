@@ -15,13 +15,15 @@ interface Props {
   lang?: Locale;
   /** Per-page JSON-LD blocks (e.g. Service, Article, FAQPage) emitted alongside sitewide schema. */
   jsonLd?: Record<string, unknown>[];
+  /** Override hreflang URLs when EN/FR pages use different slugs. */
+  alternateUrls?: { en: string; fr: string };
 }
 
-const { title, description, canonical, ogImage, heroPage = false, lang, jsonLd } = Astro.props;
+const { title, description, canonical, ogImage, heroPage = false, lang, jsonLd, alternateUrls } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} lang={currentLang} jsonLd={jsonLd}>
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} lang={currentLang} jsonLd={jsonLd} alternateUrls={alternateUrls}>
   <Header heroPage={heroPage} lang={currentLang} />
   <main>
     <slot />

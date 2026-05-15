@@ -6,7 +6,7 @@ export interface TrustPoint {
 export const trustPoints: TrustPoint[] = [
   {
     title: 'Proven Speed Optimisation',
-    description: 'Average load time under 3 seconds for WordPress sites in China. We optimise every element \u2014 images, scripts, fonts, CDN routing \u2014 to work with local infrastructure.',
+    description: 'Average load time under 3 seconds for the sites we ship in China. We optimise every element: images, scripts, fonts, CDN routing. All tuned to local infrastructure.',
   },
   {
     title: 'Full Compliance Handled',
