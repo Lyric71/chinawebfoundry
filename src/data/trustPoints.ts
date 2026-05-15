@@ -17,7 +17,7 @@ export const trustPoints: TrustPoint[] = [
     description: 'Work with professionals who communicate fluently in English (and French) while operating daily in Chinese. No lost-in-translation moments, no timezone black holes.',
   },
   {
-    title: 'WordPress Specialists \u2014 Exclusively',
-    description: 'We are not a general web agency. We focus exclusively on WordPress for China. That single focus gives us deeper expertise in the platform and its China-specific challenges than any generalist ever could.',
+    title: 'Focused only on China',
+    description: 'We do one thing: build and maintain websites that work for China. Baidu, WeChat, the Firewall, the Chinese AI engines. Every project, every line of code.',
   },
 ];
