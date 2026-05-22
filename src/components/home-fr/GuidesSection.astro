@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Button from '../ui/Button.astro';
+import { localizePath } from '../../i18n/routes';
 
 const guides = (await getCollection('guides-fr'))
   .filter((guide) => guide.data.published)
@@ -20,14 +21,14 @@ const guides = (await getCollection('guides-fr'))
         </h2>
       </div>
       <div class="flex-shrink-0">
-        <Button href="/fr/resources/china-web-guide/" variant="secondary" size="md">Ouvrir le guide</Button>
+        <Button href="/fr/ressources/guide-web-chine/" variant="secondary" size="md">Ouvrir le guide</Button>
       </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {guides.map((guide) => (
         <a
-          href={`/fr/resources/china-web-guide/${guide.id}/`}
+          href={localizePath(`/resources/china-web-guide/${guide.id}/`, 'fr')}
           class="group flex flex-col bg-white border border-[var(--color-surface-border)] rounded-2xl overflow-hidden no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
         >
           <div class="aspect-[16/9] bg-[var(--color-surface-light)] overflow-hidden">

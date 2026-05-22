@@ -4,6 +4,7 @@ import Button from '../../components/ui/Button.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 import PageScrollEffects from '../../components/pages/ScrollEffects.astro';
 import { getCollection } from 'astro:content';
+import { localizePath } from '../../i18n/routes';
 
 const metaTitle = 'Agencia web en Shanghái para marcas en China | ChinaWebFoundry';
 const metaDescription = 'Agencia web con sede en Shanghái. Planteamos, construimos, hacemos crecer y operamos sitios en China para marcas extranjeras. Veinte años sobre el terreno y más de 50 proyectos.';
@@ -39,7 +40,7 @@ const serviceLd = {
         '@type': 'Service',
         name: s.data.title,
         description: s.data.description,
-        url: `${siteOrigin}/es/services/${s.id}/`,
+        url: `${siteOrigin}/es/servicios/${s.id}/`,
       },
     })),
   },
@@ -175,9 +176,9 @@ const faqs = [
         </p>
 
         <div class="mt-9 flex flex-wrap items-center gap-4">
-          <Button href="/es/contact/" variant="primary" size="lg">Hablemos</Button>
+          <Button href="/es/contacto/" variant="primary" size="lg">Hablemos</Button>
           <a
-            href="/es/services/"
+            href="/es/servicios/"
             class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
           >
             Descubra nuestros 10 servicios
@@ -260,7 +261,7 @@ const faqs = [
           </p>
         </div>
         <div class="col-span-12 lg:col-span-4 lg:text-right" data-reveal data-reveal-delay="120">
-          <a href="/es/services/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
+          <a href="/es/servicios/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
             Ver todos los servicios
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -270,7 +271,7 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {services.map((s) => (
           <a
-            href={`/es/services/${s.id}/`}
+            href={localizePath(`/services/${s.id}/`, 'es')}
             data-reveal
             class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 no-underline transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_22px_45px_-22px_rgba(15,15,18,0.15)] hover:-translate-y-1"
           >
@@ -305,7 +306,7 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
         {casestudies.map((cs) => (
           <a
-            href={`/es/work/${cs.id}/`}
+            href={localizePath(`/work/${cs.id}/`, 'es')}
             data-reveal
             class="group relative block rounded-2xl overflow-hidden no-underline"
           >
@@ -334,7 +335,7 @@ const faqs = [
       </div>
 
       <div class="mt-10 text-center" data-reveal>
-        <a href="/es/work/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
+        <a href="/es/proyectos/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
           Ver todos los casos de éxito
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -372,8 +373,8 @@ const faqs = [
             Cuando firma con nosotros, dispone de nuestras plumas, nuestros diseñadores, nuestros desarrolladores y nuestros responsables de SEO. También dispone de un único punto de contacto que responde en menos de 24 horas, en su franja horaria, en español o en inglés.
           </p>
           <div class="flex flex-wrap items-center gap-4">
-            <Button href="/es/who-we-are/" variant="primary" size="md">Conozca al equipo</Button>
-            <Button href="/es/contact/" variant="secondary" size="md">Escríbanos</Button>
+            <Button href="/es/quienes-somos/" variant="primary" size="md">Conozca al equipo</Button>
+            <Button href="/es/contacto/" variant="secondary" size="md">Escríbanos</Button>
           </div>
         </div>
       </div>
@@ -447,7 +448,7 @@ const faqs = [
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4" data-reveal data-reveal-delay="200">
-        <Button href="/es/contact/" variant="primary" size="lg">Escríbanos</Button>
+        <Button href="/es/contacto/" variant="primary" size="lg">Escríbanos</Button>
         <a
           href="/es/china-site-scanner/"
           class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"

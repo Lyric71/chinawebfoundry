@@ -2,13 +2,14 @@
 import { getCollection, render } from 'astro:content';
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
+import { caseStudySlugs, localizePath } from '../../../i18n/routes';
 
 export async function getStaticPaths() {
   const casestudies = await getCollection('casestudies-es');
   return casestudies
     .filter((cs) => cs.data.published)
     .map((cs) => ({
-      params: { slug: cs.id },
+      params: { slug: caseStudySlugs[cs.id]?.es ?? cs.id },
       props: { casestudy: cs },
     }));
 }
@@ -50,7 +51,7 @@ const visuals = casestudy.data.visuals || [];
 
     <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-20 md:pb-28">
       <a
-        href="/es/work/"
+        href="/es/proyectos/"
         class="inline-flex items-center gap-2 text-sm font-medium text-white/50 no-underline hover:text-white hover:gap-3 transition-all duration-200 mb-10"
       >
         <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -137,7 +138,7 @@ const visuals = casestudy.data.visuals || [];
               <div class="flex flex-wrap gap-3">
                 {relatedServices.map((service: any) => (
                   <a
-                    href={`/es/services/${service.id}/`}
+                    href={localizePath(`/services/${service.id}/`, 'es')}
                     class="px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border border-[var(--color-surface-border)] text-[var(--color-text-body)] no-underline hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors"
                   >
                     {service.data.title}
@@ -155,7 +156,7 @@ const visuals = casestudy.data.visuals || [];
             <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
               Cuéntenos su situación. Encuadramos juntos las etapas para que un sitio aguante de forma duradera en China.
             </p>
-            <Button href="/es/contact/" variant="primary" size="md">Hablemos</Button>
+            <Button href="/es/contacto/" variant="primary" size="md">Hablemos</Button>
           </div>
         </div>
 

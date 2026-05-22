@@ -4,6 +4,7 @@
  * Pure Astro + Tailwind + vanilla JS. Aucun framework externe.
  */
 import { getCollection } from 'astro:content';
+import { localizePath } from '../../i18n/routes';
 
 const casestudies = (await getCollection('casestudies-fr'))
   .filter((cs) => cs.data.published)
@@ -12,7 +13,7 @@ const casestudies = (await getCollection('casestudies-fr'))
 const stories = casestudies.map((cs) => ({
   title: cs.data.title,
   description: cs.data.summary,
-  href: `/fr/work/${cs.id}/`,
+  href: localizePath(`/work/${cs.id}/`, 'fr'),
   image: cs.data.visual || undefined,
   color: cs.data.color,
 }));

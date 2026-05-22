@@ -1,13 +1,14 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import GuideLayout from '../../../../layouts/GuideLayout.astro';
+import { guideSlugs } from '../../../../i18n/routes';
 
 export async function getStaticPaths() {
-  const guides = await getCollection('guides-es');
+  const guides = await getCollection('guides-fr');
   return guides
     .filter((guide) => guide.data.published)
     .map((guide) => ({
-      params: { slug: guide.id },
+      params: { slug: guideSlugs[guide.id]?.fr ?? guide.id },
       props: { guide },
     }));
 }
@@ -16,9 +17,9 @@ const { guide } = Astro.props;
 const { Content, headings } = await render(guide);
 const tocItems = headings.filter((h) => h.depth === 2);
 
-// Author lookup: prefer ES team entry, fall back to EN team if no ES mirror.
-const teamEsEntry = await getEntry('team-es', guide.data.author).catch(() => undefined);
-const teamEntry = teamEsEntry ?? await getEntry('team', guide.data.author);
+// Author lookup: prefer FR team entry, fall back to EN team if no FR mirror.
+const teamFrEntry = await getEntry('team-fr', guide.data.author).catch(() => undefined);
+const teamEntry = teamFrEntry ?? await getEntry('team', guide.data.author);
 const author = teamEntry
   ? {
       name: teamEntry.data.name,
@@ -35,7 +36,7 @@ const author = teamEntry
   summary={guide.data.summary}
   visual={guide.data.visual}
   tocItems={tocItems}
-  lang="es"
+  lang="fr"
   author={author}
   publishedAt={guide.data.publishedAt}
   updatedAt={guide.data.updatedAt}

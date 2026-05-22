@@ -4,6 +4,7 @@ import Button from '../../components/ui/Button.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 import PageScrollEffects from '../../components/pages/ScrollEffects.astro';
 import { getCollection } from 'astro:content';
+import { localizePath } from '../../i18n/routes';
 
 const metaTitle = 'Agence web à Shanghai pour marques en Chine | ChinaWebFoundry';
 const metaDescription = 'Agence web installée à Shanghai. Nous cadrons, construisons, faisons grandir et opérons des sites en Chine pour les marques étrangères. Vingt ans sur le terrain, plus de 50 projets.';
@@ -270,7 +271,7 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {services.map((s) => (
           <a
-            href={`/fr/services/${s.id}/`}
+            href={localizePath(`/services/${s.id}/`, 'fr')}
             data-reveal
             class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 no-underline transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_22px_45px_-22px_rgba(15,15,18,0.15)] hover:-translate-y-1"
           >
@@ -305,7 +306,7 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
         {casestudies.map((cs) => (
           <a
-            href={`/fr/work/${cs.id}/`}
+            href={localizePath(`/work/${cs.id}/`, 'fr')}
             data-reveal
             class="group relative block rounded-2xl overflow-hidden no-underline"
           >
@@ -334,7 +335,7 @@ const faqs = [
       </div>
 
       <div class="mt-10 text-center" data-reveal>
-        <a href="/fr/work/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
+        <a href="/fr/realisations/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
           Voir toutes les études de cas
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -372,7 +373,7 @@ const faqs = [
             Quand vous signez avec nous, vous obtenez nos plumes, nos designers, nos développeurs et nos référents SEO. Vous obtenez aussi un point de contact unique qui répond sous 24 heures, dans votre fuseau, en français ou en anglais.
           </p>
           <div class="flex flex-wrap items-center gap-4">
-            <Button href="/fr/who-we-are/" variant="primary" size="md">Rencontrer l’équipe</Button>
+            <Button href="/fr/qui-sommes-nous/" variant="primary" size="md">Rencontrer l’équipe</Button>
             <Button href="/fr/contact/" variant="secondary" size="md">Nous écrire</Button>
           </div>
         </div>

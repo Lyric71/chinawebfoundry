@@ -2,6 +2,7 @@
  * JSON-LD schema helpers. Call from a page's frontmatter and pass the result
  * into <PageLayout jsonLd={...} /> so the schema is emitted in <head>.
  */
+import { splitLocale, localizePath } from '../i18n/routes';
 
 interface ServiceSchemaInput {
   title: string;
@@ -9,20 +10,18 @@ interface ServiceSchemaInput {
 }
 
 /**
- * Build Service + BreadcrumbList JSON-LD for a /services/<slug>/ page.
- * Uses Astro.url to detect locale and slug automatically.
+ * Build Service + BreadcrumbList JSON-LD for a service detail page.
+ * Uses Astro.url to detect locale automatically; native-language slugs are
+ * already part of the URL so the page URL is taken verbatim.
  */
 export function serviceSchema(astroUrl: URL, astroSite: URL | undefined, service: ServiceSchemaInput) {
   const path = astroUrl.pathname;
-  const localeMatch = path.match(/^\/(fr|es)\//);
-  const locale = (localeMatch ? localeMatch[1] : 'en') as 'en' | 'fr' | 'es';
-  const prefix = locale === 'en' ? '' : `/${locale}`;
-  const slug = path.replace(/^\/(?:fr\/|es\/)?services\/?/, '').replace(/\/$/, '');
+  const { locale } = splitLocale(path);
   const siteOrigin = (astroSite?.toString().replace(/\/$/, '')) || 'https://www.chinawebfoundry.com';
 
-  const pageUrl = `${siteOrigin}${prefix}/services/${slug}/`;
-  const homeUrl = `${siteOrigin}${prefix}/`;
-  const servicesUrl = `${siteOrigin}${prefix}/services/`;
+  const pageUrl = `${siteOrigin}${path}`;
+  const homeUrl = `${siteOrigin}${localizePath('/', locale)}`;
+  const servicesUrl = `${siteOrigin}${localizePath('/services/', locale)}`;
   const homeLabelMap = { en: 'Home', fr: 'Accueil', es: 'Inicio' } as const;
   const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
   const homeLabel = homeLabelMap[locale];
