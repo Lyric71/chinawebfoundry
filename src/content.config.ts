@@ -225,6 +225,87 @@ const casestudiesEs = defineCollection({
   }),
 });
 
+// German collections (same schemas, different source directories)
+const servicesDe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/services-de' }),
+  schema: z.object({
+    title: z.string(),
+    shortTitle: z.string(),
+    description: z.string(),
+    metaTitle: z.string(),
+    metaDescription: z.string(),
+    icon: z.string(),
+    order: z.number(),
+    heroSubtitle: z.string().optional(),
+    keywords: z.array(z.string()),
+    relatedServices: z.array(z.string()).optional(),
+  }),
+});
+
+const testimonialsDe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/testimonials-de' }),
+  schema: z.object({
+    name: z.string(),
+    role: z.string(),
+    company: z.string(),
+    photo: z.string().optional(),
+    order: z.number(),
+  }),
+});
+
+const teamDe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/team-de' }),
+  schema: z.object({
+    name: z.string(),
+    role: z.string(),
+    photo: z.string(),
+    bio: z.string(),
+    order: z.number(),
+    linkedin: z.string().optional(),
+    substack: z.string().optional(),
+  }),
+});
+
+const guidesDe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/guides-de' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    summary: z.string(),
+    visual: z.string(),
+    order: z.number(),
+    published: z.boolean().default(true),
+    category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
+    author: z.string().default('cyril-drouin'),
+    publishedAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional(),
+  }),
+});
+
+const casestudiesDe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/casestudies-de' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    summary: z.string(),
+    visual: z.string(),
+    visuals: z.array(z.string()).optional(),
+    color: z.string(),
+    order: z.number(),
+    published: z.boolean().default(true),
+    services: z.array(z.string()).optional(),
+  }),
+});
+
+const faqDe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/faq-de' }),
+  schema: z.object({
+    question: z.string(),
+    order: z.number(),
+    category: z.enum(['team', 'process', 'technical']).optional(),
+  }),
+});
+
 export const collections = {
   services, testimonials, team, guides, casestudies,
   'services-fr': servicesFr,
@@ -238,4 +319,10 @@ export const collections = {
   'team-es': teamEs,
   'guides-es': guidesEs,
   'casestudies-es': casestudiesEs,
+  'services-de': servicesDe,
+  'testimonials-de': testimonialsDe,
+  'team-de': teamDe,
+  'guides-de': guidesDe,
+  'casestudies-de': casestudiesDe,
+  'faq-de': faqDe,
 };

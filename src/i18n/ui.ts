@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'fr' | 'es';
+export type Locale = 'en' | 'fr' | 'es' | 'de';
 
 export const ui = {
   en: {
@@ -89,6 +89,7 @@ export const ui = {
     'lang.en': 'EN',
     'lang.fr': 'FR',
     'lang.es': 'ES',
+    'lang.de': 'DE',
   },
   fr: {
     // Navigation
@@ -178,6 +179,7 @@ export const ui = {
     'lang.en': 'EN',
     'lang.fr': 'FR',
     'lang.es': 'ES',
+    'lang.de': 'DE',
   },
   es: {
     // Navigation
@@ -267,6 +269,97 @@ export const ui = {
     'lang.en': 'EN',
     'lang.fr': 'FR',
     'lang.es': 'ES',
+    'lang.de': 'DE',
+  },
+  de: {
+    // Navigation
+    'nav.services': 'Leistungen',
+    'nav.work': 'Referenzen',
+    'nav.whoWeAre': 'Über uns',
+    'nav.resources': 'Ressourcen',
+    'nav.contact': 'Kontakt',
+    'nav.contactUs': 'Kontakt aufnehmen',
+    'nav.chinaSiteScanner': 'China Site Scanner',
+    'nav.chinaWebGuide': 'China-Web-Leitfaden',
+    'nav.faq': 'Häufige Fragen',
+    'nav.faqShort': 'FAQ',
+    'nav.allServices': 'Alle Leistungen im Überblick',
+    'nav.allServicesMobile': 'Alle Leistungen',
+
+    // Navigation columns
+    'nav.plan': 'Planen',
+    'nav.build': 'Umsetzen',
+    'nav.grow': 'Betreiben & wachsen',
+    'nav.technology': 'Technologie',
+
+    // Navigation service descriptions
+    'nav.desc.strategyAudit': 'Prüfen, wie weit Sie für China bereit sind',
+    'nav.desc.chinaMigration': 'Ihre Website hinter die Große Firewall bringen',
+    'nav.desc.uxUiDesign': 'Oberflächen für chinesische Nutzer gestalten',
+    'nav.desc.technicalIntegration': 'CDN, Bezahlung, Performance',
+    'nav.desc.pluginsExtensions': 'Blockierte Plugins ersetzen',
+    'nav.desc.baiduSeo': 'Sichtbar in Chinas größter Suchmaschine',
+    'nav.desc.geo': 'In den Antworten der KI auftauchen',
+    'nav.desc.chineseContent': 'Chinesische Texte, die überzeugen',
+    'nav.desc.chinaHosting': 'Schnelle Server, ICP-Lizenz im Klaren',
+    'nav.desc.maintenanceSupport': 'Laufende Updates und Überwachung',
+    'nav.desc.chinaSiteScanner': 'Ihre Website auf China-Tauglichkeit prüfen',
+    'nav.desc.chinaWebGuide': 'Ihr Wegweiser durch das chinesische Web',
+    'nav.desc.faq': 'Die Fragen, die am häufigsten kommen',
+
+    // Navigation service labels
+    'nav.label.strategyAudit': 'Strategie & Audit',
+    'nav.label.chinaMigration': 'Migration nach China',
+    'nav.label.uxUiDesign': 'UX/UI-Design',
+    'nav.label.technicalIntegration': 'Technische Integration',
+    'nav.label.pluginsExtensions': 'Plugins & Erweiterungen',
+    'nav.label.baiduSeo': 'Baidu-SEO',
+    'nav.label.geo': 'GEO (Generative Engine Optimization)',
+    'nav.label.chineseContent': 'Chinesische Inhalte',
+    'nav.label.chinaHosting': 'Hosting',
+    'nav.label.maintenanceSupport': 'Wartung & Support',
+    'nav.label.wordpress': 'WordPress',
+    'nav.label.astro': 'Astro',
+    'nav.label.wechat': 'WeChat',
+
+    // Footer
+    'footer.manifesto': 'Websites, die sich danach richten, wie Chinas Nutzer wirklich surfen, lesen und kaufen. Team vor Ort, internationale Standards. Von der Strategie bis zum Launch und weit darüber hinaus.',
+    'footer.services': 'Leistungen',
+    'footer.company': 'Agentur',
+    'footer.connect': 'Kontakt',
+    'footer.ourWork': 'Unsere Referenzen',
+    'footer.copyright': 'Copyright',
+    'footer.contact': 'Kontakt',
+    'footer.builtWith': 'Wir bauen mit',
+
+    // Legal
+    'legal.privacyPolicy': 'Datenschutzerklärung',
+    'legal.termsOfService': 'Nutzungsbedingungen',
+    'legal.cookiePolicy': 'Cookie-Richtlinie',
+
+    // Service Layout
+    'service.home': 'Startseite',
+    'service.readyToStart': 'Sollen wir loslegen?',
+    'service.letsDiscuss': 'Sprechen wir darüber, wie Ihre Website in China Fuß fasst.',
+
+    // Guide Layout
+    'guide.backLink': 'China-Web-Leitfaden',
+    'guide.toc': 'In diesem Artikel',
+    'guide.needHelp': 'Brauchen Sie dabei Hilfe?',
+    'guide.needHelpText': 'ChinaWebFoundry betreut Web-Projekte in China von A bis Z. Wenn Ihnen das alles nach mehr aussieht, als Sie allein angehen möchten, melden Sie sich.',
+    'guide.talkToUs': 'Sprechen Sie uns an',
+
+    // 404
+    '404.title': '404',
+    '404.heading': 'Seite nicht gefunden',
+    '404.text': 'Diese Seite gibt es nicht mehr oder sie ist umgezogen.',
+    '404.backHome': 'Zurück zur Startseite',
+
+    // Language switcher
+    'lang.en': 'EN',
+    'lang.fr': 'FR',
+    'lang.es': 'ES',
+    'lang.de': 'DE',
   },
 } as const;
 

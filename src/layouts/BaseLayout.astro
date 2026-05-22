@@ -11,8 +11,8 @@ interface Props {
   lang?: Locale;
   /** Optional extra JSON-LD blocks (e.g. Service, Article, FAQPage) emitted in addition to the sitewide Organization + WebSite. */
   jsonLd?: Record<string, unknown>[];
-  /** Override the auto-computed hreflang URLs when locales use different slugs (e.g. /web-agency-china/ vs /fr/agence-web-chine/ vs /es/agencia-web-china/). Pass absolute paths starting with /. */
-  alternateUrls?: { en: string; fr: string; es?: string };
+  /** Override the auto-computed hreflang URLs when locales use different slugs (e.g. /web-agency-china/ vs /fr/agence-web-chine/ vs /es/agencia-web-china/ vs /de/webagentur-china/). Pass absolute paths starting with /. */
+  alternateUrls?: { en: string; fr: string; es?: string; de?: string };
 }
 
 const { title, description, canonical, ogImage = '/images/og-default.webp', lang, jsonLd = [], alternateUrls } = Astro.props;
@@ -24,11 +24,12 @@ const hreflang = {
   en: alternateUrls?.en ? `${siteOrigin}${alternateUrls.en}` : autoHreflang.en,
   fr: alternateUrls?.fr ? `${siteOrigin}${alternateUrls.fr}` : autoHreflang.fr,
   es: alternateUrls?.es ? `${siteOrigin}${alternateUrls.es}` : autoHreflang.es,
+  de: alternateUrls?.de ? `${siteOrigin}${alternateUrls.de}` : autoHreflang.de,
 };
-const ogLocaleMap = { en: 'en_GB', fr: 'fr_FR', es: 'es_ES' } as const;
-const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
+const ogLocaleMap = { en: 'en_GB', fr: 'fr_FR', es: 'es_ES', de: 'de_DE' } as const;
+const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES', de: 'de-DE' } as const;
 const ogLocale = ogLocaleMap[currentLang];
-const ogLocaleAlternates = (['en', 'fr', 'es'] as const).filter((l) => l !== currentLang).map((l) => ogLocaleMap[l]);
+const ogLocaleAlternates = (['en', 'fr', 'es', 'de'] as const).filter((l) => l !== currentLang).map((l) => ogLocaleMap[l]);
 
 const organizationLd = {
   '@context': 'https://schema.org',
@@ -89,6 +90,7 @@ const sitewideLd = [organizationLd, websiteLd, ...jsonLd];
     <link rel="alternate" hreflang="en" href={hreflang.en} />
     <link rel="alternate" hreflang="fr" href={hreflang.fr} />
     <link rel="alternate" hreflang="es" href={hreflang.es} />
+    <link rel="alternate" hreflang="de" href={hreflang.de} />
     <link rel="alternate" hreflang="x-default" href={hreflang.en} />
 
     <!-- Open Graph -->

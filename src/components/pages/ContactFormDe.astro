@@ -1,0 +1,318 @@
+---
+import Button from '../ui/Button.astro';
+import { useTranslations } from '../../i18n/utils';
+import type { Locale, TranslationKey } from '../../i18n/ui';
+import { countryCodes } from '../../data/countries';
+import { youAreOptions, budgetOptions } from '../../data/contactFormOptions';
+
+const lang: Locale = 'de';
+const t = useTranslations(lang);
+const tEn = useTranslations('en');
+
+// Leistungen aus dem Menü „Leistungen", damit das Formular und die Navigation übereinstimmen.
+const serviceKeys: TranslationKey[] = [
+  'nav.label.strategyAudit',
+  'nav.label.chinaMigration',
+  'nav.label.chineseContent',
+  'nav.label.uxUiDesign',
+  'nav.label.wordpress',
+  'nav.label.astro',
+  'nav.label.wechat',
+  'nav.label.chinaHosting',
+  'nav.label.baiduSeo',
+  'nav.label.geo',
+  'nav.label.maintenanceSupport',
+];
+const services = serviceKeys.map((k) => ({ value: tEn(k), label: t(k) }));
+
+// Ländernamen werden zur Kompilierzeit aus den ISO-Codes lokalisiert.
+const enRegions = new Intl.DisplayNames(['en'], { type: 'region' });
+const locRegions = new Intl.DisplayNames([lang], { type: 'region' });
+const countries = countryCodes
+  .map((code) => ({
+    value: enRegions.of(code) ?? code,
+    label: locRegions.of(code) ?? code,
+  }))
+  .sort((a, b) => a.label.localeCompare(b.label, lang));
+
+const labelClass =
+  'block text-xs font-semibold uppercase tracking-wider text-[var(--color-text-dark)] mb-2';
+const inputClass =
+  'w-full px-4 py-3 border border-[var(--color-surface-border)] rounded-lg text-[var(--color-text-body)] placeholder:text-[var(--color-text-muted)] focus:outline-2 focus:outline-[var(--color-brand-orange)] focus:border-transparent';
+const selectClass = inputClass + ' bg-white';
+const cardClass =
+  'flex items-center gap-3 px-4 py-3 border border-[var(--color-surface-border)] rounded-lg cursor-pointer transition-colors hover:border-[var(--color-brand-orange)] has-[:checked]:border-[var(--color-brand-orange)] has-[:checked]:bg-[var(--color-brand-orange)]/5';
+const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
+---
+
+<div>
+  <!-- Header banner -->
+  <div class="flex items-center gap-4 bg-[var(--color-surface-light)] rounded-t-xl px-6 py-5 border border-[var(--color-surface-border)]">
+    <div class="flex-shrink-0 w-12 h-12 bg-[var(--color-text-card-blue)]/10 rounded-full flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[var(--color-text-card-blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+      </svg>
+    </div>
+    <div>
+      <h2 class="text-xl font-semibold text-[var(--color-text-dark)]">Erzählen Sie uns von Ihrem Projekt</h2>
+      <p class="text-sm text-[var(--color-text-muted)]">Mit * gekennzeichnete Felder sind Pflichtfelder.</p>
+    </div>
+  </div>
+
+  <!-- Form body -->
+  <form id="contact-form" class="bg-white rounded-b-xl border border-t-0 border-[var(--color-surface-border)] px-6 py-8 space-y-5">
+    <!-- Row: Name + Email -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="name" class={labelClass}>
+          Ihr Name <span class="text-[var(--color-brand-orange)]">*</span>
+        </label>
+        <input type="text" id="name" name="name" required placeholder="Anna Müller" class={inputClass} />
+      </div>
+      <div>
+        <label for="email" class={labelClass}>
+          Ihre E-Mail-Adresse <span class="text-[var(--color-brand-orange)]">*</span>
+        </label>
+        <input type="email" id="email" name="email" required placeholder="anna@unternehmen.de" class={inputClass} />
+      </div>
+    </div>
+
+    <!-- Row: Company + Phone -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="company" class={labelClass}>
+          Unternehmen <span class="text-[var(--color-brand-orange)]">*</span>
+        </label>
+        <input type="text" id="company" name="company" required placeholder="Müller GmbH" class={inputClass} />
+      </div>
+      <div>
+        <label for="phone" class={labelClass}>
+          Telefon <span class="text-[var(--color-text-muted)] font-normal normal-case">(optional)</span>
+        </label>
+        <input type="tel" id="phone" name="phone" placeholder="+49 30 1234567" class={inputClass} />
+      </div>
+    </div>
+
+    <!-- Row: You are + Country -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="youAre" class={labelClass}>
+          Sie sind <span class="text-[var(--color-brand-orange)]">*</span>
+        </label>
+        <select id="youAre" name="youAre" required class={selectClass}>
+          <option value="" disabled selected>Bitte wählen</option>
+          {youAreOptions.map((o) => <option value={o.value}>{o[lang]}</option>)}
+        </select>
+      </div>
+      <div>
+        <label for="country" class={labelClass}>
+          Ihr Land <span class="text-[var(--color-text-muted)] font-normal normal-case">(optional)</span>
+        </label>
+        <select id="country" name="country" class={selectClass}>
+          <option value="" disabled selected>Land auswählen</option>
+          {countries.map((c) => <option value={c.value}>{c.label}</option>)}
+        </select>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <span class={labelClass}>
+        Gesuchte Leistungen <span class="text-[var(--color-brand-orange)]">*</span>
+      </span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {services.map((s) => (
+          <label class={cardClass}>
+            <input type="checkbox" name="services" value={s.value} class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">{s.label}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <!-- Budget -->
+    <div>
+      <span class={labelClass}>
+        Ihr Budget <span class="text-[var(--color-brand-orange)]">*</span>
+      </span>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {budgetOptions.map((o) => (
+          <label class={cardClass}>
+            <input type="radio" name="budget" value={o.value} required class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">{o[lang]}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <!-- Row: Has a website + Presence in China -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <div>
+        <span class={labelClass}>Haben Sie bereits eine Website?</span>
+        <div class="grid grid-cols-2 gap-3">
+          <label class={cardClass}>
+            <input type="radio" name="hasWebsite" value="Yes" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">Ja</span>
+          </label>
+          <label class={cardClass}>
+            <input type="radio" name="hasWebsite" value="No" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">Nein</span>
+          </label>
+        </div>
+        <div id="website-field" class="hidden mt-4">
+          <label for="website" class={labelClass}>
+            Adresse Ihrer Website <span class="text-[var(--color-brand-orange)]">*</span>
+          </label>
+          <input type="url" id="website" name="website" placeholder="https://ihr-unternehmen.de" class={inputClass} />
+        </div>
+      </div>
+      <div>
+        <span class={labelClass}>
+          Sind Sie bereits in China präsent?
+          <span class="text-[var(--color-text-muted)] font-normal normal-case">(online oder vor Ort)</span>
+        </span>
+        <div class="grid grid-cols-2 gap-3">
+          <label class={cardClass}>
+            <input type="radio" name="chinaPresence" value="Yes" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">Ja</span>
+          </label>
+          <label class={cardClass}>
+            <input type="radio" name="chinaPresence" value="No" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">Nein</span>
+          </label>
+        </div>
+        <div id="china-detail-field" class="hidden mt-4">
+          <label for="chinaPresenceDetail" class={labelClass}>Falls ja, in welcher Form?</label>
+          <input type="text" id="chinaPresenceDetail" name="chinaPresenceDetail" placeholder="Tmall-Shop, WeChat-Konto, Büro vor Ort ..." class={inputClass} />
+        </div>
+      </div>
+    </div>
+
+    <!-- Project description -->
+    <div>
+      <label for="project" class={labelClass}>
+        Ihr Projekt in wenigen Zeilen <span class="text-[var(--color-brand-orange)]">*</span>
+      </label>
+      <textarea
+        id="project"
+        name="project"
+        rows="4"
+        required
+        placeholder="Hintergrund, Ziele, geplanter Zeitrahmen ..."
+        class={inputClass + ' resize-y'}
+      ></textarea>
+    </div>
+
+    <!-- Honeypot field for spam protection -->
+    <div class="hidden" aria-hidden="true">
+      <input type="text" name="website_url" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <!-- Status message -->
+    <div id="form-status" class="hidden rounded-lg px-4 py-3 text-sm font-medium"></div>
+
+    <Button type="submit" variant="primary" size="lg" class="w-full">Absenden</Button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const statusEl = document.getElementById('form-status') as HTMLDivElement;
+  const websiteField = document.getElementById('website-field') as HTMLDivElement;
+  const websiteInput = document.getElementById('website') as HTMLInputElement;
+  const chinaDetailField = document.getElementById('china-detail-field') as HTMLDivElement;
+  const chinaDetailInput = document.getElementById('chinaPresenceDetail') as HTMLInputElement;
+
+  const errorClass = 'rounded-lg px-4 py-3 text-sm font-medium bg-red-50 text-red-800 border border-red-200';
+  const successClass = 'rounded-lg px-4 py-3 text-sm font-medium bg-green-50 text-green-800 border border-green-200';
+
+  const getChecked = (name: string) =>
+    form.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
+
+  function syncWebsite() {
+    const show = getChecked('hasWebsite')?.value === 'Yes';
+    websiteField.classList.toggle('hidden', !show);
+    websiteInput.required = show;
+    if (!show) websiteInput.value = '';
+  }
+
+  function syncChinaPresence() {
+    const show = getChecked('chinaPresence')?.value === 'Yes';
+    chinaDetailField.classList.toggle('hidden', !show);
+    if (!show) chinaDetailInput.value = '';
+  }
+
+  form.querySelectorAll('input[name="hasWebsite"]').forEach((el) =>
+    el.addEventListener('change', syncWebsite)
+  );
+  form.querySelectorAll('input[name="chinaPresence"]').forEach((el) =>
+    el.addEventListener('change', syncChinaPresence)
+  );
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Honeypot check
+    const honeypot = form.querySelector<HTMLInputElement>('input[name="website_url"]');
+    if (honeypot && honeypot.value) return;
+
+    const services = Array.from(
+      form.querySelectorAll<HTMLInputElement>('input[name="services"]:checked')
+    ).map((el) => el.value);
+
+    if (services.length === 0) {
+      statusEl.textContent = 'Bitte wählen Sie mindestens eine Leistung aus.';
+      statusEl.className = errorClass;
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet ...';
+    statusEl.classList.add('hidden');
+
+    const data = {
+      name: (form.querySelector('#name') as HTMLInputElement).value,
+      email: (form.querySelector('#email') as HTMLInputElement).value,
+      phone: (form.querySelector('#phone') as HTMLInputElement).value,
+      company: (form.querySelector('#company') as HTMLInputElement).value,
+      youAre: (form.querySelector('#youAre') as HTMLSelectElement).value,
+      country: (form.querySelector('#country') as HTMLSelectElement).value,
+      services,
+      budget: getChecked('budget')?.value ?? '',
+      hasWebsite: getChecked('hasWebsite')?.value ?? '',
+      website: websiteInput.value,
+      chinaPresence: getChecked('chinaPresence')?.value ?? '',
+      chinaPresenceDetail: chinaDetailInput.value,
+      project: (form.querySelector('#project') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.success) {
+        statusEl.textContent = 'Vielen Dank. Wir melden uns innerhalb von 24 Stunden bei Ihnen.';
+        statusEl.className = successClass;
+        form.reset();
+        syncWebsite();
+        syncChinaPresence();
+      } else {
+        statusEl.textContent = result.error || 'Da ist etwas schiefgelaufen. Bitte versuchen Sie es erneut.';
+        statusEl.className = errorClass;
+      }
+    } catch {
+      statusEl.textContent = 'Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Verbindung und versuchen Sie es erneut.';
+      statusEl.className = errorClass;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+</script>

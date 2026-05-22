@@ -1,0 +1,1028 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
+
+const metaTitle = 'WordPress in China | Was trägt, was sich ändern muss | ChinaWebFoundry';
+const metaDescription = 'WordPress läuft in Festlandchina zuverlässig, sobald es dafür gebaut ist. Die Einsatzfelder, in denen es überzeugt, die Umbauten, die die Große Firewall verlangt, und die Alternativen, die zu kurz greifen.';
+
+const stats = [
+  { value: 43, suffix: '%', label: 'aller Websites laufen mit WordPress', source: 'W3Techs, 2024' },
+  { value: 20, suffix: '+', label: 'Jahre WordPress-Arbeit in China', source: 'In Shanghai ansässig seit 2005' },
+  { value: 50, suffix: '+', label: 'internationale Websites hinter der Firewall gestartet', source: 'Branchenübergreifend' },
+];
+
+const useCases = [
+  {
+    icon: 'cart',
+    title: 'E-Commerce mit WooCommerce',
+    body: 'Für Marken, die in China außerhalb von Tmall und JD verkaufen, kommt WooCommerce einem ernsthaften E-Commerce-Unterbau im offenen Web am nächsten. Sind Alipay, WeChat Pay und UnionPay einmal eingebunden, ist das Wesentliche abgedeckt.',
+    span: 'feature',
+    badges: ['WooCommerce', 'Alipay', 'WeChat Pay', 'UnionPay'],
+  },
+  {
+    icon: 'pen',
+    title: 'Inhaltsstarke Websites',
+    body: 'Hunderte Seiten, ein hoher Publikationstakt, mehrere Autoren. Genau dafür wurde WordPress gebaut. Redakteure, die das Werkzeug bereits kennen, müssen nichts Neues lernen.',
+    span: 'normal',
+  },
+  {
+    icon: 'languages',
+    title: 'Mehrsprachige Websites',
+    body: 'Chinesisch neben Englisch, Französisch, Deutsch oder Japanisch. WordPress bewältigt mit WPML oder Polylang drei und mehr Sprachen sauber, mit getrennten Sitemaps für Baidu und Google.',
+    span: 'normal',
+  },
+  {
+    icon: 'users',
+    title: 'Gepflegt von Nicht-Entwicklern',
+    body: 'Marketingteams, Content-Verantwortliche und Regionalbüros pflegen die Website ohne Deployment-Pipeline. Für ein eigenständiges China-Team wiegt diese Beweglichkeit oft schwerer als reine Seitengeschwindigkeit.',
+    span: 'normal',
+  },
+  {
+    icon: 'sliders',
+    title: 'Websites mit eigenen Abläufen',
+    body: 'Mitgliederbereiche, bedingte Lead-Erfassung, geschützte Inhalte, Vertriebsunterstützung. Das Plugin-Ökosystem deckt das meiste davon ohne eigene Entwicklung ab.',
+    span: 'normal',
+  },
+  {
+    icon: 'layers',
+    title: 'Mit Page-Buildern gebaute Websites',
+    body: 'Die meisten Websites, die wir übernehmen, sind in Elementor, Divi oder Gutenberg gebaut. Alle drei tragen, sobald die Abhängigkeiten bereinigt sind. Gutenberg ist am leichtesten und am einfachsten auf einem chinesischen Server schnell zu halten.',
+    span: 'wide',
+    badges: ['Elementor', 'Divi', 'Gutenberg'],
+  },
+];
+
+const pickAstro = [
+  'Die Website besteht überwiegend aus Marketingseiten, die monatlich oder seltener aktualisiert werden',
+  'Die Ladegeschwindigkeit ist nicht verhandelbar (Landingpages für bezahlte Medien, Werbekampagnen)',
+  'Sie wollen eine kleinere Angriffsfläche und weniger Wartungsaufwand',
+  'Inhaltsaktualisierungen können über einen Entwickler oder über uns laufen',
+  'Sie brauchen keine CMS-Oberfläche für nichttechnische Redakteure',
+];
+
+const pickWordPress = [
+  'Die redaktionelle Arbeit ist tägliches Geschäft, keine gelegentliche Aufgabe',
+  'Sie brauchen drei Sprachen oder mehr',
+  'Sie betreiben einen Online-Shop oder einen Mitgliederbereich',
+  'Ihr Team kennt WordPress bereits, und Sie wollen es nicht umschulen',
+  'Sie brauchen Plugins für Formulare, SEO, Marketing-Automatisierung oder Compliance',
+];
+
+const changeGroups = [
+  {
+    label: 'Frontend',
+    accent: 'amber',
+    items: [
+      {
+        icon: 'type',
+        title: 'Schriften',
+        body: 'Google Fonts laden in China nicht. Wir hosten die Schriften selbst oder ersetzen sie durch chinakompatible Alternativen, die lateinische und CJK-Glyphen in einer Datei mitbringen.',
+      },
+      {
+        icon: 'palette',
+        title: 'Theme-Stack',
+        body: 'Die meisten ThemeForest-Themes rufen externe CDNs auf, binden Google Maps ein oder laden entfernte Skripte, die hinter der Firewall scheitern. Wir prüfen, tauschen und ersetzen die betroffenen Bausteine einzeln.',
+      },
+      {
+        icon: 'blocks',
+        title: 'Page-Builder',
+        body: 'Jeder Builder braucht eine gezielte Bereinigung. Wir entfernen die Google-Fonts-Lader, holen externe Icon-Bibliotheken lokal auf den Server und schalten alles ab, was einen gesperrten Dienst anpingt.',
+      },
+    ],
+  },
+  {
+    label: 'Integrationen',
+    accent: 'orange',
+    items: [
+      {
+        icon: 'play',
+        title: 'Eingebettete Inhalte',
+        body: 'Aus YouTube wird Youku oder Bilibili. Aus Vimeo wird Tencent Video. Aus Facebook-Pixeln werden WeChat oder Weibo. Aus Google Maps wird Baidu Map oder Amap.',
+      },
+      {
+        icon: 'card',
+        title: 'Zahlungen',
+        body: 'WooCommerce allein nimmt das Geld eines chinesischen Verbrauchers nicht entgegen. Wir binden Alipay, WeChat Pay und UnionPay ein und richten den Checkout so ein, wie chinesische Nutzer tatsächlich bezahlen.',
+      },
+      {
+        icon: 'plug',
+        title: 'Plugins',
+        body: 'Yoast SEO braucht eine Erweiterung um die Baidu-Sitemap. Google Analytics wird durch Baidu Tongji ersetzt. reCAPTCHA braucht eine chinesische Alternative. Wir führen dazu eine laufende Liste.',
+      },
+    ],
+  },
+  {
+    label: 'Hosting und Infrastruktur',
+    accent: 'sky',
+    items: [
+      {
+        icon: 'server',
+        title: 'Hosting',
+        body: 'Server in Festlandchina, gültige ICP-Registrierung auf der Domain. Aliyun, Tencent Cloud oder Huawei Cloud, je nach Projekt.',
+      },
+      {
+        icon: 'refresh',
+        title: 'Automatische Updates',
+        body: 'Kern und Plugins melden sich bei wordpress.org und laufen aus China heraus häufig in einen Timeout. Wir leiten die Updates über einen Proxy oder planen feste Wartungsfenster für manuelle Updates.',
+      },
+      {
+        icon: 'shield',
+        title: 'Sicherheit',
+        body: 'Standardhärtung: Dateibearbeitung im Admin sperren, XML-RPC abriegeln, Zwei-Faktor-Authentifizierung erzwingen, eine WAF beim chinesischen Cloud-Anbieter betreiben. Bei der Update-Disziplin geht es hier strenger zu.',
+      },
+    ],
+  },
+  {
+    label: 'Performance und SEO',
+    accent: 'emerald',
+    items: [
+      {
+        icon: 'zap',
+        title: 'Performance',
+        body: 'CDN für die Auslieferung in Festlandchina konfiguriert. Caching geschichtet. Datenbank auf chinesische Cloud-Server abgestimmt. Ziel: unter drei Sekunden bis zum First Meaningful Paint auf einem chinesischen Mittelklasse-Smartphone.',
+      },
+      {
+        icon: 'search',
+        title: 'SEO und KI-Suche',
+        body: 'Kritische Inhalte stehen im HTML. Baidu Webmaster Tools angebunden. Die Website so strukturiert, dass Doubao, Kimi, DeepSeek und Wenxin sie lesen und zitieren können.',
+      },
+    ],
+  },
+];
+
+const pluginBuckets = [
+  {
+    eyebrow: 'Erste Wahl',
+    title: 'Einen Ersatz finden',
+    body: 'Das tun wir in den meisten Fällen. Aus Google Analytics wird Baidu Tongji. Aus reCAPTCHA wird ein lokales Captcha. Aus Google Maps wird Amap. Die Redakteure merken nichts davon.',
+  },
+  {
+    eyebrow: 'Wenn es passt',
+    title: 'Es entfernen',
+    body: 'Bringt das Plugin einem chinesischen Publikum nichts, entfernen wir es. Weniger Plugins, eine schnellere Website, eine kleinere Angriffsfläche.',
+  },
+  {
+    eyebrow: 'Letzte Möglichkeit',
+    title: 'Den Plugin-Code anpassen',
+    body: 'Kritisches Plugin, kein Ersatz in Sicht: Dann passen wir den Code an. Wir leiten den API-Aufruf über einen Proxy um oder tauschen eine fest verdrahtete CDN-URL. Nur, wenn die Lizenz es zulässt.',
+  },
+];
+
+const chinaStack = [
+  { name: 'Aliyun', cn: '阿里云', role: 'Hosting' },
+  { name: 'Tencent Cloud', cn: '腾讯云', role: 'Hosting' },
+  { name: 'Huawei Cloud', cn: '华为云', role: 'Hosting' },
+  { name: 'Baidu', cn: '百度', role: 'Suche und SEO' },
+  { name: 'WeChat', cn: '微信', role: 'Login und Messaging' },
+  { name: 'Alipay', cn: '支付宝', role: 'Zahlungen' },
+];
+
+const elementorItems = [
+  {
+    label: 'Schriften',
+    body: 'Elementor zieht Google Fonts standardmäßig nach, und diese lassen sich in China nicht auflösen. Wir hosten die Schriften selbst oder ersetzen sie durch chinakompatible Alternativen, die lateinische und chinesische Glyphen abdecken.',
+  },
+  {
+    label: 'Widgets und Komponenten',
+    body: 'Manche Widgets rufen gesperrte Dienste auf (Google Maps, YouTube, Facebook, reCAPTCHA). Wir ersetzen sie durch chinesische Entsprechungen oder durch eigens gebaute Komponenten.',
+  },
+  {
+    label: 'Icon-Bibliotheken und CDNs',
+    body: 'Externe Ressourcen werden so umgeleitet, dass sie lokal vom chinesischen Server laden.',
+  },
+  {
+    label: 'Vorlagen',
+    body: 'Die meisten Elementor-Vorlagen gehen von Annahmen aus, die in China nicht tragen. Wir prüfen jede einzelne und bereinigen sie.',
+  },
+];
+
+const faqs = [
+  {
+    id: 'wp-icp',
+    question: 'Braucht unsere WordPress-Website eine ICP-Lizenz, um in China zu funktionieren?',
+    answer: 'Wird sie in Festlandchina gehostet, dann ja. Hosten Sie in Hongkong, dann nein, aber die Website ist messbar langsamer, und Baidu behandelt sie als ausländisch. Für die meisten ausländischen Marken, die den chinesischen Markt ernst nehmen, lohnt die ICP-Registrierung den Aufwand.',
+  },
+  {
+    id: 'wp-marketing-team',
+    question: 'Kann unser Marketingteam die WordPress-Website weiterhin selbst pflegen?',
+    answer: 'Ja. WordPress bleibt WordPress. Die Admin-Oberfläche ist dieselbe, der Redaktionsablauf ist derselbe, und die redaktionellen Rollen verhalten sich wie immer. Die Änderungen, die wir unter der Haube vornehmen, bleiben für das Redaktionsteam weitgehend unsichtbar.',
+  },
+  {
+    id: 'wp-vs-astro-speed',
+    question: 'Ist WordPress in China langsamer als Astro?',
+    answer: 'In der reinen Ladezeit ja, bei sonst gleichen Bedingungen. WordPress ist dynamisch, Astro ist statisch. In der Praxis erreicht eine gut abgestimmte WordPress-Website auf Aliyun mit der richtigen Caching-Schicht die Geschwindigkeitswerte, die sowohl chinesische Nutzer als auch Baidu zufriedenstellen. Für manche Projekte fällt der Unterschied stärker ins Gewicht als für andere.',
+  },
+  {
+    id: 'wp-elementor-divi',
+    question: 'Funktioniert unsere bestehende Elementor- oder Divi-Website in China?',
+    answer: 'Im jetzigen Zustand wahrscheinlich nicht. Aber meist lässt sie sich zum Laufen bringen. Wir entfernen die Google-Abhängigkeiten, tauschen die Schriften und leiten die Integrationen um. Die meisten Elementor- und Divi-Websites, die wir übernehmen, laufen wenige Wochen nach dem Start sauber hinter der Firewall.',
+  },
+  {
+    id: 'wp-auto-updates',
+    question: 'Was ist mit den automatischen Plugin-Updates von wordpress.org?',
+    answer: 'Sie scheitern oder laufen aus China heraus oft in einen Timeout, weil das wordpress.org-Repository in chinesischen Netzen langsam oder nicht erreichbar ist. Wir leiten die Updates über einen Proxy oder planen feste Wartungsfenster für manuelle Updates. So oder so muss sich Ihr Team im Alltag nicht darum kümmern.',
+  },
+  {
+    id: 'wp-multilingual',
+    question: 'Können wir WPML oder Polylang für unser mehrsprachiges Setup behalten?',
+    answer: 'Ja, beide laufen in China gut, sobald der Rest der Website bereinigt ist. WPML ist die gängigere Wahl für Websites mit drei oder mehr Sprachen und komplexen Übersetzungsabläufen. Polylang ist leichter und reicht für zwei oder drei Sprachen problemlos aus. Wir haben mit beiden viel gearbeitet. Die Wahl hängt mehr von Ihrem Redaktionsprozess ab als von chinaspezifischen Fragen.',
+  },
+  {
+    id: 'wp-woocommerce-china',
+    question: 'Eignet sich WooCommerce für den Verkauf an chinesische Verbraucher?',
+    answer: 'WooCommerce selbst funktioniert einwandfrei. Die Arbeit steckt in der Checkout-Schicht. Chinesische Verbraucher erwarten, mit Alipay, WeChat Pay oder UnionPay zu bezahlen, fast immer mobil, fast immer per QR-Code. Wir binden diese Zahlungsdienste über eigene Plugins ein und gestalten den Checkout-Ablauf so um, wie chinesische Nutzer tatsächlich kaufen. Ab Werk geht WooCommerce von Kreditkarten und PayPal aus, und das passt hier nicht.',
+  },
+  {
+    id: 'wp-single-vs-dual',
+    question: 'Können wir eine einzige WordPress-Website für China und den Rest der Welt betreiben?',
+    answer: 'Technisch ja, mit WordPress Multisite oder einem mehrsprachigen Setup. In der Praxis empfehlen wir meist zwei getrennte WordPress-Installationen, eine außerhalb Chinas und eine auf einem Server in Festlandchina. Der Grund ist die Performance: Eine einzige globale Installation bedeutet, dass chinesische Nutzer ihre Inhalte von Servern außerhalb der Firewall ziehen, und genau das macht die Sache zunichte. Zwei Installationen teilen sich die Redaktionsabläufe, wo es sinnvoll ist, und bleiben unabhängig, wo es nötig ist.',
+  },
+  {
+    id: 'wp-security-china',
+    question: 'Wie halten wir unsere WordPress-Website in China sicher?',
+    answer: 'Die übliche WordPress-Härtung gilt nach wie vor. Wir sperren die Dateibearbeitung im Admin, riegeln XML-RPC ab, erzwingen die Zwei-Faktor-Authentifizierung und betreiben eine Web Application Firewall, die für den chinesischen Cloud-Anbieter konfiguriert ist. Die zusätzliche Disziplin in China betrifft die Plugin-Updates: Scheitert ein automatisches Update, kann die Website länger auf einer veralteten Plugin-Version sitzenbleiben, als ein westliches Team es gewohnt ist. Wir überwachen das und spielen Patches nach einem festen Zeitplan ein.',
+  },
+  {
+    id: 'wp-hosting-provider',
+    question: 'Welcher WordPress-Hoster ist für China am besten geeignet?',
+    answer: 'Wir nutzen Aliyun, Tencent Cloud und Huawei Cloud, je nach Projekt. Alle drei sind in Festlandchina lizenziert, alle drei bieten gute Leistung, und alle drei tragen den WordPress-Stack ordentlich. Aliyun ist meist die Standardwahl für Marketing-Websites. Tencent Cloud ist stark, wenn die Website sich in WeChat integriert. Huawei Cloud kommt häufiger bei Kunden ins Spiel, die ohnehin schon auf Huawei-Infrastruktur setzen. Wir kümmern uns um das Hosting-Konto, die ICP-Registrierung und die tägliche Server-Arbeit, sodass Sie sich nie selbst in ein chinesisches Hosting-Panel einloggen müssen.',
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'de-DE',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
+const accentClasses: Record<string, { bg: string; text: string; border: string }> = {
+  amber: { bg: 'bg-amber-500/10', text: 'text-amber-300', border: 'border-amber-500/20' },
+  orange: { bg: 'bg-[var(--color-brand-orange)]/15', text: 'text-[var(--color-brand-orange)]', border: 'border-[var(--color-brand-orange)]/25' },
+  sky: { bg: 'bg-sky-500/10', text: 'text-sky-300', border: 'border-sky-500/20' },
+  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-300', border: 'border-emerald-500/20' },
+};
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="de" jsonLd={[faqLd]}>
+
+  <ScrollEffects />
+
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-wordpress-china-skyline.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Brotkrümelnavigation" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/de/" class="hover:text-white/70 transition-colors no-underline">Startseite</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">WordPress</li>
+        </ol>
+      </nav>
+
+      <div class="grid grid-cols-12 gap-8 items-center pb-20 md:pb-28 lg:pb-36 pt-8 lg:pt-16">
+        <div class="col-span-12 lg:col-span-7">
+          <!-- WordPress logo brand mark -->
+          <div class="flex items-center gap-4 mb-8">
+            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#21759b] to-[#1a5d7a] flex items-center justify-center shadow-[0_8px_30px_rgba(33,117,155,0.45)]">
+              <svg class="w-8 h-8 text-white" viewBox="0 0 122.52 122.523" fill="currentColor" aria-label="WordPress logo">
+                <path d="m8.708 61.26c0 20.802 12.089 38.779 29.619 47.298l-25.069-68.686c-2.916 6.536-4.55 13.769-4.55 21.388z"/>
+                <path d="m96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501l19.138 56.925 11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989z"/>
+                <path d="m62.184 65.857-15.768 45.819c4.708 1.384 9.687 2.141 14.846 2.141 6.12 0 11.989-1.058 17.452-2.979-.141-.225-.269-.464-.374-.724z"/>
+                <path d="m107.376 36.046c.226 1.674.354 3.471.354 5.404 0 5.333-.996 11.328-3.996 18.824l-16.053 46.413c15.624-9.111 26.133-26.038 26.133-45.426.001-9.137-2.333-17.729-6.438-25.215z"/>
+                <path d="m61.262 0c-33.779 0-61.262 27.481-61.262 61.26 0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263-.001-33.779-27.487-61.26-61.265-61.26zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/>
+              </svg>
+              <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-[#0f0f12] animate-pulse"></span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#21759b]/15 border border-[#21759b]/30">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[#7cb8d4]">Technologie · WordPress</span>
+            </div>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[72px] xl:text-[84px] font-medium font-[var(--font-heading)] text-white leading-[0.98] tracking-tight">
+            WordPress in China.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Ja, es funktioniert.</span>
+          </h1>
+          <p class="mt-10 text-lg lg:text-xl text-white/65 max-w-xl leading-relaxed">
+            Die meisten Kunden kommen bereits mit WordPress zu uns. Die eigentliche Frage ist, ob es in China tragen kann und was sich dafür ändern muss.
+          </p>
+          <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
+            Zwanzig Jahre vor Ort. Über fünfzig internationale Websites gestartet.
+          </p>
+          <div class="mt-12 flex flex-wrap gap-4">
+            <Button href="/de/kontakt/" variant="primary" size="lg">Mit unserem Team sprechen</Button>
+            <Button href="/de/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro für China</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat strip -->
+  <section class="border-y border-[var(--color-surface-border)] bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {stats.map((stat, i) => (
+          <div class:list={[
+            'flex flex-col md:flex-row items-start md:items-center gap-5',
+            i > 0 ? 'md:pl-10 md:border-l md:border-[var(--color-surface-border)]' : '',
+          ]}>
+            <div class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
+              0{stat.suffix}
+            </div>
+            <div class="flex-1">
+              <p class="text-base text-[var(--color-text-dark)] leading-snug font-medium">
+                {stat.label}
+              </p>
+              <p class="mt-1 text-sm text-[var(--color-text-muted)]">
+                {stat.source}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Works: editorial split with workspace image -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Warum es trägt
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            An der Plattform liegt es nicht.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            WordPress läuft in China. Der Kern, wordpress.org, der übliche Publikationsablauf: Alles verhält sich auf einem Shanghaier Server genauso wie auf einem Londoner, und wp-admin ist ohne VPN erreichbar.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Das Problem sind die Abhängigkeiten ab Werk. Themes laden Google Fonts. Plugins rufen APIs außerhalb der Firewall auf. Bibliotheken ziehen von gesperrten CDNs. Eingebettete Inhalte zeigen auf YouTube. Die Analyse meldet sich bei Google.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            Streichen Sie diese Abhängigkeiten, setzen Sie lokale Entsprechungen ein, und übrig bleibt eine schnelle, konforme WordPress-Website, von Baidu indexiert und von einem Team zu pflegen, das sie ohnehin schon kennt.
+          </p>
+        </div>
+
+        <!-- WordPress admin screenshot -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-12 lg:mt-0">
+          <figure class="relative">
+            <div class="relative aspect-square rounded-2xl overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
+              <img
+                src="/images/wordpress-admin-dashboard.webp"
+                alt="Die wp-admin-Oberfläche von WordPress mit Seitenleiste, Begrüßungspanel und Dashboard-Widgets"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
+            </div>
+            <!-- Floating caption card -->
+            <div class="absolute bottom-3 left-3 sm:-bottom-6 sm:-left-6 lg:-left-10 bg-white border border-[var(--color-surface-border)] rounded-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] p-4 sm:p-5 max-w-[220px] sm:max-w-[260px]">
+              <p class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)] font-semibold mb-2">
+                Dasselbe wp-admin →
+              </p>
+              <p class="text-sm text-[var(--color-text-body)] leading-snug">
+                Eine aus China heraus betreute WordPress-Website läuft mit demselben wp-admin, das Sie schon kennen, auf einer für das lokale Netz abgestimmten Infrastruktur.
+              </p>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What WordPress is For: icon cards -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Wofür es da ist
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Worin WordPress in China am stärksten ist.
+          </h2>
+        </div>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed lg:max-w-md">
+          Nicht für jedes Projekt die richtige Antwort. Für einen klar umrissenen Kreis von Einsatzfällen aber immer noch das beste Werkzeug, das wir haben.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 auto-rows-fr">
+        {useCases.map((item) => {
+          const spanClass =
+            item.span === 'feature'
+              ? 'lg:col-span-7'
+              : item.span === 'wide'
+                ? 'lg:col-span-12'
+                : 'lg:col-span-4';
+          const isFeature = item.span === 'feature';
+          const isWide = item.span === 'wide';
+          return (
+            <article class:list={[
+              'group relative rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]',
+              spanClass,
+              isFeature
+                ? 'bg-gradient-to-br from-[var(--color-surface-dark)] to-[#1a1a20] border-white/10 text-white p-8 lg:p-10'
+                : 'bg-white border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)]/30 p-7',
+            ]}>
+              <!-- Hover glow -->
+              <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[var(--color-brand-orange)]/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative h-full flex flex-col">
+                <div class:list={[
+                  'w-11 h-11 rounded-xl flex items-center justify-center mb-5',
+                  isFeature ? 'bg-[var(--color-brand-orange)]/15' : 'bg-[var(--color-brand-orange)]/10',
+                ]}>
+                  {item.icon === 'pen' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5Z"/></svg>
+                  )}
+                  {item.icon === 'languages' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+                  )}
+                  {item.icon === 'cart' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                  )}
+                  {item.icon === 'users' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  )}
+                  {item.icon === 'sliders' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                  )}
+                  {item.icon === 'layers' && (
+                    <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  )}
+                </div>
+
+                <h3 class:list={[
+                  'font-semibold font-[var(--font-heading)] leading-tight mb-3',
+                  isFeature ? 'text-2xl lg:text-[28px] text-white' : 'text-lg text-[var(--color-text-dark)]',
+                ]}>
+                  {item.title}
+                </h3>
+                <p class:list={[
+                  'leading-relaxed flex-1',
+                  isFeature ? 'text-base lg:text-lg text-white/70' : 'text-[15px] text-[var(--color-text-body)]',
+                ]}>
+                  {item.body}
+                </p>
+
+                {item.badges && (
+                  <div class="flex flex-wrap gap-2 mt-6">
+                    {item.badges.map((badge) => (
+                      <span class:list={[
+                        'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border',
+                        isFeature
+                          ? 'bg-white/[0.06] text-white/80 border-white/15'
+                          : 'bg-[var(--color-surface-light)] text-[var(--color-text-body)] border-[var(--color-surface-border)]',
+                      ]}>
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Astro vs WordPress: decision split -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Wann es nicht die richtige Wahl ist
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Wann Astro die bessere Wahl sein kann.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Wir bauen mit beidem, deshalb können wir ehrlich sagen, was passt. Astro ist statisch ausgelegt, in chinesischen Mobilfunknetzen sehr schnell und für manche Projekte die bessere Antwort.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <!-- Pick Astro -->
+        <div class="relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-11 h-11 rounded-xl bg-[var(--color-text-card-blue)]/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+              <svg class="w-6 h-6 text-[var(--color-text-card-blue)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.097.388-.225.608-.355.166.473.209.95.151 1.435-.14 1.182-.738 2.094-1.688 2.789-.38.278-.781.527-1.173.79-1.205.81-1.531 1.76-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.554-1.815c-.012-.318-.012-.638-.069-.951-.135-.762-.504-1.103-1.2-1.123-.713-.02-1.277.417-1.426 1.101-.012.053-.029.104-.046.165h-.008zm-7.04-7.013s3.875-1.881 7.747-1.881l2.937-9.067c.108-.434.422-.722.778-.722.355 0 .67.288.778.722l2.937 9.067c4.582 0 7.747 1.881 7.747 1.881L17.18 1.62a1.546 1.546 0 0 0-1.483-1.062H8.302a1.546 1.546 0 0 0-1.482 1.062L.005 13.149h1.313z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-card-blue)] mb-1">
+                Astro wählen
+              </p>
+              <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                Statisch zuerst, marketinggetrieben.
+              </h3>
+            </div>
+          </div>
+          <ul class="space-y-3 mt-6">
+            {pickAstro.map((item) => (
+              <li class="flex gap-3 items-start">
+                <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Pick WordPress -->
+        <div class="relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/15 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3.42 12c0-1.24.27-2.41.74-3.47L8.13 19.6C5.32 18.24 3.42 15.35 3.42 12zm14.36-.43c0-1.06-.38-1.79-.71-2.36-.43-.71-.84-1.31-.84-2.02 0-.79.6-1.53 1.45-1.53.04 0 .07 0 .11.01-1.54-1.41-3.59-2.27-5.84-2.27-3.02 0-5.68 1.55-7.22 3.9.2.01.39.01.55.01.9 0 2.29-.11 2.29-.11.46-.03.52.66.05.71 0 0-.47.06-.99.09l3.14 9.34 1.89-5.66-1.34-3.68c-.46-.03-.9-.09-.9-.09-.46-.02-.41-.74.06-.71 0 0 1.42.11 2.27.11.9 0 2.29-.11 2.29-.11.46-.03.52.66.05.71 0 0-.47.06-.99.09l3.11 9.27.86-2.87c.37-1.19.66-2.04.66-2.78zM12.15 12.81 9.57 20.32c.77.23 1.59.35 2.43.35.99 0 1.95-.17 2.83-.49-.02-.04-.04-.07-.06-.11l-2.62-7.26zM19.6 7.86c.04.27.06.56.06.87 0 .86-.16 1.83-.65 3.04l-2.61 7.55c2.55-1.49 4.27-4.25 4.27-7.42 0-1.49-.38-2.89-1.05-4.11"/>
+                  <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 19.54c-5.27 0-9.55-4.28-9.55-9.55S6.73 2.45 12 2.45 21.55 6.73 21.55 12 17.27 21.55 12 21.55z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                  WordPress wählen
+                </p>
+                <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  Redaktionsarbeit als tägliches Geschäft.
+                </h3>
+              </div>
+            </div>
+            <ul class="space-y-3 mt-6">
+              {pickWordPress.map((item) => (
+                <li class="flex gap-3 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
+        Im Zweifel beginnt das Gespräch meist bei <a href="/de/leistungen/strategie-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategie und Audit</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- What we change: feature image + bento group grid -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0d]"></div>
+
+    <!-- Top: wp-admin screenshot as feature backdrop -->
+    <div class="relative">
+      <div class="absolute inset-0">
+        <img
+          src="/images/wordpress-admin-dashboard.webp"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-60"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+        />
+        <!-- Left-side wash so the heading stays readable; right side keeps the screenshot visible -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/80 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--color-surface-dark)] to-transparent"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding pt-20 pb-16 lg:pt-28 lg:pb-24">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Was sich ändern muss
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] mb-6">
+            Was wir ändern, damit WordPress in China trägt.
+          </h2>
+          <p class="text-base lg:text-lg text-white/75 leading-relaxed">
+            Eine übliche WordPress-Installation scheitert in China ab Werk. Hier ist, was wir ändern, geordnet danach, wo die Arbeit anfällt.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bento grid of groups -->
+    <div class="relative mx-auto max-w-[1400px] section-padding pb-20 lg:pb-28">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {changeGroups.map((group) => {
+          const a = accentClasses[group.accent];
+          return (
+            <div class:list={['relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-7 lg:p-8 hover:bg-white/[0.05] transition-colors']}>
+              <div class="flex items-center gap-3 mb-6 pb-5 border-b border-white/10">
+                <span class:list={['inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-semibold uppercase tracking-wider border', a.bg, a.text, a.border]}>
+                  {group.label}
+                </span>
+              </div>
+
+              <div class="space-y-5">
+                {group.items.map((item) => (
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                      {item.icon === 'type' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                      )}
+                      {item.icon === 'palette' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                      )}
+                      {item.icon === 'blocks' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                      )}
+                      {item.icon === 'play' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      )}
+                      {item.icon === 'card' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                      )}
+                      {item.icon === 'plug' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14a2 2 0 0 1 2 2v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3a2 2 0 0 1 2-2z"/></svg>
+                      )}
+                      {item.icon === 'server' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                      )}
+                      {item.icon === 'refresh' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                      )}
+                      {item.icon === 'shield' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      )}
+                      {item.icon === 'zap' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                      )}
+                      {item.icon === 'search' && (
+                        <svg class="w-4 h-4 text-white/80" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                      )}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-base font-semibold font-[var(--font-heading)] text-white leading-tight mb-1.5">
+                        {item.title}
+                      </h3>
+                      <p class="text-[14px] text-white/60 leading-relaxed">
+                        {item.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Chinese stack credibility band -->
+  <section class="bg-white border-y border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-16">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-3">
+            Auf dem chinesischen Stack gebaut
+          </p>
+          <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Die Hoster und Dienste, in die wir WordPress einbinden.
+          </h2>
+        </div>
+        <p class="lg:max-w-xs text-sm text-[var(--color-text-muted)] leading-relaxed">
+          In Festlandchina lizenzierte Anbieter, echte Leistung im chinesischen Netz und die Verbraucherdienste, die Ihr Publikum tatsächlich nutzt.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {chinaStack.map((entry) => (
+          <div class="group relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-xl p-5 hover:border-[var(--color-brand-orange)]/30 hover:bg-white transition-colors">
+            <p class="text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
+              {entry.role}
+            </p>
+            <p class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+              {entry.name}
+            </p>
+            <p class="text-sm text-[var(--color-text-muted)] font-[var(--font-heading)] mt-1">
+              {entry.cn}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Elementor in China: focused deep dive -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:pr-8">
+          <div class="inline-flex items-center gap-3 mb-6">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#92003B] text-white" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zM10.5 17h-2V7h2v10zm6 0h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V7h4v2z"/>
+              </svg>
+            </span>
+            <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+              Elementor in China
+            </p>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Ja, Elementor funktioniert in China.
+            <span class="block text-[var(--color-brand-orange)]">Mit etwas Feinabstimmung.</span>
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Eine Elementor-Website, die in Paris sauber läuft, bricht oder verlangsamt sich fast sicher, sobald sie aus Shanghai aufgerufen wird. Der Builder ist in Ordnung, die Werkseinstellungen sind das Problem.
+          </p>
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Einmal abgestimmt, passt Elementor gut zu internationalen Marken, deren China-Team die Website ohne Entwickler im Spiel weiter aktualisieren muss.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <ul class="divide-y divide-[var(--color-surface-border)]">
+            {elementorItems.map((item) => (
+              <li class="flex gap-5 py-6 first:pt-0 last:pb-0">
+                <div class="flex-shrink-0 w-1 self-stretch rounded-full bg-[var(--color-brand-orange)]/30 mt-1"></div>
+                <div class="flex-1">
+                  <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                    {item.label}
+                  </h3>
+                  <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plugin Migration: priority cards -->
+  <section class="pt-20 md:pt-24 lg:pt-28 pb-10 md:pb-12 lg:pb-14 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-end mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Plugin-Migration
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Wie wir mit Plugins umgehen, die in China nicht funktionieren.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-6 lg:mt-0">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Die meisten ausländischen WordPress-Websites kommen mit 30 bis 60 Plugins zu uns; viele scheitern hinter der Firewall. Jedes landet in einer von drei Kategorien.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {pluginBuckets.map((bucket, i) => (
+          <article class:list={[
+            'relative rounded-2xl p-8 lg:p-10 border transition-all duration-300',
+            i === 0 ? 'bg-[var(--color-brand-orange)]/[0.04] border-[var(--color-brand-orange)]/20' : '',
+            i === 1 ? 'bg-white border-[var(--color-surface-border)]' : '',
+            i === 2 ? 'bg-[var(--color-surface-dark)] border-white/10' : '',
+          ]}>
+            <p class:list={[
+              'text-xs font-semibold uppercase tracking-wider mb-3',
+              i === 2 ? 'text-[var(--color-brand-orange)]' : 'text-[var(--color-brand-orange)]',
+            ]}>
+              {bucket.eyebrow}
+            </p>
+            <h3 class:list={[
+              'text-2xl lg:text-[28px] font-medium font-[var(--font-heading)] leading-tight mb-5',
+              i === 2 ? 'text-white' : 'text-[var(--color-text-dark)]',
+            ]}>
+              {bucket.title}
+            </h3>
+            <p class:list={[
+              'text-[15px] leading-relaxed',
+              i === 2 ? 'text-white/65' : 'text-[var(--color-text-body)]',
+            ]}>
+              {bucket.body}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl">
+        Jede Entscheidung wird dokumentiert. Verlassen Sie uns, übernimmt das nächste Team sauber.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline: visual phase bar -->
+  <section class="pt-12 md:pt-16 lg:pt-20 pb-20 md:pb-24 lg:pb-28 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Zeitplan
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Wie lange es dauert.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Die ICP-Registrierung liegt meist auf dem kritischen Pfad. Wir starten sie am ersten Tag.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <!-- New site -->
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                Neue Website
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                WordPress-Aufbau von Grund auf
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+              8 bis 12 Wochen
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[28%] bg-[var(--color-brand-orange)]/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] truncate">Konzept</span>
+            </div>
+            <div class="absolute inset-y-0 left-[28%] w-[44%] bg-[var(--color-brand-orange)]/40 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Aufbau</span>
+            </div>
+            <div class="absolute inset-y-0 left-[72%] right-0 bg-[var(--color-brand-orange)] flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Start</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Woche 1</span>
+            <span>Woche 4</span>
+            <span>Woche 8</span>
+            <span>Woche 12</span>
+          </div>
+        </div>
+
+        <!-- Migration -->
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                Migration
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                Bestehende Website, China-tauglich gemacht
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+              6 bis 10 Wochen
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[25%] bg-sky-500/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-sky-700 truncate">Audit</span>
+            </div>
+            <div class="absolute inset-y-0 left-[25%] w-[55%] bg-sky-500/40 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Migration</span>
+            </div>
+            <div class="absolute inset-y-0 left-[80%] right-0 bg-sky-600 flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Umschaltung</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Woche 1</span>
+            <span>Woche 3</span>
+            <span>Woche 6</span>
+            <span>Woche 10</span>
+          </div>
+        </div>
+
+        <!-- ICP highlight -->
+        <div class="flex items-start gap-4 bg-[var(--color-text-card-blue)]/[0.04] border border-[var(--color-text-card-blue)]/20 rounded-2xl p-6 lg:p-7">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-text-card-blue)]/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">Die ICP-Registrierung läuft parallel</p>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              Mindestens zwanzig Werktage auf Provinzebene, manchmal länger. Wir starten die Registrierung am ersten Tag, damit sie den Start nie blockiert.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Häufige Fragen
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Zehn Fragen, die wir zu WordPress in China immer wieder hören.
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                <p>{faq.answer}</p>
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">
+    <div class="absolute inset-0">
+      <img
+        src="/images/wordpress-china-datacenter.webp"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-25"
+        loading="lazy"
+        decoding="async"
+        onerror="this.style.display='none'"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/85 to-[var(--color-surface-dark)]"></div>
+    </div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Loslegen
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Sie denken über WordPress für China nach?
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Schon auf WordPress, aber es funktioniert in China nicht? Meist können wir das in Ordnung bringen. Sie fangen neu an und sind unsicher, ob WordPress oder Astro passt? Bei Strategie und Audit beginnen die meisten Projekte.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/de/kontakt/" variant="primary" size="lg">Mit unserem Team sprechen</Button>
+        <Button href="/de/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro für China</Button>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>
+
+<script>
+  function initFaqAccordion() {
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement;
+
+        trigger?.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          items.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherTrigger = otherItem.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+              const otherChevron = otherItem.querySelector('[data-faq-chevron]') as SVGElement;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            }
+          });
+
+          const newState = !isOpen;
+          trigger.setAttribute('aria-expanded', String(newState));
+          content?.style.setProperty('grid-template-rows', newState ? '1fr' : '0fr');
+          chevron?.classList.toggle('rotate-180', newState);
+        });
+      });
+    });
+  }
+
+  initFaqAccordion();
+  document.addEventListener('astro:after-swap', initFaqAccordion);
+</script>

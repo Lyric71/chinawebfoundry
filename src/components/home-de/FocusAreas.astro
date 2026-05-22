@@ -1,0 +1,140 @@
+---
+/**
+ * Unsere fünf Schwerpunkte: gestapelte Karten in drei Spalten.
+ * Gleicher Aufbau wie die Sektion "Was schreiben · 写什么" auf /de/leistungen/chinesische-inhalte/
+ * - Linke Spalte (dunkel): großes Schriftzeichen + Label
+ * - Mittlere Spalte (weiß): Titel + Text
+ * - Rechte Spalte (helle Fläche): Link-CTA + was enthalten ist
+ */
+
+interface Area {
+  label: string;
+  cn: string;
+  title: string;
+  body: string;
+  link: { href: string; label: string };
+  inside: string[];
+}
+
+const areas: Area[] = [
+  {
+    label: 'Inhalt',
+    cn: '内容',
+    title: 'Eine Botschaft, die ankommt',
+    body: 'Unsere chinesischen Texter schreiben Ihre Botschaft so um, dass sie vor Ort trifft. Drittbelege, anerkannte Referenzen, kulturelle Anker: Wir platzieren sie genau dort, wo der chinesische Leser instinktiv danach sucht.',
+    link: { href: '/de/leistungen/chinesische-inhalte/', label: 'Chinesische Inhalte' },
+    inside: ['Eigene Redaktion', 'Markenstimme auf Chinesisch', 'Konform mit dem 广告法'],
+  },
+  {
+    label: 'UX und UI',
+    cn: '体验',
+    title: 'Eine Bedienung nach chinesischen Gewohnheiten',
+    body: 'Mobile First, im WeChat-Browser geprüft, gestaltet danach, wie chinesische Nutzer eine Seite überfliegen. QR-Codes, Vertrauenssignale, offizielle Siegel: Jedes Element sitzt dort, wo der Nutzer es erwartet.',
+    link: { href: '/de/leistungen/ux-ui-design/', label: 'UX- und UI-Design' },
+    inside: ['Mobile First', 'Im WeChat-Browser geprüft', 'Vertrauen von Anfang an'],
+  },
+  {
+    label: 'Baidu',
+    cn: '百度',
+    title: 'Baidu-SEO',
+    body: 'Baidu spielt nach eigenen Regeln. Andere Ranking-Faktoren, strengere technische Vorgaben als bei Google. Wir legen das Fundament, das Baidu überhaupt erst braucht, um Ihre Website zu crawlen.',
+    link: { href: '/de/leistungen/baidu-seo/', label: 'Baidu-SEO' },
+    inside: ['Keyword-Recherche auf Chinesisch', 'Baidu-Webmaster-Konsole', 'Aufbau von Autorität'],
+  },
+  {
+    label: 'KI-Suche',
+    cn: 'AI',
+    title: 'GEO China: Optimierung für die KI-Suche',
+    body: 'Generative Engine Optimisation. DeepSeek, Doubao, Kimi, Yuanbao und Baidus KI sind für viele chinesische Verbraucher unter 35 die erste Anlaufstelle. Sie fragen, die KI antwortet, der Klick findet nie statt. Wir strukturieren Ihre Website so, dass diese Dienste Ihre Marke in der Antwort zitieren.',
+    link: { href: '/de/leistungen/geo/', label: 'GEO China' },
+    inside: ['DeepSeek und Doubao', 'Schema und llms.txt', 'Verfolgung der Zitierungen'],
+  },
+  {
+    label: 'Infrastruktur',
+    cn: '基础',
+    title: 'Hosting und Infrastruktur in China',
+    body: 'Schnelles, ICP-lizenziertes Hosting bei Aliyun, Tencent Cloud oder Huawei Cloud. Wir tragen die gesamte Kette. Ihr Team muss sich nie in eine chinesische Hosting-Konsole einloggen.',
+    link: { href: '/de/leistungen/china-hosting/', label: 'China-Hosting' },
+    inside: ['ICP-Einreichung', 'Aliyun oder Tencent Cloud', 'Überwachte Performance'],
+  },
+];
+---
+
+<section class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
+  <!-- Dekoratives schwebendes Schriftzeichen -->
+  <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.15">焦</span>
+
+  <div class="relative mx-auto max-w-[1400px] section-padding">
+    <!-- Kopf -->
+    <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Unsere fünf Schwerpunkte · 焦点</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+        Fünf Hürden. Ein Team, das sie alle kennt.
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+        Inhalt, UX, Baidu, KI-Suche und Infrastruktur. Das sind die fünf Stellen, an denen die Websites ausländischer Marken in China scheitern. Und die fünf Felder, die wir von Shanghai aus beackern.
+      </p>
+    </div>
+
+    <!-- Stapel aus Karten in drei Spalten -->
+    <div class="space-y-5 lg:space-y-6">
+      {areas.map((a, i) => (
+        <article
+          data-reveal
+          data-reveal-delay={String(i * 60)}
+          data-cursor-spotlight
+          class:list={[
+            'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+            'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+          ]}
+        >
+          <!-- Links: dunkler Hintergrund mit Schriftzeichen + Label -->
+          <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+            <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{a.cn}</span>
+            <div class="relative">
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">{a.label}</div>
+              <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{a.cn}</div>
+              <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">Schwerpunkt</div>
+            </div>
+          </div>
+
+          <!-- Mitte: Titel + Text -->
+          <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+            <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4 transition-colors duration-300 group-hover:text-[var(--color-brand-orange)]">
+              {a.title}
+            </h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+              {a.body}
+            </p>
+          </div>
+
+          <!-- Rechts: was enthalten ist + Link-CTA -->
+          <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-between gap-5">
+            <div>
+              <div class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)] mb-3">Was dazugehört</div>
+              <ul class="space-y-2">
+                {a.inside.map((item) => (
+                  <li class="flex items-start gap-2 text-[13px] text-[var(--color-text-dark)] leading-snug">
+                    <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <a
+              href={a.link.href}
+              class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline transition-all duration-300 group-hover:gap-3.5"
+            >
+              {a.link.label}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.25" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

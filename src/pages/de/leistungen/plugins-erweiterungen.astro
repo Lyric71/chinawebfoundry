@@ -1,0 +1,338 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
+import Button from '../../../components/ui/Button.astro';
+import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-de', 'plugins-extensions'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
+
+const buildItems = [
+  {
+    title: 'WeChat-Integration',
+    body: 'OAuth-Anmeldung, Anbindung an offizielle Konten, Brücken zu Mini Programs, QR-Codes, WeChat Pay. In China ist WeChat zugleich Branchenverzeichnis, Ausweis und Geldbörse. Alles läuft darüber.',
+  },
+  {
+    title: 'Zahlungs-Gateways',
+    body: 'Alipay, WeChat Pay und UnionPay, als WooCommerce-Erweiterungen oder als eigenständige Module, je nach Aufbau. Ein Bezahlvorgang, der nach westlichem Copy-and-paste riecht, vertreibt den chinesischen Käufer in Sekunden. Wir haben es bei Kundenseiten öfter erlebt, als uns lieb ist.',
+  },
+  {
+    title: 'Baidu-SEO-Werkzeuge',
+    body: 'Sitemap-Erzeugung für Baidu Spider, Anbindung der Push-API, Meta-Tags, die Baidu wirklich liest. Yoast und RankMath sind rund um die Crawling-Logik von Google entstanden. Baidu spielt nach eigenen Regeln.',
+  },
+  {
+    title: 'Analytics und Social Sharing',
+    body: 'Baidu Tongji tritt an die Stelle von Google Analytics, CNZZ schließt die Lücken. Fürs Teilen binden wir WeChat, Weibo, QQ, Douyin und RED an. Die Plattformen, auf denen Chinesen wirklich unterwegs sind, statt jener, auf die Ihre heutigen Buttons zeigen.',
+  },
+];
+
+const fixItems = [
+  'Google Fonts durch selbstgehostete Schriften ersetzt',
+  'reCAPTCHA durch eine Lösung ersetzt, die in China läuft',
+  'Blockierte CDN-Aufrufe auf chinesische Alternativen umgeleitet',
+  'API-Anfragen über Proxy-Schichten geleitet oder auf lokale Dienste umgestellt',
+  'Social-Sharing-Buttons auf WeChat, Weibo, QQ und Douyin umgehängt',
+  'Zahlungs-Plugins von Stripe und PayPal auf Alipay und WeChat Pay umgestellt',
+];
+
+const gutenbergBlocks = [
+  'WeChat-QR-Code-Blöcke',
+  'Baidu Maps statt Google Maps',
+  'Video-Player für Youku, Bilibili, Tencent Video',
+  'Formulare mit Prüfung chinesischer Telefonnummern und WeChat-ID-Feld',
+  'Produktblöcke, an lokale Zahlungs-Gateways angebunden',
+];
+
+const audiences = [
+  { label: 'Fehlende China-Funktionen', description: 'Unternehmen, die WordPress-Bausteine brauchen, die der Markt für China schlicht nie entwickelt hat.', image: '/images/audiences/wordpress-features-china.webp' },
+  { label: 'WeChat- und Alipay-Bezahlung', description: 'E-Commerce-Marken, die Alipay oder WeChat Pay in den Bezahlvorgang einbinden.', image: '/images/audiences/ecommerce-wechat-alipay.webp' },
+  { label: 'Entwicklerteams', description: 'Entwickler, die China-Plugins von Leuten wollen, die jeden Tag in diesem Umfeld arbeiten.', image: '/images/audiences/dev-team-china-plugins.webp' },
+  { label: 'Agenturen', description: 'Andere Agenturen, die China-Seiten für ihre eigenen Kunden bauen und verlässliche Plugin-Arbeit suchen.', image: '/images/audiences/agency-china-clients.webp' },
+];
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="de" jsonLd={pageLd}>
+
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-plugins-extensions.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Brotkrümelnavigation" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/de/" class="hover:text-white/70 transition-colors no-underline">Startseite</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/de/leistungen/" class="hover:text-white/70 transition-colors no-underline">Leistungen</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Plugins und Erweiterungen</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            Plugins und Erweiterungen
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Maßgeschneiderte WordPress-Plugins
+            <span class="block mt-2 text-[var(--color-brand-orange)]">gebaut für den chinesischen Markt</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            Die meisten WordPress-Plugins waren nie dafür gedacht, in China zu laufen. Wir bauen die, die funktionieren, und flicken die, die sich retten lassen.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/de/kontakt/" variant="primary" size="lg">Plugin-Beratung anfragen</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-white/30 ml-2 font-mono">plugin-audit</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-white/50">Google Fonts</span>
+                  <span class="text-sm font-semibold text-red-400 font-mono">Gesperrt</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">reCAPTCHA v3</span>
+                  <span class="text-sm font-semibold text-red-400 font-mono">Gesperrt</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Stripe Checkout</span>
+                  <span class="text-sm font-semibold text-yellow-400 font-mono">Unbrauchbar</span>
+                </div>
+                <div class="w-full h-px bg-white/10 my-1"></div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">WeChat Pay</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Maßgefertigt</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Baidu-SEO</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Maßgefertigt</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Alipay-Gateway</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Maßgefertigt</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-8">
+          Rund 40 % der verbreiteten WordPress-Plugins hängen an Google. In China alle gesperrt.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+          Die meisten Teams merken es zu spät: Etwa 40 % der verbreiteten WordPress-Plugins hängen auf die eine oder andere Weise an Google. Schriften, reCAPTCHA, Maps, Analytics. In China alles gesperrt. Ihre Seite lädt einfach mit Löchern.
+        </p>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+          Und es geht über Google hinaus. Social-Sharing-Buttons zeigen auf Facebook und Instagram, hinter der Firewall nicht erreichbar. Zahlungs-Plugins hängen an Stripe oder PayPal, die chinesische Verbraucher schlicht nicht nutzen. Ressourcen werden von CDNs abgerufen, die die Firewall rundheraus nicht lädt. Dieser Plugin-Stack, an dem Sie monatelang gebaut haben? Viel Glück damit in Shenzhen.
+        </p>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Wir entwirren diese Art von Schlamassel seit Jahren. Kurz gesagt: Wir bauen maßgeschneiderte WordPress-Plugins für das chinesische Internet von Grund auf, und wir reparieren die bestehenden, die hinter der Firewall ausfallen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Build -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Was wir bauen
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Bei jedem neuen Kunden dieselben paar Bedürfnisse
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div class="space-y-6">
+            {buildItems.map((item) => (
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-2.5 h-2.5 mt-2 rounded-full bg-[var(--color-brand-orange)]"></div>
+                <div class="flex-1 pb-6 border-b border-[var(--color-surface-border)]">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                    {item.title}
+                  </h3>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fixing What's Already There -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-6 mb-10 lg:mb-0">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Das Bestehende reparieren
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            Nicht alles braucht einen kompletten Neuaufbau
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Manche Agenturen schieben Sie egal wie in Richtung einer komplett maßgefertigten Lösung, doch die ehrliche Antwort fällt von Projekt zu Projekt anders aus. Üblich ist bei uns ein Audit Ihres gesamten Plugin-Stacks, das Aufspüren jeder Abhängigkeit, die hinter der Firewall versagen wird, und dann das Reparieren, eine nach der anderen.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            Und Ihr Team arbeitet weiter mit den Werkzeugen, die es kennt. Das wiegt in der Praxis schwerer, als man meint.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="bg-white rounded-2xl p-8 border border-[var(--color-surface-border)]">
+            <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+              Häufige Korrekturen
+            </p>
+            <div class="space-y-4">
+              {fixItems.map((item) => (
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-6 bg-[var(--color-surface-light)] rounded-xl p-6 border-l-4 border-[var(--color-brand-orange)]">
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed italic">
+              Die meisten Kunden kommen in der Überzeugung, sie müssten alles herausreißen und bei null anfangen. Tatsächlich brauchen rund 60 % ihrer bestehenden Plugins nur gezielte Eingriffe, um in China sauber zu laufen. Das spart eine Menge Zeit und Geld.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Gutenberg Blocks -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Maßgeschneiderte Gutenberg-Blöcke
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Derselbe Editor, neue Möglichkeiten
+        </h2>
+        <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+          Derselbe WordPress-Editor, den Ihr Redaktionsteam bereits beherrscht. Nur sprechen die Blöcke jetzt ein chinesisches Publikum an.
+        </p>
+      </div>
+
+      <CaseStudyCards items={gutenbergBlocks.map(block => ({ title: block }))} />
+    </div>
+  </section>
+
+  <!-- How We Build -->
+  <section class="section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Unser technischer Ansatz
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight">
+            Gebaut, um zu halten, gebaut für China
+          </h2>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div class="space-y-6">
+            <div class="bg-white/[0.04] border border-white/10 rounded-xl p-6">
+              <h3 class="text-lg font-semibold text-white mb-2">WordPress-Standards</h3>
+              <p class="text-base text-white/70 leading-relaxed">
+                Alles folgt den WordPress-Codierungsstandards. Sorgfältig genug dokumentiert, dass Ihr Team oder ein anderer Entwickler später die Wartung übernehmen kann, ohne uns bei jeder Anpassung hinzuziehen zu müssen.
+              </p>
+            </div>
+            <div class="bg-white/[0.04] border border-white/10 rounded-xl p-6">
+              <h3 class="text-lg font-semibold text-white mb-2">Performance zuerst</h3>
+              <p class="text-base text-white/70 leading-relaxed">
+                Die chinesische Hosting-Umgebung verzeiht spürbar weniger als die, die Sie gewohnt sind. Jede überflüssige Datenbankabfrage, jeder unnötige HTTP-Aufruf wiegt schwerer, wenn Ihr Server hinter der Großen Firewall steht. Code, der in den USA flüssig läuft, kann in Shanghai kriechen.
+              </p>
+            </div>
+            <div class="bg-white/[0.04] border border-white/10 rounded-xl p-6">
+              <h3 class="text-lg font-semibold text-white mb-2">Sicherheit vom ersten Tag an</h3>
+              <p class="text-base text-white/70 leading-relaxed">
+                Validierung, Bereinigung der Daten, Nonce-Prüfungen: die Grundlagen, nicht nachträglich aufgeschraubt. Wir testen auf in China gehosteten Staging-Umgebungen und auf chinesischen Browsern. UC Browser ist hier weiterhin riesig, und die Darstellung weicht auf eine Weise ab, die Sie überraschen wird.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- After Launch -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Nach dem Start
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+          Ein Plugin baut man nicht ein für alle Mal
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+          WordPress veröffentlicht Updates, PHP-Versionen ziehen weiter, ein anderes Plugin in Ihrem Stack rollt einen Patch aus und bricht plötzlich etwas völlig Unzusammenhängendes. Wir kümmern uns um den laufenden Teil: Kompatibilitätskorrekturen, Sicherheitsupdates, neue Funktionen in dem Tempo, in dem Ihre China-Präsenz wächst.
+        </p>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Und wir behalten die Performance im Auge, damit nichts unbemerkt verfällt, während Ihr Team gerade anderswo ist.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="Wer uns für Plugin-Arbeit anspricht" audiences={audiences} footnote="Wenn Standard-Plugins Ihr China-Problem nicht lösen, sprechen Sie mit uns. Wir bauen, was fehlt." background="light" />
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Loslegen
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        Etwas Bestimmtes im Sinn?
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Erzählen Sie uns, was nicht funktioniert oder was Sie sich wünschen. Wir finden den Weg.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/de/kontakt/" variant="primary" size="lg">Plugin-Beratung anfragen</Button>
+        <Button href="/de/leistungen/wartung-support/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Laufende Wartung</Button>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

@@ -17,8 +17,8 @@ const engines = [
     cn: '深度',
     name: 'DeepSeek',
     enLabel: '深度求索',
-    body: 'Prefiere el contenido estructurado, impecable en lo técnico y procedente de sitios oficiales. Si su sitio carga lento desde China o depende de recursos bloqueados por el Gran Cortafuegos (防火长城), DeepSeek sencillamente no lo ve.',
-    tag: 'Formato largo, estructurado',
+    body: 'Prioriza el contenido bien estructurado, técnicamente impecable y de fuentes oficiales. Si su web tarda en cargar desde China, o depende de recursos que bloquea el Gran Cortafuegos (防火长城), DeepSeek ni siquiera la ve.',
+    tag: 'Contenido extenso y estructurado',
     chips: ['JSON-LD', 'SSR', 'Velocidad', 'Sin dependencias bloqueadas'],
   },
   {
@@ -26,7 +26,7 @@ const engines = [
     cn: '豆包',
     name: 'Doubao',
     enLabel: '字节跳动',
-    body: 'El abanderado de ByteDance, que bebe a fondo de su propio ecosistema: Toutiao (今日头条), Douyin (抖音), Baijiahao (百家号). Optimizar para Doubao significa alimentar el grafo de ByteDance en paralelo a su sitio.',
+    body: 'El motor de ByteDance se nutre de su propio ecosistema: Toutiao (今日头条), Douyin (抖音) y Baijiahao (百家号). Para posicionarse en Doubao hay que trabajar ese ecosistema, además de la propia web.',
     tag: 'Grafo de ByteDance',
     chips: ['Toutiao', 'Douyin', 'Baijiahao', 'Sindicación'],
   },
@@ -35,16 +35,16 @@ const engines = [
     cn: 'Kimi',
     name: 'Kimi',
     enLabel: 'Moonshot AI',
-    body: 'Premia el análisis extenso. Comparativas, guías técnicas, informes de varios miles de palabras acompañados de tablas limpias. El contenido de marketing breve queda ignorado.',
+    body: 'Premia los análisis extensos: comparativas, guías técnicas, informes de miles de palabras con tablas claras. El contenido comercial breve pasa inadvertido.',
     tag: 'Profundidad y tablas',
-    chips: ['Comparativas', 'Guías', 'Tablas', 'Formato largo'],
+    chips: ['Comparativas', 'Guías', 'Tablas', 'Artículos de fondo'],
   },
   {
     n: '04',
     cn: '元宝',
     name: 'Yuanbao',
     enLabel: '腾讯混元',
-    body: 'La puerta de entrada de Tencent al ecosistema WeChat (微信), y el único asistente capaz de explorar las cuentas oficiales (公众号).',
+    body: 'Es la puerta de entrada de Tencent al ecosistema de WeChat (微信) y el único asistente capaz de rastrear las cuentas oficiales (公众号).',
     tag: 'Conectado con WeChat',
     chips: ['公众号', '视频号', 'Mini Program', 'WeCom'],
   },
@@ -53,8 +53,8 @@ const engines = [
     cn: '文心',
     name: 'Baidu IA',
     enLabel: '文心一言',
-    body: 'Impulsado por ERNIE (文心一言). Prefiere las fuentes de autoridad: Baidu Baike (百度百科), portales gubernamentales, marcado JSON-LD y una presencia sostenida en Baijiahao y Baidu Zhidao (百度知道).',
-    tag: 'Lógica de autoridad',
+    body: 'Funciona con el modelo ERNIE (文心一言) y premia las fuentes con autoridad: Baidu Baike (百度百科), portales gubernamentales, marcado JSON-LD y presencia constante en Baijiahao y Baidu Zhidao (百度知道).',
+    tag: 'Fuentes con autoridad',
     chips: ['百度百科', '百度知道', 'JSON-LD', 'Baijiahao'],
   },
 ];
@@ -63,42 +63,42 @@ const services = [
   {
     n: '01',
     title: 'Diagnóstico de visibilidad',
-    body: 'Una matriz estructurada de entre 80 y 150 consultas lanzadas en las cinco plataformas chinas, desde dispositivos reales en Shanghái, Pekín y Shenzhen, sobre redes residenciales y profesionales, nunca por VPN.',
+    body: 'Lanzamos de 80 a 150 consultas en los cinco motores. Las hacemos desde dispositivos reales en Shanghái, Pekín y Shenzhen, en redes domésticas y de empresa, nunca por VPN.',
     bullets: [
-      'Tasa de citación: con qué frecuencia aparece su marca en las respuestas pertinentes.',
-      'Rango de recomendación: el puesto que ocupa cuando el motor enumera las opciones.',
-      'Sentimiento: el tono de la mención, neutro, positivo o crítico.',
+      'Tasa de citación: con qué frecuencia aparece su marca en las respuestas relevantes.',
+      'Posición en la recomendación: el lugar que ocupa cuando el motor enumera las opciones.',
+      'Sentimiento: el tono de la mención, ya sea neutro, positivo o crítico.',
     ],
     tag: 'p.04',
   },
   {
     n: '02',
     title: 'Auditoría de fuentes',
-    body: 'Los motores de IA premian la prueba verificable. Números de patente, informes de laboratorios independientes, normas publicadas: lo que llamamos contenido T1. El contenido de marketing sin respaldo externo es T3, ignorado o marcado como poco fiable. Cartografiamos cada afirmación de su sitio y reconstruimos los puntos débiles con elementos de prueba que la IA puede validar.',
+    body: 'Los motores premian lo verificable: patentes, informes de laboratorios independientes, normativa publicada. Todo eso forma el nivel T1. El material comercial sin respaldo externo cae al T3, que los motores ignoran o marcan como poco fiable. Revisamos cada afirmación de su web y apuntalamos las más frágiles con pruebas que la IA puede contrastar.',
     tag: 'p.10',
   },
   {
     n: '03',
     title: 'Arquitectura de contenido',
-    body: 'Un artículo aislado ya no mueve nada. Construimos racimos: una página pilar central apoyada en preguntas frecuentes, comparativas, escenarios de uso y casos de éxito. Sea cual sea el ángulo de la pregunta, su sitio vuelve a salir a flote.',
+    body: 'Un artículo aislado ya no basta. Organizamos el contenido en grupos temáticos: una página pilar rodeada de preguntas frecuentes, comparativas, escenarios de uso y casos de éxito. Venga como venga la pregunta, su web aparece entre las respuestas.',
     tag: 'p.16',
   },
   {
     n: '04',
     title: 'Difusión multiplataforma',
-    body: 'Los motores cruzan una misma marca en los destinos de referencia. Sindicamos en Baijiahao (百家号), Zhihu (知乎), los portales sectoriales y, cuando procede, en las fichas de Baidu Baike (百度百科).',
+    body: 'Los motores no se fían de una marca hasta cruzar sus menciones en varias plataformas. Por eso publicamos en Baijiahao (百家号), Zhihu (知乎) y portales sectoriales. Cuando procede, también en Baidu Baike (百度百科).',
     tag: 'p.22',
   },
   {
     n: '05',
     title: 'Cimientos técnicos',
-    body: 'Marcado JSON-LD, robots.txt adaptado a Baiduspider, Sogouspider y ByteSpider, mapas de sitio XML y etiquetas canónicas que no dispersan la autoridad entre las versiones lingüísticas. La mayoría de los sitios internacionales se equivocan en este punto.',
+    body: 'Trabajamos el marcado JSON-LD, el robots.txt para Baiduspider, Sogouspider y ByteSpider, los mapas de sitio en XML y las canónicas que no dispersan la autoridad entre idiomas. Ahí tropieza la mayoría de las webs internacionales.',
     tag: 'p.28',
   },
   {
     n: '06',
     title: 'Gestión continua',
-    body: 'DeepSeek publicó cuatro revisiones importantes solo en 2025. Lo que funcionaba en febrero ya no funcionaba en mayo. Medimos cada semana y ajustamos antes de que la caída de citaciones se deje notar.',
+    body: 'Solo en 2025, DeepSeek cambió cuatro veces. Lo que funcionaba en febrero ya no servía en mayo. Medimos cada semana y ajustamos antes de que las citaciones caigan.',
     tag: 'p.34',
   },
 ];
@@ -108,35 +108,35 @@ const stages = [
     n: '01',
     cn: '诊断',
     title: 'Diagnóstico de visibilidad',
-    body: 'Lanzamiento de la matriz de consultas en los cinco motores, desde dispositivos reales en Shanghái, Pekín y Shenzhen. Entregable: un informe de referencia con las brechas detectadas plataforma por plataforma.',
-    output: 'Referencia de citaciones',
+    body: 'Lanzamos la batería de consultas en los cinco motores, desde dispositivos reales en Shanghái, Pekín y Shenzhen. Le entregamos un informe de referencia con las carencias de cada plataforma.',
+    output: 'Informe de referencia',
   },
   {
     n: '02',
     cn: '证据',
     title: 'Auditoría de pruebas y fuentes',
-    body: 'Cada afirmación clasificada como T1, T2 o T3. Reconstrucción de los puntos débiles a partir de patentes, informes de laboratorio, expertos identificados y datos estructurados que los motores pueden validar.',
-    output: 'Cartografía de pruebas',
+    body: 'Clasificamos cada afirmación en T1, T2 o T3. Apuntalamos las más débiles con patentes, informes de laboratorio, expertos acreditados y datos estructurados que los motores validan.',
+    output: 'Mapa de pruebas',
   },
   {
     n: '03',
     cn: '内容',
-    title: 'Racimos editoriales',
-    body: 'Páginas pilar en chino nativo, preguntas frecuentes, comparativas, escenarios de uso y casos de éxito. Diseñadas para que ningún ángulo de la pregunta pase por alto su sitio.',
-    output: 'Racimos en línea',
+    title: 'Grupos de contenido',
+    body: 'Redactamos en chino nativo las páginas pilar y lo que las rodea: preguntas frecuentes, comparativas, escenarios de uso y casos de éxito. Ninguna forma de plantear la pregunta deja su web fuera.',
+    output: 'Contenidos publicados',
   },
   {
     n: '04',
     cn: '分发',
-    title: 'Sindicación y estructuración',
-    body: '百家号, 知乎, 百度百科 (cuando esté maduro), portales sectoriales, junto con el trabajo de marcado JSON-LD, robots.txt, llms.txt, canónicas y mapas de sitio entregado a continuación.',
-    output: 'Presencia entre plataformas',
+    title: 'Difusión y base técnica',
+    body: 'Publicamos en 百家号, 知乎, 百度百科 (cuando el proyecto ya está maduro) y portales sectoriales. Cerramos la fase con el marcado JSON-LD, el robots.txt, el llms.txt, las canónicas y los mapas de sitio.',
+    output: 'Presencia multiplataforma',
   },
   {
     n: '05',
     cn: '迭代',
     title: 'Seguimiento e iteración',
-    body: 'Relanzamiento semanal de la matriz de consultas en los cinco motores. Ajustes antes de que las actualizaciones de los modelos hagan caer las citaciones. Informe mensual por escrito.',
+    body: 'Cada semana relanzamos la batería de consultas en los cinco motores y ajustamos el rumbo antes de que una actualización haga caer las citaciones. Cada mes recibe un informe por escrito.',
     output: 'Gestión semanal',
   },
 ];
@@ -145,7 +145,7 @@ const evidenceTiers = [
   {
     label: 'T1',
     title: 'Pruebas sólidas',
-    body: 'Números de patente, informes de laboratorios independientes, normas publicadas y datos oficiales.',
+    body: 'Números de patente, informes de laboratorios independientes, normativa publicada y datos oficiales.',
     weight: 100,
     color: 'green',
     examples: ['Patente CN10X', 'Informe SGS', 'Norma GB/T', 'Datos CNNIC'],
@@ -153,15 +153,15 @@ const evidenceTiers = [
   {
     label: 'T2',
     title: 'Reconocido por el sector',
-    body: 'Cobertura de prensa especializada, informes de analistas, expertos identificados, distinciones sectoriales.',
+    body: 'Cobertura de prensa especializada, informes de analistas, expertos acreditados y distinciones del sector.',
     weight: 60,
     color: 'amber',
-    examples: ['36Kr', '艾瑞咨询', 'Experto identificado', 'Premio sectorial'],
+    examples: ['36Kr', '艾瑞咨询', 'Experto acreditado', 'Premio sectorial'],
   },
   {
     label: 'T3',
-    title: 'Texto de marketing',
-    body: 'Afirmaciones de marca sin respaldo externo. Se ignoran o se marcan como poco fiables.',
+    title: 'Contenido comercial',
+    body: 'Afirmaciones de la propia marca, sin respaldo externo. Los motores las ignoran o las marcan como poco fiables.',
     weight: 15,
     color: 'red',
     examples: ['«El mejor»', '«Líder del mercado»', 'Sin fuente', 'Solo el eslogan'],
@@ -169,30 +169,30 @@ const evidenceTiers = [
 ];
 
 const stats = [
-  { value: '600M+', label: 'Usuarios de IA en China · 2026', sub: 'Recuento del CNNIC de usuarios de IA generativa en China.' },
-  { value: '20%+', label: 'Páginas de Baidu con respuesta de IA', sub: '文心X1 y DeepSeek ya integrados en los resultados.' },
-  { value: '4', label: 'Revisiones de DeepSeek en 2025', sub: 'Lo que funcionaba en febrero ya no funcionaba en mayo.' },
+  { value: '600M+', label: 'Usuarios de IA en China · 2026', sub: 'Usuarios de IA generativa en China, según el CNNIC.' },
+  { value: '20%+', label: 'Páginas de Baidu con respuesta de IA', sub: '文心X1 y DeepSeek ya van integrados en los resultados.' },
+  { value: '4', label: 'Revisiones de DeepSeek en 2025', sub: 'Lo que funcionaba en febrero ya no servía en mayo.' },
 ];
 
 const audiences = [
   {
     label: 'Marcas invisibles en las IA chinas',
-    description: 'Empresas cuyo nombre nunca aparece cuando un comprador consulta a DeepSeek, Doubao o Yuanbao sobre su categoría, mientras que los competidores sí salen citados y enlazados.',
+    description: 'Su nombre no sale cuando un comprador pregunta a DeepSeek, Doubao o Yuanbao por su categoría. La competencia, en cambio, aparece citada y enlazada.',
     image: '/images/audiences/audience-geo-invisible-on-ai.webp',
   },
   {
     label: 'Marcas internacionales que aterrizan en China',
-    description: 'Equipos que quieren integrar la visibilidad en IA desde el lanzamiento, sin tener que recuperarla seis meses después cuando el tráfico se estanca.',
+    description: 'Equipos que quieren visibilidad en la IA desde el lanzamiento. Recuperarla seis meses después, con el tráfico estancado, cuesta mucho más.',
     image: '/images/audiences/audience-geo-launching-china-market.webp',
   },
   {
     label: 'Marcas con contenido pero sin pruebas',
-    description: 'Sitios con contenido chino cuidado que los motores ignoran de todos modos, por falta de fuentes verificables, datos estructurados y validación de terceros.',
+    description: 'Webs con buen contenido chino que los motores pasan por alto de todos modos. Les faltan fuentes verificables, datos estructurados y validación de terceros.',
     image: '/images/audiences/audience-geo-content-without-evidence.webp',
   },
   {
     label: 'Marcas cuyo tráfico orgánico se aplana',
-    description: 'Equipos de marketing que ven cómo su tráfico orgánico chino toca techo a medida que los compradores se pasan a la búsqueda con IA, y que ahora quieren que los motores citen su marca en la respuesta.',
+    description: 'Su tráfico orgánico chino toca techo a medida que los compradores se pasan a la búsqueda con IA. Ahora quieren que sean los motores los que citen su marca.',
     image: '/images/audiences/audience-geo-search-traffic-flat.webp',
   },
 ];
@@ -215,63 +215,63 @@ const faqs = [
     id: 'difference-from-seo',
     question: '¿En qué se diferencia el GEO del SEO de Baidu?',
     answer: [
-      'Los dos se solapan, sin confundirse. El SEO de Baidu optimiza la página de resultados, donde el internauta todavía recorre diez enlaces azules antes de hacer clic. El GEO optimiza los asistentes de IA que leen su contenido y deciden si lo citan en una respuesta única. Criterios de posicionamiento, estructura del contenido, métricas de éxito: todo cambia. La mayoría de nuestros clientes dirigen ambos a la vez, porque los cimientos editoriales se solapan en gran medida.',
+      'Se solapan, pero no son lo mismo. El SEO de Baidu trabaja la página de resultados, donde el usuario aún repasa diez enlaces azules antes de hacer clic. El GEO se dirige a los asistentes de IA, que leen su contenido y deciden si lo citan en una sola respuesta. Cambian los criterios, la estructura y las métricas. Aun así, casi todos nuestros clientes llevan los dos frentes a la vez: la base editorial es prácticamente la misma.',
     ],
   },
   {
     id: 'platforms-covered',
     question: '¿Qué plataformas de IA chinas cubren en concreto?',
     answer: [
-      'DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) y Baidu IA (impulsado por 文心一言). Son los cinco que de verdad pesan en la China continental hoy. ChatGPT, Perplexity, Google AI Overviews y Claude no tienen sitio aquí: tras el Gran Cortafuegos, su alcance es nulo.',
+      'Cubrimos DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) y Baidu IA, que funciona con el modelo 文心一言. Son los cinco motores que cuentan hoy en la China continental. ChatGPT, Perplexity, Google AI Overviews o Claude no tienen aquí ninguna presencia: detrás del Gran Cortafuegos, su alcance es nulo.',
     ],
   },
   {
     id: 'measurement',
     question: '¿Cómo miden el éxito?',
     answer: [
-      'Tres indicadores, con seguimiento mensual. Tasa de citación: con qué frecuencia aparece su marca en las respuestas a una matriz de consultas fija. Rango de recomendación: el puesto que ocupa cuando el motor enumera las opciones. Sentimiento: tono positivo, neutro o crítico. Lo presentamos en una nota escrita: unas pocas páginas densas, que se leen de una sola vez.',
+      'Seguimos tres indicadores y los revisamos cada mes. El primero es la tasa de citación: cuántas veces aparece su marca en las respuestas a una batería de consultas fija. El segundo es la posición: qué puesto ocupa cuando el motor enumera opciones. El tercero es el sentimiento: si la mención es positiva, neutra o crítica. Todo va en un informe breve, de pocas páginas, que se lee de una sola vez.',
     ],
   },
   {
     id: 'how-long',
     question: '¿Cuánto se tarda en ver despegar las citaciones?',
     answer: [
-      'Auditoría y cimientos: de 4 a 6 semanas. Producción editorial y sindicación: de tres a cuatro meses. Al sexto mes, la mayoría de los clientes constatan un avance real en al menos dos plataformas. La cobertura plena suele asentarse entre el noveno y el duodécimo mes. Quien le prometa una cuota de citación en IA en treinta días le está vendiendo otra cosa.',
+      'La auditoría y los cimientos técnicos llevan de cuatro a seis semanas. La producción editorial y la difusión, de tres a cuatro meses. Hacia el sexto mes, la mayoría de los clientes ya ve un avance claro en al menos dos motores. La cobertura completa suele llegar entre el noveno y el duodécimo. Si alguien le promete cuota de citación en treinta días, le está vendiendo humo.',
     ],
   },
   {
     id: 'evidence-tiers',
     question: 'T1, T2, T3: ¿qué son y por qué importan?',
     answer: [
-      'Los motores de IA ponderan las fuentes según la verificabilidad de las afirmaciones. T1: contenido respaldado por pruebas sólidas, patentes, informes de laboratorios independientes, normas publicadas y datos oficiales. T2: reconocido por el sector pero secundario, prensa especializada, informes de analistas, expertos identificados. T3: texto de marketing sin prueba externa, del que los motores ignoran o marcan como poco fiable. Clasificamos cada afirmación de su sitio y reconstruimos los puntos débiles.',
+      'Los motores valoran cada fuente por lo verificable que sea. El T1 es el contenido con pruebas sólidas: patentes, informes de laboratorios independientes, normativa publicada, datos oficiales. El T2 es el respaldo del sector, ya secundario: prensa especializada, informes de analistas, expertos acreditados. El T3 es el contenido comercial sin prueba externa, el que los motores ignoran o marcan como poco fiable. Clasificamos cada afirmación de su web y apuntalamos los puntos débiles.',
     ],
   },
   {
     id: 'translated-content',
     question: '¿Podemos simplemente traducir nuestro contenido en inglés?',
     answer: [
-      'No. El contenido traducido suena extranjero para los motores chinos, suele perder los puntos de referencia estructurales que les sirven para decidir y rara vez refleja la manera en que los internautas chinos formulan de verdad sus preguntas. Trabajamos con editores nativos chinos, que reescriben desde la página en blanco y mantienen intactas las afirmaciones de origen y sus pruebas.',
+      'No. A los motores chinos un texto traducido les suena extraño. Pierde las señales de estructura que necesitan para decidir y rara vez refleja cómo preguntan realmente los usuarios chinos. Por eso trabajamos con redactores nativos: escriben desde cero y conservan intactas las afirmaciones originales y sus pruebas.',
     ],
   },
   {
     id: 'syndication',
     question: '¿Dónde sindican el contenido?',
     answer: [
-      'Baijiahao (百家号) para el alcance de Baidu y Yuanbao, Zhihu (知乎) para las señales de credibilidad técnica y B2B, Toutiao (今日头条) y Baijiahao para las superficies de ByteDance y Doubao, y, cuando procede, fichas oficiales de Baidu Baike (百度百科). Los portales sectoriales completan según su mercado.',
+      'Publicamos en Baijiahao (百家号) para llegar a Baidu y Yuanbao, y en Zhihu (知乎) para la credibilidad técnica y B2B. Usamos Toutiao (今日头条) y Baijiahao para los canales de ByteDance y Doubao. Cuando tiene sentido, añadimos fichas de Baidu Baike (百度百科). Y rematamos con los portales especializados de su sector.',
     ],
   },
   {
     id: 'algorithm-changes',
     question: '¿Qué ocurre cuando los motores modifican sus modelos?',
     answer: [
-      'Lo hacen a menudo. DeepSeek publicó cuatro revisiones importantes solo en 2025. Seguimos las citaciones cada semana sobre la misma matriz de consultas usada en la auditoría, y ajustamos contenido, marcado y sindicación antes de que el cambio se traduzca en una caída. Los equipos que no vigilan este punto pierden visibilidad sin entender por qué.',
+      'Lo hacen a menudo. Solo en 2025, DeepSeek publicó cuatro revisiones de calado. Por eso seguimos las citaciones cada semana, con la misma batería de consultas de la auditoría, y ajustamos contenido, marcado y difusión antes de que el cambio acabe en caída. Quien descuida este seguimiento pierde visibilidad sin saber por qué.',
     ],
   },
   {
     id: 'cost',
     question: '¿Cuánto cuesta un programa de GEO China?',
     answer: [
-      'Depende del alcance: número de gamas o de ejes, profundidad del capital editorial existente, plataformas que hay que cubrir por completo, integración o no de la producción de contenido chino y del SEO de Baidu. Descríbanos el alcance y volvemos en un plazo de dos días laborables con una cifra firme.',
+      'Depende del alcance: cuántas líneas de producto o temas hay que cubrir, con qué contenido se parte, en cuántos motores hay que estar y si se suman la creación de contenido en chino y el SEO de Baidu. Descríbanos el proyecto y le damos un presupuesto cerrado en dos días hábiles.',
     ],
   },
 ];
@@ -322,7 +322,7 @@ const pageLd = [...serviceLd];
           </h1>
 
           <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
-            La optimización para los motores generativos, orientada al mercado chino. Convertimos su contenido en la respuesta que DeepSeek, Doubao, Kimi, Yuanbao y Baidu IA consideran lo bastante fiable como para devolverla a los internautas. <span class="text-white font-medium">Una sola respuesta por pregunta, con su marca dentro.</span>
+            Optimización para los motores generativos en el mercado chino. Convertimos su contenido en la respuesta que DeepSeek, Doubao, Kimi, Yuanbao y Baidu IA consideran fiable y entregan a sus usuarios. <span class="text-white font-medium">La IA solo da una respuesta. Su marca tiene que estar en ella.</span>
           </p>
 
           <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
@@ -463,7 +463,7 @@ const pageLd = [...serviceLd];
             <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">respuesta</span>
           </div>
           <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
-            Donde el internauta chino recorría diez enlaces, la IA solo entrega uno. Si su marca no está ahí, no existe para esa pregunta.
+            Antes, el usuario chino recorría diez enlaces. La IA le da una sola respuesta. Si su marca no está, no existe para esa pregunta.
           </p>
         </div>
 
@@ -473,10 +473,10 @@ const pageLd = [...serviceLd];
             La era de la respuesta única.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            China cuenta con más de 600 millones de usuarios de IA generativa en 2026, según el CNNIC. Una proporción creciente de compradores abre su búsqueda preguntando a DeepSeek, Doubao o Yuanbao, en lugar de teclear una consulta.
+            China ya supera los 600 millones de usuarios de IA generativa, según el CNNIC. Y cada vez más compradores arrancan su búsqueda con una pregunta directa a DeepSeek, Doubao o Yuanbao.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            El GEO consiste en convertirse en la fuente que la IA cita cuando alguien le hace una pregunta. El SEO se le acerca, pero las reglas cambian, y en China cambian todavía más respecto a todo lo que funciona en ChatGPT o Perplexity.
+            Ahí entra el GEO. Su objetivo es que, cuando llegue esa pregunta, la IA responda citando a su empresa. El SEO juega en un terreno cercano, pero con otras reglas. Y las reglas chinas se parecen muy poco a las de ChatGPT o Perplexity.
           </p>
 
           <div class="flex flex-wrap items-center gap-2.5">
@@ -509,7 +509,7 @@ const pageLd = [...serviceLd];
           La búsqueda con IA en China es un mundo aparte.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          ChatGPT, Perplexity, Google AI Overviews, Claude. Ninguno pesa en la China continental. Cinco motores domésticos sí lo hacen. Cada uno con sus propias reglas.
+          ChatGPT, Perplexity, Google AI Overviews o Claude no cuentan en la China continental. Dominan cinco motores nacionales. Y cada uno juega con sus reglas.
         </p>
       </div>
 
@@ -555,7 +555,7 @@ const pageLd = [...serviceLd];
       </div>
 
       <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl" data-reveal>
-        Cinco motores, cinco juegos de reglas, un sitio que debe aguantar ante cada uno.
+        Son cinco motores con cinco juegos de reglas. Una sola web tiene que responder ante todos.
       </p>
     </div>
   </section>
@@ -574,7 +574,7 @@ const pageLd = [...serviceLd];
           La IA pondera lo que usted puede demostrar.
         </h2>
         <p class="text-lg text-white/65 leading-relaxed">
-          Cada afirmación de su sitio cae en uno de los tres niveles. El nivel de prueba es lo que dispara la citación. Convertimos el marketing T3 en pruebas T1.
+          Cada afirmación de su web cae en uno de estos tres niveles. Del nivel depende que la IA la cite o la descarte. Nuestro trabajo es subir su contenido del T3 al T1.
         </p>
       </div>
 
@@ -661,10 +661,10 @@ const pageLd = [...serviceLd];
           <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Lo que hacemos · 做什么</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
-          Lo que abarca de verdad el GEO China.
+          Lo que abarca el GEO China.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Seis frentes que avanzan juntos. Si descuida uno, los demás dejan de encajar.
+          Son seis frentes y avanzan a la vez. Si descuida uno, los demás dejan de encajar.
         </p>
       </div>
 
@@ -723,7 +723,7 @@ const pageLd = [...serviceLd];
           Cinco etapas, citaciones que se acumulan.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Auditoría y cimientos en 4 a 6 semanas. Primer avance en dos motores al sexto mes.
+          La auditoría y los cimientos técnicos llevan de cuatro a seis semanas. El primer avance llega hacia el sexto mes, en dos de los motores.
         </p>
       </div>
 
@@ -785,7 +785,7 @@ const pageLd = [...serviceLd];
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Por qué las marcas que asientan las bases del GEO en 2026 serán las que los motores citen en 2027 y 2028.
+            Las marcas que sientan las bases del GEO en 2026 serán las que los motores citen en 2027 y 2028.
           </p>
         </div>
       </div>
@@ -829,7 +829,7 @@ const pageLd = [...serviceLd];
             Nueve preguntas que se repiten sobre el GEO China
           </h2>
           <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
-            Pulse para desplegar. Si la suya no está aquí, formúlela directamente.
+            Pulse en cada pregunta para ver la respuesta. Si falta la suya, escríbanos.
           </p>
           <div class="mt-7">
             <Button href="/es/contacto/" variant="secondary" size="md">Plantear otra pregunta</Button>
@@ -878,7 +878,7 @@ const pageLd = [...serviceLd];
           Vea en qué punto está. Sin presentación comercial.
         </h2>
         <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
-          Cada proyecto arranca con una conversación y una prueba de consultas en dos de las cinco plataformas chinas. Al terminar la llamada sabrá si su marca aparece, dónde están las brechas y qué aspecto tendría un programa GEO de verdad.
+          Cada proyecto empieza con una conversación y una prueba de consultas en dos de los cinco motores. Al colgar sabrá si su marca aparece, dónde están las carencias y qué forma tendría un verdadero programa de GEO.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button href="/es/contacto/" variant="primary" size="lg">Reservar una auditoría de IA gratuita</Button>

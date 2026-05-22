@@ -16,7 +16,7 @@
 
 import type { Locale } from './ui';
 
-type Trans = { fr: string; es: string };
+type Trans = { fr: string; es: string; de: string };
 
 /**
  * Static page paths. Key = canonical English path (leading + trailing slash).
@@ -24,54 +24,54 @@ type Trans = { fr: string; es: string };
  * Paths absent here are identical across locales (home and brand pages).
  */
 export const staticRoutes: Record<string, Trans> = {
-  '/services/': { fr: '/services/', es: '/servicios/' },
-  '/work/': { fr: '/realisations/', es: '/proyectos/' },
-  '/who-we-are/': { fr: '/qui-sommes-nous/', es: '/quienes-somos/' },
-  '/contact/': { fr: '/contact/', es: '/contacto/' },
-  '/resources/': { fr: '/ressources/', es: '/recursos/' },
-  '/resources/china-web-guide/': { fr: '/ressources/guide-web-chine/', es: '/recursos/guia-web-china/' },
-  '/resources/faq/': { fr: '/ressources/faq/', es: '/recursos/faq/' },
-  '/privacy-policy/': { fr: '/politique-de-confidentialite/', es: '/politica-de-privacidad/' },
-  '/terms-of-service/': { fr: '/conditions-generales/', es: '/condiciones-del-servicio/' },
-  '/cookie-policy/': { fr: '/politique-cookies/', es: '/politica-de-cookies/' },
-  '/web-agency-china/': { fr: '/agence-web-chine/', es: '/agencia-web-china/' },
+  '/services/': { fr: '/services/', es: '/servicios/', de: '/leistungen/' },
+  '/work/': { fr: '/realisations/', es: '/proyectos/', de: '/referenzen/' },
+  '/who-we-are/': { fr: '/qui-sommes-nous/', es: '/quienes-somos/', de: '/ueber-uns/' },
+  '/contact/': { fr: '/contact/', es: '/contacto/', de: '/kontakt/' },
+  '/resources/': { fr: '/ressources/', es: '/recursos/', de: '/ressourcen/' },
+  '/resources/china-web-guide/': { fr: '/ressources/guide-web-chine/', es: '/recursos/guia-web-china/', de: '/ressourcen/china-web-leitfaden/' },
+  '/resources/faq/': { fr: '/ressources/faq/', es: '/recursos/faq/', de: '/ressourcen/faq/' },
+  '/privacy-policy/': { fr: '/politique-de-confidentialite/', es: '/politica-de-privacidad/', de: '/datenschutz/' },
+  '/terms-of-service/': { fr: '/conditions-generales/', es: '/condiciones-del-servicio/', de: '/nutzungsbedingungen/' },
+  '/cookie-policy/': { fr: '/politique-cookies/', es: '/politica-de-cookies/', de: '/cookie-richtlinie/' },
+  '/web-agency-china/': { fr: '/agence-web-chine/', es: '/agencia-web-china/', de: '/webagentur-china/' },
 };
 
 /** Service detail slugs, keyed by English content id. baidu-seo + geo unchanged. */
 export const serviceSlugs: Record<string, Trans> = {
-  'china-hosting': { fr: 'hebergement-chine', es: 'alojamiento-china' },
-  'china-migration': { fr: 'migration-chine', es: 'migracion-china' },
-  'chinese-content': { fr: 'contenu-chinois', es: 'contenido-chino' },
-  'maintenance-support': { fr: 'maintenance-support', es: 'mantenimiento-soporte' },
-  'plugins-extensions': { fr: 'plugins-extensions', es: 'plugins-extensiones' },
-  'strategy-audit': { fr: 'strategie-audit', es: 'estrategia-auditoria' },
-  'technical-integration': { fr: 'integration-technique', es: 'integracion-tecnica' },
-  'ux-ui-design': { fr: 'design-ux-ui', es: 'diseno-ux-ui' },
+  'china-hosting': { fr: 'hebergement-chine', es: 'alojamiento-china', de: 'china-hosting' },
+  'china-migration': { fr: 'migration-chine', es: 'migracion-china', de: 'china-migration' },
+  'chinese-content': { fr: 'contenu-chinois', es: 'contenido-chino', de: 'chinesische-inhalte' },
+  'maintenance-support': { fr: 'maintenance-support', es: 'mantenimiento-soporte', de: 'wartung-support' },
+  'plugins-extensions': { fr: 'plugins-extensions', es: 'plugins-extensiones', de: 'plugins-erweiterungen' },
+  'strategy-audit': { fr: 'strategie-audit', es: 'estrategia-auditoria', de: 'strategie-audit' },
+  'technical-integration': { fr: 'integration-technique', es: 'integracion-tecnica', de: 'technische-integration' },
+  'ux-ui-design': { fr: 'design-ux-ui', es: 'diseno-ux-ui', de: 'ux-ui-design' },
 };
 
 /** Guide article slugs, keyed by English content id. */
 export const guideSlugs: Record<string, Trans> = {
-  'baidu-keyword-research-tools': { fr: 'outils-mots-cles-baidu', es: 'herramientas-palabras-clave-baidu' },
-  'baidu-seo-ranking-in-china': { fr: 'seo-baidu-chine', es: 'seo-baidu-china' },
-  'china-content-marketing-strategy': { fr: 'marketing-contenu-chine', es: 'marketing-contenidos-china' },
-  'china-data-privacy-pipl-dsl': { fr: 'donnees-personnelles-chine-pipl-dsl', es: 'datos-personales-china-pipl-dsl' },
-  'china-search-landscape-beyond-baidu': { fr: 'recherche-chine-au-dela-baidu', es: 'busqueda-china-mas-alla-baidu' },
-  'china-website-hosting-guide': { fr: 'hebergement-web-chine', es: 'alojamiento-web-china' },
-  'china-website-localisation': { fr: 'localiser-site-chine', es: 'localizar-sitio-china' },
-  'great-firewall-what-it-blocks': { fr: 'grand-pare-feu-chine', es: 'gran-cortafuegos-china' },
-  'icp-licence-filing-foreign-companies': { fr: 'licence-icp-entreprises-etrangeres', es: 'licencia-icp-empresas-extranjeras' },
-  'mobile-first-design-china': { fr: 'design-mobile-first-chine', es: 'diseno-mobile-first-china' },
+  'baidu-keyword-research-tools': { fr: 'outils-mots-cles-baidu', es: 'herramientas-palabras-clave-baidu', de: 'baidu-keyword-recherche' },
+  'baidu-seo-ranking-in-china': { fr: 'seo-baidu-chine', es: 'seo-baidu-china', de: 'baidu-seo-ranking-china' },
+  'china-content-marketing-strategy': { fr: 'marketing-contenu-chine', es: 'marketing-contenidos-china', de: 'content-marketing-china' },
+  'china-data-privacy-pipl-dsl': { fr: 'donnees-personnelles-chine-pipl-dsl', es: 'datos-personales-china-pipl-dsl', de: 'datenschutz-china-pipl-dsl' },
+  'china-search-landscape-beyond-baidu': { fr: 'recherche-chine-au-dela-baidu', es: 'busqueda-china-mas-alla-baidu', de: 'suche-china-jenseits-baidu' },
+  'china-website-hosting-guide': { fr: 'hebergement-web-chine', es: 'alojamiento-web-china', de: 'website-hosting-china' },
+  'china-website-localisation': { fr: 'localiser-site-chine', es: 'localizar-sitio-china', de: 'website-lokalisierung-china' },
+  'great-firewall-what-it-blocks': { fr: 'grand-pare-feu-chine', es: 'gran-cortafuegos-china', de: 'great-firewall-china' },
+  'icp-licence-filing-foreign-companies': { fr: 'licence-icp-entreprises-etrangeres', es: 'licencia-icp-empresas-extranjeras', de: 'icp-lizenz-auslaendische-unternehmen' },
+  'mobile-first-design-china': { fr: 'design-mobile-first-chine', es: 'diseno-mobile-first-china', de: 'mobile-first-design-china' },
 };
 
 /** Case study slugs, keyed by English content id. Client brand names kept. */
 export const caseStudySlugs: Record<string, Trans> = {
-  'bassetti-wordpress-china': { fr: 'bassetti-wordpress-chine', es: 'bassetti-wordpress-china' },
-  'imhof-woocommerce-china': { fr: 'imhof-woocommerce-chine', es: 'imhof-woocommerce-china' },
-  'netk5-wordpress-china': { fr: 'netk5-wordpress-chine', es: 'netk5-wordpress-china' },
-  'snf-china-wordpress': { fr: 'snf-wordpress-chine', es: 'snf-wordpress-china' },
-  'techne-wordpress-china': { fr: 'techne-wordpress-chine', es: 'techne-wordpress-china' },
-  'vcls-china-website': { fr: 'vcls-site-chine', es: 'vcls-sitio-web-china' },
-  'zeinley-bilingual-wordpress': { fr: 'zeinley-wordpress-bilingue', es: 'zeinley-wordpress-bilingue' },
+  'bassetti-wordpress-china': { fr: 'bassetti-wordpress-chine', es: 'bassetti-wordpress-china', de: 'bassetti-wordpress-china' },
+  'imhof-woocommerce-china': { fr: 'imhof-woocommerce-chine', es: 'imhof-woocommerce-china', de: 'imhof-woocommerce-china' },
+  'netk5-wordpress-china': { fr: 'netk5-wordpress-chine', es: 'netk5-wordpress-china', de: 'netk5-wordpress-china' },
+  'snf-china-wordpress': { fr: 'snf-wordpress-chine', es: 'snf-wordpress-china', de: 'snf-wordpress-china' },
+  'techne-wordpress-china': { fr: 'techne-wordpress-chine', es: 'techne-wordpress-china', de: 'techne-wordpress-china' },
+  'vcls-china-website': { fr: 'vcls-site-chine', es: 'vcls-sitio-web-china', de: 'vcls-website-china' },
+  'zeinley-bilingual-wordpress': { fr: 'zeinley-wordpress-bilingue', es: 'zeinley-wordpress-bilingue', de: 'zeinley-wordpress-zweisprachig' },
 };
 
 /** Content sections: canonical index path paired with its detail-slug map. */
@@ -82,17 +82,19 @@ const contentSections = [
 ] as const;
 
 /** Reverse lookups, built once at module load. */
-const reverseStatic: Record<Locale, Record<string, string>> = { en: {}, fr: {}, es: {} };
+const reverseStatic: Record<Locale, Record<string, string>> = { en: {}, fr: {}, es: {}, de: {} };
 for (const [canonical, t] of Object.entries(staticRoutes)) {
   reverseStatic.fr[t.fr] = canonical;
   reverseStatic.es[t.es] = canonical;
+  reverseStatic.de[t.de] = canonical;
 }
 
 function buildReverse(map: Record<string, Trans>): Record<Locale, Record<string, string>> {
-  const r: Record<Locale, Record<string, string>> = { en: {}, fr: {}, es: {} };
+  const r: Record<Locale, Record<string, string>> = { en: {}, fr: {}, es: {}, de: {} };
   for (const [id, t] of Object.entries(map)) {
     r.fr[t.fr] = id;
     r.es[t.es] = id;
+    r.de[t.de] = id;
   }
   return r;
 }
@@ -102,9 +104,9 @@ const reverseSlugs: Record<string, Record<Locale, Record<string, string>>> = {
   '/resources/china-web-guide/': buildReverse(guideSlugs),
 };
 
-/** Split a leading /fr or /es locale prefix off a pathname. */
+/** Split a leading /fr, /es or /de locale prefix off a pathname. */
 export function splitLocale(pathname: string): { locale: Locale; path: string } {
-  const m = pathname.match(/^\/(fr|es)(?=\/|$)/);
+  const m = pathname.match(/^\/(fr|es|de)(?=\/|$)/);
   if (m) {
     return { locale: m[1] as Locale, path: pathname.slice(3) || '/' };
   }
@@ -177,6 +179,7 @@ export function hreflangFor(pathname: string, siteOrigin: string) {
     en: siteOrigin + localizePath(canonical, 'en'),
     fr: siteOrigin + localizePath(canonical, 'fr'),
     es: siteOrigin + localizePath(canonical, 'es'),
+    de: siteOrigin + localizePath(canonical, 'de'),
   };
 }
 

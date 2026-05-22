@@ -1,9 +1,9 @@
 ---
 title: "Mantenimiento y soporte"
 shortTitle: "Soporte"
-description: "Mantenimiento WordPress dirigido desde China. Nos ocupamos de las actualizaciones, la vigilancia del Gran Cortafuegos, el seguimiento del SEO en Baidu, la seguridad y la asistencia para que usted no tenga que hacerlo."
+description: "Mantenimiento de WordPress dirigido desde China. Nos ocupamos de las actualizaciones, la vigilancia del Gran Cortafuegos, el seguimiento del SEO en Baidu, la seguridad y la asistencia, para que su equipo no tenga que hacerlo."
 metaTitle: "Mantenimiento de un sitio en China | ChinaWebFoundry"
-metaDescription: "Mantener vivo un sitio chino tras el lanzamiento. Un equipo sénior en Shanghái vigila el contenido, la visibilidad en la búsqueda y la disponibilidad, y corrige antes de que usted lo note."
+metaDescription: "Un equipo sénior en Shanghái mantiene vivo su sitio en China después del lanzamiento: vigila el contenido, la visibilidad en buscadores y la disponibilidad, y corrige los fallos antes de que usted llegue a notarlos."
 icon: "wrench"
 order: 9
 keywords: ["mantenimiento wordpress china", "soporte wordpress china", "servicios wordpress gestionados china"]
@@ -12,4 +12,4 @@ relatedServices: ["china-hosting", "plugins-extensions"]
 
 ## Qué hacemos
 
-Mantenimiento WordPress continuo a cargo de un equipo con base en China. Nos ocupamos de las actualizaciones, la vigilancia del Gran Cortafuegos, el seguimiento de Baidu, la seguridad, las copias de seguridad y la asistencia rápida; usted ya no tiene que ocuparse de ello.
+Mantenimiento continuo de WordPress a cargo de un equipo con base en China. Nos ocupamos de las actualizaciones, la vigilancia del Gran Cortafuegos, el seguimiento en Baidu, la seguridad, las copias de seguridad y la asistencia rápida, para que su equipo se concentre en sus prioridades.

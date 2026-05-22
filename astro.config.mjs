@@ -39,7 +39,7 @@ function sourceFileForPath(canonical, locale) {
   }
 
   // Static + section index pages: resolve the localized on-disk path.
-  const localized = localizePath(canonical, locale).replace(/^\/(?:fr|es)/, '') || '/';
+  const localized = localizePath(canonical, locale).replace(/^\/(?:fr|es|de)/, '') || '/';
   const slug = localized.replace(/^\//, '').replace(/\/$/, '');
   if (slug && !slug.includes('/')) {
     candidates.push(`./src/pages${pageDir}/${slug}.astro`);
@@ -57,7 +57,7 @@ export default defineConfig({
   }),
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr', 'es'],
+    locales: ['en', 'fr', 'es', 'de'],
     routing: {
       prefixDefaultLocale: false,
     },
@@ -70,6 +70,7 @@ export default defineConfig({
           en: 'en',
           fr: 'fr',
           es: 'es',
+          de: 'de',
         },
       },
       // Skip 404 page from sitemap.
@@ -120,6 +121,7 @@ export default defineConfig({
           { lang: 'en', url: enUrl },
           { lang: 'fr', url: `${url.origin}${localizePath(canonical, 'fr')}` },
           { lang: 'es', url: `${url.origin}${localizePath(canonical, 'es')}` },
+          { lang: 'de', url: `${url.origin}${localizePath(canonical, 'de')}` },
           { lang: 'x-default', url: enUrl },
         ];
 

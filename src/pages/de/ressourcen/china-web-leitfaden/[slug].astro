@@ -1,0 +1,45 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import GuideLayout from '../../../../layouts/GuideLayout.astro';
+import { guideSlugs } from '../../../../i18n/routes';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides-de');
+  return guides
+    .filter((guide) => guide.data.published)
+    .map((guide) => ({
+      params: { slug: guideSlugs[guide.id]?.de ?? guide.id },
+      props: { guide },
+    }));
+}
+
+const { guide } = Astro.props;
+const { Content, headings } = await render(guide);
+const tocItems = headings.filter((h) => h.depth === 2);
+
+// Author lookup: prefer DE team entry, fall back to EN team if no DE mirror.
+const teamDeEntry = await getEntry('team-de', guide.data.author).catch(() => undefined);
+const teamEntry = teamDeEntry ?? await getEntry('team', guide.data.author);
+const author = teamEntry
+  ? {
+      name: teamEntry.data.name,
+      role: teamEntry.data.role,
+      url: teamEntry.data.linkedin,
+      bio: teamEntry.data.bio,
+    }
+  : undefined;
+---
+
+<GuideLayout
+  title={guide.data.title}
+  subtitle={guide.data.subtitle}
+  summary={guide.data.summary}
+  visual={guide.data.visual}
+  tocItems={tocItems}
+  lang="de"
+  author={author}
+  publishedAt={guide.data.publishedAt}
+  updatedAt={guide.data.updatedAt}
+>
+  <Content />
+</GuideLayout>

@@ -25,8 +25,9 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const homeUrl = `${siteOrigin}${localePath('/', currentLang)}`;
 const servicesUrl = `${siteOrigin}${localePath('/services/', currentLang)}`;
 const homeLabel = t('service.home');
-const servicesLabel = currentLang === 'es' ? 'Servicios' : 'Services';
-const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
+const servicesLabelMap = { en: 'Services', fr: 'Services', es: 'Servicios', de: 'Leistungen' } as const;
+const servicesLabel = servicesLabelMap[currentLang];
+const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES', de: 'de-DE' } as const;
 
 const serviceLd = {
   '@context': 'https://schema.org',

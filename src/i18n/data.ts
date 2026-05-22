@@ -50,24 +50,24 @@ const trustPointsFr: TrustPoint[] = [
 const problemsEs: Problem[] = [
   {
     title: 'Su mensaje suena a texto extranjero',
-    description: 'El público chino busca señales de confianza que las marcas extranjeras suelen dejar en segundo plano: la trayectoria del fundador, las certificaciones, los logos de los socios, los premios obtenidos. Un redactor chino sabe en qué orden colocarlas para que la página retenga la atención.',
+    description: 'El lector chino busca unas señales de confianza que las marcas extranjeras suelen relegar a un segundo plano: la trayectoria del fundador, las certificaciones obtenidas, los logotipos de los socios o los premios recibidos. Un redactor chino sabe en qué orden disponerlas para que la página retenga la atención de quien la lee.',
   },
   {
     title: 'Su interfaz desorienta al visitante chino',
-    description: 'En China el sitio se consulta en el móvil, casi siempre dentro del navegador integrado de WeChat. Páginas densas, scroll largo, señales de confianza desde la primera pantalla. El minimalismo occidental aquí da la impresión de un sitio vacío, cuando no a medio terminar.',
+    description: 'En China, el sitio se consulta desde el móvil y, casi siempre, dentro del navegador integrado de WeChat. El usuario local espera páginas densas, un desplazamiento largo y señales de confianza desde la primera pantalla; por eso el minimalismo occidental le produce aquí la impresión de un sitio vacío, cuando no a medio terminar.',
   },
   {
-    title: 'Baidu ni siquiera sabe que existe',
-    description: 'Otras señales de posicionamiento, otras reglas de indexación. Sin licencia ICP ni alojamiento local, Baidu indexa mal su sitio, y a veces no lo indexa en absoluto. Lo que funciona en Google no se traslada aquí.',
-    citation: 'Baidu acapara casi la mitad de las búsquedas en China. Google se queda por debajo del 3 %. Fuente: Statcounter Global Stats, China, 2024.',
+    title: 'Baidu ni siquiera sabe que su sitio existe',
+    description: 'Baidu se guía por otras señales de posicionamiento y por otras reglas de indexación. Sin licencia ICP ni alojamiento local indexa mal su sitio, y a veces no lo indexa en absoluto; los métodos que dan resultado en Google aquí no sirven de nada.',
+    citation: 'Baidu concentra casi la mitad de las búsquedas en China. Google se queda por debajo del 3 %. Fuente: Statcounter Global Stats, China, 2024.',
   },
   {
-    title: 'Para muchos compradores chinos, la IA ya sustituyó al buscador',
-    description: 'Doubao, Kimi, DeepSeek o el Wenxin de Baidu responden hoy las preguntas que antes pasaban por un buscador. El usuario casi nunca hace clic. Un sitio que la IA no puede citar queda fuera del radar.',
+    title: 'Para muchos compradores chinos, la IA ya ha sustituido al buscador',
+    description: 'Doubao, Kimi, DeepSeek o el Wenxin de Baidu responden hoy a las preguntas que antes pasaban por un buscador, y lo hacen sin que el usuario llegue casi nunca a hacer clic. Un sitio que esas herramientas no pueden citar queda, sencillamente, fuera del radar.',
   },
   {
     title: 'El alojamiento en China es solo el punto de partida',
-    description: 'Páginas que tardan en cargar, plugins fuera de servicio, scripts que fallan en silencio detrás del Cortafuegos. La infraestructura asienta los cimientos. Una vez firmes, lo que hace volver al cliente es la fuerza de la marca.',
+    description: 'Detrás del Gran Cortafuegos, las páginas tardan en cargar, los plugins quedan fuera de servicio y los scripts fallan en silencio. La infraestructura sienta los cimientos; pero, una vez que son firmes, lo que de verdad hace volver al cliente es la fuerza de la marca.',
   },
 ];
 
@@ -90,14 +90,59 @@ const trustPointsEs: TrustPoint[] = [
   },
 ];
 
+const problemsDe: Problem[] = [
+  {
+    title: 'Ihre Botschaft kommt nicht an',
+    description: 'Chinesische Nutzer suchen nach Vertrauensankern, die ausländische Teams gern beiläufig behandeln: die Vita des Gründers, Zertifikate, Logos bekannter Partner, ausgezeichnete Projekte. Ein chinesischer Texter weiß, in welcher Reihenfolge sie auf die Seite gehören, damit der Leser hängen bleibt.',
+  },
+  {
+    title: 'Ihre Oberfläche irritiert chinesische Besucher',
+    description: 'In China läuft die Website auf dem Smartphone, meist im integrierten Browser von WeChat. Dichte Seiten, langer Scroll, Vertrauenssignale gleich ganz oben. Westlicher Minimalismus wirkt hier leer, manchmal sogar halbfertig.',
+  },
+  {
+    title: 'Baidu weiß nicht, dass es Sie gibt',
+    description: 'Andere Ranking-Signale, andere Regeln für die Indexierung. Ohne ICP-Lizenz und einen Server in China indexiert Baidu Ihre Website schlecht, manchmal überhaupt nicht. Was bei Google funktioniert, lässt sich hier nicht übertragen.',
+    citation: 'Baidu vereint fast die Hälfte der Suchanfragen in China auf sich. Google bleibt unter 3 %. Quelle: Statcounter Global Stats, China, 2024.',
+  },
+  {
+    title: 'Für viele Käufer hat die KI die Suche längst abgelöst',
+    description: 'Doubao, Kimi, DeepSeek, Baidus Wenxin: Fragen, die früher an eine Suchmaschine gingen, beantworten heute diese KI-Dienste. Der Nutzer klickt nur noch selten weiter. Eine Website, die sich von der KI nicht zitieren lässt, bleibt außen vor.',
+  },
+  {
+    title: 'Hosting in China ist nur das Fundament',
+    description: 'Seiten, die langsam laden, Plugins außer Betrieb, Skripte, die hinter der Firewall stillschweigend versagen. Die Infrastruktur legt das Fundament. Steht es erst stabil, entscheidet die Strahlkraft der Marke darüber, ob Kunden wiederkommen.',
+  },
+];
+
+const trustPointsDe: TrustPoint[] = [
+  {
+    title: 'Geschwindigkeit, schwarz auf weiß belegt',
+    description: 'Im Schnitt unter 3 Sekunden Ladezeit bei den Websites, die wir in China ausliefern. Bilder, Skripte, Schriften, CDN-Routing: Jedes Glied ist auf die lokalen Netze abgestimmt.',
+  },
+  {
+    title: 'Die Compliance erledigen wir komplett',
+    description: 'ICP-Lizenz, redaktionelle Freigabe, jede regulatorische Auflage: Wir bringen die Akte bis zum letzten Stempel. Ihr Team fasst die chinesische Bürokratie nie an.',
+  },
+  {
+    title: 'Mehrsprachiges Team, ohne Reibungsverluste',
+    description: 'Sie arbeiten mit Ansprechpartnern, die mühelos zwischen Deutsch und Englisch wechseln und ihren Alltag auf Chinesisch bestreiten. Kein Missverständnis durch Übersetzung, kein Schweigen, das auf die Zeitzone geschoben wird.',
+  },
+  {
+    title: 'Ein einziges Feld: China',
+    description: 'Wir machen genau eine Sache: Websites bauen und pflegen, die in China funktionieren. Baidu, WeChat, die Firewall, die chinesischen KI-Dienste. In jedem Projekt, in jeder Zeile Code.',
+  },
+];
+
 export function getProblems(lang: Locale): Problem[] {
   if (lang === 'fr') return problemsFr;
   if (lang === 'es') return problemsEs;
+  if (lang === 'de') return problemsDe;
   return problemsEn;
 }
 
 export function getTrustPoints(lang: Locale): TrustPoint[] {
   if (lang === 'fr') return trustPointsFr;
   if (lang === 'es') return trustPointsEs;
+  if (lang === 'de') return trustPointsDe;
   return trustPointsEn;
 }

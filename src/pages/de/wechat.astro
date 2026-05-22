@@ -1,0 +1,1552 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
+
+const metaTitle = 'WeChat Mini Programs und H5-Sites für ausländische Marken in China';
+const metaDescription = 'WeChat ist das Betriebssystem, in dem 1,4 Milliarden chinesische Verbraucher ihren Tag verbringen. Wir bauen die Mini Programs und H5-Mini-Sites, die Ihre Marke dorthin bringen, wo Ihre Kunden ohnehin schon sind.';
+
+const dayMoments = [
+  { time: '07:30', icon: 'qr', label: 'Kaffee am Morgen', body: 'QR-Code der Bäckerei scannen, mit WeChat Pay bezahlen, Punkte landen automatisch auf dem Konto.' },
+  { time: '10:00', icon: 'card', label: 'Treuestufe', body: 'Vor dem zweiten Kaffee kurz die Mitgliedskarte der Marke öffnen. Stufe geprüft, Gratis-Upgrade.' },
+  { time: '12:30', icon: 'cart', label: 'Mittagsbestellung', body: 'Mini Program des Nudelladens um die Ecke. Vorbestellt, beim Eintreffen fertig.' },
+  { time: '15:00', icon: 'shield', label: 'Service-Anfrage', body: 'Garantiestatus eines Küchengeräts. Mini Program der Marke. Kein Login nötig.' },
+  { time: '19:00', icon: 'bag', label: 'Einkauf am Abend', body: 'Mini Program einer Pflegemarke. Gespeicherter Warenkorb, WeChat Pay, Bestellung im Verlauf abgelegt.' },
+  { time: '21:30', icon: 'video', label: 'Livestream auf Channels', body: 'Eine Lieblings-Moderatorin auf Channels. Produkt antippen, kaufen, kein Bruch im Kaufvorgang.' },
+];
+
+const compareRows = [
+  { label: 'Läuft', mp: 'Innerhalb von WeChat, wie eine native App', h5: 'Im WeChat-Browser, und auch außerhalb' },
+  { label: 'WeChat Pay', mp: 'Ja, volle Integration', h5: 'Eingeschränkt, setzt einen verknüpften Official Account voraus' },
+  { label: 'Native APIs', mp: 'Kamera, Standort, Scan, Login', h5: 'Nur Browser-Funktionen' },
+  { label: 'Entwicklungsdauer', mp: '10 bis 14 Wochen', h5: '4 bis 6 Wochen' },
+  { label: 'Geeignet für', mp: 'Mitgliedschaft, E-Commerce, Service', h5: 'Kampagnen, Broschüren, Lead-Erfassung' },
+];
+
+const useCases = [
+  {
+    icon: 'badge',
+    title: 'Mitgliedschaft und Treue',
+    body: 'Der häufigste Anwendungsfall für ausländische Marken. Das Mini Program hält die Karte, zählt die Punkte, liefert personalisierte Prämien. Starbucks China betreibt sein gesamtes Treueprogramm auf diese Weise.',
+    image: '/images/wechat-usecase-membership-mockup.webp',
+    span: 'image',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Markenerlebnis',
+    body: 'Für Luxus, Beauty und Lifestyle: ein kuratierter Inhaltsraum. Kampagnenfilme, Gründergeschichten, Produktlexika, Filialfinder, virtuelle Anprobe, alles innerhalb von WeChat.',
+    image: '/images/wechat-usecase-content-hub-mockup.webp',
+    span: 'image',
+  },
+  {
+    icon: 'video',
+    title: 'D2C und Channels-Livestream',
+    body: 'Direkt verkaufen, ohne Tmall oder JD ihre Provision zu zahlen. Mini Program plus WeChat Pay, mit eigenem Traffic aus Community-Gruppen und Channels-Livestreams.',
+    image: '/images/wechat-usecase-livestream-mockup.webp',
+    span: 'image',
+  },
+  {
+    icon: 'rocket',
+    title: 'Vorbestellungen und Produktstarts',
+    body: 'Bei saisonalen Drops oder Kampagnenstarts bleibt der Vorbestell-Ablauf innerhalb von WeChat. Keine externe Seite, keine Reibung, deutlich höhere Conversion.',
+    span: 'text',
+  },
+  {
+    icon: 'users',
+    title: 'After-Sales-Service und CRM',
+    body: 'Kundendienst, Garantieregistrierung, Reparaturtermine, Support. Der Kunde lädt nie eine App herunter und merkt sich kein Passwort.',
+    span: 'text',
+  },
+  {
+    icon: 'briefcase',
+    title: 'B2B-Broschüren und Kataloge',
+    body: 'Eine H5-Broschüre oder ein Mini-Program-Katalog ist nützlicher als ein PDF. Vertriebsmitarbeiter teilen sie im Chat, Interessenten blättern direkt aus dem Gespräch heraus.',
+    span: 'text',
+  },
+  {
+    icon: 'qrcode',
+    title: 'Offline-Online-Verknüpfung',
+    body: 'QR-Codes auf Verpackungen, in Geschäften, im Print, die alle direkt in ein Mini Program führen. In China ist der QR-Code das Tor zu allem. Ohne ein Ziel am anderen Ende ist die Fläche verschenkt.',
+    span: 'wide',
+    badges: ['Verpackung', 'Im Geschäft', 'Print', 'Events', 'Außenwerbung'],
+  },
+];
+
+const techGroups = [
+  {
+    label: 'Nativ',
+    cn: '原生',
+    accent: 'emerald',
+    headline: 'WXML, WXSS, JavaScript',
+    body: 'Der offizielle Tencent-Stack. Neue APIs erscheinen hier zuerst, die Prüfer bevorzugen ihn, die langfristige Wartbarkeit ist am besten. Unsere Standardwahl für reine WeChat-Projekte.',
+    tags: ['WXML', 'WXSS', 'JS', 'Cloud Development'],
+  },
+  {
+    label: 'Plattformübergreifend',
+    cn: '跨端',
+    accent: 'orange',
+    headline: 'Taro und UniApp',
+    body: 'Eine Codebasis, mehrere chinesische Mini-Program-Plattformen. Taro für React-Teams, UniApp für Vue-Teams oder die breiteste Zielliste. Die richtige Wahl, wenn Sie WeChat plus Alipay oder Douyin brauchen.',
+    tags: ['Taro', 'UniApp', 'React', 'Vue'],
+  },
+  {
+    label: 'UI-Systeme',
+    cn: '组件库',
+    accent: 'amber',
+    headline: 'Vant Weapp und TDesign',
+    body: 'Vant Weapp für marketinggetriebene und E-Commerce-Projekte. TDesign, Tencents eigenes Enterprise-Designsystem, für komplexe B2B-Anwendungen. TypeScript in jedem Projekt mit ernsthafter Größe.',
+    tags: ['Vant Weapp', 'TDesign', 'TypeScript'],
+  },
+  {
+    label: 'Backend',
+    cn: '后端',
+    accent: 'sky',
+    headline: 'Aliyun, Tencent Cloud, PIPL',
+    body: 'Sichere APIs über Aliyun oder Tencent Cloud, mit Authentifizierung auf chinesischer Seite. Die Datenlokalisierung erfüllt PIPL und das Cybersicherheitsgesetz. CRM- und ERP-Integration nach Bedarf.',
+    tags: ['Aliyun', 'Tencent Cloud', 'PIPL', 'CRM/ERP'],
+  },
+];
+
+const ecosystemStats = [
+  { value: '3M+', label: 'Mini Programs im produktiven Einsatz' },
+  { value: '450M', label: 'täglich aktive Mini-Program-Nutzer' },
+  { value: '949M', label: 'monatlich aktive Mini-Program-Nutzer' },
+];
+
+const saasCategories = [
+  {
+    icon: 'cart',
+    title: 'E-Commerce-SaaS',
+    cn: '电商 SaaS',
+    body: 'Shops, Kataloge, WeChat Pay, Gruppenkäufe (拼团), Flash-Sales (秒杀), Gutscheine (优惠券). Etablierte Anbieter ab 6.800 CNY pro Jahr, neuere No-Code-Plattformen ab 1.000 bis 2.000 CNY.',
+    items: [
+      { en: 'Youzan', cn: '有赞' },
+      { en: 'Weimob', cn: '微盟' },
+      { en: 'Weidian', cn: '微店' },
+      { en: 'Miaopu', cn: '妙铺' },
+      { en: 'Qiaotuoyun', cn: '乔拓云' },
+      { en: 'Guaguazan', cn: '呱呱赞' },
+    ],
+    span: 'feature',
+  },
+  {
+    icon: 'badge',
+    title: 'Treue, CRM, SCRM',
+    cn: '会员与营销',
+    body: 'SCRM-Plattformen für Mitglieder-Tagging (会员标签), Verhaltensauswertung, automatisierte Customer Journeys und personalisierte Nachrichten über das Unternehmens-WeChat. Globale Setups mit Salesforce, HubSpot oder Zendesk binden sich über Konnektoren an.',
+    items: [
+      { en: 'Parllay', cn: '' },
+      { en: 'Weiban', cn: '微伴助手' },
+      { en: 'Wesheng', cn: '微盛' },
+      { en: 'WeCom', cn: '企业微信' },
+    ],
+    span: 'feature',
+  },
+  {
+    icon: 'utensils',
+    title: 'Gastronomie und Restaurantbetrieb',
+    cn: '餐饮',
+    body: 'Die meisten Restaurantketten in China laufen auf einem dieser Systeme. Bestellung per Scan (扫码点餐), Reservierungen, Warteschlangenverwaltung (排队叫号), Lieferung, Treueprämien. McDonald\'s China und Starbucks (星享俱乐部) setzen auf diesen Stack.',
+    items: [
+      { en: 'Meituan F&B', cn: '美团餐饮' },
+      { en: 'Keruyun', cn: '客如云' },
+      { en: '2Dfire', cn: '二维火' },
+      { en: 'Hualala', cn: '哗啦啦' },
+      { en: 'Weimob F&B', cn: '微盟智慧餐饮' },
+    ],
+    span: 'normal',
+  },
+  {
+    icon: 'calendar',
+    title: 'Buchung, Events, Inhalte',
+    cn: '预订与内容',
+    body: 'DerbySoft und Tongcheng für Hotels (Club Med setzte für das Wachstum der Direktbuchungen auf DerbySoft). Damai, Huodongxing und Yoopay für Ticketing. Channels und WeChat Live für Livestreams. Audemars Piguet nutzt Buchungen direkt im Mini Program für das Clienteling.',
+    items: [
+      { en: 'DerbySoft', cn: '' },
+      { en: 'Tongcheng', cn: '同程' },
+      { en: 'Damai', cn: '大麦' },
+      { en: 'Huodongxing', cn: '互动吧' },
+      { en: 'Channels', cn: '视频号' },
+    ],
+    span: 'normal',
+  },
+  {
+    icon: 'layers',
+    title: 'Branchen- und B2B-Lösungen',
+    cn: '垂直行业',
+    body: 'Branchenspezifische SaaS, die wir gut kennen: Bildung (打卡), Beauty (美业), Immobilien (看房), Automobil (售后), Gesundheit (挂号). B2B-Vertriebsteams arbeiten mit WeCom und Tencent Meeting.',
+    items: [
+      { en: 'WeCom', cn: '企业微信' },
+      { en: 'Tencent Meeting', cn: '腾讯会议' },
+      { en: 'Bildung', cn: '教育' },
+      { en: 'Beauty', cn: '美业' },
+      { en: 'Gesundheit', cn: '医疗' },
+    ],
+    span: 'normal',
+  },
+];
+
+const wecomFits = [
+  {
+    icon: 'storefront',
+    title: 'Einzelhandel und Clienteling',
+    body: 'Verkaufspersonal, Beauty-Berater und Uhrenspezialisten halten zwischen den Besuchen über ein WeCom-Konto Kontakt zu ihren Kunden. Lin Qing Xuan (林清轩) und Florasis (花西子) setzen beide auf dieses Modell.',
+  },
+  {
+    icon: 'briefcase',
+    title: 'B2B-Vertriebsteams',
+    body: 'Ersetzt das Durcheinander privater WeChat-Konten durch ein verwaltetes, prüfbares System. Dokumente, Freigaben, Videokonferenzen über Tencent Meeting (腾讯会议), alles in einer App.',
+  },
+  {
+    icon: 'headphones',
+    title: 'Kundenservice',
+    body: 'Anfragen aus Ihrem Mini Program, Ihrem Official Account oder über einen QR-Code landen in WeCom und werden an den richtigen Mitarbeiter weitergeleitet, in einem System, das die Rechtsabteilung prüfen kann.',
+  },
+  {
+    icon: 'magnet',
+    title: 'Private-Traffic-Betrieb',
+    cn: '私域运营',
+    body: 'Publikum aus öffentlichen Kanälen (Xiaohongshu, Douyin, bezahlte Medien, QR-Codes im Geschäft) in einen WeCom-Kontakt überführen und dann über Eins-zu-eins-Chats und kuratierte Inhalte pflegen. So bauen Marken echten D2C-Umsatz auf, ohne Tmall und JD ihre Provision zu zahlen.',
+  },
+  {
+    icon: 'team',
+    title: 'Interne Zusammenarbeit',
+    body: 'Dient dem China-Büro zugleich als Slack und Teams. Dokumente, Videokonferenzen, Freigaben, alles auf chinesischen Servern, alles in einer App.',
+  },
+];
+
+const handleSteps = [
+  {
+    icon: 'badge',
+    title: 'Kontoregistrierung und Verifizierung',
+    body: 'Über Ihre WFOE, einen lokalen Partner oder ein Setup mit reinem Service-Account. Unterlagen, Gebühren, Identitätsprüfungen, das Hin und Her mit Tencent.',
+  },
+  {
+    icon: 'shield',
+    title: 'MIIT-Registrierung des Mini Program (小程序备案)',
+    body: 'Seit 2023 verpflichtend. Chinesische Gewerbelizenz, ICP-registrierte Domain, Kategoriefreigaben. Wir kümmern uns um das 24-Stunden-SMS-Fenster, an dem Erstregistrierungen oft scheitern.',
+  },
+  {
+    icon: 'server',
+    title: 'ICP-Registrierung der zugehörigen Domain',
+    body: 'Erforderlich für Mini Programs mit Backend. Aliyun, Tencent Cloud oder Huawei Cloud, je nach Ihrem Stack.',
+  },
+  {
+    icon: 'card',
+    title: 'WeChat-Pay-Integration',
+    body: 'Händlerkonto, Zertifikatserstellung, API, Testzyklus, von Anfang bis Ende. Das Teilstück, das ohne lokale Präsenz am häufigsten bricht.',
+  },
+  {
+    icon: 'lock',
+    title: 'Datenschutz-Konformität (用户隐私保护指引)',
+    body: 'Richtlinie, In-App-Einwilligungsdialog, prüfbar gegen die WeChat-Vorgaben. Damit das Mini Program die Prüfung beim ersten Mal besteht.',
+  },
+  {
+    icon: 'zap',
+    title: 'Performance und Prüfbereitschaft',
+    body: 'Bundle-Größe, Ladezeit, API-Frequenz, Inhaltsmoderation. Abgestimmt auf das, worauf die Tencent-Prüfer wirklich achten.',
+  },
+];
+
+const wechatStack = [
+  { name: 'Mini Program', cn: '小程序', role: 'Anwendung' },
+  { name: 'Official Account', cn: '公众号', role: 'Kanal' },
+  { name: 'WeChat Pay', cn: '微信支付', role: 'Zahlungen' },
+  { name: 'WeChat Channels', cn: '视频号', role: 'Video und Live' },
+  { name: 'Enterprise WeChat', cn: '企业微信', role: 'B2B und CRM' },
+  { name: 'Cloud Development', cn: '微信云开发', role: 'Backend' },
+];
+
+const faqs = [
+  {
+    id: 'wechat-foreign-entity',
+    question: 'Kann unser ausländisches Unternehmen ein WeChat Mini Program direkt registrieren?',
+    answer: 'Ja, aber mit eingeschränktem Funktionsumfang. Ein Mini Program einer ausländischen Gesellschaft lässt sich über apply.wechat.com registrieren, doch das resultierende Konto ist im chinesischen Festland nicht vollständig sichtbar und hat keinen Zugriff auf WeChat Pay oder die vollen Werbefunktionen. Für ein echtes, auf China ausgerichtetes Mini Program brauchen Sie eine chinesische Gewerbelizenz, entweder über eine eigene WFOE oder über einen lokalen Partner.',
+  },
+  {
+    id: 'wechat-wfoe',
+    question: 'Brauchen wir eine WFOE, um auf WeChat zu starten?',
+    answer: 'Für den vollen Funktionsumfang (Sichtbarkeit im Festland, WeChat Pay, volle Werbung, alle nativen APIs) brauchen Sie in der Praxis eine chinesische Geschäftseinheit. Der Aufbau einer WFOE dauert drei bis sechs Monate. Die schnellere Alternative ist ein Start unter der chinesischen Lizenz eines Partners, was wir gern für Sie organisieren.',
+  },
+  {
+    id: 'wechat-oa-vs-mp',
+    question: 'Was ist der Unterschied zwischen einem Official Account und einem Mini Program?',
+    answer: 'Der Official Account (公众号) ist Ihre Markenpräsenz und Ihr Inhaltskanal innerhalb von WeChat: Follower, redaktionelle Beiträge, Kundenservice. Das Mini Program (小程序) ist die eigentliche Anwendung: E-Commerce, Mitgliedschaft, Buchung, alles Funktionale. Die meisten ausländischen Marken brauchen beides. Der Official Account ist der Marketingkanal, das Mini Program ist das Produkt.',
+  },
+  {
+    id: 'wechat-discovery',
+    question: 'Wie finden Nutzer ein Mini Program?',
+    answer: 'Über viele Einstiegspunkte: Suche innerhalb von WeChat, QR-Code-Scan, Weitergabe von einem Freund, Link aus Ihrem Official Account, Anzeige in WeChat Moments, Link aus Xiaohongshu, NFC-Tipp, Sprachbefehl. Das Mini-Program-Ökosystem hat rund fünfzehn Einstiegsflächen, und wir planen die Auffindbarkeit vom ersten Tag an in das Projekt ein.',
+  },
+  {
+    id: 'wechat-crm-integration',
+    question: 'Können wir unser bestehendes CRM und Backend mit einem Mini Program nutzen?',
+    answer: 'Ja. Wir richten sichere APIs ein, die das Mini Program mit Ihrem bestehenden CRM, ERP oder Produktsystem verbinden. Daten, die in China bleiben müssen, bleiben für die PIPL-Konformität in China, der Rest fließt in Ihren globalen Stack.',
+  },
+  {
+    id: 'wechat-cost',
+    question: 'Wie viel kostet der Bau eines Mini Program?',
+    answer: 'Das hängt vom Umfang ab. Ein einfaches Mitgliedschafts- oder Broschüren-Mini-Program ist ein kleineres Vorhaben. Eine vollständige E-Commerce-Plattform mit Mini Program, H5-Katalog, WeChat Pay, Livestream-Anbindung und CRM-Integration ist ein deutlich größeres Projekt. Nennen Sie uns den Umfang, und Sie erhalten innerhalb von zwei Werktagen ein konkretes Angebot.',
+  },
+  {
+    id: 'wechat-taro-uniapp',
+    question: 'Können wir Taro oder UniApp statt nativer Entwicklung verwenden?',
+    answer: 'Ja, und das tun wir oft. Mit Taro und UniApp lässt sich eine Codebasis gleichzeitig nach WeChat, Alipay, Douyin, Baidu und H5 ausliefern. Sinnvoll, wenn Sie eine Präsenz auf mehreren Plattformen brauchen. Für reine WeChat-Projekte empfehlen wir wegen Performance und API-Zugriff meist native Entwicklung.',
+  },
+  {
+    id: 'wechat-updates',
+    question: 'Wie funktionieren Updates bei einem Mini Program?',
+    answer: 'Sie veröffentlichen eine neue Version über die WeChat-Entwicklerkonsole, Tencent prüft sie (in der Regel 24 bis 48 Stunden), und die neue Version wird automatisch ausgerollt, sobald Nutzer das Mini Program das nächste Mal öffnen. Keine App-Store-Prüfung, kein Zutun der Nutzer. Das ist einer der echten Vorteile gegenüber einer nativen iOS- oder Android-App.',
+  },
+  {
+    id: 'wechat-rejection',
+    question: 'Was passiert, wenn unser Mini Program abgelehnt oder gesperrt wird?',
+    answer: 'Beides kommt vor, besonders bei den ersten Einreichungen. Ablehnungen betreffen meist die Inhaltskonformität, die Datenschutzrichtlinie oder die Performance-Bewertung. Sperren sind seltener, können aber bei Inhaltsverstößen oder Compliance-Mängeln auftreten. Wir übernehmen die erneute Einreichung und das Einspruchsverfahren. Bisher ist jedes von uns eingereichte Mini Program letztlich live gegangen.',
+  },
+  {
+    id: 'wechat-enterprise',
+    question: 'Wie sieht es mit Enterprise WeChat (企业微信) für B2B aus?',
+    answer: 'Anderes Produkt, anderer Anwendungsfall. Enterprise WeChat ist Tencents Werkzeug für B2B und interne Kommunikation, genutzt für Vertriebsteams, Kundenservice-Abläufe und CRM-artiges Beziehungsmanagement mit chinesischen Kunden. Wir bauen auch innerhalb von Enterprise WeChat, meist für B2B-Marken, bei denen die Vertriebsbeziehung über einzelne Mitarbeiter statt über ein öffentliches Mini Program läuft.',
+  },
+  {
+    id: 'wechat-retention',
+    question: 'Warum öffnen Nutzer unser Mini Program einmal und kommen nie wieder?',
+    answer: 'Das häufigste Problem nach dem Start. Auffindbarkeit allein genügt nicht, Sie brauchen Gründe zur Rückkehr. Mitgliedsstufen, die sich verändern, Punkte, die verfallen, exklusive Inhalte, Livestream-Wiederholungen, Wiederverfügbarkeits-Hinweise, Service-Nutzen (Garantie, Reparatur, Buchung). Die Mini Programs, die Nutzer immer wieder zurückholen, planen wiederkehrende Besuche von Anfang an ein. Wenn Ihr Mini Program nur eine übersetzte Broschüre ist, kommen die Nutzer nicht zurück. Wir bauen Retention-Schleifen in die Strategiephase ein, nicht erst nach dem Start.',
+  },
+  {
+    id: 'wechat-kpis',
+    question: 'Wie messen wir Erfolg auf WeChat?',
+    answer: 'Mit anderen Kennzahlen als im westlichen Web. Die ehrlichen: monatlich aktive Nutzer (MAU), Wiederbesuchsrate, Conversion zur Mitgliedschaft, gesammelte Punkte pro aktivem Nutzer, WeChat-Pay-GMV, Anzahl der Moments-Shares, Spitzenzuschauerzahl im Livestream, Follower-Wachstum auf Channels. Vergessen Sie Google Analytics, es funktioniert hier ohnehin nicht. Die eingebaute WeChat-Analytik, dazu ein SCRM-Dashboard wie Parllay oder Weiban und Ihr eigener Event-Stream nach Salesforce oder HubSpot decken ab, was Sie brauchen.',
+  },
+  {
+    id: 'wechat-vs-tmall',
+    question: 'Sollten wir zuerst ein Mini Program oder einen Tmall-Flagship-Store starten?',
+    answer: 'Sie erfüllen verschiedene Aufgaben. Tmall sorgt für Reichweite und Sichtbarkeit bei neuen Käufern, das Mini Program steht für eigenes Publikum, Wiederkäufe und niedrigere Provision. Die meisten mittleren bis großen Marken betreiben am Ende beides. Wenn das Budget zu einer Entscheidung zwingt: starker eigener Private Traffic und hohe Markenbekanntheit sprechen für das Mini Program zuerst, schwache Markenbekanntheit spricht für Tmall zuerst. Das Mini Program gibt Ihnen die langfristige Marge und die Kundenbeziehung, Tmall gibt Ihnen das Volumen zum Start.',
+  },
+  {
+    id: 'wechat-roi-timeline',
+    question: 'Wie lange dauert es, bis sich ein Mini Program rentiert?',
+    answer: 'Der Bau selbst dauert 10 bis 14 Wochen. In den ersten drei bis sechs Monaten nach dem Start geht es darum, Private Traffic aufzubauen, die Mitgliedschaft wachsen zu lassen und den Betriebsrhythmus zu finden. Die meisten Marken sehen ab dem vierten Monat spürbaren Umsatz aus Wiederkäufen, und die Kurve verstärkt sich über das erste Jahr. Die Rendite im ersten Jahr schwankt stark mit dem Betriebsmodell und der Offline-Online-Verknüpfung. Marken, die das Mini Program ins Filialerlebnis einbinden, sehen die Rendite meist deutlich schneller.',
+  },
+  {
+    id: 'wechat-team',
+    question: 'Welches lokale Team brauchen wir, um das Mini Program zu betreiben?',
+    answer: 'Eine gewisse Präsenz in China ist nötig. Die meisten unserer Kunden führen ein kleines Team in Shanghai mit ein bis drei Personen: Inhalte, Kundenservice, Livestream-Betrieb. Sie ergänzen es mit externer Agenturunterstützung für SCRM, bezahlte Medien und KOL-Beziehungen. Ein reiner Betrieb aus dem Ausland funktioniert nicht, der Rhythmus ist zu schnell und die Plattform ändert sich zu rasch. Wir bieten außerdem ein Co-Management-Modell für Marken an, die schlank starten und das lokale Team schrittweise aufbauen wollen.',
+  },
+  {
+    id: 'wechat-brand-consistency',
+    question: 'Wie halten wir die Markenkonsistenz zwischen unserer globalen Website und unserem Mini Program?',
+    answer: 'Identität ja, UX nein. Die meisten ausländischen Marken gestalten die China-Oberfläche wie einen übersetzten westlichen Ablauf, und chinesische Nutzer spüren das sofort. Wir beginnen die China-Gestaltung mit lokalen Vergleichsmaßstäben (Xiaohongshu, native Mini Programs Ihrer Kategorie) und behalten Logo, Farbe, Typografie, Tonalität und Markenpfeiler bei, passen aber Layout, Navigationsdichte und den Stil der Handlungsaufforderungen an lokale Erwartungen an. Die Marke bleibt sie selbst, das Erlebnis spricht die lokale Sprache.',
+  },
+  {
+    id: 'wechat-channels',
+    question: 'Sollten wir WeChat Channels (视频号) selbst betreiben oder mit KOLs arbeiten?',
+    answer: 'Die meisten tun beides. Markeneigene Channels für inhaltliche Tiefe, Storytelling und volle Kontrolle über den Funnel, KOL-Livestreams für Reichweitenspitzen bei Starts und saisonalen Momenten. Channels ist derzeit die am schnellsten wachsende Fläche innerhalb von WeChat, und Tencent treibt sie stark voran. Hier ernsthaft zu investieren ist 2025 einer der wirkungsvollsten Schritte für eine ausländische Marke. Wir unterstützen beim Produktions-Setup, beim Sende-Rhythmus und bei der KOL-Auswahl.',
+  },
+  {
+    id: 'wechat-private-traffic',
+    question: 'Was ist Private Traffic (私域流量) und warum geht es genau darum?',
+    answer: 'Private Traffic ist das Publikum, das Sie erreichen können, ohne jedes Mal Werbegebühren zu zahlen: wiederkehrende Mini-Program-Nutzer, Abonnenten des Official Account, Mitglieder von Community-Gruppen (微信群), WeCom-Kontakte. Der Aufbau ist langsam, der Zinseszinseffekt real. Es ist der wichtigste Grund, warum ausländische Marken für das lange Spiel Mini Programs einer reinen Tmall-Strategie vorziehen. Die Marken, die in fünf Jahren auf WeChat gewinnen, sind diejenigen, die heute mit dem Aufbau von Private Traffic beginnen.',
+  },
+  {
+    id: 'wechat-cbec',
+    question: 'Können wir ohne lokale Gesellschaft über grenzüberschreitenden E-Commerce nach China verkaufen?',
+    answer: 'Ja, über CBEC-Zollfreizonen (跨境电商保税区). Sie können ohne chinesische Gesellschaft nach China verkaufen und zahlen dabei CBEC-Abgaben. Die Grenzen sind real: die WeChat-Pay-Unterstützung ist lückenhaft, die Produktkategorien sind eingeschränkt, und es gilt ein jährliches Ausgabenlimit von 26.000 CNY pro Person. CBEC eignet sich gut als Markttest für Kosmetik, Nahrungsergänzung und Mode im mittleren Preissegment. Für eine echte, langfristige China-Präsenz mit vollem Mini-Program-Funktionsumfang bleibt eine lokale Gesellschaft der bessere Weg.',
+  },
+  {
+    id: 'wechat-multiple-mp',
+    question: 'Sollten wir ein Mini Program haben oder mehrere?',
+    answer: 'Das hängt von den Zielgruppen ab. Ein Mini Program, wenn sich Ihre B2C-, B2B- und After-Sales-Zielgruppen überschneiden und von einer gemeinsamen Oberfläche profitieren. Mehrere Mini Programs, über das Sub-Program-System von WeChat verknüpft, wenn die Zielgruppen unterschiedlich genug sind, dass eine Vermischung das Erlebnis verwässert: ein eigenes Service-Mini-Program für Garantie und After-Sales, ein Mitgliedschafts-Mini-Program für treue Kunden, ein Markenerlebnis-Mini-Program für Inhalte. Das klären wir in der Strategiephase, nicht nach dem Start.',
+  },
+];
+
+const accentMap: Record<string, { dot: string; tag: string }> = {
+  emerald: { dot: 'bg-emerald-400', tag: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/25' },
+  orange: { dot: 'bg-[var(--color-brand-orange)]', tag: 'bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)] border-[var(--color-brand-orange)]/25' },
+  amber: { dot: 'bg-amber-400', tag: 'bg-amber-500/15 text-amber-300 border-amber-500/25' },
+  sky: { dot: 'bg-sky-400', tag: 'bg-sky-500/15 text-sky-300 border-sky-500/25' },
+};
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+
+  <ScrollEffects />
+
+  <!-- ===== HERO ===== -->
+  <section class="relative bg-[#07090a] overflow-hidden">
+    <!-- Background: Chinese consumer using a WeChat loyalty app -->
+    <div class="absolute inset-0">
+      <img src="/images/hero-wechat-loyalty-consumer.webp" alt="Eine junge Chinesin in einem Café in Shanghai nutzt auf ihrem Smartphone ein WeChat Mini Program für ein Markentreueprogramm" class="absolute inset-0 w-full h-full object-cover object-right" loading="eager" decoding="async" />
+      <!-- Strong wash on left for headline contrast, image visible on right -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07090a] via-[#07090a]/92 via-35% to-[#07090a]/10"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#07090a] to-transparent"></div>
+      <!-- Emerald glow behind subject -->
+      <div class="absolute top-1/2 right-[20%] w-[500px] h-[500px] -translate-y-1/2 bg-emerald-500/12 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Breadcrumb" class="pt-20 pb-12">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/de/" class="hover:text-white/70 transition-colors no-underline">Startseite</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">WeChat</li>
+        </ol>
+      </nav>
+
+      <div class="grid grid-cols-12 gap-8 items-center pb-24 md:pb-32 lg:pb-40 pt-8 lg:pt-16">
+        <div class="col-span-12 lg:col-span-7 xl:col-span-7">
+          <!-- WeChat logo brand mark -->
+          <div class="flex items-center gap-4 mb-8">
+            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shadow-[0_8px_30px_rgba(16,185,129,0.4)]">
+              <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor" aria-label="WeChat logo">
+                <path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/>
+              </svg>
+              <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-[#07090a] animate-pulse"></span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25">
+              <span class="text-xs font-semibold uppercase tracking-wider text-emerald-300">Technologie · 微信</span>
+            </div>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[72px] xl:text-[84px] font-medium font-[var(--font-heading)] text-white leading-[0.98] tracking-tight">
+            WeChat ist keine
+            <span class="block text-white/30">App.</span>
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Es ist das Betriebssystem.</span>
+          </h1>
+          <p class="mt-10 text-lg lg:text-xl text-white/65 max-w-xl leading-relaxed">
+            1,4 Milliarden Menschen öffnen WeChat dutzende Male am Tag. Gespräche, Zahlungen, Treuekarten, Einkäufe, die Markenbeziehung selbst, alles davon lebt in einer einzigen App.
+          </p>
+          <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
+            Wir bauen Mini Programs und H5-Mini-Sites für ausländische Marken. Zwanzig Jahre vor Ort in Shanghai.
+          </p>
+
+          <div class="mt-12 flex flex-wrap gap-4">
+            <Button href="/de/kontakt/" variant="primary" size="lg">Mit unserem Team sprechen</Button>
+            <Button href="/de/leistungen/strategie-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Mit der Strategie beginnen</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STAT BANNER ===== -->
+  <section class="relative bg-white border-b border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div class="col-span-12 lg:col-span-5 lg:border-r lg:border-[var(--color-surface-border)] lg:pr-10">
+          <div class="flex items-baseline gap-3">
+            <span class="text-7xl lg:text-[120px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count="1.41" data-count-suffix="B">0</span>
+            <span class="text-4xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none">Mrd.</span>
+          </div>
+          <p class="mt-4 text-lg text-[var(--color-text-dark)] font-medium leading-snug">
+            monatlich aktive WeChat-Nutzer im Jahr 2025.
+          </p>
+          <p class="mt-1 text-sm text-[var(--color-text-muted)]">Tencent, Geschäftszahlen Q4 2024.</p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums" data-count="945" data-count-suffix="M">0</span>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none">Mio.</span>
+            </div>
+            <p class="mt-3 text-sm text-[var(--color-text-body)] leading-snug">
+              monatliche Mini-Program-Nutzer
+            </p>
+            <p class="text-xs text-[var(--color-text-muted)] mt-1">QuestMobile, 2025</p>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums" data-count="79" data-count-suffix="">0</span>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none">Min.</span>
+            </div>
+            <p class="mt-3 text-sm text-[var(--color-text-body)] leading-snug">
+              verbringt jeder chinesische Nutzer täglich in WeChat
+            </p>
+            <p class="text-xs text-[var(--color-text-muted)] mt-1">QuestMobile, Jahresbericht</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== A DAY INSIDE WECHAT ===== -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <!-- Decorative grid -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px); background-size: 48px 48px;"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-12 gap-6 lg:gap-10 items-end mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Ein Tag in WeChat
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+            Vom Scan am Morgen
+            <span class="block text-[var(--color-text-muted)]">bis zum Livestream am Abend.</span>
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Ein typischer Tag eines chinesischen Verbrauchers. Sechs Momente, in denen WeChat die Standardwahl ist. Die Markenbeziehung lebt dort, oder sie existiert nicht.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline rail -->
+      <div class="relative">
+        <div class="hidden lg:block absolute left-0 right-0 top-[60px] h-px bg-gradient-to-r from-transparent via-[var(--color-brand-orange)]/30 to-transparent"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-3">
+          {dayMoments.map((m, i) => (
+            <div class="group relative">
+              <!-- Time chip with dot -->
+              <div class="flex items-center gap-2 mb-3">
+                <span class="relative flex w-3 h-3 items-center justify-center">
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)]/30"></span>
+                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-brand-orange)]"></span>
+                </span>
+                <span class="text-xs font-mono font-semibold text-[var(--color-brand-orange)] tabular-nums">{m.time}</span>
+              </div>
+
+              <article class="relative bg-white rounded-2xl border border-[var(--color-surface-border)] p-5 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1 hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.25)] transition-all duration-300 h-full">
+                <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                  {m.icon === 'qr' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h2v2"/><path d="M18 14h3v3"/><path d="M14 18v3"/><path d="M18 21h3"/></svg>
+                  )}
+                  {m.icon === 'card' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                  )}
+                  {m.icon === 'cart' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                  )}
+                  {m.icon === 'shield' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  )}
+                  {m.icon === 'bag' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                  )}
+                  {m.icon === 'video' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  )}
+                </div>
+                <h3 class="text-sm font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">
+                  {m.label}
+                </h3>
+                <p class="text-[13px] text-[var(--color-text-body)] leading-relaxed">
+                  {m.body}
+                </p>
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <p class="mt-12 text-center text-base lg:text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed italic">
+        Kein Instagram, kein WhatsApp, kein PayPal. WeChat ersetzt sie alle.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== MINI PROGRAM VS H5 ===== -->
+  <section class="section-spacing bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-16">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Mini Program oder H5
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+          Beide leben in WeChat,
+          <span class="block text-[var(--color-text-muted)]">aber sie sind nicht dasselbe.</span>
+        </h2>
+      </div>
+
+      <!-- Phone screenshots side by side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-12">
+        <!-- Mini Program -->
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/30 to-transparent rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+          <div class="relative bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] rounded-3xl overflow-hidden border border-emerald-500/20">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="/images/wechat-mini-program-screen-mockup.webp" alt="Mockup einer nativen WeChat-Mini-Program-Oberfläche mit Tab-Navigation, Mitgliedskarte und Produktraster" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-400/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-mono font-semibold text-emerald-300 uppercase tracking-wider">Nativ</span>
+              </div>
+            </div>
+            <div class="p-7 lg:p-8">
+              <div class="flex items-center gap-3 mb-3">
+                <svg class="w-7 h-7 text-emerald-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/>
+                </svg>
+                <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-tight">
+                  Mini Program <span class="text-white/40 text-xl">小程序</span>
+                </h3>
+              </div>
+              <p class="text-[15px] text-white/65 leading-relaxed mb-6">
+                Nativ, lebt innerhalb von WeChat. Voller Zugriff auf WeChat Pay, Login, Kamera, Standort. Die richtige Wahl für alles, was sich wie eine App anfühlen muss.
+              </p>
+              <ul class="space-y-2.5">
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-white/85">Nutzer kommen immer wieder zurück (Mitgliedschaft, E-Commerce)</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-white/85">Sie brauchen WeChat Pay oder andere native APIs</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-white/85">Sie bauen für die lange Sicht, nicht für eine einzelne Kampagne</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- H5 -->
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-br from-[var(--color-brand-orange)]/30 to-transparent rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+          <div class="relative bg-white rounded-3xl overflow-hidden border border-[var(--color-surface-border)]">
+            <div class="aspect-[4/3] relative overflow-hidden bg-[var(--color-surface-light)]">
+              <img src="/images/wechat-h5-screen-mockup.webp" alt="Mockup einer H5-Mini-Site mit Browser-Adressleiste, Hero-Bild und Handlungsaufforderung" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[var(--color-surface-border)] shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                <span class="text-xs font-mono font-semibold text-[var(--color-brand-orange)] uppercase tracking-wider">Web</span>
+              </div>
+            </div>
+            <div class="p-7 lg:p-8">
+              <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+                H5-Mini-Site
+              </h3>
+              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+                Mobile Webseiten, die im WeChat-Browser geöffnet werden. Schneller zu liefern, funktionieren auch außerhalb von WeChat, aber ohne native APIs. Für Kampagnen, Broschüren, Lead-Erfassung.
+              </p>
+              <ul class="space-y-2.5">
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-[var(--color-text-body)]">Sie fahren eine Kampagne mit festem Enddatum</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-[var(--color-text-body)]">Sie müssen in Tagen oder Wochen liefern</span>
+                </li>
+                <li class="flex gap-2.5 items-start">
+                  <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm text-[var(--color-text-body)]">Der Inhalt zählt mehr als eine tiefe Plattformintegration</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Astro / H5 compliance callout -->
+      <div class="relative bg-[var(--color-surface-dark)] rounded-2xl border border-[var(--color-brand-orange)]/20 p-6 lg:p-7 mb-12 overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[var(--color-brand-orange)]/10 blur-3xl"></div>
+        <div class="relative flex flex-col md:flex-row md:items-center gap-5 md:gap-7">
+          <div class="flex-shrink-0">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/25">
+              <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.097.388-.225.608-.355.166.473.209.95.151 1.435-.14 1.182-.738 2.094-1.688 2.789-.38.278-.781.527-1.173.79-1.205.81-1.531 1.76-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.554-1.815c-.012-.318-.012-.638-.069-.951-.135-.762-.504-1.103-1.2-1.123-.713-.02-1.277.417-1.426 1.101-.012.053-.029.104-.046.165h-.008zm-7.04-7.013s3.875-1.881 7.747-1.881l2.937-9.067c.108-.434.422-.722.778-.722.355 0 .67.288.778.722l2.937 9.067c4.582 0 7.747 1.881 7.747 1.881L17.18 1.62a1.546 1.546 0 0 0-1.483-1.062H8.302a1.546 1.546 0 0 0-1.482 1.062L.005 13.149h1.313z"/></svg>
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">Astro × H5</span>
+            </div>
+          </div>
+          <p class="text-[15px] lg:text-base text-white/80 leading-relaxed">
+            <strong class="text-white">Gute Nachrichten für Astro-Sites.</strong> Eine <a href="/de/astro/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Astro</a>-Site, die für China gebaut wurde, ist standardmäßig bereits H5-konform. Statisch, schnell, keine blockierten Abhängigkeiten. Das H5-Ergebnis ist meist dieselbe Site, nur auf die Kampagne zugeschnitten.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="bg-[var(--color-surface-light)] rounded-2xl border border-[var(--color-surface-border)] overflow-hidden">
+        <div class="grid grid-cols-3 px-6 lg:px-8 py-4 bg-white border-b border-[var(--color-surface-border)]">
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]"></span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            Mini Program
+          </span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+            H5
+          </span>
+        </div>
+        {compareRows.map((row, i) => (
+          <div class:list={['grid grid-cols-3 px-6 lg:px-8 py-4 text-sm', i < compareRows.length - 1 ? 'border-b border-[var(--color-surface-border)]/60' : '']}>
+            <span class="text-[var(--color-text-muted)] font-medium">{row.label}</span>
+            <span class="text-[var(--color-text-dark)]">{row.mp}</span>
+            <span class="text-[var(--color-text-dark)]">{row.h5}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
+        Unsicher, was passt? Bei <a href="/de/leistungen/strategie-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategie und Audit</a> beginnt das Gespräch.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SEVEN WAYS BRANDS USE WECHAT ===== -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Wofür WeChat da ist
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+          Sieben Arten, wie Marken
+          <span class="block text-[var(--color-text-muted)]">WeChat heute nutzen.</span>
+        </h2>
+      </div>
+
+      <!-- 3 image cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        {useCases.filter((c) => c.span === 'image').map((item) => (
+          <article class="group relative bg-white rounded-2xl overflow-hidden border border-[var(--color-surface-border)] hover:border-emerald-500/30 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.2)] transition-all duration-300">
+            <div class="aspect-[4/3] relative overflow-hidden bg-[#0f1314]">
+              <img src={item.image} alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent"></div>
+            </div>
+            <div class="p-6 lg:p-7">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                  {item.icon === 'badge' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  )}
+                  {item.icon === 'sparkles' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
+                  )}
+                  {item.icon === 'video' && (
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  )}
+                </div>
+                <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  {item.title}
+                </h3>
+              </div>
+              <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- 3 text cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        {useCases.filter((c) => c.span === 'text').map((item) => (
+          <article class="group relative bg-white rounded-2xl border border-[var(--color-surface-border)] p-7 hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-1 hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.18)] transition-all duration-300">
+            <div class="w-10 h-10 rounded-lg bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-4">
+              {item.icon === 'rocket' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+              )}
+              {item.icon === 'users' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              )}
+              {item.icon === 'briefcase' && (
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              )}
+            </div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+              {item.title}
+            </h3>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+              {item.body}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <!-- Wide QR card -->
+      {useCases.filter((c) => c.span === 'wide').map((item) => (
+        <article class="relative bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] rounded-2xl border border-white/10 p-8 lg:p-12 overflow-hidden">
+          <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl"></div>
+          <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[var(--color-brand-orange)]/10 blur-3xl"></div>
+
+          <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="col-span-1 lg:col-span-2 flex justify-center lg:justify-start">
+              <!-- Stylised QR pattern -->
+              <div class="w-28 h-28 lg:w-32 lg:h-32 bg-white rounded-2xl p-3 shadow-[0_20px_60px_-20px_rgba(16,185,129,0.5)]">
+                <div class="w-full h-full grid grid-cols-7 grid-rows-7 gap-px">
+                  {Array.from({ length: 49 }).map((_, i) => {
+                    const corners = [0,1,2,3,4,5,6,7,11,12,13,14,15,21,22,28,35,42,43,44,45,46,47,48,41,34,27,20,9,16,18,25,32,30,38];
+                    return <span class:list={['block rounded-[1px]', corners.includes(i) ? 'bg-black' : '']}></span>;
+                  })}
+                </div>
+              </div>
+            </div>
+            <div class="col-span-1 lg:col-span-7 text-center lg:text-left">
+              <p class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-300 mb-3">
+                Offline-Online
+              </p>
+              <h3 class="text-2xl lg:text-[34px] font-medium font-[var(--font-heading)] text-white leading-tight mb-4">
+                {item.title}
+              </h3>
+              <p class="text-base lg:text-lg text-white/65 leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+            <div class="col-span-1 lg:col-span-3">
+              <div class="flex flex-wrap gap-2 justify-center lg:justify-end">
+                {item.badges?.map((badge) => (
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border bg-white/[0.06] text-white/85 border-white/15">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== TECH STACK ===== -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/wechat-mini-program-code-studio.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" decoding="async" aria-hidden="true" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)]/95 via-[var(--color-surface-dark)]/90 to-[var(--color-surface-dark)]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-20 pb-20 lg:pt-28 lg:pb-28">
+      <div class="grid grid-cols-12 gap-6 mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Die Technologie
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] tracking-tight">
+            Nativ, plattformübergreifend
+            <span class="block text-white/40">oder eine Mischung.</span>
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 self-end">
+          <p class="text-base text-white/60 leading-relaxed">
+            Die erste Entscheidung wirkt auf alles andere durch, von der Erfolgsquote bei der Prüfung bis zu den langfristigen Wartungskosten.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {techGroups.map((g) => {
+          const a = accentMap[g.accent];
+          return (
+            <div class="relative bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-2xl p-7 lg:p-8 hover:bg-white/[0.06] hover:border-white/20 transition-all">
+              <div class="flex items-center gap-3 mb-5">
+                <span class:list={['w-2 h-2 rounded-full', a.dot]}></span>
+                <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-white/50">{g.label}</span>
+                <span class="text-[11px] font-[var(--font-heading)] text-white/30">{g.cn}</span>
+              </div>
+              <h3 class="text-xl lg:text-2xl font-semibold font-[var(--font-heading)] text-white leading-tight mb-3">
+                {g.headline}
+              </h3>
+              <p class="text-[15px] text-white/65 leading-relaxed mb-5">
+                {g.body}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {g.tags.map((t) => (
+                  <span class:list={['inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono font-medium border', a.tag]}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WECHAT ECOSYSTEM STRIP ===== -->
+  <section class="bg-white border-y border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-12 lg:py-14">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+            Das WeChat-Ökosystem
+          </p>
+          <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Die Tencent-Flächen, an die wir Ihre Marke anbinden.
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        {wechatStack.map((entry) => (
+          <div class="group relative bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-xl p-4 hover:border-emerald-500/40 hover:bg-white transition-colors">
+            <p class="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] mb-2 font-semibold">
+              {entry.role}
+            </p>
+            <p class="text-[15px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+              {entry.name}
+            </p>
+            <p class="text-xs text-[var(--color-text-muted)] font-[var(--font-heading)] mt-1">
+              {entry.cn}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ECOSYSTEM (We do not reinvent the wheel) ===== -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <!-- Decorative network pattern -->
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 32px 32px;"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Header -->
+      <div class="grid grid-cols-12 gap-6 lg:gap-10 items-end mb-12">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Das Ökosystem · 生态
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.02] tracking-tight">
+            Wir erfinden
+            <span class="block">das Rad nicht neu.</span>
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+            Das Mini-Program-Ökosystem ist riesig und ausgereift. Was immer Ihr Geschäft tut, die Chancen stehen gut, dass jemand 70 Prozent des Problems bereits gelöst und in eine SaaS verpackt hat, die Sie heute lizenzieren können.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats banner -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mb-12 bg-gradient-to-br from-[var(--color-surface-dark)] to-[#13191c] rounded-2xl border border-white/10 overflow-hidden">
+        {ecosystemStats.map((s, i) => (
+          <div class:list={[
+            'p-7 lg:p-8',
+            i > 0 ? 'md:border-l border-white/10' : '',
+          ]}>
+            <p class="text-4xl lg:text-5xl font-medium font-[var(--font-heading)] text-emerald-400 leading-none tabular-nums mb-3">
+              {s.value}
+            </p>
+            <p class="text-[14px] text-white/60 leading-snug">
+              {s.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bento: top row 2 feature cards, bottom row 3 equal cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+        {saasCategories.filter((c) => c.span === 'feature').map((cat) => (
+          <article class="group relative bg-[var(--color-surface-light)] rounded-2xl border border-[var(--color-surface-border)] p-7 lg:p-8 hover:border-[var(--color-brand-orange)]/30 hover:bg-white hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.18)] transition-all duration-300 overflow-hidden flex flex-col">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-11 h-11 rounded-xl bg-white border border-[var(--color-surface-border)] flex items-center justify-center group-hover:border-[var(--color-brand-orange)]/30 transition-colors">
+                {cat.icon === 'cart' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                )}
+                {cat.icon === 'badge' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                )}
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  {cat.title}
+                </h3>
+                <p class="text-xs text-[var(--color-text-muted)] font-[var(--font-heading)] mt-0.5">
+                  {cat.cn}
+                </p>
+              </div>
+            </div>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed mb-6 flex-1">
+              {cat.body}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {cat.items.map((item) => (
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px] group-hover:border-[var(--color-brand-orange)]/20 transition-colors">
+                  <span class="font-mono font-semibold text-[var(--color-text-dark)]">{item.en}</span>
+                  {item.cn && <span class="font-[var(--font-heading)] text-[var(--color-text-muted)] text-[12px]">{item.cn}</span>}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {saasCategories.filter((c) => c.span === 'normal').map((cat) => (
+          <article class="group relative bg-[var(--color-surface-light)] rounded-2xl border border-[var(--color-surface-border)] p-7 hover:border-[var(--color-brand-orange)]/30 hover:bg-white hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.18)] transition-all duration-300 overflow-hidden flex flex-col">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-white border border-[var(--color-surface-border)] flex items-center justify-center group-hover:border-[var(--color-brand-orange)]/30 transition-colors">
+                {cat.icon === 'utensils' && (
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                )}
+                {cat.icon === 'calendar' && (
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                )}
+                {cat.icon === 'layers' && (
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                )}
+              </div>
+              <div>
+                <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  {cat.title}
+                </h3>
+                <p class="text-xs text-[var(--color-text-muted)] font-[var(--font-heading)] mt-0.5">
+                  {cat.cn}
+                </p>
+              </div>
+            </div>
+            <p class="text-[13px] text-[var(--color-text-body)] leading-relaxed mb-5 flex-1">
+              {cat.body}
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              {cat.items.map((item) => (
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[var(--color-surface-border)] text-[12px] group-hover:border-[var(--color-brand-orange)]/20 transition-colors">
+                  <span class="font-mono font-semibold text-[var(--color-text-dark)]">{item.en}</span>
+                  {item.cn && <span class="font-[var(--font-heading)] text-[var(--color-text-muted)] text-[11px]">{item.cn}</span>}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Closing line -->
+      <div class="mt-12 lg:mt-14 flex flex-col lg:flex-row gap-4 lg:gap-8 items-start lg:items-center bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+        <div class="flex-shrink-0">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20">
+            <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">Aladdin Index · 阿拉丁指数</span>
+          </div>
+        </div>
+        <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+          Wir verfolgen den <strong class="text-[var(--color-text-dark)]">Aladdin Index</strong> monatlich, um im Blick zu behalten, welche SaaS-Anbieter aufsteigen und welche Anteile verlieren. Die richtige Antwort lautet selten <em>bauen wir von Grund auf</em>. Meist heißt sie <strong class="text-[var(--color-text-dark)]">die SaaS wählen, die zu 70 Prozent passt</strong>, und dann die 30 Prozent bauen, die Ihre Marke wirklich anders machen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WECOM ===== -->
+  <section class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
+    <!-- Decorative cool gradient corner -->
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-sky-500/[0.06] rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-sky-500/[0.05] rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Section header -->
+      <div class="grid grid-cols-12 gap-6 lg:gap-10 items-end mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <div class="inline-flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center shadow-[0_8px_24px_rgba(14,165,233,0.35)]">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/>
+              </svg>
+            </div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-sky-700">
+              WeCom · 企业微信
+            </p>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.02] tracking-tight">
+            Anderes Produkt.
+            <span class="block text-[var(--color-text-muted)]">Anderes Problem, das es löst.</span>
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+            Ausländische Teams verwechseln WeCom regelmäßig mit WeChat. Gleicher Hersteller, verschiedene Apps, verschiedene Zwecke.
+          </p>
+        </div>
+      </div>
+
+      <!-- The simple distinction: side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-12">
+        <!-- WeChat (consumer) -->
+        <article class="relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8 overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-48 h-48 bg-emerald-500/8 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                <svg class="w-6 h-6 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-[11px] font-mono font-semibold uppercase tracking-wider text-emerald-700">Verbraucher</p>
+                <h3 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  WeChat <span class="text-[var(--color-text-muted)] font-normal">微信</span>
+                </h3>
+              </div>
+            </div>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              Die Verbraucher-Super-App. <strong class="text-[var(--color-text-dark)]">1,4 Milliarden private Konten</strong>: soziale Vernetzung, Zahlungen, Inhalte. Ihre Markenpräsenz lebt hier in Ihrem Mini Program, Ihrem Official Account und Channels.
+            </p>
+          </div>
+        </article>
+
+        <!-- WeCom (enterprise) -->
+        <article class="relative bg-gradient-to-br from-[#0c1929] to-[#0a1322] border border-sky-500/20 rounded-2xl p-7 lg:p-8 overflow-hidden text-white">
+          <div class="absolute -top-16 -right-16 w-56 h-56 bg-sky-500/15 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-11 h-11 rounded-xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center">
+                <svg class="w-6 h-6 text-sky-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-[11px] font-mono font-semibold uppercase tracking-wider text-sky-300">Unternehmen</p>
+                <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-tight">
+                  WeCom <span class="text-white/40 font-normal">企业微信</span>
+                </h3>
+              </div>
+            </div>
+            <p class="text-[15px] text-white/70 leading-relaxed">
+              Tencents Werkzeug für Unternehmen. Firmenkonten für Vertriebsmitarbeiter und Servicepersonal. Mitarbeiter schreiben aus einem verifizierten WeCom-Konto an das private WeChat der Kunden. <strong class="text-white">Der Kunde installiert nichts. Das Unternehmen behält den Verlauf.</strong>
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Why it matters: pull-quote -->
+      <div class="relative bg-[var(--color-surface-dark)] rounded-2xl p-8 lg:p-12 mb-12 overflow-hidden">
+        <div class="absolute -top-24 -left-24 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+        <div class="relative grid grid-cols-12 gap-8 items-start">
+          <div class="col-span-12 lg:col-span-5">
+            <p class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-300 mb-4">
+              Warum es zählt
+            </p>
+            <p class="text-2xl lg:text-[36px] font-medium font-[var(--font-heading)] text-white leading-[1.15] tracking-tight">
+              Die Beziehung bleibt
+              <span class="block text-white/50">beim Unternehmen.</span>
+            </p>
+            <p class="mt-4 text-sm text-sky-300/80 font-[var(--font-heading)] italic leading-relaxed">
+              客户关系将沉淀在企业侧, 不因员工的离职而流失
+            </p>
+          </div>
+          <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+            <p class="text-base lg:text-lg text-white/70 leading-relaxed mb-6">
+              Wenn ein Vertriebsmitarbeiter mit privatem WeChat geht, nimmt er das Kundenverzeichnis mit. WeCom dreht das um. Kundenbeziehungen liegen beim Unternehmen, nicht beim einzelnen Mitarbeiter.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/15 text-xs font-medium text-white/80">Prüfprotokolle</span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/15 text-xs font-medium text-white/80">SCRM-Tagging</span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/15 text-xs font-medium text-white/80">200+ offene APIs</span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/15 text-xs font-medium text-white/80">SOC 2 Type 1</span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/15 text-xs font-medium text-white/80">ISO/IEC 27018</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Where WeCom fits: 5-card grid -->
+      <div class="mb-14">
+        <div class="flex items-end justify-between gap-6 mb-8">
+          <h3 class="text-2xl lg:text-[36px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Wo WeCom passt.
+          </h3>
+          <p class="hidden md:block text-sm text-[var(--color-text-muted)] max-w-xs text-right leading-relaxed">
+            Fünf Stellen, an denen WeCom bei internationalen Marken seinen Wert beweist.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {wecomFits.map((fit, i) => (
+            <article class:list={[
+              'group relative bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 hover:border-sky-500/30 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.18)] transition-all duration-300',
+              i === 3 ? 'md:col-span-2 lg:col-span-1' : '',
+            ]}>
+              <div class="w-11 h-11 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-5">
+                {fit.icon === 'storefront' && (
+                  <svg class="w-5 h-5 text-sky-700" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1-5h16l1 5"/><path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/><path d="M3 9h18"/><path d="M9 21V13h6v8"/></svg>
+                )}
+                {fit.icon === 'briefcase' && (
+                  <svg class="w-5 h-5 text-sky-700" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                )}
+                {fit.icon === 'headphones' && (
+                  <svg class="w-5 h-5 text-sky-700" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                )}
+                {fit.icon === 'magnet' && (
+                  <svg class="w-5 h-5 text-sky-700" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15-4-4 6.75-6.77a7.79 7.79 0 0 1 11.04 11.04L13 22l-4-4 6.39-6.36a2.14 2.14 0 0 0-3.03-3.03z"/><path d="m5 8 4 4"/><path d="m12 15 4 4"/></svg>
+                )}
+                {fit.icon === 'team' && (
+                  <svg class="w-5 h-5 text-sky-700" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                )}
+              </div>
+              <div class="flex items-baseline gap-2 mb-3 flex-wrap">
+                <h4 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                  {fit.title}
+                </h4>
+                {fit.cn && (
+                  <span class="text-xs text-[var(--color-text-muted)] font-[var(--font-heading)]">{fit.cn}</span>
+                )}
+              </div>
+              <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+                {fit.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- Why it's clever: bridge between WeChat and CRM -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-12">
+        <div class="lg:col-span-7 bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <p class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-700 mb-4">
+            Warum es clever ist
+          </p>
+          <h3 class="text-2xl lg:text-[28px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-5">
+            Es sitzt zwischen WeChat und Ihrem CRM,
+            <span class="text-[var(--color-text-muted)]">genau dort, wo die Arbeit am Kunden geschieht.</span>
+          </h3>
+          <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+            Salesforce, HubSpot, Microsoft Dynamics oder selbst entwickelte Systeme binden sich alle über SCRM-Konnektoren an. Die regulatorische Schicht ist eingebaut. Das Basiskonto ist kostenlos. Für SCRM zahlen Sie erst, wenn Sie es brauchen.
+          </p>
+          <!-- CRM flow visualisation -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-[12px]">
+              <svg class="w-3 h-3 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/></svg>
+              <span class="font-mono font-semibold text-emerald-700">WeChat</span>
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/25 text-[12px]">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+              <span class="font-mono font-semibold text-sky-700">WeCom</span>
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 text-[12px]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+              <span class="font-mono font-semibold text-[var(--color-brand-orange)]">Ihr CRM</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <p class="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">
+            SCRM-Konnektoren, mit denen wir arbeiten
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px]">
+              <span class="font-mono font-semibold text-[var(--color-text-dark)]">Weiban</span>
+              <span class="font-[var(--font-heading)] text-[var(--color-text-muted)] text-[12px]">微伴助手</span>
+            </span>
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px]">
+              <span class="font-mono font-semibold text-[var(--color-text-dark)]">Wesheng</span>
+              <span class="font-[var(--font-heading)] text-[var(--color-text-muted)] text-[12px]">微盛</span>
+            </span>
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px]">
+              <span class="font-mono font-semibold text-[var(--color-text-dark)]">Parllay</span>
+            </span>
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px]">
+              <span class="font-mono font-semibold text-[var(--color-text-dark)]">Salesforce</span>
+            </span>
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px]">
+              <span class="font-mono font-semibold text-[var(--color-text-dark)]">HubSpot</span>
+            </span>
+            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-[var(--color-surface-border)] text-[13px]">
+              <span class="font-mono font-semibold text-[var(--color-text-dark)]">Dynamics</span>
+            </span>
+          </div>
+          <p class="mt-5 text-xs text-[var(--color-text-muted)] leading-relaxed">
+            Das WeCom-Basiskonto ist kostenlos. SCRM kommt erst dann obendrauf, wenn Sie es wirklich brauchen.
+          </p>
+        </div>
+      </div>
+
+      <!-- How we set it up: closing band -->
+      <div class="relative bg-gradient-to-br from-[#0c1929] to-[#0a1322] rounded-2xl p-8 lg:p-10 overflow-hidden">
+        <div class="absolute -top-32 -right-32 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl"></div>
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-8">
+            <p class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-300 mb-3">
+              Wie wir es einrichten
+            </p>
+            <h3 class="text-2xl lg:text-[28px] font-medium font-[var(--font-heading)] text-white leading-tight mb-3">
+              WeCom ist selten ein Projekt für sich.
+            </h3>
+            <p class="text-base text-white/70 leading-relaxed">
+              Wir richten es fast immer zusammen mit einem Mini-Program-Bau oder einer Migration ein. Erst beide zusammen zeigen die Marke dem chinesischen Kunden wirklich. Verifizierung, SCRM-Integration, die CRM-Anbindung und der Rollout im Team, von Anfang bis Ende.
+            </p>
+          </div>
+          <div class="lg:col-span-4 lg:text-right">
+            <a href="/de/kontakt/" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[var(--color-text-dark)] font-medium text-sm hover:bg-sky-50 transition-colors no-underline">
+              Mit uns über WeCom sprechen
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT WE HANDLE ===== -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-12 gap-6 lg:gap-10 mb-14">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Was wir übernehmen
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
+            Die regulatorische Schicht,
+            <span class="block text-[var(--color-text-muted)]">an der die meisten ausländischen Marken stecken bleiben.</span>
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 self-end">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Die Technik ist die eine Seite. Die chinesische regulatorische Schicht ist die andere. Wir tragen beide, von Anfang bis Ende.
+          </p>
+        </div>
+      </div>
+
+      <!-- Vertical step rhythm -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {handleSteps.map((step) => (
+          <article class="group relative bg-white rounded-2xl border border-[var(--color-surface-border)] p-7 lg:p-8 hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.2)] transition-all duration-300 overflow-hidden">
+            <!-- Side accent bar -->
+            <div class="absolute left-0 top-7 bottom-7 w-1 rounded-r-full bg-[var(--color-brand-orange)]/0 group-hover:bg-[var(--color-brand-orange)] transition-colors"></div>
+
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center">
+                {step.icon === 'badge' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                )}
+                {step.icon === 'shield' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                )}
+                {step.icon === 'server' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                )}
+                {step.icon === 'card' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                )}
+                {step.icon === 'lock' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                )}
+                {step.icon === 'zap' && (
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                )}
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+              {step.title}
+            </h3>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed">
+              {step.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
+  <section class="bg-[var(--color-surface-light)] section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Zeitplan
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Wie lange es dauert.
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Kontoregistrierung und MIIT-Registrierung liegen meist auf dem kritischen Pfad und laufen parallel zu Design und Bau. Wir starten sie am ersten Tag.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-1">
+                Mini Program · 小程序
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                Nativer Mini-Program-Bau
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600 tabular-nums">
+              10 bis 14 Wochen
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[22%] bg-emerald-500/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-700 truncate">Strategie</span>
+            </div>
+            <div class="absolute inset-y-0 left-[22%] w-[20%] bg-emerald-500/35 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Registrierung</span>
+            </div>
+            <div class="absolute inset-y-0 left-[42%] w-[42%] bg-emerald-500/55 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Design und Bau</span>
+            </div>
+            <div class="absolute inset-y-0 left-[84%] right-0 bg-emerald-600 flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Start</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Woche 1</span>
+            <span>Woche 4</span>
+            <span>Woche 9</span>
+            <span>Woche 14</span>
+          </div>
+        </div>
+
+        <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-1">
+                H5-Mini-Site
+              </p>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                H5-Kampagne oder Broschüre
+              </h3>
+            </div>
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] tabular-nums">
+              4 bis 6 Wochen
+            </div>
+          </div>
+
+          <div class="relative h-12 bg-[var(--color-surface-light)] rounded-lg overflow-hidden">
+            <div class="absolute inset-y-0 left-0 w-[28%] bg-[var(--color-brand-orange)]/20 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] truncate">Konzept</span>
+            </div>
+            <div class="absolute inset-y-0 left-[28%] w-[50%] bg-[var(--color-brand-orange)]/40 border-r border-white flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Design und Bau</span>
+            </div>
+            <div class="absolute inset-y-0 left-[78%] right-0 bg-[var(--color-brand-orange)] flex items-center px-3">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-white truncate">Start</span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-2 text-[11px] text-[var(--color-text-muted)] tabular-nums">
+            <span>Woche 1</span>
+            <span>Woche 2</span>
+            <span>Woche 4</span>
+            <span>Woche 6</span>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-[var(--color-text-card-blue)]/[0.04] border border-[var(--color-text-card-blue)]/20 rounded-2xl p-6 lg:p-7">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-text-card-blue)]/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-[var(--color-text-card-blue)]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">Komplexe Projekte dauern länger</p>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+              Tiefe ERP- oder CRM-Integration, vollständiger E-Commerce oder die plattformübergreifende Kompilierung über Taro oder UniApp dehnen den Zeitplan in der Regel auf vier bis fünf Monate. Wir legen das in der Strategiephase klar dar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-12 gap-6 items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Häufige Fragen
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Zwanzig Fragen, die wir zu WeChat in China hören.
+          </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Setup, Ökosystem und der Alltag, ein Mini Program tatsächlich zu betreiben: wie Marken innerhalb von WeChat wachsen, wo sie stecken bleiben und welche Chancen die meisten verpassen.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div data-faq-accordion class="bg-white rounded-2xl border border-[var(--color-surface-border)] px-6 lg:px-8">
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                <p>{faq.answer}</p>
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">
+    <div class="absolute inset-0">
+      <img src="/images/wechat-shanghai-bund-night.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-surface-dark)] via-[var(--color-surface-dark)]/85 to-[var(--color-surface-dark)]"></div>
+    </div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/8 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <!-- WeChat logo mark -->
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 mb-6 mx-auto">
+        <svg class="w-9 h-9 text-emerald-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M8.691 2C4.768 2 1.5 4.667 1.5 8.052c0 1.952 1.099 3.687 2.815 4.9-.105.34-.504 1.563-.683 2.099-.234.683.402.456.402.456.235-.067 1.95-1.214 2.703-1.69.703.222 1.45.34 2.243.34.247 0 .49-.012.731-.033-.156-.494-.241-1.02-.241-1.566 0-3.146 2.987-5.703 6.661-5.703.085 0 .169.001.252.003C15.16 4.108 12.205 2 8.691 2zM6.087 6.65a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.118 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM22.5 14.36c0-2.802-2.71-5.082-6.057-5.082-3.451 0-6.057 2.28-6.057 5.082 0 2.804 2.606 5.082 6.057 5.082.66 0 1.297-.092 1.895-.262.62.39 2.034 1.343 2.232 1.4 0 0 .518.207.328-.42-.155-.46-.485-1.475-.572-1.748a4.86 4.86 0 0 0 2.174-4.052zm-7.857-.965a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683zm3.6 0a.842.842 0 1 1 0-1.683.842.842 0 0 1 0 1.683z"/>
+        </svg>
+      </div>
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Loslegen
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.05] tracking-tight max-w-3xl mx-auto">
+        Denken Sie über WeChat
+        <span class="block text-white/40">für Ihre Marke nach?</span>
+      </h2>
+      <p class="mt-8 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Wenn Ihre Marke in WeChat präsent sein muss und Sie noch kein Mini Program oder keine H5-Mini-Site haben, helfen wir Ihnen. Die meisten Projekte beginnen mit Strategie und Audit.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/de/kontakt/" variant="primary" size="lg">Mit unserem Team sprechen</Button>
+        <Button href="/de/leistungen/strategie-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Strategie und Audit</Button>
+      </div>
+      <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm">
+        <a href="/de/wordpress/" class="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors no-underline">
+          <span>WordPress für China</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="hidden sm:inline text-white/20">·</span>
+        <a href="/de/astro/" class="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors no-underline">
+          <span>Astro für China</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>
+
+<script>
+  function initFaqAccordion() {
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement;
+
+        trigger?.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          items.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherTrigger = otherItem.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+              const otherChevron = otherItem.querySelector('[data-faq-chevron]') as SVGElement;
+              otherTrigger?.setAttribute('aria-expanded', 'false');
+              otherContent?.style.setProperty('grid-template-rows', '0fr');
+              otherChevron?.classList.remove('rotate-180');
+            }
+          });
+
+          const newState = !isOpen;
+          trigger.setAttribute('aria-expanded', String(newState));
+          content?.style.setProperty('grid-template-rows', newState ? '1fr' : '0fr');
+          chevron?.classList.toggle('rotate-180', newState);
+        });
+      });
+    });
+  }
+
+  initFaqAccordion();
+  document.addEventListener('astro:after-swap', initFaqAccordion);
+</script>

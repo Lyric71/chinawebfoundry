@@ -1,7 +1,7 @@
 ---
 title: "Alojamiento y soporte técnico para el líder mundial de los polímeros hidrosolubles en China"
-subtitle: "Cómo mantenemos el sitio WordPress de SNF China rápido, estable y conforme con las exigencias locales, a medida que el grupo se asienta de forma duradera en su tercer mercado mundial."
-summary: "Alojamiento WordPress fiable, integración técnica y mantenimiento para SNF China, primer productor mundial de polímeros hidrosolubles, implantado en dos centros industriales y seis oficinas comerciales en China."
+subtitle: "Cómo mantenemos el sitio WordPress de SNF China rápido, estable y conforme con la normativa local, mientras el grupo crece en su tercer mercado mundial."
+summary: "Ofrecemos alojamiento WordPress fiable, integración técnica y mantenimiento a SNF China, primer productor mundial de polímeros hidrosolubles, con dos centros industriales y seis oficinas comerciales en el país."
 visual: "/images/casestudies/snfchina-com-1.webp"
 color: "#1B3A5C"
 order: 5
@@ -9,13 +9,13 @@ published: true
 services: ["china-hosting", "technical-integration", "maintenance-support"]
 ---
 
-## Un gigante industrial mundial firmemente anclado en China
+## Un gigante industrial asentado en China
 
-SNF es un grupo químico industrial con sede en Francia. Primer productor mundial de polímeros hidrosolubles, suministra floculantes, coagulantes y productos químicos de especialidad a sectores tan diversos como el tratamiento del agua, el petróleo y el gas, la minería o la industria papelera. Más de 8000 empleados en el mundo, operaciones en cuatro continentes.
+SNF es un grupo químico industrial con sede en Francia. Es el primer productor mundial de polímeros hidrosolubles. Suministra floculantes, coagulantes y productos químicos especializados a sectores muy distintos: tratamiento del agua, petróleo y gas, minería o industria papelera. Tiene más de 8000 empleados y opera en cuatro continentes.
 
-En China, SNF explota dos centros de producción en la provincia de Jiangsu, en Taixing y Rudong, y se apoya en seis oficinas comerciales en Pekín, Shanghái, Cantón, Chengdu, Wuhan y Xi'an. China se ha convertido en el tercer mercado del grupo a escala mundial. La envergadura del dispositivo es considerable.
+En China, SNF tiene dos plantas de producción en la provincia de Jiangsu, en Taixing y Rudong. A eso se suman seis oficinas comerciales: Pekín, Shanghái, Cantón, Chengdu, Wuhan y Xi'an. China es ya su tercer mercado mundial.
 
-A ese tamaño, el sitio web forma parte de pleno derecho de la infraestructura: las operaciones comerciales, la documentación de producto y la comunicación con los clientes pasan por él, sobre un territorio inmenso.
+A esa escala, el sitio web es parte de la infraestructura. Las operaciones comerciales, la documentación de producto y la comunicación con los clientes pasan por él, en un territorio enorme.
 
 | | |
 |---|---|
@@ -28,14 +28,14 @@ A ese tamaño, el sitio web forma parte de pleno derecho de la infraestructura: 
 
 ## Alojamiento, integración y soporte a escala industrial
 
-Nos encargamos del alojamiento, la integración técnica y el mantenimiento del sitio WordPress de SNF China. Alojado en servidores situados en la China continental, carga rápido y se mantiene disponible para los usuarios, de Pekín a Xi'an.
+Nos ocupamos del alojamiento, la integración técnica y el mantenimiento del sitio WordPress de SNF China. Está alojado en servidores de China continental. Carga rápido y se mantiene disponible para los usuarios, de Pekín a Xi'an.
 
-El trabajo técnico va mucho más allá de la simple puesta en producción. Para una empresa del calibre de SNF, el sitio debe servir sin fallar la información de producto, las fichas técnicas y el contenido comercial de un abanico de actividades muy amplio. Velamos por el buen funcionamiento de todas las dependencias externas y de los servicios de terceros detrás del Gran Cortafuegos, y mantenemos la conformidad con las exigencias locales de alojamiento a medida que evolucionan.
+El trabajo técnico va mucho más allá de la puesta en producción. En una empresa como SNF, el sitio debe entregar sin fallos la información de producto, las fichas técnicas y los contenidos comerciales de una gama de actividades muy amplia. Comprobamos que las dependencias externas y los servicios de terceros funcionen bien tras el Gran Cortafuegos. Y mantenemos la conformidad con la normativa local de alojamiento según evoluciona.
 
-El mantenimiento cubre los parches de seguridad, el seguimiento del rendimiento y las actualizaciones editoriales al ritmo del despliegue de SNF en China. Cuando se opera el sitio de un grupo que explota dos fábricas y seis oficinas en el país, la disponibilidad es una exigencia operativa.
+El mantenimiento incluye parches de seguridad, seguimiento del rendimiento y actualizaciones de contenido al ritmo de la expansión de SNF en China. Cuando se gestiona el sitio de un grupo con dos fábricas y seis oficinas en el país, la disponibilidad no es negociable.
 
-**Alcance de la intervención:** alojamiento WordPress en la China continental, integración técnica, soporte y mantenimiento.
+**Alcance de la intervención:** alojamiento WordPress en China continental, integración técnica, soporte y mantenimiento.
 
-## El resultado: una infraestructura a la medida de la operación
+## El resultado: una infraestructura a la altura
 
-El sitio WordPress de SNF China corre sobre una infraestructura local estable, al nivel de fiabilidad que exige una operación industrial de este tamaño. Para un grupo cuyo tercer mercado mundial es ya China, y que sigue avanzando, la infraestructura web es uno de los cimientos.
+El sitio WordPress de SNF China funciona sobre una infraestructura local estable, con la fiabilidad que exige una operación industrial de este tamaño. China es ya el tercer mercado del grupo y sigue creciendo. La infraestructura web es uno de sus cimientos.

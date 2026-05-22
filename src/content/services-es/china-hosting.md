@@ -1,9 +1,9 @@
 ---
 title: "Alojamiento en China"
 shortTitle: "Alojamiento"
-description: "Un alojamiento WordPress que aguanta en la China continental. Servidores locales con licencia ICP, CDN integrado, supervisión desde Shanghái. Usted nunca abre una consola de administración en chino."
+description: "Alojamiento WordPress estable dentro de China continental, con servidores que disponen de licencia ICP, CDN integrado y supervisión realizada desde Shanghái. Nos encargamos íntegramente de la consola de administración en chino."
 metaTitle: "Alojamiento gestionado para sitios en China | ChinaWebFoundry"
-metaDescription: "Un alojamiento que aguanta bajo las condiciones de red del continente. Trámites administrativos tramitados de principio a fin, supervisión desde Shanghái, disponibilidad del 99,97 % comprobada."
+metaDescription: "Alojamiento WordPress estable bajo las condiciones de red de China continental. Expediente ICP completo, supervisión desde Shanghái y disponibilidad del 99,97 %."
 icon: "server"
 order: 8
 keywords: ["alojamiento wordpress china", "alibaba cloud wordpress", "servidor wordpress china"]
@@ -12,17 +12,17 @@ relatedServices: ["china-migration", "maintenance-support"]
 
 ## Qué hacemos
 
-Operamos su alojamiento WordPress en Alibaba Cloud, desde la China continental. Su sitio carga rápido para los visitantes chinos y cumple los requisitos de la normativa local.
+Gestionamos su alojamiento WordPress en Alibaba Cloud, dentro de China continental. Su sitio carga con rapidez para los visitantes chinos y cumple los requisitos de la normativa local.
 
-## Qué incluye la oferta
+## Qué incluye
 
-- **Alibaba Cloud ECS**: servidores ubicados en Shanghái, Pekín o Shenzhen
-- **CDN local**: sus archivos estáticos distribuidos por todo el territorio a través de la red de Alibaba
-- **Certificado SSL**: HTTPS sin sobresaltos en el entorno chino
-- **Copias de seguridad diarias**: archivado automático, conservación durante 30 días
+- **Alibaba Cloud ECS**: servidores ubicados en Pekín, Shanghái o Shenzhen
+- **CDN local**: sus archivos estáticos distribuidos por todo el país a través de la red de Alibaba
+- **Certificado SSL**: HTTPS sin incidencias en el entorno chino
+- **Copias de seguridad diarias**: archivado automático con 30 días de conservación
 - **SLA del 99,9 %**: supervisión permanente, operada desde China
-- **Preproducción**: un entorno de pruebas para validar cada despliegue antes de la puesta en línea
+- **Entorno de preproducción**: un espacio de pruebas para validar cada despliegue antes de publicarlo
 
-## A quién va dirigido este servicio
+## A quién va dirigido
 
-A las empresas que necesitan un alojamiento WordPress fiable, rápido y conforme en la China continental.
+A las empresas que necesitan un alojamiento WordPress fiable, rápido y conforme con la normativa dentro de China continental.

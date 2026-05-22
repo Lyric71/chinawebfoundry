@@ -1,0 +1,821 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+
+// Phasen und Servicedaten aus den einzelnen Serviceseiten
+const phases = [
+  {
+    id: 'plan',
+    label: 'Planen',
+    cn: '策略',
+    title: 'Erst entscheiden, was gebaut wird, dann bauen',
+    blurb: 'Wir prüfen Ihren Bestand und klären, was Ihr chinesisches Publikum tatsächlich braucht. Heraus kommt ein Fahrplan, der Sie in der richtigen Reihenfolge zu einer echten China-Präsenz führt.',
+  },
+  {
+    id: 'build',
+    label: 'Bauen',
+    cn: '搭建',
+    title: 'Die Technik neu aufsetzen, für das Leben hinter der Firewall',
+    blurb: 'Migration, Design, technische Integration, eigene Plugins. Jede Schicht neu gebaut und über echte Verbindungen aus China heraus getestet.',
+  },
+  {
+    id: 'host',
+    label: 'Hosten',
+    cn: '主机',
+    title: 'Hosting, das auf dem chinesischen Festland wirklich funktioniert',
+    blurb: 'Ladezeiten unter einer Sekunde auf Shanghaier Smartphones. ICP-Registrierung von Anfang bis Ende übernommen. Festland, Hongkong oder Dual-Stack.',
+  },
+  {
+    id: 'grow',
+    label: 'Wachsen',
+    cn: '增长',
+    title: 'Auf Baidu gefunden, von chinesischen KI-Systemen zitiert',
+    blurb: 'Muttersprachliche chinesische Inhalte, Baidu-SEO von China aus gesteuert, KI-Sichtbarkeit über DeepSeek, Doubao, Kimi, Yuanbao und Baidu AI.',
+  },
+  {
+    id: 'run',
+    label: 'Betreiben',
+    cn: '维护',
+    title: 'Jede Woche jemand, der von innen mitschaut',
+    blurb: 'Redaktioneller Takt, SEO- und GEO-Nachverfolgung, technische Wartung, Hosting. Ein Team, eine Rechnung, von Shanghai aus überwacht.',
+  },
+];
+
+// Vorzeige-Service: Strategie und Audit
+const strategy = {
+  title: 'Strategie und Audit',
+  cn: '策略',
+  tagline: 'Ein schriftlicher Fahrplan, den Sie zu jeder Agentur mitnehmen können.',
+  description: 'Wir rufen Ihre Website über echte Browser in Peking, Shanghai und Shenzhen auf und sehen, was wirklich passiert. Markenpositionierung, Sichtbarkeit in der Suche, Technologie-Stack, WeChat-Präsenz, Compliance: Wir erfassen alles und schreiben den Fahrplan, der Sie in der richtigen Reihenfolge zum Start bringt.',
+  link: '/de/leistungen/strategie-audit/',
+  cta: 'Mit der Strategie beginnen',
+  deliverables: [
+    'China-Readiness-Diagnose über Inhalte, UX, Suche, Performance und Compliance',
+    'Strategische Positionierung, abgestimmt auf chinesische Vertrauenssignale',
+    'Technologiearchitektur: WordPress oder Astro, Mini-Programm oder H5, Dual-Stack',
+    'Sequenzierter Fahrplan, ICP-Registrierung auf dem kritischen Pfad eingeplant',
+  ],
+  stats: [
+    { value: '15+', label: 'Jahre in Shanghai' },
+    { value: '50+', label: 'Marken gestartet' },
+    { value: '3-4 Wo.', label: 'bis zur Lieferung' },
+  ],
+};
+
+// Services der Phase Bauen
+const buildServices = [
+  {
+    title: 'China-Migration',
+    cn: '迁移',
+    tagline: 'Eine echte China-Migration ist ein Neustart.',
+    description: 'Wir verlagern Inhalte, UX und Hosting gemeinsam. Vertrauenssignale neu geschrieben, Layout auf chinesische Lesegewohnheiten umgestellt, Infrastruktur auf Festlandserver verlegt, ICP-Antrag läuft parallel.',
+    link: '/de/leistungen/china-migration/',
+    cta: 'Über Ihre Migration sprechen',
+    icon: 'migration',
+    deliverables: [
+      'Inhalte von muttersprachlichen Redakteuren auf Chinesisch neu geschrieben',
+      'UX überarbeitet für dichtere Seiten und den WeChat-Browser',
+      'Umstellung ohne Ausfallzeit, Rückweg innerhalb von 48 Stunden',
+      'URL-Mapping und 301-Weiterleitungen, damit die SEO-Autorität erhalten bleibt',
+    ],
+    stats: [
+      { value: '50+', label: 'Marken migriert' },
+      { value: '6-10 Wo.', label: 'typischer Zeitraum' },
+    ],
+  },
+  {
+    title: 'UX/UI-Design',
+    cn: '设计',
+    tagline: 'Design für die Art, wie Chinesen tatsächlich navigieren.',
+    description: 'Mobile zuerst, dichte Layouts, abgestimmt darauf, wie chinesische Nutzer nach WeChat, Taobao und Douyin navigieren. Sehr luftige Designs wirken auf sie leer. Vertrauenssignale gehören über die Falzlinie.',
+    link: '/de/leistungen/ux-ui-design/',
+    cta: 'Ihr Designprojekt starten',
+    icon: 'design',
+    deliverables: [
+      'Nutzerforschung zu den Einstiegswegen über Douyin, WeChat und Baidu',
+      'Informationsarchitektur, gebaut für dichtere Seiten',
+      'WeChat-QR, ICP und Gewerbelizenz über der Falzlinie platziert',
+      'QA über UC Browser, QQ Browser und Chrome',
+    ],
+    stats: [
+      { value: '70%+', label: 'mobiler Traffic in China' },
+      { value: '6', label: 'Browser nativ geprüft' },
+    ],
+  },
+  {
+    title: 'Technische Integration',
+    cn: '技术',
+    tagline: '2 Sekunden im Westen werden zu 15 in Shenzhen.',
+    description: 'Serverkonfiguration, Theme-Bereinigung, Austausch blockierter Abhängigkeiten, WeChat Pay, Alipay, Baidu Tongji. Der gesamte Stack neu gebaut und über echte chinesische Netze in Shanghai und Shenzhen getestet.',
+    link: '/de/leistungen/technische-integration/',
+    cta: 'Technische Beratung vereinbaren',
+    icon: 'technical',
+    deliverables: [
+      'Aliyun-, Tencent- oder Huawei-Tuning je nach Anbieter',
+      'WeChat Pay, Alipay, WeChat-Login, Baidu Tongji integriert',
+      'Google Fonts ersetzt, jQuery umgeleitet, blockierte APIs ausgetauscht',
+      'Architektur nach PIPL und Cybersicherheitsgesetz ab dem ersten Tag',
+    ],
+    stats: [
+      { value: '47', label: 'blockierte Ressourcen pro Website' },
+      { value: '2,1 s', label: 'Ladezeit nach den Korrekturen' },
+    ],
+  },
+  {
+    title: 'Plugins und Erweiterungen',
+    cn: '插件',
+    tagline: 'WordPress-Plugins, gebaut für die Firewall.',
+    description: 'Rund 40 % der gängigen WordPress-Plugins hängen von Google ab. Hinter der Firewall sind sie allesamt blockiert. Wir bauen die, die laufen, und reparieren die, die sich retten lassen.',
+    link: '/de/leistungen/plugins-erweiterungen/',
+    cta: 'Plugin-Beratung anfragen',
+    icon: 'plugins',
+    deliverables: [
+      'WeChat-OAuth, Brücken zu Mini-Programmen, Verknüpfung mit Offiziellen Accounts',
+      'Alipay, WeChat Pay, UnionPay als WooCommerce-Erweiterungen',
+      'Baidu-Sitemap, Push-API und Werkzeuge für Meta-Tags',
+      'Eigene Gutenberg-Blöcke: WeChat-QR, Baidu-Karten, Bilibili',
+    ],
+    stats: [
+      { value: '60 %', label: 'der Plugins direkt reparierbar' },
+      { value: 'UC', label: 'Browser-QA inbegriffen' },
+    ],
+  },
+];
+
+// Phase Hosten: Vorzeige-Hostingkarte
+const hosting = {
+  title: 'China-Hosting',
+  cn: '主机',
+  tagline: 'ICP-lizenziert, schnell, betreut.',
+  description: 'Ihre Website lädt in China vermutlich nicht. 10 bis 15 Sekunden sind bei internationalen Seiten der Normalfall. Gedrosselter Traffic, blockierte CDNs, Google Fonts, die nicht auflösen. Wir setzen auf der Infrastrukturebene an.',
+  link: '/de/leistungen/china-hosting/',
+  cta: 'Hosting-Optionen ansehen',
+  options: [
+    {
+      name: 'Chinesisches Festland',
+      timeframe: '6-10 Wochen',
+      bullets: ['Ladezeiten unter 1 s auf chinesischen Smartphones', 'Voraussetzung für den Baidu-Schub', 'ICP-Lizenz von Anfang bis Ende übernommen'],
+    },
+    {
+      name: 'Hongkong',
+      timeframe: '2-3 Wochen',
+      bullets: ['2 bis 4 s Ladezeit vom Festland', 'Kein ICP nötig', 'Schneller Start, geringer Baidu-Schub'],
+    },
+    {
+      name: 'Dual-Stack',
+      timeframe: '8-12 Wochen',
+      bullets: ['Weltweit und China parallel', 'Eine einzige redaktionelle Pipeline', 'Geo-Routing am Edge'],
+    },
+  ],
+  stats: [
+    { value: '0,8 s', label: 'mittlere Ladezeit auf dem Festland' },
+    { value: '99,97 %', label: 'Verfügbarkeit, 30 Tage rollierend' },
+    { value: '100 %', label: 'Erfolgsquote bei der ICP-Registrierung' },
+  ],
+};
+
+// Services der Phase Wachsen
+const growServices = [
+  {
+    title: 'Chinesische Inhalte',
+    cn: '内容',
+    tagline: 'Redakteure, die auf Chinesisch und in Ihrer Markenstimme schreiben.',
+    description: 'Muttersprachliche chinesische Autoren formulieren Ihre Botschaften in der Reihenfolge neu, in der chinesische Leser wirklich entscheiden: Beleg zuerst, Glaubwürdigkeit danach, Anspruch zuletzt.',
+    link: '/de/leistungen/chinesische-inhalte/',
+    cta: 'Mit dem Content-Team sprechen',
+    icon: 'content',
+    deliverables: [
+      'Content-Strategie auf Basis eines Audits von Baidu, Zhihu und Branche',
+      'Vertrauensseiten, die westliche Sites übersehen: 荣誉资质, 企业历程, 生产基地',
+      'Muttersprachliches Schreiben auf Chinesisch in Ihrer Markenstimme',
+      'Aussagen nach 广告法 für Medizin, Finanzen, Lebensmittel und Kosmetik',
+    ],
+    stats: [
+      { value: '9 s', label: 'bevor übersetzte Texte abprallen' },
+      { value: '50+', label: 'Marken gestartet' },
+    ],
+  },
+  {
+    title: 'Baidu-SEO',
+    cn: '百度',
+    tagline: 'Baidu hat einen eigenen Crawler, eine eigene API und einen eigenen Algorithmus-Zyklus.',
+    description: 'Anderer Crawler, andere Einreichungs-API, anderer Algorithmus. Baidu-SEO von China aus betrieben, mit den eigenen Werkzeugen von Baidu, von Leuten, die 百度搜索资源平台 jede Woche verfolgen.',
+    link: '/de/leistungen/baidu-seo/',
+    cta: 'Baidu-Audit anfragen',
+    icon: 'seo',
+    deliverables: [
+      '主动推送-API direkt ins CMS eingebunden für die Einreichung in Echtzeit',
+      'Muttersprachliche chinesische Keyword-Recherche aus dem Baidu Index',
+      'Autoritätsarbeit auf 百度百科, 百度知道 und 百家号',
+      'Wöchentliches Tracking der Updates von 知心算法 und 飓风算法',
+    ],
+    stats: [
+      { value: '24-72 h', label: 'Indexierung über 主动推送' },
+      { value: '6-10 Wo.', label: 'Bewegung im Long Tail' },
+    ],
+  },
+  {
+    title: 'GEO China',
+    cn: '智搜',
+    tagline: 'Von KI-Suchmaschinen zitiert werden.',
+    description: 'Generative Engine Optimization über DeepSeek, Doubao, Kimi, Yuanbao und Baidu AI. 5 Engines, 5 Regelwerke, eine Website, die vor allen fünf bestehen muss.',
+    link: '/de/leistungen/geo/',
+    cta: 'KI-Sichtbarkeitsaudit anfordern',
+    icon: 'ai',
+    deliverables: [
+      'Fragenmatrix mit 80 bis 150 Fragen, auf echten Geräten in drei Städten getestet',
+      'Quellenstufen-Audit T1 / T2 / T3 gegen die Ranking-Signale der KI',
+      'Pfeilerinhalte mit FAQ-, Vergleichs- und Szenario-Clustern',
+      'Verbreitung über Baijiahao, Zhihu, Toutiao und Baidu Baike',
+    ],
+    stats: [
+      { value: '600 Mio.+', label: 'chinesische KI-Nutzer' },
+      { value: '6 Mon.', label: 'bis zum Zitations-Anstieg' },
+    ],
+  },
+];
+
+// Phase Betreiben: Vorzeige-Wartungskarte
+const maintenance = {
+  title: 'Wartung und Support',
+  cn: '维护',
+  tagline: 'Eine laufende China-Website braucht jemanden, der von innen mitschaut.',
+  description: 'Starten ist einfach. Baidu lässt Seiten im Ranking fallen, die nicht mehr veröffentlichen. DeepSeek und Doubao ändern ihre Crawling-Logik alle paar Wochen. Eine im Theme vergessene Google Font wird am Dienstag blockiert. Von London oder Chicago aus sieht alles in Ordnung aus.',
+  link: '/de/leistungen/wartung-support/',
+  cta: 'Individuelles Angebot anfragen',
+  deliverables: [
+    '2 bis 4 Inhalte pro Monat, verbreitet über Baijiahao und Zhihu',
+    'Monatliche Baidu-Ranking-Berichte zu den 30 bis 50 wichtigsten Keywords',
+    'Wöchentliche GEO-Sichtbarkeitsprüfungen über DeepSeek, Doubao, Kimi, Yuanbao, Baidu AI',
+    'Core-, Plugin- und Theme-Updates, zuerst auf Staging getestet',
+    'Erkennung von Firewall-Blockaden: CDN-, Schrift- und API-Ausfälle in rund 14 Minuten behoben',
+    'Reaktion auf Hacks: isolieren, säubern, wiederherstellen, härten, Post-mortem in 48 h',
+  ],
+  stats: [
+    { value: '11', label: 'Baidu-Algo-Änderungen in 2025' },
+    { value: '14 Min.', label: 'von Blockade bis Behebung im Schnitt' },
+    { value: '99,9 %', label: 'Verfügbarkeits-SLA' },
+  ],
+};
+---
+
+<PageLayout
+  title="Web-Services in China für internationale Marken | ChinaWebFoundry"
+  description="Alles, was eine internationale Marke braucht, um eine Website in China aufzubauen, zu starten und wachsen zu lassen. Von der Strategie bis zur Wartung, geliefert von einem festen Senior-Team in Shanghai seit 2005."
+  heroPage={true}
+  lang="de"
+>
+  <!-- ============== HERO ============== -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <video
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+        poster="/images/hero-services.webp"
+        aria-hidden="true"
+      >
+        <source src="/images/Video/great-wall-services-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/92 via-[#0f0f12]/75 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-28 lg:pb-32">
+      <div class="io-grid items-end gap-y-10">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Unsere Leistungen
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.06]">
+            Eine China-Präsenz,<br />durchgängig konstruiert.
+          </h1>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+          <p class="text-lg text-white/65 leading-relaxed">
+            Eine Agentur, ansässig in China, die jede Schicht abdeckt, die Ihre Website braucht, um zu starten, zu laufen und hinter der Großen Firewall sichtbar zu bleiben. Egal, auf welchem Stack Sie arbeiten.
+          </p>
+          <div class="mt-7">
+            <Button href="/de/kontakt/" variant="primary" size="md">Sagen Sie uns, was Sie brauchen</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigationspillen nach Phase -->
+    <div class="relative border-t border-white/10 bg-[#0f0f12]/60 backdrop-blur-sm">
+      <div class="mx-auto max-w-[1400px] section-padding py-5">
+        <nav class="flex flex-wrap items-center gap-x-2 gap-y-2 justify-center lg:justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-white/40 mr-2 hidden lg:inline">
+            Zu einer Phase springen
+          </span>
+          <div class="flex flex-wrap gap-2">
+            {phases.map((phase) => (
+              <a
+                href={`#${phase.id}`}
+                class="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-white/80 hover:border-[var(--color-brand-orange)] hover:text-white hover:bg-[var(--color-brand-orange)]/10 transition-all duration-200 text-sm font-medium font-[var(--font-button)] no-underline"
+              >
+                <span class="text-[var(--color-brand-orange)] text-xs font-normal">{phase.cn}</span>
+                <span>{phase.label}</span>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== INTRO ============== -->
+  <section class="py-20 md:py-24 lg:py-28">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid gap-y-8">
+        <div class="col-span-12 lg:col-span-5">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Was wir tun
+          </p>
+          <h2 class="text-3xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15]">
+            Die meisten ausländischen Websites sind in China kaputt.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-6">
+            Blockierte Abhängigkeiten, Seiten, die nie fertig laden, ein Baidu, das nichts indexieren kann, KI-Assistenten, die statt Ihrer die Konkurrenz zitieren. Das beheben wir seit über 15 Jahren von China aus, verteilt auf 10 ineinandergreifende Leistungen.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            Wir haben sie in 5 Phasen der Zusammenarbeit gebündelt, damit Sie finden, was Sie wirklich brauchen, ohne 10 Broschüren zu lesen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PHASE PLAN ============== -->
+  <section id="plan" class="bg-[var(--color-surface-light)] py-20 md:py-24 lg:py-28 scroll-mt-20">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <!-- Phasenkopf -->
+      <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
+        <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[0].cn}</span>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase eins</p>
+        <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+          {phases[0].label}
+        </h2>
+      </div>
+
+      <!-- Vorzeigekarte Strategie -->
+      <a
+        href={strategy.link}
+        class="group block bg-white border border-[var(--color-surface-border)] rounded-3xl overflow-hidden no-underline transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <!-- Links: Text -->
+          <div class="lg:col-span-7 p-8 md:p-10 lg:p-14">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-xl font-light text-[var(--color-brand-orange)]">{strategy.cn}</span>
+              <span class="h-px w-12 bg-[var(--color-brand-orange)]"></span>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+                {strategy.tagline}
+              </p>
+            </div>
+            <h3 class="text-3xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-5">
+              {strategy.title}
+            </h3>
+            <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+              {strategy.description}
+            </p>
+
+            <!-- Leistungen -->
+            <ul class="space-y-3 mb-8">
+              {strategy.deliverables.map((item) => (
+                <li class="flex gap-3 text-[15px] text-[var(--color-text-body)]">
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+              {strategy.cta}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+
+          <!-- Rechts: Zahlenpanel -->
+          <div class="lg:col-span-5 bg-[var(--color-surface-dark)] p-8 md:p-10 lg:p-14 flex flex-col justify-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-8">
+              In Zahlen
+            </p>
+            <div class="space-y-8">
+              {strategy.stats.map((stat) => (
+                <div class="border-b border-white/10 pb-6 last:border-0 last:pb-0">
+                  <p class="text-4xl lg:text-5xl font-medium font-[var(--font-heading)] text-white mb-1">{stat.value}</p>
+                  <p class="text-sm text-white/55">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== PHASE BUILD ============== -->
+  <section id="build" class="py-20 md:py-24 lg:py-28 scroll-mt-20">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <!-- Phasenkopf -->
+      <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
+        <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[1].cn}</span>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase zwei</p>
+        <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+          {phases[1].label}
+        </h2>
+      </div>
+
+      <!-- 2x2-Raster der Bau-Services -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
+        {buildServices.map((service) => (
+          <a
+            href={service.link}
+            class="group flex flex-col bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-9 no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
+          >
+            <div class="flex items-start justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center group-hover:bg-[var(--color-brand-orange)]/20 transition-colors duration-300">
+                {service.icon === 'migration' && (
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                  </svg>
+                )}
+                {service.icon === 'design' && (
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+                  </svg>
+                )}
+                {service.icon === 'technical' && (
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                  </svg>
+                )}
+                {service.icon === 'plugins' && (
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.491 48.491 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.959.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
+                  </svg>
+                )}
+              </div>
+              <span class="text-2xl font-light text-[var(--color-brand-orange)]/60 font-[var(--font-heading)]">{service.cn}</span>
+            </div>
+
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+              {service.tagline}
+            </p>
+            <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-4">
+              {service.title}
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+              {service.description}
+            </p>
+
+            <!-- Leistungen -->
+            <ul class="space-y-2.5 mb-6 flex-1">
+              {service.deliverables.map((item) => (
+                <li class="flex gap-2.5 text-sm text-[var(--color-text-body)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- Zahlenzeile -->
+            <div class="flex gap-6 pt-5 mb-6 border-t border-[var(--color-surface-border)]">
+              {service.stats.map((stat) => (
+                <div>
+                  <p class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{stat.value}</p>
+                  <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mt-0.5">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+              {service.cta}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PHASE HOST ============== -->
+  <section id="host" class="bg-[var(--color-surface-light)] py-20 md:py-24 lg:py-28 scroll-mt-20">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <!-- Phasenkopf -->
+      <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
+        <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[2].cn}</span>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase drei</p>
+        <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+          {phases[2].label}
+        </h2>
+      </div>
+
+      <!-- Vorzeigekarte Hosting -->
+      <a
+        href={hosting.link}
+        class="group block bg-white border border-[var(--color-surface-border)] rounded-3xl overflow-hidden no-underline transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
+      >
+        <!-- Oben: Intro -->
+        <div class="p-8 md:p-10 lg:p-14 grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-[var(--color-surface-border)]">
+          <div class="lg:col-span-7">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl font-light text-[var(--color-brand-orange)]">{hosting.cn}</span>
+              <span class="h-px w-12 bg-[var(--color-brand-orange)]"></span>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+                {hosting.tagline}
+              </p>
+            </div>
+            <h3 class="text-3xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-5">
+              {hosting.title}
+            </h3>
+            <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+              {hosting.description}
+            </p>
+          </div>
+          <!-- Zahlenspalte -->
+          <div class="lg:col-span-4 lg:col-start-9 flex flex-col justify-center gap-5">
+            {hosting.stats.map((stat) => (
+              <div class="flex items-baseline gap-4 pb-4 border-b border-[var(--color-surface-border)] last:border-0 last:pb-0">
+                <p class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] min-w-[6rem]">{stat.value}</p>
+                <p class="text-sm text-[var(--color-text-body)]">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Unten: 3 Hosting-Optionen -->
+        <div class="p-8 md:p-10 lg:p-14 bg-[var(--color-surface-light)]">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)] mb-6">
+            3 Wege zu hosten
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {hosting.options.map((option) => (
+              <div class="bg-white border border-[var(--color-surface-border)] rounded-2xl p-6 group-hover:border-[var(--color-brand-orange)]/20 transition-colors duration-300">
+                <div class="flex items-baseline justify-between mb-4">
+                  <h4 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{option.name}</h4>
+                  <span class="text-xs text-[var(--color-text-muted)] font-medium">{option.timeframe}</span>
+                </div>
+                <ul class="space-y-2.5">
+                  {option.bullets.map((b) => (
+                    <li class="flex gap-2 text-sm text-[var(--color-text-body)]">
+                      <span class="text-[var(--color-brand-orange)] mt-0.5">·</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div class="mt-8">
+            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+              {hosting.cta}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== PHASE GROW ============== -->
+  <section id="grow" class="py-20 md:py-24 lg:py-28 scroll-mt-20">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <!-- Phasenkopf -->
+      <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
+        <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[3].cn}</span>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase vier</p>
+        <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+          {phases[3].label}
+        </h2>
+      </div>
+
+      <!-- Raster mit 3 Karten -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+        {growServices.map((service) => (
+          <a
+            href={service.link}
+            class="group flex flex-col bg-white border border-[var(--color-surface-border)] rounded-2xl p-7 lg:p-8 no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
+          >
+            <div class="flex items-start justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center group-hover:bg-[var(--color-brand-orange)]/20 transition-colors duration-300">
+                {service.icon === 'content' && (
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                  </svg>
+                )}
+                {service.icon === 'seo' && (
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                  </svg>
+                )}
+                {service.icon === 'ai' && (
+                  <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.091 3.091zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                  </svg>
+                )}
+              </div>
+              <span class="text-2xl font-light text-[var(--color-brand-orange)]/60 font-[var(--font-heading)]">{service.cn}</span>
+            </div>
+
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+              {service.tagline}
+            </p>
+            <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-4">
+              {service.title}
+            </h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+              {service.description}
+            </p>
+
+            <!-- Leistungen -->
+            <ul class="space-y-2.5 mb-6 flex-1">
+              {service.deliverables.map((item) => (
+                <li class="flex gap-2.5 text-sm text-[var(--color-text-body)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- Zahlenzeile -->
+            <div class="flex gap-6 pt-5 mb-6 border-t border-[var(--color-surface-border)]">
+              {service.stats.map((stat) => (
+                <div>
+                  <p class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{stat.value}</p>
+                  <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mt-0.5">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+              {service.cta}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PHASE RUN ============== -->
+  <section id="run" class="bg-[var(--color-surface-light)] py-20 md:py-24 lg:py-28 scroll-mt-20">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <!-- Phasenkopf -->
+      <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
+        <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[4].cn}</span>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase fünf</p>
+        <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+          {phases[4].label}
+        </h2>
+      </div>
+
+      <!-- Vorzeigekarte Wartung -->
+      <a
+        href={maintenance.link}
+        class="group block bg-white border border-[var(--color-surface-border)] rounded-3xl overflow-hidden no-underline transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <!-- Links: Zahlenpanel -->
+          <div class="lg:col-span-5 bg-[var(--color-surface-dark)] p-8 md:p-10 lg:p-14 flex flex-col justify-center order-2 lg:order-1">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-8">
+              In Zahlen
+            </p>
+            <div class="space-y-8">
+              {maintenance.stats.map((stat) => (
+                <div class="border-b border-white/10 pb-6 last:border-0 last:pb-0">
+                  <p class="text-4xl lg:text-5xl font-medium font-[var(--font-heading)] text-white mb-1">{stat.value}</p>
+                  <p class="text-sm text-white/55">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Rechts: Text -->
+          <div class="lg:col-span-7 p-8 md:p-10 lg:p-14 order-1 lg:order-2">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-xl font-light text-[var(--color-brand-orange)]">{maintenance.cn}</span>
+              <span class="h-px w-12 bg-[var(--color-brand-orange)]"></span>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+                {maintenance.tagline}
+              </p>
+            </div>
+            <h3 class="text-3xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-5">
+              {maintenance.title}
+            </h3>
+            <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+              {maintenance.description}
+            </p>
+
+            <!-- Leistungen, auf Desktop zweispaltig -->
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+              {maintenance.deliverables.map((item) => (
+                <li class="flex gap-3 text-[15px] text-[var(--color-text-body)]">
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+              {maintenance.cta}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== STREIFEN WIE WIR ARBEITEN ============== -->
+  <section class="bg-[var(--color-surface-dark)] py-16 md:py-20">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-3">
+        Wie wir arbeiten
+      </p>
+      <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white mb-12 max-w-3xl">
+        Vom Audit bis zur Überwachung. Dasselbe Team, dasselbe Gebäude, den ganzen Weg.
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div>
+          <div class="w-10 h-10 rounded-full bg-[var(--color-brand-orange)] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Audit</h3>
+          <p class="text-sm text-white/50 leading-relaxed">Wir testen Ihre Website aus China heraus und dokumentieren alles, was kaputt ist.</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 rounded-full bg-[var(--color-brand-orange)] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Planung</h3>
+          <p class="text-sm text-white/50 leading-relaxed">Klarer Fahrplan mit Prioritäten, Terminen und null Überraschungen bei Umfang und Budget.</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 rounded-full bg-[var(--color-brand-orange)] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.42 15.17l-5.1-5.1m0 0L11.42 4.97m-5.1 5.1H21M3 21h18" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Umsetzung</h3>
+          <p class="text-sm text-white/50 leading-relaxed">Wir setzen aus China heraus um und testen bei jedem Schritt auf echten Netzen.</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 rounded-full bg-[var(--color-brand-orange)] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Betrieb</h3>
+          <p class="text-sm text-white/50 leading-relaxed">Laufende Überwachung und Wartung über chinesische Netze, jede Woche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ABSCHLUSS-CTA ============== -->
+  <section class="py-24 md:py-32 lg:py-40">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Finden wir gemeinsam heraus, was Sie in China wirklich brauchen.
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
+        Vielleicht eine Website, die hinter der Firewall nicht lädt. Vielleicht ein Start, den Sie aufschieben, weil der China-Teil zu groß wirkt. Was es auch ist: Sagen Sie uns, was los ist, und wir arbeiten von dort aus weiter.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/de/kontakt/" variant="primary" size="lg">Erstgespräch vereinbaren</Button>
+        <Button href="/de/kontakt/" variant="secondary" size="lg">Kostenlose Website-Bewertung</Button>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
