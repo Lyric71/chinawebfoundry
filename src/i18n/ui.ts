@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'fr';
+export type Locale = 'en' | 'fr' | 'es';
 
 export const ui = {
   en: {
@@ -88,6 +88,7 @@ export const ui = {
     // Language switcher
     'lang.en': 'EN',
     'lang.fr': 'FR',
+    'lang.es': 'ES',
   },
   fr: {
     // Navigation
@@ -176,6 +177,96 @@ export const ui = {
     // Language switcher
     'lang.en': 'EN',
     'lang.fr': 'FR',
+    'lang.es': 'ES',
+  },
+  es: {
+    // Navigation
+    'nav.services': 'Servicios',
+    'nav.work': 'Proyectos',
+    'nav.whoWeAre': 'Quiénes somos',
+    'nav.resources': 'Recursos',
+    'nav.contact': 'Contacto',
+    'nav.contactUs': 'Hablemos',
+    'nav.chinaSiteScanner': 'China Site Scanner',
+    'nav.chinaWebGuide': 'Guía de la web china',
+    'nav.faq': 'Preguntas frecuentes',
+    'nav.faqShort': 'FAQ',
+    'nav.allServices': 'Ver todos los servicios',
+    'nav.allServicesMobile': 'Todos los servicios',
+
+    // Navigation columns
+    'nav.plan': 'Planificar',
+    'nav.build': 'Construir',
+    'nav.grow': 'Hacer crecer',
+    'nav.technology': 'Tecnología',
+
+    // Navigation service descriptions
+    'nav.desc.strategyAudit': 'Medir si está listo para China',
+    'nav.desc.chinaMigration': 'Llevar su sitio detrás del Cortafuegos',
+    'nav.desc.uxUiDesign': 'Diseñar pensando en el usuario chino',
+    'nav.desc.technicalIntegration': 'CDN, pagos y rendimiento',
+    'nav.desc.pluginsExtensions': 'Sustituir los plugins bloqueados',
+    'nav.desc.baiduSeo': 'Aparecer en el primer buscador de China',
+    'nav.desc.geo': 'Salir en las respuestas de la IA',
+    'nav.desc.chineseContent': 'Textos escritos en chino que convierten',
+    'nav.desc.chinaHosting': 'Servidores rápidos, con licencia ICP en regla',
+    'nav.desc.maintenanceSupport': 'Actualizaciones y vigilancia constantes',
+    'nav.desc.chinaSiteScanner': 'Poner su sitio a prueba frente a la realidad china',
+    'nav.desc.chinaWebGuide': 'La guía para descifrar la web china',
+    'nav.desc.faq': 'Las dudas que más se repiten',
+
+    // Navigation service labels
+    'nav.label.strategyAudit': 'Estrategia y auditoría',
+    'nav.label.chinaMigration': 'Migración a China',
+    'nav.label.uxUiDesign': 'Diseño UX/UI',
+    'nav.label.technicalIntegration': 'Integración técnica',
+    'nav.label.pluginsExtensions': 'Plugins y extensiones',
+    'nav.label.baiduSeo': 'SEO en Baidu',
+    'nav.label.geo': 'GEO (Generative Engine Optimization)',
+    'nav.label.chineseContent': 'Contenidos en chino',
+    'nav.label.chinaHosting': 'Alojamiento',
+    'nav.label.maintenanceSupport': 'Mantenimiento y soporte',
+    'nav.label.wordpress': 'WordPress',
+    'nav.label.astro': 'Astro',
+    'nav.label.wechat': 'WeChat',
+
+    // Footer
+    'footer.manifesto': 'Sitios pensados para la forma en que los usuarios chinos navegan, leen y compran de verdad. Equipo sobre el terreno, estándares internacionales. De la estrategia al lanzamiento, y mucho más allá.',
+    'footer.services': 'Servicios',
+    'footer.company': 'La agencia',
+    'footer.connect': 'Contacto',
+    'footer.ourWork': 'Nuestros proyectos',
+    'footer.copyright': 'Copyright',
+    'footer.contact': 'Contacto',
+    'footer.builtWith': 'Trabajamos con',
+
+    // Legal
+    'legal.privacyPolicy': 'Política de privacidad',
+    'legal.termsOfService': 'Condiciones del servicio',
+    'legal.cookiePolicy': 'Política de cookies',
+
+    // Service Layout
+    'service.home': 'Inicio',
+    'service.readyToStart': '¿Empezamos?',
+    'service.letsDiscuss': 'Veamos cómo su sitio web puede abrirse paso en China.',
+
+    // Guide Layout
+    'guide.backLink': 'Guía de la web china',
+    'guide.toc': 'En este artículo',
+    'guide.needHelp': '¿Le echamos una mano?',
+    'guide.needHelpText': 'ChinaWebFoundry lleva proyectos web en China de principio a fin. Si todo esto le parece más de lo que quiere afrontar solo, escríbanos.',
+    'guide.talkToUs': 'Hablemos',
+
+    // 404
+    '404.title': '404',
+    '404.heading': 'Página no encontrada',
+    '404.text': 'Esta página ya no existe o cambió de dirección.',
+    '404.backHome': 'Volver al inicio',
+
+    // Language switcher
+    'lang.en': 'EN',
+    'lang.fr': 'FR',
+    'lang.es': 'ES',
   },
 } as const;
 

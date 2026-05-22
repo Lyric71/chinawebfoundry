@@ -5,6 +5,8 @@ summary: "Baidu domine la recherche en Chine avec 724 millions d'utilisateurs me
 visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Search
 ---
 

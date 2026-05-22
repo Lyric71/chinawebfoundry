@@ -1,0 +1,44 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import GuideLayout from '../../../../layouts/GuideLayout.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides-es');
+  return guides
+    .filter((guide) => guide.data.published)
+    .map((guide) => ({
+      params: { slug: guide.id },
+      props: { guide },
+    }));
+}
+
+const { guide } = Astro.props;
+const { Content, headings } = await render(guide);
+const tocItems = headings.filter((h) => h.depth === 2);
+
+// Author lookup: prefer ES team entry, fall back to EN team if no ES mirror.
+const teamEsEntry = await getEntry('team-es', guide.data.author).catch(() => undefined);
+const teamEntry = teamEsEntry ?? await getEntry('team', guide.data.author);
+const author = teamEntry
+  ? {
+      name: teamEntry.data.name,
+      role: teamEntry.data.role,
+      url: teamEntry.data.linkedin,
+      bio: teamEntry.data.bio,
+    }
+  : undefined;
+---
+
+<GuideLayout
+  title={guide.data.title}
+  subtitle={guide.data.subtitle}
+  summary={guide.data.summary}
+  visual={guide.data.visual}
+  tocItems={tocItems}
+  lang="es"
+  author={author}
+  publishedAt={guide.data.publishedAt}
+  updatedAt={guide.data.updatedAt}
+>
+  <Content />
+</GuideLayout>

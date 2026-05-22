@@ -5,6 +5,8 @@ summary: "Keyword research on Baidu requires different tools and methods than Go
 visual: "/images/guides/baidu-keyword-research-tools.webp"
 order: 3
 published: true
+publishedAt: 2026-03-31
+updatedAt: 2026-05-01
 category: Search
 ---
 

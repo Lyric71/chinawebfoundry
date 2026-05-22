@@ -8,56 +8,61 @@ import sitemap from '@astrojs/sitemap';
 // Map a sitemap URL pathname to the most likely on-disk source file.
 // Returns the first existing candidate so we can use its mtime as lastmod.
 function sourceFileForPath(pathname) {
-  const isFr = pathname.startsWith('/fr/') || pathname === '/fr';
-  const enPath = isFr ? (pathname.replace(/^\/fr/, '') || '/') : pathname;
+  const localeMatch = pathname.match(/^\/(fr|es)(?:\/|$)/);
+  const locale = localeMatch ? localeMatch[1] : 'en';
+  const enPath = locale === 'en'
+    ? pathname
+    : (pathname.replace(new RegExp(`^/${locale}`), '') || '/');
+  const contentSuffix = locale === 'en' ? '' : `-${locale}`;
+  const pageDir = locale === 'en' ? '' : `/${locale}`;
   const trim = (s) => s.replace(/^\//, '').replace(/\/$/, '');
 
   const candidates = [];
 
   // Home pages
   if (enPath === '/' || enPath === '') {
-    candidates.push(isFr ? './src/pages/fr/index.astro' : './src/pages/index.astro');
+    candidates.push(`./src/pages${pageDir}/index.astro`);
   }
 
   // Service detail
   const svcMatch = enPath.match(/^\/services\/([^/]+)\/?$/);
   if (svcMatch) {
-    candidates.push(`./src/content/services${isFr ? '-fr' : ''}/${svcMatch[1]}.md`);
+    candidates.push(`./src/content/services${contentSuffix}/${svcMatch[1]}.md`);
   }
 
   // Case study detail
   const workMatch = enPath.match(/^\/work\/([^/]+)\/?$/);
   if (workMatch) {
-    candidates.push(`./src/content/casestudies${isFr ? '-fr' : ''}/${workMatch[1]}.md`);
+    candidates.push(`./src/content/casestudies${contentSuffix}/${workMatch[1]}.md`);
   }
 
   // Guide article
   const guideMatch = enPath.match(/^\/resources\/china-web-guide\/([^/]+)\/?$/);
   if (guideMatch) {
-    candidates.push(`./src/content/guides${isFr ? '-fr' : ''}/${guideMatch[1]}.md`);
+    candidates.push(`./src/content/guides${contentSuffix}/${guideMatch[1]}.md`);
   }
 
   // Top-level static pages (single-segment paths)
   const slug = trim(enPath);
   if (slug && !slug.includes('/')) {
-    candidates.push(`./src/pages${isFr ? '/fr' : ''}/${slug}.astro`);
+    candidates.push(`./src/pages${pageDir}/${slug}.astro`);
   }
 
   // Index pages for sections that exist as folders
-  candidates.push(`./src/pages${isFr ? '/fr' : ''}${enPath.endsWith('/') ? enPath : enPath + '/'}index.astro`);
+  candidates.push(`./src/pages${pageDir}${enPath.endsWith('/') ? enPath : enPath + '/'}index.astro`);
 
   return candidates.find(existsSync);
 }
 
 export default defineConfig({
-  site: 'https://chinawebfoundry.com',
+  site: 'https://www.chinawebfoundry.com',
   output: 'static',
   adapter: vercel({
     webAnalytics: { enabled: true },
   }),
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr'],
+    locales: ['en', 'fr', 'es'],
     routing: {
       prefixDefaultLocale: false,
     },
@@ -69,6 +74,7 @@ export default defineConfig({
         locales: {
           en: 'en',
           fr: 'fr',
+          es: 'es',
         },
       },
       // Skip 404 page from sitemap.
@@ -79,25 +85,25 @@ export default defineConfig({
 
         // Priority by route type. (Google ignores priority/changefreq, but Bing
         // and other engines still read them. Cheap to set, no downside.)
-        if (path === '/' || path === '/fr/') {
+        if (path === '/' || path === '/fr/' || path === '/es/') {
           item.priority = 1.0;
           item.changefreq = 'weekly';
-        } else if (/^\/(fr\/)?services\/?$/.test(path)) {
+        } else if (/^\/(?:fr\/|es\/)?services\/?$/.test(path)) {
           item.priority = 0.9;
           item.changefreq = 'monthly';
-        } else if (/^\/(fr\/)?services\/[^/]+\/?$/.test(path)) {
+        } else if (/^\/(?:fr\/|es\/)?services\/[^/]+\/?$/.test(path)) {
           item.priority = 0.9;
           item.changefreq = 'monthly';
-        } else if (/^\/(fr\/)?work(\/|$)/.test(path)) {
+        } else if (/^\/(?:fr\/|es\/)?work(\/|$)/.test(path)) {
           item.priority = 0.8;
           item.changefreq = 'monthly';
-        } else if (/^\/(fr\/)?resources\/china-web-guide\/[^/]+\/?$/.test(path)) {
+        } else if (/^\/(?:fr\/|es\/)?resources\/china-web-guide\/[^/]+\/?$/.test(path)) {
           item.priority = 0.8;
           item.changefreq = 'monthly';
-        } else if (/^\/(fr\/)?(who-we-are|wordpress|astro|wechat|china-site-scanner|contact)\/?$/.test(path)) {
+        } else if (/^\/(?:fr\/|es\/)?(who-we-are|wordpress|astro|wechat|china-site-scanner|contact)\/?$/.test(path)) {
           item.priority = 0.8;
           item.changefreq = 'monthly';
-        } else if (/^\/(fr\/)?(privacy-policy|terms-of-service|cookie-policy)\/?$/.test(path)) {
+        } else if (/^\/(?:fr\/|es\/)?(privacy-policy|terms-of-service|cookie-policy)\/?$/.test(path)) {
           item.priority = 0.3;
           item.changefreq = 'yearly';
         }

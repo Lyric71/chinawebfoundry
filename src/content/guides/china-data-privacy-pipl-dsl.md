@@ -5,6 +5,8 @@ summary: "China's data privacy framework includes PIPL, DSL and the Cybersecurit
 visual: "/images/guides/china-data-privacy-pipl-dsl.webp"
 order: 11
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-01
 category: Legal
 ---
 

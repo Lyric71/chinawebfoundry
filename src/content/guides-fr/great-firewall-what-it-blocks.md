@@ -5,6 +5,8 @@ summary: "Le Grand Pare-feu chinois bloque Google, Facebook, Slack et des dizain
 visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Technology
 ---
 

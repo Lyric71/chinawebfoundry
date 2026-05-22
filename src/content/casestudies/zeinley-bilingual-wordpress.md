@@ -2,7 +2,7 @@
 title: "Building a Bilingual WordPress Website From Scratch for China and the World"
 subtitle: "How we helped pharmaceutical packaging supplier ZeinLey go from zero content to a fully bilingual, dual-hosted WordPress site serving both Chinese and international markets."
 summary: "Pharmaceutical packaging supplier ZeinLey needed a bilingual WordPress website for China and international markets. We built it from zero content to dual-hosted launch."
-visual: "/images/casestudies/zeinley-homepage.webp"
+visual: "/images/casestudies/zeinley-homepage-hero.webp"
 visuals:
   - "/images/casestudies/zeinley-homepage.webp"
   - "/images/casestudies/zeinley-product-service.webp"

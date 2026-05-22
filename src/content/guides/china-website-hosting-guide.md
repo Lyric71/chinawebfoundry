@@ -5,6 +5,8 @@ summary: "Where you host your China website affects speed, Baidu rankings and co
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-01
 category: Hosting
 ---
 

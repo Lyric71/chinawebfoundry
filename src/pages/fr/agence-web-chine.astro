@@ -5,7 +5,7 @@ import ScrollEffects from '../../components/global/ScrollEffects.astro';
 import PageScrollEffects from '../../components/pages/ScrollEffects.astro';
 import { getCollection } from 'astro:content';
 
-const metaTitle = 'Agence web en Chine pour marques internationales | ChinaWebFoundry';
+const metaTitle = 'Agence web à Shanghai pour marques en Chine | ChinaWebFoundry';
 const metaDescription = 'Agence web installée à Shanghai. Nous cadrons, construisons, faisons grandir et opérons des sites en Chine pour les marques étrangères. Vingt ans sur le terrain, plus de 50 projets.';
 const canonicalPath = '/fr/agence-web-chine/';
 
@@ -15,7 +15,7 @@ const casestudies = (await getCollection('casestudies-fr'))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
 
-const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://chinawebfoundry.com';
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
 const pageUrl = `${siteOrigin}${canonicalPath}`;
 
 const serviceLd = {
@@ -111,7 +111,7 @@ const faqs = [
   heroPage={true}
   lang="fr"
   jsonLd={[serviceLd, breadcrumbLd]}
-  alternateUrls={{ en: '/web-agency-china/', fr: '/fr/agence-web-chine/' }}
+  alternateUrls={{ en: '/web-agency-china/', fr: '/fr/agence-web-chine/', es: '/es/agencia-web-china/' }}
 >
   <ScrollEffects />
   <PageScrollEffects />

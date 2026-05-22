@@ -1,0 +1,899 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
+import Button from '../../../components/ui/Button.astro';
+import FAQItem from '../../../components/pages/FAQItem.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
+
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-es', 'baidu-seo'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
+
+const whyDifferent = [
+  {
+    n: '01',
+    cn: '算法',
+    title: 'Baidu premia otras cosas',
+    body: 'El 知心算法 (Zhixin) reconoce ya más de 200 relaciones semánticas en las consultas en chino. El 飓风算法 3.0 castiga el contenido de IA mal revisado. Los textos traducidos palabra por palabra pierden posiciones enseguida.',
+    tag: 'Criterios de posicionamiento',
+    chips: ['知心算法', '飓风算法 3.0', 'Original ZH', 'Semántica'],
+  },
+  {
+    n: '02',
+    cn: '蜘蛛',
+    title: 'Baidu Spider va a otro ritmo',
+    body: "Baidu Spider procesa JavaScript con varios años de retraso respecto a Googlebot: el contenido cargado en el cliente suele quedarse fuera. El rastreo prioriza el móvil, la carga por debajo de tres segundos es un umbral rígido y el HTTPS cuenta como señal positiva.",
+    tag: 'Rastreo y renderizado',
+    chips: ['Baiduspider', 'Móvil primero', 'SSR / estático', 'HTTPS'],
+  },
+  {
+    n: '03',
+    cn: '主机',
+    title: 'La ubicación del alojamiento es una señal',
+    body: 'Los sitios sin trámite ICP quedan penalizados en el índice. Con el mismo contenido, un alojamiento continental supera a un sitio alojado en Hong Kong o en el extranjero. Es una señal estructural que pesa en cada consulta.',
+    tag: 'Infraestructura',
+    chips: ['ICP', 'Continental', 'Aliyun', 'Tencent Cloud'],
+  },
+  {
+    n: '04',
+    cn: '推送',
+    title: 'El modelo de envío es distinto',
+    body: "Baidu no encuentra su contenido por sí solo. Espera que se le empujen las URL nuevas mediante 主动推送 (Active Push) en los minutos posteriores a la publicación. Conectamos ese envío directamente al CMS.",
+    tag: 'Envío',
+    chips: ['主动推送', '自动推送', 'Sitemap', '手工提交'],
+  },
+  {
+    n: '05',
+    cn: '关键词',
+    title: 'La investigación de palabras clave se hace en chino, desde cero',
+    body: 'Lo que buscan de verdad los internautas chinos casi no se parece a una lista de palabras clave en inglés traducida. Trabajamos con 百度指数 (Baidu Index) y 百度关键词规划师 para levantar el mapa desde la página en blanco.',
+    tag: 'Descubrimiento',
+    chips: ['百度指数', '关键词规划师', '5118', 'Cola larga'],
+  },
+];
+
+const services = [
+  {
+    n: '01',
+    title: 'SEO técnico para Baidu',
+    body: 'Verificación del sitio en el 百度搜索资源平台. Los cuatro métodos de envío de URL configurados por orden de prioridad, más 死链提交, 站点子链 y la comprobación del rastreo con prioridad móvil. La velocidad se mide desde China continental.',
+    bullets: [
+      '主动推送 (Active Push) conectado al CMS para el envío en tiempo real.',
+      '自动推送 (Auto Push) en JS para recoger las URL visitadas antes de que se dispare el hook del CMS.',
+      'Sitemap completo, actualizado de forma automática (50.000 URL / 10 MB máximo por archivo).',
+      '手工提交 como último recurso para las páginas de mayor valor.',
+    ],
+    tag: 'p.04',
+  },
+  {
+    n: '02',
+    title: 'Contenido chino nativo, estructurado para Baidu',
+    body: 'Baidu valora el 深度原创. El 飓风算法 degrada las páginas pobres o copiadas, y el 飓风算法 3.0 va a por el contenido de IA sin revisión humana. Escribimos con editores chinos nativos: formato largo, marcado Schema y respuestas factuales que las IA pueden citar.',
+    tag: 'p.10',
+  },
+  {
+    n: '03',
+    title: 'Optimización para la búsqueda con IA (文心X1, DeepSeek, Doubao, Kimi)',
+    body: "Más del 20 % de los resultados de Baidu en 2025 incluían una respuesta generada por IA. Baidu integra ya 文心X1 y la búsqueda profunda de DeepSeek directamente en la página de resultados. Estructuramos el contenido para que esos motores lo lean, lo entiendan y nombren su marca en la respuesta.",
+    tag: 'p.16',
+  },
+  {
+    n: '04',
+    title: 'Autoridad en el ecosistema web chino',
+    body: "Sus enlaces internacionales casi no pesan en Baidu. Las plataformas que de verdad mueven el posicionamiento son 百度百科, 百度知道, 百度贴吧, 知乎, 百家号, 百度爱采购, además de los portales B2B sectoriales y las señales de WeChat y Weibo. Construimos esa presencia y dirigimos la sindicación.",
+    tag: 'p.22',
+  },
+  {
+    n: '05',
+    title: 'Optimización continua y respuesta a los algoritmos',
+    body: "Baidu no anuncia la mayoría de sus actualizaciones, y las que publica salen en chino en el blog del 百度搜索资源平台. En los últimos doce meses hemos seguido los cambios del 知心算法, del 飓风算法 3.0 y la integración de 文心X1 y DeepSeek. Cada uno redefinió lo que gana posiciones.",
+    tag: 'p.30',
+  },
+];
+
+const tools = [
+  {
+    name: '百度搜索资源平台',
+    en: 'Plataforma para webmasters de Baidu',
+    cn: '资源',
+    body: 'La consola oficial para webmasters: verificación del sitio, envío de URL, sitemaps, informes de indexación, prueba móvil, aviso de enlaces rotos y un canal de anuncios algorítmicos.',
+    feature: true,
+    items: ['Verificación del sitio', 'API de envío de URL', 'Sitemap', 'Informes de indexación', 'Prueba móvil', '死链提交', 'Canal de algoritmos'],
+  },
+  {
+    name: '百度统计',
+    en: 'Baidu Tongji',
+    cn: '统计',
+    body: 'El equivalente de Baidu a Google Analytics. Imprescindible para cualquier medición seria del lado chino.',
+  },
+  {
+    name: '百度指数',
+    en: 'Baidu Index y Keyword Planner',
+    cn: '指数',
+    body: 'El punto de partida de una investigación real de palabras clave en chino, en lugar de una lista en inglés traducida. Se usa junto con el 百度关键词规划师.',
+  },
+  {
+    name: '5118 · 爱站 · 站长之家',
+    en: 'Herramientas SEO chinas de terceros',
+    cn: '工具',
+    body: 'A menudo aportan una inteligencia competitiva y un historial de posiciones más profundos que las herramientas oficiales.',
+  },
+  {
+    name: 'API para webmasters de Baidu',
+    en: 'Integración de Active Push',
+    cn: '接口',
+    body: 'Para el 主动推送 conectamos directamente al CMS en lugar de pasar por los paneles de control.',
+  },
+];
+
+const stages = [
+  {
+    n: '01',
+    cn: '审计',
+    title: 'Auditoría de Baidu',
+    body: 'Pruebas desde China continental: indexación, salud del rastreo de Baiduspider, profundidad del contenido, señales de ICP y alojamiento, además de la posición actual sobre 50 a 100 palabras clave objetivo.',
+    output: 'Informe de auditoría',
+  },
+  {
+    n: '02',
+    cn: '关键词',
+    title: 'Mapa de palabras clave',
+    body: 'Investigación en chino nativo con 百度指数 y 关键词规划师. Un mapa con etiquetas de intención, volúmenes y un brief de contenido por cada grupo.',
+    output: 'Mapa + briefs',
+  },
+  {
+    n: '03',
+    cn: '部署',
+    title: 'Despliegue técnico',
+    body: 'Verificación del sitio, 主动推送 conectado al CMS, sitemaps, marcado Schema, optimizaciones de móvil y velocidad, llms.txt y estructura para la búsqueda con IA, todo entregado a la vez.',
+    output: 'Indexación en marcha',
+  },
+  {
+    n: '04',
+    cn: '权威',
+    title: 'Autoridad y contenido',
+    body: 'Contenido chino nativo, más sindicación en 百家号, 知乎, 百度知道 y los portales sectoriales pertinentes. Las fichas de 百度百科 se añaden cuando la marca está lista.',
+    output: 'Citas + progreso',
+  },
+  {
+    n: '05',
+    cn: '迭代',
+    title: 'Seguimiento e iteración',
+    body: "Seguimiento semanal de posiciones, informe mensual por escrito y reacción a las actualizaciones algorítmicas en la misma semana. Baidu cambia; el equipo que no lo sigue pierde posiciones sin entender por qué.",
+    output: 'Informe mensual',
+  },
+];
+
+const stats = [
+  { value: '24-72h', label: 'Indexación vía 主动推送', sub: 'URL nuevas en Baidu en cuestión de horas, cuando el rastreo natural tarda semanas.' },
+  { value: '11', label: 'Actualizaciones del algoritmo seguidas en 2025', sub: '知心算法, 飓风算法 3.0, integración de 文心X1.' },
+  { value: '20%+', label: 'Páginas de Baidu con respuesta de IA', sub: '文心X1 y DeepSeek ya integrados en los resultados.' },
+];
+
+const audiences = [
+  {
+    label: 'Marcas extranjeras invisibles en Baidu',
+    description: 'Empresas cuyo sitio chino genera menos de cincuenta visitas orgánicas al mes desde Baidu, mientras ya pagan anuncios sobre las mismas palabras clave.',
+    image: '/images/audiences/no-organic-traffic-china.webp',
+  },
+  {
+    label: 'Marcas con contenido traducido y antiguo',
+    description: 'Sitios extranjeros cuyas páginas en chino se han quedado en simples traducciones y no han evolucionado desde el lanzamiento.',
+    image: '/images/audiences/outdated-translated-content.webp',
+  },
+  {
+    label: 'Marcas que arrancan desde cero',
+    description: 'Empresas que quieren visibilidad en Baidu desde el primer día, integrada en el diseño del sitio y en el calendario de publicación.',
+    image: '/images/audiences/launching-chinese-market.webp',
+  },
+  {
+    label: 'Marcas que se toman en serio la búsqueda con IA',
+    description: 'Equipos que ven las respuestas de IA en la parte alta de los resultados de Baidu y quieren que esos motores nombren su marca en la respuesta.',
+    image: '/images/audiences/seo-pro-needs-baidu.webp',
+  },
+];
+
+const marqueePhrases = [
+  '百度', 'Baidu',
+  '主动推送', 'Active Push',
+  '知心算法', '飓风算法 3.0',
+  '文心X1', 'DeepSeek',
+  '百家号', '知乎', '百度百科',
+  'ICP registrado',
+  'Alojamiento continental',
+  'Preparado para la IA',
+];
+
+const faqs = [
+  {
+    id: 'outside-china',
+    question: '¿Se puede dirigir el SEO de Baidu desde fuera de China?',
+    answer: [
+      "Técnicamente sí, pero con límites serios. La verificación de Baidu pide números de teléfono chinos, el panel está en chino, la documentación no se traduce y muchas herramientas de Baidu limitan o bloquean las direcciones IP extranjeras. La mayoría de los equipos extranjeros que lo intentan lo dejan en un trimestre. Lo dirigimos desde Shanghái porque ahí es donde el trabajo se hace de verdad.",
+    ],
+  },
+  {
+    id: 'how-long',
+    question: '¿Cuánto tarda en verse resultados?',
+    answer: [
+      'Movimiento en la cola larga en 6 a 10 semanas. Los términos competitivos tardan al menos de 3 a 6 meses. El crecimiento orgánico real sigue una curva de 6 a 12 meses. La indexación de los contenidos nuevos mediante 主动推送 ocurre en 24 a 72 horas.',
+    ],
+  },
+  {
+    id: 'no-icp',
+    question: '¿Y si nuestro sitio no tiene trámite ICP?',
+    answer: [
+      'Se posicionará, pero con una desventaja medible. Baidu trata los sitios de Hong Kong y offshore como extranjeros, los rastrea con menos frecuencia y los sitúa por debajo de los sitios continentales. Para una marca que se toma en serio Baidu, el ICP con alojamiento continental sigue siendo la decisión acertada.',
+    ],
+  },
+  {
+    id: 'baidu-ads',
+    question: '¿También gestionan Baidu Ads (SEM)?',
+    answer: [
+      "No, nos centramos en el SEO orgánico de Baidu. La publicidad de pago es un oficio aparte que llevan otros equipos. Trabajamos junto a los socios de medios y nos aseguramos de que el contenido SEO y las páginas de aterrizaje de pago no compitan entre sí.",
+    ],
+  },
+  {
+    id: 'chinese-content',
+    question: '¿Cómo se conecta esto con el trabajo de contenido chino?',
+    answer: [
+      'Muy de cerca. Hacer SEO de Baidu sin contenido chino nativo es cavar en el vacío. La mayoría de nuestros clientes contratan ambos en un solo encargo, con el equipo de contenido y el de SEO trabajando sobre el mismo mapa de palabras clave y la misma arquitectura editorial.',
+    ],
+  },
+  {
+    id: 'ai-search',
+    question: '¿Y la visibilidad ante las IA en Doubao, Kimi, DeepSeek y 文心X1?',
+    answer: [
+      'Cada vez es el mismo trabajo. Baidu integra ya 文心X1 y DeepSeek en más del 20 % de sus páginas de resultados. Estructurar el contenido para las IA (respuestas factuales limpias, marcado Schema, llms.txt, estructura semántica) coincide en gran medida con la estructura que espera Baidu. Tratamos ambas cosas juntas.',
+    ],
+  },
+  {
+    id: 'links',
+    question: '¿Hacen construcción de enlaces?',
+    answer: [
+      "Construimos autoridad en las plataformas chinas (百度百科, 百度知道, 知乎, 百家号, 百度爱采购, portales B2B sectoriales) donde la presencia mueve de verdad el posicionamiento en Baidu. Comprar enlaces genéricos a un intermediario occidental no funciona y expone a un riesgo con el 飓风算法. La autoridad en China se gana en las plataformas chinas, o no se gana.",
+    ],
+  },
+  {
+    id: 'measurement',
+    question: '¿Cómo miden el éxito?',
+    answer: [
+      'Inclusión en el índice (número de páginas indexadas), posiciones de palabras clave (seguimiento semanal), tráfico orgánico de Baidu (vía 百度统计), atribución de conversiones y cuota de voz frente a tres a cinco competidores con nombre y apellidos. Lo presentamos en un resumen mensual por escrito, acompañado de un panel en directo.',
+    ],
+  },
+  {
+    id: 'algorithm-changes',
+    question: '¿Qué hacen cuando Baidu cambia su algoritmo?',
+    answer: [
+      "Seguimos cada semana los anuncios del 百度搜索资源平台 y reaccionamos en la misma semana cuando sale algo relevante. En los últimos doce meses: ampliaciones del 知心算法, el 飓风算法 3.0 contra el contenido de IA, la integración de 文心X1 en los resultados y varios ajustes menores.",
+    ],
+  },
+  {
+    id: 'cost',
+    question: '¿Cuánto cuesta?',
+    answer: [
+      'Depende del alcance: tamaño del sitio, volumen de contenido, intensidad competitiva y si se incluye o no la producción de contenido chino y la optimización para IA. Descríbanos el alcance y le respondemos en dos días laborables con una cifra firme.',
+    ],
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'es-ES',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer.join('\n\n') },
+  })),
+};
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd, faqLd];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="es" jsonLd={pageLd}>
+
+  <ScrollEffects />
+
+  <!-- HERO -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-baidu-search-results.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/85 to-[#0f0f12]/60"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-text-card-blue)]/20 blur-[140px] pointer-events-none" data-float></div>
+    </div>
+
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">索</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Ruta de navegación" class="pt-20 pb-12 md:pb-16">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/es/" class="hover:text-white/70 transition-colors no-underline">Inicio</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/es/services/" class="hover:text-white/70 transition-colors no-underline">Servicios</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">SEO en Baidu</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">SEO en Baidu</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">Detrás del Great Firewall, en Shanghái</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Que le encuentren en
+            <span class="block mt-1.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">百度.</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">Donde empieza la búsqueda china.</span>
+            </span>
+          </h1>
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            Baidu juega con su propio rastreador, su propio índice, su propia API de envío, su propio ciclo algorítmico y, ahora, una capa de IA (文心X1, DeepSeek) que redacta más del veinte por ciento de los resultados. <span class="text-white font-medium">Lo dirigimos desde Shanghái, con las herramientas propias de Baidu.</span>
+          </p>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">20</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Años en Baidu</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">200</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Relaciones 知心 seguidas</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">72h</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Indexación vía 主动推送</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/es/contact/" variant="primary" size="lg">Pedir una auditoría de Baidu</Button>
+            <Button href="#what-we-do" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Ver los trabajos</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
+          <div class="relative">
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg] transition-transform duration-500 hover:rotate-[-4deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Sin registro</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">sitio fuera del continente</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Índice: 4 / 312 páginas
+              </div>
+            </div>
+
+            <div data-tilt class="relative rounded-2xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] backdrop-blur-md border border-white/15 p-6 lg:p-7 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div class="flex items-center gap-2 mb-5">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-300/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-400/80"></span>
+                </div>
+                <span class="text-[10px] font-mono text-white/45 ml-2">百度搜索资源平台</span>
+                <span class="ml-auto inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-green-500/15 border border-green-400/30">
+                  <span class="w-1 h-1 rounded-full bg-green-400 animate-pulse"></span>
+                  <span class="text-[9px] font-mono text-green-300 uppercase">En línea</span>
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">主动推送 (Push activo)</span>
+                    <span class="text-[10px] text-[var(--color-brand-orange)] font-mono">Conectado</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden shimmer-bar">
+                    <div class="h-full w-full bg-gradient-to-r from-[var(--color-brand-orange)] to-[#FF8956] rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Páginas indexadas</span>
+                    <span class="text-[10px] text-white/55 font-mono"><span data-counter>342</span> / 412</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[83%] bg-gradient-to-r from-[var(--color-brand-orange)]/80 to-[var(--color-brand-orange)]/30 rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Puntuación 知心算法</span>
+                    <span class="text-[10px] text-white/55 font-mono">Sólida</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[72%] bg-gradient-to-r from-[var(--color-brand-orange)]/60 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">ICP</div>
+                  <div class="text-xs font-mono text-green-300">Registrado</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">文心X1</div>
+                  <div class="text-xs font-mono text-green-300">Citado</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">飓风 3.0</div>
+                  <div class="text-xs font-mono text-green-300">Sin avisos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- POR QUÉ -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0" data-reveal="left">
+          <div class="relative inline-flex items-baseline">
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-suffix="%" data-counter-duration="1800">50</span>
+          </div>
+          <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
+            La parte de la búsqueda china que aún pasa por Baidu. Saltársela es perder la mitad de las puertas de entrada al país antes incluso de que la IA entre en la ecuación.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7" data-reveal="right">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Por qué importa</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
+            La receta de Google no se exporta.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Rastreador distinto, API de envío distinta, ciclo algorítmico distinto, definición de autoridad distinta. Once cambios algorítmicos a lo largo de 2025, sin contar los dos motores de IA ya conectados directamente a los resultados.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            Tratamos Baidu como una disciplina aparte. Un equipo en Shanghái que vigila los paneles cada día.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Auditoría
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Mapa</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Despliegue</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Iteración</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ BAIDU ES DIFERENTE -->
+  <section id="differences" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden scroll-mt-32">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">异</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Por qué es diferente · 为什么不同</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          Cinco puntos donde tropieza cada equipo.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Incluso los equipos de SEO con experiencia chocan con los mismos cinco muros una vez que cruzan el Great Firewall. Cada uno deshace un reflejo que la receta de Google tardó años en grabar.
+        </p>
+      </div>
+
+      <div class="space-y-5 lg:space-y-6">
+        {whyDifferent.map((q, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 60)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+              'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{q.cn}</span>
+              <div class="relative">
+                <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">N.º {q.n} / 05</div>
+                <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{q.cn}</div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">{q.tag}</div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+              <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+                {q.title}
+              </h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                {q.body}
+              </p>
+            </div>
+
+            <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-center gap-3">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">En qué trabajamos</div>
+              <div class="flex flex-wrap gap-1.5">
+                {q.chips.map((c) => (
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-[var(--color-text-body)] border border-[var(--color-surface-border)]">{c}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LO QUE HACEMOS: fondo oscuro + consola fija -->
+  <section id="what-we-do" class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[15%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none" data-float></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Lo que hacemos · 做什么</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          Cómo es de verdad el SEO en Baidu.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed">
+          Cinco trabajos, llevados en paralelo. Si se salta uno, los demás dejan de capitalizar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        <!-- Consola fija -->
+        <div class="lg:col-span-5 lg:sticky lg:top-32 lg:self-start" data-reveal="left">
+          <div class="relative w-full max-w-[400px] mx-auto lg:mx-0">
+            <div class="absolute top-6 left-4 w-full aspect-[3/4] rounded-xl bg-white/[0.04] border border-white/10 rotate-[5deg] backdrop-blur-sm"></div>
+            <div class="absolute top-3 left-2 w-full aspect-[3/4] rounded-xl bg-white/[0.06] border border-white/15 rotate-[2deg] backdrop-blur-sm shadow-lg"></div>
+            <div class="relative w-full aspect-[3/4] rounded-xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] border border-white/20 backdrop-blur-md shadow-2xl p-6 lg:p-7 flex flex-col">
+              <div class="border-b border-white/10 pb-4 mb-5">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">百度搜索资源平台 · 2026</div>
+                <div class="text-base font-semibold text-white mt-2 font-[var(--font-heading)] leading-tight">
+                  Trabajos de<br/>SEO en Baidu
+                </div>
+                <div class="text-[11px] font-mono text-white/40 mt-2">En directo · equipo de Shanghái</div>
+              </div>
+              <div class="space-y-2.5 flex-1">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-1">Módulos</div>
+                {services.map((d) => (
+                  <div class="flex items-center justify-between gap-2 text-[12px]">
+                    <span class="text-white/75 truncate">{d.title}</span>
+                    <span class="font-mono text-white/40 flex-shrink-0">{d.tag}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="mt-4 pt-4 border-t border-white/10">
+                <div class="bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 rounded-md px-3 py-2 text-center">
+                  <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-brand-orange)]">Contratados en un solo encargo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de trabajos -->
+        <div class="lg:col-span-7">
+          <div class="space-y-3">
+            {services.map((d, i) => (
+              <div data-reveal data-reveal-delay={String(i * 80)} class="group relative rounded-2xl bg-white/[0.03] border border-white/10 p-6 lg:p-7 transition-all duration-300 hover:bg-white/[0.06] hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-0.5">
+                <div class="flex items-start gap-5">
+                  <div class="flex-shrink-0">
+                    <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{d.n}</div>
+                    <div class="mt-2 w-8 h-px bg-white/15"></div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-baseline justify-between gap-3 mb-2">
+                      <h3 class="text-lg font-semibold font-[var(--font-heading)] text-white leading-tight">
+                        {d.title}
+                      </h3>
+                      <span class="text-[10px] font-mono uppercase tracking-wider text-white/40 flex-shrink-0">{d.tag}</span>
+                    </div>
+                    <p class="text-sm text-white/65 leading-relaxed">
+                      {d.body}
+                    </p>
+                    {d.bullets && (
+                      <ul class="mt-4 space-y-2">
+                        {d.bullets.map((b) => (
+                          <li class="flex gap-3 text-[13px] text-white/65 leading-relaxed">
+                            <span class="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERRAMIENTAS: bento -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="flex items-end justify-between flex-wrap gap-6 mb-12 lg:mb-14" data-reveal>
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Herramientas · 工具栈</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Dentro de la consola de Baidu.
+          </h2>
+        </div>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed max-w-md">
+          Las herramientas del lado chino forman un ecosistema aparte. La mayoría no tiene equivalente en Google, y los paneles están en mandarín.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5">
+        <!-- Destacado -->
+        <article class="lg:col-span-8 lg:row-span-2 group relative rounded-3xl bg-gradient-to-br from-[var(--color-text-dark)] via-[#1f1f24] to-[#0f0f12] text-white p-7 lg:p-10 overflow-hidden min-h-[360px] flex flex-col" data-reveal data-cursor-spotlight>
+          <span aria-hidden="true" class="absolute -right-12 -bottom-20 text-[20rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none">{tools[0].cn}</span>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">Destacado · La consola oficial</span>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] leading-tight mb-1">
+              {tools[0].name}
+            </h3>
+            <p class="text-sm text-[var(--color-brand-orange)]/90 font-mono mb-4">{tools[0].en}</p>
+            <p class="text-base text-white/65 leading-relaxed mb-7 max-w-md">
+              {tools[0].body}
+            </p>
+          </div>
+          <div class="relative mt-auto flex flex-wrap gap-2">
+            {tools[0].items?.map((item) => (
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/[0.07] border border-white/15 text-xs text-white/85 backdrop-blur-sm transition-colors duration-200 hover:bg-white/[0.12] hover:border-white/25">
+                {item}
+              </span>
+            ))}
+          </div>
+        </article>
+
+        {tools.slice(1).map((c, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 80)}
+            class:list={[
+              'lg:col-span-4 group relative rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 lg:p-7 overflow-hidden transition-all duration-300',
+              'hover:bg-white hover:border-[var(--color-brand-orange)]/25 hover:shadow-[0_18px_40px_-18px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <span aria-hidden="true" class="absolute -right-3 -bottom-6 text-[7rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.1] group-hover:scale-110 origin-bottom-right">{c.cn}</span>
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-3.5">
+                <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">{c.cn}</span>
+              </div>
+              <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-1">
+                {c.name}
+              </h3>
+              <p class="text-[11px] text-[var(--color-text-muted)] font-mono mb-3">{c.en}</p>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+                {c.body}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO: 5 etapas -->
+  <section id="engagement" class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden scroll-mt-32">
+    <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Nuestro proceso · 工作流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
+          Cinco etapas, llevadas como un solo programa.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Auditoría desde el primer día. Indexación en marcha ya en la sexta semana. Las citas y el progreso se acumulan a partir del tercer mes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+        {stages.map((s, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 70)}
+            class:list={[
+              'group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 overflow-hidden',
+              'hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+            <span aria-hidden="true" class="absolute right-2 top-2 text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-top-right">{s.cn}</span>
+
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-text-dark)] text-white text-sm font-semibold font-[var(--font-heading)]">
+                  {s.n}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)]">Etapa {i + 1} de 5</span>
+              </div>
+
+              <h3 class="text-lg lg:text-[19px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+                {s.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">
+                {s.body}
+              </p>
+
+              <div class="pt-4 border-t border-[var(--color-surface-border)]">
+                <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] mb-1.5">Entregable</div>
+                <div class="flex items-center gap-2 text-sm font-medium text-[var(--color-text-dark)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {s.output}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CIFRAS -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Calendario · 时间线</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Plazos realistas en Baidu.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            La indexación va más rápido de lo que imagina la mayoría de los equipos extranjeros. El posicionamiento en las consultas competitivas, mucho más lento. Quien promete las dos cosas en menos de treinta días vende otra cosa.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 mb-10">
+        {stats.map((s, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 90)}
+            class:list={[
+              'group relative rounded-3xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden',
+              i === 1
+                ? 'bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] text-white hover:shadow-[0_24px_50px_-22px_rgba(242,95,41,0.4)]'
+                : 'bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            {i === 1 && <span aria-hidden="true" class="absolute -right-4 -bottom-8 text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.08] leading-none select-none pointer-events-none">百</span>}
+            <div class="relative">
+              <div class:list={['text-[10px] font-mono uppercase tracking-[0.18em] mb-3', i === 1 ? 'text-white/75' : 'text-[var(--color-text-muted)]']}>{s.label}</div>
+              <div class:list={['text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3', i === 1 ? 'text-white' : 'text-[var(--color-text-dark)]']}>
+                {s.value}
+              </div>
+              <p class:list={['text-sm leading-relaxed', i === 1 ? 'text-white/90' : 'text-[var(--color-text-body)]']}>{s.sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="A quién va dirigido el SEO en Baidu" audiences={audiences} background="light" />
+
+  <!-- FAQ -->
+  <section id="faq" class="section-spacing bg-white scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32" data-reveal="left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Diez preguntas sobre el SEO en Baidu
+          </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Pulse una pregunta para desplegarla. Si la suya no aparece, escríbanos directamente.
+          </p>
+          <div class="mt-7">
+            <Button href="/es/contact/" variant="secondary" size="md">Hacer otra pregunta</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="right">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                {faq.answer.map((para) => (
+                  <p class="mb-3 last:mb-0">{para}</p>
+                ))}
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + marquee -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
+    </div>
+
+    <div class="relative py-20 lg:py-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">索</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">Cuando usted quiera</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
+          ¿Listo para posicionarse de verdad en Baidu?
+        </h2>
+        <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
+          La mayoría de los proyectos en marcha combinan SEO en Baidu, contenido chino y optimización para la búsqueda con IA, porque sobre el terreno las tres cosas son inseparables. Si necesita las tres, la auditoría estratégica es la puerta de entrada habitual.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/es/contact/" variant="primary" size="lg">Pedir una auditoría de Baidu</Button>
+          <Button href="/es/services/chinese-content/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Contenido chino</Button>
+          <Button href="/es/services/strategy-audit/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Estrategia y auditoría</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

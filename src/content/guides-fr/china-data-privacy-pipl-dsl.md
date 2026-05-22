@@ -5,6 +5,8 @@ summary: "Le cadre chinois de protection des données s'articule autour du PIPL,
 visual: "/images/guides/china-data-privacy-pipl-dsl.webp"
 order: 11
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Legal
 ---
 

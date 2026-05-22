@@ -1,0 +1,892 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
+import Button from '../../../components/ui/Button.astro';
+import FAQItem from '../../../components/pages/FAQItem.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
+
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-es', 'geo'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
+
+const engines = [
+  {
+    n: '01',
+    cn: '深度',
+    name: 'DeepSeek',
+    enLabel: '深度求索',
+    body: 'Prefiere el contenido estructurado, impecable en lo técnico y procedente de sitios oficiales. Si su sitio carga lento desde China o depende de recursos bloqueados por el Gran Cortafuegos (防火长城), DeepSeek sencillamente no lo ve.',
+    tag: 'Formato largo, estructurado',
+    chips: ['JSON-LD', 'SSR', 'Velocidad', 'Sin dependencias bloqueadas'],
+  },
+  {
+    n: '02',
+    cn: '豆包',
+    name: 'Doubao',
+    enLabel: '字节跳动',
+    body: 'El abanderado de ByteDance, que bebe a fondo de su propio ecosistema: Toutiao (今日头条), Douyin (抖音), Baijiahao (百家号). Optimizar para Doubao significa alimentar el grafo de ByteDance en paralelo a su sitio.',
+    tag: 'Grafo de ByteDance',
+    chips: ['Toutiao', 'Douyin', 'Baijiahao', 'Sindicación'],
+  },
+  {
+    n: '03',
+    cn: 'Kimi',
+    name: 'Kimi',
+    enLabel: 'Moonshot AI',
+    body: 'Premia el análisis extenso. Comparativas, guías técnicas, informes de varios miles de palabras acompañados de tablas limpias. El contenido de marketing breve queda ignorado.',
+    tag: 'Profundidad y tablas',
+    chips: ['Comparativas', 'Guías', 'Tablas', 'Formato largo'],
+  },
+  {
+    n: '04',
+    cn: '元宝',
+    name: 'Yuanbao',
+    enLabel: '腾讯混元',
+    body: 'La puerta de entrada de Tencent al ecosistema WeChat (微信), y el único asistente capaz de explorar las cuentas oficiales (公众号).',
+    tag: 'Conectado con WeChat',
+    chips: ['公众号', '视频号', 'Mini Program', 'WeCom'],
+  },
+  {
+    n: '05',
+    cn: '文心',
+    name: 'Baidu IA',
+    enLabel: '文心一言',
+    body: 'Impulsado por ERNIE (文心一言). Prefiere las fuentes de autoridad: Baidu Baike (百度百科), portales gubernamentales, marcado JSON-LD y una presencia sostenida en Baijiahao y Baidu Zhidao (百度知道).',
+    tag: 'Lógica de autoridad',
+    chips: ['百度百科', '百度知道', 'JSON-LD', 'Baijiahao'],
+  },
+];
+
+const services = [
+  {
+    n: '01',
+    title: 'Diagnóstico de visibilidad',
+    body: 'Una matriz estructurada de entre 80 y 150 consultas lanzadas en las cinco plataformas chinas, desde dispositivos reales en Shanghái, Pekín y Shenzhen, sobre redes residenciales y profesionales, nunca por VPN.',
+    bullets: [
+      'Tasa de citación: con qué frecuencia aparece su marca en las respuestas pertinentes.',
+      'Rango de recomendación: el puesto que ocupa cuando el motor enumera las opciones.',
+      'Sentimiento: el tono de la mención, neutro, positivo o crítico.',
+    ],
+    tag: 'p.04',
+  },
+  {
+    n: '02',
+    title: 'Auditoría de fuentes',
+    body: 'Los motores de IA premian la prueba verificable. Números de patente, informes de laboratorios independientes, normas publicadas: lo que llamamos contenido T1. El contenido de marketing sin respaldo externo es T3, ignorado o marcado como poco fiable. Cartografiamos cada afirmación de su sitio y reconstruimos los puntos débiles con elementos de prueba que la IA puede validar.',
+    tag: 'p.10',
+  },
+  {
+    n: '03',
+    title: 'Arquitectura de contenido',
+    body: 'Un artículo aislado ya no mueve nada. Construimos racimos: una página pilar central apoyada en preguntas frecuentes, comparativas, escenarios de uso y casos de éxito. Sea cual sea el ángulo de la pregunta, su sitio vuelve a salir a flote.',
+    tag: 'p.16',
+  },
+  {
+    n: '04',
+    title: 'Difusión multiplataforma',
+    body: 'Los motores cruzan una misma marca en los destinos de referencia. Sindicamos en Baijiahao (百家号), Zhihu (知乎), los portales sectoriales y, cuando procede, en las fichas de Baidu Baike (百度百科).',
+    tag: 'p.22',
+  },
+  {
+    n: '05',
+    title: 'Cimientos técnicos',
+    body: 'Marcado JSON-LD, robots.txt adaptado a Baiduspider, Sogouspider y ByteSpider, mapas de sitio XML y etiquetas canónicas que no dispersan la autoridad entre las versiones lingüísticas. La mayoría de los sitios internacionales se equivocan en este punto.',
+    tag: 'p.28',
+  },
+  {
+    n: '06',
+    title: 'Gestión continua',
+    body: 'DeepSeek publicó cuatro revisiones importantes solo en 2025. Lo que funcionaba en febrero ya no funcionaba en mayo. Medimos cada semana y ajustamos antes de que la caída de citaciones se deje notar.',
+    tag: 'p.34',
+  },
+];
+
+const stages = [
+  {
+    n: '01',
+    cn: '诊断',
+    title: 'Diagnóstico de visibilidad',
+    body: 'Lanzamiento de la matriz de consultas en los cinco motores, desde dispositivos reales en Shanghái, Pekín y Shenzhen. Entregable: un informe de referencia con las brechas detectadas plataforma por plataforma.',
+    output: 'Referencia de citaciones',
+  },
+  {
+    n: '02',
+    cn: '证据',
+    title: 'Auditoría de pruebas y fuentes',
+    body: 'Cada afirmación clasificada como T1, T2 o T3. Reconstrucción de los puntos débiles a partir de patentes, informes de laboratorio, expertos identificados y datos estructurados que los motores pueden validar.',
+    output: 'Cartografía de pruebas',
+  },
+  {
+    n: '03',
+    cn: '内容',
+    title: 'Racimos editoriales',
+    body: 'Páginas pilar en chino nativo, preguntas frecuentes, comparativas, escenarios de uso y casos de éxito. Diseñadas para que ningún ángulo de la pregunta pase por alto su sitio.',
+    output: 'Racimos en línea',
+  },
+  {
+    n: '04',
+    cn: '分发',
+    title: 'Sindicación y estructuración',
+    body: '百家号, 知乎, 百度百科 (cuando esté maduro), portales sectoriales, junto con el trabajo de marcado JSON-LD, robots.txt, llms.txt, canónicas y mapas de sitio entregado a continuación.',
+    output: 'Presencia entre plataformas',
+  },
+  {
+    n: '05',
+    cn: '迭代',
+    title: 'Seguimiento e iteración',
+    body: 'Relanzamiento semanal de la matriz de consultas en los cinco motores. Ajustes antes de que las actualizaciones de los modelos hagan caer las citaciones. Informe mensual por escrito.',
+    output: 'Gestión semanal',
+  },
+];
+
+const evidenceTiers = [
+  {
+    label: 'T1',
+    title: 'Pruebas sólidas',
+    body: 'Números de patente, informes de laboratorios independientes, normas publicadas y datos oficiales.',
+    weight: 100,
+    color: 'green',
+    examples: ['Patente CN10X', 'Informe SGS', 'Norma GB/T', 'Datos CNNIC'],
+  },
+  {
+    label: 'T2',
+    title: 'Reconocido por el sector',
+    body: 'Cobertura de prensa especializada, informes de analistas, expertos identificados, distinciones sectoriales.',
+    weight: 60,
+    color: 'amber',
+    examples: ['36Kr', '艾瑞咨询', 'Experto identificado', 'Premio sectorial'],
+  },
+  {
+    label: 'T3',
+    title: 'Texto de marketing',
+    body: 'Afirmaciones de marca sin respaldo externo. Se ignoran o se marcan como poco fiables.',
+    weight: 15,
+    color: 'red',
+    examples: ['«El mejor»', '«Líder del mercado»', 'Sin fuente', 'Solo el eslogan'],
+  },
+];
+
+const stats = [
+  { value: '600M+', label: 'Usuarios de IA en China · 2026', sub: 'Recuento del CNNIC de usuarios de IA generativa en China.' },
+  { value: '20%+', label: 'Páginas de Baidu con respuesta de IA', sub: '文心X1 y DeepSeek ya integrados en los resultados.' },
+  { value: '4', label: 'Revisiones de DeepSeek en 2025', sub: 'Lo que funcionaba en febrero ya no funcionaba en mayo.' },
+];
+
+const audiences = [
+  {
+    label: 'Marcas invisibles en las IA chinas',
+    description: 'Empresas cuyo nombre nunca aparece cuando un comprador consulta a DeepSeek, Doubao o Yuanbao sobre su categoría, mientras que los competidores sí salen citados y enlazados.',
+    image: '/images/audiences/audience-geo-invisible-on-ai.webp',
+  },
+  {
+    label: 'Marcas internacionales que aterrizan en China',
+    description: 'Equipos que quieren integrar la visibilidad en IA desde el lanzamiento, sin tener que recuperarla seis meses después cuando el tráfico se estanca.',
+    image: '/images/audiences/audience-geo-launching-china-market.webp',
+  },
+  {
+    label: 'Marcas con contenido pero sin pruebas',
+    description: 'Sitios con contenido chino cuidado que los motores ignoran de todos modos, por falta de fuentes verificables, datos estructurados y validación de terceros.',
+    image: '/images/audiences/audience-geo-content-without-evidence.webp',
+  },
+  {
+    label: 'Marcas cuyo tráfico orgánico se aplana',
+    description: 'Equipos de marketing que ven cómo su tráfico orgánico chino toca techo a medida que los compradores se pasan a la búsqueda con IA, y que ahora quieren que los motores citen su marca en la respuesta.',
+    image: '/images/audiences/audience-geo-search-traffic-flat.webp',
+  },
+];
+
+const marqueePhrases = [
+  'GEO China',
+  'DeepSeek', '深度求索',
+  'Doubao', '豆包',
+  'Kimi', '元宝',
+  '文心一言',
+  'Citado por las IA',
+  'Pruebas T1',
+  'JSON-LD',
+  'llms.txt',
+  '百家号 · 知乎 · 百度百科',
+];
+
+const faqs = [
+  {
+    id: 'difference-from-seo',
+    question: '¿En qué se diferencia el GEO del SEO de Baidu?',
+    answer: [
+      'Los dos se solapan, sin confundirse. El SEO de Baidu optimiza la página de resultados, donde el internauta todavía recorre diez enlaces azules antes de hacer clic. El GEO optimiza los asistentes de IA que leen su contenido y deciden si lo citan en una respuesta única. Criterios de posicionamiento, estructura del contenido, métricas de éxito: todo cambia. La mayoría de nuestros clientes dirigen ambos a la vez, porque los cimientos editoriales se solapan en gran medida.',
+    ],
+  },
+  {
+    id: 'platforms-covered',
+    question: '¿Qué plataformas de IA chinas cubren en concreto?',
+    answer: [
+      'DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) y Baidu IA (impulsado por 文心一言). Son los cinco que de verdad pesan en la China continental hoy. ChatGPT, Perplexity, Google AI Overviews y Claude no tienen sitio aquí: tras el Gran Cortafuegos, su alcance es nulo.',
+    ],
+  },
+  {
+    id: 'measurement',
+    question: '¿Cómo miden el éxito?',
+    answer: [
+      'Tres indicadores, con seguimiento mensual. Tasa de citación: con qué frecuencia aparece su marca en las respuestas a una matriz de consultas fija. Rango de recomendación: el puesto que ocupa cuando el motor enumera las opciones. Sentimiento: tono positivo, neutro o crítico. Lo presentamos en una nota escrita: unas pocas páginas densas, que se leen de una sola vez.',
+    ],
+  },
+  {
+    id: 'how-long',
+    question: '¿Cuánto se tarda en ver despegar las citaciones?',
+    answer: [
+      'Auditoría y cimientos: de 4 a 6 semanas. Producción editorial y sindicación: de tres a cuatro meses. Al sexto mes, la mayoría de los clientes constatan un avance real en al menos dos plataformas. La cobertura plena suele asentarse entre el noveno y el duodécimo mes. Quien le prometa una cuota de citación en IA en treinta días le está vendiendo otra cosa.',
+    ],
+  },
+  {
+    id: 'evidence-tiers',
+    question: 'T1, T2, T3: ¿qué son y por qué importan?',
+    answer: [
+      'Los motores de IA ponderan las fuentes según la verificabilidad de las afirmaciones. T1: contenido respaldado por pruebas sólidas, patentes, informes de laboratorios independientes, normas publicadas y datos oficiales. T2: reconocido por el sector pero secundario, prensa especializada, informes de analistas, expertos identificados. T3: texto de marketing sin prueba externa, del que los motores ignoran o marcan como poco fiable. Clasificamos cada afirmación de su sitio y reconstruimos los puntos débiles.',
+    ],
+  },
+  {
+    id: 'translated-content',
+    question: '¿Podemos simplemente traducir nuestro contenido en inglés?',
+    answer: [
+      'No. El contenido traducido suena extranjero para los motores chinos, suele perder los puntos de referencia estructurales que les sirven para decidir y rara vez refleja la manera en que los internautas chinos formulan de verdad sus preguntas. Trabajamos con editores nativos chinos, que reescriben desde la página en blanco y mantienen intactas las afirmaciones de origen y sus pruebas.',
+    ],
+  },
+  {
+    id: 'syndication',
+    question: '¿Dónde sindican el contenido?',
+    answer: [
+      'Baijiahao (百家号) para el alcance de Baidu y Yuanbao, Zhihu (知乎) para las señales de credibilidad técnica y B2B, Toutiao (今日头条) y Baijiahao para las superficies de ByteDance y Doubao, y, cuando procede, fichas oficiales de Baidu Baike (百度百科). Los portales sectoriales completan según su mercado.',
+    ],
+  },
+  {
+    id: 'algorithm-changes',
+    question: '¿Qué ocurre cuando los motores modifican sus modelos?',
+    answer: [
+      'Lo hacen a menudo. DeepSeek publicó cuatro revisiones importantes solo en 2025. Seguimos las citaciones cada semana sobre la misma matriz de consultas usada en la auditoría, y ajustamos contenido, marcado y sindicación antes de que el cambio se traduzca en una caída. Los equipos que no vigilan este punto pierden visibilidad sin entender por qué.',
+    ],
+  },
+  {
+    id: 'cost',
+    question: '¿Cuánto cuesta un programa de GEO China?',
+    answer: [
+      'Depende del alcance: número de gamas o de ejes, profundidad del capital editorial existente, plataformas que hay que cubrir por completo, integración o no de la producción de contenido chino y del SEO de Baidu. Descríbanos el alcance y volvemos en un plazo de dos días laborables con una cifra firme.',
+    ],
+  },
+];
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="es" jsonLd={pageLd}>
+
+  <ScrollEffects />
+
+  <!-- HERO -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-geo-beijing-ai-research.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/85 to-[#0f0f12]/60"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#4D6BFE]/15 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[140px] pointer-events-none" data-float></div>
+    </div>
+
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">答</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Ruta de navegación" class="pt-20 pb-12 md:pb-16">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/es/" class="hover:text-white/70 transition-colors no-underline">Inicio</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/es/services/" class="hover:text-white/70 transition-colors no-underline">Servicios</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">GEO China</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">GEO China</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">5 motores, un solo programa</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Citado
+            <span class="block mt-1.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">por las IA</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">chinas.</span>
+            </span>
+          </h1>
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            La optimización para los motores generativos, orientada al mercado chino. Convertimos su contenido en la respuesta que DeepSeek, Doubao, Kimi, Yuanbao y Baidu IA consideran lo bastante fiable como para devolverla a los internautas. <span class="text-white font-medium">Una sola respuesta por pregunta, con su marca dentro.</span>
+          </p>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter>5</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Motores cubiertos</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">600M</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Usuarios de IA en China</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">150</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Consultas por auditoría</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/es/contact/" variant="primary" size="lg">Solicitar una auditoría de IA</Button>
+            <Button href="#engines" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Ver los cinco motores</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
+          <div class="relative">
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Sin citar</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">gana el competidor</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Tasa de citación: 0%
+              </div>
+            </div>
+
+            <div data-tilt class="relative bg-white rounded-2xl shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] overflow-hidden">
+              <div class="flex items-center gap-2.5 px-5 py-3 bg-white border-b border-gray-100">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#4D6BFE] to-[#3a55e8] flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm5.5 11.5c-1.4.4-2.9.5-4.4.3-.4 1.6-.4 3.3 0 4.9-1.4-.6-2.6-1.5-3.5-2.7-1.5.4-3 .5-4.5.4 1-1.5 2.4-2.6 4-3.3-.6-1.4-1-3-1-4.6 1.4.6 2.7 1.6 3.6 2.8 1.5-.5 3.1-.6 4.6-.4-.7 1.4-1.7 2.6-3 3.5.6.4 1.3.7 2 .9.6.6 1.4 1.5 2.2 2.2z"/>
+                  </svg>
+                </div>
+                <div class="flex flex-col leading-tight">
+                  <span class="text-sm font-semibold text-gray-900">DeepSeek</span>
+                  <span class="text-[10px] text-gray-400">深度求索</span>
+                </div>
+                <div class="ml-auto flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span class="text-[10px] text-gray-400">在线</span>
+                </div>
+              </div>
+
+              <div class="px-5 py-4 space-y-4 bg-white">
+                <div class="flex justify-end">
+                  <div class="max-w-[85%] bg-[#F4F5F7] rounded-2xl rounded-tr-sm px-3.5 py-2.5">
+                    <p class="text-[12.5px] text-gray-900 leading-relaxed">推荐几家专门服务国际品牌的中国 WordPress 建站代理商</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#EEF2FF] text-[#4D6BFE] text-[10px] font-medium">
+                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    深度思考 R1
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#ECFDF5] text-emerald-600 text-[10px] font-medium">
+                    联网搜索
+                  </span>
+                </div>
+
+                <p class="text-[10.5px] text-gray-400">已搜索 14 个网页 · 用时 3.2 秒</p>
+
+                <div>
+                  <p class="text-[12.5px] text-gray-700 leading-relaxed mb-3">
+                    根据近年公开资料,在中国市场长期专注 WordPress 建站、并具备国际化服务能力的代理商主要包括:
+                  </p>
+                  <div class="space-y-2.5">
+                    <div class="flex gap-2">
+                      <span class="text-[#F25F29] font-bold text-[12.5px] mt-0.5 leading-none">·</span>
+                      <p class="text-[12.5px] text-gray-700 leading-relaxed">
+                        <span class="font-semibold text-gray-900">ChinaWebFoundry</span><sup class="text-[#4D6BFE] text-[10px] ml-0.5">1</sup>:在华运营 20 年以上,专注国际品牌的中国 WordPress 建站、ICP 备案、Baidu SEO 与 AI 搜索优化。
+                      </p>
+                    </div>
+                    <div class="flex gap-2">
+                      <span class="text-gray-300 font-bold text-[12.5px] mt-0.5 leading-none">·</span>
+                      <p class="text-[12.5px] text-gray-500 leading-relaxed">
+                        <span class="font-medium text-gray-700">某沪上数字代理</span><sup class="text-[#4D6BFE] text-[10px] ml-0.5">2</sup>:本地团队为主,提供 WordPress 主题开发与境内托管服务。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-gray-100">
+                  <p class="text-[10px] font-semibold uppercase tracking-wider text-gray-400 mb-2">引用来源 · 3</p>
+                  <div class="space-y-1.5">
+                    <div class="flex items-center gap-2 text-[11px]">
+                      <span class="w-4 h-4 rounded bg-[#F25F29]/10 text-[#F25F29] text-[9px] flex items-center justify-center font-semibold flex-shrink-0">1</span>
+                      <span class="text-gray-600 truncate">chinawebfoundry.com</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[11px]">
+                      <span class="w-4 h-4 rounded bg-gray-100 text-gray-500 text-[9px] flex items-center justify-center font-semibold flex-shrink-0">2</span>
+                      <span class="text-gray-400 truncate">zhihu.com/question/...</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[11px]">
+                      <span class="w-4 h-4 rounded bg-gray-100 text-gray-500 text-[9px] flex items-center justify-center font-semibold flex-shrink-0">3</span>
+                      <span class="text-gray-400 truncate">baijiahao.baidu.com/...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/10 rounded-3xl blur-2xl -z-10"></div>
+            <div class="absolute -inset-6 bg-[#4D6BFE]/10 rounded-3xl blur-3xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- POR QUÉ -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0" data-reveal="left">
+          <div class="relative inline-flex items-baseline">
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-duration="1800">1</span>
+            <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">respuesta</span>
+          </div>
+          <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
+            Donde el internauta chino recorría diez enlaces, la IA solo entrega uno. Si su marca no está ahí, no existe para esa pregunta.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7" data-reveal="right">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Por qué importa</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
+            La era de la respuesta única.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            China cuenta con más de 600 millones de usuarios de IA generativa en 2026, según el CNNIC. Una proporción creciente de compradores abre su búsqueda preguntando a DeepSeek, Doubao o Yuanbao, en lugar de teclear una consulta.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            El GEO consiste en convertirse en la fuente que la IA cita cuando alguien le hace una pregunta. El SEO se le acerca, pero las reglas cambian, y en China cambian todavía más respecto a todo lo que funciona en ChatGPT o Perplexity.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Diagnosticar
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Probar</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Estructurar</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Citar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTORES -->
+  <section id="engines" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden scroll-mt-32">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">智</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Cinco motores · 五大引擎</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          La búsqueda con IA en China es un mundo aparte.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          ChatGPT, Perplexity, Google AI Overviews, Claude. Ninguno pesa en la China continental. Cinco motores domésticos sí lo hacen. Cada uno con sus propias reglas.
+        </p>
+      </div>
+
+      <div class="space-y-5 lg:space-y-6">
+        {engines.map((q, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 60)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+              'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{q.cn}</span>
+              <div class="relative">
+                <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">Motor {q.n} / 05</div>
+                <div class="text-4xl lg:text-5xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{q.name}</div>
+                <div class="text-xs text-[var(--color-brand-orange)]/90 font-mono">{q.enLabel}</div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+              <h3 class="text-xl lg:text-[22px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+                {q.tag}
+              </h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                {q.body}
+              </p>
+            </div>
+
+            <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-center gap-3">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">Optimizar para</div>
+              <div class="flex flex-wrap gap-1.5">
+                {q.chips.map((c) => (
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-[var(--color-text-body)] border border-[var(--color-surface-border)]">{c}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl" data-reveal>
+        Cinco motores, cinco juegos de reglas, un sitio que debe aguantar ante cada uno.
+      </p>
+    </div>
+  </section>
+
+  <!-- NIVELES DE PRUEBA -->
+  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[15%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none" data-float></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Niveles de prueba · 证据等级</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          La IA pondera lo que usted puede demostrar.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed">
+          Cada afirmación de su sitio cae en uno de los tres niveles. El nivel de prueba es lo que dispara la citación. Convertimos el marketing T3 en pruebas T1.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+        {evidenceTiers.map((t, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 100)}
+            class:list={[
+              'relative rounded-3xl p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:-translate-y-1',
+              t.color === 'green'
+                ? 'bg-gradient-to-br from-emerald-500/15 via-white/[0.04] to-white/[0.02] border border-emerald-400/30 hover:border-emerald-400/50 hover:shadow-[0_24px_50px_-22px_rgba(16,185,129,0.25)]'
+                : t.color === 'amber'
+                  ? 'bg-gradient-to-br from-amber-500/12 via-white/[0.04] to-white/[0.02] border border-amber-400/30 hover:border-amber-400/50 hover:shadow-[0_24px_50px_-22px_rgba(245,158,11,0.22)]'
+                  : 'bg-gradient-to-br from-red-500/12 via-white/[0.04] to-white/[0.02] border border-red-400/25 hover:border-red-400/40 hover:shadow-[0_24px_50px_-22px_rgba(239,68,68,0.22)]',
+            ]}
+          >
+            <div class="flex items-start justify-between mb-6">
+              <div class:list={[
+                'inline-flex items-center justify-center w-14 h-14 rounded-2xl font-medium font-[var(--font-heading)] text-2xl',
+                t.color === 'green'
+                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40'
+                  : t.color === 'amber'
+                    ? 'bg-amber-500/20 text-amber-300 border border-amber-400/40'
+                    : 'bg-red-500/20 text-red-300 border border-red-400/40',
+              ]}>{t.label}</div>
+              <div class:list={[
+                'text-[10px] font-mono uppercase tracking-wider',
+                t.color === 'green' ? 'text-emerald-300' : t.color === 'amber' ? 'text-amber-300' : 'text-red-300',
+              ]}>Peso de citación</div>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <span class="text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="%">{t.weight}</span></span>
+                <span class:list={[
+                  'text-[10px] font-mono uppercase tracking-wider',
+                  t.color === 'green' ? 'text-emerald-300/70' : t.color === 'amber' ? 'text-amber-300/70' : 'text-red-300/70',
+                ]}>relativo</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div
+                  class:list={[
+                    'h-full rounded-full',
+                    t.color === 'green'
+                      ? 'bg-gradient-to-r from-emerald-400 to-emerald-300'
+                      : t.color === 'amber'
+                        ? 'bg-gradient-to-r from-amber-400 to-amber-300'
+                        : 'bg-gradient-to-r from-red-400 to-red-300',
+                  ]}
+                  style={`width: ${t.weight}%;`}
+                ></div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-semibold font-[var(--font-heading)] text-white leading-tight mb-2">
+              {t.title}
+            </h3>
+            <p class="text-sm text-white/65 leading-relaxed mb-5">
+              {t.body}
+            </p>
+
+            <div class="pt-4 border-t border-white/10">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/40 mb-2.5">Ejemplos</div>
+              <div class="flex flex-wrap gap-1.5">
+                {t.examples.map((e) => (
+                  <span class="text-[11px] font-mono px-2 py-1 rounded-md bg-white/[0.06] text-white/75 border border-white/10">{e}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LO QUE HACEMOS -->
+  <section id="what-we-do" class="relative section-spacing bg-white overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Lo que hacemos · 做什么</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          Lo que abarca de verdad el GEO China.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Seis frentes que avanzan juntos. Si descuida uno, los demás dejan de encajar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+        {services.map((d, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 80)}
+            data-cursor-spotlight
+            class="group relative rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 hover:bg-white hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_18px_40px_-18px_rgba(15,15,18,0.18)] hover:-translate-y-1 overflow-hidden"
+          >
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+            <div class="flex items-start gap-5 relative">
+              <div class="flex-shrink-0">
+                <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{d.n}</div>
+                <div class="mt-2 w-8 h-px bg-[var(--color-surface-border)]"></div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <h3 class="text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+                    {d.title}
+                  </h3>
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--color-text-muted)] flex-shrink-0">{d.tag}</span>
+                </div>
+                <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+                  {d.body}
+                </p>
+                {d.bullets && (
+                  <ul class="mt-4 space-y-2">
+                    {d.bullets.map((b) => (
+                      <li class="flex gap-3 text-[13px] text-[var(--color-text-body)] leading-relaxed">
+                        <span class="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DESARROLLO DEL TRABAJO -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Cómo trabajamos · 工作流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
+          Cinco etapas, citaciones que se acumulan.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Auditoría y cimientos en 4 a 6 semanas. Primer avance en dos motores al sexto mes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+        {stages.map((s, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 70)}
+            class:list={[
+              'group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 overflow-hidden',
+              'hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+            <span aria-hidden="true" class="absolute right-2 top-2 text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-top-right">{s.cn}</span>
+
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-text-dark)] text-white text-sm font-semibold font-[var(--font-heading)]">
+                  {s.n}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)]">Etapa {i + 1} de 5</span>
+              </div>
+
+              <h3 class="text-lg lg:text-[19px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+                {s.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">
+                {s.body}
+              </p>
+
+              <div class="pt-4 border-t border-[var(--color-surface-border)]">
+                <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] mb-1.5">Entregable</div>
+                <div class="flex items-center gap-2 text-sm font-medium text-[var(--color-text-dark)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {s.output}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CIFRAS -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Cifras · 数据</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            El cambio, en cifras.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Por qué las marcas que asientan las bases del GEO en 2026 serán las que los motores citen en 2027 y 2028.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
+        {stats.map((s, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 90)}
+            class:list={[
+              'group relative rounded-3xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden',
+              i === 1
+                ? 'bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] text-white hover:shadow-[0_24px_50px_-22px_rgba(242,95,41,0.4)]'
+                : 'bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            {i === 1 && <span aria-hidden="true" class="absolute -right-4 -bottom-8 text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.08] leading-none select-none pointer-events-none">智</span>}
+            <div class="relative">
+              <div class:list={['text-[10px] font-mono uppercase tracking-[0.18em] mb-3', i === 1 ? 'text-white/75' : 'text-[var(--color-text-muted)]']}>{s.label}</div>
+              <div class:list={['text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3', i === 1 ? 'text-white' : 'text-[var(--color-text-dark)]']}>
+                {s.value}
+              </div>
+              <p class:list={['text-sm leading-relaxed', i === 1 ? 'text-white/90' : 'text-[var(--color-text-body)]']}>{s.sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="A quién se dirige el GEO China" audiences={audiences} background="light" />
+
+  <section id="faq" class="section-spacing bg-white scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32" data-reveal="left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Nueve preguntas que se repiten sobre el GEO China
+          </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Pulse para desplegar. Si la suya no está aquí, formúlela directamente.
+          </p>
+          <div class="mt-7">
+            <Button href="/es/contact/" variant="secondary" size="md">Plantear otra pregunta</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="right">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                {faq.answer.map((para) => (
+                  <p class="mb-3 last:mb-0">{para}</p>
+                ))}
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
+    </div>
+
+    <div class="relative py-20 lg:py-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">答</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">Vea en qué punto está</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
+          Vea en qué punto está. Sin presentación comercial.
+        </h2>
+        <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
+          Cada proyecto arranca con una conversación y una prueba de consultas en dos de las cinco plataformas chinas. Al terminar la llamada sabrá si su marca aparece, dónde están las brechas y qué aspecto tendría un programa GEO de verdad.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/es/contact/" variant="primary" size="lg">Reservar una auditoría de IA gratuita</Button>
+          <Button href="/es/services/baidu-seo/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">SEO de Baidu</Button>
+          <Button href="/es/services/chinese-content/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Contenido chino</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

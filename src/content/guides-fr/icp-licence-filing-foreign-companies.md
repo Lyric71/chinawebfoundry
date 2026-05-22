@@ -5,6 +5,8 @@ summary: "Tout site hébergé en Chine exige un ICP. L'enregistrement Bei'an res
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Legal
 ---
 

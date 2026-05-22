@@ -5,6 +5,8 @@ summary: "L'internet chinois est mobile-only. Principes de design, compatibilitÃ
 visual: "/images/guides/mobile-first-design-china.webp"
 order: 9
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Design
 ---
 

@@ -1,0 +1,140 @@
+---
+/**
+ * Nuestras cinco prioridades: tarjetas apiladas en tres columnas.
+ * Misma estructura que la sección "Qué redactar · 写什么" de /es/services/chinese-content/
+ * - Columna izquierda (oscura): gran ideograma + etiqueta
+ * - Columna central (blanca): título + cuerpo
+ * - Columna derecha (superficie clara): enlace CTA + qué incluye
+ */
+
+interface Area {
+  label: string;
+  cn: string;
+  title: string;
+  body: string;
+  link: { href: string; label: string };
+  inside: string[];
+}
+
+const areas: Area[] = [
+  {
+    label: 'Contenido',
+    cn: '内容',
+    title: 'Un mensaje que da en el blanco',
+    body: 'Nuestros redactores chinos reescriben su mensaje para que suene natural sobre el terreno. Avales de terceros, referencias reconocidas, claves culturales: los colocamos donde el lector chino los busca por instinto.',
+    link: { href: '/es/services/chinese-content/', label: 'Contenidos en chino' },
+    inside: ['Redactores en plantilla', 'Voz de marca en chino', 'Conformidad con la 广告法'],
+  },
+  {
+    label: 'UX y UI',
+    cn: '体验',
+    title: 'Una experiencia ajustada a los hábitos chinos',
+    body: 'Pensada primero para el móvil, probada en el navegador integrado de WeChat, diseñada para la forma en que el ojo chino recorre una página. Códigos QR, señales de confianza, sellos oficiales: cada elemento ocupa el lugar donde el lector lo busca.',
+    link: { href: '/es/services/ux-ui-design/', label: 'Diseño UX y UI' },
+    inside: ['Primero el móvil', 'Probada en WeChat', 'Confianza desde la primera pantalla'],
+  },
+  {
+    label: 'Baidu',
+    cn: '百度',
+    title: 'Posicionamiento en Baidu',
+    body: 'Baidu juega con sus propias reglas. Criterios de clasificación particulares, exigencias técnicas más estrictas que las de Google. Asentamos los cimientos que le permiten rastrear su sitio y, después, subirlo en sus resultados.',
+    link: { href: '/es/services/baidu-seo/', label: 'SEO en Baidu' },
+    inside: ['Palabras clave en chino', 'Consola Baidu Webmaster', 'Construcción de autoridad'],
+  },
+  {
+    label: 'Búsqueda con IA',
+    cn: 'IA',
+    title: 'Optimización para los motores de IA chinos',
+    body: 'Entre los chinos de menos de 35 años, la búsqueda tecleada pierde terreno. La pregunta ahora se le hace a DeepSeek, a Doubao, a Kimi, a Yuanbao, al Wenxin de Baidu. La IA responde. El clic nunca llega. Nuestro trabajo consiste en estructurar su sitio para que esos motores citen su marca en la respuesta.',
+    link: { href: '/es/services/geo/', label: 'GEO China' },
+    inside: ['DeepSeek y Doubao', 'Schema y llms.txt', 'Seguimiento de citas'],
+  },
+  {
+    label: 'Infraestructura',
+    cn: '基础',
+    title: 'Alojamiento e infraestructura en China',
+    body: 'Alojamiento rápido, licencia ICP en regla, en Aliyun, Tencent Cloud o Huawei Cloud. Nos ocupamos de toda la cadena. Su equipo nunca tiene que abrir una consola escrita en chino.',
+    link: { href: '/es/services/china-hosting/', label: 'Alojamiento en China' },
+    inside: ['Registro ICP', 'Aliyun o Tencent Cloud', 'Rendimiento supervisado'],
+  },
+];
+---
+
+<section class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
+  <!-- Ideograma flotante decorativo -->
+  <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.15">焦</span>
+
+  <div class="relative mx-auto max-w-[1400px] section-padding">
+    <!-- Cabecera -->
+    <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Nuestras cinco prioridades · 焦点</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+        Cinco escollos. Un equipo que se los sabe de memoria.
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+        Contenido, experiencia de uso, Baidu, inteligencia artificial, infraestructura. Esos son los cinco muros con los que chocan las marcas extranjeras en China. Cinco terrenos que recorremos desde Shanghái.
+      </p>
+    </div>
+
+    <!-- Tarjetas apiladas en tres columnas -->
+    <div class="space-y-5 lg:space-y-6">
+      {areas.map((a, i) => (
+        <article
+          data-reveal
+          data-reveal-delay={String(i * 60)}
+          data-cursor-spotlight
+          class:list={[
+            'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+            'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+          ]}
+        >
+          <!-- Izquierda: fondo oscuro con ideograma + etiqueta -->
+          <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+            <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{a.cn}</span>
+            <div class="relative">
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">{a.label}</div>
+              <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{a.cn}</div>
+              <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">Prioridad</div>
+            </div>
+          </div>
+
+          <!-- Centro: título + cuerpo -->
+          <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+            <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4 transition-colors duration-300 group-hover:text-[var(--color-brand-orange)]">
+              {a.title}
+            </h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+              {a.body}
+            </p>
+          </div>
+
+          <!-- Derecha: qué incluye + enlace CTA -->
+          <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-between gap-5">
+            <div>
+              <div class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)] mb-3">Qué incluye</div>
+              <ul class="space-y-2">
+                {a.inside.map((item) => (
+                  <li class="flex items-start gap-2 text-[13px] text-[var(--color-text-dark)] leading-snug">
+                    <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <a
+              href={a.link.href}
+              class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline transition-all duration-300 group-hover:gap-3.5"
+            >
+              {a.link.label}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.25" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

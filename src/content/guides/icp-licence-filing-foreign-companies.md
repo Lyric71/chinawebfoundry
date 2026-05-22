@@ -5,6 +5,8 @@ summary: "Every China-hosted website needs an ICP. The Bei'an filing is simple. 
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
 published: true
+publishedAt: 2026-03-31
+updatedAt: 2026-05-01
 category: Legal
 ---
 

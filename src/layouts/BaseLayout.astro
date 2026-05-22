@@ -11,19 +11,24 @@ interface Props {
   lang?: Locale;
   /** Optional extra JSON-LD blocks (e.g. Service, Article, FAQPage) emitted in addition to the sitewide Organization + WebSite. */
   jsonLd?: Record<string, unknown>[];
-  /** Override the auto-computed hreflang URLs when EN and FR pages have different slugs (e.g. /web-agency-china/ vs /fr/agence-web-chine/). Pass absolute paths starting with /. */
-  alternateUrls?: { en: string; fr: string };
+  /** Override the auto-computed hreflang URLs when locales use different slugs (e.g. /web-agency-china/ vs /fr/agence-web-chine/ vs /es/agencia-web-china/). Pass absolute paths starting with /. */
+  alternateUrls?: { en: string; fr: string; es?: string };
 }
 
 const { title, description, canonical, ogImage = '/images/og-default.webp', lang, jsonLd = [], alternateUrls } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toString();
-const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://chinawebfoundry.com';
-const hreflang = alternateUrls
-  ? { en: `${siteOrigin}${alternateUrls.en}`, fr: `${siteOrigin}${alternateUrls.fr}` }
-  : getHreflangUrls(Astro.url.pathname, siteOrigin);
-const ogLocale = currentLang === 'fr' ? 'fr_FR' : 'en_GB';
-const ogLocaleAlternate = currentLang === 'fr' ? 'en_GB' : 'fr_FR';
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
+const autoHreflang = getHreflangUrls(Astro.url.pathname, siteOrigin);
+const hreflang = {
+  en: alternateUrls?.en ? `${siteOrigin}${alternateUrls.en}` : autoHreflang.en,
+  fr: alternateUrls?.fr ? `${siteOrigin}${alternateUrls.fr}` : autoHreflang.fr,
+  es: alternateUrls?.es ? `${siteOrigin}${alternateUrls.es}` : autoHreflang.es,
+};
+const ogLocaleMap = { en: 'en_GB', fr: 'fr_FR', es: 'es_ES' } as const;
+const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
+const ogLocale = ogLocaleMap[currentLang];
+const ogLocaleAlternates = (['en', 'fr', 'es'] as const).filter((l) => l !== currentLang).map((l) => ogLocaleMap[l]);
 
 const organizationLd = {
   '@context': 'https://schema.org',
@@ -67,7 +72,7 @@ const websiteLd = {
   url: `${siteOrigin}/`,
   name: 'ChinaWebFoundry',
   description: 'Web agency in China for international brands.',
-  inLanguage: currentLang === 'fr' ? 'fr-FR' : 'en-GB',
+  inLanguage: inLanguageMap[currentLang],
   publisher: { '@id': `${siteOrigin}/#organization` },
 };
 
@@ -83,6 +88,7 @@ const sitewideLd = [organizationLd, websiteLd, ...jsonLd];
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={hreflang.en} />
     <link rel="alternate" hreflang="fr" href={hreflang.fr} />
+    <link rel="alternate" hreflang="es" href={hreflang.es} />
     <link rel="alternate" hreflang="x-default" href={hreflang.en} />
 
     <!-- Open Graph -->
@@ -92,7 +98,9 @@ const sitewideLd = [organizationLd, websiteLd, ...jsonLd];
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+    {ogLocaleAlternates.map((l) => (
+      <meta property="og:locale:alternate" content={l} />
+    ))}
     <meta property="og:site_name" content="ChinaWebFoundry" />
 
     <!-- Twitter Card -->

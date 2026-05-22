@@ -1,0 +1,1247 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
+import ScrollEffects from '../../components/pages/ScrollEffects.astro';
+import { getCollection } from 'astro:content';
+
+const teamMembers = (await getCollection('team-es')).sort((a, b) => a.data.order - b.data.order);
+
+const disciplines = [
+  {
+    title: 'Estrategas',
+    cn: '战略',
+    icon: 'compass',
+    accent: '#F25F29',
+    description: 'Perfiles sénior que han dirigido la llegada a China de marcas de lujo, de gran consumo, del B2B y del SaaS. Auditoría, posicionamiento, hoja de ruta. La capa de trabajo que decide, en buena medida, el retorno de los doce meses siguientes.',
+    chips: ['Auditoría', 'Posicionamiento', 'Hoja de ruta', 'GTM'],
+  },
+  {
+    title: 'Especialistas en contenido',
+    cn: '内容',
+    icon: 'pen',
+    accent: '#EF4444',
+    description: 'Redactores chinos nativos que escriben desde el brief, para el lector chino. Artículos anclados en la búsqueda real de palabras clave en Baidu, nunca en una intuición. Páginas de producto construidas según cómo leen y deciden los compradores chinos.',
+    chips: ['Reescritura nativa', 'Intención Baidu', 'Citable por IA', 'Páginas de producto'],
+  },
+  {
+    title: 'Diseñadores UX/UI',
+    cn: '设计',
+    icon: 'layers',
+    accent: '#4D6BFE',
+    description: 'Un equipo local que diseña para los usos reales del internauta chino. Primero el móvil, porque más del 80 % del tráfico se juega ahí. Recorridos de WeChat (微信) y Alipay (支付宝) que le resultan evidentes al ojo chino. Las señales de confianza que deciden la conversión en China.',
+    chips: ['Mobile-first', 'WeChat', 'Alipay', 'Señales de confianza'],
+  },
+  {
+    title: 'Integradores técnicos',
+    cn: '技术',
+    icon: 'code',
+    accent: '#10B981',
+    description: 'Desarrolladores sénior, cada uno con 5 años de experiencia en China. WordPress, Astro, montajes headless, gestión de extensiones, CI/CD ajustado a las particularidades de la red local. Alojamiento con licencia ICP (ICP备案) en Aliyun, Tencent Cloud o Huawei Cloud, con la gestión de principio a fin.',
+    chips: ['WordPress', 'Astro', 'Headless', 'Alojamiento ICP'],
+  },
+  {
+    title: 'Especialistas en SEO y GEO',
+    cn: '搜索',
+    icon: 'search',
+    accent: '#F59E0B',
+    description: 'Especialistas en Baidu que trabajan al ras de lo que rastrea de verdad Baiduspider. Especialistas en GEO que siguen cada semana la visibilidad en DeepSeek, Doubao, Kimi, Yuanbao y Baidu IA. El contenido y la sindicación se ajustan al ritmo de los modelos, no al revés.',
+    chips: ['SEO Baidu', 'DeepSeek', 'Doubao', 'Yuanbao'],
+  },
+];
+
+const ticker = [
+  'Estrategia', '战略',
+  'Contenido', '内容',
+  'Diseño', '设计',
+  'Tecnología', '技术',
+  'Alojamiento', 'ICP备案',
+  'SEO Baidu', '百度',
+  'GEO', 'Búsqueda con IA',
+  'WeChat', '微信',
+  'Alipay', '支付宝',
+  'Aliyun', '阿里云',
+  'Tencent Cloud', '腾讯云',
+  'Huawei Cloud', '华为云',
+  'DeepSeek', '深度求索',
+  'Doubao', '豆包',
+  'Kimi', 'Yuanbao',
+];
+
+const faqs = [
+  {
+    id: 'who-actually-works',
+    question: '¿Quién trabaja de verdad en nuestro proyecto?',
+    answer: 'El equipo que conoce en la fase de propuesta es el que entrega. Estratega, diseñador, desarrollador y responsable de SEO: todos presentes desde el arranque. Nadie le vende perfiles sénior para dejarlo luego en manos de júnior.',
+  },
+  {
+    id: 'how-involved-week-to-week',
+    question: '¿Cuánto hay que implicarse cada semana?',
+    answer: 'Por lo general bastan de 2 a 3 horas. Una reunión semanal de 45 minutos, revisiones en asíncrono durante la producción y una revisión mensual más amplia. Solo le pedimos una cosa: un interlocutor capaz de decidir sin tener que subir a la jerarquía cada dos semanas.',
+  },
+  {
+    id: 'time-difference-handling',
+    question: '¿Cómo gestionan la diferencia horaria?',
+    answer: 'Nuestros jefes de proyecto solapan las horas europeas por la mañana y las de los equipos norteamericanos al final del día chino. El informe semanal le espera antes incluso de que encienda su equipo. Slack, Teams o Zoom: usamos la herramienta que ya tiene en marcha.',
+  },
+  {
+    id: 'strategy-execution-alignment',
+    question: '¿Cómo evitan que la estrategia se aleje de la ejecución?',
+    answer: 'Quien escribe la estrategia hace el brief en directo al redactor, al diseñador y al desarrollador. Ningún documento de relevo que se deforme en cada mano que atraviesa. Cuando la estrategia cambia, la decisión se toma en la misma sala, con el mismo equipo.',
+  },
+  {
+    id: 'existing-team-or-agency',
+    question: '¿Y si ya tenemos un equipo interno u otra agencia?',
+    answer: 'Es un caso frecuente. Sus equipos globales sostienen la marca y nosotros llevamos la ejecución china. Los límites se fijan por escrito desde el principio y nos sincronizamos en los momentos que cuentan.',
+  },
+  {
+    id: 'keep-us-in-the-loop',
+    question: '¿Cómo nos mantienen al corriente?',
+    answer: 'Un informe escrito cada semana: lo entregado, lo que avanza, lo que se bloquea y lo que esperamos de usted. Un panel compartido con las cifras en directo. Una llamada de 45 minutos por semana y una revisión más larga una vez al mes. Nada más.',
+  },
+  {
+    id: 'when-we-disagree',
+    question: '¿Qué pasa si hay un desacuerdo?',
+    answer: 'Lo decimos sin rodeos. Si creemos que un brief no va a calar en China, lo decimos antes de arrancar, con el expediente en la mano y proponiendo otra vía. Una conversación incómoda en la semana 2 vale más que un entregable fallido en el mes 6.',
+  },
+  {
+    id: 'after-launch',
+    question: '¿Cómo sigue la relación después de la puesta en marcha?',
+    answer: 'La mayoría de los clientes pasa a un acompañamiento continuo: contenido, SEO y GEO, mantenimiento técnico y alojamiento. El mismo equipo de un trimestre al siguiente. Ningún jefe de proyecto nuevo al que volver a explicarle su marca cada tres meses.',
+  },
+];
+---
+
+<PageLayout
+  title="Quiénes somos | El equipo de ChinaWebFoundry en Shanghái"
+  description="Estrategas, redactores chinos nativos, diseñadores UX/UI, desarrolladores y especialistas en búsqueda en línea. Un único equipo sénior en Shanghái, veinte años sobre el terreno."
+  heroPage={true}
+  lang="es"
+>
+  <ScrollEffects />
+
+  <!-- HERO -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/hero-who-we-are-office.webp"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-70"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/80 to-[#0f0f12]/55"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/15 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[5%] w-[520px] h-[520px] rounded-full bg-[#4D6BFE]/15 blur-[140px] pointer-events-none" data-float></div>
+    </div>
+
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[26rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">团</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Ruta de navegación" class="pt-20 pb-12 md:pb-16">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/es/" class="hover:text-white/70 transition-colors no-underline">Inicio</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Quiénes somos</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Quiénes somos</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">5 disciplinas, 1 equipo</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">Arraigados en China.</span>
+            <span class="block mt-1.5 text-white/95">Con estándar internacional.</span>
+          </h1>
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            Usted dirige su marca desde el extranjero y necesita una base sólida en China. Esa base la sostenemos nosotros. Un equipo multidisciplinar al completo, sobre el terreno desde hace más de <span class="text-white font-medium">20 años</span>.
+          </p>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">
+                <span data-counter data-counter-suffix="+">20</span>
+              </div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Años en China</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">
+                <span data-counter>5</span>
+              </div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Disciplinas</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">
+                <span data-counter data-counter-suffix="%">100</span>
+              </div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">En interno, en China</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/es/contact/" variant="primary" size="lg">Trabajar con nosotros</Button>
+            <Button href="#leadership" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Conocer al equipo</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
+          <div class="relative h-[420px]">
+            <div class="absolute top-0 left-0 right-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg]">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-[10px] font-mono text-white/40 uppercase tracking-wider">Usted</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">fuera de China</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-2.5 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+              </div>
+            </div>
+
+            <div class="absolute top-[120px] left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-white/30 to-[var(--color-brand-orange)]/60"></div>
+
+            <div data-tilt class="absolute top-[160px] left-4 right-0 rounded-2xl bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] overflow-hidden">
+              <div class="flex items-center gap-2.5 px-5 py-3 bg-white border-b border-gray-100">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[var(--color-brand-orange)] to-[#FF7E47] flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-7m0 0V3m0 11h11m6 7v-7m0 0V3m0 11h-6"/></svg>
+                </div>
+                <div class="flex flex-col leading-tight">
+                  <span class="text-sm font-semibold text-gray-900">ChinaWebFoundry</span>
+                  <span class="text-[10px] text-gray-400">在中国 · Shanghái</span>
+                </div>
+                <div class="ml-auto flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span class="text-[10px] text-gray-400">在线</span>
+                </div>
+              </div>
+
+              <div class="px-5 py-4 space-y-2.5 bg-white">
+                {disciplines.map((d, i) => (
+                  <div class="flex items-center gap-3" data-reveal data-reveal-delay={String(i * 80)}>
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={`background-color: ${d.accent}15; color: ${d.accent}`}>
+                      <span class="text-[11px] font-medium">{d.cn}</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[12.5px] font-medium text-gray-900 truncate">{d.title}</div>
+                    </div>
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                ))}
+              </div>
+
+              <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-[10px] font-mono text-gray-500">Un equipo. Un brief. Un Slack.</span>
+                <span class="text-[10px] font-mono text-emerald-600">Cero fricción</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative border-t border-white/[0.08] bg-[#0f0f12]/60 backdrop-blur-sm overflow-hidden">
+      <div class="flex whitespace-nowrap py-4 gap-10" style="animation: marquee 50s linear infinite; width: 300%;">
+        {[...ticker, ...ticker, ...ticker].map((item) => (
+          <span class="text-sm text-white/40 font-medium tracking-wider flex items-center gap-10">
+            <span>{item}</span>
+            <span class="text-[var(--color-brand-orange)]/40">●</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="relative py-24 md:py-32 lg:py-40 bg-white overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-[0.04]">
+      <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-[var(--color-brand-orange)] to-transparent blur-3xl"></div>
+    </div>
+
+    <div class="mx-auto max-w-[1100px] section-padding">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] text-center mb-6" data-reveal>Un equipo. Un brief.</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[52px] text-center font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]" data-reveal data-reveal-delay="80">
+        Estrategia, contenido, diseño, técnica y búsqueda.<br class="hidden sm:block" />
+        Un solo equipo, desde el primer día.
+      </h2>
+      <p class="mt-8 text-xl text-center text-[var(--color-text-body)] max-w-3xl mx-auto leading-relaxed" data-reveal data-reveal-delay="160">
+        Un equipo completo, montado en torno a una sola misión: lograr que su sitio cumpla lo que promete en el mercado chino. <span class="text-[var(--color-text-dark)] font-medium">Estrategia, contenido, diseño, tecnología y búsqueda</span>, bajo el mismo techo.
+      </p>
+
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-5 gap-px bg-[var(--color-surface-border)] border border-[var(--color-surface-border)] rounded-2xl overflow-hidden" data-reveal data-reveal-delay="240">
+        {disciplines.map((d) => (
+          <div class="bg-white p-6 text-center hover:bg-[var(--color-surface-light)] transition-colors group">
+            <div class="text-3xl font-medium font-[var(--font-heading)] mb-2 transition-transform group-hover:scale-110" style={`color: ${d.accent}`}>{d.cn}</div>
+            <div class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{d.title}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCIPLINAS -->
+  <section id="disciplines" class="relative py-24 md:py-32 lg:py-40 bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none">
+      <div class="absolute top-1/4 left-0 w-96 h-96 rounded-full bg-[var(--color-brand-orange)] blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-0 w-96 h-96 rounded-full bg-[#4D6BFE] blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-16 lg:mb-20" data-reveal>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">Nuestro oficio</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05]">
+          5 disciplinas.<br />
+          <span class="text-[var(--color-brand-orange)]">1 equipo.</span>
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+          Perfiles sénior en cada puesto. La cadena entera en interno, desde nuestras oficinas de Shanghái.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 auto-rows-fr">
+        {disciplines.map((d, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 90)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative bg-white rounded-2xl p-7 lg:p-8 border border-[var(--color-surface-border)] overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.25)] hover:-translate-y-1 flex flex-col',
+              i === 0 && 'lg:col-span-7',
+              i === 1 && 'lg:col-span-5',
+              i === 2 && 'lg:col-span-4',
+              i === 3 && 'lg:col-span-4',
+              i === 4 && 'md:col-span-2 lg:col-span-4',
+            ]}
+          >
+            <span aria-hidden="true" class="absolute -right-4 -top-4 text-[9rem] font-medium font-[var(--font-heading)] leading-none select-none pointer-events-none transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" style={`color: ${d.accent}; opacity: 0.07`}>{d.cn}</span>
+
+            <div class="relative flex flex-col flex-1">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={`background-color: ${d.accent}15; color: ${d.accent}`}>
+                {d.icon === 'compass' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 8l-2 5-5 2 2-5z"/></svg>
+                )}
+                {d.icon === 'pen' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 4l4 4-12 12H4v-4L16 4zM14 6l4 4"/></svg>
+                )}
+                {d.icon === 'layers' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 18l9 5 9-5"/></svg>
+                )}
+                {d.icon === 'code' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+                )}
+                {d.icon === 'search' && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.5-4.5"/></svg>
+                )}
+              </div>
+
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">
+                {d.title}
+              </h3>
+              <p class="text-base text-[var(--color-text-body)] leading-relaxed mb-6 flex-1">
+                {d.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-5 border-t border-[var(--color-surface-border)]">
+                {d.chips.map((chip) => (
+                  <span class="text-[11px] font-medium px-2.5 py-1 rounded-full bg-[var(--color-surface-light)] text-[var(--color-text-body)] border border-[var(--color-surface-border)] group-hover:border-[var(--color-brand-orange)]/30 transition-colors">
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ FUNCIONA -->
+  <section class="relative bg-[var(--color-surface-dark)] py-24 md:py-32 lg:py-40 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.06]">
+      <div class="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)] blur-[160px]"></div>
+      <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#4D6BFE] blur-[160px]"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <div class="col-span-12 lg:col-span-5" data-reveal>
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">Por qué funciona</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+            Sin pérdidas<br />entre disciplinas.
+          </h2>
+          <p class="mt-6 text-lg text-white/65 leading-relaxed">
+            Muchas agencias venden la estrategia en lo alto del organigrama y luego pasan la ejecución a un equipo que no tiene el contexto local. Las presentaciones siguen siendo lucidas, pero el trabajo se desgasta en cada ida y vuelta.
+          </p>
+          <p class="mt-4 text-lg text-white/65 leading-relaxed">
+            Montamos la agencia para que ese momento de traspaso ya no exista. El estratega hace el brief al redactor en directo. El diseñador construye la página codo con codo con el desarrollador. El responsable de SEO repasa el contenido antes de publicar.
+          </p>
+
+          <div class="mt-10 grid grid-cols-2 gap-3 max-w-md">
+            <div class="rounded-xl bg-red-500/[0.07] border border-red-500/20 p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-red-300/80">La mayoría de las agencias</span>
+              </div>
+              <p class="text-sm text-white/70 leading-snug">3 proveedores, 6 traspasos, presentaciones que quedan bien</p>
+            </div>
+            <div class="rounded-xl bg-emerald-500/[0.07] border border-emerald-500/20 p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-300/80">ChinaWebFoundry</span>
+              </div>
+              <p class="text-sm text-white/70 leading-snug">1 equipo, 0 traspasos, entregables que salen</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7" data-reveal="right" data-reveal-delay="120">
+          <div class="relative aspect-square max-w-[520px] mx-auto">
+            <svg viewBox="0 0 520 520" class="absolute inset-0 w-full h-full" aria-hidden="true">
+              <g stroke="url(#diagram-gradient)" stroke-width="1" fill="none" opacity="0.4" class="diagram-lines">
+                <line x1="260" y1="80" x2="442" y2="220" />
+                <line x1="260" y1="80" x2="370" y2="430" />
+                <line x1="260" y1="80" x2="150" y2="430" />
+                <line x1="260" y1="80" x2="78" y2="220" />
+                <line x1="442" y1="220" x2="370" y2="430" />
+                <line x1="442" y1="220" x2="150" y2="430" />
+                <line x1="442" y1="220" x2="78" y2="220" />
+                <line x1="370" y1="430" x2="150" y2="430" />
+                <line x1="370" y1="430" x2="78" y2="220" />
+                <line x1="150" y1="430" x2="78" y2="220" />
+              </g>
+
+              <circle cx="260" cy="260" r="140" stroke="rgba(242,95,41,0.15)" stroke-width="1" stroke-dasharray="4 6" fill="none" class="diagram-orbit-slow" />
+              <circle cx="260" cy="260" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="2 8" fill="none" class="diagram-orbit-fast" />
+
+              <defs>
+                <linearGradient id="diagram-gradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#F25F29" stop-opacity="0.7" />
+                  <stop offset="100%" stop-color="#4D6BFE" stop-opacity="0.5" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div class="absolute" style="left: 50%; top: 80px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#F25F29]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">战略</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Estrategia</div>
+              </div>
+            </div>
+            <div class="absolute" style="left: 442px; top: 220px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#EF4444]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">内容</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Contenido</div>
+              </div>
+            </div>
+            <div class="absolute" style="left: 370px; top: 430px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#4D6BFE]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">设计</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Diseño</div>
+              </div>
+            </div>
+            <div class="absolute" style="left: 150px; top: 430px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#10B981]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">技术</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Tech</div>
+              </div>
+            </div>
+            <div class="absolute" style="left: 78px; top: 220px; transform: translate(-50%, -50%);">
+              <div class="w-20 h-20 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 flex flex-col items-center justify-center text-center transition-all hover:bg-white/[0.1] hover:scale-110 hover:border-[#F59E0B]/40">
+                <div class="text-xl font-medium font-[var(--font-heading)] text-white">搜索</div>
+                <div class="text-[9px] uppercase tracking-wider text-white/50 mt-0.5">Búsqueda</div>
+              </div>
+            </div>
+
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[var(--color-brand-orange)] to-[#FF7E47] flex flex-col items-center justify-center shadow-[0_20px_60px_-10px_rgba(242,95,41,0.5)]">
+                <div class="text-3xl font-medium font-[var(--font-heading)] text-white leading-none">1</div>
+                <div class="text-[10px] uppercase tracking-[0.2em] text-white/90 mt-1">Un equipo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM PHOTO -->
+  <section class="relative overflow-hidden">
+    <div class="relative h-[520px] lg:h-[640px]">
+      <img
+        src="/images/team/team-photo.webp"
+        alt="El equipo de ChinaWebFoundry"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+        data-parallax="0.08"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f12]/95 via-[#0f0f12]/40 to-[#0f0f12]/20"></div>
+
+      <div class="absolute inset-x-0 bottom-0 mx-auto max-w-[1400px] section-padding pb-12 lg:pb-20">
+        <div class="io-grid items-end" data-reveal>
+          <div class="col-span-12 lg:col-span-7">
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">El equipo</p>
+            <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+              Sobre el terreno.<br />En China. <span class="text-white/60">Desde hace más de 20 años.</span>
+            </h2>
+          </div>
+
+          <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-8 lg:mt-0">
+            <div class="grid grid-cols-3 gap-4">
+              <div class="rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/15 p-4">
+                <div class="text-2xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">20</span></div>
+                <div class="text-[10px] uppercase tracking-wider text-white/60 mt-1">Años</div>
+              </div>
+              <div class="rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/15 p-4">
+                <div class="text-2xl font-medium font-[var(--font-heading)] text-white"><span data-counter>5</span></div>
+                <div class="text-[10px] uppercase tracking-wider text-white/60 mt-1">Disciplinas</div>
+              </div>
+              <div class="rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/15 p-4">
+                <div class="text-2xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="%">100</span></div>
+                <div class="text-[10px] uppercase tracking-wider text-white/60 mt-1">En China</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="relative py-24 md:py-32 lg:py-40 bg-white overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none">
+      <div class="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-[var(--color-brand-orange)] blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-16 lg:mb-20" data-reveal>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">Dirección</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05]">
+          La dirección, en carne y hueso.
+        </h2>
+        <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+          Las personas que fijan el listón, dan el brief y descuelgan el teléfono en los momentos que cuentan.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {teamMembers.map((member, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 120)}
+            data-cursor-spotlight
+            data-tilt
+            class="group relative bg-[var(--color-surface-light)] rounded-3xl overflow-hidden border border-[var(--color-surface-border)] transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]"
+          >
+            <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[var(--color-surface-light)] to-white">
+              <img
+                src={member.data.photo}
+                alt={`Retrato de ${member.data.name}`}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f12]/40 via-transparent to-transparent"></div>
+
+              <div class="absolute top-5 left-5">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/40 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-dark)]">{member.data.role}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative p-7 lg:p-8">
+              <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                {member.data.name}
+              </h3>
+              <p class="text-base text-[var(--color-text-body)] leading-relaxed mt-3">
+                {member.data.bio}
+              </p>
+
+              {(member.data.linkedin || member.data.substack) && (
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6 pt-6 border-t border-[var(--color-surface-border)]">
+                  {member.data.linkedin && (
+                    <a
+                      href={member.data.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] transition-colors no-underline group/link"
+                      aria-label={`${member.data.name} en LinkedIn`}
+                    >
+                      <span class="w-8 h-8 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] flex items-center justify-center group-hover/link:bg-[var(--color-brand-orange)] group-hover/link:border-[var(--color-brand-orange)] group-hover/link:text-white transition-all">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                      </span>
+                      LinkedIn
+                    </a>
+                  )}
+                  {member.data.substack && (
+                    <a
+                      href={member.data.substack}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text-body)] hover:text-[var(--color-brand-orange)] transition-colors no-underline group/link"
+                    >
+                      <span class="w-8 h-8 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] flex items-center justify-center group-hover/link:bg-[var(--color-brand-orange)] group-hover/link:border-[var(--color-brand-orange)] group-hover/link:text-white transition-all">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                        </svg>
+                      </span>
+                      Substack
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COLABORACIÓN -->
+  <section class="relative py-24 md:py-32 bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center gap-y-12">
+        <div class="col-span-12 lg:col-span-6" data-reveal>
+          <div class="relative rounded-3xl overflow-hidden shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]">
+            <img
+              src="/images/who-we-are-collaboration.webp"
+              alt="El equipo de ChinaWebFoundry en el estudio de Shanghái"
+              class="w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute top-5 left-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/40">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-dark)]">Estudio Shanghái</span>
+              </div>
+            </div>
+            <div class="absolute bottom-5 right-5 hidden sm:block">
+              <div class="rounded-xl bg-white/95 backdrop-blur-md border border-white/40 px-4 py-3 shadow-lg">
+                <div class="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">Reunión diaria</div>
+                <div class="text-sm font-medium text-[var(--color-text-dark)] mt-0.5">Todas las disciplinas, una misma sala</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8" data-reveal="right" data-reveal-delay="120">
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">Nuestro método</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+            Estrategia. Contenido. Diseño. Tech. Búsqueda.<br />
+            <span class="text-[var(--color-brand-orange)]">Una sola sala.</span>
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+            El estratega hace el brief al redactor en directo. El diseñador construye la página codo con codo con el desarrollador. El responsable de SEO repasa el contenido antes de publicar. Ningún sentido se pierde por el camino.
+          </p>
+
+          <ul class="mt-8 space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[var(--color-brand-orange)] mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-base text-[var(--color-text-body)]">El equipo que ve en la propuesta es el que entrega.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[var(--color-brand-orange)] mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-base text-[var(--color-text-body)]">Un informe escrito cada semana y una revisión más larga cada mes.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[var(--color-brand-orange)] mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-base text-[var(--color-text-body)]">Los desacuerdos salen ya en la semana 2, antes de que el mes 6 los vuelva caros.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HUBSTUDIO -->
+  <section id="hubstudio" class="hub relative bg-[#0E1A2E] overflow-hidden">
+    <!-- Ambient gradient orbs -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-32 right-[8%] w-[640px] h-[640px] rounded-full bg-[#F25F29]/[0.18] blur-[180px]"></div>
+      <div class="absolute top-1/3 -left-32 w-[520px] h-[520px] rounded-full bg-[#2D62E8]/[0.15] blur-[160px]"></div>
+      <div class="absolute bottom-0 right-[20%] w-[480px] h-[480px] rounded-full bg-[#E84F26]/[0.06] blur-[140px]"></div>
+    </div>
+
+    <!-- Grain texture -->
+    <div class="hub-grain absolute inset-0 pointer-events-none mix-blend-overlay opacity-[0.18]"></div>
+
+    <!-- ============ MASTHEAD BAND ============ -->
+    <div class="relative border-b border-white/10">
+      <div class="mx-auto max-w-[1400px] section-padding">
+        <div class="flex items-center justify-between py-5">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex w-2 h-2 rounded-full bg-[#F25F29] animate-pulse"></span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/50">Número 01</span>
+            <span class="text-white/20">/</span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/50">Entre bastidores de CWF</span>
+          </div>
+          <div class="hidden sm:flex items-center gap-3">
+            <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/50">BeyondBorderGroup</span>
+            <span class="text-white/20">·</span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/50">上海 Shanghái</span>
+            <span class="hub-time text-[10px] font-mono text-white/40 ml-1" data-hub-time>--:--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ WORDMARK + LEAD ============ -->
+    <div class="relative">
+      <span aria-hidden="true" class="hub-watermark absolute right-[-3rem] top-[10%] text-[18rem] lg:text-[28rem] font-medium font-[var(--font-heading)] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.08">创作</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding pt-20 md:pt-24 lg:pt-32">
+        <div class="io-grid items-end gap-y-12">
+          <div class="col-span-12 lg:col-span-8" data-reveal>
+            <!-- hub Studio logo -->
+            <div class="hub-logo group relative inline-block mb-8" data-hub-logo>
+              <span aria-hidden="true" class="absolute inset-0 -z-10 rounded-[40%] bg-gradient-to-br from-[#F25F29]/40 via-[#E84F26]/20 to-[#2D62E8]/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
+              <img
+                src="/images/Logos/Logo-Hub-Studio-White.webp"
+                alt="hub Studio"
+                width="240"
+                height="240"
+                loading="lazy"
+                decoding="async"
+                class="relative h-32 sm:h-40 lg:h-52 w-auto transition-transform duration-500 ease-out group-hover:scale-[1.04] group-hover:-rotate-1"
+                data-float="slow"
+              />
+              <p class="mt-4 text-[10px] font-mono uppercase tracking-[0.22em] text-white/45">创作工作室 · Estudio creativo en Shanghái</p>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] max-w-[18ch]">
+              Un equipo creativo que le habla a las
+              <span class="hub-handwritten relative inline-block">
+                <span class="relative z-10">audiencias chinas</span>
+                <svg class="absolute left-0 right-0 -bottom-1 w-full" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2 9 Q 80 2, 150 8 T 298 7" stroke="#F25F29" stroke-width="3" fill="none" stroke-linecap="round" pathLength="1" class="hub-underline-path"></path>
+                </svg>
+              </span>.
+            </h2>
+          </div>
+
+          <div class="col-span-12 lg:col-span-4" data-reveal="right" data-reveal-delay="160">
+            <div class="relative pl-6 border-l border-[#F25F29]/40">
+              <p class="text-base lg:text-lg text-white/75 leading-relaxed">
+                Producción creativa integrada, en Shanghái. Estudio fundado por antiguos directivos de <span class="text-white">Publicis Commerce</span> para China y el norte de Asia. Directores de arte, redactores creativos, fotógrafos, diseñadores e ingenieros de AIGC, todos bajo el mismo techo.
+              </p>
+              <div class="mt-5 flex items-center gap-3">
+                <div class="flex -space-x-2">
+                  <div class="w-7 h-7 rounded-full border-2 border-[#0E1A2E] bg-gradient-to-br from-[#F25F29] to-[#2D62E8]"></div>
+                  <div class="w-7 h-7 rounded-full border-2 border-[#0E1A2E] bg-gradient-to-br from-[#E84F26] to-[#F25F29]"></div>
+                  <div class="w-7 h-7 rounded-full border-2 border-[#0E1A2E] bg-gradient-to-br from-[#2D62E8] to-[#4D6BFE]"></div>
+                  <div class="w-7 h-7 rounded-full border-2 border-[#0E1A2E] bg-white/[0.08] flex items-center justify-center text-[9px] font-mono text-white/70">+</div>
+                </div>
+                <span class="text-[11px] font-mono text-white/45">mitad locales · mitad extranjeros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ HERO BENTO ============ -->
+    <div class="relative mx-auto max-w-[1400px] section-padding mt-16 lg:mt-20">
+      <div class="grid grid-cols-12 grid-rows-[auto] gap-3 sm:gap-4">
+        <!-- Hero editorial image -->
+        <figure data-reveal data-cursor-spotlight class="hub-tile group relative col-span-12 md:col-span-7 row-span-2 rounded-3xl overflow-hidden bg-white/[0.04] border border-white/10 aspect-[4/5] md:aspect-auto md:min-h-[640px]">
+          <img src="/images/hubstudio-editorial-shoot.webp" alt="Rodaje editorial para una audiencia china, hora dorada en una azotea de Shanghái" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E1A2E] via-[#0E1A2E]/30 to-transparent"></div>
+
+          <!-- top tag chip -->
+          <div class="absolute top-5 left-5 right-5 flex items-center justify-between">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#F25F29] animate-pulse"></span>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-white/85">Campaña · Editorial</span>
+            </div>
+            <span class="text-[10px] font-mono text-white/50 hidden sm:inline">F/W · 上海</span>
+          </div>
+
+          <!-- bottom caption -->
+          <figcaption class="absolute inset-x-0 bottom-0 p-6 lg:p-8">
+            <div class="flex items-end justify-between gap-6">
+              <div>
+                <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#F25F29]/90 mb-2">Pensado para China</p>
+                <h3 class="text-2xl lg:text-[36px] font-medium font-[var(--font-heading)] text-white leading-[1.1] max-w-md">
+                  Deseable a ojos chinos.
+                </h3>
+              </div>
+              <div class="hidden sm:flex flex-col items-end shrink-0">
+                <span class="text-[10px] font-mono text-white/40">Rodaje</span>
+                <span class="text-[10px] font-mono text-white/70">在上海</span>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <!-- Studio image -->
+        <figure data-reveal data-reveal-delay="80" data-cursor-spotlight class="hub-tile group relative col-span-12 sm:col-span-6 md:col-span-5 rounded-3xl overflow-hidden bg-white/[0.04] border border-white/10 aspect-[4/3] md:aspect-auto md:min-h-[310px]">
+          <img src="/images/hubstudio-shanghai-studio.webp" alt="Estudio de hub Studio en Shanghái, con un rodaje en marcha" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.06]" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E1A2E]/95 via-[#0E1A2E]/30 to-transparent"></div>
+
+          <div class="absolute top-4 left-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
+              <svg class="w-3 h-3 text-[#E84F26]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/></svg>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-white/85">Producción</span>
+            </div>
+          </div>
+
+          <figcaption class="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+            <p class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-white leading-tight">Rodajes reales, equipos locales,<br />ciudades de primer nivel.</p>
+          </figcaption>
+        </figure>
+
+        <!-- AIGC image -->
+        <figure data-reveal data-reveal-delay="160" data-cursor-spotlight class="hub-tile group relative col-span-12 sm:col-span-6 md:col-span-5 rounded-3xl overflow-hidden bg-white/[0.04] border border-white/10 aspect-[4/3] md:aspect-auto md:min-h-[310px]">
+          <img src="/images/hubstudio-aigc-workspace.webp" alt="Puesto creativo de AIGC en hub Studio Shanghái" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.06]" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E1A2E]/95 via-[#0E1A2E]/30 to-transparent"></div>
+
+          <div class="absolute top-4 left-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
+              <svg class="w-3 h-3 text-[#2D62E8]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-white/85">AIGC</span>
+            </div>
+          </div>
+
+          <figcaption class="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+            <p class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-white leading-tight">El AIGC,<br />con criterio adulto.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- ============ RUNNING TICKER ============ -->
+    <div class="relative mt-16 lg:mt-20 border-y border-white/10 bg-[#0E1A2E]/60 backdrop-blur-sm overflow-hidden">
+      <div class="hub-marquee flex whitespace-nowrap py-5 gap-12">
+        {[
+          ['Identidad visual', 'Visuales clave', 'Conceptos de campaña', 'Fotografía', 'Vídeo', 'Motion', 'Packaging', 'OOH', 'LoRA a medida', 'Pipelines de gran volumen', 'Xiaohongshu', 'Douyin', 'Tmall', 'WeChat', 'Baidu'],
+          ['Identidad visual', 'Visuales clave', 'Conceptos de campaña', 'Fotografía', 'Vídeo', 'Motion', 'Packaging', 'OOH', 'LoRA a medida', 'Pipelines de gran volumen', 'Xiaohongshu', 'Douyin', 'Tmall', 'WeChat', 'Baidu'],
+          ['Identidad visual', 'Visuales clave', 'Conceptos de campaña', 'Fotografía', 'Vídeo', 'Motion', 'Packaging', 'OOH', 'LoRA a medida', 'Pipelines de gran volumen', 'Xiaohongshu', 'Douyin', 'Tmall', 'WeChat', 'Baidu']
+        ].flat().map((item, i) => (
+          <span class="inline-flex items-center gap-12 text-sm font-medium tracking-wide text-white/35">
+            <span class={i % 5 === 0 ? 'text-[#F25F29]/80' : ''}>{item}</span>
+            <span class="text-white/15">●</span>
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- ============ THREE PILLARS - INTERACTIVE TABS ============ -->
+    <div class="relative mx-auto max-w-[1400px] section-padding mt-20 lg:mt-28" data-hub-pillars>
+      <div class="io-grid items-end mb-10 lg:mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <p class="text-[11px] font-mono uppercase tracking-[0.22em] text-[#F25F29]/90 mb-4">§ 02 · Lo que entregamos</p>
+          <h3 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-white leading-[1.05]">
+            3 disciplinas.<br />
+            1 estudio. <span class="text-white/40">Made in 上海.</span>
+          </h3>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9" data-reveal="right" data-reveal-delay="120">
+          <p class="text-base text-white/65 leading-relaxed">
+            Pase el ratón o toque para cambiar de foco. Cada área tiene su equipo, su ritmo y su tempo de entrega.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4">
+        <!-- Creación -->
+        <button type="button" data-hub-pillar="creative" data-active class="hub-pillar group relative text-left rounded-3xl bg-white/[0.04] border border-white/10 p-7 lg:p-8 overflow-hidden transition-all duration-500 hover:bg-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F25F29]/60 cursor-pointer">
+          <div class="hub-pillar-bg absolute inset-0 opacity-0 transition-opacity duration-500" style="background: radial-gradient(120% 80% at 0% 0%, rgba(242,95,41,0.22), transparent 60%);"></div>
+          <span aria-hidden="true" class="absolute -right-4 -top-6 text-[9rem] font-medium font-[var(--font-heading)] leading-none select-none pointer-events-none transition-all duration-500 text-[#F25F29]/[0.08] group-hover:text-[#F25F29]/[0.16] group-hover:-rotate-3 group-hover:scale-105">创意</span>
+
+          <div class="relative">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-11 h-11 rounded-xl bg-[#F25F29]/15 text-[#F25F29] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+              </div>
+            </div>
+            <h4 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white mb-2">Creación</h4>
+            <p class="text-sm text-white/65 leading-relaxed mb-5">
+              Identidad visual, conceptos de campaña y visuales clave para Baidu, WeChat, Xiaohongshu, Douyin y Tmall.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Identidad</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Visuales clave</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Conceptos</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Xiaohongshu</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- Producción -->
+        <button type="button" data-hub-pillar="production" class="hub-pillar group relative text-left rounded-3xl bg-white/[0.04] border border-white/10 p-7 lg:p-8 overflow-hidden transition-all duration-500 hover:bg-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E84F26]/60 cursor-pointer">
+          <div class="hub-pillar-bg absolute inset-0 opacity-0 transition-opacity duration-500" style="background: radial-gradient(120% 80% at 0% 0%, rgba(232,79,38,0.20), transparent 60%);"></div>
+          <span aria-hidden="true" class="absolute -right-4 -top-6 text-[9rem] font-medium font-[var(--font-heading)] leading-none select-none pointer-events-none transition-all duration-500 text-[#E84F26]/[0.08] group-hover:text-[#E84F26]/[0.16] group-hover:-rotate-3 group-hover:scale-105">制作</span>
+
+          <div class="relative">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-11 h-11 rounded-xl bg-[#E84F26]/15 text-[#E84F26] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+              </div>
+            </div>
+            <h4 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white mb-2">Producción</h4>
+            <p class="text-sm text-white/65 leading-relaxed mb-5">
+              La imagen y el vídeo, el núcleo de lo que producimos. Rodajes reales cuando la situación lo exige. A eso se suman el packaging, el OOH, el motion y toda la materia que una marca debe entregar a las decenas de plataformas chinas.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Foto</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Vídeo</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Motion</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">OOH</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- AIGC -->
+        <button type="button" data-hub-pillar="aigc" class="hub-pillar group relative text-left rounded-3xl bg-white/[0.04] border border-white/10 p-7 lg:p-8 overflow-hidden transition-all duration-500 hover:bg-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2D62E8]/60 cursor-pointer">
+          <div class="hub-pillar-bg absolute inset-0 opacity-0 transition-opacity duration-500" style="background: radial-gradient(120% 80% at 0% 0%, rgba(45,98,232,0.22), transparent 60%);"></div>
+          <span aria-hidden="true" class="absolute -right-4 -top-6 text-[9rem] font-medium font-[var(--font-heading)] leading-none select-none pointer-events-none transition-all duration-500 text-[#2D62E8]/[0.08] group-hover:text-[#2D62E8]/[0.16] group-hover:-rotate-3 group-hover:scale-105">智创</span>
+
+          <div class="relative">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-11 h-11 rounded-xl bg-[#2D62E8]/15 text-[#2D62E8] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"/></svg>
+              </div>
+            </div>
+            <h4 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white mb-1">AIGC</h4>
+            <p class="text-[11px] font-mono uppercase tracking-wider text-[#2D62E8]/90 mb-3">Con calma, con criterio adulto.</p>
+            <p class="text-sm text-white/65 leading-relaxed mb-5">
+              Modelos entrenados a medida, trabajo con LoRA y pipelines de gran volumen cuando el uso lo justifica. Una revisión humana en cada salida.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Modelos a medida</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">LoRA</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Pipelines</span>
+              <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.04] text-white/55 border border-white/10">Curaduría</span>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============ COST STAT BAND ============ -->
+    <div class="relative mx-auto max-w-[1400px] section-padding mt-12 lg:mt-16">
+      <div data-reveal data-tilt class="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-[#F25F29]/[0.12] via-[#2D62E8]/[0.08] to-[#E84F26]/[0.08] p-7 lg:p-10">
+        <div class="absolute inset-0 hub-stat-grid opacity-20 pointer-events-none"></div>
+        <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <div class="md:col-span-4 text-center md:text-left">
+            <div class="inline-block whitespace-nowrap text-[64px] sm:text-[88px] lg:text-[112px] font-medium font-[var(--font-heading)] leading-[0.9] tracking-tight bg-gradient-to-br from-[#F25F29] via-[#E84F26] to-[#2D62E8] bg-clip-text text-transparent pr-1">
+              <span data-counter data-counter-suffix="%">25</span>
+            </div>
+            <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-white/50 mt-2">del coste UE / EE. UU.</p>
+          </div>
+          <div class="md:col-span-5">
+            <p class="text-xl lg:text-2xl text-white/90 font-[var(--font-heading)] font-medium leading-[1.3]">
+              Producción en China <span class="text-[#F25F29]">+</span> pipelines de AIGC: <span class="underline decoration-[#E84F26] decoration-[3px] underline-offset-4">una fracción del coste</span>, sin rebajar la calidad.
+            </p>
+          </div>
+          <div class="md:col-span-3">
+            <div class="grid grid-cols-3 gap-2">
+              <div class="rounded-xl bg-white/[0.04] border border-white/10 p-3 text-center">
+                <div class="text-lg font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">12</span></div>
+                <div class="text-[9px] font-mono uppercase tracking-wider text-white/45 mt-0.5">Plataformas</div>
+              </div>
+              <div class="rounded-xl bg-white/[0.04] border border-white/10 p-3 text-center">
+                <div class="text-lg font-medium font-[var(--font-heading)] text-white"><span data-counter>4</span></div>
+                <div class="text-[9px] font-mono uppercase tracking-wider text-white/45 mt-0.5">Ciudades T1</div>
+              </div>
+              <div class="rounded-xl bg-white/[0.04] border border-white/10 p-3 text-center">
+                <div class="text-lg font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="%">100</span></div>
+                <div class="text-[9px] font-mono uppercase tracking-wider text-white/45 mt-0.5">Curaduría</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ EDITORIAL PULL QUOTE WITH PARALLAX BG ============ -->
+    <div class="relative mt-20 lg:mt-28 overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="/images/hubstudio-editorial-shoot.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover" data-parallax="0.12" />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0E1A2E] via-[#0E1A2E]/85 to-[#0E1A2E]/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0E1A2E] via-transparent to-[#0E1A2E]/40"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding py-24 md:py-32 lg:py-40">
+        <div class="max-w-3xl" data-reveal>
+          <p class="text-[11px] font-mono uppercase tracking-[0.22em] text-[#F25F29] mb-6">§ 03 · Por qué importa</p>
+          <blockquote class="relative">
+            <span aria-hidden="true" class="absolute -top-8 -left-2 text-[120px] font-medium font-[var(--font-heading)] text-[#F25F29]/30 leading-none select-none">«</span>
+            <p class="relative text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.1]">
+              Una campaña rodada en París<br />
+              puede caer <span class="italic text-[#F25F29]">en plano</span> en Shanghái.
+            </p>
+          </blockquote>
+          <p class="mt-8 text-base lg:text-lg text-white/75 leading-relaxed max-w-2xl">
+            La composición parece fría. El casting pasa por alto los códigos que las audiencias chinas leen como aspiracionales. Las señales de confianza que buscan con la mirada no están en el encuadre.
+          </p>
+          <p class="mt-4 text-base lg:text-lg text-white leading-relaxed max-w-2xl">
+            Los creativos de hub Studio se mueven dentro de ese código desde hace años. Saben qué detiene el pulgar en Xiaohongshu.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SISTER BRAND CTA ============ -->
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-20 lg:pt-28 pb-24 lg:pb-32">
+      <div class="io-grid items-center gap-y-10">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40">Marca hermana</span>
+            <span class="text-white/15">·</span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40">BeyondBorderGroup</span>
+          </div>
+          <p class="text-xl lg:text-2xl text-white/85 font-[var(--font-heading)] leading-[1.35]">
+            hub Studio opera dentro de <span class="text-white">BeyondBorderGroup</span>, junto a ChinaWebFoundry. En la mayoría de los proyectos de CWF, el estudio entra <span class="text-[#F25F29]">desde el brief</span>: la creación y la construcción avanzan de la mano.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9" data-reveal="right" data-reveal-delay="120">
+          <a href="https://hubstudio.ai" target="_blank" rel="noopener noreferrer" data-hub-magnet class="hub-cta group relative inline-flex items-center justify-between gap-6 w-full rounded-2xl bg-white text-[#0E1A2E] pl-7 pr-3 py-3 no-underline overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+            <span class="hub-cta-bg absolute inset-0 bg-gradient-to-r from-[#F25F29] to-[#2D62E8] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+            <span class="relative flex flex-col">
+              <span class="text-[10px] font-mono uppercase tracking-wider opacity-60 group-hover:text-white">Descubrir</span>
+              <span class="text-2xl font-medium font-[var(--font-heading)] leading-tight group-hover:text-white">hub Studio →</span>
+            </span>
+            <span class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-[#F25F29] text-white shrink-0 transition-transform duration-500 group-hover:rotate-[-12deg] group-hover:bg-white group-hover:text-[#F25F29]">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            </span>
+          </a>
+          <p class="mt-3 text-[11px] font-mono text-white/40 text-right">creación · producción · AIGC</p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .hub-grain {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.65 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      .hub-stat-grid {
+        background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .hub-watermark {
+        background: linear-gradient(180deg, rgba(242,95,41,0.06), rgba(45,98,232,0.03));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hub-marquee {
+        animation: hub-scroll 60s linear infinite;
+        width: max-content;
+      }
+      @keyframes hub-scroll {
+        from { transform: translate3d(0,0,0); }
+        to   { transform: translate3d(-33.333%, 0, 0); }
+      }
+      .hub:hover .hub-marquee { animation-play-state: paused; }
+
+      /* Logo entrance - slight scale-up on reveal */
+      .hub-logo img {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+        transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+      }
+      [data-reveal].is-revealed .hub-logo img { opacity: 1; transform: scale(1) translateY(0); }
+      .hub-logo img:hover { transform: scale(1.04) rotate(-1deg) !important; }
+
+      /* handwritten underline draw */
+      .hub-underline-path {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        transition: stroke-dashoffset 1.4s cubic-bezier(0.22,1,0.36,1) 0.6s;
+      }
+      [data-reveal].is-revealed .hub-underline-path { stroke-dashoffset: 0; }
+
+      /* Active pillar state */
+      .hub-pillar[data-active] { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+      .hub-pillar[data-active] .hub-pillar-bg { opacity: 1; }
+      .hub-pillar:hover .hub-pillar-bg { opacity: 0.6; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hub-marquee { animation: none !important; }
+        .hub-logo img { opacity: 1 !important; transform: none !important; transition: none !important; }
+        .hub-underline-path { stroke-dashoffset: 0 !important; }
+      }
+    </style>
+
+    <script>
+      // hub Studio interactive: pillars, magnetic button, Shanghai clock
+      function initHubStudio() {
+        // Pillar selection
+        const pillars = document.querySelectorAll<HTMLElement>('[data-hub-pillar]');
+        if (pillars.length && !pillars[0].dataset.hubBound) {
+          pillars.forEach((p) => {
+            p.dataset.hubBound = 'true';
+            p.addEventListener('mouseenter', () => {
+              pillars.forEach((o) => o.removeAttribute('data-active'));
+              p.setAttribute('data-active', '');
+            });
+            p.addEventListener('focus', () => {
+              pillars.forEach((o) => o.removeAttribute('data-active'));
+              p.setAttribute('data-active', '');
+            });
+          });
+        }
+
+        // Magnetic CTA
+        const magnets = document.querySelectorAll<HTMLElement>('[data-hub-magnet]');
+        magnets.forEach((m) => {
+          if (m.dataset.magBound === 'true') return;
+          m.dataset.magBound = 'true';
+          let raf = 0;
+          m.addEventListener('mousemove', (e) => {
+            const rect = m.getBoundingClientRect();
+            const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+            const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+              m.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(1.02)`;
+            });
+          });
+          m.addEventListener('mouseleave', () => {
+            cancelAnimationFrame(raf);
+            m.style.transform = 'translate3d(0,0,0) scale(1)';
+          });
+        });
+
+        // Shanghai live clock
+        const clocks = document.querySelectorAll<HTMLElement>('[data-hub-time]');
+        function tick() {
+          const now = new Date();
+          const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
+          const sh = new Date(utcMs + 8 * 3600000);
+          const hh = String(sh.getHours()).padStart(2, '0');
+          const mm = String(sh.getMinutes()).padStart(2, '0');
+          clocks.forEach((c) => {
+            c.textContent = `${hh}:${mm} 上海`;
+          });
+        }
+        if (clocks.length && !clocks[0].dataset.clockBound) {
+          clocks.forEach((c) => (c.dataset.clockBound = 'true'));
+          tick();
+          setInterval(tick, 30_000);
+        }
+      }
+
+      initHubStudio();
+      document.addEventListener('astro:page-load', initHubStudio);
+      document.addEventListener('astro:after-swap', initHubStudio);
+    </script>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 md:py-32 lg:py-40 bg-white">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start gap-y-16">
+        <div class="col-span-12 lg:col-span-5 lg:sticky lg:top-24" data-reveal>
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">FAQ</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Cómo trabajamos<br />juntos.
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-md">
+            8 preguntas que cada cliente plantea antes de firmar. Respuestas sin rodeos.
+          </p>
+
+          <div class="mt-10 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-body)]">¿Tiene otra pregunta?</span>
+            <a href="/es/contact/" class="text-[11px] font-medium text-[var(--color-brand-orange)] no-underline hover:underline">Escríbanos →</a>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div data-faq-accordion>
+            {faqs.map((faq, i) => (
+              <div data-reveal data-reveal-delay={String(i * 60)}>
+                <FAQItem question={faq.question} id={faq.id}>
+                  <p>{faq.answer}</p>
+                </FAQItem>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-24 md:py-32 lg:py-40 bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.08]">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)] blur-[140px]" data-float></div>
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-[#4D6BFE] blur-[140px]" data-float="slow"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1100px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-6" data-reveal>Hablemos</p>
+      <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.05]" data-reveal data-reveal-delay="80">
+        ¿Le apetece <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">trabajar con nosotros?</span>
+      </h2>
+      <p class="mt-8 text-lg lg:text-xl text-white/65 leading-relaxed max-w-2xl mx-auto" data-reveal data-reveal-delay="160">
+        Cuéntenos su proyecto. Le respondemos en menos de <span class="text-white font-medium">24 horas</span>, con preguntas reales y una opinión franca.
+      </p>
+
+      <div class="mt-12 flex flex-wrap justify-center items-center gap-4" data-reveal data-reveal-delay="240">
+        <Button href="/es/contact/" variant="primary" size="lg">Escríbanos</Button>
+        <a href="mailto:hello@chinawebfoundry.com" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors no-underline">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          hello@chinawebfoundry.com
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .diagram-orbit-slow {
+    animation: orbit-spin 60s linear infinite;
+    transform-origin: 260px 260px;
+  }
+  .diagram-orbit-fast {
+    animation: orbit-spin 40s linear infinite reverse;
+    transform-origin: 260px 260px;
+  }
+  @keyframes orbit-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .diagram-lines line {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .diagram-lines line:nth-child(2) { animation-delay: 0.1s; }
+  .diagram-lines line:nth-child(3) { animation-delay: 0.2s; }
+  .diagram-lines line:nth-child(4) { animation-delay: 0.3s; }
+  .diagram-lines line:nth-child(5) { animation-delay: 0.4s; }
+  .diagram-lines line:nth-child(6) { animation-delay: 0.5s; }
+  .diagram-lines line:nth-child(7) { animation-delay: 0.6s; }
+  .diagram-lines line:nth-child(8) { animation-delay: 0.7s; }
+  .diagram-lines line:nth-child(9) { animation-delay: 0.8s; }
+  .diagram-lines line:nth-child(10) { animation-delay: 0.9s; }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .diagram-orbit-slow,
+    .diagram-orbit-fast,
+    .diagram-lines line {
+      animation: none !important;
+    }
+    .diagram-lines line {
+      stroke-dashoffset: 0 !important;
+    }
+  }
+</style>

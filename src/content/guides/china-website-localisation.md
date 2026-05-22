@@ -5,6 +5,8 @@ summary: "China website localisation covers Simplified Chinese, Alipay and WeCha
 visual: "/images/guides/china-website-localisation.webp"
 order: 8
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-01
 category: Content
 ---
 

@@ -2,7 +2,7 @@
 title: "Un site WordPress bilingue conçu de A à Z pour la Chine et le grand export"
 subtitle: "Comment nous avons accompagné le fabricant d'emballages pharmaceutiques ZeinLey, de la page blanche à un site WordPress bilingue sur double hébergement, au service des marchés chinois et internationaux."
 summary: "Le fabricant d'emballages pharmaceutiques ZeinLey avait besoin d'un site WordPress bilingue pour la Chine et l'export. Construction intégrale, du contenu jusqu'au lancement sur double hébergement."
-visual: "/images/casestudies/zeinley-homepage.webp"
+visual: "/images/casestudies/zeinley-homepage-hero.webp"
 visuals:
   - "/images/casestudies/zeinley-homepage.webp"
   - "/images/casestudies/zeinley-product-service.webp"

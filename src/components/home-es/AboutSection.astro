@@ -1,0 +1,99 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<!-- Por qué nosotros: layout estilo iO con círculo de fondo + rejilla de fotos -->
+<section class="py-24 md:py-32 lg:py-40 overflow-hidden">
+  <div class="mx-auto max-w-[1400px] section-padding">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 xl:gap-20">
+
+      <!-- Izquierda: texto dentro de un gran círculo decorativo -->
+      <div class="relative lg:w-[50%] flex-shrink-0">
+        {/* Gran círculo de fondo */}
+        <div class="absolute inset-0 -left-4 sm:-left-16 -top-12 -bottom-12 bg-[var(--color-surface-light)] rounded-full scale-110 lg:scale-125 origin-center"></div>
+
+        <div class="relative z-10 py-12 lg:py-16 pr-4 lg:pr-8">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+            Por qué nosotros
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
+            Un equipo a su lado. Detrás del Cortafuegos.
+          </h2>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            Para dirigirse al público chino hay que vivir a su lado. Redactores chinos de nacimiento. Diseñadores que abren el sitio en WeChat antes que en ningún otro sitio. Especialistas de SEO que apuntan a Baidu, nunca a Google.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-10">
+            Todo reunido bajo el mismo techo, en una oficina de Shanghái. Con una dirección que acompaña a las marcas extranjeras desde hace veinte años.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <Button href="/es/who-we-are/" variant="primary" size="md">Nuestra historia</Button>
+            <Button href="/es/resources/faq/" variant="secondary" size="md">Leer la FAQ</Button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Derecha: rejilla de fotos 2x2 con esquinas interiores redondeadas -->
+      <div class="lg:w-[50%] flex-shrink-0">
+        <div class="grid grid-cols-2 gap-3 lg:gap-4 about-photo-grid">
+          {/* Arriba izquierda - foto del equipo */}
+          <div class="aspect-square overflow-hidden about-img-tl">
+            <img
+              src="/images/team/team-photo.webp"
+              alt="El equipo de ChinaWebFoundry en Shanghái"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Arriba derecha - colaboración */}
+          <div class="aspect-square overflow-hidden about-img-tr">
+            <img
+              src="/images/who-we-are-collaboration.webp"
+              alt="El equipo de ChinaWebFoundry en plena colaboración en un estudio de Shanghái"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Abajo izquierda - oficina */}
+          <div class="aspect-square overflow-hidden about-img-bl">
+            <img
+              src="/images/hero-who-we-are-office.webp"
+              alt="La oficina de ChinaWebFoundry en Shanghái"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {/* Abajo derecha - foto del equipo (detalle) */}
+          <div class="aspect-square overflow-hidden about-img-br">
+            <img
+              src="/images/team/team-photo.webp"
+              alt="Los equipos de redacción y diseño de ChinaWebFoundry"
+              class="w-full h-full object-cover object-right"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Cada esquina interior recibe un gran radio circular para crear el efecto */
+  .about-img-tl {
+    border-radius: 8px 8px 50% 8px;
+  }
+  .about-img-tr {
+    border-radius: 8px 8px 8px 50%;
+  }
+  .about-img-bl {
+    border-radius: 8px 50% 8px 8px;
+  }
+  .about-img-br {
+    border-radius: 8px 8px 8px 8px;
+  }
+</style>

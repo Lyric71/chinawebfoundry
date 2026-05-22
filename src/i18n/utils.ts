@@ -1,11 +1,15 @@
 import { ui, type Locale, type TranslationKey } from './ui';
 
+/** Locales that carry a URL prefix (everything except the default English). */
+const PREFIXED_LOCALES = ['fr', 'es'] as const;
+
 /**
  * Detect locale from URL pathname.
  */
 export function getLangFromUrl(url: URL): Locale {
-  const [, lang] = url.pathname.split('/');
-  if (lang === 'fr') return 'fr';
+  const [, seg] = url.pathname.split('/');
+  if (seg === 'fr') return 'fr';
+  if (seg === 'es') return 'es';
   return 'en';
 }
 
@@ -23,30 +27,40 @@ export function useTranslations(lang: Locale) {
  */
 export function localePath(path: string, lang: Locale): string {
   if (lang === 'en') return path;
-  // Avoid double /fr/ prefix
-  if (path.startsWith('/fr/') || path === '/fr') return path;
-  return `/fr${path}`;
+  if (path.startsWith(`/${lang}/`) || path === `/${lang}`) return path;
+  return `/${lang}${path}`;
 }
 
 /**
- * Get the equivalent URL in the other language.
+ * Strip any locale prefix from a path, returning the English-style base path.
  */
-export function getAlternateUrl(currentPath: string, currentLang: Locale): string {
-  if (currentLang === 'en') {
-    return `/fr${currentPath === '/' ? '/' : currentPath}`;
+export function stripLocale(path: string): string {
+  for (const loc of PREFIXED_LOCALES) {
+    if (path === `/${loc}` || path.startsWith(`/${loc}/`)) {
+      return path.replace(new RegExp(`^/${loc}`), '') || '/';
+    }
   }
-  const stripped = currentPath.replace(/^\/fr/, '') || '/';
-  return stripped;
+  return path || '/';
 }
 
 /**
- * Get both hreflang URLs for a given page path (without locale prefix).
+ * Build the URL for the current page in another locale.
+ */
+export function switchLocalePath(currentPath: string, targetLang: Locale): string {
+  const base = stripLocale(currentPath);
+  return localePath(base, targetLang);
+}
+
+/**
+ * Get all three hreflang URLs for a given page path (locale prefix or not).
  */
 export function getHreflangUrls(basePath: string, site: string) {
-  const clean = basePath.replace(/^\/fr/, '') || '/';
+  const clean = stripLocale(basePath);
   // Always emit a trailing slash on the home so canonical and hreflang agree.
+  const path = clean === '/' ? '/' : clean;
   return {
-    en: `${site}${clean === '/' ? '/' : clean}`,
-    fr: `${site}/fr${clean === '/' ? '/' : clean}`,
+    en: `${site}${path}`,
+    fr: `${site}/fr${path}`,
+    es: `${site}/es${path}`,
   };
 }

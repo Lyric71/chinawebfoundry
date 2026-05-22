@@ -5,6 +5,8 @@ summary: "China's Great Firewall blocks Google, Facebook, Slack and dozens more.
 visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-01
 category: Technology
 ---
 

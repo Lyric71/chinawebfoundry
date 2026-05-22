@@ -5,6 +5,8 @@ summary: "Baidu controls 60% of China's search, while Sogou, 360 Search, Shenma 
 visual: "/images/guides/china-search-landscape-beyond-baidu.webp"
 order: 4
 published: true
+publishedAt: 2026-03-31
+updatedAt: 2026-05-01
 category: Search
 ---
 

@@ -5,6 +5,8 @@ summary: "China's internet is mobile-only. This guide covers design principles, 
 visual: "/images/guides/mobile-first-design-china.webp"
 order: 9
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-01
 category: Design
 ---
 

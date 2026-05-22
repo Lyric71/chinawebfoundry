@@ -1,0 +1,463 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
+import PageScrollEffects from '../../components/pages/ScrollEffects.astro';
+import { getCollection } from 'astro:content';
+
+const metaTitle = 'Agencia web en Shanghái para marcas en China | ChinaWebFoundry';
+const metaDescription = 'Agencia web con sede en Shanghái. Planteamos, construimos, hacemos crecer y operamos sitios en China para marcas extranjeras. Veinte años sobre el terreno y más de 50 proyectos.';
+const canonicalPath = '/es/agencia-web-china/';
+
+const services = (await getCollection('services-es')).sort((a, b) => a.data.order - b.data.order);
+const casestudies = (await getCollection('casestudies-es'))
+  .filter((cs) => cs.data.published)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
+const pageUrl = `${siteOrigin}${canonicalPath}`;
+
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${pageUrl}#service`,
+  name: 'Agencia web en China',
+  description: 'Agencia web integral para las marcas internacionales que lanzan y operan un sitio en China continental. Estrategia, contenido, diseño, desarrollo, SEO en Baidu, búsqueda con IA, alojamiento y mantenimiento.',
+  serviceType: 'Agencia web',
+  provider: { '@id': `${siteOrigin}/#organization` },
+  areaServed: { '@type': 'Country', name: 'China' },
+  url: pageUrl,
+  inLanguage: 'es-ES',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Servicios',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      itemOffered: {
+        '@type': 'Service',
+        name: s.data.title,
+        description: s.data.description,
+        url: `${siteOrigin}/es/services/${s.id}/`,
+      },
+    })),
+  },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${siteOrigin}/es/` },
+    { '@type': 'ListItem', position: 2, name: 'Agencia web en China', item: pageUrl },
+  ],
+};
+
+const differentiators = [
+  {
+    cn: '驻',
+    label: 'Sobre el terreno',
+    title: 'Vivimos el mercado que atendemos',
+    body: 'Nuestra dirección lleva veinte años instalada en Shanghái. Cada mañana abrimos su sitio dentro de WeChat, en un teléfono chino. Tramitamos las licencias ICP en mandarín. Y nos adelantamos a las preguntas que la central todavía no ha formulado.',
+  },
+  {
+    cn: '栈',
+    label: 'Stack neutral',
+    title: 'La tecnología adecuada, proyecto a proyecto',
+    body: 'WordPress cuando manda lo editorial. Astro cuando prima la velocidad. Headless cuando la escala y el contenido compartido lo exigen. El briefing decide y después construimos.',
+  },
+  {
+    cn: '深',
+    label: 'Conocimiento de China',
+    title: 'Pensado para Baidu, WeChat y el cortafuegos',
+    body: 'Baidu indexa con sus propias reglas. La vista dentro de WeChat rompe la mitad de los diseños extranjeros. El Gran Cortafuegos bloquea fuentes, mapas, analítica y CDN que damos por sentados en otros países. Trabajamos con todo eso desde el primer día.',
+  },
+  {
+    cn: '端',
+    label: 'De principio a fin',
+    title: 'Un contrato, un equipo, cuatro fases',
+    body: 'Plantear, construir, hacer crecer, operar. Las mismas personas se encargan de la estrategia, el copywriting, el diseño, el código, el alojamiento, el SEO en Baidu y la visibilidad en los motores de IA chinos. Una factura y un único punto de contacto en cada etapa.',
+  },
+];
+
+const faqs = [
+  {
+    q: '¿Qué es una agencia web especializada en China y cuándo conviene contratarla?',
+    a: 'Una agencia web especializada en China diseña y opera sitios pensados para funcionar en China continental. Eso supone un alojamiento servido desde centros de datos chinos, una licencia ICP, contenidos y experiencia de usuario redactados por plumas chinas, posicionamiento en Baidu y presencia en los motores de IA chinos (DeepSeek, Doubao, Kimi, Yuanbao, Baidu IA). Conviene contratarla en cuanto el sitio global deja de convertir entre el público chino. Suele ocurrir unos seis meses después de lanzar una versión traducida.',
+  },
+  {
+    q: '¿Por qué importa la ubicación al elegir una agencia web para China?',
+    a: 'Una agencia con sede fuera de China puede leer artículos sobre el Gran Cortafuegos. Una agencia con sede en China se enfrenta a él todos los días. Probamos desde una conexión de Shanghái, tramitamos las licencias en mandarín, trabajamos con bancos chinos para la facturación y nos vemos con los clientes en persona en Shanghái o en Hangzhou. La diferencia se nota en el trabajo entregado.',
+  },
+  {
+    q: 'WordPress, Astro, headless: ¿con qué tecnologías trabajan?',
+    a: 'Depende del proyecto. WordPress para los sitios editoriales y los flujos multilingües. Astro para los sitios de marketing donde cuentan la velocidad y el SEO. Headless cuando una marca internacional quiere una única fuente de contenido que alimente varios sitios regionales. Le ayudamos a decidir durante la fase de planteamiento, una vez que sabemos qué debe hacer el sitio.',
+  },
+  {
+    q: '¿Cuánto tarda un proyecto web en China?',
+    a: 'Para un sitio de marca acotado, de 8 a 12 semanas entre el arranque y la puesta en línea con licencia ICP. Para migrar por completo un sitio global existente, con localización, reescritura del contenido y posicionamiento en Baidu, de 14 a 20 semanas. La mayoría de nuestros proyectos se reparten en cuatro fases: Plantear (1 a 2 semanas), Construir (4 a 10 semanas), Hacer crecer (de forma continua a partir de la semana 6) y Operar (de forma continua).',
+  },
+  {
+    q: '¿Cómo trabajan con clientes de Europa o Norteamérica?',
+    a: 'Shanghái está en GMT+8. La mañana coincide con Europa y la tarde con la costa este de Estados Unidos. Organizamos llamadas semanales en su franja horaria, enviamos resúmenes escritos entre reuniones y respondemos los correos en menos de 24 horas. Su persona de contacto habla español e inglés. Nadie del equipo de producción necesita traductor.',
+  },
+];
+---
+
+<PageLayout
+  title={metaTitle}
+  description={metaDescription}
+  heroPage={true}
+  lang="es"
+  jsonLd={[serviceLd, breadcrumbLd]}
+  alternateUrls={{ en: '/web-agency-china/', fr: '/fr/agence-web-chine/', es: '/es/agencia-web-china/' }}
+>
+  <ScrollEffects />
+  <PageScrollEffects />
+
+  <!-- ============= HERO ============= -->
+  <section
+    data-hero
+    class="relative bg-[var(--color-surface-dark)] overflow-hidden min-h-[88vh] flex flex-col"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/images/hero-wordpress-china-skyline.webp"
+        alt=""
+        width="1600"
+        height="900"
+        class="absolute inset-0 w-full h-full object-cover scale-105"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0e]/95 via-[#0a0a0e]/80 to-[#0a0a0e]/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0e]/60 via-transparent to-[#0a0a0e]/95"></div>
+    </div>
+
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-[10%] -left-32 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/[0.18] blur-[140px]"></div>
+      <div class="absolute bottom-[5%] -right-20 w-[500px] h-[500px] rounded-full bg-[#FF7E47]/[0.12] blur-[160px]"></div>
+    </div>
+
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:38px_38px] pointer-events-none"
+    ></div>
+
+    <span
+      aria-hidden="true"
+      class="absolute right-[-4rem] bottom-[-2rem] text-[26rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block"
+    >中</span>
+
+    <div class="relative z-10 mx-auto w-full max-w-[1200px] section-padding flex-1 flex items-center pt-32 lg:pt-40 pb-20 lg:pb-28">
+      <div class="max-w-[860px]">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-10 bg-[var(--color-brand-orange)]"></div>
+          <span class="text-xs lg:text-sm font-medium tracking-[0.18em] text-[var(--color-brand-orange)] uppercase">
+            Agencia web en China · Oficina en Shanghái
+          </span>
+        </div>
+
+        <h1 class="text-[clamp(2.4rem,5.2vw,4.5rem)] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+          La agencia web
+          <span class="block mt-2">
+            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
+              en China
+            </span>
+          </span>
+          <span class="block mt-2 text-white/95">para las marcas internacionales.</span>
+        </h1>
+
+        <p class="mt-7 text-base lg:text-xl text-white/65 leading-relaxed max-w-[700px]">
+          Somos una agencia web independiente con sede en Shanghái. Planteamos, construimos, hacemos crecer y operamos sitios en China continental para marcas extranjeras. Veinte años sobre el terreno, más de 50 proyectos entregados y todas las disciplinas dentro de casa.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <Button href="/es/contact/" variant="primary" size="lg">Hablemos</Button>
+          <a
+            href="/es/services/"
+            class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
+          >
+            Descubra nuestros 10 servicios
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-14 grid grid-cols-3 gap-6 max-w-2xl">
+          <div class="border-l-2 border-[var(--color-brand-orange)]/70 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">20</span></div>
+            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Años en Shanghái</div>
+          </div>
+          <div class="border-l-2 border-white/15 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">50</span></div>
+            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Sitios de marca entregados</div>
+          </div>
+          <div class="border-l-2 border-white/15 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter>10</span></div>
+            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Disciplinas dentro de casa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= DIFFERENTIATORS ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-32 right-[8%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px]"></div>
+      <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:34px_34px] opacity-[0.035]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">El oficio · 哪种代理</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-6">
+          Cómo es una verdadera agencia web en China.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Cuatro cosas separan nuestro trabajo en China de lo que se entrega desde Londres, Madrid o Nueva York. Las cuatro son operativas y ninguna pertenece al discurso de marketing.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        {differentiators.map((d) => (
+          <article
+            data-reveal
+            class="group relative rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)] hover:-translate-y-1"
+          >
+            <span aria-hidden="true" class="absolute right-[-1rem] bottom-[-2rem] text-[12rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none transition-transform duration-700 group-hover:scale-110 origin-bottom-right">{d.cn}</span>
+            <div class="relative">
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">{d.label}</div>
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">{d.title}</h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">{d.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 10 SERVICES ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-3rem] top-[8%] text-[20rem] lg:text-[26rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">服务</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="grid grid-cols-12 gap-8 mb-14 lg:mb-16 items-end">
+        <div class="col-span-12 lg:col-span-8" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Nuestros servicios · 服务</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+            10 disciplinas. Una agencia web. Toda su presencia en China.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
+            Estrategia, contenido, diseño, desarrollo, búsqueda, visibilidad en IA, alojamiento y mantenimiento. Cada disciplina la entregan las mismas personas, dentro de casa, en Shanghái.
+          </p>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:text-right" data-reveal data-reveal-delay="120">
+          <a href="/es/services/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
+            Ver todos los servicios
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        {services.map((s) => (
+          <a
+            href={`/es/services/${s.id}/`}
+            data-reveal
+            class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 no-underline transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_22px_45px_-22px_rgba(15,15,18,0.15)] hover:-translate-y-1"
+          >
+            <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3 transition-colors duration-200 group-hover:text-[var(--color-brand-orange)]">
+              {s.data.title}
+            </h3>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed line-clamp-3 mb-4">
+              {s.data.description}
+            </p>
+            <span class="inline-flex items-center gap-1.5 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-2.5 transition-all">
+              Saber más
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SELECTED WORK ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Algunos proyectos · 作品</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Sitios entregados para marcas internacionales en China.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        {casestudies.map((cs) => (
+          <a
+            href={`/es/work/${cs.id}/`}
+            data-reveal
+            class="group relative block rounded-2xl overflow-hidden no-underline"
+          >
+            <div class="relative aspect-[4/5]">
+              {cs.data.visual ? (
+                <img
+                  src={cs.data.visual}
+                  alt={cs.data.title}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div class="absolute inset-0" style={`background: linear-gradient(135deg, ${cs.data.color}, ${cs.data.color}dd)`}></div>
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 p-6 lg:p-7">
+                <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-snug mb-2">
+                  {cs.data.title}
+                </h3>
+                <p class="text-sm text-white/70 leading-relaxed line-clamp-2">{cs.data.summary}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center" data-reveal>
+        <a href="/es/work/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] no-underline hover:gap-3 transition-all">
+          Ver todos los casos de éxito
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= WHY US ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="grid grid-cols-12 gap-8 lg:gap-14 items-center">
+        <div class="col-span-12 lg:col-span-6" data-reveal>
+          <div class="rounded-3xl overflow-hidden border border-[var(--color-surface-border)] shadow-[0_30px_60px_-30px_rgba(15,15,18,0.2)]">
+            <img
+              src="/images/team/team-photo.webp"
+              alt="El equipo de ChinaWebFoundry en Shanghái"
+              class="w-full h-auto object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-6" data-reveal data-reveal-delay="120">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Por qué nosotros · 关于我们</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
+            La agencia que usted contrata es el equipo que entrega su sitio.
+          </h2>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            ChinaWebFoundry está dirigida por Cyril Drouin, afincado en China desde 2005. Nuestro equipo de producción es bilingüe, trabaja desde Shanghái y se dedica a tiempo completo a proyectos web en China. Cada línea de código, cada frase en chino y cada decisión de diseño sale de las personas a las que usted da el briefing. Nunca subcontratamos.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            Cuando firma con nosotros, dispone de nuestras plumas, nuestros diseñadores, nuestros desarrolladores y nuestros responsables de SEO. También dispone de un único punto de contacto que responde en menos de 24 horas, en su franja horaria, en español o en inglés.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <Button href="/es/who-we-are/" variant="primary" size="md">Conozca al equipo</Button>
+            <Button href="/es/contact/" variant="secondary" size="md">Escríbanos</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">问</span>
+    <div class="relative mx-auto max-w-[900px] section-padding">
+      <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Preguntas · 常见问题</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          Trabajar con una agencia web en China.
+        </h2>
+      </div>
+
+      <div class="space-y-3">
+        {faqs.map((f, i) => (
+          <details
+            class="group rounded-2xl border border-[var(--color-surface-border)] bg-white p-6 lg:p-7 transition-all duration-200 hover:border-[var(--color-brand-orange)]/30 open:border-[var(--color-brand-orange)]/40"
+            data-reveal
+            data-reveal-delay={String(i * 60)}
+          >
+            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none">
+              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug pr-4">
+                {f.q}
+              </h3>
+              <svg class="w-5 h-5 flex-shrink-0 mt-1 text-[var(--color-brand-orange)] transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+              {f.a}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FINAL CTA ============= -->
+  <section class="relative py-24 md:py-32 lg:py-36 bg-[#0a0a0e] overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-32 -left-20 w-[520px] h-[520px] rounded-full bg-[var(--color-brand-orange)]/[0.18] blur-[160px]"></div>
+      <div class="absolute -bottom-32 right-[5%] w-[440px] h-[440px] rounded-full bg-[#FF7E47]/[0.14] blur-[170px]"></div>
+      <div class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:38px_38px] opacity-50"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1200px] section-padding text-center">
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 mb-7" data-reveal>
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-70 animate-ping"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
+        </span>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.20em] text-white/95">Pocas plazas este trimestre</span>
+      </div>
+
+      <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight mb-7" data-reveal data-reveal-delay="80">
+        Abramos la conversación.
+        <span class="block">
+          <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
+            Con su agencia web en Shanghái.
+          </span>
+        </span>
+      </h2>
+      <p class="text-base lg:text-xl text-white/65 leading-relaxed max-w-2xl mx-auto mb-9" data-reveal data-reveal-delay="160">
+        Envíenos un briefing o reserve una llamada de 30 minutos. Le responde una persona en menos de 24 horas, en su franja horaria.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4" data-reveal data-reveal-delay="200">
+        <Button href="/es/contact/" variant="primary" size="lg">Escríbanos</Button>
+        <a
+          href="/es/china-site-scanner/"
+          class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
+        >
+          Diagnóstico China gratuito
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -20,12 +20,13 @@ const { title, description, metaTitle, metaDescription, lang, slug } = Astro.pro
 const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 
-const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://chinawebfoundry.com';
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const homeUrl = currentLang === 'fr' ? `${siteOrigin}/fr/` : `${siteOrigin}/`;
-const servicesUrl = currentLang === 'fr' ? `${siteOrigin}/fr/services/` : `${siteOrigin}/services/`;
+const homeUrl = `${siteOrigin}${localePath('/', currentLang)}`;
+const servicesUrl = `${siteOrigin}${localePath('/services/', currentLang)}`;
 const homeLabel = t('service.home');
-const servicesLabel = currentLang === 'fr' ? 'Services' : 'Services';
+const servicesLabel = currentLang === 'es' ? 'Servicios' : 'Services';
+const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
 
 const serviceLd = {
   '@context': 'https://schema.org',
@@ -33,7 +34,7 @@ const serviceLd = {
   name: title,
   description,
   url: pageUrl,
-  inLanguage: currentLang === 'fr' ? 'fr-FR' : 'en-GB',
+  inLanguage: inLanguageMap[currentLang],
   provider: { '@id': `${siteOrigin}/#organization` },
   areaServed: { '@type': 'Country', name: 'China' },
   serviceType: title,

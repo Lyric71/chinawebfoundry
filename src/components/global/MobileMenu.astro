@@ -1,6 +1,6 @@
 ---
 import { getMainNav } from '../../i18n/navigation';
-import { getAlternateUrl, getLangFromUrl, localePath, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, localePath, switchLocalePath, useTranslations } from '../../i18n/utils';
 import type { Locale } from '../../i18n/ui';
 
 interface Props {
@@ -13,8 +13,12 @@ const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 const mainNav = getMainNav(currentLang);
 const currentPath = Astro.url.pathname;
-const isEn = currentLang === 'en';
-const alternateUrl = getAlternateUrl(currentPath, currentLang);
+
+const localeLinks: { code: Locale; label: string; aria: string }[] = [
+  { code: 'en', label: 'EN', aria: 'English' },
+  { code: 'fr', label: 'FR', aria: 'Français' },
+  { code: 'es', label: 'ES', aria: 'Español' },
+];
 ---
 
 <!-- Mobile menu button -->
@@ -197,33 +201,27 @@ const alternateUrl = getAlternateUrl(currentPath, currentLang);
     </div>
 
     <div class="mt-8 pt-6 border-t border-[var(--color-surface-border)] flex items-center justify-center gap-2 text-base">
-      <a
-        href={isEn ? currentPath : alternateUrl}
-        class:list={[
-          'px-3 py-1.5 rounded no-underline transition-colors duration-200 font-medium',
-          isEn
-            ? 'text-[var(--color-text-dark)]'
-            : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
-        ]}
-        aria-label="English"
-        aria-current={isEn ? 'page' : undefined}
-      >
-        EN
-      </a>
-      <span class="text-[var(--color-text-muted)]">|</span>
-      <a
-        href={!isEn ? currentPath : alternateUrl}
-        class:list={[
-          'px-3 py-1.5 rounded no-underline transition-colors duration-200 font-medium',
-          !isEn
-            ? 'text-[var(--color-text-dark)]'
-            : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
-        ]}
-        aria-label="Français"
-        aria-current={!isEn ? 'page' : undefined}
-      >
-        FR
-      </a>
+      {localeLinks.map((loc, i) => {
+        const isActive = loc.code === currentLang;
+        return (
+          <>
+            {i > 0 && <span class="text-[var(--color-text-muted)]">|</span>}
+            <a
+              href={isActive ? currentPath : switchLocalePath(currentPath, loc.code)}
+              class:list={[
+                'px-3 py-1.5 rounded no-underline transition-colors duration-200 font-medium',
+                isActive
+                  ? 'text-[var(--color-text-dark)]'
+                  : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
+              ]}
+              aria-label={loc.aria}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {loc.label}
+            </a>
+          </>
+        );
+      })}
     </div>
   </nav>
 </div>

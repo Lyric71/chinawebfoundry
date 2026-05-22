@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, getAlternateUrl } from '../../i18n/utils';
+import { getLangFromUrl, switchLocalePath } from '../../i18n/utils';
 import type { Locale } from '../../i18n/ui';
 
 interface Props {
@@ -9,51 +9,45 @@ interface Props {
 
 const { lang, heroPage = false } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
-const alternateUrl = getAlternateUrl(Astro.url.pathname, currentLang);
-const isEn = currentLang === 'en';
+
+const locales: { code: Locale; label: string; aria: string }[] = [
+  { code: 'en', label: 'EN', aria: 'English' },
+  { code: 'fr', label: 'FR', aria: 'Français' },
+  { code: 'es', label: 'ES', aria: 'Español' },
+];
 ---
 
 <div class="flex items-center gap-1 text-sm">
-  <a
-    href={isEn ? Astro.url.pathname : alternateUrl}
-    class:list={[
-      'lang-switch-link',
-      isEn ? 'lang-switch-active' : 'lang-switch-inactive',
-      'px-1.5 py-0.5 rounded no-underline transition-colors duration-200 font-medium',
-      isEn
-        ? heroPage
-          ? 'text-white'
-          : 'text-[var(--color-text-dark)]'
-        : heroPage
-          ? 'text-white/50 hover:text-white'
-          : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
-    ]}
-    aria-label="English"
-    aria-current={isEn ? 'page' : undefined}
-  >
-    EN
-  </a>
-  <span class:list={[
-    'lang-switch-sep text-xs',
-    heroPage ? 'text-white/30' : 'text-[var(--color-text-muted)]',
-  ]}>|</span>
-  <a
-    href={isEn ? alternateUrl : Astro.url.pathname}
-    class:list={[
-      'lang-switch-link',
-      !isEn ? 'lang-switch-active' : 'lang-switch-inactive',
-      'px-1.5 py-0.5 rounded no-underline transition-colors duration-200 font-medium',
-      !isEn
-        ? heroPage
-          ? 'text-white'
-          : 'text-[var(--color-text-dark)]'
-        : heroPage
-          ? 'text-white/50 hover:text-white'
-          : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
-    ]}
-    aria-label="Français"
-    aria-current={!isEn ? 'page' : undefined}
-  >
-    FR
-  </a>
+  {locales.map((loc, i) => {
+    const isActive = loc.code === currentLang;
+    return (
+      <>
+        {i > 0 && (
+          <span class:list={[
+            'lang-switch-sep text-xs',
+            heroPage ? 'text-white/30' : 'text-[var(--color-text-muted)]',
+          ]}>|</span>
+        )}
+        <a
+          href={isActive ? Astro.url.pathname : switchLocalePath(Astro.url.pathname, loc.code)}
+          class:list={[
+            'lang-switch-link',
+            isActive ? 'lang-switch-active' : 'lang-switch-inactive',
+            'px-1.5 py-0.5 rounded no-underline transition-colors duration-200 font-medium',
+            isActive
+              ? heroPage
+                ? 'text-white'
+                : 'text-[var(--color-text-dark)]'
+              : heroPage
+                ? 'text-white/50 hover:text-white'
+                : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)]',
+          ]}
+          aria-label={loc.aria}
+          aria-current={isActive ? 'page' : undefined}
+        >
+          {loc.label}
+        </a>
+      </>
+    );
+  })}
 </div>

@@ -1,0 +1,852 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
+import Button from '../../../components/ui/Button.astro';
+import FAQItem from '../../../components/pages/FAQItem.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
+
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-es', 'strategy-audit'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
+
+const questions = [
+  {
+    n: '01',
+    cn: '品牌',
+    title: '¿Su marca le habla de verdad al público chino?',
+    body: "Leemos su marca con los ojos del consumidor chino. Ese consumidor rastrea señales de confianza que las marcas extranjeras descuidan casi siempre: el perfil del fundador, las certificaciones obtenidas, los logotipos de los socios, un vocabulario alineado con el discurso institucional, los premios conseguidos, las distinciones reconocidas, el respaldo de un tercero solvente. Confrontamos su discurso con el de los competidores ya instalados sobre el terreno y ponemos palabras precisas a lo que no termina de funcionar.",
+    tag: 'Posicionamiento de marca',
+    chips: ['Fundador', 'Certificaciones', 'Socios', 'Premios', 'Medios'],
+  },
+  {
+    n: '02',
+    cn: '搜索',
+    title: '¿Dónde le encuentra el público chino, en concreto?',
+    body: "Baidu conserva todavía cerca de la mitad de las búsquedas en China. Doubao, Kimi, DeepSeek y Wenxin se han impuesto como primer reflejo entre buena parte de los menores de treinta y cinco años. La búsqueda de WeChat funciona dentro de su ecosistema, con su propia lógica de clasificación. Trazamos el estado real de su visibilidad en cada una de estas superficies y separamos los retrasos que se recuperan en tres meses de los que exigirán dieciocho.",
+    tag: 'Superficies de descubrimiento',
+    chips: ['Baidu', 'Doubao', 'Kimi', 'DeepSeek', 'Wenxin', 'Búsqueda WeChat'],
+  },
+  {
+    n: '03',
+    cn: '技术',
+    title: '¿Qué tecnología encaja de verdad con su caso?',
+    body: "WordPress, Astro, arquitecturas headless, Mini Program de WeChat, H5, aplicaciones nativas: cada pieza responde a una necesidad concreta y la mayoría de las marcas extranjeras combinan dos o tres. Examinamos su cadena editorial, la composición de su equipo, el volumen de tráfico previsto, la ambición de comercio electrónico, y luego decidimos sin rodeos qué construir sobre cada plataforma. Incluso cuando la recomendación apunta hacia un proyecto que no volverá a nosotros.",
+    tag: 'Pila tecnológica',
+    chips: ['WordPress', 'Astro', 'Headless', 'Mini Program', 'H5', 'Nativo'],
+  },
+  {
+    n: '04',
+    cn: '微信',
+    title: '¿Cuál es su estrategia en WeChat?',
+    body: "Casi todas las marcas extranjeras tienen su sitio dentro de WeChat. Casi ninguna ha decidido de verdad entre Mini Program, cuenta oficial, dispositivo WeCom, presencia en Channels (视频号) o una combinación de los cuatro. Calibramos su huella en WeChat según su modelo de negocio y su audiencia: las superficies que cuentan, lo que arranca en la fase uno, lo que se añade después. Y esa pregunta que la mayoría de las marcas extranjeras olvidan: ¿no conviene apoyarse en el ecosistema SaaS local (有赞, 微店, Meituan, 客如云, Aliyun) en lugar de mandar construirlo todo a medida?",
+    tag: 'Ecosistema WeChat',
+    chips: ['Mini Program', 'Cuenta oficial', 'WeCom', '视频号', 'SaaS local'],
+  },
+  {
+    n: '05',
+    cn: '合规',
+    title: '¿Qué corresponde de verdad al cumplimiento normativo?',
+    body: "ICP, MIIT, PIPL, ley de ciberseguridad, ley de seguridad de los datos, registro de los Mini Program de WeChat: cada capa afecta a una marca extranjera presente en el ámbito digital chino. Evaluamos su posición actual, situamos la exposición real al riesgo y enumeramos los trámites por iniciar con su calendario.",
+    tag: 'Marco regulatorio',
+    chips: ['ICP', 'MIIT', 'PIPL', 'CSL', 'DSL', 'Mini Program'],
+  },
+];
+
+const deliverables = [
+  {
+    n: '01',
+    title: 'Diagnóstico de preparación para China',
+    body: "Una lectura franca de su marca y de los activos que ya tiene en marcha. Contenido, experiencia de usuario, visibilidad en Baidu y en las IA, rendimiento técnico, cumplimiento normativo, presencia en WeChat. Lo que se sostiene, lo que cede, lo que exige una renovación en lugar de un remiendo.",
+    pageRef: 'p.04',
+  },
+  {
+    n: '02',
+    title: 'Recomendación de posicionamiento',
+    body: "Cómo debe instalarse su marca dentro de su categoría ante el público chino. Las señales de confianza que de verdad pesan en la decisión de compra. Las opciones de voz y de tono. Los territorios de contenido por ocupar. Las diferencias que conviene asumir respecto al posicionamiento global, con su justificación.",
+    pageRef: 'p.10',
+  },
+  {
+    n: '03',
+    title: 'Arquitectura tecnológica',
+    body: "La pila elegida para el sitio, el entorno de WeChat, la gestión de contenidos, el alojamiento. WordPress o Astro, Mini Program o H5, doble base internacional más China: cada decisión resuelta y argumentada.",
+    pageRef: 'p.16',
+  },
+  {
+    n: '04',
+    title: 'Hoja de ruta secuenciada',
+    body: "Fase uno (puesta en línea), fase dos (crecimiento y búsqueda), fase tres (escalado e IA). Para cada una, su alcance, sus dependencias, su calendario, su horquilla presupuestaria. El registro ICP se sitúa en la ruta crítica para que nunca bloquee el lanzamiento.",
+    pageRef: 'p.22',
+  },
+  {
+    n: '05',
+    title: 'Mapa de cumplimiento normativo',
+    body: "ICP, MIIT, PIPL, residencia de los datos, verificación de WeChat, registro de Mini Program. Lo que le afecta directamente, lo que le deja al margen, el plazo propio de cada trámite y el orden en el que recomendamos abordarlos.",
+    pageRef: 'p.30',
+  },
+  {
+    n: '06',
+    title: 'Dossier listo para la matriz',
+    body: "El entregable más solicitado por las direcciones de marca a las que acompañamos. Resumen ejecutivo de dos páginas, argumentarios escritos sobre los que la casa matriz volverá sin remedio, tablas comparativas en paralelo que explican por qué las decisiones tomadas para China divergen de los estándares globales.",
+    pageRef: 'p.36',
+  },
+];
+
+const stages = [
+  {
+    n: '01',
+    cn: '启动',
+    title: 'Arranque',
+    body: "Una sesión de trabajo con sus equipos. Objetivos, audiencia prevista, dispositivo chino ya en marcha si lo hay, preguntas que ustedes plantean, condicionantes políticos internos del lado de la matriz que debemos conocer antes de empezar.",
+    output: 'Alcance alineado',
+  },
+  {
+    n: '02',
+    cn: '调研',
+    title: 'Descubrimiento y pruebas',
+    body: "Pruebas de su sitio desde China continental, auditoría de su huella en WeChat si existe, lectura crítica del contenido actual, registro de su visibilidad en Baidu y en los motores de IA. Navegadores reales, teléfonos chinos reales, en condiciones de red auténticas.",
+    output: 'Hallazgos del diagnóstico',
+  },
+  {
+    n: '03',
+    cn: '对标',
+    title: 'Revisión competitiva',
+    body: "Observación de tres a cinco competidores directos ya instalados en China y cartografía de sus dispositivos en el sitio, dentro de WeChat, en contenido y en búsqueda. El objetivo: ajustar su marca a la altura real del mercado, según el estado efectivo de la categoría.",
+    output: 'Referencia sectorial',
+  },
+  {
+    n: '04',
+    cn: '策略',
+    title: 'Taller estratégico',
+    body: "Taller colectivo con su equipo para fijar la dirección antes de redactar. Las decisiones tomadas junto a ustedes resisten al tiempo. Las que tomaríamos en su lugar se desmoronan al cabo de seis meses.",
+    output: 'Dirección alineada',
+  },
+  {
+    n: '05',
+    cn: '交付',
+    title: 'Entrega escrita',
+    body: "Entrega del documento completo de la hoja de ruta, acompañada de una llamada de presentación de noventa minutos para repasar juntos los hallazgos y las acciones recomendadas.",
+    output: 'PDF + llamada de 90 min',
+  },
+];
+
+const audiences = [
+  {
+    label: 'Primera entrada en China',
+    description: 'Marcas internacionales que abren su primera presencia real en China y quieren asegurar las decisiones acertadas desde el principio.',
+    image: '/images/audiences/first-time-china-entry.webp',
+  },
+  {
+    label: 'Presencia china por debajo de su potencial',
+    description: 'Marcas cuyo dispositivo chino decepciona y cuya dirección busca entender la causa. Esa causa casi siempre se aloja más arriba, en un encuadre estratégico deficiente.',
+    image: '/images/audiences/underperforming-china-site.webp',
+  },
+  {
+    label: 'Marcas que unifican un dispositivo disperso',
+    description: 'Empresas que han construido su presencia china a tirones: un sitio, un Mini Program, un despliegue de WeCom, tres proveedores que se ignoran, y que hoy reclaman un plan unificado.',
+    image: '/images/audiences/multinational-china-entry.webp',
+  },
+  {
+    label: 'Marcas que preparan una renovación o una migración',
+    description: 'Empresas que ya han asumido la necesidad de una renovación o una migración y quieren asentar una base estratégica antes de abrir el proyecto.',
+    image: '/images/audiences/agency-migration-clients.webp',
+  },
+];
+
+const marqueePhrases = [
+  '策略', 'Estrategia',
+  '路线图', 'Hoja de ruta',
+  '审计', 'Auditoría',
+  'Registro ICP',
+  'Estrategia WeChat',
+  'Visibilidad Baidu',
+  'Listo para la IA',
+  'Validado por la matriz',
+  'Fase 1 · 2 · 3',
+  'Mapa de cumplimiento',
+];
+
+const faqs = [
+  {
+    id: 'mandatory',
+    question: '¿La etapa de estrategia es realmente imprescindible? ¿Se puede pasar directamente a la producción?',
+    answer: [
+      "Sí, imprescindible, y no es negociable en nuestra casa. La razón cabe en una frase: hemos visto demasiados proyectos descarrilar por falta de encuadre previo. Todas las marcas que hemos puesto en línea en China han pasado por esta etapa, incluidas las que se creían ya seguras de la respuesta. Dentro de ese grupo, alrededor de un tercio llegaba convencido de necesitar una cosa, se marchaba con un plan distinto, y fue ese plan el que aguantó. Los otros dos tercios vieron confirmadas sus intuiciones, con las dependencias bien encadenadas, un presupuesto sostenible y el cumplimiento normativo encuadrado antes de convertirse en un punto de bloqueo.",
+      "Si otra agencia le propone saltarse la fase estratégica para lanzarse a la producción, en realidad usted compra su apuesta: que su situación se parezca a su último proyecto entregado. La apuesta sale bien a veces. Las más de las veces termina en varios meses de rehacer el trabajo antes de que nadie se dé cuenta.",
+    ],
+  },
+  {
+    id: 'build-after',
+    question: '¿Estamos obligados a confiarles la continuación después de la auditoría?',
+    answer: [
+      "No. La auditoría y la hoja de ruta le pertenecen por completo. La mayoría de nuestros clientes continúa con nosotros, por simple comodidad, pero el documento es suyo. Puede confiarlo a sus equipos internos, entregarlo a otra agencia o guardarlo hasta el día en que esté preparado.",
+    ],
+  },
+  {
+    id: 'remote',
+    question: '¿Trabajan en remoto? ¿Hace falta un equipo sobre el terreno?',
+    answer: [
+      "Conducimos el proyecto en remoto desde nuestra oficina de Shanghái. Usted, sus equipos, sus responsables: donde a ustedes les convenga. La gran mayoría de nuestros clientes de Estrategia y Auditoría están en Europa, Estados Unidos o el Reino Unido, a veces con el apoyo de una pequeña célula sobre el terreno, las más de las veces sin oficina local alguna.",
+    ],
+  },
+  {
+    id: 'site-scan-difference',
+    question: '¿En qué se diferencia del escáner gratuito del sitio China?',
+    answer: [
+      "El escáner gratuito es un diagnóstico automatizado que pasa su sitio actual por el filtro de los problemas técnicos visibles. Útil, gratuito, circunscrito al propio sitio. La Estrategia y Auditoría es un trabajo de fondo que va mucho más allá de ese alcance: posicionamiento de marca, dispositivo de WeChat, territorios de contenido, visibilidad en las búsquedas, secuenciación, presupuesto y la hoja de ruta detallada en la que sus equipos van a apoyar de verdad sus decisiones.",
+    ],
+  },
+  {
+    id: 'already-decided',
+    question: '¿Y si ya sabemos lo que queremos construir?',
+    answer: [
+      "En ese caso, seguramente no seamos el socio adecuado para este trabajo concreto, y se lo diremos desde la primera llamada. La Estrategia y Auditoría se dirige a las marcas que quieren validar que están construyendo lo correcto. Cuando la decisión está tomada, vaya directamente a uno de nuestros servicios de producción.",
+    ],
+  },
+  {
+    id: 'who-does-the-work',
+    question: '¿Quién hace realmente el trabajo?',
+    answer: [
+      "Nuestro equipo estratégico sénior en Shanghái, dirigido en cada proyecto por un estratega de rango asociado. Se apoya en un analista chino encargado de la revisión competitiva y en un redactor que prepara la recomendación de posicionamiento. Usted trabaja directamente con estas personas, desde la primera llamada hasta la entrega del documento.",
+    ],
+  },
+  {
+    id: 'audit-validity',
+    question: '¿Cuánto tiempo conserva su validez la auditoría?',
+    answer: [
+      "De doce a dieciocho meses, en la práctica. El ámbito digital chino se mueve rápido. La normativa evoluciona, la búsqueda con IA puede dar un vuelco en cuestión de meses, WeChat estrena novedades cada trimestre. El posicionamiento de marca y la lectura sectorial, en cambio, aguantan más tiempo. Si el proyecto arranca dentro de los seis meses, todo sigue siendo aprovechable tal cual. Pasados los dos años, proponemos una actualización antes del pistoletazo de salida.",
+    ],
+  },
+  {
+    id: 'evaluate-other-agencies',
+    question: '¿Podemos usar la auditoría para poner a otras agencias a competir?',
+    answer: [
+      "Sí, y varios clientes lo hacen. La hoja de ruta es lo bastante precisa sobre el alcance, las dependencias, el calendario y las horquillas presupuestarias como para confiarla a otras agencias y que presupuesten en igualdad de condiciones. Lo asumimos con tranquilidad. La mayoría acaba continuando con nosotros, pero el documento está concebido para seguir siendo portable.",
+    ],
+  },
+  {
+    id: 'fine-as-is',
+    question: '¿Nos dirán que nuestro dispositivo chino actual ya basta, si ese es el caso?',
+    answer: [
+      "Sí. Alrededor de uno de cada diez proyectos de Estrategia y Auditoría desemboca en este veredicto: el dispositivo se sostiene, bastará una mejora progresiva, la renovación sería una inversión excesiva. No inventamos problemas para vender una continuación. El documento entregado es entonces más breve, con una recomendación clara sobre tres acciones por acometer en los seis meses siguientes.",
+    ],
+  },
+  {
+    id: 'price-included',
+    question: '¿Qué incluye el precio y qué no incluye?',
+    answer: [
+      "Incluido: sesión de arranque, auditoría realizada desde China, revisión competitiva, taller estratégico, documento de hoja de ruta, llamada de presentación. Fuera del alcance: la puesta en práctica de las recomendaciones, el registro ICP, la producción de contenido, el diseño, el desarrollo. Otros tantos servicios distintos que toman el relevo después de la auditoría, presupuestados a partir de sus recomendaciones.",
+    ],
+  },
+];
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="es" jsonLd={pageLd}>
+
+  <ScrollEffects />
+
+  <!-- HERO -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-strategy-shenzhen-waimai.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12]/95 via-[#0f0f12]/85 to-[#0f0f12]/60"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/10 blur-[120px] pointer-events-none" data-float="slow"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-text-card-blue)]/20 blur-[140px] pointer-events-none" data-float></div>
+    </div>
+
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">策</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <nav aria-label="Ruta de navegación" class="pt-20 pb-12 md:pb-16">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/es/" class="hover:text-white/70 transition-colors no-underline">Inicio</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/es/services/" class="hover:text-white/70 transition-colors no-underline">Servicios</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Estrategia y auditoría</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Estrategia y auditoría</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[11px] font-medium text-white/55">Equipo sénior, Shanghái</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[68px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+            Antes de construir,
+            <span class="block mt-1.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">saber qué</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">construir.</span>
+            </span>
+          </h1>
+
+          <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+            El servicio de Estrategia y Auditoría precede a cualquier proyecto. De tres a cuatro semanas para examinar su dispositivo, entender qué espera de verdad el público chino y dejar por escrito la secuencia que lleva a una presencia sólida. <span class="text-white font-medium">Un documento de encuadre, argumentado y presupuestado.</span>
+          </p>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/60 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">15</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Años en Shanghái</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white"><span data-counter data-counter-suffix="+">50</span></div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Marcas lanzadas</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white">3-4 sem.</div>
+              <div class="text-[11px] uppercase tracking-wider text-white/50 mt-1">Hasta la entrega</div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/es/contact/" variant="primary" size="lg">Empezar por la estrategia</Button>
+            <Button href="#engagement" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Ver el desarrollo del proyecto</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
+          <div class="relative">
+            <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg] transition-transform duration-500 hover:rotate-[-4deg]">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Solo auditoría</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">alcance estrecho</span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-3 w-3/4 rounded bg-white/10"></div>
+                <div class="h-2 w-full rounded bg-white/5"></div>
+                <div class="h-2 w-5/6 rounded bg-white/5"></div>
+                <div class="h-2 w-2/3 rounded bg-white/5"></div>
+              </div>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+                Marca, WeChat, búsqueda: excluidos
+              </div>
+            </div>
+
+            <div data-tilt class="relative rounded-2xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] backdrop-blur-md border border-white/15 p-6 lg:p-7 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-400/30">
+                  <span class="w-1 h-1 rounded-full bg-green-400"></span>
+                  <span class="text-[10px] font-mono text-green-300 uppercase tracking-wider">Hoja de ruta completa</span>
+                </span>
+                <span class="ml-auto text-[10px] font-mono text-white/40">hoja-de-ruta-china.pdf</span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Fase 1 · Puesta en línea</span>
+                    <span class="text-[10px] text-[var(--color-brand-orange)] font-mono">Sem. 1-12</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-full bg-gradient-to-r from-[var(--color-brand-orange)] to-[#FF8956] rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Fase 2 · Crecimiento y búsqueda</span>
+                    <span class="text-[10px] text-white/45 font-mono">Meses 4-9</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[65%] bg-gradient-to-r from-[var(--color-brand-orange)]/70 to-[var(--color-brand-orange)]/30 rounded-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[13px] text-white/85 font-medium">Fase 3 · IA y escalado</span>
+                    <span class="text-[10px] text-white/45 font-mono">Año 2+</span>
+                  </div>
+                  <div class="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-[35%] bg-gradient-to-r from-[var(--color-brand-orange)]/40 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">ICP</div>
+                  <div class="text-xs font-mono text-green-300">En paralelo</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">Dossier matriz</div>
+                  <div class="text-xs font-mono text-green-300">2 páginas</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">Páginas</div>
+                  <div class="text-xs font-mono text-green-300">25-40</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- POR QUÉ -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center">
+        <div class="col-span-12 lg:col-span-5 mb-10 lg:mb-0" data-reveal="left">
+          <div class="relative inline-flex items-baseline">
+            <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-duration="1800">4</span>
+            <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">meses</span>
+          </div>
+          <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
+            Dedicados a rehacer un sitio antes de que el equipo cayera en la cuenta de que su proveedor de alojamiento no soportaba el registro ICP. Un caso real, más de una vez.
+          </p>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7" data-reveal="right">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Por qué importa</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
+            La decisión que manda sobre todas las demás.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Puede elegir el mejor proveedor de alojamiento, el mejor framework, la mejor ruta para el ICP. Si el encuadre estratégico falla más arriba, el edificio se viene abajo. El sitio sale, la matriz telefonea para saber por qué la cifra no acompaña.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            En Shanghái colocamos la estrategia por delante de todo lo demás. Antes del contenido, antes del diseño, antes del desarrollo. Ahí se decide en concreto cómo será su presencia en China.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Estrategia
+            </span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Contenido</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Diseño</span>
+            <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Desarrollo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAS PREGUNTAS -->
+  <section id="questions" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden scroll-mt-32">
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">问</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Las preguntas · 我们要回答的</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          Cinco preguntas, una hoja de ruta.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Cinco preguntas estratégicas convergen en un mismo documento escrito. Sus respuestas mandan después sobre cada decisión, de la fase uno a la fase tres.
+        </p>
+      </div>
+
+      <div class="space-y-5 lg:space-y-6">
+        {questions.map((q, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 60)}
+            data-cursor-spotlight
+            class:list={[
+              'group relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl border border-[var(--color-surface-border)] bg-white overflow-hidden transition-all duration-500',
+              'hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_70px_-30px_rgba(15,15,18,0.18)] hover:-translate-y-1',
+            ]}
+          >
+            <div class="lg:col-span-3 relative p-7 lg:p-8 bg-gradient-to-br from-[var(--color-text-dark)] to-[#0f0f12] text-white overflow-hidden">
+              <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-3rem] text-[14rem] font-medium font-[var(--font-heading)] text-white/[0.04] leading-none select-none pointer-events-none">{q.cn}</span>
+              <div class="relative">
+                <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">N.º {q.n} / 05</div>
+                <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{q.cn}</div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">{q.tag}</div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 p-7 lg:p-9 flex flex-col justify-center">
+              <h3 class="text-2xl lg:text-[26px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+                {q.title}
+              </h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+                {q.body}
+              </p>
+            </div>
+
+            <div class="lg:col-span-3 p-6 lg:p-7 bg-[var(--color-surface-light)] border-t lg:border-t-0 lg:border-l border-[var(--color-surface-border)] flex flex-col justify-center gap-3">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">Lo que cartografiamos</div>
+              <div class="flex flex-wrap gap-1.5">
+                {q.chips.map((c) => (
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-[var(--color-text-body)] border border-[var(--color-surface-border)]">{c}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGABLES -->
+  <section id="deliverables" class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025]"></div>
+    <div class="absolute -top-32 left-[15%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-[140px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Entregables · 交付物</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
+          Lo que se lleva.
+        </h2>
+        <p class="text-lg text-white/65 leading-relaxed">
+          Un documento escrito. De veinticinco a cuarenta páginas según el proyecto. Hecho a la medida de su situación. Le pertenece y cualquier otra agencia puede aprovecharlo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        <div class="lg:col-span-5 lg:sticky lg:top-32 lg:self-start" data-reveal="left">
+          <div class="relative w-full max-w-[360px] mx-auto lg:mx-0">
+            <div class="absolute top-6 left-4 w-full aspect-[3/4] rounded-xl bg-white/[0.04] border border-white/10 rotate-[5deg] backdrop-blur-sm"></div>
+            <div class="absolute top-3 left-2 w-full aspect-[3/4] rounded-xl bg-white/[0.06] border border-white/15 rotate-[2deg] backdrop-blur-sm shadow-lg"></div>
+            <div class="relative w-full aspect-[3/4] rounded-xl bg-gradient-to-br from-white/[0.09] via-white/[0.06] to-white/[0.03] border border-white/20 backdrop-blur-md shadow-2xl p-6 lg:p-7 flex flex-col">
+              <div class="border-b border-white/10 pb-4 mb-5">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">ChinaWebFoundry · 2026</div>
+                <div class="text-base font-semibold text-white mt-2 font-[var(--font-heading)] leading-tight">
+                  Estrategia<br/>y hoja de ruta
+                </div>
+                <div class="text-[11px] font-mono text-white/40 mt-2">Preparado para · Marca ACME</div>
+              </div>
+              <div class="space-y-2.5 flex-1">
+                <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 mb-1">Índice</div>
+                {deliverables.map((d) => (
+                  <div class="flex items-center justify-between gap-2 text-[12px]">
+                    <span class="text-white/75 truncate">{d.title}</span>
+                    <span class="font-mono text-white/40 flex-shrink-0">{d.pageRef}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="mt-4 pt-4 border-t border-white/10">
+                <div class="bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 rounded-md px-3 py-2 text-center">
+                  <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-brand-orange)]">Para conservar · Portable</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="space-y-3">
+            {deliverables.map((d, i) => (
+              <div data-reveal data-reveal-delay={String(i * 70)} class="group relative rounded-2xl bg-white/[0.03] border border-white/10 p-6 lg:p-7 transition-all duration-300 hover:bg-white/[0.06] hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-0.5">
+                <div class="flex items-start gap-5">
+                  <div class="flex-shrink-0">
+                    <div class="text-3xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/80 leading-none">{d.n}</div>
+                    <div class="mt-2 w-8 h-px bg-white/15"></div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-baseline justify-between gap-3 mb-2">
+                      <h3 class="text-lg font-semibold font-[var(--font-heading)] text-white leading-tight">
+                        {d.title}
+                      </h3>
+                      <span class="text-[10px] font-mono uppercase tracking-wider text-white/40 flex-shrink-0">{d.pageRef}</span>
+                    </div>
+                    <p class="text-sm text-white/65 leading-relaxed">
+                      {d.body}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESARROLLO -->
+  <section id="engagement" class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden scroll-mt-32">
+    <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Nuestro desarrollo · 工作流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
+          De tres a cuatro semanas, cinco etapas.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          De la primera llamada al documento final, con una presentación de noventa minutos para cerrar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+        {stages.map((s, i) => (
+          <article
+            data-reveal
+            data-reveal-delay={String(i * 70)}
+            class:list={[
+              'group relative rounded-3xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 transition-all duration-300 overflow-hidden',
+              'hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30',
+            ]}
+          >
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+            <span aria-hidden="true" class="absolute right-2 top-2 text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.06] leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[var(--color-brand-orange)]/[0.12] group-hover:scale-110 origin-top-right">{s.cn}</span>
+
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-text-dark)] text-white text-sm font-semibold font-[var(--font-heading)]">
+                  {s.n}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)]">Etapa {i + 1} de 5</span>
+              </div>
+
+              <h3 class="text-lg lg:text-[19px] font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+                {s.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-5">
+                {s.body}
+              </p>
+
+              <div class="pt-4 border-t border-[var(--color-surface-border)]">
+                <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] mb-1.5">Entregable</div>
+                <div class="flex items-center gap-2 text-sm font-medium text-[var(--color-text-dark)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {s.output}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INVERSIÓN -->
+  <section id="investment" class="relative section-spacing bg-white overflow-hidden scroll-mt-32">
+    <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start mb-12">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Inversión · 投入</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
+            Calendario y presupuesto.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+            Una tarifa cerrada, calibrada para cada proyecto. El importe sigue su situación: entrada en China desde cero, o auditoría de un dispositivo desplegado desde hace cinco años.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 mb-10">
+        <div data-reveal data-reveal-delay="0" class="group relative rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)] mb-3">Duración</div>
+          <div class="flex items-baseline gap-1 mb-3">
+            <span class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums">3-4</span>
+            <span class="text-base text-[var(--color-text-muted)]">sem.</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-body)] leading-relaxed">De la primera llamada a la entrega del documento, seguida de una presentación de noventa minutos para cerrar.</p>
+        </div>
+
+        <div data-reveal data-reveal-delay="90" class="group relative rounded-3xl bg-gradient-to-br from-[var(--color-brand-orange)] to-[#D14A1F] p-7 lg:p-8 text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-22px_rgba(242,95,41,0.4)] overflow-hidden">
+          <span aria-hidden="true" class="absolute -right-4 -bottom-8 text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.08] leading-none select-none pointer-events-none">¥</span>
+          <div class="relative">
+            <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/75 mb-3">Tarificación</div>
+            <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] leading-none mb-3">Cerrada</div>
+            <p class="text-sm text-white/90 leading-relaxed">Una tarifa ajustada a su situación. Sin facturación por horas, sin minuta que crece sobre la marcha, sin sorpresas después de firmar.</p>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="180" class="group relative rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-22px_rgba(15,15,18,0.18)] hover:border-[var(--color-brand-orange)]/30">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-text-muted)] mb-3">Presupuesto en</div>
+          <div class="flex items-baseline gap-1 mb-3">
+            <span class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-none tabular-nums">2</span>
+            <span class="text-base text-[var(--color-text-muted)]">días</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-body)] leading-relaxed">Envíenos el alcance. Recibe una cifra firme y clara.</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-7 lg:p-8">
+        <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+          El entregable de Estrategia y Auditoría le pertenece sin reservas. Tanto sus equipos internos como cualquier otra agencia pueden aprovecharlo. <span class="text-[var(--color-text-dark)] font-medium">Ningún candado contractual sobre la continuación.</span> La mayoría de nuestros clientes sigue con nosotros porque es el camino más directo, pero el documento está concebido para vivir sin nosotros si hace falta.
+        </p>
+        <div class="mt-5">
+          <a href="/es/contact/" class="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-dark)] hover:text-[var(--color-brand-orange)] transition-colors">
+            Envíenos su alcance
+            <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="A quién se dirige el servicio" audiences={audiences} background="light" />
+
+  <!-- COMPARACIÓN -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <span aria-hidden="true" class="absolute -bottom-24 left-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">智</span>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Por qué empezar aquí · 为什么先做战略</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
+          Por qué tantos proyectos se saltan la etapa, y se equivocan.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Muchas agencias se precipitan a la producción sin preliminares. Presupuestan el proyecto, lo facturan, lo entregan. Saber si es lo correcto para construir, esa pregunta le toca a usted.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
+        <article data-reveal="left" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-50 via-white to-red-50/30 border border-red-200/50 p-7 lg:p-9">
+          <div class="absolute top-0 right-0 w-48 h-48 bg-red-500/5 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-200">
+                <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-red-600">Saltarse la estrategia</span>
+              </div>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-red-500/80 leading-none">4 meses perdidos</span>
+            </div>
+            <p class="text-base lg:text-[17px] text-[var(--color-text-body)] leading-[1.7] mb-5">
+              Dos escenarios de fracaso que se repiten. Una marca dedica cuatro meses a rehacer su sitio para China y descubre después que su proveedor de alojamiento no soporta el registro ICP. Otra lanza un sitio, conecta un Mini Program, abre una presencia en Channels, y se queda con tres sistemas estancos, sin un solo dato de cliente compartido.
+            </p>
+            <ul class="space-y-2.5">
+              {[
+                'Cuatro meses tirados antes de que aparezca el bloqueo del ICP',
+                'Tres sistemas estancos, ningún dato de cliente compartido',
+                'La matriz vuelve tras el lanzamiento sobre decisiones que nunca se debatieron',
+              ].map((item) => (
+                <li class="flex gap-3 items-start text-sm text-red-700/90">
+                  <span class="text-red-400 mt-0.5">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+
+        <article data-reveal="right" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-emerald-50/30 border border-emerald-200/50 p-7 lg:p-9">
+          <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">La estrategia primero</span>
+              </div>
+              <span class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600/80 leading-none">3-4 sem. por delante</span>
+            </div>
+            <p class="text-base lg:text-[17px] text-[var(--color-text-body)] leading-[1.7] mb-5">
+              En sentido contrario, este escenario se ha vuelto nuestro día a día. Las marcas que abordan la Estrategia y Auditoría por delante entregan en los plazos anunciados, con un registro ICP obtenido en paralelo, la pila acertada elegida desde el inicio, una huella en WeChat calibrada según la capacidad real del equipo y una hoja de ruta ya validada por la matriz.
+            </p>
+            <ul class="space-y-2.5">
+              {[
+                'Puesta en línea cumplida en plazo, ICP obtenido en paralelo',
+                'Pila tecnológica resuelta desde el inicio',
+                'Hoja de ruta validada por la matriz antes de abrir el proyecto',
+              ].map((item) => (
+                <li class="flex gap-3 items-start text-sm text-emerald-800/90">
+                  <span class="text-emerald-500 mt-0.5">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section-spacing bg-[var(--color-surface-light)] scroll-mt-32">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32" data-reveal="left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Diez preguntas sobre la Estrategia y la Auditoría
+          </h2>
+          <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
+            Pulse para desplegar cada respuesta. Si la suya no figura aquí, plantéenosla directamente.
+          </p>
+          <div class="mt-7">
+            <Button href="/es/contact/" variant="secondary" size="md">Plantear otra pregunta</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="right">
+          <div data-faq-accordion>
+            {faqs.map((faq) => (
+              <FAQItem question={faq.question} id={faq.id}>
+                {faq.answer.map((para) => (
+                  <p class="mb-3 last:mb-0">{para}</p>
+                ))}
+              </FAQItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + marquee -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="relative border-y border-white/10 bg-[#0f0f12] py-5 overflow-hidden">
+      <div class="flex gap-10 animate-[marquee_45s_linear_infinite] whitespace-nowrap">
+        {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
+          <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
+            {phrase}
+            <span class="text-white/15">·</span>
+          </span>
+        ))}
+      </div>
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0f0f12] to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0f0f12] to-transparent pointer-events-none"></div>
+    </div>
+
+    <div class="relative py-20 lg:py-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/8 rounded-full blur-[140px] pointer-events-none"></div>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">策</span>
+
+      <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85">Listos cuando usted lo esté</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] max-w-3xl mx-auto">
+          ¿Listo para empezar por la estrategia?
+        </h2>
+        <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
+          Díganos cómo está hoy su presencia china y qué debe lograr para la marca. Volvemos en dos días laborables con una propuesta encuadrada, un calendario preciso y una cifra firme.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/es/contact/" variant="primary" size="lg">Empezar por la estrategia</Button>
+          <Button href="/es/china-site-scanner/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Lanzar el escáner gratuito</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

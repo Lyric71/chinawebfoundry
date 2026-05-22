@@ -5,6 +5,8 @@ summary: "Travailler ses mots-clés pour Baidu réclame des outils dédiés et u
 visual: "/images/guides/baidu-keyword-research-tools.webp"
 order: 3
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Search
 ---
 

@@ -1,0 +1,652 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { serviceSchema } from '../../../lib/schema';
+import Button from '../../../components/ui/Button.astro';
+import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
+
+import { getEntry } from 'astro:content';
+const service = (await getEntry('services-es', 'china-migration'))!;
+const metaTitle = service.data.metaTitle;
+const metaDescription = service.data.metaDescription;
+
+const layers = [
+  {
+    label: 'Contenido',
+    title: 'Un contenido reescrito para el lector chino',
+    body: 'Nuestros redactores chinos de nacimiento retoman su mensaje y se apoyan en las señales de confianza que el lector busca primero, esas que las versiones traducidas casi siempre dejan en la cuneta.',
+    iconPath: 'M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10',
+  },
+  {
+    label: 'Experiencia de usuario',
+    title: 'Una usabilidad repensada para los hábitos locales',
+    body: 'El lector chino recorre una página con su propia lógica. Prioridad al móvil, mayor densidad de información, navegador integrado en WeChat probado en condiciones reales, señales de confianza colocadas en el orden esperado. La identidad de marca, en cambio, no cambia.',
+    iconPath: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3',
+  },
+  {
+    label: 'Alojamiento',
+    title: 'Una infraestructura trasladada a China',
+    body: 'Registro ICP llevado de principio a fin. Alojamiento en Aliyun, Tencent o Huawei Cloud. Dependencias bloqueadas sustituidas una a una. Herramientas de webmaster de Baidu conectadas desde la puesta en línea.',
+    iconPath: 'M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z',
+  },
+];
+
+interface Scenario {
+  timeline: string;
+  title: string;
+  lead: string;
+  body: string;
+  fit: string[];
+  diagram: 'single' | 'swap' | 'parallel';
+}
+
+const scenarios: Scenario[] = [
+  {
+    timeline: '6 a 10 semanas',
+    title: 'Migración de su sitio actual',
+    lead: 'Un único sitio global, repensado para el mercado chino.',
+    body: 'Contenido reescrito, usabilidad ajustada, alojamiento trasladado a un servidor continental conforme. El sitio global se queda donde está, sobre la plataforma que sus equipos ya conocen.',
+    fit: [
+      'Un sitio global que ya funciona',
+      'Una presencia china que aún cuesta arrancar',
+      'WordPress, headless o cualquier otra arquitectura',
+    ],
+    diagram: 'single',
+  },
+  {
+    timeline: '8 a 14 semanas',
+    title: 'Cambiar de CMS durante la migración',
+    lead: 'Cambiar de plataforma y entrar en China en la misma ventana.',
+    body: 'Aprovechamos la migración para corregir lo que ya fallaba en el sitio anterior, antes de colocar encima la capa china. Drupal, Sitecore, AEM, Webflow, Shopify o desarrollo a medida.',
+    fit: [
+      'El CMS actual sale caro de mantener',
+      'Llevar un solo proyecto en lugar de dos por separado',
+      'La renovación ya figuraba en la agenda',
+    ],
+    diagram: 'swap',
+  },
+  {
+    timeline: '10 a 16 semanas',
+    title: 'Dos sitios llevados en paralelo',
+    lead: 'Un sitio global y un sitio China, alimentados por una misma cadena editorial.',
+    body: 'Un único equipo dirige el flujo. Dos públicos radicalmente distintos disponen cada uno del sitio que de verdad les habla.',
+    fit: [
+      'La marca global y la marca China siguen trayectorias distintas',
+      'Quiere mantener el control en ambos lados',
+      'Cuenta con los recursos para sostener los dos equipos',
+    ],
+    diagram: 'parallel',
+  },
+];
+
+const phases = [
+  {
+    label: 'Fase 1',
+    title: 'Descubrir',
+    steps: [
+      {
+        title: 'Descubrimiento y auditoría',
+        body: 'Auditoría escrita del sitio, de la marca, de la categoría y de la competencia china. Distinguimos lo que puede quedarse tal cual de lo que exige una reescritura. Calcule de dos a tres semanas.',
+      },
+      {
+        title: 'Arquitectura de la migración',
+        body: 'Alojamiento, CDN, DNS, arquitectura de contenido, plan de redirecciones. Pensado para el rendimiento en China continental desde la puesta en servicio. Calcule una semana.',
+      },
+    ],
+  },
+  {
+    label: 'Fase 2',
+    title: 'Construir',
+    steps: [
+      {
+        title: 'Reescritura y traslado del contenido',
+        body: 'Nuestros redactores chinos de nacimiento reescriben lo que lo merece, trasladan el resto y conservan la autoridad SEO ganada gracias a un plan de correspondencia de URL hecho a mano.',
+      },
+      {
+        title: 'Localización de la experiencia y la interfaz',
+        body: 'Plantillas revisadas a la luz de los hábitos de lectura chinos, ajustadas en cada punto donde flaquean. La identidad de marca no cambia; la interfaz, en cambio, se adapta a los códigos locales.',
+      },
+      {
+        title: 'Sustitución de las integraciones',
+        body: 'Google Analytics, YouTube, píxeles de Facebook: sustituidos por Baidu Tongji, Youku o Bilibili, junto a sus equivalentes en WeChat o Weibo. Cada dependencia pasa por el filtro.',
+      },
+      {
+        title: 'Optimizaciones técnicas y de rendimiento',
+        body: 'Tipografías y CDN bloqueados sustituidos. Certificado SSL adaptado a China. Recursos aligerados para las redes continentales. SEO de Baidu integrado a continuación.',
+      },
+    ],
+  },
+  {
+    label: 'Fase 3',
+    title: 'Lanzar',
+    steps: [
+      {
+        title: 'Pruebas desde China',
+        body: 'Conexiones reales, sin VPN. Velocidad medida, funcionalidades verificadas, QQ y UC Browser, Android de gama media. Las condiciones exactas en las que su público consulta el sitio.',
+      },
+      {
+        title: 'Cambio sin corte',
+        body: 'Lanzamiento programado al minuto. DNS gestionados en directo, vuelta atrás garantizada durante cuarenta y ocho horas. Guardia asegurada durante las primeras semanas.',
+      },
+    ],
+  },
+];
+
+const migrationItems = [
+  {
+    label: 'Páginas y artículos',
+    body: 'Contenido editorial, formato, medios integrados, metadatos.',
+    iconPath: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
+  },
+  {
+    label: 'Biblioteca de medios',
+    body: 'Imágenes, vídeos y documentos, retrabajados para la difusión en el continente.',
+    iconPath: 'M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z',
+  },
+  {
+    label: 'Datos SEO',
+    body: 'Etiquetas de título, meta descripciones, URL, redirecciones, sitemaps.',
+    iconPath: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z',
+  },
+  {
+    label: 'Campos y taxonomías',
+    body: 'Tipos de contenido personalizados, categorías, etiquetas, datos estructurados.',
+    iconPath: 'M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5',
+  },
+  {
+    label: 'Datos de comercio electrónico',
+    body: 'Productos, pedidos, fichas de clientes, configuración de los pagos.',
+    iconPath: 'M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z',
+  },
+  {
+    label: 'Cuentas de usuario',
+    body: 'Roles, perfiles, permisos.',
+    iconPath: 'M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z',
+  },
+  {
+    label: 'Integraciones',
+    body: 'CRM, medición de audiencia, herramientas de marketing, adaptadas o sustituidas para el entorno chino.',
+    iconPath: 'M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z',
+  },
+  {
+    label: 'Diseño e identidad',
+    body: 'La identidad visual queda intacta. La usabilidad se ajusta en los puntos donde los hábitos chinos lo exigen.',
+    iconPath: 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.385m3.42 3.41a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.41a6.776 6.776 0 00-3.42-3.41',
+  },
+];
+
+const challenges = [
+  {
+    title: 'URL históricas y autoridad SEO',
+    body: 'Ha construido sus posiciones en el sitio global durante años. Una migración mal llevada puede borrar ese activo de un día para otro. Alineamos las URL a mano en todas las páginas que cuentan, colocamos redirecciones 301 limpias y conservamos lo esencial de la visibilidad orgánica.',
+    iconPath: 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244',
+  },
+  {
+    title: 'El Gran Cortafuegos chino',
+    body: 'Corta los servicios de Google, la práctica totalidad de los CDN occidentales, varias plataformas sociales y una lista interminable de dependencias que su sitio usa casi sin saberlo. Cada una debe sustituirse.',
+    iconPath: 'M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z',
+  },
+  {
+    title: 'Licencia ICP',
+    body: 'Alojar en un servidor chino supone un registro gubernamental, el ICP, también llamado Bei’an. Expediente redactado en chino, normas que varían de una provincia a otra, tramitación de veinte días laborables en el mejor de los casos. Nosotros llevamos el expediente en su lugar.',
+    iconPath: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
+  },
+  {
+    title: 'Leyes sobre la residencia de los datos',
+    body: 'Bajo la ley china de ciberseguridad y la PIPL, ciertos datos de los usuarios deben residir obligatoriamente en el continente. La arquitectura debe contemplarlo desde el diseño. Tres meses después del lanzamiento, la ocasión ya ha pasado.',
+    iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
+  },
+];
+
+const audiences = [
+  { label: 'Marcas internacionales que entran en China', description: 'Empresas que abren su primera presencia china real, después de años con solo una versión traducida de su sitio global.', image: '/images/audiences/multinational-china-entry.webp' },
+  { label: 'Marcas que relanzan un sitio que no cuajó', description: 'El sitio chino existe, pero nunca arrancó. Tasa de rebote alta, cartera de pedidos vacía, una matriz que pide cuentas. La migración se convierte entonces en un relanzamiento completo.', image: '/images/audiences/agency-migration-clients.webp' },
+  { label: 'Marcas de comercio electrónico', description: 'Lanzar una tienda china con las pasarelas de pago, la logística y la atención al cliente acertadas desde la puesta en línea.', image: '/images/audiences/ecommerce-china-store.webp' },
+  { label: 'Medios y editoriales', description: 'Organizaciones que se dirigen directamente al público chino, con un dispositivo editorial pensado específicamente para él.', image: '/images/audiences/media-publishing-china.webp' },
+];
+
+const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
+const pageLd = [...serviceLd];
+---
+
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="es" jsonLd={pageLd}>
+
+  <!-- Hero: full-bleed dark -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-china-migration.webp" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f0f12]/90 via-[#0f0f12]/70 to-[#0f0f12]/30"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0f12]/80 to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Ruta de navegación" class="pt-20 pb-16 md:pb-20">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/es/" class="hover:text-white/70 transition-colors no-underline">Inicio</a></li>
+          <li class="before:content-['/'] before:mx-2"><a href="/es/#OurServices" class="hover:text-white/70 transition-colors no-underline">Servicios</a></li>
+          <li class="before:content-['/'] before:mx-2 text-white/60">Migración a China</li>
+        </ol>
+      </nav>
+
+      <div class="io-grid items-center pb-20 md:pb-28 lg:pb-36">
+        <!-- Text: 7 cols -->
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-6">
+            Migración a China
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.07]">
+            Lleve su sitio a China.
+            <span class="block mt-2 text-[var(--color-brand-orange)]">Para quedarse.</span>
+          </h1>
+          <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+            Migrar a China equivale, en realidad, a relanzar el sitio por entero. Trasladamos contenido, diseño y alojamiento en un solo movimiento, para que la versión publicada aguante de verdad ante el público chino.
+          </p>
+          <p class="mt-4 text-base text-white/40 max-w-xl leading-relaxed">
+            Veinte años de experiencia en Shanghái. Más de cincuenta marcas internacionales migradas, ninguna rota por el camino.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <Button href="/es/contact/" variant="primary" size="lg">Hablar de su migración</Button>
+          </div>
+        </div>
+
+        <!-- Visual: 5 cols, migration status panel -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-12 lg:mt-0">
+          <div class="relative">
+            <div class="bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-white/30 ml-2 font-mono">estado-migracion</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-white/50">Contenido localizado</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">100%</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Recursos bloqueados</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">0 / 47</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-full h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Tiempo de carga</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">2,1 s</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="w-[15%] h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm text-white/50">Cumplimiento ICP</span>
+                  <span class="text-sm font-semibold text-green-400 font-mono">Registrado</span>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative glow -->
+            <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-center gap-y-12">
+        <div class="col-span-12 lg:col-span-6">
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+            La mayoría de las «migraciones a China» solo resuelve la parte fácil.
+          </h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            Los archivos cambian de servidor, el proveedor de alojamiento se sustituye, el registro ICP se pone en marcha. El sitio carga. La tasa de rebote, en cambio, se queda en torno al 80 %.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
+            El verdadero trabajo empieza justo donde el visitante chino posa la mirada: un titular pensado en Múnich, una maquetación concebida en Boston, señales de confianza de las que sus equipos globales se enorgullecen. Ninguno de estos elementos se traslada por sí solo.
+          </p>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+            Una migración de verdad actúa a la vez sobre tres capas. Contenido. Usabilidad. Alojamiento. Un único proyecto, dirigido desde Shanghái.
+          </p>
+        </div>
+
+        <!-- Visual: phone in hand, scrolling past -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] lg:aspect-[5/6] bg-[var(--color-surface-light)]">
+              <img
+                src="/images/migration-easy-problem.webp"
+                alt="Una lectora china desliza un sitio que carga pero no le dice nada"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <!-- Decorative accent -->
+            <div class="absolute -inset-3 bg-[var(--color-brand-orange)]/[0.04] rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Layers -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Las tres capas de una migración de verdad
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Contenido. Usabilidad. Alojamiento. Un único proyecto.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+        {layers.map((layer) => (
+          <article class="bg-white rounded-2xl p-8 lg:p-10 border border-[var(--color-surface-border)] flex flex-col">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-6 flex-shrink-0">
+              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={layer.iconPath} />
+              </svg>
+            </div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+              {layer.label}
+            </p>
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-4">
+              {layer.title}
+            </h3>
+            <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+              {layer.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Migration Scenarios -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Escenarios de migración
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Tres caminos para llegar a China
+        </h2>
+        <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+          Cada migración arranca desde un punto de partida diferente. Así abordamos los tres casos que más se repiten en nuestros proyectos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        {scenarios.map((scenario) => (
+          <article class="group relative flex flex-col p-7 lg:p-8 bg-white rounded-2xl border border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,15,18,0.06)] transition-all duration-300">
+            <!-- Diagram -->
+            <div class="mb-6 h-16 flex items-center" aria-hidden="true">
+              {scenario.diagram === 'single' && (
+                <div class="flex items-center gap-2">
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-muted)] border border-[var(--color-surface-border)]">Sitio global</span>
+                  <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-brand-orange)]/10 text-xs font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] border border-[var(--color-brand-orange)]/20">中国</span>
+                </div>
+              )}
+              {scenario.diagram === 'swap' && (
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-muted)] border border-[var(--color-surface-border)] line-through decoration-[var(--color-text-muted)]/40">CMS antiguo</span>
+                  <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-dark)] border border-[var(--color-surface-border)]">CMS nuevo</span>
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  <span class="px-3 py-1.5 rounded-md bg-[var(--color-brand-orange)]/10 text-xs font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] border border-[var(--color-brand-orange)]/20">中国</span>
+                </div>
+              )}
+              {scenario.diagram === 'parallel' && (
+                <div class="flex flex-col gap-1.5">
+                  <div class="flex items-center gap-2">
+                    <span class="px-3 py-1.5 rounded-md bg-[var(--color-surface-light)] text-xs font-medium font-[var(--font-button)] text-[var(--color-text-dark)] border border-[var(--color-surface-border)]">Sitio global</span>
+                    <span class="text-[var(--color-text-muted)] text-sm">·</span>
+                    <span class="px-3 py-1.5 rounded-md bg-[var(--color-brand-orange)]/10 text-xs font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] border border-[var(--color-brand-orange)]/20">中国</span>
+                  </div>
+                  <span class="text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] font-medium">Una única cadena editorial</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Timeline pill -->
+            <div class="inline-flex items-center gap-1.5 self-start mb-4 px-3 py-1 rounded-full bg-[var(--color-surface-light)] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              {scenario.timeline}
+            </div>
+
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">
+              {scenario.title}
+            </h3>
+            <p class="text-base font-semibold text-[var(--color-text-dark)] leading-snug mb-3">
+              {scenario.lead}
+            </p>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
+              {scenario.body}
+            </p>
+
+            <div class="mt-auto pt-5 border-t border-[var(--color-surface-border)]">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">Pertinente en su caso si</p>
+              <ul class="space-y-2">
+                {scenario.fit.map((point) => (
+                  <li class="flex items-start gap-2.5 text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                    <svg class="flex-shrink-0 w-4 h-4 mt-1 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process: phased -->
+  <section class="section-spacing bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="io-grid items-start">
+        <!-- Left: sticky heading -->
+        <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0 lg:sticky lg:top-32">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Cómo llevamos el proyecto
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+            Tres fases. Ocho etapas. Un lanzamiento.
+          </h2>
+          <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
+            Concebido desde el primer día en torno al rendimiento y a los hábitos del público chino, nunca remendado al final del recorrido.
+          </p>
+        </div>
+
+        <!-- Right: phased steps with vertical timeline -->
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7 relative">
+          <!-- Vertical line -->
+          <div class="absolute left-[14px] top-3 bottom-3 w-px bg-[var(--color-surface-border)]" aria-hidden="true"></div>
+
+          <div class="space-y-14">
+            {phases.map((phase) => (
+              <div class="relative">
+                <!-- Phase header with marker on the line -->
+                <div class="flex items-center gap-5 mb-6">
+                  <div class="relative z-10 flex-shrink-0 w-[30px] h-[30px] rounded-full bg-[var(--color-brand-orange)] ring-8 ring-white flex items-center justify-center">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div class="flex items-baseline gap-3">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+                      {phase.label}
+                    </span>
+                    <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                      {phase.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- Steps under the phase, indented past the line -->
+                <div class="pl-[50px] space-y-5">
+                  {phase.steps.map((step) => (
+                    <div class="bg-white rounded-xl p-5 border border-[var(--color-surface-border)]">
+                      <h4 class="text-base lg:text-lg font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                        {step.title}
+                      </h4>
+                      <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                        {step.body}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Operational Checklist -->
+  <section class="relative section-spacing bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="pointer-events-none absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full bg-[var(--color-brand-orange)]/[0.08] blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-48 -left-40 w-[520px] h-[520px] rounded-full bg-[var(--color-brand-orange)]/[0.05] blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <!-- Hero row: heading + feature visual -->
+      <div class="grid grid-cols-12 gap-6 lg:gap-8 items-stretch mb-10 lg:mb-14">
+        <div class="col-span-12 lg:col-span-5 flex flex-col">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+            Lista operativa
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.05] mb-6">
+            Nada esencial se queda en el andén.
+          </h2>
+          <p class="text-lg text-white/65 leading-relaxed mb-8">
+            Una migración son decenas de detalles que deben encontrar su sitio, todos a la vez. Estos son los ocho frentes que trasladamos, reconstruimos y verificamos en cada proyecto.
+          </p>
+
+          <div class="mt-auto inline-flex items-center gap-5 self-start px-5 py-4 rounded-xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+            <div class="flex items-baseline gap-1 font-[var(--font-heading)]">
+              <span class="text-4xl font-medium text-white leading-none tracking-tight">08</span>
+              <span class="text-xl font-medium text-white/30 leading-none">/08</span>
+            </div>
+            <div class="h-10 w-px bg-white/10"></div>
+            <p class="text-xs uppercase tracking-wider text-white/55 leading-snug">
+              Frentes cubiertos<br />en cada proyecto
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-7">
+          <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-[var(--color-surface-dark)] aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[380px]">
+            <img
+              src="/images/migration-pipeline-architecture.webp"
+              alt="Los módulos de un sitio web avanzando por la cadena de migración"
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[var(--color-surface-dark)]/40 via-transparent to-transparent"></div>
+            <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5 rounded-2xl"></div>
+            <div class="absolute top-5 right-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-surface-dark)]/70 backdrop-blur-md border border-white/10">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-60 animate-ping"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
+              </span>
+              <span class="text-[11px] font-mono uppercase tracking-wider text-white/80">Migración en curso</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Items grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+        {migrationItems.map((item, i) => (
+          <article class="group relative flex flex-col h-full p-6 lg:p-7 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md transition-all duration-300 hover:bg-white/[0.07] hover:border-[var(--color-brand-orange)]/30 hover:-translate-y-0.5">
+            <div class="flex items-start justify-between mb-6">
+              <div class="w-11 h-11 rounded-xl bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/25 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={item.iconPath} />
+                </svg>
+              </div>
+              <span class="font-mono text-xs text-white/35 tracking-[0.18em] mt-1.5">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </div>
+            <h3 class="text-base lg:text-[17px] font-semibold font-[var(--font-heading)] text-white mb-2 leading-snug">
+              {item.label}
+            </h3>
+            <p class="text-sm text-white/55 leading-relaxed">
+              {item.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Different -->
+  <section class="section-spacing">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          Un asunto aparte
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+          Una migración a China obedece a otras reglas.
+        </h2>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+        {challenges.map((item) => (
+          <div class="flex gap-5 p-6 lg:p-8 rounded-2xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[var(--color-brand-orange)]/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.iconPath} />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">
+                {item.title}
+              </h3>
+              <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WhoIsThisFor heading="Pensado para las marcas que entran en China" audiences={audiences} background="light" />
+
+  <!-- CTA -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--color-brand-orange)]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+        Poner en marcha su migración
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-tight max-w-3xl mx-auto">
+        ¿Está pensando en llevar su sitio a China?
+      </h2>
+      <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Díganos dónde reside hoy el sitio, qué hace por su marca y qué debe lograr ante el público chino. Volvemos en dos días laborables con una nota escrita: alcance, calendario y una lectura precisa de lo que supondría una migración de verdad en su proyecto. Sin coste, sin compromiso.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/es/contact/" variant="primary" size="lg">Encuadrar la migración</Button>
+        <Button href="/es/#OurServices" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Conocer nuestros servicios</Button>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

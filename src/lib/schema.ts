@@ -14,15 +14,19 @@ interface ServiceSchemaInput {
  */
 export function serviceSchema(astroUrl: URL, astroSite: URL | undefined, service: ServiceSchemaInput) {
   const path = astroUrl.pathname;
-  const isFr = path.startsWith('/fr/');
-  const slug = path.replace(/^\/(fr\/)?services\/?/, '').replace(/\/$/, '');
-  const siteOrigin = (astroSite?.toString().replace(/\/$/, '')) || 'https://chinawebfoundry.com';
+  const localeMatch = path.match(/^\/(fr|es)\//);
+  const locale = (localeMatch ? localeMatch[1] : 'en') as 'en' | 'fr' | 'es';
+  const prefix = locale === 'en' ? '' : `/${locale}`;
+  const slug = path.replace(/^\/(?:fr\/|es\/)?services\/?/, '').replace(/\/$/, '');
+  const siteOrigin = (astroSite?.toString().replace(/\/$/, '')) || 'https://www.chinawebfoundry.com';
 
-  const pageUrl = `${siteOrigin}${isFr ? '/fr' : ''}/services/${slug}/`;
-  const homeUrl = `${siteOrigin}${isFr ? '/fr/' : '/'}`;
-  const servicesUrl = `${siteOrigin}${isFr ? '/fr' : ''}/services/`;
-  const homeLabel = isFr ? 'Accueil' : 'Home';
-  const servicesLabel = 'Services';
+  const pageUrl = `${siteOrigin}${prefix}/services/${slug}/`;
+  const homeUrl = `${siteOrigin}${prefix}/`;
+  const servicesUrl = `${siteOrigin}${prefix}/services/`;
+  const homeLabelMap = { en: 'Home', fr: 'Accueil', es: 'Inicio' } as const;
+  const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
+  const homeLabel = homeLabelMap[locale];
+  const servicesLabel = locale === 'es' ? 'Servicios' : 'Services';
 
   const serviceLd = {
     '@context': 'https://schema.org',
@@ -30,7 +34,7 @@ export function serviceSchema(astroUrl: URL, astroSite: URL | undefined, service
     name: service.title,
     description: service.description,
     url: pageUrl,
-    inLanguage: isFr ? 'fr-FR' : 'en-GB',
+    inLanguage: inLanguageMap[locale],
     provider: { '@id': `${siteOrigin}/#organization` },
     areaServed: { '@type': 'Country', name: 'China' },
     serviceType: service.title,
@@ -54,11 +58,12 @@ export function serviceSchema(astroUrl: URL, astroSite: URL | undefined, service
  * Accepts answers as string OR string[] (the Baidu SEO page splits answers
  * into paragraphs as arrays).
  */
-export function faqSchema(faqs: Array<{ question: string; answer: string | string[] }>, lang: 'en' | 'fr' = 'en') {
+export function faqSchema(faqs: Array<{ question: string; answer: string | string[] }>, lang: 'en' | 'fr' | 'es' = 'en') {
+  const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: lang === 'fr' ? 'fr-FR' : 'en-GB',
+    inLanguage: inLanguageMap[lang],
     mainEntity: faqs.map((f) => ({
       '@type': 'Question',
       name: f.question,

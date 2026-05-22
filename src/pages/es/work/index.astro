@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+
+const casestudies = (await getCollection('casestudies-es'))
+  .filter((cs) => cs.data.published)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<PageLayout
+  title="Casos de estudio | Sitios de marcas internacionales en China | ChinaWebFoundry"
+  description="Proyectos reales realizados para marcas internacionales en China. Resultados documentados por un equipo de Shanghái que ha entregado más de 50 sitios para el lujo, el B2B y el SaaS."
+  heroPage={true}
+  lang="es"
+>
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#1a1a2e] to-[#0f0f12]"></div>
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32">
+      <div class="io-grid items-start gap-y-10">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">Proyectos</p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">Proyectos que<br />aguantan en China</h1>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-10">
+          <p class="text-lg text-white/60 leading-relaxed">Sitios WordPress entregados y operados en la China continental por nuestro equipo, con los resultados a la vista.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Grid -->
+  <section class="py-20 md:py-28 lg:py-36">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {casestudies.map((cs) => (
+          <a href={`/es/work/${cs.id}/`} class="group relative flex flex-col justify-end min-h-[360px] md:min-h-[420px] rounded-2xl overflow-hidden no-underline">
+            {cs.data.visual ? (
+              <img src={cs.data.visual} alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
+            ) : (
+              <div class="absolute inset-0 transition-all duration-300 group-hover:brightness-110" style={`background: linear-gradient(135deg, ${cs.data.color}, ${cs.data.color}dd)`}></div>
+            )}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/35"></div>
+            <div class="relative p-5 sm:p-8 lg:p-10">
+              <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-snug mb-3">{cs.data.title}</h2>
+              <p class="text-base text-white/70 leading-relaxed mb-6 max-w-lg">{cs.data.summary}</p>
+              <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-white group-hover:gap-3 transition-all duration-200">
+                Leer el caso
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">¿Y si el próximo proyecto fuera el suyo?</h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">Cuéntenos en qué punto está su dispositivo chino. Encuadramos las etapas para que un sitio WordPress siga rápido y accesible detrás del Gran Cortafuegos.</p>
+      <Button href="/es/contact/" variant="primary" size="lg">Hablemos del proyecto</Button>
+    </div>
+  </section>
+</PageLayout>

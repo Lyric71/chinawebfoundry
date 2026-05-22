@@ -5,6 +5,8 @@ summary: "Le marketing de contenu en Chine vit au rythme du 种草 (zhongcao) : 
 visual: "/images/guides/china-content-marketing-strategy.webp"
 order: 10
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Content
 ---
 

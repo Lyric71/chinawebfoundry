@@ -33,16 +33,18 @@ const { title, subtitle, summary, visual, tocItems, lang, author, publishedAt, u
 const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 
-const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://chinawebfoundry.com';
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const guideIndexUrl = currentLang === 'fr'
-  ? `${siteOrigin}/fr/resources/china-web-guide/`
-  : `${siteOrigin}/resources/china-web-guide/`;
-const homeUrl = currentLang === 'fr' ? `${siteOrigin}/fr/` : `${siteOrigin}/`;
+const guideIndexUrl = `${siteOrigin}${localePath('/resources/china-web-guide/', currentLang)}`;
+const homeUrl = `${siteOrigin}${localePath('/', currentLang)}`;
 const guideIndexLabel = t('guide.backLink');
 const homeLabel = t('service.home');
 
-const dateFormatter = new Intl.DateTimeFormat(currentLang === 'fr' ? 'fr-FR' : 'en-GB', {
+const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
+const byLabelMap = { en: 'By', fr: 'Par', es: 'Por' } as const;
+const updatedLabelMap = { en: 'updated', fr: 'mis à jour le', es: 'actualizado el' } as const;
+
+const dateFormatter = new Intl.DateTimeFormat(inLanguageMap[currentLang], {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -64,7 +66,7 @@ const articleLd = {
   headline: title,
   description: summary,
   url: pageUrl,
-  inLanguage: currentLang === 'fr' ? 'fr-FR' : 'en-GB',
+  inLanguage: inLanguageMap[currentLang],
   ...(visual && { image: new URL(visual, Astro.site).toString() }),
   author: authorPersonLd,
   publisher: { '@id': `${siteOrigin}/#organization` },
@@ -116,7 +118,7 @@ const jsonLd = [articleLd, breadcrumbLd];
           <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/55">
             {author && (
               <span>
-                {currentLang === 'fr' ? 'Par' : 'By'}{' '}
+                {byLabelMap[currentLang]}{' '}
                 {author.url
                   ? <a href={author.url} class="text-white/80 hover:text-[var(--color-brand-orange)] no-underline" rel="author">{author.name}</a>
                   : <span class="text-white/80">{author.name}</span>
@@ -132,7 +134,7 @@ const jsonLd = [articleLd, breadcrumbLd];
             )}
             {updatedAt && updatedAt.getTime() !== publishedAt?.getTime() && (
               <span class="text-white/40">
-                · {currentLang === 'fr' ? 'mis à jour le' : 'updated'}{' '}
+                · {updatedLabelMap[currentLang]}{' '}
                 <time datetime={updatedAt.toISOString()}>{dateFormatter.format(updatedAt)}</time>
               </span>
             )}

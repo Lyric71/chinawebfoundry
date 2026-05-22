@@ -5,6 +5,8 @@ summary: "China's content marketing revolves around 种草 (zhongcao): planting 
 visual: "/images/guides/china-content-marketing-strategy.webp"
 order: 10
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-01
 category: Content
 ---
 

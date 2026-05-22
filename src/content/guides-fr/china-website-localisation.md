@@ -5,6 +5,8 @@ summary: "Localiser un site pour la Chine couvre le chinois simplifié, Alipay e
 visual: "/images/guides/china-website-localisation.webp"
 order: 8
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Content
 ---
 

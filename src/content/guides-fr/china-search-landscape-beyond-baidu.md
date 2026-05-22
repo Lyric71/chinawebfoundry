@@ -5,6 +5,8 @@ summary: "Baidu pèse 60 % de la recherche en Chine. Sogou, 360 Search, Shenma e
 visual: "/images/guides/china-search-landscape-beyond-baidu.webp"
 order: 4
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Search
 ---
 

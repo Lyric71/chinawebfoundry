@@ -5,6 +5,8 @@ summary: "Le lieu d'hébergement d'un site chinois commande la vitesse, le réf�
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
 published: true
+publishedAt: 2026-04-01
+updatedAt: 2026-05-02
 category: Hosting
 ---
 

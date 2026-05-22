@@ -5,6 +5,8 @@ summary: "Baidu dominates Chinese search with 724 million monthly users. Learn r
 visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
+publishedAt: 2026-03-31
+updatedAt: 2026-05-01
 category: Search
 ---
 

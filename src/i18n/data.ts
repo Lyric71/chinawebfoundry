@@ -47,10 +47,57 @@ const trustPointsFr: TrustPoint[] = [
   },
 ];
 
+const problemsEs: Problem[] = [
+  {
+    title: 'Su mensaje suena a texto extranjero',
+    description: 'El público chino busca señales de confianza que las marcas extranjeras suelen dejar en segundo plano: la trayectoria del fundador, las certificaciones, los logos de los socios, los premios obtenidos. Un redactor chino sabe en qué orden colocarlas para que la página retenga la atención.',
+  },
+  {
+    title: 'Su interfaz desorienta al visitante chino',
+    description: 'En China el sitio se consulta en el móvil, casi siempre dentro del navegador integrado de WeChat. Páginas densas, scroll largo, señales de confianza desde la primera pantalla. El minimalismo occidental aquí da la impresión de un sitio vacío, cuando no a medio terminar.',
+  },
+  {
+    title: 'Baidu ni siquiera sabe que existe',
+    description: 'Otras señales de posicionamiento, otras reglas de indexación. Sin licencia ICP ni alojamiento local, Baidu indexa mal su sitio, y a veces no lo indexa en absoluto. Lo que funciona en Google no se traslada aquí.',
+    citation: 'Baidu acapara casi la mitad de las búsquedas en China. Google se queda por debajo del 3 %. Fuente: Statcounter Global Stats, China, 2024.',
+  },
+  {
+    title: 'Para muchos compradores chinos, la IA ya sustituyó al buscador',
+    description: 'Doubao, Kimi, DeepSeek o el Wenxin de Baidu responden hoy las preguntas que antes pasaban por un buscador. El usuario casi nunca hace clic. Un sitio que la IA no puede citar se queda fuera de cuadro.',
+  },
+  {
+    title: 'El alojamiento en China es solo el punto de partida',
+    description: 'Páginas que tardan en cargar, plugins fuera de servicio, scripts que fallan en silencio detrás del Cortafuegos. La infraestructura asienta los cimientos. Una vez firmes, lo que hace volver al cliente es la fuerza de la marca.',
+  },
+];
+
+const trustPointsEs: TrustPoint[] = [
+  {
+    title: 'Velocidad medida, no solo prometida',
+    description: 'Menos de 3 segundos de carga, de media, en los sitios que entregamos en China. Imágenes, scripts, tipografías, enrutado del CDN: cada pieza queda ajustada a las redes locales.',
+  },
+  {
+    title: 'La conformidad, resuelta de principio a fin',
+    description: 'Nos ocupamos de la licencia ICP, de la conformidad de los contenidos y de cada requisito normativo. Su equipo se concentra en el negocio, no en la burocracia china.',
+  },
+  {
+    title: 'Equipo multilingüe, sin desfases',
+    description: 'Trabaje con profesionales que se mueven con soltura en español e inglés y operan a diario en chino. Ningún malentendido de traducción, ningún silencio achacado al huso horario.',
+  },
+  {
+    title: 'Un único terreno: China',
+    description: 'Hacemos una sola cosa: construir y mantener sitios que funcionan en China. Baidu, WeChat, el Cortafuegos, los motores de IA chinos. En cada proyecto, en cada línea de código.',
+  },
+];
+
 export function getProblems(lang: Locale): Problem[] {
-  return lang === 'fr' ? problemsFr : problemsEn;
+  if (lang === 'fr') return problemsFr;
+  if (lang === 'es') return problemsEs;
+  return problemsEn;
 }
 
 export function getTrustPoints(lang: Locale): TrustPoint[] {
-  return lang === 'fr' ? trustPointsFr : trustPointsEn;
+  if (lang === 'fr') return trustPointsFr;
+  if (lang === 'es') return trustPointsEs;
+  return trustPointsEn;
 }
