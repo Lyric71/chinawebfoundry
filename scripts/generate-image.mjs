@@ -68,7 +68,7 @@ for (let i = 0; i < 120; i++) {
     const rawBuffer = Buffer.from(await imgRes.arrayBuffer());
     const optimised = await sharp(rawBuffer)
       .resize({ width: MAX_WIDTH, withoutEnlargement: true })
-      .webp({ quality: WEBP_QUALITY })
+      .webp({ quality: WEBP_QUALITY, effort: 6 })
       .toBuffer();
     const filename = outputName ? `${outputName}.webp` : `generated-${Date.now()}.webp`;
     const outPath = resolve('public/images', filename);
