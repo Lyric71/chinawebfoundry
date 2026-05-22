@@ -63,7 +63,7 @@ const problemsEs: Problem[] = [
   },
   {
     title: 'Para muchos compradores chinos, la IA ya sustituyó al buscador',
-    description: 'Doubao, Kimi, DeepSeek o el Wenxin de Baidu responden hoy las preguntas que antes pasaban por un buscador. El usuario casi nunca hace clic. Un sitio que la IA no puede citar se queda fuera de cuadro.',
+    description: 'Doubao, Kimi, DeepSeek o el Wenxin de Baidu responden hoy las preguntas que antes pasaban por un buscador. El usuario casi nunca hace clic. Un sitio que la IA no puede citar queda fuera del radar.',
   },
   {
     title: 'El alojamiento en China es solo el punto de partida',

@@ -45,7 +45,7 @@ const cardClass =
 const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
 ---
 
-<div class="max-w-3xl mx-auto">
+<div>
   <!-- Header banner -->
   <div class="flex items-center gap-4 bg-[var(--color-surface-light)] rounded-t-xl px-6 py-5 border border-[var(--color-surface-border)]">
     <div class="flex-shrink-0 w-12 h-12 bg-[var(--color-text-card-blue)]/10 rounded-full flex items-center justify-center">
@@ -60,7 +60,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
   </div>
 
   <!-- Form body -->
-  <form id="contact-form" class="bg-white rounded-b-xl border border-t-0 border-[var(--color-surface-border)] px-6 py-8 space-y-6">
+  <form id="contact-form" class="bg-white rounded-b-xl border border-t-0 border-[var(--color-surface-border)] px-6 py-8 space-y-5">
     <!-- Row: Name + Email -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
@@ -120,7 +120,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       <span class={labelClass}>
         Services you are looking for <span class="text-[var(--color-brand-orange)]">*</span>
       </span>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {services.map((s) => (
           <label class={cardClass}>
             <input type="checkbox" name="services" value={s.value} class={choiceClass} />
@@ -135,7 +135,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       <span class={labelClass}>
         Your budget <span class="text-[var(--color-brand-orange)]">*</span>
       </span>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {budgetOptions.map((o) => (
           <label class={cardClass}>
             <input type="radio" name="budget" value={o.value} required class={choiceClass} />
@@ -145,46 +145,46 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       </div>
     </div>
 
-    <!-- Has a website -->
-    <div>
-      <span class={labelClass}>Do you already have a website?</span>
-      <div class="grid grid-cols-2 gap-3">
-        <label class={cardClass}>
-          <input type="radio" name="hasWebsite" value="Yes" class={choiceClass} />
-          <span class="text-sm text-[var(--color-text-body)]">Yes</span>
-        </label>
-        <label class={cardClass}>
-          <input type="radio" name="hasWebsite" value="No" class={choiceClass} />
-          <span class="text-sm text-[var(--color-text-body)]">No</span>
-        </label>
+    <!-- Row: Has a website + Presence in China -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <div>
+        <span class={labelClass}>Do you already have a website?</span>
+        <div class="grid grid-cols-2 gap-3">
+          <label class={cardClass}>
+            <input type="radio" name="hasWebsite" value="Yes" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">Yes</span>
+          </label>
+          <label class={cardClass}>
+            <input type="radio" name="hasWebsite" value="No" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">No</span>
+          </label>
+        </div>
+        <div id="website-field" class="hidden mt-4">
+          <label for="website" class={labelClass}>
+            Your website URL <span class="text-[var(--color-brand-orange)]">*</span>
+          </label>
+          <input type="url" id="website" name="website" placeholder="https://yourcompany.com" class={inputClass} />
+        </div>
       </div>
-      <div id="website-field" class="hidden mt-4">
-        <label for="website" class={labelClass}>
-          Your website URL <span class="text-[var(--color-brand-orange)]">*</span>
-        </label>
-        <input type="url" id="website" name="website" placeholder="https://yourcompany.com" class={inputClass} />
-      </div>
-    </div>
-
-    <!-- Presence in China -->
-    <div>
-      <span class={labelClass}>
-        Do you have a presence in China?
-        <span class="text-[var(--color-text-muted)] font-normal normal-case">(online or offline)</span>
-      </span>
-      <div class="grid grid-cols-2 gap-3">
-        <label class={cardClass}>
-          <input type="radio" name="chinaPresence" value="Yes" class={choiceClass} />
-          <span class="text-sm text-[var(--color-text-body)]">Yes</span>
-        </label>
-        <label class={cardClass}>
-          <input type="radio" name="chinaPresence" value="No" class={choiceClass} />
-          <span class="text-sm text-[var(--color-text-body)]">No</span>
-        </label>
-      </div>
-      <div id="china-detail-field" class="hidden mt-4">
-        <label for="chinaPresenceDetail" class={labelClass}>If yes, what does that look like?</label>
-        <input type="text" id="chinaPresenceDetail" name="chinaPresenceDetail" placeholder="Tmall store, WeChat account, local office..." class={inputClass} />
+      <div>
+        <span class={labelClass}>
+          Do you have a presence in China?
+          <span class="text-[var(--color-text-muted)] font-normal normal-case">(online or offline)</span>
+        </span>
+        <div class="grid grid-cols-2 gap-3">
+          <label class={cardClass}>
+            <input type="radio" name="chinaPresence" value="Yes" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">Yes</span>
+          </label>
+          <label class={cardClass}>
+            <input type="radio" name="chinaPresence" value="No" class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">No</span>
+          </label>
+        </div>
+        <div id="china-detail-field" class="hidden mt-4">
+          <label for="chinaPresenceDetail" class={labelClass}>If yes, what does that look like?</label>
+          <input type="text" id="chinaPresenceDetail" name="chinaPresenceDetail" placeholder="Tmall store, WeChat account, local office..." class={inputClass} />
+        </div>
       </div>
     </div>
 
@@ -196,7 +196,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       <textarea
         id="project"
         name="project"
-        rows="5"
+        rows="4"
         required
         placeholder="Tell us about your project, goals, and timeline..."
         class={inputClass + ' resize-y'}
