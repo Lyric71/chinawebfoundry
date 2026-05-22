@@ -3,8 +3,8 @@ import PageLayout from '../../layouts/PageLayout.astro';
 ---
 
 <PageLayout
-  title="China Site Scanner | ¿Aguantará su sitio detrás del Gran Cortafuegos?"
-  description="Escaneo gratuito que revela qué fallará en su sitio en cuanto un visitante lo abra desde China continental. Veinte comprobaciones, informe claro, sin registro."
+  title="China Site Scanner | ¿Funcionará su sitio web al otro lado del Gran Cortafuegos?"
+  description="Análisis gratuito que detecta qué falla en su sitio web cuando alguien lo abre desde China continental. Veinte comprobaciones y un informe claro."
   lang="es"
 >
   <!-- Hero -->
@@ -33,7 +33,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
       </div>
       <h1 class="text-3xl sm:text-4xl lg:text-6xl font-semibold font-[var(--font-heading)] leading-tight mb-5 text-white scanner-fade-in scanner-fade-in-delay-1">China Site Scanner</h1>
       <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 scanner-fade-in scanner-fade-in-delay-2">
-        Compruebe si su sitio aguanta detrás del Gran Cortafuegos. Veinte servicios bloqueados en China, examinados al detalle.
+        Compruebe si su sitio web funciona al otro lado del Gran Cortafuegos. Analizamos veinte servicios que China bloquea.
       </p>
 
       <!-- ═══ GATE FORM ═══ -->
@@ -62,7 +62,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
               type="text"
               id="gate-website"
               name="website"
-              placeholder="URL del sitio (p. ej. ejemplo.com)"
+              placeholder="Dirección de su sitio web (p. ej. ejemplo.com)"
               required
               autocomplete="url"
               class="w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
@@ -71,7 +71,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
               type="email"
               id="gate-email"
               name="email"
-              placeholder="Correo electrónico profesional"
+              placeholder="Correo electrónico de empresa"
               required
               autocomplete="email"
               class="w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20"
@@ -96,7 +96,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
               <button
                 type="button"
                 id="gate-captcha-refresh"
-                aria-label="Actualizar el captcha"
+                aria-label="Generar otra comprobación"
                 class="px-3 py-3.5 text-white/70 bg-white/[0.07] border border-white/10 rounded-xl hover:bg-white/[0.1] hover:text-white transition-all duration-200"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -117,11 +117,11 @@ import PageLayout from '../../layouts/PageLayout.astro';
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <span id="gate-btn-text">Escanear mi sitio</span>
+            <span id="gate-btn-text">Analizar mi sitio web</span>
           </button>
           <div id="gate-error" class="hidden mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-300 text-sm"></div>
         </form>
-        <p class="text-white/50 text-xs mt-5">Cubre Google Fonts, reCAPTCHA, Analytics, YouTube, Jetpack y otros quince servicios</p>
+        <p class="text-white/50 text-xs mt-5">Comprueba Google Fonts, reCAPTCHA, Analytics, YouTube, Jetpack y otros quince servicios</p>
       </div>
     </div>
   </section>
@@ -137,8 +137,8 @@ import PageLayout from '../../layouts/PageLayout.astro';
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-        <h2 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Analizando su sitio</h2>
-        <p class="text-[var(--color-text-muted)] mb-8">Recuperando el HTML y el JavaScript, detectando los recursos bloqueados...</p>
+        <h2 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Analizando su sitio web</h2>
+        <p class="text-[var(--color-text-muted)] mb-8">Descargamos el HTML y el JavaScript de su sitio web para detectar los recursos bloqueados.</p>
         <div class="max-w-md mx-auto">
           <div class="h-1.5 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
             <div id="progress-bar" class="h-full bg-[var(--color-brand-orange)] rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
@@ -168,7 +168,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
             </div>
           </div>
           <div class="flex-1 text-center md:text-left">
-            <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Su informe de análisis</h2>
+            <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Su informe</h2>
             <p id="results-url" class="text-sm text-[var(--color-text-muted)] mb-5 break-all"></p>
             <div class="flex flex-wrap justify-center md:justify-start gap-6">
               <div class="flex items-center gap-2">
@@ -177,7 +177,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
               </div>
               <div class="flex items-center gap-2">
                 <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-sm text-[var(--color-text-body)]"><strong id="passed-count" class="font-semibold text-green-600">0</strong> superadas</span>
+                <span class="text-sm text-[var(--color-text-body)]"><strong id="passed-count" class="font-semibold text-green-600">0</strong> correctas</span>
               </div>
               <div class="flex items-center gap-2">
                 <div class="w-3 h-3 rounded-full bg-red-500"></div>
@@ -195,8 +195,8 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <div class="mt-14 relative overflow-hidden rounded-2xl bg-[var(--color-surface-dark)] p-6 md:p-14 text-center">
           <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-[var(--color-brand-orange)] opacity-[0.08] blur-[100px] pointer-events-none"></div>
           <div class="relative">
-            <h3 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-white mb-3">¿Quiere ayuda para resolverlo todo?</h3>
-            <p class="text-white/60 mb-8 max-w-lg mx-auto">Migrar sitios WordPress detrás del Gran Cortafuegos es nuestro oficio. Nos encargamos de cada ajuste técnico para que el suyo funcione sin tropiezos.</p>
+            <h3 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-white mb-3">¿Necesita ayuda para corregir los fallos?</h3>
+            <p class="text-white/60 mb-8 max-w-lg mx-auto">Llevamos años migrando sitios web a China continental. Nos ocupamos de cada ajuste técnico para que el suyo cargue rápido al otro lado del Gran Cortafuegos.</p>
             <a
               href="/es/contacto/"
               class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-medium font-[var(--font-button)] text-white bg-[var(--color-brand-orange)] rounded-[var(--radius-pill)] hover:bg-[var(--color-brand-orange-hover)] hover:shadow-[0_8px_30px_rgba(242,95,41,0.4)] hover:-translate-y-0.5 active:translate-y-0 no-underline transition-all duration-200"
@@ -217,7 +217,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
     <div class="mx-auto max-w-[var(--container-page)]">
       <div class="text-center mb-12">
         <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">Cómo funciona</h2>
-        <p class="text-[var(--color-text-muted)] max-w-lg mx-auto">Tres pasos para saber si su sitio resistirá ante el Gran Cortafuegos</p>
+        <p class="text-[var(--color-text-muted)] max-w-lg mx-auto">En tres pasos sabrá si su sitio web funciona en China.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8 md:gap-12">
         <div class="relative text-center group" data-animate>
@@ -227,7 +227,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
             </svg>
           </div>
           <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Sus datos de contacto</h3>
-          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">Nombre, empresa, dirección del sitio y correo: unos pocos campos y el escáner arranca al instante.</p>
+          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">Indique su nombre, su empresa, la dirección del sitio web y un correo electrónico. El análisis empieza de inmediato.</p>
           <div class="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] border-t border-dashed border-[var(--color-surface-border)]"></div>
         </div>
         <div class="relative text-center group" data-animate>
@@ -236,8 +236,8 @@ import PageLayout from '../../layouts/PageLayout.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
             </svg>
           </div>
-          <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Veinte comprobaciones en una sola pasada</h3>
-          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">El escáner peina el HTML y el JavaScript para localizar los recursos que se cargan desde dominios bloqueados por el Gran Cortafuegos.</p>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Veinte comprobaciones de una sola vez</h3>
+          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">Revisamos el HTML y el JavaScript de su sitio web en busca de recursos que se cargan desde dominios bloqueados en China.</p>
           <div class="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] border-t border-dashed border-[var(--color-surface-border)]"></div>
         </div>
         <div class="text-center group" data-animate>
@@ -246,8 +246,8 @@ import PageLayout from '../../layouts/PageLayout.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
-          <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Su informe, en claro</h3>
-          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">La lista de fallos, ordenada por gravedad, con una alternativa compatible con China para cada punto crítico.</p>
+          <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">Un informe claro</h3>
+          <p class="text-[var(--color-text-body)] text-sm leading-relaxed">Recibirá la lista de fallos, ordenada por gravedad, y una alternativa que funciona en China para cada uno.</p>
         </div>
       </div>
     </div>
@@ -257,8 +257,8 @@ import PageLayout from '../../layouts/PageLayout.astro';
   <section id="what-we-check" class="section-padding py-14 md:py-20">
     <div class="mx-auto max-w-[var(--container-page)]">
       <div class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">Los servicios analizados</h2>
-        <p class="text-[var(--color-text-muted)] max-w-lg mx-auto">Cada uno de ellos está bloqueado o muy degradado detrás del Gran Cortafuegos</p>
+        <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">Los servicios que comprobamos</h2>
+        <p class="text-[var(--color-text-muted)] max-w-lg mx-auto">Todos están bloqueados o apenas funcionan en China.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" id="services-grid">
         {[
@@ -337,10 +337,10 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
   /* ── Constants ── */
   const PRIORITY_META: Record<string, { label: string; tag: string; tagBg: string; description: string }> = {
-    P0: { label: 'La página no se mostrará', tag: 'Crítico', tagBg: 'bg-red-100 text-red-700', description: 'Recursos bloqueantes cargados desde dominios totalmente inaccesibles' },
-    P1: { label: 'Funcionalidad clave fuera de servicio', tag: 'Alto', tagBg: 'bg-orange-100 text-orange-700', description: 'Componentes esenciales que no funcionarán en China' },
-    P2: { label: 'Funcionalidad degradada', tag: 'Medio', tagBg: 'bg-yellow-100 text-yellow-700', description: 'Seguimiento, integraciones sociales y recursos no críticos' },
-    P3: { label: 'Cumplimiento normativo', tag: 'Info', tagBg: 'bg-blue-100 text-blue-700', description: 'Registro ICP y obligaciones regulatorias' },
+    P0: { label: 'La página no se mostrará', tag: 'Crítico', tagBg: 'bg-red-100 text-red-700', description: 'Recursos cargados desde dominios que China bloquea por completo. Impiden que la página se muestre.' },
+    P1: { label: 'Funciones clave que fallan', tag: 'Alto', tagBg: 'bg-orange-100 text-orange-700', description: 'Componentes esenciales que el visitante no podrá usar desde China.' },
+    P2: { label: 'Funciones secundarias afectadas', tag: 'Medio', tagBg: 'bg-yellow-100 text-yellow-700', description: 'Fallos en el seguimiento, las redes sociales y otros recursos secundarios.' },
+    P3: { label: 'Cumplimiento normativo', tag: 'Info', tagBg: 'bg-blue-100 text-blue-700', description: 'El registro ICP y las obligaciones legales que exige China.' },
   };
 
   const REPLACEMENTS: Record<string, string> = {
@@ -433,12 +433,12 @@ import PageLayout from '../../layouts/PageLayout.astro';
     let pct = 0;
     const steps = [
       { at: 5, text: 'Enviando sus datos...' },
-      { at: 15, text: 'Recuperando el HTML...' },
-      { at: 35, text: 'Rastreando recursos bloqueados...' },
+      { at: 15, text: 'Descargando el HTML...' },
+      { at: 35, text: 'Buscando recursos bloqueados...' },
       { at: 55, text: 'Analizando el JavaScript...' },
-      { at: 70, text: 'Identificando las extensiones de WordPress...' },
-      { at: 85, text: 'Comprobando el cumplimiento ICP...' },
-      { at: 95, text: 'Redactando el informe...' },
+      { at: 70, text: 'Identificando los plugins de WordPress...' },
+      { at: 85, text: 'Comprobando el registro ICP...' },
+      { at: 95, text: 'Preparando el informe...' },
     ];
 
     progressInterval = setInterval(() => {
@@ -457,7 +457,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
     if (progressInterval) clearInterval(progressInterval);
     progressBar.style.width = '100%';
     progressPct.textContent = '100%';
-    progressStep.textContent = 'Terminado';
+    progressStep.textContent = 'Listo';
   }
 
   /* ══════════════════════════════════════
@@ -472,14 +472,14 @@ import PageLayout from '../../layouts/PageLayout.astro';
     const email = (document.getElementById('gate-email') as HTMLInputElement).value.trim();
 
     if (!name || !company || !website || !email) {
-      gateError.textContent = 'Por favor, complete todos los campos.';
+      gateError.textContent = 'Faltan campos por completar.';
       gateError.classList.remove('hidden');
       return;
     }
 
     const captchaAnswer = captchaAnswerEl.value.trim();
     if (!captchaAnswer || !captchaToken) {
-      gateError.textContent = 'Por favor, complete la verificación antispam.';
+      gateError.textContent = 'Responda a la comprobación de seguridad.';
       gateError.classList.remove('hidden');
       return;
     }
@@ -547,7 +547,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
       gateFormWrapper.classList.remove('hidden');
       howSection.classList.remove('hidden');
       whatSection.classList.remove('hidden');
-      gateError.textContent = err instanceof Error ? err.message : 'Algo nos ha detenido. Vuelva a intentarlo.';
+      gateError.textContent = err instanceof Error ? err.message : 'No hemos podido completar el análisis. Vuelva a intentarlo.';
       gateError.classList.remove('hidden');
       loadCaptcha();
     }
@@ -599,7 +599,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <p class="text-sm text-[var(--color-text-muted)] mb-4">${meta.description}</p>
         <div class="flex gap-3 mb-5 text-xs">
           ${failedInGroup > 0 ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 text-red-600 font-medium"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>${failedInGroup} fallida${failedInGroup > 1 ? 's' : ''}</span>` : ''}
-          ${passedInGroup > 0 ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 text-green-600 font-medium"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>${passedInGroup} superada${passedInGroup > 1 ? 's' : ''}</span>` : ''}
+          ${passedInGroup > 0 ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 text-green-600 font-medium"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>${passedInGroup} correcta${passedInGroup > 1 ? 's' : ''}</span>` : ''}
         </div>
         <div class="space-y-3">
           ${checks.map((check) => renderCheck(check)).join('')}
@@ -658,7 +658,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2.5 flex-wrap">
               <h4 class="text-sm font-semibold text-[var(--color-text-dark)]">${escapeHtml(check.name)}</h4>
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${isFail ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}">${isFail ? 'Fallo' : 'OK'}</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${isFail ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}">${isFail ? 'Fallo' : 'Correcto'}</span>
             </div>
             <p class="text-xs text-[var(--color-text-muted)] mt-1 leading-relaxed">${escapeHtml(check.description)}</p>
             ${matchesHtml}

@@ -12,6 +12,10 @@ const MESSAGES = {
     invalidBody: 'Requête invalide.',
     captchaFailed: 'Échec de la vérification anti-robot. Veuillez réessayer.',
   },
+  es: {
+    invalidBody: 'Solicitud no válida.',
+    captchaFailed: 'La comprobación de seguridad no es correcta. Vuelva a intentarlo.',
+  },
 } as const;
 
 export const POST: APIRoute = async ({ request }) => {
@@ -25,7 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const { captchaAnswer, captchaToken, locale } = body;
-  const t = locale === 'fr' ? MESSAGES.fr : MESSAGES.en;
+  const t = locale === 'fr' ? MESSAGES.fr : locale === 'es' ? MESSAGES.es : MESSAGES.en;
 
   if (!verifyChallenge(captchaAnswer, captchaToken)) {
     return new Response(JSON.stringify({ error: t.captchaFailed }), { status: 403, headers });

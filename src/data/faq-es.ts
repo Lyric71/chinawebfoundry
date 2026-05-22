@@ -8,46 +8,46 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Por qué mi sitio actual funciona mal en China?',
-        answer: 'En dos palabras: el Gran Cortafuegos. El filtrado nacional chino bloquea o ralentiza la mayoría de los servicios occidentales en los que se apoya su sitio. Google Fonts, Google Analytics, reCAPTCHA, YouTube, los píxeles de Facebook, los grandes CDN: todo queda filtrado o limitado. Una página que abre en 2 segundos en Nueva York tarda 15 en Shanghái, y a veces no llega a mostrarse. Sin una configuración pensada para China, su sitio sencillamente no existe para quien navega desde el continente.',
+        answer: 'La causa casi siempre es la misma: el Gran Cortafuegos. El filtrado nacional bloquea o frena los servicios occidentales de los que depende su sitio: Google Fonts, Google Analytics, reCAPTCHA, YouTube, los píxeles de Facebook, los grandes CDN. Ninguno responde bien. Una página que en Nueva York abre en dos segundos tarda quince en Shanghái, cuando no se queda en blanco. Sin una configuración pensada para China, su sitio no existe para el visitante del continente.',
       },
       {
         question: '¿No basta con un simple CDN para resolver el problema de velocidad?',
-        answer: 'Cloudflare, Akamai y los demás CDN occidentales no tienen una verdadera cobertura edge en el continente sin licencia ICP. E incluso con ella, el rendimiento rara vez aguanta. La respuesta correcta pasa por un proveedor chino: Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) o Huawei Cloud (华为云). El resto es un apaño.',
+        answer: 'No, no basta. Cloudflare, Akamai y los demás CDN occidentales no tienen presencia real dentro del continente sin una licencia ICP, y aun con ella el rendimiento sigue siendo irregular. La única solución sólida es alojar el sitio en un proveedor chino: Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) o Huawei Cloud (华为云). El resto son medidas provisionales.',
       },
       {
         question: '¿Basta con el alojamiento en Hong Kong para el mercado chino?',
-        answer: 'Mejor que Europa o América, sí. Pero el visitante del continente sigue viendo tiempos de carga más largos, Baidu clasifica su sitio como «extranjero» y lo relega, y usted pierde la señal de confianza que aporta una presencia con licencia en regla en el continente. Para vender en serio en China, lo que da resultado es el alojamiento continental.',
+        answer: 'Mejora la situación frente a un alojamiento europeo o americano, pero no resuelve el problema de fondo. Desde el continente el sitio sigue yendo lento, Baidu lo trata como extranjero y lo relega en los resultados, y usted pierde la señal de confianza que aporta una licencia china en regla. Para vender en China, el alojamiento continental es la única base sólida.',
       },
       {
-        question: '¿De verdad navegan distinto los internautas chinos?',
-        answer: 'Sí, de fondo. El móvil llevado al extremo, WeChat (微信) como capa de difusión por defecto, códigos QR en cada esquina, longitudes de scroll que desconciertan, maquetaciones más densas, códigos estéticos que no se parecen en nada a los nuestros. Copiar un sitio occidental al chino casi nunca funciona. Reconstruimos la experiencia a partir de cómo usan internet aquí de verdad.',
+        question: '¿Navegan los internautas chinos de forma distinta?',
+        answer: 'Sí, y la diferencia es enorme. Aquí todo gira en torno al teléfono: WeChat (微信) es el canal con el que la gente comparte y descubre, y los códigos QR están por todas partes. Las páginas son más largas y más densas, y el gusto visual no tiene nada que ver con el occidental. Por eso traducir sin más un sitio occidental casi nunca sale bien; diseñamos cada proyecto a partir de cómo se usa internet en China.',
       },
     ],
   },
   {
-    title: 'Encuadre y descubrimiento del proyecto',
-    shortTitle: 'Encuadre',
+    title: 'Alcance y definición del proyecto',
+    shortTitle: 'Alcance',
     icon: 'compass',
     items: [
       {
-        question: '¿Cómo saber si de verdad necesitamos un sitio específico para China?',
-        answer: 'Si su sitio se arrastra al abrir desde Shanghái, no aparece nunca en Baidu, o si sus comerciales oyen una y otra vez «no os encontramos en internet» en boca de los clientes potenciales chinos, la respuesta es probablemente sí. Antes de cualquier compromiso hacemos una auditoría gratuita. Cuente una semana. Se va con cifras reales, no con un argumentario de venta.',
+        question: '¿Cómo sabemos si necesitamos un sitio específico para China?',
+        answer: 'Hay síntomas que no engañan: el sitio tarda demasiado en abrirse desde Shanghái, no aparece en Baidu por mucho que se busque y sus comerciales oyen lo mismo en cada reunión, que los clientes chinos no los encuentran. Con que se dé uno de estos casos, la respuesta suele ser que sí. Antes de comprometerse a nada hacemos una auditoría gratuita, y una semana después tiene en la mano un informe con datos concretos sobre el estado de su sitio.',
       },
       {
-        question: '¿Cuál es el alcance mínimo viable para entrar en el mercado chino en internet?',
-        answer: 'Una landing bilingüe en alojamiento chino con licencia ICP (互联网内容提供商), Baidu Tongji (百度统计) instalado y una experiencia pensada para Baidu (百度). Ese es el mínimo imprescindible. Hemos lanzado empresas sobre esa base y luego hemos hecho crecer el edificio a medida que llegaban los datos de tráfico.',
+        question: '¿Cuál es el proyecto mínimo viable para entrar en el mercado chino?',
+        answer: 'Lo mínimo es una página de aterrizaje bilingüe, alojada en China con licencia ICP (互联网内容提供商), con Baidu Tongji (百度统计) instalado y pensada para Baidu (百度) desde el diseño. Hemos lanzado empresas con poco más que eso y luego hemos ampliado el sitio según lo que mostraba el tráfico.',
       },
       {
-        question: '¿Pueden ayudarnos a saber si China merece la pena para nuestra actividad?',
-        answer: 'No es nuestro oficio principal. Pero cuando la inversión no tiene ninguna posibilidad de sostenerse, lo decimos con franqueza. Hemos rechazado proyectos porque las cifras del mercado no justificaban el gasto. Para un verdadero asesoramiento de entrada en el mercado, le orientamos hacia las consultoras de Shanghái que se dedican a ello a diario.',
+        question: '¿Pueden ayudarnos a decidir si China merece la pena para nuestro negocio?',
+        answer: 'No es nuestra especialidad, pero cuando vemos que una inversión no se va a rentabilizar, lo decimos sin rodeos. Hemos rechazado proyectos porque las cifras del mercado no justificaban el gasto. Si lo que busca es un análisis a fondo de la entrada en China, le orientamos hacia las consultoras de Shanghái especializadas en ello.',
       },
       {
         question: '¿Ofrecen un taller de descubrimiento antes del proyecto?',
-        answer: 'Sí, en dos formatos. Media jornada a distancia para la auditoría técnica y la estrategia, o un taller de 2 días en Shanghái (上海) para los proyectos más grandes. Ambos se facturan aparte del encargo principal.',
+        answer: 'Sí, en dos formatos. Para la auditoría técnica y la estrategia hacemos una sesión de media jornada a distancia, y para los proyectos más grandes organizamos un taller de dos días en Shanghái (上海). Los dos se facturan aparte del encargo principal.',
       },
       {
-        question: '¿Qué información necesitan para dar un presupuesto real?',
-        answer: 'La URL de su sitio actual, los datos de tráfico si dispone de ellos, sus objetivos para China (leads, ventas, presencia de marca, o las tres cosas a la vez), el estado de una posible entidad china y, a ser posible, una llamada rápida. Con esos 4 elementos damos una cifra precisa, no una horquilla.',
+        question: '¿Qué información necesitan para preparar un presupuesto?',
+        answer: 'Necesitamos la dirección de su sitio actual y, si los tiene, los datos de tráfico. También nos hace falta saber qué busca en China: captar contactos, vender, ganar presencia de marca o varias cosas a la vez. Y conviene saber si ya cuenta con una entidad china; a ser posible, lo vemos todo en una llamada rápida. Con eso preparamos un presupuesto cerrado y exacto.',
       },
     ],
   },
@@ -57,32 +57,32 @@ export const faqTopicsEs: FAQTopic[] = [
     icon: 'wallet',
     items: [
       {
-        question: '¿Cuánto cuesta de verdad un proyecto de sitio para China?',
-        answer: 'Depende del alcance. En un extremo, los proyectos de migración. En el otro, los desarrollos a medida completos con WooCommerce o una plataforma de socios. Tras una llamada de descubrimiento enviamos una propuesta cerrada. Sin facturación por horas durante el proyecto, sin sorpresas a mitad de camino.',
+        question: '¿Cuánto cuesta realmente un sitio para el mercado chino?',
+        answer: 'Depende del alcance. Una migración cuesta bastante menos que un desarrollo a medida con WooCommerce o sobre una plataforma de socios. Después de la primera llamada le enviamos una propuesta con un precio cerrado: ni facturamos por horas mientras dura el proyecto ni añadimos cargos a mitad de camino.',
       },
       {
         question: '¿Cómo se comparan sus tarifas con las de las agencias occidentales?',
-        answer: 'Con toda franqueza, son comparables. Los sueldos de Shanghái (上海) superan a los de París o Berlín, nuestro equipo juega en la categoría sénior y nuestro trabajo no sale de una plantilla. A presupuesto equivalente, gana un equipo con base en el continente que ha presentado expedientes Bei\'an (备案) de verdad, que gestiona cuentas de la Baidu Search Resource Platform (百度搜索资源平台) a diario y que sabe qué comercial de Aliyun (阿里云) coge el teléfono. El valor está ahí, no en el descuento.',
+        answer: 'Son comparables. Los sueldos en Shanghái (上海) superan a los de París o Berlín, el equipo es de perfil sénior y cada proyecto se hace a medida. Por un presupuesto similar le conviene más un equipo radicado en el continente: uno que ha tramitado registros Bei\'an (备案) reales, que trabaja a diario con la Baidu Search Resource Platform (百度搜索资源平台) y que sabe a qué comercial de Aliyun (阿里云) llamar. El valor de la inversión está en esa experiencia.',
       },
       {
         question: '¿Ofrecen pagos fraccionados?',
-        answer: 'En los proyectos grandes, sí. El reparto habitual: arranque, mitad del proyecto, lanzamiento. En los encargos más pesados pasamos a hitos mensuales. No trabajamos a cambio de participación en el capital.',
+        answer: 'Sí, en los proyectos grandes. Lo habitual es pagar en tres veces: al empezar, a mitad de camino y en el lanzamiento. Cuando el encargo es muy grande, pasamos a pagos mensuales por hitos. Lo que no hacemos es trabajar a cambio de participación en el capital.',
       },
       {
         question: '¿Qué NO está incluido en el precio del proyecto?',
-        answer: 'Las tasas administrativas del ICP (bajas, pero aparte), la redacción profesional en chino si la quiere, las licencias de bancos de imágenes, las licencias de plugins de pago si insiste en extensiones comerciales, y los servicios de terceros como el alojamiento, que se le factura directamente. El detalle figura negro sobre blanco en la propuesta.',
+        answer: 'Hay varias cosas que van aparte. Las tasas administrativas del ICP son bajas, pero se facturan por separado, igual que la redacción profesional en chino, que se cobra solo si la pide. Si opta por extensiones comerciales, corren de su cuenta las licencias de los bancos de imágenes y de los plugins de pago. Y los servicios de terceros, como el alojamiento, los paga usted directamente al proveedor. La propuesta lo deja todo detallado.',
       },
       {
         question: '¿Hay costes ocultos que debamos conocer?',
-        answer: 'Dos que pillan a los clientes por sorpresa. Primero, la renovación administrativa del ICP (互联网内容提供商) cada 2 o 3 años: baja, pero no nula. Segundo, el SEO en Baidu (百度) de forma continua: para subir de verdad en las consultas hace falta un trabajo mensual, no un empujón en el lanzamiento. Lo ponemos sobre la mesa ya en la llamada de descubrimiento, para que la conversación sobre el presupuesto sea clara.',
+        answer: 'Hay dos, sobre todo. El ICP (互联网内容提供商) se renueva cada dos o tres años; es un gasto pequeño, pero hay que contar con él. Y el SEO en Baidu (百度) es un trabajo continuo: para aparecer en las búsquedas competitivas hay que dedicarle horas mes tras mes. Sacamos los dos temas en la primera llamada, así la conversación sobre el presupuesto queda clara desde el principio.',
       },
       {
         question: '¿Cobran las propuestas?',
-        answer: 'No. La propuesta y la auditoría son gratuitas. Escribimos encuadres detallados porque ambas partes necesitan saber con exactitud qué se va a construir. Si toma nuestra propuesta para pedir presupuesto en otro sitio, ha pasado: seguimos sin cobrar.',
+        answer: 'No, la propuesta y la auditoría no cuestan nada. Las redactamos con detalle porque las dos partes tienen que saber con exactitud qué se va a construir. Y si se lleva esa propuesta para pedir precio en otra agencia, tampoco le cobramos nada.',
       },
       {
         question: '¿Podemos empezar con poco y crecer después?',
-        answer: 'Sí, es incluso la vía que solemos recomendar. La fase 1 pone en línea lo esencial. La fase 2 añade el SEO en Baidu (百度) en profundidad, la optimización GEO China, la producción de contenido. La fase 3 abre el comercio electrónico o las funciones más avanzadas. Ese reparto suaviza el gasto y da tiempo a validar antes de pasar a escala.',
+        answer: 'Sí; es más, suele ser lo que recomendamos. La primera fase publica lo esencial. La segunda añade el SEO en Baidu (百度) a fondo, la optimización GEO para China y la creación de contenido, y la tercera abre el comercio electrónico o las funciones más complejas. Avanzar por fases reparte el gasto en el tiempo y permite comprobar cada paso antes de dar el siguiente.',
       },
     ],
   },
@@ -92,24 +92,24 @@ export const faqTopicsEs: FAQTopic[] = [
     icon: 'shield',
     items: [
       {
-        question: '¿Qué es exactamente la licencia ICP? ¿De verdad la necesito?',
-        answer: 'Sí, y no existe ningún atajo. ICP (互联网内容提供商) significa Internet Content Provider. Es la autorización que expide el Ministerio de Industria y Tecnología de la Información (工业和信息化部), exigida por ley para todo sitio alojado en el continente. Cuentan dos modalidades: el ICP Bei\'an (备案) para los sitios informativos, y el ICP Jing Ying (经营许可证) para los sitios que cobran. Nos hacemos cargo del expediente de principio a fin.',
+        question: '¿Qué es exactamente la licencia ICP? ¿Es realmente obligatoria?',
+        answer: 'Sí, y no hay atajo posible. ICP (互联网内容提供商) significa Internet Content Provider: es el permiso que concede el Ministerio de Industria y Tecnología de la Información (工业和信息化部), y la ley lo exige a cualquier sitio alojado en el continente. Hay dos tipos: el Bei\'an (备案), para sitios informativos, y el Jing Ying (经营许可证), para los que venden en línea. Del expediente nos encargamos nosotros, de principio a fin.',
       },
       {
         question: '¿Y si todavía no tenemos una entidad china?',
-        answer: 'El ICP (互联网内容提供商) se complica entonces. Dos vías: montar una WFOE (外商独资企业), o apoyarse en una entidad china capaz de avalar la presentación. Hemos acompañado a clientes por las dos. Sin entidad, y sin ganas de montar una, el alojamiento continental queda cerrado: Hong Kong (香港) sigue siendo entonces un plan B serio.',
+        answer: 'Ahí el ICP (互联网内容提供商) se complica. Caben dos opciones: constituir una WFOE (外商独资企业), la sociedad de capital extranjero, o apoyarse en una entidad china que avale la solicitud. Hemos acompañado a clientes por las dos vías. Si no tiene entidad y prefiere no crearla, el alojamiento continental queda descartado y Hong Kong (香港) pasa a ser una alternativa razonable.',
       },
       {
-        question: '¿Cuánto tarda realmente la presentación del ICP?',
-        answer: 'El Bei\'an (备案) suele rondar las 2-4 semanas. El Jing Ying (经营许可证) pide de 2 a 3 meses, a veces más. La gran variable: lo completo que esté su expediente. Le entregamos una lista de comprobación en la semana 1 para que la parte lenta no frene el conjunto.',
+        question: '¿Cuánto tarda realmente la tramitación del ICP?',
+        answer: 'El Bei\'an (备案) suele tardar entre dos y cuatro semanas; el Jing Ying (经营许可证), de dos a tres meses, a veces más. Todo depende de una cosa: lo completo que esté su expediente. Por eso le pasamos una lista de comprobación en la primera semana, para que el papeleo no frene el resto del proyecto.',
       },
       {
-        question: '¿Qué hay de la residencia de los datos y del cumplimiento de la PIPL?',
-        answer: 'En la mayoría de los casos, los datos chinos deben permanecer en China. Diseñamos la arquitectura teniendo en cuenta esa restricción desde el primer día. Si su proyecto maneja datos personales, repasamos con usted las consecuencias de la PIPL (个人信息保护法). Hemos cruzado decenas de casos con asesores jurídicos, lo que nos da una buena lectura de las zonas grises.',
+        question: '¿Cómo gestionan la residencia de los datos y el cumplimiento de la PIPL?',
+        answer: 'Por norma general, los datos generados en China tienen que quedarse en China, y diseñamos la arquitectura contando con ese límite desde el primer día. Si su proyecto maneja datos personales, repasamos con usted lo que implica la PIPL (个人信息保护法). Hemos visto decenas de casos junto a abogados, y eso nos da criterio para movernos en las zonas grises de la norma.',
       },
       {
-        question: '¿Qué pasa si rechazan nuestra presentación del ICP?',
-        answer: 'Ocurre, por lo general por documentación que falta. Volvemos a presentar sin coste. Las únicas situaciones sin salida tienen que ver con sociedades cuya estructura misma no cumple los requisitos, y eso lo vemos venir en la semana 1, nunca en la semana 4.',
+        question: '¿Qué pasa si rechazan nuestra solicitud de ICP?',
+        answer: 'Pasa de vez en cuando, casi siempre porque falta documentación. Cuando ocurre, volvemos a presentar la solicitud sin coste adicional. El único caso sin salida es el de una sociedad cuya estructura no cumple los requisitos básicos, y eso lo detectamos en la primera semana, no en la cuarta.',
       },
     ],
   },
@@ -120,31 +120,31 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Con qué rapidez pueden lanzar un sitio en China?',
-        answer: 'Nuestro récord: 3 semanas para una landing, sobre una licencia ICP (互联网内容提供商) ya en regla. Más realista para un sitio de verdad: de 8 a 12 semanas, presentación del ICP incluida. Si hay que montarlo todo desde cero y la entidad china está aún por crear, sume de 4 a 6 semanas más en ese apartado.',
+        answer: 'Nuestro lanzamiento más rápido fueron tres semanas, para una página de aterrizaje y con la licencia ICP (互联网内容提供商) ya concedida. Para un sitio completo, lo realista son entre ocho y doce semanas, con la tramitación del ICP incluida. Y si se parte de cero, con la entidad china todavía por crear, habrá que añadir otras cuatro a seis semanas.',
       },
       {
         question: '¿Cómo es el calendario de un proyecto típico?',
-        answer: 'Semanas 1-2: auditoría y descubrimiento. Semanas 3-6: presentación del ICP (互联网内容提供商) en paralelo con el diseño y la puesta a punto técnica. Semanas 7-10: desarrollo, integración de contenidos, pruebas. Semanas 11-12: staging, correcciones, lanzamiento. Después toma el relevo el mantenimiento. El diagrama de Gantt completo figura en la propuesta.',
+        answer: 'El proyecto avanza por etapas. Las dos primeras semanas son para la auditoría y la definición del proyecto; de la tercera a la sexta tramitamos el ICP (互联网内容提供商) mientras avanzan el diseño y la preparación técnica. De la séptima a la décima abordamos el desarrollo, la carga de contenidos y las pruebas, y las dos últimas quedan para el entorno de pruebas, las correcciones y el lanzamiento. A partir de ahí empieza el mantenimiento, y el calendario detallado va en la propuesta.',
       },
       {
-        question: '¿Qué ralentiza más a menudo los proyectos?',
-        answer: 'La documentación del ICP (互联网内容提供商) del lado del cliente. La pedimos en la semana 1 y a veces la recibimos en la semana 4. El otro freno habitual: el contenido. Los clientes subestiman siempre el tiempo que pide una redacción china hecha como es debido, y no simplemente traducida.',
+        question: '¿Qué es lo que más retrasa los proyectos?',
+        answer: 'El retraso más habitual lo provoca la documentación del ICP (互联网内容提供商) que tiene que aportar el cliente. La pedimos en la primera semana y, a veces, no llega hasta la cuarta. El otro gran freno es el contenido: casi todo el mundo subestima el tiempo que lleva una buena redacción en chino, pensada para ese lector desde el primer borrador.',
       },
       {
         question: '¿Con qué frecuencia tendremos noticias suyas durante el proyecto?',
-        answer: 'Un punto semanal por videollamada, un informe escrito cada lunes, un canal de WeChat (微信) para los intercambios del día a día. También accede a nuestro seguimiento del proyecto. Ninguna caja negra: sabe en todo momento dónde está el trabajo.',
+        answer: 'Tendrá noticias nuestras a menudo. Cada semana hacemos una videollamada de seguimiento, cada lunes le llega un informe por escrito y para el día a día abrimos un canal de WeChat (微信). Además, tiene acceso permanente a nuestro panel del proyecto, así que en cualquier momento sabe por dónde va el trabajo.',
       },
       {
         question: '¿Con quién hablamos dentro de su equipo?',
-        answer: 'Un jefe de proyecto dirige su cuenta de principio a fin. Recurre a nuestros especialistas (diseño, desarrollo, SEO, contenido, alojamiento) según las necesidades. No tiene que contar su actividad a 5 interlocutores distintos.',
+        answer: 'Un jefe de proyecto lleva su cuenta de principio a fin y, según la fase, va sumando a nuestros especialistas en diseño, desarrollo, SEO, contenido o alojamiento. Usted no tiene que explicar su negocio una y otra vez a media docena de interlocutores.',
       },
       {
         question: '¿Podemos participar en el diseño?',
-        answer: 'Sí. Abrimos el acceso a Figma si su equipo prefiere comentar en la fuente. Algunos clientes dirigen al detalle, otros delegan por completo. Los dos modos funcionan.',
+        answer: 'Sí. Si su equipo prefiere comentar sobre el propio diseño, le damos acceso a Figma. Hay clientes que entran en cada detalle y otros que delegan por completo, y las dos maneras de trabajar nos funcionan.',
       },
       {
-        question: '¿Qué pasa si incumplimos un plazo de nuestro lado?',
-        answer: 'El proyecto se pone en pausa también de nuestro lado. No facturamos la espera, retomamos cuando ustedes están listos. Pasados 60 días de parón revisamos el alcance, porque en China los precios se mueven, y la disponibilidad del equipo también.',
+        question: '¿Qué ocurre si nos retrasamos por nuestra parte?',
+        answer: 'Entonces nosotros también paramos. Ese tiempo de espera no se lo cobramos, y retomamos en cuanto usted esté listo. Si la pausa pasa de sesenta días, revisamos el alcance: en China los precios y la disponibilidad del equipo cambian deprisa.',
       },
     ],
   },
@@ -155,31 +155,31 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Dónde está su equipo, en concreto?',
-        answer: 'La oficina principal está en Shanghái (上海). Algunos miembros del equipo trabajan desde Hangzhou (杭州) y Shenzhen (深圳). Nuestra presencia física en China cuenta tanto para las presentaciones del ICP (互联网内容提供商) y la relación con los proveedores de alojamiento como para entender, día a día, cómo funciona internet aquí.',
+        answer: 'La oficina principal está en Shanghái (上海), y parte del equipo trabaja desde Hangzhou (杭州) y Shenzhen (深圳). Estar físicamente en China cambia las cosas: agiliza los trámites del ICP (互联网内容提供商) y el trato con los proveedores de alojamiento, y nos mantiene al día de cómo funciona internet aquí.',
       },
       {
-        question: '¿Tienen personal no chino?',
-        answer: 'Sí. El fundador es europeo, varios miembros del equipo son bilingües, incluso trilingües. Los jefes de proyecto que llevan las cuentas internacionales manejan el inglés a nivel profesional. Internamente, el equipo alterna inglés y chino sin dificultad.',
+        question: '¿Hay personas no chinas en el equipo?',
+        answer: 'Sí. El fundador es europeo y buena parte del equipo es bilingüe, algunos hablan tres idiomas. Los jefes de proyecto que llevan cuentas internacionales manejan el inglés con soltura profesional, y dentro del equipo pasamos del inglés al chino sin esfuerzo.',
       },
       {
         question: '¿En qué huso horario trabajan? ¿Cómo funciona para clientes en Europa o América?',
-        answer: 'Hora estándar de China (中国标准时间, UTC+8). Con Europa, la jornada se solapa ampliamente. Con América, atendemos las llamadas a primera o a última hora de la jornada china y el equipo se adapta. Los husos más alejados exigen algo más de esfuerzo, pero se gestionan bien para los hitos.',
+        answer: 'Trabajamos en hora de China (中国标准时间, UTC+8). Con Europa la jornada coincide durante buena parte del día; con América programamos las llamadas a primera o a última hora del día chino y el equipo se amolda. Las franjas horarias más lejanas requieren algo más de coordinación, pero los hitos del proyecto salen adelante sin problema.',
       },
       {
         question: '¿Podemos visitar su oficina?',
-        answer: 'Con mucho gusto. Recibimos clientes en Shanghái (上海) con regularidad. Si pasa por China, bloqueamos una sesión de trabajo, una cena, y le presentamos a las personas adecuadas. Poner cara al equipo cambia muchas cosas.',
+        answer: 'Por supuesto, recibimos clientes en Shanghái (上海) a menudo. Si viaja a China, le organizamos una sesión de trabajo y una cena, y le presentamos a las personas que llevan su proyecto. Conocer al equipo en persona cambia mucho la relación.',
       },
       {
         question: '¿Se desplazan a las oficinas de sus clientes?',
-        answer: 'A partir de cierto tamaño de proyecto, sí: el arranque presencial está incluido. En los proyectos más pequeños, el trabajo a distancia funciona muy bien. Llevamos años gestionando los sitios de clientes a los que nunca hemos visto en persona.',
+        answer: 'Sí, a partir de cierto tamaño de proyecto, y entonces la reunión inicial presencial va incluida. En los proyectos más pequeños, el trabajo a distancia da muy buen resultado. Llevamos años gestionando sitios de clientes a los que no hemos visto nunca en persona.',
       },
       {
         question: '¿En qué idiomas se comunican?',
-        answer: 'Español e inglés para los clientes internacionales. Mandarín (普通话) internamente y ante los proveedores chinos, los servicios de alojamiento y las administraciones. Si su equipo cuenta con hablantes de chino, combinamos sin problema. WeChat (微信) funciona en ambos sentidos.',
+        answer: 'Con los clientes internacionales hablamos español e inglés. El mandarín (普通话) lo usamos dentro del equipo y con los proveedores chinos, las empresas de alojamiento y la Administración. Si en su equipo hay quien habla chino, alternamos los idiomas sin problema, y WeChat (微信) funciona igual de bien en cualquiera de ellos.',
       },
       {
-        question: '¿Usan WeChat para los intercambios con clientes?',
-        answer: 'Sí, WeChat (微信) sigue siendo el canal más cómodo para la mayoría de los clientes. El correo también sirve, según lo que su equipo prefiera. Nos adaptamos a sus herramientas, y no al revés.',
+        question: '¿Usan WeChat para hablar con los clientes?',
+        answer: 'Sí. Para la mayoría de los clientes WeChat (微信) es el canal más cómodo, aunque el correo electrónico también vale, según lo que prefiera su equipo. Nos adaptamos a las herramientas que usted ya usa.',
       },
     ],
   },
@@ -190,19 +190,19 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Qué cubre exactamente el contrato?',
-        answer: 'Alcance, entregables, calendario, calendario de pagos, propiedad intelectual, confidencialidad, cláusulas de rescisión, condiciones de soporte tras el lanzamiento. Un contrato de prestación de servicios estándar, bajo el derecho que elijamos juntos. La mayoría de los clientes internacionales se decanta por el derecho de Hong Kong (香港) o de Singapur (新加坡). Todo es negociable.',
+        answer: 'El contrato recoge el alcance, los entregables, el calendario y el plan de pagos, además de la propiedad intelectual, la confidencialidad, las cláusulas de rescisión y el soporte posterior al lanzamiento. Es un contrato de prestación de servicios estándar, sujeto a la ley que acordemos entre los dos; la mayoría de los clientes internacionales se decanta por el derecho de Hong Kong (香港) o de Singapur (新加坡). Y todo es negociable.',
       },
       {
         question: '¿Quién es propietario del código y del contenido tras el lanzamiento?',
-        answer: 'Usted. Transferencia íntegra de todos los activos: código fuente, archivos de diseño, contenidos, credenciales de alojamiento. Conservamos el derecho a mencionar el proyecto de forma anónima en nuestro porfolio, salvo que nos pida lo contrario de forma expresa.',
+        answer: 'El propietario es usted. Le pasamos todos los activos sin excepción: el código fuente, los archivos de diseño, los contenidos y las claves de alojamiento. Solo nos reservamos el derecho a mencionar el proyecto, de forma anónima, en nuestra cartera de trabajos; si prefiere que no lo hagamos, basta con que lo diga.',
       },
       {
         question: '¿Y si queremos marcharnos a mitad del proyecto?',
-        answer: 'Las cláusulas de rescisión están negro sobre blanco en el contrato. Paga el trabajo realizado a la fecha y le entregamos todo el producto en un formato utilizable. Ningún proyecto retenido como rehén de nuestro lado. Nunca hemos activado una cláusula de recuperación: con toda honestidad, los clientes no se marchan a mitad de camino.',
+        answer: 'El contrato detalla con claridad las cláusulas de rescisión. Usted paga el trabajo hecho hasta esa fecha y le entregamos todo el material en un formato que pueda usar. Nunca retenemos un proyecto. En la práctica no hemos tenido que aplicar nunca esa cláusula: los clientes no se marchan a mitad de camino.',
       },
       {
         question: '¿Firman acuerdos de confidencialidad?',
-        answer: 'Sí, antes de compartir el más mínimo detalle técnico o comercial. Los acuerdos de confidencialidad mutuos son la norma. Disponemos de nuestra propia plantilla si usted no tiene una.',
+        answer: 'Sí, antes de intercambiar cualquier detalle técnico o comercial. El acuerdo de confidencialidad mutuo es la norma en todos nuestros proyectos, y si su empresa no tiene un modelo propio, le pasamos el nuestro.',
       },
     ],
   },
@@ -213,35 +213,35 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿WordPress o Astro? ¿Cómo elegir?',
-        answer: 'La elección depende de su equipo y de su flujo editorial. WordPress cuando hay personas de marketing que deben actualizar el contenido a diario, sin la ayuda de un desarrollador. Astro cuando el rendimiento está en primera línea y hay un soporte técnico disponible. Construimos con los dos, y también sabemos montar stacks híbridos: el sitio de marketing en uno, el comercio electrónico en otro.',
+        answer: 'Depende de su equipo y de cómo gestione el contenido. WordPress encaja cuando marketing necesita actualizar el sitio a diario sin pasar por un desarrollador; Astro es la opción cuando el rendimiento es lo primero y hay soporte técnico disponible. Trabajamos con los dos, e incluso los combinamos: el sitio de marketing sobre una tecnología y la tienda sobre otra.',
       },
       {
-        question: '¿Pueden trabajar con nuestro stack actual?',
-        answer: 'Con toda franqueza, no. No intentamos forzar stacks occidentales para que aguanten detrás del Gran Cortafuegos. Hemos visto demasiados de esos proyectos derrumbarse a los 6 meses. Nuestro consejo: herramientas chinas que funcionan de forma nativa sobre el terreno. Aliyun (阿里云), Tencent Cloud (腾讯云), Baidu Tongji (百度统计), WeChat (微信), las plataformas de IA chinas. El ecosistema cambia, las reglas cambian. Mantener vivo su stack global en China sale, casi siempre, más caro en apaños que una reconstrucción limpia.',
+        question: '¿Pueden trabajar con nuestra tecnología actual?',
+        answer: 'Por lo general, no. No forzamos tecnologías occidentales para que funcionen detrás del Gran Cortafuegos; hemos visto fracasar demasiados proyectos así a los seis meses. Preferimos herramientas chinas, pensadas para funcionar en el país: Aliyun (阿里云), Tencent Cloud (腾讯云), Baidu Tongji (百度统计), WeChat (微信) o las plataformas de IA locales. Aquí el ecosistema y las normas cambian sin parar, y mantener su tecnología global a base de parches acaba costando más que rehacer el sitio desde cero.',
       },
       {
         question: '¿Por qué no usar un creador de sitios SaaS occidental para China?',
-        answer: 'Porque no aguantan aquí. La mayoría están parcialmente bloqueados o muy limitados, y ninguno dispone de alojamiento compatible con el ICP en el continente. Hemos migrado a varios clientes desde esas plataformas porque sus sitios chinos eran inservibles. Construimos sobre herramientas que funcionan dentro del Cortafuegos, y punto.',
+        answer: 'Porque dentro de China rinden mal. La mayoría están bloqueados en parte o muy limitados, y ninguno ofrece alojamiento compatible con el ICP en el continente. Hemos tenido que migrar a varios clientes desde esas plataformas porque sus sitios chinos resultaban inservibles, así que solo construimos sobre herramientas que responden bien dentro del Cortafuegos.',
       },
       {
         question: '¿Construyen también aplicaciones móviles?',
-        answer: 'No. Nos centramos en la web, los miniprogramas de WeChat (微信小程序) y los Baidu Smart Mini Programs (智能小程序). Para las aplicaciones nativas de iOS y Android recurrimos a socios especializados en Shenzhen (深圳).',
+        answer: 'No. Nos centramos en el desarrollo web, en los miniprogramas de WeChat (微信小程序) y en los Baidu Smart Mini Programs (智能小程序). Para las aplicaciones nativas de iOS y Android trabajamos con socios especializados en Shenzhen (深圳).',
       },
       {
         question: '¿Pueden integrar WeChat?',
-        answer: 'Sí. Inicio de sesión con WeChat (微信), compartición, miniprogramas, pago. Hemos construido decenas de integraciones de WeChat y nos sabemos de memoria las trampas de la API. Lo mismo con Alipay (支付宝) y UnionPay (银联).',
+        answer: 'Sí. Hacemos inicio de sesión con WeChat (微信), función de compartir, miniprogramas y pagos. Llevamos hechas decenas de integraciones con WeChat y conocemos a fondo los puntos delicados de su API; lo mismo vale para Alipay (支付宝) y UnionPay (银联).',
       },
       {
         question: '¿Y la IA y los chatbots en nuestro sitio chino?',
-        answer: 'Integramos las plataformas de IA chinas: DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) y Baidu AI (百度AI). Las herramientas de IA occidentales están, la mayoría de las veces, bloqueadas o poco fiables desde el continente. Ninguna opción viable por ese lado. Si le han vendido otra cosa, le explicamos lo que de verdad funciona aquí.',
+        answer: 'Integramos las plataformas de IA chinas: DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) y Baidu AI (百度AI). Las herramientas de IA occidentales suelen estar bloqueadas, o responden de forma poco fiable desde el continente, así que no son una opción real. Si alguien le ha dicho lo contrario, le explicamos en detalle qué funciona y qué no aquí.',
       },
       {
         question: '¿Funcionará en China nuestro sitio WordPress con Elementor?',
-        answer: 'Seguramente no tal cual. Ponerlo en marcha sigue siendo posible, en la mayoría de los casos. Cortamos las dependencias de Google, sustituimos las tipografías, redirigimos las integraciones. La mayoría de los sitios con Elementor que heredamos funcionan con limpieza detrás del Cortafuegos en unas pocas semanas.',
+        answer: 'Tal cual está, probablemente no, pero en la mayoría de los casos se puede adaptar. Quitamos las dependencias de Google, cambiamos las tipografías y redirigimos las integraciones externas. Casi todos los sitios con Elementor que recibimos acaban funcionando bien detrás del Cortafuegos en unas pocas semanas.',
       },
       {
         question: '¿Y las actualizaciones automáticas de plugins desde wordpress.org?',
-        answer: 'Fallan o se quedan colgadas muy a menudo desde dentro de China. Configuramos un enrutado de las actualizaciones a través de un proxy, o ventanas de actualización manual programadas. En cualquier caso, su equipo no tiene que preocuparse de ello.',
+        answer: 'Desde dentro de China fallan o se cuelgan a menudo. Para evitarlo, encaminamos las actualizaciones por un proxy o fijamos ventanas de actualización manual. En cualquier caso, su equipo no tiene que ocuparse de esto.',
       },
     ],
   },
@@ -252,19 +252,19 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Qué cambia entre el SEO de Baidu y el de Google?',
-        answer: 'Casi todo. Baidu (百度) prioriza los sitios alojados en el continente, juzga la calidad de los contenidos chinos con sus propios criterios, abre su Search Resource Platform (百度搜索资源平台) para el envío de páginas, trata las etiquetas meta de otra forma y clasifica según señales que Google ignora. Optimizar para uno no optimiza para el otro.',
+        answer: 'Cambia casi todo. Baidu (百度) da prioridad a los sitios alojados en el continente y mide la calidad del contenido chino con criterios propios. Tiene su Search Resource Platform (百度搜索资源平台) para enviar las páginas a indexación, lee las etiquetas meta de otra manera y posiciona según señales que Google ni se plantea. Optimizar para un buscador no le sirve para el otro.',
       },
       {
         question: '¿Garantizan posiciones en Baidu?',
-        answer: 'No, y desconfíe de quien se comprometa a ello. Lo que sí garantizamos: una puesta a punto del SEO en Baidu (百度) según las buenas prácticas, el envío a la Baidu Search Resource Platform (百度搜索资源平台), la optimización técnica y los datos estructurados. La posición depende después de la competencia, de la calidad del contenido y del tiempo. Un informe mensual le muestra qué se mueve.',
+        answer: 'No, y desconfíe de quien lo prometa. Lo que sí garantizamos es el método: una configuración de Baidu (百度) acorde con las buenas prácticas, el envío a la Baidu Search Resource Platform (百度搜索资源平台), la optimización técnica y los datos estructurados. La posición final ya depende de la competencia, del contenido y del tiempo, y cada mes recibe un informe con la evolución.',
       },
       {
-        question: '¿Qué es el GEO China y lo necesitamos?',
-        answer: 'Generative Engine Optimisation, aplicada a las IA de búsqueda chinas: DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝), Baidu AI (百度AI). Cada vez más internautas chinos abren su búsqueda en esas herramientas antes incluso que en Baidu (百度). Si sus competidores aparecen en las respuestas generadas por la IA y usted no, es tráfico que pasa por delante de su puerta.',
+        question: '¿Qué es el GEO para China y lo necesitamos?',
+        answer: 'GEO son las siglas de Generative Engine Optimisation: optimizar para las IA de búsqueda chinas, como DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) o Baidu AI (百度AI). Cada vez más internautas chinos empiezan ahí su búsqueda, antes incluso que en Baidu (百度). Si en esas respuestas aparecen sus competidores y usted no, está cediéndoles tráfico cualificado.',
       },
       {
         question: '¿Cuánto tardaremos en ver tráfico de Baidu tras el lanzamiento?',
-        answer: 'La indexación arranca por lo general de 2 a 4 semanas después del envío a la Baidu Search Resource Platform (百度搜索资源平台), con una configuración de SEO en regla. La verdadera dinámica de posicionamiento en palabras clave competitivas pide de 3 a 6 meses como mínimo. Toda promesa más rápida es venta a presión.',
+        answer: 'Con una buena configuración de SEO, la indexación suele empezar entre dos y cuatro semanas después de enviar las páginas a la Baidu Search Resource Platform (百度搜索资源平台). Posicionarse con solidez en palabras clave competitivas lleva, como mínimo, de tres a seis meses. Quien le prometa plazos más cortos no le está diciendo la verdad.',
       },
     ],
   },
@@ -275,15 +275,15 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Se encargan ustedes de la traducción al chino, o debemos aportarla nosotros?',
-        answer: 'Las dos opciones funcionan. Trabajamos con redactores chinos en plantilla y con colaboradores de confianza, que escriben para públicos chinos en lugar de limitarse a traducir. Si ya tiene un proveedor de traducción, partimos de su resultado, pero le señalaremos los pasajes que huelen a traducción más que a redacción nativa.',
+        answer: 'Las dos opciones funcionan. Tenemos redactores chinos en plantilla y colaboradores de confianza que escriben para el público chino en lugar de limitarse a traducir. Si ya trabaja con una empresa de traducción, partimos de su material, aunque le señalaremos los párrafos que suenan a texto traducido.',
       },
       {
         question: '¿Cuál es la diferencia entre traducción y localización?',
-        answer: 'La traducción reproduce las mismas palabras en chino. La localización reescribe para el público, la plataforma, las referencias culturales y las consultas que los internautas chinos teclean de verdad. Un sitio traducido suena extranjero. Un sitio localizado se sostiene.',
+        answer: 'La traducción pasa las mismas palabras al chino. La localización reescribe el contenido para ese público: su plataforma, sus referencias culturales y las búsquedas tal como las teclea el internauta chino. Un sitio traducido suena a extranjero; un sitio localizado se lee como propio.',
       },
       {
         question: '¿Debemos usar chino simplificado o tradicional?',
-        answer: 'Chino simplificado (简体中文) para la China continental. Chino tradicional (繁體中文) para Hong Kong (香港) y Taiwán (台湾). Si apunta a los dos mercados, mantenemos versiones separadas. Mezclar ambos en un solo sitio es hundir su credibilidad.',
+        answer: 'La China continental usa el chino simplificado (简体中文); Hong Kong (香港) y Taiwán (台湾), el tradicional (繁體中文). Si se dirige a los dos mercados, mantenemos versiones separadas. Mezclar los dos sistemas en un mismo sitio le resta credibilidad sin remedio.',
       },
     ],
   },
@@ -294,15 +294,15 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Qué mejoras de rendimiento podemos esperar?',
-        answer: 'Los sitios lentos migrados a Aliyun (阿里云) pasan normalmente de 12-15 segundos de carga a menos de 2 segundos. Los desarrollos nuevos bajan del segundo en las conexiones continentales. La indexación en Baidu (百度) arranca por lo general de 2 a 4 semanas después del lanzamiento, con una configuración de SEO limpia.',
+        answer: 'Un sitio lento que migramos a Aliyun (阿里云) suele pasar de doce o quince segundos de carga a menos de dos. Un desarrollo nuevo carga en menos de un segundo desde el continente. Y la indexación en Baidu (百度), con el SEO bien configurado, suele empezar entre dos y cuatro semanas después del lanzamiento.',
       },
       {
         question: '¿Cómo miden el éxito de un proyecto en China?',
-        answer: 'Depende del proyecto. Para un sitio de generación de leads: los envíos de formularios y los objetivos de conversión de Baidu Tongji (百度统计). Para el comercio electrónico: la facturación y la tasa de finalización del carrito. Para un sitio de marca: el tiempo en página, las visitas recurrentes, el tráfico orgánico. Los KPI se validan en el arranque, y el informe llega cada mes.',
+        answer: 'Depende del tipo de proyecto. En la captación de contactos cuentan los formularios enviados y las conversiones que registra Baidu Tongji (百度统计); en una tienda, la facturación y el porcentaje de carritos que llegan al final; en un sitio de marca, el tiempo de permanencia, las visitas que repiten y el tráfico orgánico. Fijamos los indicadores al empezar el proyecto y le enviamos un informe cada mes.',
       },
       {
         question: '¿Y si el sitio rinde por debajo de lo esperado tras el lanzamiento?',
-        answer: 'Hacemos un diagnóstico. La causa es técnica, editorial, o responde a un desajuste con lo que esperan los internautas chinos. Los errores se corrigen sin coste, eso está incluido. Las optimizaciones más profundas, las reescrituras, el SEO en profundidad pasan por la cuota de mantenimiento.',
+        answer: 'Lo primero es un diagnóstico. La causa suele ser técnica o editorial, o responde a un desajuste con lo que espera el internauta chino. Los fallos los corregimos sin coste, porque entran en el proyecto; las mejoras de mayor calado, las reescrituras y el SEO a fondo se cubren con la cuota de mantenimiento.',
       },
     ],
   },
@@ -313,19 +313,19 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Cuál es su tasa de retención de clientes?',
-        answer: 'La mayoría de los clientes se quedan con nosotros en mantenimiento tras el lanzamiento. Algunos nos acompañan desde hace muchos años. No seguimos esa cifra como una métrica de marketing, pero es alta. El alojamiento chino y la renovación de los ICP (互联网内容提供商) imponen un soporte local continuo: la relación se prolonga por sí sola.',
+        answer: 'Después del lanzamiento, la mayoría de los clientes sigue con nosotros en mantenimiento, y algunos llevan ya muchos años. No usamos ese dato como reclamo de marketing, pero es alto. El alojamiento chino y la renovación del ICP (互联网内容提供商) exigen un soporte local constante, así que la relación se mantiene de forma natural.',
       },
       {
-        question: '¿Podemos contar con su equipo para desarrollo continuo tras el lanzamiento?',
-        answer: 'Sí. Ofrecemos horas de desarrollo por cuota, producción de contenido, SEO, trabajo de GEO China, gestión del alojamiento. La mayoría de los clientes acaba en una cuota mensual que cubre el mantenimiento y una bolsa de horas de desarrollo para lo que vaya surgiendo.',
+        question: '¿Podemos contar con ustedes para el desarrollo continuo después del lanzamiento?',
+        answer: 'Sí. Después del lanzamiento seguimos con horas de desarrollo por cuota, producción de contenido, SEO, optimización GEO para China y gestión del alojamiento. La mayoría de los clientes acaba en una cuota mensual: cubre el mantenimiento y deja una bolsa de horas de desarrollo para lo que vaya surgiendo.',
       },
       {
         question: '¿Y si queremos internalizarlo con el tiempo?',
-        answer: 'Ningún problema, acompañamos la transición. Hemos formado a equipos de clientes para que retomen las actualizaciones de contenido, el desarrollo ligero y el SEO en Baidu (百度). Entregamos la documentación, organizamos el traspaso de conocimientos y seguimos disponibles para los temas más espinosos. Sin dramas.',
+        answer: 'No hay problema, le acompañamos en el cambio. Hemos formado a equipos de clientes para que se encarguen ellos mismos de las actualizaciones de contenido, del desarrollo sencillo y del SEO en Baidu (百度). Les dejamos la documentación, organizamos el traspaso y seguimos a su disposición para lo más complejo, así que el relevo se hace sin sobresaltos.',
       },
       {
         question: '¿Ofrecen formación para nuestro equipo interno?',
-        answer: 'Sí. Formación en WordPress, formación en Baidu Tongji (百度统计), manejo de la Baidu Search Resource Platform (百度搜索资源平台), flujo editorial. A distancia, o presencial si está en China. El formato va de unas pocas horas a talleres de varios días, según la necesidad.',
+        answer: 'Sí. Damos formación en WordPress y en Baidu Tongji (百度统计), en el manejo de la Baidu Search Resource Platform (百度搜索资源平台) y en el día a día editorial. Puede ser a distancia o presencial, si su equipo está en China, y el formato va desde unas horas hasta talleres de varios días, según lo que haga falta.',
       },
     ],
   },
@@ -335,16 +335,16 @@ export const faqTopicsEs: FAQTopic[] = [
     icon: 'spark-question',
     items: [
       {
-        question: 'Ya trabajamos con una agencia digital global. ¿Por qué añadiros?',
-        answer: 'Porque no puede presentar un ICP (互联网内容提供商), no tiene relaciones de alojamiento en China y no conoce Baidu (百度) como nosotros. La mayoría de nuestros clientes conserva su agencia global para la capa internacional y nos moviliza para la capa específica de China. Colaboramos con agencias globales de forma continua, sin roces de ego.',
+        question: 'Ya trabajamos con una agencia digital global. ¿Por qué recurrir también a ustedes?',
+        answer: 'Porque su agencia global no puede tramitar un ICP (互联网内容提供商), no tiene acuerdos de alojamiento en China y no conoce Baidu (百度) como lo conocemos nosotros. La mayoría de nuestros clientes mantiene a su agencia de siempre para el trabajo internacional y nos deja a nosotros la parte china. Colaboramos con agencias globales a menudo, y sin conflictos.',
       },
       {
-        question: 'Nuestro departamento de IT cree que puede gestionarlo internamente. ¿Qué les decimos?',
-        answer: 'Díganles que les deseamos suerte y que nos llamen en 3 meses. Medio en broma. Un departamento de IT interno puede hacerlo perfectamente, a condición de dedicar un año a aprender la normativa, a tejer las relaciones de alojamiento y a domar la Baidu Search Resource Platform (百度搜索资源平台). La mayoría de los equipos internos se da cuenta enseguida de que esa curva de aprendizaje no es la prioridad de su año.',
+        question: 'Nuestro departamento de TI cree que puede gestionarlo internamente. ¿Qué les decimos?',
+        answer: 'Un departamento de TI puede hacerlo, sin duda. Eso sí, tendrá que dedicar cerca de un año a aprender la normativa, a construir la relación con los proveedores de alojamiento y a dominar la Baidu Search Resource Platform (百度搜索资源平台). La mayoría de los equipos internos se da cuenta pronto de que ese aprendizaje no es su prioridad para el año, y ahí solemos entrar nosotros.',
       },
       {
-        question: '¿Y si nuestra empresa tiene sensibilidades políticas o regulatorias?',
-        answer: 'Hemos acompañado a clientes de sectores regulados, de la sanidad a las tecnologías próximas a la defensa. No aceptamos todos los proyectos. Si su sector plantea cuestiones de cumplimiento que hacen arriesgada una presencia web en China, se lo decimos de entrada y le orientamos antes que nada hacia un asesor jurídico. Más vale saberlo en la semana 1.',
+        question: '¿Y si nuestra empresa opera en un sector sensible a nivel político o regulatorio?',
+        answer: 'Hemos trabajado con clientes de sectores regulados, desde la sanidad hasta tecnologías próximas a la defensa, y no aceptamos cualquier proyecto. Si en su sector hay cuestiones de cumplimiento que vuelven arriesgada una presencia web en China, se lo decimos desde el primer día y le sugerimos hablar antes con un asesor jurídico. Conviene saberlo cuanto antes.',
       },
     ],
   },

@@ -1,6 +1,6 @@
 ---
 title: "Datos personales en China: PIPL, DSL y ley de ciberseguridad"
-subtitle: "Si su sitio web recopila el menor dato personal de usuarios chinos, tres leyes le afectan. Aunque su empresa tenga su sede en Nueva York, en Londres o en Berlín."
+subtitle: "Si su sitio web recopila el menor dato personal de usuarios chinos, tres leyes le afectan, aunque su empresa tenga la sede en Nueva York, en Londres o en Berlín."
 summary: "El marco chino de protección de datos se articula en torno al PIPL, el DSL y la ley de ciberseguridad. El PIPL se aplica en todo el mundo a cualquier empresa que trate datos personales de residentes en China."
 visual: "/images/guides/china-data-privacy-pipl-dsl.webp"
 order: 11
@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Legal
 ---
 
-Muchas empresas extranjeras dan por hecho que las leyes chinas de protección de datos solo afectan a las compañías con oficina en Pekín o Shanghái. Es falso. El PIPL, el equivalente chino del RGPD, cubre a toda entidad que trate información personal de residentes en China, esté donde esté. Si su sitio deposita cookies, recopila direcciones de correo o sigue el comportamiento de visitantes situados en China, entra dentro del perímetro. En caso de infracción grave, la factura asciende hasta 50 millones de RMB o el 5 % de la facturación del ejercicio anterior. Las auditorías de cumplimiento son obligatorias desde mayo de 2025. Ya está en marcha.
+Muchas empresas extranjeras creen que las leyes chinas de protección de datos solo afectan a las compañías con oficina en Pekín o en Shanghái. No es cierto. El PIPL, el equivalente chino del RGPD, alcanza a cualquier entidad que trate datos personales de residentes en China, esté donde esté. Si su sitio instala cookies, recopila correos o sigue el comportamiento de visitantes situados en China, le afecta. En caso de infracción grave, la multa llega a 50 millones de RMB o al 5 % de la facturación del año anterior. Y las auditorías de cumplimiento son obligatorias desde mayo de 2025. El marco ya está en vigor.
 
 ## Tres leyes, un panorama
 
@@ -25,31 +25,31 @@ Muchas empresas extranjeras dan por hecho que las leyes chinas de protección de
 
 ## PIPL: la ley que le sigue a todas partes
 
-La ley de protección de la información personal entró en vigor en noviembre de 2021. Es la que las empresas extranjeras deben dominar en primer lugar. A diferencia de los otros dos textos del marco chino, el PIPL tiene un alcance extraterritorial: se aplica a toda entidad, esté donde esté, en cuanto trata información personal de personas que residen en China.
+La ley de protección de la información personal entró en vigor en noviembre de 2021. Es la que las empresas extranjeras deben dominar primero. A diferencia de las otras dos leyes del marco chino, el PIPL tiene alcance extraterritorial. Se aplica a cualquier entidad, esté donde esté, en cuanto trata datos personales de personas que residen en China.
 
-Dicho claramente: si su sitio se dirige a usuarios chinos y recopila lo que sea (nombres, direcciones de correo, números de teléfono, datos de navegación, identificadores de dispositivos), el PIPL le afecta. Da igual que su sede esté en Shanghái, en San Francisco o en Estocolmo. Da igual que nunca haya pisado China. En cuanto los datos pertenecen a residentes en China, la ley se aplica.
+En concreto: si su sitio se dirige a usuarios chinos y recopila cualquier dato (nombres, correos, teléfonos, datos de navegación o identificadores de dispositivos), el PIPL le afecta. Da igual que la sede esté en Shanghái, en San Francisco o en Estocolmo. Da igual que la empresa nunca haya pisado China. Si los datos son de residentes en el país, la ley se aplica.
 
-> El PIPL tiene un alcance extraterritorial. Toda empresa que trate datos personales de residentes en China está sometida a él, sea cual sea su país de implantación.
+> El PIPL tiene alcance extraterritorial. Cualquier empresa que trate datos personales de residentes en China está sometida a él, sea cual sea su país de implantación.
 
-Las auditorías de cumplimiento son obligatorias desde mayo de 2025. A partir de un millón de personas cuyos datos se tratan, es obligatorio nombrar a un delegado de protección de datos. Las transferencias transfronterizas, es decir, todo dato de usuario chino que sale del territorio, exigen, a elección de la empresa, una evaluación de seguridad gubernamental, cláusulas contractuales tipo o una certificación emitida por un organismo autorizado. Repatriar los datos a servidores en Fráncfort y considerar el asunto resuelto ya no es una opción.
+Las auditorías de cumplimiento son obligatorias desde mayo de 2025. Si trata los datos de más de un millón de personas, tiene que nombrar a un delegado de protección de datos. Las transferencias transfronterizas también están reguladas. Una transferencia es cualquier dato de un usuario chino que sale del territorio. Para hacerla, la empresa elige entre tres vías: una evaluación de seguridad gubernamental, cláusulas contractuales tipo o una certificación de un organismo autorizado. Llevar los datos a servidores en Fráncfort y dar el tema por cerrado ya no vale.
 
-En cuanto a las sanciones: hasta 50 millones de RMB o el 5 % de la facturación del ejercicio anterior, prevaleciendo el importe más alto. Los directivos también pueden ver comprometida su responsabilidad personal. Para quien ya haya vivido una adaptación al RGPD, la arquitectura resultará familiar y el orden de magnitud de las sanciones, comparable.
+Las sanciones llegan a 50 millones de RMB o al 5 % de la facturación del año anterior, siempre el importe más alto. Los directivos también pueden responder a título personal. Quien ya pasó por una adaptación al RGPD reconocerá la estructura, y el orden de magnitud de las multas le sonará parecido.
 
-> Infracciones graves del PIPL: hasta 50 millones de RMB o el 5 % de la facturación del ejercicio anterior. Los directivos pueden ver comprometida su responsabilidad personal.
+> Las infracciones graves del PIPL pueden costar hasta 50 millones de RMB o el 5 % de la facturación del año anterior. Los directivos también responden a título personal.
 
 ## DSL y ley de ciberseguridad: los otros dos pilares
 
-La ley de seguridad de datos (septiembre de 2021) y la ley de ciberseguridad (junio de 2017) completan el edificio. Afectan sobre todo a las empresas cuyas operaciones o cuyo tratamiento de datos se realizan físicamente en China.
+La ley de seguridad de datos (septiembre de 2021) y la ley de ciberseguridad (junio de 2017) completan el marco. Afectan sobre todo a las empresas que operan, o tratan datos, físicamente en China.
 
-El DSL abarca el conjunto de los datos tratados en China, mucho más allá de los datos personales. Establece tres niveles de clasificación: datos fundamentales del Estado, datos sensibles y datos generales. Las empresas deben construir sistemas de clasificación y aplicar medidas de protección adaptadas a cada categoría. La transferencia transfronteriza de datos sensibles está sujeta a restricciones adicionales y puede requerir el visto bueno de las autoridades.
+El DSL abarca todos los datos tratados en China, mucho más allá de los personales. Define tres niveles: datos fundamentales del Estado, datos sensibles y datos generales. Las empresas deben clasificar sus datos y proteger cada categoría según su nivel. La transferencia de datos sensibles fuera del país tiene restricciones añadidas, y a veces necesita el visto bueno de las autoridades.
 
-La ley de ciberseguridad, la más antigua de las tres, obliga a los operadores de redes a almacenar en servidores chinos los datos generados en China. Los operadores de infraestructuras de información críticas se someten a un régimen más estricto: evaluaciones de seguridad obligatorias, protocolos reforzados y exigencias de declaración más rigurosas.
+La ley de ciberseguridad, la más antigua de las tres, obliga a los operadores de redes a guardar en servidores chinos los datos generados en China. Los operadores de infraestructuras críticas tienen un régimen más estricto: evaluaciones de seguridad obligatorias, protocolos reforzados y exigencias de declaración más duras.
 
-Para la mayoría de las empresas extranjeras que explotan un sitio dirigido a usuarios chinos, el PIPL es el texto que hay que abordar primero. El DSL y la ley de ciberseguridad cobran toda su relevancia cuando se dispone de servidores, de personal o de operaciones de tratamiento en China continental.
+Para la mayoría de las empresas extranjeras con un sitio dirigido a usuarios chinos, el PIPL es la primera ley que hay que atender. El DSL y la ley de ciberseguridad pesan más cuando la empresa tiene servidores, personal u operaciones de datos en China continental.
 
-## Qué deben implementar concretamente las empresas extranjeras
+## Qué deben aplicar en concreto las empresas extranjeras
 
-Si su empresa recopila o trata datos de usuarios chinos bajo cualquier forma, los puntos que siguen son una obligación legal, no un consejo bienintencionado.
+Si su empresa recopila o trata datos de usuarios chinos de cualquier forma, los puntos que siguen son obligaciones legales que debe cumplir.
 
 | Exigencia | Detalles |
 |---|---|
@@ -61,20 +61,20 @@ Si su empresa recopila o trata datos de usuarios chinos bajo cualquier forma, lo
 | Auditorías de cumplimiento | Obligatorias en virtud del PIPL desde mayo de 2025 |
 | Procedimiento de notificación en caso de filtración | Establecerlo antes de que ocurra un incidente |
 
-**Nombrar a un DPD.** A partir de un millón de personas cuyos datos se tratan, el PIPL impone la designación de un delegado de protección de datos.
+**Nombrar a un delegado de protección de datos.** Si trata los datos de más de un millón de personas, el PIPL le obliga a designar uno.
 
-**Clasificar los datos**: inventariar lo que se recopila, medir el nivel de sensibilidad y establecer la correspondencia con las categorías del DSL. Los datos fundamentales del Estado y los datos sensibles conllevan obligaciones reforzadas.
+**Clasificar los datos.** Inventaríe lo que recopila. Mida su nivel de sensibilidad. Y asígnelo a las categorías del DSL. Los datos fundamentales del Estado y los datos sensibles traen obligaciones reforzadas.
 
-**Almacenar en China los datos de los usuarios chinos.** Los datos personales de los residentes en China deben residir en servidores físicamente instalados en China continental. Una exigencia de la ley de ciberseguridad, que el PIPL refuerza.
+**Guardar en China los datos de los usuarios chinos.** Los datos personales de los residentes en China deben alojarse en servidores instalados en China continental. Lo exige la ley de ciberseguridad, y el PIPL lo refuerza.
 
-**Recabar un consentimiento real.** Antes de cualquier recopilación de información personal, el usuario debe dar un consentimiento explícito e informado de forma activa. Las casillas premarcadas no bastan. Las condiciones enterradas en un pie de página que nadie lee, tampoco.
+**Pedir un consentimiento real.** Antes de recopilar cualquier dato personal, el usuario debe dar un consentimiento explícito, informado y activo. Las casillas premarcadas no bastan. Tampoco valen las condiciones escondidas en un pie de página que nadie lee.
 
-> Consentimiento explícito significa que el usuario acepta de forma activa. Las casillas premarcadas y el consentimiento implícito por la continuación de la navegación no cumplen el PIPL.
+> Un consentimiento explícito significa que el usuario acepta de forma activa. Las casillas premarcadas y el consentimiento implícito por seguir navegando no cumplen el PIPL.
 
 Este punto descoloca a muchas empresas habituadas al enfoque «al continuar navegando, usted acepta».
 
-**Encuadrar las transferencias transfronterizas.** Si los datos de usuarios chinos deben salir del territorio, hacia servidores en Europa o en Estados Unidos, por ejemplo, hay que pasar por una evaluación de seguridad gubernamental, contratos tipo o una certificación. Ningún atajo, ningún umbral de exención para los volúmenes reducidos.
+**Regular las transferencias transfronterizas.** Si los datos de usuarios chinos tienen que salir del país, por ejemplo a servidores en Europa o Estados Unidos, hay que pasar por una evaluación de seguridad gubernamental, por contratos tipo o por una certificación. No hay atajos. Tampoco hay exenciones para los volúmenes pequeños.
 
-**Llevar a cabo auditorías de cumplimiento.** Obligatorias en virtud del PIPL desde mayo de 2025. Un proceso continuo, bajo la mirada de los auditores.
+**Hacer auditorías de cumplimiento.** El PIPL las exige desde mayo de 2025. Es un proceso continuo, bajo la revisión de los auditores.
 
-**Preparar los procedimientos de notificación** antes de necesitarlos. En caso de filtración de datos, la obligación de notificar a las autoridades y a las personas afectadas se aplica dentro de plazos establecidos. Las empresas que solo redactan su procedimiento una vez ocurrido el incidente se encuentran en una posición mucho peor.
+**Preparar los procedimientos de notificación** antes de necesitarlos. Si hay una filtración de datos, hay que avisar a las autoridades y a las personas afectadas dentro de unos plazos fijados. Las empresas que redactan ese procedimiento solo después del incidente parten de una posición mucho peor.

@@ -1,7 +1,7 @@
 ---
 title: "El Gran Cortafuegos: qué bloquea y cómo convivir con él"
-subtitle: "Si su sitio carga tipografías de Google Fonts, dispara una etiqueta de Google Analytics o incrusta un vídeo de YouTube, ya está inservible para 900 millones de internautas chinos."
-summary: "El Gran Cortafuegos chino bloquea Google, Facebook, Slack y decenas de servicios más. Mecanismos técnicos y soluciones para las empresas extranjeras."
+subtitle: "Si su sitio carga tipografías de Google Fonts, ejecuta una etiqueta de Google Analytics o incrusta un vídeo de YouTube, deja de funcionar para los 900 millones de usuarios de internet que hay en China."
+summary: "El Gran Cortafuegos chino bloquea Google, Facebook, Slack y decenas de servicios más. Repasamos sus mecanismos técnicos y las soluciones al alcance de las empresas extranjeras."
 visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
@@ -10,35 +10,35 @@ updatedAt: 2026-05-02
 category: Technology
 ---
 
-El Gran Cortafuegos funciona de un modo distinto al que la mayoría imagina. Es un dispositivo de varias capas que envenena las consultas DNS, corta rangos enteros de direcciones IP, lee en tiempo real el contenido de sus paquetes y rastrea de forma activa las conexiones VPN. Para las empresas extranjeras, la consecuencia es brutal: un sitio que arrastra una sola dependencia hacia un servicio bloqueado, un archivo de tipografía, un script de seguimiento, un mapa, ofrece una experiencia degradada a los usuarios en China. Y, casi siempre, nadie del equipo se da cuenta.
+El Gran Cortafuegos es más complejo de lo que parece. Funciona en varias capas a la vez. Envenena las consultas DNS y corta rangos enteros de direcciones IP. Lee el contenido de cada paquete de datos en tiempo real. Rastrea las conexiones VPN una por una. Para una empresa extranjera, el efecto es directo. Basta una dependencia de un servicio bloqueado, una tipografía, un script o un mapa, y la experiencia se degrada en China. Casi nadie del equipo se da cuenta.
 
-## Cómo funciona de verdad el Gran Cortafuegos
+## Cómo funciona realmente el Gran Cortafuegos
 
-5 dispositivos operan en paralelo. Cada uno intercepta un tipo de tráfico distinto a un nivel distinto.
+Cinco mecanismos operan en paralelo. Cada uno intercepta un tipo de tráfico distinto, en un nivel distinto de la red.
 
 | Capa | Método | Efecto |
 |---|---|---|
-| Envenenamiento de DNS | Devuelve direcciones IP falsas | Manda al vacío las consultas hacia los dominios bloqueados |
-| Bloqueo de IP | Corta rangos de direcciones IP | Vuelve inaccesibles las IP conocidas de servicios extranjeros a nivel de red |
+| Envenenamiento de DNS | Devuelve direcciones IP falsas | Las consultas a dominios bloqueados terminan en una dirección inexistente |
+| Bloqueo de IP | Corta rangos de direcciones IP | Vuelve inaccesibles, a nivel de red, las IP conocidas de servicios extranjeros |
 | Inspección profunda de paquetes | Lee el contenido de los paquetes | Interrumpe las conexiones cuyo contenido coincide con patrones marcados |
-| Filtrado de URL | Filtra URL concretas | Bloquea ciertas páginas por palabra clave sin tocar el dominio entero |
-| Detección de VPN | Identifica los protocolos VPN | Ralentiza o bloquea el tráfico VPN por su firma |
+| Filtrado de URL | Filtra direcciones concretas | Bloquea ciertas páginas por palabra clave sin tocar el dominio entero |
+| Detección de VPN | Identifica los protocolos VPN | Ralentiza o bloquea el tráfico VPN a partir de su firma |
 
-**El envenenamiento de DNS** es la capa más básica. Cuando un internauta en China pide un dominio bloqueado, el cortafuegos devuelve una dirección IP falsa. La consulta no expira: termina en otro lugar. El usuario se topa con un error o una página en blanco, sin entender por qué.
+**El envenenamiento de DNS** es la capa más básica. Un usuario en China pide un dominio bloqueado. El cortafuegos le devuelve una dirección IP falsa. La consulta no caduca: termina en otro sitio. El usuario ve un error o una página en blanco, y no entiende por qué.
 
-**El bloqueo de IP** va más allá. Rangos enteros asociados a servicios extranjeros quedan cortados a nivel de red. Sortear el envenenamiento de DNS con un resolutor alternativo no sirve de nada si la propia IP sigue fuera de alcance.
+**El bloqueo de IP** va un paso más allá. Rangos enteros de direcciones de servicios extranjeros quedan cortados en la red. Cambiar de servidor DNS no sirve de nada: la dirección IP sigue fuera de alcance.
 
-**La inspección profunda de paquetes** es la capa que lo cambia todo. El sistema ya no se limita a comprobar el destino: analiza el contenido. En cuanto un paquete encaja con un patrón marcado, la conexión se corta en pleno tránsito. Es lo que distingue al dispositivo chino de los filtrados nacionales más rudimentarios.
+**La inspección profunda de paquetes** es la capa decisiva. El sistema abre cada paquete y examina lo que lleva dentro. Si el contenido coincide con un patrón marcado, corta la conexión en pleno tránsito. Otros filtros nacionales solo miran la dirección de destino. El sistema chino llega mucho más lejos.
 
-> La inspección profunda de paquetes analiza el contenido de su tráfico, y no solo su destino. Esta capa hace que el Gran Cortafuegos sea mucho más difícil de sortear que cualquier otro sistema existente.
+> La inspección profunda de paquetes examina el contenido del tráfico, además de su destino. Eso hace del Gran Cortafuegos un sistema mucho más difícil de sortear que cualquier otro filtro nacional.
 
-**El filtrado de URL** opera a escala de página. Un dominio puede seguir accesible mientras se filtran ciertas URL que contienen palabras clave concretas. Una intervención quirúrgica a nivel de página.
+**El filtrado de URL** actúa página por página. El dominio sigue accesible, pero ciertas direcciones con palabras clave concretas quedan bloqueadas. Es una intervención quirúrgica: bloquea la página exacta y deja el resto del sitio intacto.
 
-**La detección de VPN** es el mecanismo más reciente. El cortafuegos reconoce los protocolos VPN por su firma y los ralentiza o los corta. Una VPN de consumo que funcionaba hace 2 años puede haberse vuelto inservible. La capacidad de detección avanza sin pausa.
+**La detección de VPN** es el mecanismo más reciente. El cortafuegos reconoce los protocolos de VPN por su firma. Luego los ralentiza o los bloquea. Una VPN doméstica que funcionaba hace dos años puede estar hoy inservible. La detección mejora cada año.
 
-## Qué está bloqueado (y por qué eso rompe su sitio)
+## Qué está bloqueado y cómo afecta a su sitio
 
-Las empresas extranjeras centran su atención en la dimensión política del Gran Cortafuegos. Para su sitio, lo que cuenta son las dependencias técnicas.
+Las empresas extranjeras suelen fijarse en la dimensión política del Gran Cortafuegos. Para su sitio, lo que cuenta son las dependencias técnicas.
 
 | Categoría | Servicios bloqueados |
 |---|---|
@@ -49,38 +49,38 @@ Las empresas extranjeras centran su atención en la dimensión política del Gra
 | Prensa | New York Times, Wall Street Journal, BBC |
 | Referencia | Wikipedia (edición china) |
 
-Google está bloqueado. Por completo. Búsqueda, Gmail, Maps, YouTube, Google Ads, Google Analytics, Google Fonts. Todo. Si su sitio carga una tipografía desde fonts.googleapis.com o dispara una etiqueta de GA, esa consulta queda en suspenso para los usuarios en China. No aparece ningún mensaje de error. La página se ralentiza, una sección no carga, y el equipo de la central no se entera porque navega desde fuera del cortafuegos.
+Google está bloqueado por completo. No funcionan el buscador, ni Gmail, ni Maps, ni YouTube, ni Ads, ni Analytics, ni Fonts. Si su sitio carga una tipografía de fonts.googleapis.com o ejecuta una etiqueta de Analytics, esa consulta se queda en suspenso para los usuarios de China. No aparece ningún mensaje de error. La página se ralentiza o una sección no carga. El equipo de la central no lo nota, porque navega desde fuera del cortafuegos.
 
-Facebook, Instagram, WhatsApp, Messenger. Bloqueados. Twitter/X, Reddit, Pinterest. Bloqueados. La edición china de Wikipedia. Bloqueada.
+La lista sigue con las redes sociales. Facebook, Instagram, WhatsApp y Messenger están bloqueados. Lo mismo vale para Twitter/X, Reddit y Pinterest. La edición china de Wikipedia tampoco se abre.
 
-Las herramientas de trabajo de las que viven las empresas occidentales: Dropbox, Slack, Notion, Trello. Bloqueadas. Cualquier integración con alguna de ellas, cualquier recurso cargado desde sus dominios, está muerto en China.
+Las herramientas de trabajo occidentales corren la misma suerte. Dropbox, Slack, Notion y Trello quedan fuera de alcance. Cualquier integración con ellos deja de funcionar en China, y también los recursos que el sitio cargue desde sus dominios.
 
-Netflix, Spotify, Twitch. Bloqueados. La mayoría de los grandes medios de prensa occidentales, entre ellos el New York Times, el Wall Street Journal y la BBC. Bloqueados.
+Lo mismo ocurre con el entretenimiento, como Netflix, Spotify o Twitch, y con buena parte de la gran prensa occidental: el New York Times, el Wall Street Journal o la BBC.
 
-Lo que más sorprende a las empresas ocurre más allá de los propios servicios bloqueados. Cada script, tipografía, widget o llamada a una API que recurre en segundo plano a un dominio bloqueado se rompe también. Un simple enlace a Google Fonts olvidado en el CSS puede sumar segundos al tiempo de carga de cada visitante en China. Una sola etiqueta de analítica puede congelar el renderizado de la página.
+Lo que más sorprende llega después. Cualquier script, tipografía, widget o llamada a una API que dependa de un dominio bloqueado deja de funcionar. Un enlace a Google Fonts olvidado en la hoja de estilos añade varios segundos de carga a cada visitante chino. Una sola etiqueta de analítica puede congelar la página entera.
 
-> Un simple enlace a Google Fonts olvidado en su CSS puede sumar segundos al tiempo de carga de cada usuario en China. El daño se esconde en su código, en las dependencias cuya existencia había olvidado.
+> Un enlace a Google Fonts olvidado en la hoja de estilos añade varios segundos de carga a cada usuario chino. El problema está en el propio código, en dependencias que el equipo ya ni recordaba.
 
 ## Estrategias para las empresas extranjeras
 
-El cortafuegos no se perfora. Lo que sí se puede es construir un sitio que no necesite atravesarlo.
+Nadie va a perforar el Gran Cortafuegos. La estrategia sensata es construir un sitio que no necesite atravesarlo.
 
 | Estrategia | Qué resuelve |
 |---|---|
-| Alojamiento continental con ICP | Velocidad, posicionamiento, cumplimiento |
+| Alojamiento continental con ICP | Velocidad, posicionamiento y cumplimiento normativo |
 | CDN chino | Almacenamiento en caché en nodos de China continental |
-| Sustitución de las dependencias bloqueadas | Google Fonts por tipografías locales, GA por Baidu Tongji, Maps por Baidu Maps |
+| Sustitución de las dependencias bloqueadas | Google Fonts por tipografías locales, Analytics por Baidu Tongji, Maps por Baidu Maps |
 | Alojamiento en Hong Kong | Solución intermedia, sin ICP |
-| Claridad sobre las VPN | Zona gris jurídica, distinción entre uso profesional y personal |
+| Claridad sobre las VPN | Zona gris jurídica, con distinción entre uso profesional y personal |
 
-**Alojar en China continental con una licencia ICP.** La vía más directa. El sitio vive dentro del cortafuegos en lugar de pelear por cruzarlo. Las cargas más rápidas, el mejor posicionamiento en Baidu, cumplimiento total. Para quien apuesta por el mercado chino, este es el destino.
+**Alojar el sitio en China continental con una licencia ICP** es la vía más directa. El sitio vive dentro del cortafuegos y no tiene que cruzarlo. Las páginas cargan más rápido. Baidu las posiciona mejor. El cumplimiento normativo queda resuelto. Para una empresa decidida a operar en China, esta es la opción de referencia.
 
-**Recurrir a un CDN chino** para almacenar el contenido en caché en nodos instalados en China continental. Aunque el servidor de origen esté fuera del país, un CDN con PoP continentales sirve las páginas a los internautas chinos sin que cada consulta tenga que atravesar el cortafuegos.
+**Recurrir a un CDN chino** permite guardar el contenido en caché en nodos de China continental. El servidor de origen puede estar fuera del país. Un CDN con puntos de presencia en el continente entrega igualmente las páginas, sin que cada consulta cruce el cortafuegos.
 
-**Sustituir cada dependencia bloqueada.** El paso que más se omite. Google Fonts debe ceder su lugar a tipografías alojadas localmente. Google Maps, a Baidu Maps. Google Analytics, a Baidu Tongji. Hay que revisar a fondo cada llamada externa del sitio. Cada etiqueta de script, cada importación de tipografía, cada punto de acceso a una API. Si alguno apunta a un dominio bloqueado, sus usuarios chinos sufrirán una experiencia degradada sin que usted lo sepa.
+**Sustituir cada dependencia bloqueada** es el paso que más se olvida. Google Fonts pasa a tipografías alojadas en servidores locales, Google Maps a Baidu Maps y Google Analytics a Baidu Tongji. Hay que revisar todas las llamadas externas del sitio, una por una: cada script, cada tipografía, cada punto de acceso a una API. Si una apunta a un dominio bloqueado, los usuarios chinos sufren una mala experiencia y la empresa ni se entera.
 
-> Google Fonts, Google Analytics, Google Maps. Hay que sustituirlos por tipografías alojadas localmente, Baidu Tongji y Baidu Maps. Cada llamada externa del sitio debe auditarse.
+> Google Fonts, Google Analytics y Google Maps tienen que dar paso a tipografías locales, a Baidu Tongji y a Baidu Maps. Cada llamada externa del sitio necesita una revisión.
 
-Después llega **el alojamiento en Hong Kong**, una solución intermedia para las empresas que aún no están listas para afrontar el trámite ICP. Sin licencia, con una latencia razonable hacia el continente y las interferencias del cortafuegos por lo general evitadas. Un compromiso asumido, viable para quien tantea el terreno.
+Queda **el alojamiento en Hong Kong**. Es una solución intermedia para las empresas que aún no están listas para el registro ICP. No exige licencia. La latencia hacia el continente es razonable. Y el cortafuegos rara vez interfiere. Es un compromiso aceptable para quien todavía explora el mercado.
 
-**Las VPN** entran en una zona gris. Las VPN corporativas que conectan oficinas en China con las redes globales suelen tolerarse. Las VPN de consumo destinadas a sortear el cortafuegos son técnicamente ilegales, aunque la aplicación varía según las regiones y los años. Las empresas extranjeras instaladas en China deben tener clara esta distinción. No dé por sentado que sus equipos pueden usar libremente VPN personales para llegar a servicios bloqueados desde la oficina.
+**Las VPN** se mueven en una zona gris. Las VPN corporativas, que conectan las oficinas en China con las redes internacionales, suelen tolerarse. Las VPN domésticas son otra cosa. Sirven para saltarse el cortafuegos y son técnicamente ilegales, aunque la persecución varía según la región y el año. Las empresas extranjeras en China deben tener clara esta diferencia. No dé por sentado que su plantilla puede usar VPN personales en la oficina para llegar a servicios bloqueados.

@@ -97,7 +97,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label for="youAre" class={labelClass}>
-          Usted es <span class="text-[var(--color-brand-orange)]">*</span>
+          Tipo de empresa <span class="text-[var(--color-brand-orange)]">*</span>
         </label>
         <select id="youAre" name="youAre" required class={selectClass}>
           <option value="" disabled selected>Elija una opción</option>
@@ -182,8 +182,8 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
           </label>
         </div>
         <div id="china-detail-field" class="hidden mt-4">
-          <label for="chinaPresenceDetail" class={labelClass}>Si la respuesta es sí, ¿de qué tipo?</label>
-          <input type="text" id="chinaPresenceDetail" name="chinaPresenceDetail" placeholder="Tienda Tmall, cuenta de WeChat, oficina local..." class={inputClass} />
+          <label for="chinaPresenceDetail" class={labelClass}>¿De qué tipo?</label>
+          <input type="text" id="chinaPresenceDetail" name="chinaPresenceDetail" placeholder="Tienda en Tmall, cuenta de WeChat, oficina local..." class={inputClass} />
         </div>
       </div>
     </div>
@@ -211,7 +211,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     <!-- Mensaje de estado -->
     <div id="form-status" class="hidden rounded-lg px-4 py-3 text-sm font-medium"></div>
 
-    <Button type="submit" variant="primary" size="lg" class="w-full">Enviar</Button>
+    <Button type="submit" variant="primary" size="lg" class="w-full">Enviar mensaje</Button>
   </form>
 </div>
 
@@ -261,7 +261,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     ).map((el) => el.value);
 
     if (services.length === 0) {
-      statusEl.textContent = 'Marque al menos un servicio, por favor.';
+      statusEl.textContent = 'Seleccione al menos un servicio.';
       statusEl.className = errorClass;
       return;
     }
@@ -298,17 +298,17 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       const result = await res.json();
 
       if (res.ok && result.success) {
-        statusEl.textContent = 'Recibido. Le respondemos en 24 horas.';
+        statusEl.textContent = 'Hemos recibido su mensaje. Le respondemos en menos de 24 horas.';
         statusEl.className = successClass;
         form.reset();
         syncWebsite();
         syncChinaPresence();
       } else {
-        statusEl.textContent = result.error || 'Algo ha fallado. Inténtelo de nuevo, por favor.';
+        statusEl.textContent = result.error || 'No hemos podido enviar su mensaje. Vuelva a intentarlo.';
         statusEl.className = errorClass;
       }
     } catch {
-      statusEl.textContent = 'No se puede contactar con el servidor. Compruebe su conexión e inténtelo de nuevo.';
+      statusEl.textContent = 'No hemos podido conectar con el servidor. Compruebe su conexión y vuelva a intentarlo.';
       statusEl.className = errorClass;
     } finally {
       submitBtn.disabled = false;
