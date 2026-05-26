@@ -109,6 +109,37 @@
       counts.forEach((el) => countObserver.observe(el));
     }
 
+    // FAQ accordion toggle (idempotent: each trigger only binds once)
+    const accordions = document.querySelectorAll('[data-faq-accordion]');
+    accordions.forEach((accordion) => {
+      const items = accordion.querySelectorAll('[data-faq-item]');
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+        const content = item.querySelector('[data-faq-content]') as HTMLElement | null;
+        const chevron = item.querySelector('[data-faq-chevron]') as SVGElement | null;
+        if (!trigger || trigger.dataset.bound === 'true') return;
+        trigger.dataset.bound = 'true';
+        trigger.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+          items.forEach((other) => {
+            if (other === item) return;
+            const otherTrigger = other.querySelector('[data-faq-trigger]') as HTMLButtonElement | null;
+            const otherContent = other.querySelector('[data-faq-content]') as HTMLElement | null;
+            const otherChevron = other.querySelector('[data-faq-chevron]') as SVGElement | null;
+            otherTrigger?.setAttribute('aria-expanded', 'false');
+            otherContent?.style.setProperty('grid-template-rows', '0fr');
+            (other as HTMLElement).setAttribute('data-open', 'false');
+            otherChevron?.classList.remove('rotate-180');
+          });
+          const next = !isOpen;
+          trigger.setAttribute('aria-expanded', String(next));
+          content?.style.setProperty('grid-template-rows', next ? '1fr' : '0fr');
+          (item as HTMLElement).setAttribute('data-open', String(next));
+          chevron?.classList.toggle('rotate-180', next);
+        });
+      });
+    });
+
     // Scroll progress bar
     const fill = document.getElementById('scroll-progress-fill') as HTMLElement | null;
     if (fill) {

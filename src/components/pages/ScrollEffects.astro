@@ -296,11 +296,13 @@
             const otherChevron = other.querySelector('[data-faq-chevron]') as SVGElement | null;
             otherTrigger?.setAttribute('aria-expanded', 'false');
             otherContent?.style.setProperty('grid-template-rows', '0fr');
+            (other as HTMLElement).setAttribute('data-open', 'false');
             otherChevron?.classList.remove('rotate-180');
           });
           const next = !isOpen;
           trigger.setAttribute('aria-expanded', String(next));
           content?.style.setProperty('grid-template-rows', next ? '1fr' : '0fr');
+          (item as HTMLElement).setAttribute('data-open', String(next));
           chevron?.classList.toggle('rotate-180', next);
         });
       });
