@@ -11,80 +11,80 @@ const service = (await getEntry('services-de', 'chinese-content'))!;
 const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
 
-// Was zu schreiben ist: 5 Unterschiede mit gepaarten "Standard vs. Realität"-Daten
+// Was zu schreiben ist: 5 Unterschiede mit gepaarten "Standard vs. RealitÃ¤t"-Daten
 const differences = [
   {
     n: '01',
-    cn: '信任',
+    cn: 'ä¿¡ä»»',
     title: 'Die Vertrauenssignale sind andere',
-    body: 'Chinesische Leser scannen eine Markenwebsite nach Dingen, die ausländische Teams unterbetonen: Glaubwürdigkeit des Gründers, Gründungsjahr, Werkstandort, Zertifizierungen, Partnerschaften, Auszeichnungen, namentlich genannte Kunden, Medienberichte, Teamgröße. Ein aufgeräumter Hero mit 3 Stichpunkten wirkt eher leer als anspruchsvoll. Der Leser nimmt an, die Marke sei klein, neu oder verberge etwas.',
+    body: 'Chinesische Leser scannen eine Markenwebsite nach Dingen, die auslÃ¤ndische Teams unterbetonen: GlaubwÃ¼rdigkeit des GrÃ¼nders, GrÃ¼ndungsjahr, Werkstandort, Zertifizierungen, Partnerschaften, Auszeichnungen, namentlich genannte Kunden, Medienberichte, TeamgrÃ¶ÃŸe. Ein aufgerÃ¤umter Hero mit 3 Stichpunkten wirkt eher leer als anspruchsvoll. Der Leser nimmt an, die Marke sei klein, neu oder verberge etwas.',
     westernLabel: 'Hero mit 3 Stichpunkten',
     westernSub: '"Build better. Faster. Together."',
     chineseLabel: 'Dichtes Vertrauenspanel',
-    chineseSub: 'Gegründet · Werk · Partner · Auszeichnungen · Medien',
+    chineseSub: 'GegrÃ¼ndet Â· Werk Â· Partner Â· Auszeichnungen Â· Medien',
   },
   {
     n: '02',
-    cn: '决策',
+    cn: 'å†³ç­–',
     title: 'Der Entscheidungsrahmen ist ein anderer',
-    body: 'Westliche Botschaften führen mit dem Anspruch. Chinesische Leser kaufen in einer anderen Reihenfolge: praktischer Beleg zuerst, Glaubwürdigkeit danach, Anspruch zuletzt. Derselbe Inhalt, neu geordnet, liest sich als glaubwürdige Marke statt als Broschüre.',
-    westernLabel: 'Anspruch → Beleg',
+    body: 'Westliche Botschaften fÃ¼hren mit dem Anspruch. Chinesische Leser kaufen in einer anderen Reihenfolge: praktischer Beleg zuerst, GlaubwÃ¼rdigkeit danach, Anspruch zuletzt. Derselbe Inhalt, neu geordnet, liest sich als glaubwÃ¼rdige Marke statt als BroschÃ¼re.',
+    westernLabel: 'Anspruch â†’ Beleg',
     westernSub: 'Vision, dann Specs, dann Fallstudien',
-    chineseLabel: 'Beleg → Glaubwürdigkeit → Anspruch',
+    chineseLabel: 'Beleg â†’ GlaubwÃ¼rdigkeit â†’ Anspruch',
     chineseSub: 'Specs zuerst, Partner danach, Vision zuletzt',
   },
   {
     n: '03',
-    cn: '语言',
+    cn: 'è¯­è¨€',
     title: 'Die Kategoriesprache ist eine andere',
-    body: 'Übersetzte SEO-Keywords verfehlen fast immer die Formulierungen, nach denen chinesische Nutzer tatsächlich suchen. Wir führen die Keyword-Recherche auf Chinesisch und von Grund auf durch, bevor der erste Text geschrieben wird.',
-    westernLabel: 'Übersetzte Keywords',
+    body: 'Ãœbersetzte SEO-Keywords verfehlen fast immer die Formulierungen, nach denen chinesische Nutzer tatsÃ¤chlich suchen. Wir fÃ¼hren die Keyword-Recherche auf Chinesisch und von Grund auf durch, bevor der erste Text geschrieben wird.',
+    westernLabel: 'Ãœbersetzte Keywords',
     westernSub: '"enterprise software solutions"',
     chineseLabel: 'Muttersprachliche Suchintention',
-    chineseSub: '企业级软件 / SaaS服务 / 数字化解决方案',
+    chineseSub: 'ä¼ä¸šçº§è½¯ä»¶ / SaaSæœåŠ¡ / æ•°å­—åŒ–è§£å†³æ–¹æ¡ˆ',
   },
   {
     n: '04',
-    cn: '形式',
+    cn: 'å½¢å¼',
     title: 'Das Format ist ein anderes',
-    body: 'Chinesische Produktseiten sind lang, dicht und auf das Scrollen ausgelegt; regelmäßig laufen sie 3- bis 5-mal so lang wie ihre westlichen Pendants. In diesem Markt liest sich Dichte als Vertrauenssignal.',
-    westernLabel: 'Minimal, von Weißraum geprägt',
+    body: 'Chinesische Produktseiten sind lang, dicht und auf das Scrollen ausgelegt; regelmÃ¤ÃŸig laufen sie 3- bis 5-mal so lang wie ihre westlichen Pendants. In diesem Markt liest sich Dichte als Vertrauenssignal.',
+    westernLabel: 'Minimal, von WeiÃŸraum geprÃ¤gt',
     westernSub: 'Eine Aussage pro Scroll',
     chineseLabel: 'Langform, dicht',
     chineseSub: '3- bis 5-mal so lang wie die westliche Seite',
   },
   {
     n: '05',
-    cn: '法律',
+    cn: 'æ³•å¾‹',
     title: 'Die Rechtssprache ist eine andere',
-    body: 'Das chinesische Werberecht (广告法) regelt, was ausländische Marken oft gedankenlos sagen. Superlative wie "bestes" oder "erstes" (最, 第一, 最佳) sind eingeschränkt. Branchenspezifische Aussagen (Medizin, Finanzen, Lebensmittel, Kosmetik) haben jeweils eigene Regeln. Wir schreiben von Anfang an konform.',
-    westernLabel: 'Superlative überall',
+    body: 'Das chinesische Werberecht (å¹¿å‘Šæ³•) regelt, was auslÃ¤ndische Marken oft gedankenlos sagen. Superlative wie "bestes" oder "erstes" (æœ€, ç¬¬ä¸€, æœ€ä½³) sind eingeschrÃ¤nkt. Branchenspezifische Aussagen (Medizin, Finanzen, Lebensmittel, Kosmetik) haben jeweils eigene Regeln. Wir schreiben von Anfang an konform.',
+    westernLabel: 'Superlative Ã¼berall',
     westernSub: '"World-class. Best-in-class. First."',
-    chineseLabel: 'Aussagen konform mit 广告法',
-    chineseSub: 'Konkrete, belegte, geprüfte Sprache',
+    chineseLabel: 'Aussagen konform mit å¹¿å‘Šæ³•',
+    chineseSub: 'Konkrete, belegte, geprÃ¼fte Sprache',
   },
 ];
 
 // Vergleichsdaten zur Informationsarchitektur
 const foreignIA = [
   { label: 'Startseite', primary: true },
-  { label: 'Über uns' },
+  { label: 'Ãœber uns' },
   { label: 'Produkte' },
   { label: 'Ressourcen' },
   { label: 'Kontakt' },
 ];
 
 const chineseIA = [
-  { label: '首页 / Startseite', primary: true },
+  { label: 'é¦–é¡µ / Startseite', primary: true },
   { label: 'Markengeschichte', highlight: true },
-  { label: 'Auszeichnungen 荣誉资质', highlight: true },
-  { label: 'Unternehmensgeschichte 企业历程', highlight: true },
-  { label: 'Branche / Lösungen' },
-  { label: 'Fälle und Kunden', highlight: true },
+  { label: 'Auszeichnungen è£èª‰èµ„è´¨', highlight: true },
+  { label: 'Unternehmensgeschichte ä¼ä¸šåŽ†ç¨‹', highlight: true },
+  { label: 'Branche / LÃ¶sungen' },
+  { label: 'FÃ¤lle und Kunden', highlight: true },
   { label: 'Produkte' },
-  { label: 'Werk 生产基地', highlight: true },
-  { label: 'Partner 合作伙伴', highlight: true },
-  { label: 'News 新闻动态', highlight: true },
+  { label: 'Werk ç”Ÿäº§åŸºåœ°', highlight: true },
+  { label: 'Partner åˆä½œä¼™ä¼´', highlight: true },
+  { label: 'News æ–°é—»åŠ¨æ€', highlight: true },
   { label: 'Kontakt' },
 ];
 
@@ -92,17 +92,17 @@ const structurePoints = [
   {
     n: '01',
     title: 'Seitenhierarchie, die chinesische Leser erwarten',
-    body: 'Ausländische Markenwebsites führen typischerweise mit Startseite, Über uns, Produkte, Ressourcen, Kontakt. Chinesische Markenwebsites führen oft mit der Glaubwürdigkeit der Marke, dann mit Kategorie-Aufklärung, dann mit Belegen, dann mit dem Produkt. Die Reihenfolge passt dazu, wie chinesische Leser sich tatsächlich durch eine Marke bewegen, der sie noch nicht vertrauen.',
+    body: 'AuslÃ¤ndische Markenwebsites fÃ¼hren typischerweise mit Startseite, Ãœber uns, Produkte, Ressourcen, Kontakt. Chinesische Markenwebsites fÃ¼hren oft mit der GlaubwÃ¼rdigkeit der Marke, dann mit Kategorie-AufklÃ¤rung, dann mit Belegen, dann mit dem Produkt. Die Reihenfolge passt dazu, wie chinesische Leser sich tatsÃ¤chlich durch eine Marke bewegen, der sie noch nicht vertrauen.',
   },
   {
     n: '02',
-    title: 'Vertrauensseiten, die die meisten ausländischen Marken vergessen',
-    body: 'Dazu zählen Auszeichnungen (荣誉资质), die Unternehmensgeschichte (企业历程), das Werk oder Büro (生产基地), Qualitätszertifizierungen (质量认证), wichtige Partner (合作伙伴), Medienerwähnungen (媒体报道) und ein News-Bereich (新闻动态). Auf chinesischen Markenwebsites gehören sie zum Standard, auf ausländischen fehlen sie beim China-Eintritt regelmäßig. Wir planen sie von Tag eins an ein.',
+    title: 'Vertrauensseiten, die die meisten auslÃ¤ndischen Marken vergessen',
+    body: 'Dazu zÃ¤hlen Auszeichnungen (è£èª‰èµ„è´¨), die Unternehmensgeschichte (ä¼ä¸šåŽ†ç¨‹), das Werk oder BÃ¼ro (ç”Ÿäº§åŸºåœ°), QualitÃ¤tszertifizierungen (è´¨é‡è®¤è¯), wichtige Partner (åˆä½œä¼™ä¼´), MedienerwÃ¤hnungen (åª’ä½“æŠ¥é“) und ein News-Bereich (æ–°é—»åŠ¨æ€). Auf chinesischen Markenwebsites gehÃ¶ren sie zum Standard, auf auslÃ¤ndischen fehlen sie beim China-Eintritt regelmÃ¤ÃŸig. Wir planen sie von Tag eins an ein.',
   },
   {
     n: '03',
     title: 'Baidu-freundliche URL- und Content-Struktur',
-    body: 'Baidu indexiert strukturierte, originale, frische Inhalte von einer einzigen primären Domain. Wir entwerfen URL-Muster, die Baidu crawlen kann, interne Verlinkung, die Ranking-Autorität verteilt, und einen Veröffentlichungstakt, der signalisiert, dass die Website aktiv ist.',
+    body: 'Baidu indexiert strukturierte, originale, frische Inhalte von einer einzigen primÃ¤ren Domain. Wir entwerfen URL-Muster, die Baidu crawlen kann, interne Verlinkung, die Ranking-AutoritÃ¤t verteilt, und einen VerÃ¶ffentlichungstakt, der signalisiert, dass die Website aktiv ist.',
   },
   {
     n: '04',
@@ -112,90 +112,90 @@ const structurePoints = [
   {
     n: '05',
     title: 'Redaktioneller Takt, in die Struktur eingebaut',
-    body: 'Eine Website, die seit 6 Monaten nichts veröffentlicht hat, hört auf, bei Baidu zu ranken. Die IA braucht Orte, an denen Inhalte weiter kommen können: einen echten News-Bereich, eine Wissensdatenbank, einen redaktionellen Blog, Kundengeschichten. Wir bauen diese Veröffentlichungsflächen von Tag eins an, auch wenn der Start-Content schmal ist.',
+    body: 'Eine Website, die seit 6 Monaten nichts verÃ¶ffentlicht hat, hÃ¶rt auf, bei Baidu zu ranken. Die IA braucht Orte, an denen Inhalte weiter kommen kÃ¶nnen: einen echten News-Bereich, eine Wissensdatenbank, einen redaktionellen Blog, Kundengeschichten. Wir bauen diese VerÃ¶ffentlichungsflÃ¤chen von Tag eins an, auch wenn der Start-Content schmal ist.',
   },
 ];
 
 const contentTypes = [
   {
     label: 'Zentrale Website-Inhalte',
-    cn: '官网内容',
-    body: 'Diese Inhalte bilden das Rückgrat der Marke.',
-    items: ['Startseite', 'Über uns', 'Markengeschichte', 'Gründergeschichte', 'Team', 'Geschichte', 'Auszeichnungen', 'Qualität', 'Werk', 'Partner', 'Kontakt'],
+    cn: 'å®˜ç½‘å†…å®¹',
+    body: 'Diese Inhalte bilden das RÃ¼ckgrat der Marke.',
+    items: ['Startseite', 'Ãœber uns', 'Markengeschichte', 'GrÃ¼ndergeschichte', 'Team', 'Geschichte', 'Auszeichnungen', 'QualitÃ¤t', 'Werk', 'Partner', 'Kontakt'],
     feature: true,
   },
   {
     label: 'Produkt- und Kategorieinhalte',
-    cn: '产品内容',
+    cn: 'äº§å“å†…å®¹',
     body: 'Langform-Produktseiten, technische Spezifikationen, Anwendungsszenarien.',
   },
   {
     label: 'Redaktionelle und SEO-Inhalte',
-    cn: '内容运营',
-    body: 'Blogartikel, Wissensdatenbank, Brancheneinblicke, Anleitungen für Sichtbarkeit auf Baidu und in der KI-Suche.',
+    cn: 'å†…å®¹è¿è¥',
+    body: 'Blogartikel, Wissensdatenbank, Brancheneinblicke, Anleitungen fÃ¼r Sichtbarkeit auf Baidu und in der KI-Suche.',
   },
   {
     label: 'Vertrauens- und Beleginhalte',
-    cn: '品牌背书',
-    body: 'Fallstudien, Kundengeschichten, Partnerprofile, Ankündigungen von Auszeichnungen, Medienerwähnungen.',
+    cn: 'å“ç‰ŒèƒŒä¹¦',
+    body: 'Fallstudien, Kundengeschichten, Partnerprofile, AnkÃ¼ndigungen von Auszeichnungen, MedienerwÃ¤hnungen.',
   },
   {
     label: 'Conversion-Inhalte',
-    cn: '转化页面',
-    body: 'Landingpages für bezahlte Medien, Lead-Magnete, geschützte Whitepaper, Kontaktformulare.',
+    cn: 'è½¬åŒ–é¡µé¢',
+    body: 'Landingpages fÃ¼r bezahlte Medien, Lead-Magnete, geschÃ¼tzte Whitepaper, Kontaktformulare.',
   },
   {
-    label: 'Inhalte für das WeChat-Ökosystem',
-    cn: '微信生态',
-    body: 'Texte für H5-Mini-Sites, Mini-Programm-Inhalte, Briefings für Artikel von Offiziellen Accounts.',
+    label: 'Inhalte fÃ¼r das WeChat-Ã–kosystem',
+    cn: 'å¾®ä¿¡ç”Ÿæ€',
+    body: 'Texte fÃ¼r H5-Mini-Sites, Mini-Programm-Inhalte, Briefings fÃ¼r Artikel von Offiziellen Accounts.',
   },
 ];
 
 const stages = [
   {
     n: '01',
-    cn: '调研',
+    cn: 'è°ƒç ”',
     title: 'Discovery und Kategorierecherche',
-    body: 'Wir prüfen 3 bis 5 direkte Wettbewerber von Anfang bis Ende und verfolgen das Kategoriegespräch auf Baidu, Zhihu (知乎) und einschlägigen Branchenseiten. Daraus entsteht eine schriftliche Content-Strategie, die benennt, was Ihre Marke sagen sollte, was sie auslassen sollte und wo der freie Raum liegt.',
+    body: 'Wir prÃ¼fen 3 bis 5 direkte Wettbewerber von Anfang bis Ende und verfolgen das KategoriegesprÃ¤ch auf Baidu, Zhihu (çŸ¥ä¹Ž) und einschlÃ¤gigen Branchenseiten. Daraus entsteht eine schriftliche Content-Strategie, die benennt, was Ihre Marke sagen sollte, was sie auslassen sollte und wo der freie Raum liegt.',
     output: 'Content-Strategie-Dokument',
   },
   {
     n: '02',
-    cn: '架构',
+    cn: 'æž¶æž„',
     title: 'Informationsarchitektur',
-    body: 'Wir entwerfen Sitemap und Seitenhierarchie für chinesische Leser und bauen dabei die Vertrauensseiten, die redaktionellen Flächen und die Baidu-freundliche URL-Struktur ein. Geliefert wird das Ganze als schriftliches IA-Dokument, damit Design und Entwicklung wissen, worauf sie hinarbeiten.',
+    body: 'Wir entwerfen Sitemap und Seitenhierarchie fÃ¼r chinesische Leser und bauen dabei die Vertrauensseiten, die redaktionellen FlÃ¤chen und die Baidu-freundliche URL-Struktur ein. Geliefert wird das Ganze als schriftliches IA-Dokument, damit Design und Entwicklung wissen, worauf sie hinarbeiten.',
     output: 'IA-Dokument + Sitemap',
   },
   {
     n: '03',
-    cn: '撰写',
+    cn: 'æ’°å†™',
     title: 'Muttersprachliches Schreiben auf Chinesisch',
-    body: 'Chinesische Redakteure schreiben die Texte auf Mandarin, nach der Strategie und in Ihrer Markenstimme, und bauen sie von Grund auf für chinesische Leser neu auf.',
-    output: 'Entwürfe Seite für Seite',
+    body: 'Chinesische Redakteure schreiben die Texte auf Mandarin, nach der Strategie und in Ihrer Markenstimme, und bauen sie von Grund auf fÃ¼r chinesische Leser neu auf.',
+    output: 'EntwÃ¼rfe Seite fÃ¼r Seite',
   },
   {
     n: '04',
-    cn: '迭代',
-    title: 'Redaktionelle Prüfung und Veröffentlichung',
-    body: 'Jeder Text durchläuft die interne Prüfung auf Markenstimme, faktische Richtigkeit, SEO-Struktur und Konformität mit 广告法. Nach der Veröffentlichung verfolgen wir die Leistung auf Baidu und den KI-Engines und steuern bei Schwächen nach. Wer einmal veröffentlicht und die Seite dann sich selbst überlässt, rankt in China nicht.',
-    output: 'Monatliche Leistung + Überarbeitungen',
+    cn: 'è¿­ä»£',
+    title: 'Redaktionelle PrÃ¼fung und VerÃ¶ffentlichung',
+    body: 'Jeder Text durchlÃ¤uft die interne PrÃ¼fung auf Markenstimme, faktische Richtigkeit, SEO-Struktur und KonformitÃ¤t mit å¹¿å‘Šæ³•. Nach der VerÃ¶ffentlichung verfolgen wir die Leistung auf Baidu und den KI-Engines und steuern bei SchwÃ¤chen nach. Wer einmal verÃ¶ffentlicht und die Seite dann sich selbst Ã¼berlÃ¤sst, rankt in China nicht.',
+    output: 'Monatliche Leistung + Ãœberarbeitungen',
   },
 ];
 
 const audiences = [
   {
     label: 'Marken, die zum ersten Mal in China starten',
-    description: 'Unternehmen, die die grundlegenden Content-Entscheidungen richtig treffen müssen: was zu sagen ist, wie es zu strukturieren ist, wer man im chinesischen Markt ist.',
+    description: 'Unternehmen, die die grundlegenden Content-Entscheidungen richtig treffen mÃ¼ssen: was zu sagen ist, wie es zu strukturieren ist, wer man im chinesischen Markt ist.',
     image: '/images/audiences/launching-chinese-website.webp',
   },
   {
-    label: 'Marken, die neu starten, nachdem eine Übersetzung nicht funktioniert hat',
-    description: 'Ausländische Websites mit übersetztem Inhalt, der 2 oder 3 Jahre unangetastet liegt, während die Baidu-Rankings nach unten abdriften. Die Lösung ist meist ein Content-Neubau vor jedem Redesign.',
+    label: 'Marken, die neu starten, nachdem eine Ãœbersetzung nicht funktioniert hat',
+    description: 'AuslÃ¤ndische Websites mit Ã¼bersetztem Inhalt, der 2 oder 3 Jahre unangetastet liegt, wÃ¤hrend die Baidu-Rankings nach unten abdriften. Die LÃ¶sung ist meist ein Content-Neubau vor jedem Redesign.',
     image: '/images/audiences/outdated-translated-content.webp',
   },
   {
     label: 'Marken mit einer China-Website, aber ohne redaktionellen Takt',
-    description: 'Unternehmen, die einmal gestartet sind, nie die Veröffentlichungsmaschine gebaut haben und sich jetzt fragen, warum ihre Website auf Baidu still geworden ist.',
+    description: 'Unternehmen, die einmal gestartet sind, nie die VerÃ¶ffentlichungsmaschine gebaut haben und sich jetzt fragen, warum ihre Website auf Baidu still geworden ist.',
     image: '/images/audiences/ongoing-chinese-editorial.webp',
   },
   {
@@ -204,95 +204,95 @@ const audiences = [
     image: '/images/audiences/campaign-chinese-copy.webp',
   },
   {
-    label: 'Luxus- und markengeführte Unternehmen',
-    description: 'Marken, bei denen die Vertrauenssignale, die Gründergeschichte, die Tradition und der kulturelle Bezug entscheiden, ob der Kunde kauft.',
+    label: 'Luxus- und markengefÃ¼hrte Unternehmen',
+    description: 'Marken, bei denen die Vertrauenssignale, die GrÃ¼ndergeschichte, die Tradition und der kulturelle Bezug entscheiden, ob der Kunde kauft.',
     image: '/images/audiences/ecommerce-product-pages-china.webp',
   },
 ];
 
-// Vertrauensbegriffe für das Laufband
+// Vertrauensbegriffe fÃ¼r das Laufband
 const marqueePhrases = [
-  '荣誉资质', 'Auszeichnungen',
-  '企业历程', 'Geschichte',
-  '生产基地', 'Werk',
-  '质量认证', 'Qualität',
-  '合作伙伴', 'Partner',
-  '媒体报道', 'Medien',
-  '新闻动态', 'News',
-  'Konform mit 广告法',
+  'è£èª‰èµ„è´¨', 'Auszeichnungen',
+  'ä¼ä¸šåŽ†ç¨‹', 'Geschichte',
+  'ç”Ÿäº§åŸºåœ°', 'Werk',
+  'è´¨é‡è®¤è¯', 'QualitÃ¤t',
+  'åˆä½œä¼™ä¼´', 'Partner',
+  'åª’ä½“æŠ¥é“', 'Medien',
+  'æ–°é—»åŠ¨æ€', 'News',
+  'Konform mit å¹¿å‘Šæ³•',
   'Von Baidu indexiert',
-  'Bereit für KI-Suche',
+  'Bereit fÃ¼r KI-Suche',
 ];
 
 const faqs = [
   {
     id: 'just-translate',
-    question: 'Können wir nicht einfach unsere bestehenden englischen Inhalte übersetzen?',
+    question: 'KÃ¶nnen wir nicht einfach unsere bestehenden englischen Inhalte Ã¼bersetzen?',
     answer: [
-      'Das ist möglich, und viele ausländische Marken tun es. Es funktioniert allerdings fast nie. Übersetzung erzeugt Wörter; eine Marke auf Chinesisch aufzubauen, verlangt redaktionelles Urteilsvermögen. Chinesische Leser bemerken den Unterschied innerhalb eines Absatzes, Baidu innerhalb eines Crawls. Wenn Ihr Budget nur für eine Übersetzung reicht, raten wir Ihnen ehrlich, zu warten, bis Sie es sich leisten können, es richtig zu machen.',
+      'Das ist mÃ¶glich, und viele auslÃ¤ndische Marken tun es. Es funktioniert allerdings fast nie. Ãœbersetzung erzeugt WÃ¶rter; eine Marke auf Chinesisch aufzubauen, verlangt redaktionelles UrteilsvermÃ¶gen. Chinesische Leser bemerken den Unterschied innerhalb eines Absatzes, Baidu innerhalb eines Crawls. Wenn Ihr Budget nur fÃ¼r eine Ãœbersetzung reicht, raten wir Ihnen ehrlich, zu warten, bis Sie es sich leisten kÃ¶nnen, es richtig zu machen.',
     ],
   },
   {
     id: 'translation-vs-transcreation',
-    question: 'Was ist der Unterschied zwischen Übersetzung, Transkreation und dem, was Sie tun?',
+    question: 'Was ist der Unterschied zwischen Ãœbersetzung, Transkreation und dem, was Sie tun?',
     answer: [
-      'Übersetzung überträgt Wörter von einer Sprache in eine andere. Transkreation schreibt die Botschaft für die Zielkultur neu und behält dabei die Markenstimme. Unsere Arbeit setzt noch davor an: Wir entscheiden überhaupt erst, was Ihre Marke einem chinesischen Publikum sagen soll, und schreiben den Text anschließend auf Chinesisch und von Grund auf.',
+      'Ãœbersetzung Ã¼bertrÃ¤gt WÃ¶rter von einer Sprache in eine andere. Transkreation schreibt die Botschaft fÃ¼r die Zielkultur neu und behÃ¤lt dabei die Markenstimme. Unsere Arbeit setzt noch davor an: Wir entscheiden Ã¼berhaupt erst, was Ihre Marke einem chinesischen Publikum sagen soll, und schreiben den Text anschlieÃŸend auf Chinesisch und von Grund auf.',
     ],
   },
   {
     id: 'rebuild-from-scratch',
-    question: 'Müssen wir unseren gesamten Inhalt von Grund auf neu bauen?',
+    question: 'MÃ¼ssen wir unseren gesamten Inhalt von Grund auf neu bauen?',
     answer: [
       'Nicht immer. Etwa ein Drittel unserer Mandate baut die zentralen Markenseiten und Produktseiten neu. Ein weiteres Drittel beginnt frisch. Das letzte Drittel nutzt Teile des bestehenden Inhalts als Rohmaterial und baut darum herum neu. Der Strategie- und Audit-Service entscheidet, was zutrifft.',
     ],
   },
   {
     id: 'who-writes',
-    question: 'Wer schreibt die Inhalte tatsächlich?',
+    question: 'Wer schreibt die Inhalte tatsÃ¤chlich?',
     answer: [
-      'Die Inhalte schreiben muttersprachliche chinesische Redakteure mit Sitz in Shanghai, deren Erstsprache Mandarin ist und deren Laufbahn aus dem Verfassen kommerzieller Texte besteht. An jedem Text arbeitet ein Senior-Autor, und jede Seite durchläuft die redaktionelle Prüfung, bevor sie Sie erreicht.',
+      'Die Inhalte schreiben muttersprachliche chinesische Redakteure mit Sitz in Shanghai, deren Erstsprache Mandarin ist und deren Laufbahn aus dem Verfassen kommerzieller Texte besteht. An jedem Text arbeitet ein Senior-Autor, und jede Seite durchlÃ¤uft die redaktionelle PrÃ¼fung, bevor sie Sie erreicht.',
     ],
   },
   {
     id: 'brand-voice',
-    question: 'Können Sie unsere bestehende Markenstimme treffen?',
+    question: 'KÃ¶nnen Sie unsere bestehende Markenstimme treffen?',
     answer: [
-      'Ja, aber nicht durch Übersetzen. Wir arbeiten aus Ihren globalen Markenrichtlinien und einer Auswahl Ihrer besten bestehenden Inhalte heraus und bauen dann die Stimme auf Chinesisch neu auf, mit gleichwertigen Registern und rhetorischen Mitteln. Das Ergebnis fühlt sich an wie dieselbe Marke, in einer anderen Sprache.',
+      'Ja, aber nicht durch Ãœbersetzen. Wir arbeiten aus Ihren globalen Markenrichtlinien und einer Auswahl Ihrer besten bestehenden Inhalte heraus und bauen dann die Stimme auf Chinesisch neu auf, mit gleichwertigen Registern und rhetorischen Mitteln. Das Ergebnis fÃ¼hlt sich an wie dieselbe Marke, in einer anderen Sprache.',
     ],
   },
   {
     id: 'design-development',
-    question: 'Wo steht Content im Verhältnis zu Design und Entwicklung?',
+    question: 'Wo steht Content im VerhÃ¤ltnis zu Design und Entwicklung?',
     answer: [
-      'Content steht vor beidem. Die Informationsarchitektur entscheidet über das Design. Wir liefern zuerst die IA und die Content-Struktur, dann arbeitet das Design darauf hin, und erst danach baut die Entwicklung die Website. Die Reihenfolge umzukehren, ist einer der häufigsten Gründe, warum sich ausländische Markenwebsites in China gezwungen anfühlen.',
+      'Content steht vor beidem. Die Informationsarchitektur entscheidet Ã¼ber das Design. Wir liefern zuerst die IA und die Content-Struktur, dann arbeitet das Design darauf hin, und erst danach baut die Entwicklung die Website. Die Reihenfolge umzukehren, ist einer der hÃ¤ufigsten GrÃ¼nde, warum sich auslÃ¤ndische Markenwebsites in China gezwungen anfÃ¼hlen.',
     ],
   },
   {
     id: 'baidu-seo',
-    question: 'Wie hängt das mit Baidu-SEO zusammen?',
+    question: 'Wie hÃ¤ngt das mit Baidu-SEO zusammen?',
     answer: [
-      'Beide hängen eng zusammen. Gut gemachtes Baidu-SEO beginnt mit einer Baidu-Keyword-Karte, die auf Chinesisch und von Grund auf recherchiert wird, gefolgt von einer Content-Architektur, die zur Suchintention passt, und Inhalten, die um diese Themen herum geschrieben werden. Unser Content-Team und unser Baidu-SEO-Team arbeiten als eines, und die meisten Kunden buchen beides als ein einziges Mandat.',
+      'Beide hÃ¤ngen eng zusammen. Gut gemachtes Baidu-SEO beginnt mit einer Baidu-Keyword-Karte, die auf Chinesisch und von Grund auf recherchiert wird, gefolgt von einer Content-Architektur, die zur Suchintention passt, und Inhalten, die um diese Themen herum geschrieben werden. Unser Content-Team und unser Baidu-SEO-Team arbeiten als eines, und die meisten Kunden buchen beides als ein einziges Mandat.',
     ],
   },
   {
     id: 'ai-search',
     question: 'Was ist mit der KI-Sichtbarkeit auf Doubao, Kimi, DeepSeek?',
     answer: [
-      'Wir strukturieren Inhalte von Anfang an für KI-Engines: mit klaren faktischen Antworten, Schema-Markup, llms.txt-Dateien und Inhalten, die dazu passen, wie chinesische Nutzer Fragen mündlich formulieren. Die Marken, die das 2026 sauber aufsetzen, werden jene sein, die KI-Engines 2027 zitieren.',
+      'Wir strukturieren Inhalte von Anfang an fÃ¼r KI-Engines: mit klaren faktischen Antworten, Schema-Markup, llms.txt-Dateien und Inhalten, die dazu passen, wie chinesische Nutzer Fragen mÃ¼ndlich formulieren. Die Marken, die das 2026 sauber aufsetzen, werden jene sein, die KI-Engines 2027 zitieren.',
     ],
   },
   {
     id: 'ongoing-publishing',
-    question: 'Übernehmen Sie laufende Veröffentlichung oder nur Start-Content?',
+    question: 'Ãœbernehmen Sie laufende VerÃ¶ffentlichung oder nur Start-Content?',
     answer: [
-      'Wir übernehmen beides, und wir empfehlen das Zweite. Mit Content zu starten und die Website danach nie zu aktualisieren, ist der größte Einzelgrund, warum ausländische Marken mit der Zeit Baidu-Sichtbarkeit verlieren. Die meisten Kunden wechseln vom Start-Content zu einem festen monatlichen redaktionellen Retainer.',
+      'Wir Ã¼bernehmen beides, und wir empfehlen das Zweite. Mit Content zu starten und die Website danach nie zu aktualisieren, ist der grÃ¶ÃŸte Einzelgrund, warum auslÃ¤ndische Marken mit der Zeit Baidu-Sichtbarkeit verlieren. Die meisten Kunden wechseln vom Start-Content zu einem festen monatlichen redaktionellen Retainer.',
     ],
   },
   {
     id: 'cost',
     question: 'Was kostet es?',
     answer: [
-      'Das hängt vom Umfang ab: davon, ob es ein Neubau oder ein Neuanfang wird, von der Seitenzahl, vom redaktionellen Takt und davon, ob das Mandat auch Baidu-SEO und die Optimierung für die KI-Suche umfasst. Beschreiben Sie uns den Umfang, und Sie erhalten innerhalb von 2 Werktagen ein verbindliches Angebot.',
+      'Das hÃ¤ngt vom Umfang ab: davon, ob es ein Neubau oder ein Neuanfang wird, von der Seitenzahl, vom redaktionellen Takt und davon, ob das Mandat auch Baidu-SEO und die Optimierung fÃ¼r die KI-Suche umfasst. Beschreiben Sie uns den Umfang, und Sie erhalten innerhalb von 2 Werktagen ein verbindliches Angebot.',
     ],
   },
 ];
@@ -314,10 +314,10 @@ const pageLd = [...serviceLd];
       <div class="absolute -bottom-40 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-text-card-blue)]/20 blur-[140px] pointer-events-none" data-float></div>
     </div>
 
-    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">写</span>
+    <span aria-hidden="true" class="absolute right-[-3rem] top-1/2 -translate-y-1/2 text-[28rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block" data-parallax="0.1">å†™</span>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
-      <nav aria-label="Brotkrümel" class="pt-20 pb-12 md:pb-16">
+      <nav aria-label="BrotkrÃ¼mel" class="pt-20 pb-12 md:pb-16">
         <ol class="flex items-center gap-2 text-sm text-white/40">
           <li><a href="/de/" class="hover:text-white/70 transition-colors no-underline">Startseite</a></li>
           <li class="before:content-['/'] before:mx-2"><a href="/de/leistungen/" class="hover:text-white/70 transition-colors no-underline">Leistungen</a></li>
@@ -331,7 +331,7 @@ const pageLd = [...serviceLd];
           <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-sm mb-7">
             <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
             <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Chinesische Inhalte</span>
-            <span class="text-white/30">·</span>
+            <span class="text-white/30">Â·</span>
             <span class="text-[11px] font-medium text-white/55">Muttersprachliche Redakteure, Shanghai</span>
           </div>
 
@@ -339,12 +339,12 @@ const pageLd = [...serviceLd];
             Inhalt ist die Marke,
             <span class="block mt-1.5">
               <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF7E47] to-[var(--color-brand-orange)] bg-clip-text text-transparent">besonders auf</span>
-              <span class="text-white/95 font-[var(--font-heading)] ml-1">中文.</span>
+              <span class="text-white/95 font-[var(--font-heading)] ml-1">ä¸­æ–‡.</span>
             </span>
           </h1>
 
           <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
-            Übersetzung gibt Ihnen Wörter. Eine Marke auf Chinesisch aufzubauen, verlangt redaktionelles Urteilsvermögen. Wir entscheiden, was Ihre Marke auf Chinesisch sagen soll, wie die Website darum herum strukturiert sein soll, und wir schreiben es. <span class="text-white font-medium">Es schreiben Redakteure, deren Muttersprache Mandarin ist.</span>
+            Ãœbersetzung gibt Ihnen WÃ¶rter. Eine Marke auf Chinesisch aufzubauen, verlangt redaktionelles UrteilsvermÃ¶gen. Wir entscheiden, was Ihre Marke auf Chinesisch sagen soll, wie die Website darum herum strukturiert sein soll, und wir schreiben es. <span class="text-white font-medium">Es schreiben Redakteure, deren Muttersprache Mandarin ist.</span>
           </p>
 
           <!-- Zahlenzeile -->
@@ -372,11 +372,11 @@ const pageLd = [...serviceLd];
         <!-- Visual: geschichtetes Vergleichs-Mockup -->
         <div class="col-span-12 lg:col-span-5 lg:col-start-8 mt-14 lg:mt-0" data-reveal="right" data-reveal-delay="120">
           <div class="relative">
-            <!-- Übersetzte Karte (hinten, verblasst) -->
+            <!-- Ãœbersetzte Karte (hinten, verblasst) -->
             <div class="absolute -top-6 -left-4 right-12 bottom-12 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/10 p-5 rotate-[-3deg] transition-transform duration-500 hover:rotate-[-4deg]">
               <div class="flex items-center gap-2 mb-4">
-                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Übersetzt</span>
-                <span class="ml-auto text-[10px] font-mono text-white/30">EN → ZH</span>
+                <span class="text-[10px] font-mono text-red-300/70 uppercase tracking-wider">Ãœbersetzt</span>
+                <span class="ml-auto text-[10px] font-mono text-white/30">EN â†’ ZH</span>
               </div>
               <div class="space-y-2">
                 <div class="h-3 w-3/4 rounded bg-white/10"></div>
@@ -403,19 +403,19 @@ const pageLd = [...serviceLd];
               <div class="space-y-3.5 font-[var(--font-heading)]">
                 <div class="flex items-baseline gap-2">
                   <span class="text-[11px] text-white/40 font-mono">H1</span>
-                  <span class="text-[15px] text-white font-medium">内容即品牌</span>
+                  <span class="text-[15px] text-white font-medium">å†…å®¹å³å“ç‰Œ</span>
                 </div>
                 <div class="flex items-baseline gap-2">
                   <span class="text-[11px] text-white/40 font-mono">H2</span>
-                  <span class="text-[13px] text-white/85">荣誉资质 · 企业历程 · 生产基地</span>
+                  <span class="text-[13px] text-white/85">è£èª‰èµ„è´¨ Â· ä¼ä¸šåŽ†ç¨‹ Â· ç”Ÿäº§åŸºåœ°</span>
                 </div>
                 <div class="flex items-baseline gap-2">
                   <span class="text-[11px] text-white/40 font-mono">H2</span>
-                  <span class="text-[13px] text-white/85">质量认证 · 合作伙伴 · 媒体报道</span>
+                  <span class="text-[13px] text-white/85">è´¨é‡è®¤è¯ Â· åˆä½œä¼™ä¼´ Â· åª’ä½“æŠ¥é“</span>
                 </div>
                 <div class="flex items-baseline gap-2">
                   <span class="text-[11px] text-white/40 font-mono">P</span>
-                  <span class="text-[12px] text-white/55 leading-relaxed">由本地编辑撰写，符合广告法，面向 Baidu 与 AI 搜索优化。</span>
+                  <span class="text-[12px] text-white/55 leading-relaxed">ç”±æœ¬åœ°ç¼–è¾‘æ’°å†™ï¼Œç¬¦åˆå¹¿å‘Šæ³•ï¼Œé¢å‘ Baidu ä¸Ž AI æœç´¢ä¼˜åŒ–ã€‚</span>
                 </div>
               </div>
 
@@ -425,7 +425,7 @@ const pageLd = [...serviceLd];
                   <div class="text-xs font-mono text-green-300">Indexiert</div>
                 </div>
                 <div>
-                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">广告法</div>
+                  <div class="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">å¹¿å‘Šæ³•</div>
                   <div class="text-xs font-mono text-green-300">Konform</div>
                 </div>
                 <div>
@@ -454,24 +454,24 @@ const pageLd = [...serviceLd];
             <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">Sekunden</span>
           </div>
           <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
-            So lange verweilt ein chinesischer Besucher im Mittel auf einer übersetzten ausländischen Markenwebsite, bevor er abspringt.
+            So lange verweilt ein chinesischer Besucher im Mittel auf einer Ã¼bersetzten auslÃ¤ndischen Markenwebsite, bevor er abspringt.
           </p>
         </div>
 
         <div class="col-span-12 lg:col-span-7" data-reveal="right">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Warum es zählt</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-5">Warum es zÃ¤hlt</p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15] mb-6">
             Die wichtigste Entscheidung im Projekt.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Sie können das richtige Hosting, das richtige Framework, den richtigen ICP-Weg wählen. Wenn der Inhalt bei chinesischen Lesern nicht ankommt, zählt nichts davon. Die Seite lädt in unter einer Sekunde, und Besucher gehen nach neun, weil nichts darauf sie anspricht.
+            Sie kÃ¶nnen das richtige Hosting, das richtige Framework, den richtigen ICP-Weg wÃ¤hlen. Wenn der Inhalt bei chinesischen Lesern nicht ankommt, zÃ¤hlt nichts davon. Die Seite lÃ¤dt in unter einer Sekunde, und Besucher gehen nach neun, weil nichts darauf sie anspricht.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            Wir behandeln Content als die vorgelagerte Entscheidung. Vor dem Design, vor der Entwicklung, vor den Templates klären wir, was die Website eigentlich sagen soll.
+            Wir behandeln Content als die vorgelagerte Entscheidung. Vor dem Design, vor der Entwicklung, vor den Templates klÃ¤ren wir, was die Website eigentlich sagen soll.
           </p>
 
           <div class="flex flex-wrap items-center gap-2.5">
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-orange)] text-white text-sm font-medium">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-cta-bg)] text-white text-sm font-medium">
               <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
               Inhalt
             </span>
@@ -489,18 +489,18 @@ const pageLd = [...serviceLd];
 
   <!-- WAS ZU SCHREIBEN IST -->
   <section id="what-to-write" class="relative section-spacing bg-gradient-to-b from-[var(--color-surface-light)] to-white overflow-hidden">
-    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">字</span>
+    <span aria-hidden="true" class="absolute -top-24 right-[-2rem] text-[20rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none" data-parallax="0.15">å­—</span>
 
     <div class="relative mx-auto max-w-[1400px] section-padding">
       <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Was zu schreiben ist · 写什么</span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Was zu schreiben ist Â· å†™ä»€ä¹ˆ</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-5">
-          Was Ihre Marke in China tatsächlich sagen sollte.
+          Was Ihre Marke in China tatsÃ¤chlich sagen sollte.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Die globale Botschaftshierarchie, die in München oder Boston funktioniert, trägt in Shanghai fast nie. Fünf Dinge verschieben sich dabei jedes Mal.
+          Die globale Botschaftshierarchie, die in MÃ¼nchen oder Boston funktioniert, trÃ¤gt in Shanghai fast nie. FÃ¼nf Dinge verschieben sich dabei jedes Mal.
         </p>
       </div>
 
@@ -520,7 +520,7 @@ const pageLd = [...serviceLd];
               <div class="relative">
                 <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-2">Nr. {d.n} / 05</div>
                 <div class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-white leading-none mb-1.5">{d.cn}</div>
-                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange)]/90 font-semibold">Ausland → 中国</div>
+                <div class="text-xs uppercase tracking-wider text-[var(--color-brand-orange-text)]/90 font-semibold">Ausland â†’ ä¸­å›½</div>
               </div>
             </div>
 
@@ -538,7 +538,7 @@ const pageLd = [...serviceLd];
               <div class="relative pl-4 border-l-2 border-red-300/60">
                 <div class="flex items-center gap-1.5 mb-1">
                   <svg class="w-3.5 h-3.5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
-                  <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-red-500">Ausländischer Standard</span>
+                  <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-red-500">AuslÃ¤ndischer Standard</span>
                 </div>
                 <div class="text-sm font-medium text-[var(--color-text-dark)] leading-snug">{d.westernLabel}</div>
                 <div class="text-xs text-[var(--color-text-muted)] mt-0.5 leading-relaxed">{d.westernSub}</div>
@@ -567,7 +567,7 @@ const pageLd = [...serviceLd];
     <div class="relative mx-auto max-w-[1400px] section-padding">
       <div class="max-w-3xl mb-14" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Wie zu strukturieren ist · 信息架构</span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/80">Wie zu strukturieren ist Â· ä¿¡æ¯æž¶æž„</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
           Informationsarchitektur ist Inhalt.
@@ -579,12 +579,12 @@ const pageLd = [...serviceLd];
 
       <!-- Sitemap-Vergleich -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 mb-16 lg:mb-20">
-        <!-- Ausländische IA -->
+        <!-- AuslÃ¤ndische IA -->
         <div class="lg:col-span-6 rounded-3xl bg-white/[0.03] border border-white/10 p-7 lg:p-8 backdrop-blur-sm" data-reveal="left">
           <div class="flex items-center justify-between mb-6">
             <div>
-              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-1">Typische IA einer ausländischen Marke</div>
-              <div class="text-lg font-medium font-[var(--font-heading)] text-white/90">5 Seiten, produktgeführt</div>
+              <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mb-1">Typische IA einer auslÃ¤ndischen Marke</div>
+              <div class="text-lg font-medium font-[var(--font-heading)] text-white/90">5 Seiten, produktgefÃ¼hrt</div>
             </div>
             <div class="px-2.5 py-1 rounded-full bg-red-500/10 border border-red-400/30">
               <span class="text-[10px] font-semibold uppercase tracking-wider text-red-300">Geht auf Baidu unter</span>
@@ -614,7 +614,7 @@ const pageLd = [...serviceLd];
           <div class="flex items-center justify-between mb-6">
             <div>
               <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)]/90 mb-1">IA einer chinesischen Marke</div>
-              <div class="text-lg font-medium font-[var(--font-heading)] text-white">11 Seiten, vertrauensgeführt</div>
+              <div class="text-lg font-medium font-[var(--font-heading)] text-white">11 Seiten, vertrauensgefÃ¼hrt</div>
             </div>
             <div class="px-2.5 py-1 rounded-full bg-green-500/15 border border-green-400/30">
               <span class="text-[10px] font-semibold uppercase tracking-wider text-green-300">Indexiert + rankt</span>
@@ -636,7 +636,7 @@ const pageLd = [...serviceLd];
                 ]}></span>
                 <span class="text-sm flex-1">{p.label}</span>
                 {p.highlight && (
-                  <span class="text-[9px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]/90 px-1.5 py-0.5 rounded bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20">Vertrauen</span>
+                  <span class="text-[9px] font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)]/90 px-1.5 py-0.5 rounded bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20">Vertrauen</span>
                 )}
               </li>
             ))}
@@ -676,14 +676,14 @@ const pageLd = [...serviceLd];
       <div class="flex items-end justify-between flex-wrap gap-6 mb-12 lg:mb-14" data-reveal>
         <div class="max-w-2xl">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-text-card-blue)]/10 border border-[var(--color-text-card-blue)]/20 mb-5">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Content-Arten · 我们写什么</span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-card-blue)]">Content-Arten Â· æˆ‘ä»¬å†™ä»€ä¹ˆ</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
             Was wir schreiben.
           </h2>
         </div>
         <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed max-w-md">
-          Wir schreiben alles, von den zentralen Markenseiten bis zur monatlichen redaktionellen Produktion, auf Chinesisch und für chinesische Leser.
+          Wir schreiben alles, von den zentralen Markenseiten bis zur monatlichen redaktionellen Produktion, auf Chinesisch und fÃ¼r chinesische Leser.
         </p>
       </div>
 
@@ -697,13 +697,13 @@ const pageLd = [...serviceLd];
               <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">Im Fokus · Das Rückgrat der Marke</span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">Im Fokus Â· Das RÃ¼ckgrat der Marke</span>
             </div>
             <h3 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] leading-tight mb-3">
               {contentTypes[0].label}
             </h3>
             <p class="text-base text-white/65 leading-relaxed mb-7 max-w-md">
-              {contentTypes[0].body} Es sind die Seiten, an denen Ihr chinesisches Publikum Sie beurteilt, geschrieben in seinem Register und strukturiert für seine Aufmerksamkeit.
+              {contentTypes[0].body} Es sind die Seiten, an denen Ihr chinesisches Publikum Sie beurteilt, geschrieben in seinem Register und strukturiert fÃ¼r seine Aufmerksamkeit.
             </p>
           </div>
           <div class="relative mt-auto flex flex-wrap gap-2">
@@ -750,13 +750,13 @@ const pageLd = [...serviceLd];
     <div class="relative mx-auto max-w-[1400px] section-padding">
       <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Wie wir arbeiten · 工作流程</span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Wie wir arbeiten Â· å·¥ä½œæµç¨‹</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-4">
           Von der Recherche zur laufenden Redaktion.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Der Ablauf umfasst vier Phasen, von denen jede die nächste speist. Die meisten Mandate laufen über den Start hinaus in einen festen monatlichen redaktionellen Retainer weiter.
+          Der Ablauf umfasst vier Phasen, von denen jede die nÃ¤chste speist. Die meisten Mandate laufen Ã¼ber den Start hinaus in einen festen monatlichen redaktionellen Retainer weiter.
         </p>
       </div>
 
@@ -804,7 +804,7 @@ const pageLd = [...serviceLd];
   </section>
 
   <!-- WHO IS THIS FOR -->
-  <WhoIsThisFor heading="Wer uns für Content engagiert" audiences={audiences} background="white" />
+  <WhoIsThisFor heading="Wer uns fÃ¼r Content engagiert" audiences={audiences} background="white" />
 
   <!-- FAQ -->
   <section id="faq" class="section-spacing bg-[var(--color-surface-light)] scroll-mt-32">
@@ -812,7 +812,7 @@ const pageLd = [...serviceLd];
       <div class="io-grid items-start">
         <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0 lg:sticky lg:top-32" data-reveal="left">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ Â· å¸¸è§é—®é¢˜</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
             10 Fragen zu chinesischen Inhalten
@@ -847,7 +847,7 @@ const pageLd = [...serviceLd];
         {[...marqueePhrases, ...marqueePhrases, ...marqueePhrases].map((phrase) => (
           <span class="inline-flex items-center gap-3 text-base lg:text-lg font-medium text-white/40 hover:text-[var(--color-brand-orange)] transition-colors">
             {phrase}
-            <span class="text-white/15">·</span>
+            <span class="text-white/15">Â·</span>
           </span>
         ))}
       </div>
@@ -857,7 +857,7 @@ const pageLd = [...serviceLd];
 
     <div class="relative py-20 lg:py-28">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[var(--color-brand-orange)]/8 rounded-full blur-[140px] pointer-events-none"></div>
-      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">中</span>
+      <span aria-hidden="true" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] lg:text-[30rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none">ä¸­</span>
 
       <div class="relative mx-auto max-w-[1400px] section-padding text-center" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 mb-6">
@@ -868,7 +868,7 @@ const pageLd = [...serviceLd];
           Bereit, Content richtig anzugehen?
         </h2>
         <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
-          Die meisten Projekte in unserer Pipeline beginnen mit einem Strategie- und Audit-Service, bei dem das Content-Terrain und die Informationsarchitektur zusammen mit dem Technologie- und Compliance-Fahrplan festgelegt werden. Wenn Sie bereits wissen, dass Sie Content brauchen, können wir auch direkt dort starten.
+          Die meisten Projekte in unserer Pipeline beginnen mit einem Strategie- und Audit-Service, bei dem das Content-Terrain und die Informationsarchitektur zusammen mit dem Technologie- und Compliance-Fahrplan festgelegt werden. Wenn Sie bereits wissen, dass Sie Content brauchen, kÃ¶nnen wir auch direkt dort starten.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button href="/de/kontakt/" variant="primary" size="lg">Mit dem Content-Team sprechen</Button>

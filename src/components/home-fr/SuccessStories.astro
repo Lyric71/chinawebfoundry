@@ -1,6 +1,6 @@
 ---
 /**
- * SuccessStories (FR) - carrousel horizontal défilant.
+ * SuccessStories (FR) - carrousel horizontal dÃ©filant.
  * Pure Astro + Tailwind + vanilla JS. Aucun framework externe.
  */
 import { getCollection } from 'astro:content';
@@ -23,20 +23,20 @@ const stories = casestudies.map((cs) => ({
   <div class="mx-auto max-w-[1400px] section-padding">
     <div class="mb-10 flex flex-col gap-8 md:mb-14 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
-          Références
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-5">
+          RÃ©fÃ©rences
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
           La preuve par le terrain
         </h2>
         <p class="mt-6 text-lg text-[var(--color-text-body)] leading-relaxed max-w-lg">
-          Des résultats qui se mesurent, sur des sites mis en ligne en Chine aux côtés de notre équipe.
+          Des rÃ©sultats qui se mesurent, sur des sites mis en ligne en Chine aux cÃ´tÃ©s de notre Ã©quipe.
         </p>
       </div>
       <div class="hidden shrink-0 gap-2 md:flex">
         <button
           id="stories-prev"
-          aria-label="Projet précédent"
+          aria-label="Projet prÃ©cÃ©dent"
           class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[var(--color-surface-border)] text-[var(--color-text-muted)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors disabled:opacity-30 disabled:pointer-events-none"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -59,7 +59,7 @@ const stories = casestudies.map((cs) => ({
   <div class="relative" id="stories-wrapper">
     <button
       id="stories-prev-overlay"
-      aria-label="Diapositive précédente"
+      aria-label="Diapositive prÃ©cÃ©dente"
       class="stories-overlay-arrow absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center text-[var(--color-text-dark)] hover:bg-white hover:text-[var(--color-brand-orange)] transition-all disabled:opacity-0 disabled:pointer-events-none"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -82,7 +82,7 @@ const stories = casestudies.map((cs) => ({
       class="flex gap-5 overflow-x-auto scroll-smooth pb-4 px-[max(1.25rem,calc(50vw-670px))] scrollbar-hide"
       role="region"
       aria-roledescription="carousel"
-      aria-label="Références clients"
+      aria-label="RÃ©fÃ©rences clients"
     >
       {stories.map((story, i) => (
         <a
@@ -128,17 +128,20 @@ const stories = casestudies.map((cs) => ({
     </div>
   </div>
 
-  <div id="stories-dots" class="mt-8 flex justify-center gap-2">
+  <div id="stories-dots" class="mt-8 flex justify-center gap-1">
     {stories.map((_, i) => (
       <button
-        class:list={[
-          'stories-dot h-2 w-2 rounded-full transition-colors',
-          i === 0 ? 'bg-[var(--color-text-dark)]' : 'bg-[var(--color-text-dark)]/20',
-        ]}
-        style="padding: 18px; margin: -18px; background-clip: content-box;"
+        class="stories-dot inline-flex h-6 w-6 items-center justify-center rounded-full"
         data-index={i}
         aria-label={`Aller au projet ${i + 1}`}
-      />
+      >
+        <span
+          class:list={[
+            'block h-2 w-2 rounded-full transition-colors',
+            i === 0 ? 'bg-[var(--color-text-dark)]' : 'bg-[var(--color-text-dark)]/20',
+          ]}
+        />
+      </button>
     ))}
   </div>
 </section>
@@ -197,10 +200,12 @@ const stories = casestudies.map((cs) => ({
     function updateDots() {
       const dotIndex = ((current % total) + total) % total;
       dots.forEach((dot, i) => {
+        const inner = dot.firstElementChild as HTMLElement | null;
+        if (!inner) return;
         if (i === dotIndex) {
-          dot.style.backgroundColor = 'var(--color-text-dark)';
+          inner.style.backgroundColor = 'var(--color-text-dark)';
         } else {
-          dot.style.backgroundColor = 'color-mix(in srgb, var(--color-text-dark) 20%, transparent)';
+          inner.style.backgroundColor = 'color-mix(in srgb, var(--color-text-dark) 20%, transparent)';
         }
       });
     }

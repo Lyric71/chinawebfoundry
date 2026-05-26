@@ -2,63 +2,63 @@
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
 
-// Définitions de phases et données de service tirées des pages individuelles
+// DÃ©finitions de phases et donnÃ©es de service tirÃ©es des pages individuelles
 const phases = [
   {
     id: 'plan',
     label: 'Cadrer',
-    cn: '策略',
-    title: 'Décider quoi bâtir, avant de bâtir',
-    blurb: 'Audit de l’existant. Cartographie de ce dont votre public chinois a réellement besoin. Une feuille de route qui mène à une vraie présence en Chine, dans le bon ordre.',
+    cn: 'ç­–ç•¥',
+    title: 'DÃ©cider quoi bÃ¢tir, avant de bÃ¢tir',
+    blurb: 'Audit de lâ€™existant. Cartographie de ce dont votre public chinois a rÃ©ellement besoin. Une feuille de route qui mÃ¨ne Ã  une vraie prÃ©sence en Chine, dans le bon ordre.',
   },
   {
     id: 'build',
     label: 'Construire',
-    cn: '搭建',
-    title: 'Reconstruire la pile pour l’arrière du Pare-feu',
-    blurb: 'Migration, design, intégration technique, extensions sur mesure. Chaque couche reconstruite et testée depuis de vraies connexions chinoises.',
+    cn: 'æ­å»º',
+    title: 'Reconstruire la pile pour lâ€™arriÃ¨re du Pare-feu',
+    blurb: 'Migration, design, intÃ©gration technique, extensions sur mesure. Chaque couche reconstruite et testÃ©e depuis de vraies connexions chinoises.',
   },
   {
     id: 'host',
-    label: 'Héberger',
-    cn: '主机',
-    title: 'Un hébergement qui tient en Chine continentale',
-    blurb: 'Chargement sous la seconde sur un téléphone à Shanghai. Dépôt ICP géré de bout en bout. Continental, Hong Kong ou dual-stack.',
+    label: 'HÃ©berger',
+    cn: 'ä¸»æœº',
+    title: 'Un hÃ©bergement qui tient en Chine continentale',
+    blurb: 'Chargement sous la seconde sur un tÃ©lÃ©phone Ã  Shanghai. DÃ©pÃ´t ICP gÃ©rÃ© de bout en bout. Continental, Hong Kong ou dual-stack.',
   },
   {
     id: 'grow',
     label: 'Faire grandir',
-    cn: '增长',
-    title: 'Trouvable sur Baidu, cité par les IA chinoises',
-    blurb: 'Contenu chinois natif, référencement Baidu piloté depuis la Chine, visibilité IA sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA.',
+    cn: 'å¢žé•¿',
+    title: 'Trouvable sur Baidu, citÃ© par les IA chinoises',
+    blurb: 'Contenu chinois natif, rÃ©fÃ©rencement Baidu pilotÃ© depuis la Chine, visibilitÃ© IA sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA.',
   },
   {
     id: 'run',
     label: 'Faire vivre',
-    cn: '维护',
-    title: 'Quelqu’un qui veille de l’intérieur, chaque semaine',
-    blurb: 'Cadence éditoriale, suivi SEO et GEO, maintenance technique, hébergement. Une équipe, une facture, supervisée depuis Shanghai.',
+    cn: 'ç»´æŠ¤',
+    title: 'Quelquâ€™un qui veille de lâ€™intÃ©rieur, chaque semaine',
+    blurb: 'Cadence Ã©ditoriale, suivi SEO et GEO, maintenance technique, hÃ©bergement. Une Ã©quipe, une facture, supervisÃ©e depuis Shanghai.',
   },
 ];
 
-// Service phare : Stratégie et audit
+// Service phare : StratÃ©gie et audit
 const strategy = {
-  title: 'Stratégie et audit',
-  cn: '策略',
-  tagline: 'Une feuille de route écrite, que vous emportez où vous voulez.',
-  description: "Nous ouvrons votre site depuis de vrais navigateurs à Pékin, Shanghai et Shenzhen, et observons ce qui se passe vraiment. Positionnement de marque, visibilité de recherche, pile technologique, empreinte WeChat, conformité : nous cartographions le tout, puis écrivons la feuille de route qui mène au lancement, dans le bon ordre.",
+  title: 'StratÃ©gie et audit',
+  cn: 'ç­–ç•¥',
+  tagline: 'Une feuille de route Ã©crite, que vous emportez oÃ¹ vous voulez.',
+  description: "Nous ouvrons votre site depuis de vrais navigateurs Ã  PÃ©kin, Shanghai et Shenzhen, et observons ce qui se passe vraiment. Positionnement de marque, visibilitÃ© de recherche, pile technologique, empreinte WeChat, conformitÃ© : nous cartographions le tout, puis Ã©crivons la feuille de route qui mÃ¨ne au lancement, dans le bon ordre.",
   link: '/fr/services/strategie-audit/',
-  cta: 'Démarrer par la stratégie',
+  cta: 'DÃ©marrer par la stratÃ©gie',
   deliverables: [
-    'Diagnostic de préparation Chine sur le contenu, l’UX, la recherche, la performance et la conformité',
-    'Positionnement stratégique calibré sur les signaux de confiance chinois',
+    'Diagnostic de prÃ©paration Chine sur le contenu, lâ€™UX, la recherche, la performance et la conformitÃ©',
+    'Positionnement stratÃ©gique calibrÃ© sur les signaux de confiance chinois',
     'Architecture technologique : WordPress ou Astro, Mini Program ou H5, dual-stack',
-    'Feuille de route séquencée, dépôt ICP placé sur le chemin critique',
+    'Feuille de route sÃ©quencÃ©e, dÃ©pÃ´t ICP placÃ© sur le chemin critique',
   ],
   stats: [
-    { value: '15+', label: 'ans à Shanghai' },
-    { value: '50+', label: 'marques lancées' },
-    { value: '3-4 sem.', label: 'jusqu’à livraison' },
+    { value: '15+', label: 'ans Ã  Shanghai' },
+    { value: '50+', label: 'marques lancÃ©es' },
+    { value: '3-4 sem.', label: 'jusquâ€™Ã  livraison' },
   ],
 };
 
@@ -66,66 +66,66 @@ const strategy = {
 const buildServices = [
   {
     title: 'Migration Chine',
-    cn: '迁移',
-    tagline: 'Une vraie migration en Chine, c’est une relance complète.',
-    description: "Nous relançons contenu, UX et hébergement ensemble. Signaux de confiance réécrits, mise en page repensée pour les habitudes de lecture chinoises, infrastructure déplacée sur des serveurs continentaux, dépôt ICP en parallèle.",
+    cn: 'è¿ç§»',
+    tagline: 'Une vraie migration en Chine, câ€™est une relance complÃ¨te.',
+    description: "Nous relanÃ§ons contenu, UX et hÃ©bergement ensemble. Signaux de confiance rÃ©Ã©crits, mise en page repensÃ©e pour les habitudes de lecture chinoises, infrastructure dÃ©placÃ©e sur des serveurs continentaux, dÃ©pÃ´t ICP en parallÃ¨le.",
     link: '/fr/services/migration-chine/',
     cta: 'Parler de votre migration',
     icon: 'migration',
     deliverables: [
-      'Contenu réécrit en chinois par des éditeurs natifs',
-      'UX repensée pour des pages plus denses et le navigateur WeChat',
-      'Bascule sans coupure, retour en arrière possible sous 48 h',
-      'Mapping d’URL et 301 pour préserver l’autorité SEO',
+      'Contenu rÃ©Ã©crit en chinois par des Ã©diteurs natifs',
+      'UX repensÃ©e pour des pages plus denses et le navigateur WeChat',
+      'Bascule sans coupure, retour en arriÃ¨re possible sous 48 h',
+      'Mapping dâ€™URL et 301 pour prÃ©server lâ€™autoritÃ© SEO',
     ],
     stats: [
-      { value: '50+', label: 'marques migrées' },
-      { value: '6-10 sem.', label: 'fenêtre type' },
+      { value: '50+', label: 'marques migrÃ©es' },
+      { value: '6-10 sem.', label: 'fenÃªtre type' },
     ],
   },
   {
     title: 'Design UX et UI',
-    cn: '设计',
-    tagline: 'Concevoir pour la façon dont les Chinois naviguent vraiment.',
-    description: "Mobile d’abord, mises en page denses, calées sur la manière dont les internautes chinois naviguent après WeChat, Taobao et Douyin. Les designs très aérés se lisent comme vides. Les signaux de confiance restent au-dessus de la ligne de flottaison.",
+    cn: 'è®¾è®¡',
+    tagline: 'Concevoir pour la faÃ§on dont les Chinois naviguent vraiment.',
+    description: "Mobile dâ€™abord, mises en page denses, calÃ©es sur la maniÃ¨re dont les internautes chinois naviguent aprÃ¨s WeChat, Taobao et Douyin. Les designs trÃ¨s aÃ©rÃ©s se lisent comme vides. Les signaux de confiance restent au-dessus de la ligne de flottaison.",
     link: '/fr/services/design-ux-ui/',
-    cta: 'Démarrer un projet de design',
+    cta: 'DÃ©marrer un projet de design',
     icon: 'design',
     deliverables: [
       'Recherche utilisateur cartographiant les parcours Douyin, WeChat et Baidu',
-      'Architecture de l’information bâtie pour des pages plus denses',
-      'QR WeChat, ICP et licence d’entreprise au-dessus de la ligne',
+      'Architecture de lâ€™information bÃ¢tie pour des pages plus denses',
+      'QR WeChat, ICP et licence dâ€™entreprise au-dessus de la ligne',
       'QA sur UC Browser, QQ Browser et Chrome',
     ],
     stats: [
       { value: '70%+', label: 'trafic mobile en Chine' },
-      { value: '6', label: 'navigateurs testés en natif' },
+      { value: '6', label: 'navigateurs testÃ©s en natif' },
     ],
   },
   {
-    title: 'Intégration technique',
-    cn: '技术',
-    tagline: 'Deux secondes en Occident en font quinze à Shenzhen.',
-    description: "Configuration serveur, nettoyage du thème, remplacement des dépendances bloquées, WeChat Pay, Alipay, Baidu Tongji. Toute la pile reconstruite et testée depuis de vrais réseaux chinois, à Shanghai et à Shenzhen.",
+    title: 'IntÃ©gration technique',
+    cn: 'æŠ€æœ¯',
+    tagline: 'Deux secondes en Occident en font quinze Ã  Shenzhen.',
+    description: "Configuration serveur, nettoyage du thÃ¨me, remplacement des dÃ©pendances bloquÃ©es, WeChat Pay, Alipay, Baidu Tongji. Toute la pile reconstruite et testÃ©e depuis de vrais rÃ©seaux chinois, Ã  Shanghai et Ã  Shenzhen.",
     link: '/fr/services/integration-technique/',
     cta: 'Caler une consultation technique',
     icon: 'technical',
     deliverables: [
       'Optimisation Aliyun, Tencent ou Huawei selon le fournisseur',
-      'WeChat Pay, Alipay, connexion WeChat, Baidu Tongji intégrés',
-      'Google Fonts remplacées, jQuery rerouté, API bloquées remplacées',
-      'Architecture PIPL et Loi sur la cybersécurité dès le premier jour',
+      'WeChat Pay, Alipay, connexion WeChat, Baidu Tongji intÃ©grÃ©s',
+      'Google Fonts remplacÃ©es, jQuery reroutÃ©, API bloquÃ©es remplacÃ©es',
+      'Architecture PIPL et Loi sur la cybersÃ©curitÃ© dÃ¨s le premier jour',
     ],
     stats: [
-      { value: '47', label: 'ressources bloquées par site' },
-      { value: '2,1 s', label: 'chargement après corrections' },
+      { value: '47', label: 'ressources bloquÃ©es par site' },
+      { value: '2,1 s', label: 'chargement aprÃ¨s corrections' },
     ],
   },
   {
     title: 'Extensions et plug-ins',
-    cn: '插件',
-    tagline: 'Des extensions WordPress taillées pour le Pare-feu.',
-    description: "Environ 40 % des extensions WordPress populaires dépendent de Google. Toutes bloquées derrière le Pare-feu. Nous bâtissons celles qui marchent et réparons celles qui peuvent l’être.",
+    cn: 'æ’ä»¶',
+    tagline: 'Des extensions WordPress taillÃ©es pour le Pare-feu.',
+    description: "Environ 40 % des extensions WordPress populaires dÃ©pendent de Google. Toutes bloquÃ©es derriÃ¨re le Pare-feu. Nous bÃ¢tissons celles qui marchent et rÃ©parons celles qui peuvent lâ€™Ãªtre.",
     link: '/fr/services/plugins-extensions/',
     cta: 'Demander une consultation',
     icon: 'plugins',
@@ -136,41 +136,41 @@ const buildServices = [
       'Blocs Gutenberg sur mesure : QR WeChat, Cartes Baidu, Bilibili',
     ],
     stats: [
-      { value: '60 %', label: 'd’extensions réparables sur place' },
+      { value: '60 %', label: 'dâ€™extensions rÃ©parables sur place' },
       { value: 'UC', label: 'Browser inclus dans le QA' },
     ],
   },
 ];
 
-// Phase Héberger : carte hébergement phare
+// Phase HÃ©berger : carte hÃ©bergement phare
 const hosting = {
-  title: 'Hébergement Chine',
-  cn: '主机',
-  tagline: 'Sous licence ICP, rapide, géré.',
-  description: "Votre site ne charge probablement pas en Chine. Dix à quinze secondes, c’est typique pour un site international. Trafic ralenti, CDN bloqués, Google Fonts qui ne se résolvent pas. Nous corrigeons à la couche infrastructure.",
+  title: 'HÃ©bergement Chine',
+  cn: 'ä¸»æœº',
+  tagline: 'Sous licence ICP, rapide, gÃ©rÃ©.',
+  description: "Votre site ne charge probablement pas en Chine. Dix Ã  quinze secondes, câ€™est typique pour un site international. Trafic ralenti, CDN bloquÃ©s, Google Fonts qui ne se rÃ©solvent pas. Nous corrigeons Ã  la couche infrastructure.",
   link: '/fr/services/hebergement-chine/',
-  cta: 'Voir les options d’hébergement',
+  cta: 'Voir les options dâ€™hÃ©bergement',
   options: [
     {
       name: 'Continental',
       timeframe: '6-10 semaines',
-      bullets: ['Chargement sous la seconde sur les téléphones chinois', 'Requis pour l’effet Baidu', 'Licence ICP gérée de bout en bout'],
+      bullets: ['Chargement sous la seconde sur les tÃ©lÃ©phones chinois', 'Requis pour lâ€™effet Baidu', 'Licence ICP gÃ©rÃ©e de bout en bout'],
     },
     {
       name: 'Hong Kong',
       timeframe: '2-3 semaines',
-      bullets: ['2 à 4 secondes depuis le continent', 'Sans ICP', 'Lancement rapide, effet Baidu faible'],
+      bullets: ['2 Ã  4 secondes depuis le continent', 'Sans ICP', 'Lancement rapide, effet Baidu faible'],
     },
     {
       name: 'Dual-stack',
       timeframe: '8-12 semaines',
-      bullets: ['Mondial et Chine en parallèle', 'Un seul flux éditorial', 'Routage géographique en bordure'],
+      bullets: ['Mondial et Chine en parallÃ¨le', 'Un seul flux Ã©ditorial', 'Routage gÃ©ographique en bordure'],
     },
   ],
   stats: [
-    { value: '0,8 s', label: 'chargement médian continental' },
-    { value: '99,97 %', label: 'disponibilité sur 30 jours' },
-    { value: '100 %', label: 'taux de réussite ICP' },
+    { value: '0,8 s', label: 'chargement mÃ©dian continental' },
+    { value: '99,97 %', label: 'disponibilitÃ© sur 30 jours' },
+    { value: '100 %', label: 'taux de rÃ©ussite ICP' },
   ],
 };
 
@@ -178,59 +178,59 @@ const hosting = {
 const growServices = [
   {
     title: 'Contenu chinois',
-    cn: '内容',
-    tagline: 'Des éditeurs qui écrivent en chinois, dans votre voix de marque.',
-    description: "Des rédacteurs chinois natifs reprennent vos messages dans l’ordre où le lecteur chinois décide vraiment : preuve d’abord, crédibilité ensuite, aspiration à la fin.",
+    cn: 'å†…å®¹',
+    tagline: 'Des Ã©diteurs qui Ã©crivent en chinois, dans votre voix de marque.',
+    description: "Des rÃ©dacteurs chinois natifs reprennent vos messages dans lâ€™ordre oÃ¹ le lecteur chinois dÃ©cide vraiment : preuve dâ€™abord, crÃ©dibilitÃ© ensuite, aspiration Ã  la fin.",
     link: '/fr/services/contenu-chinois/',
-    cta: 'Parler à l’équipe contenu',
+    cta: 'Parler Ã  lâ€™Ã©quipe contenu',
     icon: 'content',
     deliverables: [
-      'Stratégie éditoriale bâtie sur audit Baidu, Zhihu et sectoriel',
-      'Pages de confiance que les sites occidentaux oublient : 荣誉资质, 企业历程, 生产基地',
-      'Rédaction chinoise native dans votre voix de marque',
-      'Discours conforme 广告法 pour le médical, la finance, l’alimentaire et le cosmétique',
+      'StratÃ©gie Ã©ditoriale bÃ¢tie sur audit Baidu, Zhihu et sectoriel',
+      'Pages de confiance que les sites occidentaux oublient : è£èª‰èµ„è´¨, ä¼ä¸šåŽ†ç¨‹, ç”Ÿäº§åŸºåœ°',
+      'RÃ©daction chinoise native dans votre voix de marque',
+      'Discours conforme å¹¿å‘Šæ³• pour le mÃ©dical, la finance, lâ€™alimentaire et le cosmÃ©tique',
     ],
     stats: [
       { value: '9 s', label: 'avant rebond sur copie traduite' },
-      { value: '50+', label: 'marques lancées' },
+      { value: '50+', label: 'marques lancÃ©es' },
     ],
   },
   {
-    title: 'Référencement Baidu',
-    cn: '百度',
+    title: 'RÃ©fÃ©rencement Baidu',
+    cn: 'ç™¾åº¦',
     tagline: 'Baidu joue avec son crawler, son API et son cycle algorithmique.',
-    description: "Crawler différent, API de soumission différente, algorithme différent. Un référencement Baidu piloté depuis la Chine, sur les outils maison de Baidu, par des spécialistes qui suivent 百度搜索资源平台 chaque semaine.",
+    description: "Crawler diffÃ©rent, API de soumission diffÃ©rente, algorithme diffÃ©rent. Un rÃ©fÃ©rencement Baidu pilotÃ© depuis la Chine, sur les outils maison de Baidu, par des spÃ©cialistes qui suivent ç™¾åº¦æœç´¢èµ„æºå¹³å° chaque semaine.",
     link: '/fr/services/baidu-seo/',
     cta: 'Demander un audit Baidu',
     icon: 'seo',
     deliverables: [
-      'API 主动推送 câblée dans le CMS pour la soumission temps réel',
-      'Recherche de mots-clés en chinois natif, depuis Baidu Index',
-      'Travail d’autorité sur 百度百科, 百度知道 et 百家号',
-      'Suivi hebdomadaire des mises à jour 知心算法 et 飓风算法',
+      'API ä¸»åŠ¨æŽ¨é€ cÃ¢blÃ©e dans le CMS pour la soumission temps rÃ©el',
+      'Recherche de mots-clÃ©s en chinois natif, depuis Baidu Index',
+      'Travail dâ€™autoritÃ© sur ç™¾åº¦ç™¾ç§‘, ç™¾åº¦çŸ¥é“ et ç™¾å®¶å·',
+      'Suivi hebdomadaire des mises Ã  jour çŸ¥å¿ƒç®—æ³• et é£“é£Žç®—æ³•',
     ],
     stats: [
-      { value: '24-72 h', label: 'indexation via 主动推送' },
-      { value: '6-10 sem.', label: 'mouvement longue traîne' },
+      { value: '24-72 h', label: 'indexation via ä¸»åŠ¨æŽ¨é€' },
+      { value: '6-10 sem.', label: 'mouvement longue traÃ®ne' },
     ],
   },
   {
     title: 'GEO China',
-    cn: '智搜',
-    tagline: 'Devenir la réponse que les IA chinoises citent.',
-    description: "Optimisation pour les moteurs génératifs sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA. Cinq moteurs, cinq jeux de règles, un site qui doit tenir face aux cinq.",
+    cn: 'æ™ºæœ',
+    tagline: 'Devenir la rÃ©ponse que les IA chinoises citent.',
+    description: "Optimisation pour les moteurs gÃ©nÃ©ratifs sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA. Cinq moteurs, cinq jeux de rÃ¨gles, un site qui doit tenir face aux cinq.",
     link: '/fr/services/geo/',
     cta: 'Demander un audit IA',
     icon: 'ai',
     deliverables: [
-      'Matrice de 80 à 150 questions sur de vrais appareils, dans trois villes',
+      'Matrice de 80 Ã  150 questions sur de vrais appareils, dans trois villes',
       'Audit T1 / T2 / T3 sur les niveaux de preuve face aux IA',
-      'Contenu pilier avec FAQ, comparatifs et clusters de scénarios',
+      'Contenu pilier avec FAQ, comparatifs et clusters de scÃ©narios',
       'Syndication sur Baijiahao, Zhihu, Toutiao et Baidu Baike',
     ],
     stats: [
       { value: '600M+', label: 'utilisateurs IA en Chine' },
-      { value: '6 mois', label: 'jusqu’aux premières citations' },
+      { value: '6 mois', label: 'jusquâ€™aux premiÃ¨res citations' },
     ],
   },
 ];
@@ -238,30 +238,30 @@ const growServices = [
 // Phase Faire vivre : carte maintenance phare
 const maintenance = {
   title: 'Maintenance et accompagnement',
-  cn: '维护',
-  tagline: 'Un site chinois en production a besoin d’un œil sur place.',
-  description: "Lancer est facile. Baidu déclasse les sites qui s’arrêtent de publier. DeepSeek et Doubao mettent à jour leur logique d’ingestion toutes les quelques semaines. Une Google Font laissée dans le thème se retrouve bloquée mardi. Depuis Londres ou Chicago, tout semble aller.",
+  cn: 'ç»´æŠ¤',
+  tagline: 'Un site chinois en production a besoin dâ€™un Å“il sur place.',
+  description: "Lancer est facile. Baidu dÃ©classe les sites qui sâ€™arrÃªtent de publier. DeepSeek et Doubao mettent Ã  jour leur logique dâ€™ingestion toutes les quelques semaines. Une Google Font laissÃ©e dans le thÃ¨me se retrouve bloquÃ©e mardi. Depuis Londres ou Chicago, tout semble aller.",
   link: '/fr/services/maintenance-support/',
   cta: 'Demander une proposition sur mesure',
   deliverables: [
-    '2 à 4 pièces de contenu par mois, syndiquées sur Baijiahao et Zhihu',
-    'Rapport mensuel de positions Baidu sur les 30 à 50 mots-clés clés',
+    '2 Ã  4 piÃ¨ces de contenu par mois, syndiquÃ©es sur Baijiahao et Zhihu',
+    'Rapport mensuel de positions Baidu sur les 30 Ã  50 mots-clÃ©s clÃ©s',
     'Suivi GEO hebdomadaire sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA',
-    'Mises à jour cœur, extensions et thème testées d’abord en staging',
-    'Détection des blocages Pare-feu : CDN, polices et API corrigés en 14 min environ',
-    'Réponse aux piratages : isoler, nettoyer, restaurer, durcir, post-mortem en 48 h',
+    'Mises Ã  jour cÅ“ur, extensions et thÃ¨me testÃ©es dâ€™abord en staging',
+    'DÃ©tection des blocages Pare-feu : CDN, polices et API corrigÃ©s en 14 min environ',
+    'RÃ©ponse aux piratages : isoler, nettoyer, restaurer, durcir, post-mortem en 48 h',
   ],
   stats: [
-    { value: '11', label: 'mises à jour algo Baidu en 2025' },
-    { value: '14 min', label: 'détection à correction en moyenne' },
-    { value: '99,9 %', label: 'SLA de disponibilité' },
+    { value: '11', label: 'mises Ã  jour algo Baidu en 2025' },
+    { value: '14 min', label: 'dÃ©tection Ã  correction en moyenne' },
+    { value: '99,9 %', label: 'SLA de disponibilitÃ©' },
   ],
 };
 ---
 
 <PageLayout
   title="Services web en Chine pour marques internationales | ChinaWebFoundry"
-  description="Tout ce dont une marque internationale a besoin pour lancer et faire vivre un site en Chine. De la stratégie à la maintenance, livré par une seule équipe senior à Shanghai depuis 2005."
+  description="Tout ce dont une marque internationale a besoin pour lancer et faire vivre un site en Chine. De la stratÃ©gie Ã  la maintenance, livrÃ© par une seule Ã©quipe senior Ã  Shanghai depuis 2005."
   heroPage={true}
   lang="fr"
 >
@@ -287,19 +287,19 @@ const maintenance = {
     <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-28 lg:pb-32">
       <div class="io-grid items-end gap-y-10">
         <div class="col-span-12 lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-5">
             Nos services
           </p>
           <h1 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-white leading-[1.06]">
-            Une présence chinoise,<br />conçue de bout en bout.
+            Une prÃ©sence chinoise,<br />conÃ§ue de bout en bout.
           </h1>
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9">
           <p class="text-lg text-white/65 leading-relaxed">
-            Une seule agence, basée en Chine, qui couvre chaque couche dont votre site a besoin pour se lancer, performer et rester visible derrière le Grand Pare-feu. Sur la pile que vous utilisez.
+            Une seule agence, basÃ©e en Chine, qui couvre chaque couche dont votre site a besoin pour se lancer, performer et rester visible derriÃ¨re le Grand Pare-feu. Sur la pile que vous utilisez.
           </p>
           <div class="mt-7">
-            <Button href="/fr/contact/" variant="primary" size="md">Décrivez votre besoin</Button>
+            <Button href="/fr/contact/" variant="primary" size="md">DÃ©crivez votre besoin</Button>
           </div>
         </div>
       </div>
@@ -310,7 +310,7 @@ const maintenance = {
       <div class="mx-auto max-w-[1400px] section-padding py-5">
         <nav class="flex flex-wrap items-center gap-x-2 gap-y-2 justify-center lg:justify-between">
           <span class="text-xs font-semibold uppercase tracking-wider text-white/40 mr-2 hidden lg:inline">
-            Aller à une phase
+            Aller Ã  une phase
           </span>
           <div class="flex flex-wrap gap-2">
             {phases.map((phase) => (
@@ -333,19 +333,19 @@ const maintenance = {
     <div class="mx-auto max-w-[1400px] section-padding">
       <div class="io-grid gap-y-8">
         <div class="col-span-12 lg:col-span-5">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-4">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-4">
             Ce que nous faisons
           </p>
           <h2 class="text-3xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.15]">
-            La plupart des sites étrangers sont cassés en Chine.
+            La plupart des sites Ã©trangers sont cassÃ©s en Chine.
           </h2>
         </div>
         <div class="col-span-12 lg:col-span-6 lg:col-start-7">
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-6">
-            Dépendances bloquées, pages qui ne finissent jamais de charger, Baidu incapable d’indexer quoi que ce soit, IA assistantes qui citent vos concurrents à votre place. Nous réparons tout ça depuis l’intérieur de la Chine, depuis 15 ans, à travers 10 services qui s’imbriquent.
+            DÃ©pendances bloquÃ©es, pages qui ne finissent jamais de charger, Baidu incapable dâ€™indexer quoi que ce soit, IA assistantes qui citent vos concurrents Ã  votre place. Nous rÃ©parons tout Ã§a depuis lâ€™intÃ©rieur de la Chine, depuis 15 ans, Ã  travers 10 services qui sâ€™imbriquent.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Nous les avons regroupés en 5 phases de travail avec nous, pour que vous trouviez ce dont vous avez besoin sans lire 10 brochures.
+            Nous les avons regroupÃ©s en 5 phases de travail avec nous, pour que vous trouviez ce dont vous avez besoin sans lire 10 brochures.
           </p>
         </div>
       </div>
@@ -355,7 +355,7 @@ const maintenance = {
   <!-- ============== PHASE PLAN ============== -->
   <section id="plan" class="bg-[var(--color-surface-light)] py-20 md:py-24 lg:py-28 scroll-mt-20">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <!-- En-tête de phase -->
+      <!-- En-tÃªte de phase -->
       <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
         <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[0].cn}</span>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase un</p>
@@ -364,7 +364,7 @@ const maintenance = {
         </h2>
       </div>
 
-      <!-- Carte phare Stratégie -->
+      <!-- Carte phare StratÃ©gie -->
       <a
         href={strategy.link}
         class="group block bg-white border border-[var(--color-surface-border)] rounded-3xl overflow-hidden no-underline transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
@@ -375,7 +375,7 @@ const maintenance = {
             <div class="flex items-center gap-3 mb-6">
               <span class="text-xl font-light text-[var(--color-brand-orange)]">{strategy.cn}</span>
               <span class="h-px w-12 bg-[var(--color-brand-orange)]"></span>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)]">
                 {strategy.tagline}
               </p>
             </div>
@@ -398,7 +398,7 @@ const maintenance = {
               ))}
             </ul>
 
-            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] group-hover:gap-3 transition-all duration-200">
               {strategy.cta}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -428,7 +428,7 @@ const maintenance = {
   <!-- ============== PHASE BUILD ============== -->
   <section id="build" class="py-20 md:py-24 lg:py-28 scroll-mt-20">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <!-- En-tête de phase -->
+      <!-- En-tÃªte de phase -->
       <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
         <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[1].cn}</span>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase deux</p>
@@ -470,7 +470,7 @@ const maintenance = {
               <span class="text-2xl font-light text-[var(--color-brand-orange)]/60 font-[var(--font-heading)]">{service.cn}</span>
             </div>
 
-            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-2">
               {service.tagline}
             </p>
             <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-4">
@@ -502,7 +502,7 @@ const maintenance = {
               ))}
             </div>
 
-            <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+            <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] group-hover:gap-3 transition-all duration-200">
               {service.cta}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -517,7 +517,7 @@ const maintenance = {
   <!-- ============== PHASE HOST ============== -->
   <section id="host" class="bg-[var(--color-surface-light)] py-20 md:py-24 lg:py-28 scroll-mt-20">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <!-- En-tête de phase -->
+      <!-- En-tÃªte de phase -->
       <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
         <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[2].cn}</span>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase trois</p>
@@ -526,7 +526,7 @@ const maintenance = {
         </h2>
       </div>
 
-      <!-- Carte phare hébergement -->
+      <!-- Carte phare hÃ©bergement -->
       <a
         href={hosting.link}
         class="group block bg-white border border-[var(--color-surface-border)] rounded-3xl overflow-hidden no-underline transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
@@ -537,7 +537,7 @@ const maintenance = {
             <div class="flex items-center gap-3 mb-5">
               <span class="text-xl font-light text-[var(--color-brand-orange)]">{hosting.cn}</span>
               <span class="h-px w-12 bg-[var(--color-brand-orange)]"></span>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)]">
                 {hosting.tagline}
               </p>
             </div>
@@ -559,10 +559,10 @@ const maintenance = {
           </div>
         </div>
 
-        <!-- Bas : 3 options d’hébergement -->
+        <!-- Bas : 3 options dâ€™hÃ©bergement -->
         <div class="p-8 md:p-10 lg:p-14 bg-[var(--color-surface-light)]">
           <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)] mb-6">
-            3 façons d’héberger
+            3 faÃ§ons dâ€™hÃ©berger
           </p>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {hosting.options.map((option) => (
@@ -574,7 +574,7 @@ const maintenance = {
                 <ul class="space-y-2.5">
                   {option.bullets.map((b) => (
                     <li class="flex gap-2 text-sm text-[var(--color-text-body)]">
-                      <span class="text-[var(--color-brand-orange)] mt-0.5">·</span>
+                      <span class="text-[var(--color-brand-orange)] mt-0.5">Â·</span>
                       <span>{b}</span>
                     </li>
                   ))}
@@ -583,7 +583,7 @@ const maintenance = {
             ))}
           </div>
           <div class="mt-8">
-            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] group-hover:gap-3 transition-all duration-200">
               {hosting.cta}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -598,7 +598,7 @@ const maintenance = {
   <!-- ============== PHASE GROW ============== -->
   <section id="grow" class="py-20 md:py-24 lg:py-28 scroll-mt-20">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <!-- En-tête de phase -->
+      <!-- En-tÃªte de phase -->
       <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
         <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[3].cn}</span>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase quatre</p>
@@ -607,7 +607,7 @@ const maintenance = {
         </h2>
       </div>
 
-      <!-- Grille à 3 cartes -->
+      <!-- Grille Ã  3 cartes -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
         {growServices.map((service) => (
           <a
@@ -635,7 +635,7 @@ const maintenance = {
               <span class="text-2xl font-light text-[var(--color-brand-orange)]/60 font-[var(--font-heading)]">{service.cn}</span>
             </div>
 
-            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-2">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-2">
               {service.tagline}
             </p>
             <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-4">
@@ -667,7 +667,7 @@ const maintenance = {
               ))}
             </div>
 
-            <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+            <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] group-hover:gap-3 transition-all duration-200">
               {service.cta}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -682,7 +682,7 @@ const maintenance = {
   <!-- ============== PHASE RUN ============== -->
   <section id="run" class="bg-[var(--color-surface-light)] py-20 md:py-24 lg:py-28 scroll-mt-20">
     <div class="mx-auto max-w-[1400px] section-padding">
-      <!-- En-tête de phase -->
+      <!-- En-tÃªte de phase -->
       <div class="flex items-baseline gap-4 mb-12 lg:mb-14 pb-6 border-b border-[var(--color-surface-border)]">
         <span class="text-2xl lg:text-3xl font-light text-[var(--color-brand-orange)] font-[var(--font-heading)]">{phases[4].cn}</span>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Phase cinq</p>
@@ -717,7 +717,7 @@ const maintenance = {
             <div class="flex items-center gap-3 mb-6">
               <span class="text-xl font-light text-[var(--color-brand-orange)]">{maintenance.cn}</span>
               <span class="h-px w-12 bg-[var(--color-brand-orange)]"></span>
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange)]">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)]">
                 {maintenance.tagline}
               </p>
             </div>
@@ -740,7 +740,7 @@ const maintenance = {
               ))}
             </ul>
 
-            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange)] group-hover:gap-3 transition-all duration-200">
+            <span class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] group-hover:gap-3 transition-all duration-200">
               {maintenance.cta}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -759,7 +759,7 @@ const maintenance = {
         Comment on travaille
       </p>
       <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white mb-12 max-w-3xl">
-        De l’audit à la supervision. Même équipe, même immeuble, du début à la fin.
+        De lâ€™audit Ã  la supervision. MÃªme Ã©quipe, mÃªme immeuble, du dÃ©but Ã  la fin.
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         <div>
@@ -769,7 +769,7 @@ const maintenance = {
             </svg>
           </div>
           <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Audit</h3>
-          <p class="text-sm text-white/50 leading-relaxed">Nous testons votre site depuis l’intérieur de la Chine et documentons tout ce qui est cassé.</p>
+          <p class="text-sm text-white/50 leading-relaxed">Nous testons votre site depuis lâ€™intÃ©rieur de la Chine et documentons tout ce qui est cassÃ©.</p>
         </div>
         <div>
           <div class="w-10 h-10 rounded-full bg-[var(--color-brand-orange)] flex items-center justify-center mb-4">
@@ -778,7 +778,7 @@ const maintenance = {
             </svg>
           </div>
           <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Cadrage</h3>
-          <p class="text-sm text-white/50 leading-relaxed">Feuille de route claire avec priorités, calendrier, et zéro surprise sur le périmètre ou le budget.</p>
+          <p class="text-sm text-white/50 leading-relaxed">Feuille de route claire avec prioritÃ©s, calendrier, et zÃ©ro surprise sur le pÃ©rimÃ¨tre ou le budget.</p>
         </div>
         <div>
           <div class="w-10 h-10 rounded-full bg-[var(--color-brand-orange)] flex items-center justify-center mb-4">
@@ -787,7 +787,7 @@ const maintenance = {
             </svg>
           </div>
           <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Construction</h3>
-          <p class="text-sm text-white/50 leading-relaxed">Nous exécutons depuis la Chine, en testant sur de vrais réseaux à chaque étape.</p>
+          <p class="text-sm text-white/50 leading-relaxed">Nous exÃ©cutons depuis la Chine, en testant sur de vrais rÃ©seaux Ã  chaque Ã©tape.</p>
         </div>
         <div>
           <div class="w-10 h-10 rounded-full bg-[var(--color-brand-orange)] flex items-center justify-center mb-4">
@@ -796,7 +796,7 @@ const maintenance = {
             </svg>
           </div>
           <h3 class="text-lg font-medium font-[var(--font-heading)] text-white mb-2">Supervision</h3>
-          <p class="text-sm text-white/50 leading-relaxed">Surveillance et maintenance continues depuis les réseaux chinois, chaque semaine.</p>
+          <p class="text-sm text-white/50 leading-relaxed">Surveillance et maintenance continues depuis les rÃ©seaux chinois, chaque semaine.</p>
         </div>
       </div>
     </div>
@@ -806,14 +806,14 @@ const maintenance = {
   <section class="py-24 md:py-32 lg:py-40">
     <div class="mx-auto max-w-[1400px] section-padding text-center">
       <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-        Voyons ensemble ce qu’il vous faut vraiment en Chine.
+        Voyons ensemble ce quâ€™il vous faut vraiment en Chine.
       </h2>
       <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
-        Peut-être un site qui ne charge pas derrière le Pare-feu. Peut-être un lancement que vous repoussez parce que le volet chinois semble trop lourd. Quoi qu’il en soit, dites-nous ce qui se passe, et nous trouverons à partir de là.
+        Peut-Ãªtre un site qui ne charge pas derriÃ¨re le Pare-feu. Peut-Ãªtre un lancement que vous repoussez parce que le volet chinois semble trop lourd. Quoi quâ€™il en soit, dites-nous ce qui se passe, et nous trouverons Ã  partir de lÃ .
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/fr/contact/" variant="primary" size="lg">Caler un appel</Button>
-        <Button href="/fr/contact/" variant="secondary" size="lg">Évaluation gratuite</Button>
+        <Button href="/fr/contact/" variant="secondary" size="lg">Ã‰valuation gratuite</Button>
       </div>
     </div>
   </section>

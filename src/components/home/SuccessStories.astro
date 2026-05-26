@@ -23,7 +23,7 @@ const stories = casestudies.map((cs) => ({
     <!-- Header -->
     <div class="mb-10 flex flex-col gap-8 md:mb-14 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange)] mb-5">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-5">
           Success stories
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08]">
@@ -136,17 +136,20 @@ const stories = casestudies.map((cs) => ({
   </div>
 
   <!-- Dot indicators -->
-  <div id="stories-dots" class="mt-8 flex justify-center gap-2">
+  <div id="stories-dots" class="mt-8 flex justify-center gap-1">
     {stories.map((_, i) => (
       <button
-        class:list={[
-          'stories-dot h-2 w-2 rounded-full transition-colors',
-          i === 0 ? 'bg-[var(--color-text-dark)]' : 'bg-[var(--color-text-dark)]/20',
-        ]}
-        style="padding: 18px; margin: -18px; background-clip: content-box;"
+        class="stories-dot inline-flex h-6 w-6 items-center justify-center rounded-full"
         data-index={i}
         aria-label={`Go to slide ${i + 1}`}
-      />
+      >
+        <span
+          class:list={[
+            'block h-2 w-2 rounded-full transition-colors',
+            i === 0 ? 'bg-[var(--color-text-dark)]' : 'bg-[var(--color-text-dark)]/20',
+          ]}
+        />
+      </button>
     ))}
   </div>
 </section>
@@ -206,10 +209,12 @@ const stories = casestudies.map((cs) => ({
     function updateDots() {
       const dotIndex = ((current % total) + total) % total;
       dots.forEach((dot, i) => {
+        const inner = dot.firstElementChild as HTMLElement | null;
+        if (!inner) return;
         if (i === dotIndex) {
-          dot.style.backgroundColor = 'var(--color-text-dark)';
+          inner.style.backgroundColor = 'var(--color-text-dark)';
         } else {
-          dot.style.backgroundColor = 'color-mix(in srgb, var(--color-text-dark) 20%, transparent)';
+          inner.style.backgroundColor = 'color-mix(in srgb, var(--color-text-dark) 20%, transparent)';
         }
       });
     }
