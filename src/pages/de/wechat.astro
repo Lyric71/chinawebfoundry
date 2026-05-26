@@ -5,21 +5,21 @@ import FAQItem from '../../components/pages/FAQItem.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
 const metaTitle = 'WeChat Mini Programs und H5-Sites für ausländische Marken in China';
-const metaDescription = 'WeChat ist das Betriebssystem, in dem 1,4 Milliarden chinesische Verbraucher ihren Tag verbringen. Wir bauen die Mini Programs und H5-Mini-Sites, die Ihre Marke dorthin bringen, wo Ihre Kunden ohnehin schon sind.';
+const metaDescription = 'In WeChat verbringen 1,4 Milliarden chinesische Verbraucher einen großen Teil ihres Tages. Wir entwickeln die Mini Programs und H5-Mini-Sites, mit denen ausländische Marken dort präsent werden.';
 
 const dayMoments = [
-  { time: '07:30', icon: 'qr', label: 'Kaffee am Morgen', body: 'QR-Code der Bäckerei scannen, mit WeChat Pay bezahlen, Punkte landen automatisch auf dem Konto.' },
-  { time: '10:00', icon: 'card', label: 'Treuestufe', body: 'Vor dem zweiten Kaffee kurz die Mitgliedskarte der Marke öffnen. Stufe geprüft, Gratis-Upgrade.' },
-  { time: '12:30', icon: 'cart', label: 'Mittagsbestellung', body: 'Mini Program des Nudelladens um die Ecke. Vorbestellt, beim Eintreffen fertig.' },
-  { time: '15:00', icon: 'shield', label: 'Service-Anfrage', body: 'Garantiestatus eines Küchengeräts. Mini Program der Marke. Kein Login nötig.' },
-  { time: '19:00', icon: 'bag', label: 'Einkauf am Abend', body: 'Mini Program einer Pflegemarke. Gespeicherter Warenkorb, WeChat Pay, Bestellung im Verlauf abgelegt.' },
-  { time: '21:30', icon: 'video', label: 'Livestream auf Channels', body: 'Eine Lieblings-Moderatorin auf Channels. Produkt antippen, kaufen, kein Bruch im Kaufvorgang.' },
+  { time: '07:30', icon: 'qr', label: 'Kaffee am Morgen', body: 'Der QR-Code der Bäckerei wird gescannt, die Zahlung läuft über WeChat Pay, und die Treuepunkte landen automatisch auf dem Konto.' },
+  { time: '10:00', icon: 'card', label: 'Treuestufe', body: 'Vor dem zweiten Kaffee öffnet sich kurz die Mitgliedskarte der Marke. Die Stufe wird geprüft, das Gratis-Upgrade ist gebucht.' },
+  { time: '12:30', icon: 'cart', label: 'Mittagsbestellung', body: 'Über das Mini Program des Nudelladens um die Ecke ist vorbestellt, sodass das Essen beim Eintreffen schon bereitsteht.' },
+  { time: '15:00', icon: 'shield', label: 'Service-Anfrage', body: 'Der Garantiestatus eines Küchengeräts lässt sich im Mini Program der Marke abrufen, ganz ohne Anmeldung.' },
+  { time: '19:00', icon: 'bag', label: 'Einkauf am Abend', body: 'Im Mini Program einer Pflegemarke wartet der gespeicherte Warenkorb, die Zahlung läuft über WeChat Pay, die Bestellung wird im Verlauf abgelegt.' },
+  { time: '21:30', icon: 'video', label: 'Livestream auf Channels', body: 'Eine Lieblings-Moderatorin sendet auf Channels. Ein Tipp auf das Produkt genügt, der Kauf folgt im selben Ablauf.' },
 ];
 
 const compareRows = [
-  { label: 'Läuft', mp: 'Innerhalb von WeChat, wie eine native App', h5: 'Im WeChat-Browser, und auch außerhalb' },
-  { label: 'WeChat Pay', mp: 'Ja, volle Integration', h5: 'Eingeschränkt, setzt einen verknüpften Official Account voraus' },
-  { label: 'Native APIs', mp: 'Kamera, Standort, Scan, Login', h5: 'Nur Browser-Funktionen' },
+  { label: 'Läuft', mp: 'Innerhalb von WeChat, wie eine native App', h5: 'Im WeChat-Browser, auch außerhalb von WeChat' },
+  { label: 'WeChat Pay', mp: 'Vollständig integriert', h5: 'Eingeschränkt, setzt einen verknüpften Official Account voraus' },
+  { label: 'Native APIs', mp: 'Kamera, Standort, Scan, Anmeldung', h5: 'Nur Browser-Funktionen' },
   { label: 'Entwicklungsdauer', mp: '10 bis 14 Wochen', h5: '4 bis 6 Wochen' },
   { label: 'Geeignet für', mp: 'Mitgliedschaft, E-Commerce, Service', h5: 'Kampagnen, Broschüren, Lead-Erfassung' },
 ];
@@ -28,46 +28,46 @@ const useCases = [
   {
     icon: 'badge',
     title: 'Mitgliedschaft und Treue',
-    body: 'Der häufigste Anwendungsfall für ausländische Marken. Das Mini Program hält die Karte, zählt die Punkte, liefert personalisierte Prämien. Starbucks China betreibt sein gesamtes Treueprogramm auf diese Weise.',
+    body: 'Der häufigste Anwendungsfall für ausländische Marken. Das Mini Program verwaltet die Karte, zählt die Punkte und spielt personalisierte Prämien aus. Starbucks China steuert sein gesamtes Treueprogramm auf diesem Weg.',
     image: '/images/wechat-usecase-membership-mockup.webp',
     span: 'image',
   },
   {
     icon: 'sparkles',
     title: 'Markenerlebnis',
-    body: 'Für Luxus, Beauty und Lifestyle: ein kuratierter Inhaltsraum. Kampagnenfilme, Gründergeschichten, Produktlexika, Filialfinder, virtuelle Anprobe, alles innerhalb von WeChat.',
+    body: 'Für Luxus, Beauty und Lifestyle entsteht ein kuratierter Inhaltsraum: Kampagnenfilme, Gründergeschichten, Produktlexika, Filialfinder und virtuelle Anprobe, alles innerhalb von WeChat.',
     image: '/images/wechat-usecase-content-hub-mockup.webp',
     span: 'image',
   },
   {
     icon: 'video',
     title: 'D2C und Channels-Livestream',
-    body: 'Direkt verkaufen, ohne Tmall oder JD ihre Provision zu zahlen. Mini Program plus WeChat Pay, mit eigenem Traffic aus Community-Gruppen und Channels-Livestreams.',
+    body: 'Direkt verkaufen, ohne Tmall oder JD eine Provision abzutreten. Mini Program und WeChat Pay greifen ineinander, gespeist aus eigenem Traffic über Community-Gruppen und Channels-Livestreams.',
     image: '/images/wechat-usecase-livestream-mockup.webp',
     span: 'image',
   },
   {
     icon: 'rocket',
     title: 'Vorbestellungen und Produktstarts',
-    body: 'Bei saisonalen Drops oder Kampagnenstarts bleibt der Vorbestell-Ablauf innerhalb von WeChat. Keine externe Seite, keine Reibung, deutlich höhere Conversion.',
+    body: 'Bei saisonalen Drops und Kampagnenstarts bleibt der Vorbestell-Ablauf vollständig innerhalb von WeChat. Da keine externe Seite dazwischenliegt, fällt die Reibung weg und die Conversion steigt deutlich.',
     span: 'text',
   },
   {
     icon: 'users',
     title: 'After-Sales-Service und CRM',
-    body: 'Kundendienst, Garantieregistrierung, Reparaturtermine, Support. Der Kunde lädt nie eine App herunter und merkt sich kein Passwort.',
+    body: 'Kundendienst, Garantieregistrierung, Reparaturtermine und Support laufen über das Mini Program. Der Kunde lädt keine App herunter und merkt sich kein Passwort.',
     span: 'text',
   },
   {
     icon: 'briefcase',
     title: 'B2B-Broschüren und Kataloge',
-    body: 'Eine H5-Broschüre oder ein Mini-Program-Katalog ist nützlicher als ein PDF. Vertriebsmitarbeiter teilen sie im Chat, Interessenten blättern direkt aus dem Gespräch heraus.',
+    body: 'Eine H5-Broschüre oder ein Mini-Program-Katalog leistet mehr als ein PDF. Vertriebsmitarbeiter teilen ihn im Chat, und Interessenten blättern direkt aus dem Gespräch heraus.',
     span: 'text',
   },
   {
     icon: 'qrcode',
     title: 'Offline-Online-Verknüpfung',
-    body: 'QR-Codes auf Verpackungen, in Geschäften, im Print, die alle direkt in ein Mini Program führen. In China ist der QR-Code das Tor zu allem. Ohne ein Ziel am anderen Ende ist die Fläche verschenkt.',
+    body: 'QR-Codes auf Verpackungen, in Geschäften und im Print führen alle direkt in ein Mini Program. In China ist der QR-Code das Tor zu allem. Fehlt am anderen Ende ein Ziel, bleibt die Fläche ungenutzt.',
     span: 'wide',
     badges: ['Verpackung', 'Im Geschäft', 'Print', 'Events', 'Außenwerbung'],
   },
@@ -79,7 +79,7 @@ const techGroups = [
     cn: '原生',
     accent: 'emerald',
     headline: 'WXML, WXSS, JavaScript',
-    body: 'Der offizielle Tencent-Stack. Neue APIs erscheinen hier zuerst, die Prüfer bevorzugen ihn, die langfristige Wartbarkeit ist am besten. Unsere Standardwahl für reine WeChat-Projekte.',
+    body: 'Der offizielle Tencent-Stack. Neue APIs erscheinen hier zuerst, die Prüfer bevorzugen ihn, und die langfristige Wartbarkeit ist die beste. Für reine WeChat-Projekte ist er unsere Standardwahl.',
     tags: ['WXML', 'WXSS', 'JS', 'Cloud Development'],
   },
   {
@@ -87,7 +87,7 @@ const techGroups = [
     cn: '跨端',
     accent: 'orange',
     headline: 'Taro und UniApp',
-    body: 'Eine Codebasis, mehrere chinesische Mini-Program-Plattformen. Taro für React-Teams, UniApp für Vue-Teams oder die breiteste Zielliste. Die richtige Wahl, wenn Sie WeChat plus Alipay oder Douyin brauchen.',
+    body: 'Eine Codebasis bedient mehrere chinesische Mini-Program-Plattformen. Taro eignet sich für React-Teams, UniApp für Vue-Teams oder die breiteste Zielliste. Die richtige Wahl, wenn Sie neben WeChat auch Alipay oder Douyin bespielen wollen.',
     tags: ['Taro', 'UniApp', 'React', 'Vue'],
   },
   {
@@ -95,7 +95,7 @@ const techGroups = [
     cn: '组件库',
     accent: 'amber',
     headline: 'Vant Weapp und TDesign',
-    body: 'Vant Weapp für marketinggetriebene und E-Commerce-Projekte. TDesign, Tencents eigenes Enterprise-Designsystem, für komplexe B2B-Anwendungen. TypeScript in jedem Projekt mit ernsthafter Größe.',
+    body: 'Vant Weapp passt zu marketinggetriebenen und E-Commerce-Projekten. TDesign, das hauseigene Enterprise-Designsystem von Tencent, eignet sich für komplexe B2B-Anwendungen. In jedem Projekt von ernsthafter Größe setzen wir auf TypeScript.',
     tags: ['Vant Weapp', 'TDesign', 'TypeScript'],
   },
   {
@@ -103,7 +103,7 @@ const techGroups = [
     cn: '后端',
     accent: 'sky',
     headline: 'Aliyun, Tencent Cloud, PIPL',
-    body: 'Sichere APIs über Aliyun oder Tencent Cloud, mit Authentifizierung auf chinesischer Seite. Die Datenlokalisierung erfüllt PIPL und das Cybersicherheitsgesetz. CRM- und ERP-Integration nach Bedarf.',
+    body: 'Sichere APIs über Aliyun oder Tencent Cloud, mit Authentifizierung auf chinesischer Seite. Die Datenlokalisierung erfüllt PIPL und das Cybersicherheitsgesetz. CRM- und ERP-Integration kommt nach Bedarf hinzu.',
     tags: ['Aliyun', 'Tencent Cloud', 'PIPL', 'CRM/ERP'],
   },
 ];
@@ -119,7 +119,7 @@ const saasCategories = [
     icon: 'cart',
     title: 'E-Commerce-SaaS',
     cn: '电商 SaaS',
-    body: 'Shops, Kataloge, WeChat Pay, Gruppenkäufe (拼团), Flash-Sales (秒杀), Gutscheine (优惠券). Etablierte Anbieter ab 6.800 CNY pro Jahr, neuere No-Code-Plattformen ab 1.000 bis 2.000 CNY.',
+    body: 'Shops, Kataloge, WeChat Pay, Gruppenkäufe (拼团), Flash-Sales (秒杀) und Gutscheine (优惠券). Etablierte Anbieter beginnen bei 6.800 CNY pro Jahr, neuere No-Code-Plattformen bereits bei 1.000 bis 2.000 CNY.',
     items: [
       { en: 'Youzan', cn: '有赞' },
       { en: 'Weimob', cn: '微盟' },
@@ -134,7 +134,7 @@ const saasCategories = [
     icon: 'badge',
     title: 'Treue, CRM, SCRM',
     cn: '会员与营销',
-    body: 'SCRM-Plattformen für Mitglieder-Tagging (会员标签), Verhaltensauswertung, automatisierte Customer Journeys und personalisierte Nachrichten über das Unternehmens-WeChat. Globale Setups mit Salesforce, HubSpot oder Zendesk binden sich über Konnektoren an.',
+    body: 'SCRM-Plattformen für Mitglieder-Tagging (会员标签), Verhaltensauswertung, automatisierte Customer Journeys und personalisierte Nachrichten über das Unternehmens-WeChat. Globale Setups mit Salesforce, HubSpot oder Zendesk lassen sich über Konnektoren anbinden.',
     items: [
       { en: 'Parllay', cn: '' },
       { en: 'Weiban', cn: '微伴助手' },
@@ -147,7 +147,7 @@ const saasCategories = [
     icon: 'utensils',
     title: 'Gastronomie und Restaurantbetrieb',
     cn: '餐饮',
-    body: 'Die meisten Restaurantketten in China laufen auf einem dieser Systeme. Bestellung per Scan (扫码点餐), Reservierungen, Warteschlangenverwaltung (排队叫号), Lieferung, Treueprämien. McDonald\'s China und Starbucks (星享俱乐部) setzen auf diesen Stack.',
+    body: 'Die meisten Restaurantketten in China laufen auf einem dieser Systeme: Bestellung per Scan (扫码点餐), Reservierungen, Warteschlangenverwaltung (排队叫号), Lieferung und Treueprämien. McDonald\'s China und Starbucks (星享俱乐部) setzen auf diesen Stack.',
     items: [
       { en: 'Meituan F&B', cn: '美团餐饮' },
       { en: 'Keruyun', cn: '客如云' },
@@ -161,7 +161,7 @@ const saasCategories = [
     icon: 'calendar',
     title: 'Buchung, Events, Inhalte',
     cn: '预订与内容',
-    body: 'DerbySoft und Tongcheng für Hotels (Club Med setzte für das Wachstum der Direktbuchungen auf DerbySoft). Damai, Huodongxing und Yoopay für Ticketing. Channels und WeChat Live für Livestreams. Audemars Piguet nutzt Buchungen direkt im Mini Program für das Clienteling.',
+    body: 'DerbySoft und Tongcheng decken den Hotelbereich ab; Club Med setzte beim Ausbau der Direktbuchungen auf DerbySoft. Für Ticketing kommen Damai, Huodongxing und Yoopay infrage, für Livestreams Channels und WeChat Live. Audemars Piguet wickelt Termine fürs Clienteling direkt im Mini Program ab.',
     items: [
       { en: 'DerbySoft', cn: '' },
       { en: 'Tongcheng', cn: '同程' },
@@ -175,7 +175,7 @@ const saasCategories = [
     icon: 'layers',
     title: 'Branchen- und B2B-Lösungen',
     cn: '垂直行业',
-    body: 'Branchenspezifische SaaS, die wir gut kennen: Bildung (打卡), Beauty (美业), Immobilien (看房), Automobil (售后), Gesundheit (挂号). B2B-Vertriebsteams arbeiten mit WeCom und Tencent Meeting.',
+    body: 'Branchenspezifische SaaS, mit der wir vertraut sind: Bildung (打卡), Beauty (美业), Immobilien (看房), Automobil (售后) und Gesundheit (挂号). B2B-Vertriebsteams arbeiten mit WeCom und Tencent Meeting.',
     items: [
       { en: 'WeCom', cn: '企业微信' },
       { en: 'Tencent Meeting', cn: '腾讯会议' },
@@ -196,23 +196,23 @@ const wecomFits = [
   {
     icon: 'briefcase',
     title: 'B2B-Vertriebsteams',
-    body: 'Ersetzt das Durcheinander privater WeChat-Konten durch ein verwaltetes, prüfbares System. Dokumente, Freigaben, Videokonferenzen über Tencent Meeting (腾讯会议), alles in einer App.',
+    body: 'An die Stelle des Wildwuchses privater WeChat-Konten tritt ein verwaltetes, prüfbares System. Dokumente, Freigaben und Videokonferenzen über Tencent Meeting (腾讯会议) liegen in einer App.',
   },
   {
     icon: 'headphones',
     title: 'Kundenservice',
-    body: 'Anfragen aus Ihrem Mini Program, Ihrem Official Account oder über einen QR-Code landen in WeCom und werden an den richtigen Mitarbeiter weitergeleitet, in einem System, das die Rechtsabteilung prüfen kann.',
+    body: 'Anfragen aus Ihrem Mini Program, Ihrem Official Account oder über einen QR-Code laufen in WeCom zusammen und gelangen zum zuständigen Mitarbeiter, in einem System, das die Rechtsabteilung prüfen kann.',
   },
   {
     icon: 'magnet',
     title: 'Private-Traffic-Betrieb',
     cn: '私域运营',
-    body: 'Publikum aus öffentlichen Kanälen (Xiaohongshu, Douyin, bezahlte Medien, QR-Codes im Geschäft) in einen WeCom-Kontakt überführen und dann über Eins-zu-eins-Chats und kuratierte Inhalte pflegen. So bauen Marken echten D2C-Umsatz auf, ohne Tmall und JD ihre Provision zu zahlen.',
+    body: 'Publikum aus öffentlichen Kanälen wie Xiaohongshu, Douyin, bezahlten Medien und QR-Codes im Geschäft wird in einen WeCom-Kontakt überführt und anschließend über Eins-zu-eins-Chats und kuratierte Inhalte gepflegt. So entsteht echter D2C-Umsatz, ohne dass Tmall und JD eine Provision abgetreten werden muss.',
   },
   {
     icon: 'team',
     title: 'Interne Zusammenarbeit',
-    body: 'Dient dem China-Büro zugleich als Slack und Teams. Dokumente, Videokonferenzen, Freigaben, alles auf chinesischen Servern, alles in einer App.',
+    body: 'Für das China-Büro übernimmt WeCom die Rolle von Slack und Teams zugleich. Dokumente, Videokonferenzen und Freigaben liegen auf chinesischen Servern, gebündelt in einer App.',
   },
 ];
 
@@ -220,32 +220,32 @@ const handleSteps = [
   {
     icon: 'badge',
     title: 'Kontoregistrierung und Verifizierung',
-    body: 'Über Ihre WFOE, einen lokalen Partner oder ein Setup mit reinem Service-Account. Unterlagen, Gebühren, Identitätsprüfungen, das Hin und Her mit Tencent.',
+    body: 'Über Ihre WFOE, einen lokalen Partner oder ein Setup mit reinem Service-Account. Wir übernehmen die Unterlagen, die Gebühren, die Identitätsprüfungen und den Schriftwechsel mit Tencent.',
   },
   {
     icon: 'shield',
     title: 'MIIT-Registrierung des Mini Program (小程序备案)',
-    body: 'Seit 2023 verpflichtend. Chinesische Gewerbelizenz, ICP-registrierte Domain, Kategoriefreigaben. Wir kümmern uns um das 24-Stunden-SMS-Fenster, an dem Erstregistrierungen oft scheitern.',
+    body: 'Seit 2023 verpflichtend, und vorausgesetzt werden eine chinesische Gewerbelizenz, eine ICP-registrierte Domain und Kategoriefreigaben. Wir steuern das 24-Stunden-SMS-Fenster, an dem Erstregistrierungen häufig scheitern.',
   },
   {
     icon: 'server',
     title: 'ICP-Registrierung der zugehörigen Domain',
-    body: 'Erforderlich für Mini Programs mit Backend. Aliyun, Tencent Cloud oder Huawei Cloud, je nach Ihrem Stack.',
+    body: 'Erforderlich für jedes Mini Program mit Backend. Je nach Stack über Aliyun, Tencent Cloud oder Huawei Cloud.',
   },
   {
     icon: 'card',
     title: 'WeChat-Pay-Integration',
-    body: 'Händlerkonto, Zertifikatserstellung, API, Testzyklus, von Anfang bis Ende. Das Teilstück, das ohne lokale Präsenz am häufigsten bricht.',
+    body: 'Händlerkonto, Zertifikatserstellung, API und Testzyklus, von Anfang bis Ende. Genau dieses Teilstück bricht ohne lokale Präsenz am häufigsten.',
   },
   {
     icon: 'lock',
     title: 'Datenschutz-Konformität (用户隐私保护指引)',
-    body: 'Richtlinie, In-App-Einwilligungsdialog, prüfbar gegen die WeChat-Vorgaben. Damit das Mini Program die Prüfung beim ersten Mal besteht.',
+    body: 'Richtlinie und In-App-Einwilligungsdialog, prüfbar gegen die Vorgaben von WeChat. So besteht das Mini Program die Prüfung beim ersten Anlauf.',
   },
   {
     icon: 'zap',
     title: 'Performance und Prüfbereitschaft',
-    body: 'Bundle-Größe, Ladezeit, API-Frequenz, Inhaltsmoderation. Abgestimmt auf das, worauf die Tencent-Prüfer wirklich achten.',
+    body: 'Bundle-Größe, Ladezeit, API-Frequenz und Inhaltsmoderation, abgestimmt auf das, worauf die Prüfer von Tencent tatsächlich achten.',
   },
 ];
 
@@ -262,42 +262,42 @@ const faqs = [
   {
     id: 'wechat-foreign-entity',
     question: 'Kann unser ausländisches Unternehmen ein WeChat Mini Program direkt registrieren?',
-    answer: 'Ja, aber mit eingeschränktem Funktionsumfang. Ein Mini Program einer ausländischen Gesellschaft lässt sich über apply.wechat.com registrieren, doch das resultierende Konto ist im chinesischen Festland nicht vollständig sichtbar und hat keinen Zugriff auf WeChat Pay oder die vollen Werbefunktionen. Für ein echtes, auf China ausgerichtetes Mini Program brauchen Sie eine chinesische Gewerbelizenz, entweder über eine eigene WFOE oder über einen lokalen Partner.',
+    answer: 'Ja, allerdings mit eingeschränktem Funktionsumfang. Ein Mini Program einer ausländischen Gesellschaft lässt sich über apply.wechat.com registrieren, doch das resultierende Konto ist auf dem chinesischen Festland nicht vollständig sichtbar und hat weder Zugriff auf WeChat Pay noch auf die vollen Werbefunktionen. Für ein echtes, auf China ausgerichtetes Mini Program ist eine chinesische Gewerbelizenz erforderlich, entweder über eine eigene WFOE oder über einen lokalen Partner.',
   },
   {
     id: 'wechat-wfoe',
     question: 'Brauchen wir eine WFOE, um auf WeChat zu starten?',
-    answer: 'Für den vollen Funktionsumfang (Sichtbarkeit im Festland, WeChat Pay, volle Werbung, alle nativen APIs) brauchen Sie in der Praxis eine chinesische Geschäftseinheit. Der Aufbau einer WFOE dauert drei bis sechs Monate. Die schnellere Alternative ist ein Start unter der chinesischen Lizenz eines Partners, was wir gern für Sie organisieren.',
+    answer: 'Für den vollen Funktionsumfang, also Sichtbarkeit auf dem Festland, WeChat Pay, uneingeschränkte Werbung und sämtliche nativen APIs, ist in der Praxis eine chinesische Geschäftseinheit nötig. Der Aufbau einer WFOE dauert drei bis sechs Monate. Schneller geht der Start unter der chinesischen Lizenz eines Partners, was wir gern für Sie organisieren.',
   },
   {
     id: 'wechat-oa-vs-mp',
     question: 'Was ist der Unterschied zwischen einem Official Account und einem Mini Program?',
-    answer: 'Der Official Account (公众号) ist Ihre Markenpräsenz und Ihr Inhaltskanal innerhalb von WeChat: Follower, redaktionelle Beiträge, Kundenservice. Das Mini Program (小程序) ist die eigentliche Anwendung: E-Commerce, Mitgliedschaft, Buchung, alles Funktionale. Die meisten ausländischen Marken brauchen beides. Der Official Account ist der Marketingkanal, das Mini Program ist das Produkt.',
+    answer: 'Der Official Account (公众号) ist die Markenpräsenz und der Inhaltskanal innerhalb von WeChat, also Follower, redaktionelle Beiträge und Kundenservice. Das Mini Program (小程序) ist die eigentliche Anwendung und trägt alles Funktionale: E-Commerce, Mitgliedschaft, Buchung. Die meisten ausländischen Marken benötigen beides. Der Official Account übernimmt das Marketing, das Mini Program ist das Produkt.',
   },
   {
     id: 'wechat-discovery',
     question: 'Wie finden Nutzer ein Mini Program?',
-    answer: 'Über viele Einstiegspunkte: Suche innerhalb von WeChat, QR-Code-Scan, Weitergabe von einem Freund, Link aus Ihrem Official Account, Anzeige in WeChat Moments, Link aus Xiaohongshu, NFC-Tipp, Sprachbefehl. Das Mini-Program-Ökosystem hat rund fünfzehn Einstiegsflächen, und wir planen die Auffindbarkeit vom ersten Tag an in das Projekt ein.',
+    answer: 'Über zahlreiche Einstiegspunkte: die Suche innerhalb von WeChat, den QR-Code-Scan, die Weitergabe durch einen Freund, einen Link aus Ihrem Official Account, eine Anzeige in WeChat Moments, einen Link aus Xiaohongshu, einen NFC-Tipp oder einen Sprachbefehl. Das Mini-Program-Ökosystem verfügt über rund fünfzehn Einstiegsflächen, und die Auffindbarkeit planen wir vom ersten Tag an in das Projekt ein.',
   },
   {
     id: 'wechat-crm-integration',
     question: 'Können wir unser bestehendes CRM und Backend mit einem Mini Program nutzen?',
-    answer: 'Ja. Wir richten sichere APIs ein, die das Mini Program mit Ihrem bestehenden CRM, ERP oder Produktsystem verbinden. Daten, die in China bleiben müssen, bleiben für die PIPL-Konformität in China, der Rest fließt in Ihren globalen Stack.',
+    answer: 'Ja. Wir richten sichere APIs ein, die das Mini Program mit Ihrem bestehenden CRM, ERP oder Produktsystem verbinden. Daten, die in China verbleiben müssen, bleiben für die PIPL-Konformität in China, der übrige Datenfluss läuft in Ihren globalen Stack.',
   },
   {
     id: 'wechat-cost',
     question: 'Wie viel kostet der Bau eines Mini Program?',
-    answer: 'Das hängt vom Umfang ab. Ein einfaches Mitgliedschafts- oder Broschüren-Mini-Program ist ein kleineres Vorhaben. Eine vollständige E-Commerce-Plattform mit Mini Program, H5-Katalog, WeChat Pay, Livestream-Anbindung und CRM-Integration ist ein deutlich größeres Projekt. Nennen Sie uns den Umfang, und Sie erhalten innerhalb von zwei Werktagen ein konkretes Angebot.',
+    answer: 'Das hängt vom Umfang ab. Ein einfaches Mitgliedschafts- oder Broschüren-Mini-Program bleibt ein überschaubares Vorhaben. Eine vollständige E-Commerce-Plattform mit Mini Program, H5-Katalog, WeChat Pay, Livestream-Anbindung und CRM-Integration ist ein deutlich größeres Projekt. Nennen Sie uns den Umfang, und Sie erhalten innerhalb von zwei Werktagen ein konkretes Angebot.',
   },
   {
     id: 'wechat-taro-uniapp',
     question: 'Können wir Taro oder UniApp statt nativer Entwicklung verwenden?',
-    answer: 'Ja, und das tun wir oft. Mit Taro und UniApp lässt sich eine Codebasis gleichzeitig nach WeChat, Alipay, Douyin, Baidu und H5 ausliefern. Sinnvoll, wenn Sie eine Präsenz auf mehreren Plattformen brauchen. Für reine WeChat-Projekte empfehlen wir wegen Performance und API-Zugriff meist native Entwicklung.',
+    answer: 'Ja, und das tun wir häufig. Mit Taro und UniApp lässt sich eine Codebasis gleichzeitig nach WeChat, Alipay, Douyin, Baidu und H5 ausliefern, was sich bei einer Präsenz auf mehreren Plattformen lohnt. Für reine WeChat-Projekte empfehlen wir wegen der Performance und des API-Zugriffs meist die native Entwicklung.',
   },
   {
     id: 'wechat-updates',
     question: 'Wie funktionieren Updates bei einem Mini Program?',
-    answer: 'Sie veröffentlichen eine neue Version über die WeChat-Entwicklerkonsole, Tencent prüft sie (in der Regel 24 bis 48 Stunden), und die neue Version wird automatisch ausgerollt, sobald Nutzer das Mini Program das nächste Mal öffnen. Keine App-Store-Prüfung, kein Zutun der Nutzer. Das ist einer der echten Vorteile gegenüber einer nativen iOS- oder Android-App.',
+    answer: 'Sie veröffentlichen eine neue Version über die WeChat-Entwicklerkonsole, Tencent prüft sie in der Regel innerhalb von 24 bis 48 Stunden, und die neue Version wird automatisch ausgerollt, sobald Nutzer das Mini Program das nächste Mal öffnen. Es gibt keine App-Store-Prüfung und keinen Aufwand für die Nutzer. Darin liegt einer der handfesten Vorteile gegenüber einer nativen iOS- oder Android-App.',
   },
   {
     id: 'wechat-rejection',
@@ -307,57 +307,57 @@ const faqs = [
   {
     id: 'wechat-enterprise',
     question: 'Wie sieht es mit Enterprise WeChat (企业微信) für B2B aus?',
-    answer: 'Anderes Produkt, anderer Anwendungsfall. Enterprise WeChat ist Tencents Werkzeug für B2B und interne Kommunikation, genutzt für Vertriebsteams, Kundenservice-Abläufe und CRM-artiges Beziehungsmanagement mit chinesischen Kunden. Wir bauen auch innerhalb von Enterprise WeChat, meist für B2B-Marken, bei denen die Vertriebsbeziehung über einzelne Mitarbeiter statt über ein öffentliches Mini Program läuft.',
+    answer: 'Das ist ein anderes Produkt für einen anderen Anwendungsfall. Enterprise WeChat ist das Werkzeug von Tencent für B2B und interne Kommunikation, eingesetzt für Vertriebsteams, Kundenservice-Abläufe und ein CRM-artiges Beziehungsmanagement mit chinesischen Kunden. Wir entwickeln auch innerhalb von Enterprise WeChat, vor allem für B2B-Marken, bei denen die Vertriebsbeziehung über einzelne Mitarbeiter statt über ein öffentliches Mini Program läuft.',
   },
   {
     id: 'wechat-retention',
     question: 'Warum öffnen Nutzer unser Mini Program einmal und kommen nie wieder?',
-    answer: 'Das häufigste Problem nach dem Start. Auffindbarkeit allein genügt nicht, Sie brauchen Gründe zur Rückkehr. Mitgliedsstufen, die sich verändern, Punkte, die verfallen, exklusive Inhalte, Livestream-Wiederholungen, Wiederverfügbarkeits-Hinweise, Service-Nutzen (Garantie, Reparatur, Buchung). Die Mini Programs, die Nutzer immer wieder zurückholen, planen wiederkehrende Besuche von Anfang an ein. Wenn Ihr Mini Program nur eine übersetzte Broschüre ist, kommen die Nutzer nicht zurück. Wir bauen Retention-Schleifen in die Strategiephase ein, nicht erst nach dem Start.',
+    answer: 'Das ist das häufigste Problem nach dem Start. Auffindbarkeit allein genügt nicht, denn es braucht Gründe für die Rückkehr: Mitgliedsstufen, die sich verändern, Punkte, die verfallen, exklusive Inhalte, Livestream-Wiederholungen, Hinweise zur Wiederverfügbarkeit und konkreter Service-Nutzen wie Garantie, Reparatur oder Buchung. Die Mini Programs, die Nutzer immer wieder zurückholen, planen wiederkehrende Besuche von Anfang an ein. Ein Mini Program, das im Kern eine übersetzte Broschüre bleibt, holt niemanden zurück. Wir verankern Retention-Schleifen bereits in der Strategiephase, nicht erst nach dem Start.',
   },
   {
     id: 'wechat-kpis',
     question: 'Wie messen wir Erfolg auf WeChat?',
-    answer: 'Mit anderen Kennzahlen als im westlichen Web. Die ehrlichen: monatlich aktive Nutzer (MAU), Wiederbesuchsrate, Conversion zur Mitgliedschaft, gesammelte Punkte pro aktivem Nutzer, WeChat-Pay-GMV, Anzahl der Moments-Shares, Spitzenzuschauerzahl im Livestream, Follower-Wachstum auf Channels. Vergessen Sie Google Analytics, es funktioniert hier ohnehin nicht. Die eingebaute WeChat-Analytik, dazu ein SCRM-Dashboard wie Parllay oder Weiban und Ihr eigener Event-Stream nach Salesforce oder HubSpot decken ab, was Sie brauchen.',
+    answer: 'Mit anderen Kennzahlen als im westlichen Web. Aussagekräftig sind monatlich aktive Nutzer (MAU), die Wiederbesuchsrate, die Conversion zur Mitgliedschaft, die gesammelten Punkte pro aktivem Nutzer, der WeChat-Pay-GMV, die Zahl der Moments-Shares, die Spitzenzuschauerzahl im Livestream und das Follower-Wachstum auf Channels. Google Analytics spielt hier keine Rolle, da es im chinesischen Netz ohnehin nicht funktioniert. Die eingebaute WeChat-Analytik, ergänzt um ein SCRM-Dashboard wie Parllay oder Weiban sowie um Ihren eigenen Event-Stream nach Salesforce oder HubSpot, deckt den Bedarf ab.',
   },
   {
     id: 'wechat-vs-tmall',
     question: 'Sollten wir zuerst ein Mini Program oder einen Tmall-Flagship-Store starten?',
-    answer: 'Sie erfüllen verschiedene Aufgaben. Tmall sorgt für Reichweite und Sichtbarkeit bei neuen Käufern, das Mini Program steht für eigenes Publikum, Wiederkäufe und niedrigere Provision. Die meisten mittleren bis großen Marken betreiben am Ende beides. Wenn das Budget zu einer Entscheidung zwingt: starker eigener Private Traffic und hohe Markenbekanntheit sprechen für das Mini Program zuerst, schwache Markenbekanntheit spricht für Tmall zuerst. Das Mini Program gibt Ihnen die langfristige Marge und die Kundenbeziehung, Tmall gibt Ihnen das Volumen zum Start.',
+    answer: 'Beide erfüllen unterschiedliche Aufgaben. Tmall sorgt für Reichweite und Sichtbarkeit bei neuen Käufern, das Mini Program steht für ein eigenes Publikum, für Wiederkäufe und für eine niedrigere Provision. Die meisten mittleren bis großen Marken betreiben am Ende beides. Zwingt das Budget zu einer Entscheidung, gilt: starker eigener Private Traffic und hohe Markenbekanntheit sprechen dafür, mit dem Mini Program zu beginnen, eine schwache Markenbekanntheit spricht für Tmall zuerst. Das Mini Program sichert langfristige Marge und Kundenbeziehung, Tmall liefert das Volumen zum Start.',
   },
   {
     id: 'wechat-roi-timeline',
     question: 'Wie lange dauert es, bis sich ein Mini Program rentiert?',
-    answer: 'Der Bau selbst dauert 10 bis 14 Wochen. In den ersten drei bis sechs Monaten nach dem Start geht es darum, Private Traffic aufzubauen, die Mitgliedschaft wachsen zu lassen und den Betriebsrhythmus zu finden. Die meisten Marken sehen ab dem vierten Monat spürbaren Umsatz aus Wiederkäufen, und die Kurve verstärkt sich über das erste Jahr. Die Rendite im ersten Jahr schwankt stark mit dem Betriebsmodell und der Offline-Online-Verknüpfung. Marken, die das Mini Program ins Filialerlebnis einbinden, sehen die Rendite meist deutlich schneller.',
+    answer: 'Der Bau selbst dauert 10 bis 14 Wochen. In den ersten drei bis sechs Monaten nach dem Start geht es darum, Private Traffic aufzubauen, die Mitgliedschaft wachsen zu lassen und den Betriebsrhythmus zu finden. Die meisten Marken verzeichnen ab dem vierten Monat spürbaren Umsatz aus Wiederkäufen, und die Kurve steigt über das erste Jahr hinweg an. Die Rendite im ersten Jahr schwankt stark mit dem Betriebsmodell und der Offline-Online-Verknüpfung. Marken, die das Mini Program in das Filialerlebnis einbinden, sehen die Rendite meist deutlich früher.',
   },
   {
     id: 'wechat-team',
     question: 'Welches lokale Team brauchen wir, um das Mini Program zu betreiben?',
-    answer: 'Eine gewisse Präsenz in China ist nötig. Die meisten unserer Kunden führen ein kleines Team in Shanghai mit ein bis drei Personen: Inhalte, Kundenservice, Livestream-Betrieb. Sie ergänzen es mit externer Agenturunterstützung für SCRM, bezahlte Medien und KOL-Beziehungen. Ein reiner Betrieb aus dem Ausland funktioniert nicht, der Rhythmus ist zu schnell und die Plattform ändert sich zu rasch. Wir bieten außerdem ein Co-Management-Modell für Marken an, die schlank starten und das lokale Team schrittweise aufbauen wollen.',
+    answer: 'Eine gewisse Präsenz in China ist unverzichtbar. Die meisten unserer Kunden führen in Shanghai ein kleines Team von ein bis drei Personen für Inhalte, Kundenservice und Livestream-Betrieb und ergänzen es um externe Agenturunterstützung für SCRM, bezahlte Medien und KOL-Beziehungen. Ein Betrieb allein aus dem Ausland trägt nicht, denn der Rhythmus ist zu schnell und die Plattform verändert sich zu rasch. Für Marken, die schlank starten und das lokale Team schrittweise aufbauen wollen, bieten wir zudem ein Co-Management-Modell an.',
   },
   {
     id: 'wechat-brand-consistency',
     question: 'Wie halten wir die Markenkonsistenz zwischen unserer globalen Website und unserem Mini Program?',
-    answer: 'Identität ja, UX nein. Die meisten ausländischen Marken gestalten die China-Oberfläche wie einen übersetzten westlichen Ablauf, und chinesische Nutzer spüren das sofort. Wir beginnen die China-Gestaltung mit lokalen Vergleichsmaßstäben (Xiaohongshu, native Mini Programs Ihrer Kategorie) und behalten Logo, Farbe, Typografie, Tonalität und Markenpfeiler bei, passen aber Layout, Navigationsdichte und den Stil der Handlungsaufforderungen an lokale Erwartungen an. Die Marke bleibt sie selbst, das Erlebnis spricht die lokale Sprache.',
+    answer: 'Die Markenidentität bleibt erhalten, die UX richtet sich nach dem lokalen Markt. Viele ausländische Marken gestalten die China-Oberfläche als übersetzten westlichen Ablauf, und chinesische Nutzer bemerken das sofort. Wir beginnen die China-Gestaltung mit lokalen Vergleichsmaßstäben, etwa Xiaohongshu und nativen Mini Programs Ihrer Kategorie. Logo, Farbe, Typografie, Tonalität und Markenpfeiler bleiben dabei bestehen, während sich Layout, Navigationsdichte und der Stil der Handlungsaufforderungen an den lokalen Erwartungen orientieren. Die Marke bleibt sie selbst, das Erlebnis spricht die lokale Sprache.',
   },
   {
     id: 'wechat-channels',
     question: 'Sollten wir WeChat Channels (视频号) selbst betreiben oder mit KOLs arbeiten?',
-    answer: 'Die meisten tun beides. Markeneigene Channels für inhaltliche Tiefe, Storytelling und volle Kontrolle über den Funnel, KOL-Livestreams für Reichweitenspitzen bei Starts und saisonalen Momenten. Channels ist derzeit die am schnellsten wachsende Fläche innerhalb von WeChat, und Tencent treibt sie stark voran. Hier ernsthaft zu investieren ist 2025 einer der wirkungsvollsten Schritte für eine ausländische Marke. Wir unterstützen beim Produktions-Setup, beim Sende-Rhythmus und bei der KOL-Auswahl.',
+    answer: 'Die meisten Marken tun beides. Markeneigene Channels sorgen für inhaltliche Tiefe, Storytelling und volle Kontrolle über den Funnel, KOL-Livestreams für Reichweitenspitzen bei Starts und saisonalen Anlässen. Channels ist derzeit die am schnellsten wachsende Fläche innerhalb von WeChat, und Tencent treibt sie mit Nachdruck voran. Ein ernsthaftes Engagement an dieser Stelle gehört 2025 zu den wirkungsvollsten Schritten einer ausländischen Marke. Wir unterstützen beim Produktions-Setup, beim Sende-Rhythmus und bei der KOL-Auswahl.',
   },
   {
     id: 'wechat-private-traffic',
     question: 'Was ist Private Traffic (私域流量) und warum geht es genau darum?',
-    answer: 'Private Traffic ist das Publikum, das Sie erreichen können, ohne jedes Mal Werbegebühren zu zahlen: wiederkehrende Mini-Program-Nutzer, Abonnenten des Official Account, Mitglieder von Community-Gruppen (微信群), WeCom-Kontakte. Der Aufbau ist langsam, der Zinseszinseffekt real. Es ist der wichtigste Grund, warum ausländische Marken für das lange Spiel Mini Programs einer reinen Tmall-Strategie vorziehen. Die Marken, die in fünf Jahren auf WeChat gewinnen, sind diejenigen, die heute mit dem Aufbau von Private Traffic beginnen.',
+    answer: 'Private Traffic ist das Publikum, das Sie erreichen, ohne jedes Mal Werbegebühren zu zahlen: wiederkehrende Mini-Program-Nutzer, Abonnenten des Official Account, Mitglieder von Community-Gruppen (微信群) und WeCom-Kontakte. Der Aufbau verläuft langsam, doch der Zinseszinseffekt ist real. Das ist der wichtigste Grund, warum ausländische Marken auf lange Sicht Mini Programs einer reinen Tmall-Strategie vorziehen. Wer in fünf Jahren auf WeChat vorn liegt, hat heute mit dem Aufbau von Private Traffic begonnen.',
   },
   {
     id: 'wechat-cbec',
     question: 'Können wir ohne lokale Gesellschaft über grenzüberschreitenden E-Commerce nach China verkaufen?',
-    answer: 'Ja, über CBEC-Zollfreizonen (跨境电商保税区). Sie können ohne chinesische Gesellschaft nach China verkaufen und zahlen dabei CBEC-Abgaben. Die Grenzen sind real: die WeChat-Pay-Unterstützung ist lückenhaft, die Produktkategorien sind eingeschränkt, und es gilt ein jährliches Ausgabenlimit von 26.000 CNY pro Person. CBEC eignet sich gut als Markttest für Kosmetik, Nahrungsergänzung und Mode im mittleren Preissegment. Für eine echte, langfristige China-Präsenz mit vollem Mini-Program-Funktionsumfang bleibt eine lokale Gesellschaft der bessere Weg.',
+    answer: 'Ja, über CBEC-Zollfreizonen (跨境电商保税区). Sie verkaufen ohne chinesische Gesellschaft nach China und entrichten dabei CBEC-Abgaben. Die Grenzen sind klar: Die WeChat-Pay-Unterstützung ist lückenhaft, die Produktkategorien sind eingeschränkt, und es gilt ein jährliches Ausgabenlimit von 26.000 CNY pro Person. Als Markttest für Kosmetik, Nahrungsergänzung und Mode im mittleren Preissegment eignet sich CBEC gut. Für eine echte, langfristige China-Präsenz mit vollem Mini-Program-Funktionsumfang bleibt eine lokale Gesellschaft der bessere Weg.',
   },
   {
     id: 'wechat-multiple-mp',
     question: 'Sollten wir ein Mini Program haben oder mehrere?',
-    answer: 'Das hängt von den Zielgruppen ab. Ein Mini Program, wenn sich Ihre B2C-, B2B- und After-Sales-Zielgruppen überschneiden und von einer gemeinsamen Oberfläche profitieren. Mehrere Mini Programs, über das Sub-Program-System von WeChat verknüpft, wenn die Zielgruppen unterschiedlich genug sind, dass eine Vermischung das Erlebnis verwässert: ein eigenes Service-Mini-Program für Garantie und After-Sales, ein Mitgliedschafts-Mini-Program für treue Kunden, ein Markenerlebnis-Mini-Program für Inhalte. Das klären wir in der Strategiephase, nicht nach dem Start.',
+    answer: 'Das hängt von den Zielgruppen ab. Ein einziges Mini Program genügt, wenn sich Ihre B2C-, B2B- und After-Sales-Zielgruppen überschneiden und von einer gemeinsamen Oberfläche profitieren. Mehrere Mini Programs, über das Sub-Program-System von WeChat verknüpft, sind sinnvoll, sobald die Zielgruppen so unterschiedlich sind, dass eine Vermischung das Erlebnis verwässert: ein eigenes Service-Mini-Program für Garantie und After-Sales, ein Mitgliedschafts-Mini-Program für treue Kunden und ein Markenerlebnis-Mini-Program für Inhalte. Das klären wir in der Strategiephase, nicht nach dem Start.',
   },
 ];
 
@@ -409,15 +409,15 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
           </div>
 
           <h1 class="text-4xl sm:text-5xl lg:text-[72px] xl:text-[84px] font-medium font-[var(--font-heading)] text-white leading-[0.98] tracking-tight">
-            WeChat ist keine
-            <span class="block text-white/30">App.</span>
+            WeChat ist mehr
+            <span class="block text-white/30">als eine App.</span>
             <span class="block mt-2 text-[var(--color-brand-orange)]">Es ist das Betriebssystem.</span>
           </h1>
           <p class="mt-10 text-lg lg:text-xl text-white/65 max-w-xl leading-relaxed">
-            1,4 Milliarden Menschen öffnen WeChat dutzende Male am Tag. Gespräche, Zahlungen, Treuekarten, Einkäufe, die Markenbeziehung selbst, alles davon lebt in einer einzigen App.
+            1,4 Milliarden Menschen öffnen WeChat dutzende Male am Tag. Gespräche, Zahlungen, Treuekarten, Einkäufe und die Markenbeziehung selbst spielen sich in einer einzigen App ab.
           </p>
           <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
-            Wir bauen Mini Programs und H5-Mini-Sites für ausländische Marken. Zwanzig Jahre vor Ort in Shanghai.
+            Wir entwickeln Mini Programs und H5-Mini-Sites für ausländische Marken, seit zwanzig Jahren vor Ort in Shanghai.
           </p>
 
           <div class="mt-12 flex flex-wrap gap-4">
@@ -488,7 +488,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9">
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Ein typischer Tag eines chinesischen Verbrauchers. Sechs Momente, in denen WeChat die Standardwahl ist. Die Markenbeziehung lebt dort, oder sie existiert nicht.
+            Ein typischer Tag eines chinesischen Verbrauchers, gegliedert in sechs Momente, in denen WeChat die Standardwahl ist. Wer hier nicht präsent ist, hat keine Markenbeziehung.
           </p>
         </div>
       </div>
@@ -543,7 +543,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
       </div>
 
       <p class="mt-12 text-center text-base lg:text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed italic">
-        Kein Instagram, kein WhatsApp, kein PayPal. WeChat ersetzt sie alle.
+        Was im Westen Instagram, WhatsApp und PayPal leisten, übernimmt in China WeChat.
       </p>
     </div>
   </section>
@@ -556,8 +556,8 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
           Mini Program oder H5
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
-          Beide leben in WeChat,
-          <span class="block text-[var(--color-text-muted)]">aber sie sind nicht dasselbe.</span>
+          Beide leben in WeChat
+          <span class="block text-[var(--color-text-muted)]">und erfüllen doch verschiedene Zwecke.</span>
         </h2>
       </div>
 
@@ -584,20 +584,20 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
                 </h3>
               </div>
               <p class="text-[15px] text-white/65 leading-relaxed mb-6">
-                Nativ, lebt innerhalb von WeChat. Voller Zugriff auf WeChat Pay, Login, Kamera, Standort. Die richtige Wahl für alles, was sich wie eine App anfühlen muss.
+                Nativ, innerhalb von WeChat angesiedelt, mit vollem Zugriff auf WeChat Pay, Anmeldung, Kamera und Standort. Die richtige Wahl für alles, was sich wie eine App anfühlen soll.
               </p>
               <ul class="space-y-2.5">
                 <li class="flex gap-2.5 items-start">
                   <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span class="text-sm text-white/85">Nutzer kommen immer wieder zurück (Mitgliedschaft, E-Commerce)</span>
+                  <span class="text-sm text-white/85">Nutzer kehren regelmäßig zurück, etwa für Mitgliedschaft und E-Commerce</span>
                 </li>
                 <li class="flex gap-2.5 items-start">
                   <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span class="text-sm text-white/85">Sie brauchen WeChat Pay oder andere native APIs</span>
+                  <span class="text-sm text-white/85">Sie benötigen WeChat Pay oder andere native APIs</span>
                 </li>
                 <li class="flex gap-2.5 items-start">
                   <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span class="text-sm text-white/85">Sie bauen für die lange Sicht, nicht für eine einzelne Kampagne</span>
+                  <span class="text-sm text-white/85">Sie planen langfristig, über eine einzelne Kampagne hinaus</span>
                 </li>
               </ul>
             </div>
@@ -620,7 +620,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
                 H5-Mini-Site
               </h3>
               <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-6">
-                Mobile Webseiten, die im WeChat-Browser geöffnet werden. Schneller zu liefern, funktionieren auch außerhalb von WeChat, aber ohne native APIs. Für Kampagnen, Broschüren, Lead-Erfassung.
+                Mobile Webseiten, die im WeChat-Browser geöffnet werden. Sie sind schneller fertig und laufen auch außerhalb von WeChat, verzichten dafür aber auf native APIs. Geeignet für Kampagnen, Broschüren und die Lead-Erfassung.
               </p>
               <ul class="space-y-2.5">
                 <li class="flex gap-2.5 items-start">
@@ -629,11 +629,11 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
                 </li>
                 <li class="flex gap-2.5 items-start">
                   <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span class="text-sm text-[var(--color-text-body)]">Sie müssen in Tagen oder Wochen liefern</span>
+                  <span class="text-sm text-[var(--color-text-body)]">Sie müssen innerhalb von Tagen oder Wochen liefern</span>
                 </li>
                 <li class="flex gap-2.5 items-start">
                   <svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span class="text-sm text-[var(--color-text-body)]">Der Inhalt zählt mehr als eine tiefe Plattformintegration</span>
+                  <span class="text-sm text-[var(--color-text-body)]">Der Inhalt wiegt schwerer als eine tiefe Plattformintegration</span>
                 </li>
               </ul>
             </div>
@@ -652,7 +652,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
             </div>
           </div>
           <p class="text-[15px] lg:text-base text-white/80 leading-relaxed">
-            <strong class="text-white">Gute Nachrichten für Astro-Sites.</strong> Eine <a href="/de/astro/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Astro</a>-Site, die für China gebaut wurde, ist standardmäßig bereits H5-konform. Statisch, schnell, keine blockierten Abhängigkeiten. Das H5-Ergebnis ist meist dieselbe Site, nur auf die Kampagne zugeschnitten.
+            <strong class="text-white">Ein Vorteil für Astro-Sites.</strong> Eine <a href="/de/astro/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Astro</a>-Site, die für China entwickelt wurde, ist von Haus aus bereits H5-konform: statisch, schnell und frei von blockierten Abhängigkeiten. Das H5-Ergebnis ist meist dieselbe Site, lediglich auf die Kampagne zugeschnitten.
           </p>
         </div>
       </div>
@@ -680,7 +680,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
       </div>
 
       <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
-        Unsicher, was passt? Bei <a href="/de/leistungen/strategie-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategie und Audit</a> beginnt das Gespräch.
+        Wenn Sie unsicher sind, welche Variante passt, beginnt das Gespräch bei <a href="/de/leistungen/strategie-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Strategie und Audit</a>.
       </p>
     </div>
   </section>
@@ -693,7 +693,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
           Wofür WeChat da ist
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.05] tracking-tight">
-          Sieben Arten, wie Marken
+          Sieben Wege, auf denen Marken
           <span class="block text-[var(--color-text-muted)]">WeChat heute nutzen.</span>
         </h2>
       </div>
@@ -815,12 +815,12 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.05] tracking-tight">
             Nativ, plattformübergreifend
-            <span class="block text-white/40">oder eine Mischung.</span>
+            <span class="block text-white/40">oder als Kombination.</span>
           </h2>
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 self-end">
           <p class="text-base text-white/60 leading-relaxed">
-            Die erste Entscheidung wirkt auf alles andere durch, von der Erfolgsquote bei der Prüfung bis zu den langfristigen Wartungskosten.
+            Die erste Entscheidung wirkt auf alles Weitere durch, von der Erfolgsquote bei der Prüfung bis zu den langfristigen Wartungskosten.
           </p>
         </div>
       </div>
@@ -908,7 +908,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9">
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
-            Das Mini-Program-Ökosystem ist riesig und ausgereift. Was immer Ihr Geschäft tut, die Chancen stehen gut, dass jemand 70 Prozent des Problems bereits gelöst und in eine SaaS verpackt hat, die Sie heute lizenzieren können.
+            Das Mini-Program-Ökosystem ist groß und ausgereift. Worin auch immer Ihr Geschäft besteht, mit hoher Wahrscheinlichkeit hat jemand bereits 70 Prozent des Problems gelöst und in eine SaaS verpackt, die Sie heute lizenzieren können.
           </p>
         </div>
       </div>
@@ -1015,7 +1015,7 @@ const accentMap: Record<string, { dot: string; tag: string }> = {
           </div>
         </div>
         <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
-          Wir verfolgen den <strong class="text-[var(--color-text-dark)]">Aladdin Index</strong> monatlich, um im Blick zu behalten, welche SaaS-Anbieter aufsteigen und welche Anteile verlieren. Die richtige Antwort lautet selten <em>bauen wir von Grund auf</em>. Meist heißt sie <strong class="text-[var(--color-text-dark)]">die SaaS wählen, die zu 70 Prozent passt</strong>, und dann die 30 Prozent bauen, die Ihre Marke wirklich anders machen.
+          Den <strong class="text-[var(--color-text-dark)]">Aladdin Index</strong> werten wir monatlich aus, um zu verfolgen, welche SaaS-Anbieter aufsteigen und welche an Anteilen verlieren. Eine Eigenentwicklung von Grund auf ist selten die richtige Antwort. Meist empfiehlt es sich, <strong class="text-[var(--color-text-dark)]">die SaaS zu wählen, die zu 70 Prozent passt</strong>, und anschließend die 30 Prozent zu entwickeln, in denen sich Ihre Marke tatsächlich unterscheidet.
         </p>
       </div>
     </div>

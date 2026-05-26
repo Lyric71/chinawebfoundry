@@ -1,9 +1,9 @@
 ---
 title: "Technische Integration"
 shortTitle: "Integration"
-description: "Vollständige WordPress-Integration für China. Server-Konfiguration, Reparatur blockierter Plugins, WeChat Pay, Baidu-Analytics und Datenschutz-Compliance. Sitz in China."
+description: "Wir übernehmen die vollständige WordPress-Integration für China: Server-Konfiguration, die Reparatur blockierter Plugins, WeChat Pay, Baidu-Analytics und Datenschutz-Compliance, erbracht von einem Team mit Sitz in China."
 metaTitle: "Technische Integration für China-Websites | ChinaWebFoundry"
-metaDescription: "Die Integrationsarbeit, die entscheidet, ob eine ausländische Site in China standhält. Erfahrene Entwickler in Shanghai, über 50 Launches, vertraut mit jeder Sperre und Compliance-Falle."
+metaDescription: "Die Integrationsarbeit entscheidet, ob eine ausländische Website in China standhält. Erfahrene Entwickler in Shanghai mit über 50 Launches kennen jede Sperre und Compliance-Falle."
 icon: "plug"
 order: 4
 keywords: ["wordpress china integration", "wordpress wechat pay", "wordpress technik china", "wordpress great firewall"]
@@ -12,7 +12,7 @@ relatedServices: ["plugins-extensions", "china-hosting", "china-migration"]
 
 ## Was dazugehört
 
-Wir überarbeiten jede Ebene Ihrer WordPress-Site, damit sie in China auch wirklich läuft. Server-Einrichtung, Plugin-Reparaturen, lokale Zahlungen, Analytics, Compliance.
+Wir überarbeiten jede Ebene Ihrer WordPress-Website, damit sie in China zuverlässig läuft: Server-Einrichtung, Plugin-Reparaturen, lokale Zahlungen, Analytics und Compliance.
 
 ## Welche Integrationen wir umsetzen
 
@@ -25,4 +25,4 @@ Wir überarbeiten jede Ebene Ihrer WordPress-Site, damit sie in China auch wirkl
 
 ## Für wen das gedacht ist
 
-Unternehmen, die ihren gesamten WordPress-Stack für das chinesische Internet neu aufbauen lassen müssen, nicht nur ein paar Plugins tauschen.
+Dieser Service richtet sich an Unternehmen, die ihren gesamten WordPress-Stack für das chinesische Internet neu aufbauen lassen müssen und nicht nur einzelne Plugins tauschen wollen.

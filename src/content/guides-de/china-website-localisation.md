@@ -28,7 +28,7 @@ Setzen Sie einen Preis auf 888 RMB an, signalisieren Sie Wohlstand. Setzen Sie i
 
 Festlandchina heißt vereinfachtes Chinesisch. Über 95 % der Nutzer auf dem Festland lesen und schreiben die vereinfachte Schrift. Traditionelles Chinesisch ist für Taiwan und Hongkong. Ist das Festland Ihr Markt, gibt es darüber nichts zu diskutieren.
 
-Der Zeichensatz ist die leichte Entscheidung. Die Qualität ist das eigentliche Problem. Maschinell übersetztes Chinesisch liest sich holprig. Chinesisch von einem Nichtmuttersprachler liest sich noch schlechter. Beides killt die Glaubwürdigkeit schon in der ersten Zeile. Die Inhalte müssen von chinesischen Muttersprachlern der vereinfachten Schrift stammen, die das Publikum kennen. Hier sollten Sie nicht sparen.
+Der Zeichensatz ist die leichte Entscheidung. Die Qualität ist das eigentliche Problem. Maschinell übersetztes Chinesisch liest sich holprig. Chinesisch von einem Nichtmuttersprachler liest sich noch schlechter. Beides untergräbt die Glaubwürdigkeit schon in der ersten Zeile. Die Inhalte müssen von chinesischen Muttersprachlern der vereinfachten Schrift stammen, die das Publikum kennen. Hier sollten Sie nicht sparen.
 
 ## Zahlungen: Alipay und WeChat Pay, oder gar nichts
 
@@ -39,7 +39,7 @@ Der Zeichensatz ist die leichte Entscheidung. Die Qualität ist das eigentliche 
 
 Alipay und WeChat Pay halten zusammen über 90 % des chinesischen Marktes für mobile Zahlungen. 969 Millionen Nutzer mobiler Bezahldienste. Kreditkarten gibt es in China, doch online sind sie nicht der Normalfall. Nicht einmal annähernd.
 
-Stößt ein chinesischer Verbraucher an Ihrer Kasse nur auf Visa und Mastercard, ist er weg. Mit Alipay oder WeChat Pay zu bezahlen, ist in China schlicht die Art, wie man online einkauft. Es ist, als landeten Sie an einer US-Kasse, die nur Banküberweisung akzeptiert. Technisch möglich. Macht nur niemand. Unterstützt Ihre Seite nicht beide Verfahren, haben Sie für chinesische Kunden im Grunde keine Kasse.
+Stößt ein chinesischer Verbraucher an Ihrer Kasse nur auf Visa und Mastercard, ist er weg. Mit Alipay oder WeChat Pay zu bezahlen, ist in China schlicht die Art, wie man online einkauft. Es ist, als landeten Sie an einer US-Kasse, die nur Banküberweisung akzeptiert: technisch möglich, aber niemand macht es so. Unterstützt Ihre Seite nicht beide Verfahren, haben Sie für chinesische Kunden im Grunde keine Kasse.
 
 > Alipay und WeChat Pay zusammen: über 90 % der mobilen Zahlungen Chinas. 969 Millionen Nutzer. Zeigt Ihre Kasse nur Visa und Mastercard, ist sie keine Kasse.
 
@@ -47,7 +47,7 @@ Stößt ein chinesischer Verbraucher an Ihrer Kasse nur auf Visa und Mastercard,
 
 Chinesische Internetnutzer suchen nach einer ganz bestimmten Reihe von Dingen, bevor sie sich mit einer Website einlassen. Das weicht von westlichen Erwartungen ab, und wer diese Signale auslässt, wirkt auf ein lokales Publikum verdächtig.
 
-ICP-Nummer im Footer. Chinesische Telefonnummer. QQ als Kontaktkanal, was lokale Erreichbarkeit auf eine Weise vermittelt, die eine bloße E-Mail-Adresse nicht hat. Und Kundenstimmen, am besten von anderen chinesischen Käufern.
+Dazu gehören eine ICP-Nummer im Footer, eine chinesische Telefonnummer und QQ als Kontaktkanal, der lokale Erreichbarkeit auf eine Weise vermittelt, die eine bloße E-Mail-Adresse nicht hat. Hinzu kommen Kundenstimmen, am besten von anderen chinesischen Käufern.
 
 Lassen Sie all das weg, liest sich die Seite als entweder ausländisch oder unseriös. So oder so kauft niemand.
 
@@ -55,7 +55,7 @@ Lassen Sie all das weg, liest sich die Seite als entweder ausländisch oder unse
 
 Westliche Websites führen mit forschen Behauptungen und lockerem Selbstbewusstsein. Chinesisches Publikum reagiert darauf nicht auf dieselbe Weise.
 
-Förmlichkeit zählt. Respekt zählt. Eine Erzählung, die über eine ganze Seite hinweg Vertrauen aufbaut, wirkt besser als eine Überschrift, die brüllt: „Wir sind die Besten." Setzen Sie darauf, Glaubwürdigkeit über eine Geschichte zu gewinnen. „Das ist unsere Geschichte, so vielen Kunden vertrauen wir, dafür stehen wir" schlägt im chinesischen Markt fast jedes Mal das „Darum sollten Sie bei uns kaufen". Unternehmen, die ihre westliche Marketingstimme unverändert nach China bringen, kommen meist entweder aggressiv oder oberflächlich herüber. Davon erholt man sich beim ersten Besuch nur schwer.
+Förmlichkeit und Respekt zählen. Eine Erzählung, die über eine ganze Seite hinweg Vertrauen aufbaut, wirkt besser als eine Überschrift, die brüllt: „Wir sind die Besten." Setzen Sie darauf, Glaubwürdigkeit über eine Geschichte zu gewinnen. „Das ist unsere Geschichte, so vielen Kunden vertrauen wir, dafür stehen wir" schlägt im chinesischen Markt fast jedes Mal das „Darum sollten Sie bei uns kaufen". Unternehmen, die ihre westliche Marketingstimme unverändert nach China bringen, kommen meist entweder aggressiv oder oberflächlich herüber. Davon erholt man sich beim ersten Besuch nur schwer.
 
 ## Soziale Beweise: zeigen Sie die Zahlen
 
@@ -90,4 +90,4 @@ Jenseits dieses Punktes fühlt sich Lokalisierung zunehmend an wie der Gang durc
 
 **Bildsprache.** Stockfotos mit westlichen Gesichtern, westlichen Büros, westlichen Lebensstilen schaffen sofort Distanz. Chinesische Nutzer wollen ihren eigenen Markt gespiegelt sehen. Ersetzen Sie westliche Motive durch Bilder, die sich lokal anfühlen.
 
-**Politische und kulturelle Empfindlichkeiten.** Landkarten, die Taiwan nicht als Teil Chinas zeigen. Hinweise auf Tibet oder Xinjiang, die sich als politisch heikel deuten lassen. Bilder, die kulturelle Tabus berühren. Diese Risiken sind handfest. Seiten werden deswegen gesperrt. Marken werden dafür öffentlich an den Pranger gestellt. Unternehmen, die solche Dinge als Nebensache behandeln, bekommen es meist auf die harte Tour zu spüren.
+**Politische und kulturelle Empfindlichkeiten.** Dazu zählen Landkarten, die Taiwan nicht als Teil Chinas zeigen, Hinweise auf Tibet oder Xinjiang, die sich als politisch heikel deuten lassen, und Bilder, die kulturelle Tabus berühren. Diese Risiken sind handfest. Seiten werden deswegen gesperrt. Marken werden dafür öffentlich an den Pranger gestellt. Unternehmen, die solche Dinge als Nebensache behandeln, bekommen es meist auf die harte Tour zu spüren.

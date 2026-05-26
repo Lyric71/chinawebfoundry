@@ -17,7 +17,7 @@ const engines = [
     cn: '深度',
     name: 'DeepSeek',
     enLabel: '深度求索',
-    body: 'Bevorzugt strukturierte, technisch einwandfreie Inhalte von offiziellen Websites. Lädt Ihre Seite aus China heraus langsam oder stützt sie sich auf Ressourcen, die die Große Firewall (防火长城) blockiert, sieht DeepSeek Sie schlicht nicht.',
+    body: 'DeepSeek bevorzugt strukturierte, technisch einwandfreie Inhalte von offiziellen Websites. Sobald Ihre Seite aus China heraus langsam lädt oder auf Ressourcen angewiesen ist, die die Große Firewall (防火长城) blockiert, bleibt sie für DeepSeek unsichtbar.',
     tag: 'Langform, strukturiert',
     chips: ['JSON-LD', 'SSR', 'Geschwindigkeit', 'Keine blockierten Abhängigkeiten'],
   },
@@ -26,7 +26,7 @@ const engines = [
     cn: '豆包',
     name: 'Doubao',
     enLabel: '字节跳动',
-    body: 'Das Flaggschiff von ByteDance, das sich stark aus dem eigenen Ökosystem speist: Toutiao (今日头条), Douyin (抖音), Baijiahao (百家号). Für Doubao zu optimieren heißt, den ByteDance-Graphen parallel zu Ihrer Website zu füttern.',
+    body: 'Das Flaggschiff von ByteDance speist sich stark aus dem eigenen Ökosystem, also aus Toutiao (今日头条), Douyin (抖音) und Baijiahao (百家号). Wer für Doubao optimiert, muss den ByteDance-Graphen parallel zur eigenen Website mit Inhalten versorgen.',
     tag: 'ByteDance-Graph',
     chips: ['Toutiao', 'Douyin', 'Baijiahao', 'Verbreitung'],
   },
@@ -35,7 +35,7 @@ const engines = [
     cn: 'Kimi',
     name: 'Kimi',
     enLabel: 'Moonshot AI',
-    body: 'Belohnt lange Analysen. Vergleiche, technische Leitfäden, Berichte über mehrere tausend Wörter mit sauberen Datentabellen. Kurze Marketingtexte bleiben unbeachtet.',
+    body: 'Kimi belohnt ausführliche Analysen: Vergleiche, technische Leitfäden und Berichte von mehreren tausend Wörtern mit sauberen Datentabellen. Kurze Marketingtexte lässt die Engine außen vor.',
     tag: 'Tiefe und Tabellen',
     chips: ['Vergleiche', 'Leitfäden', 'Datentabellen', 'Langform'],
   },
@@ -44,7 +44,7 @@ const engines = [
     cn: '元宝',
     name: 'Yuanbao',
     enLabel: '腾讯混元',
-    body: 'Das Tor von Tencent in das WeChat-Ökosystem (微信), und der einzige Assistent, der die Inhalte von WeChat Official Accounts (公众号) durchsuchen kann.',
+    body: 'Yuanbao ist Tencents Zugang zum WeChat-Ökosystem (微信) und der einzige Assistent, der die Inhalte von WeChat Official Accounts (公众号) durchsuchen kann.',
     tag: 'WeChat-bewusst',
     chips: ['公众号', '视频号', 'Mini-Programm', 'WeCom'],
   },
@@ -53,7 +53,7 @@ const engines = [
     cn: '文心',
     name: 'Baidu AI',
     enLabel: '文心一言',
-    body: 'Angetrieben von ERNIE (文心一言). Bevorzugt Quellen mit Autorität: Baidu Baike (百度百科), Behördenportale, JSON-LD-strukturierte Daten, dazu eine starke Stütze auf der Präsenz in Baijiahao und Baidu Zhidao (百度知道).',
+    body: 'Baidu AI läuft auf ERNIE (文心一言) und bevorzugt Quellen mit Autorität: Baidu Baike (百度百科), Behördenportale und JSON-LD-strukturierte Daten. Stark zählt zudem die Präsenz in Baijiahao und Baidu Zhidao (百度知道).',
     tag: 'Autoritätsgeführt',
     chips: ['百度百科', '百度知道', 'JSON-LD', 'Baijiahao'],
   },
@@ -63,42 +63,42 @@ const services = [
   {
     n: '01',
     title: 'Sichtbarkeitsdiagnose',
-    body: 'Eine strukturierte Matrix aus 80 bis 150 Fragen über alle fünf chinesischen Plattformen, ausgeführt auf echten Geräten in Shanghai, Peking und Shenzhen, in Privat- und Firmennetzen, nie über VPN.',
+    body: 'Eine strukturierte Matrix aus 80 bis 150 Fragen über alle fünf chinesischen Plattformen, ausgeführt auf echten Geräten in Shanghai, Peking und Shenzhen, in Privat- und Firmennetzen und nie über VPN.',
     bullets: [
-      'Zitationsrate: wie oft Ihre Marke in KI-Antworten auf relevante Fragen auftaucht.',
-      'Empfehlungsrang: wo Sie stehen, wenn die Engine Optionen nennt.',
-      'Sentiment: der Ton der Erwähnung, neutral, positiv oder kritisch.',
+      'Zitationsrate: wie oft Ihre Marke in KI-Antworten auf relevante Fragen erscheint.',
+      'Empfehlungsrang: an welcher Stelle Sie stehen, wenn die Engine Optionen nennt.',
+      'Sentiment: ob die Erwähnung neutral, positiv oder kritisch ausfällt.',
     ],
     tag: 'p.04',
   },
   {
     n: '02',
     title: 'Audit der Quellenstufen',
-    body: 'KI-Engines belohnen überprüfbare Belege. Echte Patentnummern, Prüfberichte unabhängiger Labore, veröffentlichte Normen. Wir nennen das T1-Inhalte. Marketingtext ohne Beleg ist T3, wird ignoriert oder markiert. Wir erfassen jede Aussage auf Ihrer Website und bauen die schwachen mit Belegen neu auf, die die KI prüfen kann.',
+    body: 'KI-Engines belohnen überprüfbare Belege: echte Patentnummern, Prüfberichte unabhängiger Labore und veröffentlichte Normen. Solche Inhalte stufen wir als T1 ein. Marketingtext ohne Beleg gilt als T3 und wird ignoriert oder als unsicher markiert. Wir erfassen jede Aussage auf Ihrer Website und bauen die schwachen mit Belegen neu auf, die die KI prüfen kann.',
     tag: 'p.10',
   },
   {
     n: '03',
     title: 'Aufbau von Content-Clustern',
-    body: 'Einzelne Artikel bewegen nichts. Wir bauen Cluster: ein zentraler Pfeilertext, gestützt durch FAQ-Seiten, Vergleichsleitfäden, Szenario-Durchläufe, Fallstudien. Aus welchem Blickwinkel der Nutzer auch fragt, Ihre Website taucht auf.',
+    body: 'Einzelne Artikel bewegen nichts. Wir bauen ganze Cluster: einen zentralen Pfeilertext, gestützt durch FAQ-Seiten, Vergleichsleitfäden, Szenario-Durchläufe und Fallstudien. Aus welchem Blickwinkel ein Nutzer auch fragt, Ihre Website erscheint in der Antwort.',
     tag: 'p.16',
   },
   {
     n: '04',
     title: 'Verbreitung über mehrere Plattformen',
-    body: 'KI-Engines gleichen dieselbe Marke über vertrauenswürdige Ziele hinweg ab. Wir verbreiten auf Baijiahao (百家号), Zhihu (知乎), den passenden Branchenportalen und, wo es sinnvoll ist, in offiziellen Baidu-Baike-Einträgen (百度百科).',
+    body: 'KI-Engines gleichen dieselbe Marke über mehrere vertrauenswürdige Quellen hinweg ab. Wir verbreiten Inhalte auf Baijiahao (百家号), Zhihu (知乎) und den passenden Branchenportalen, und wo es sinnvoll ist, in offiziellen Baidu-Baike-Einträgen (百度百科).',
     tag: 'p.22',
   },
   {
     n: '05',
     title: 'Technisches Fundament',
-    body: 'JSON-LD-strukturierte Daten, robots.txt für Baiduspider, Sogouspider, ByteSpider, XML-Sitemaps, Canonical-Tags, die die Autorität nicht über die Sprachversionen verteilen. Die meisten internationalen Builds machen genau hier Fehler.',
+    body: 'JSON-LD-strukturierte Daten, eine robots.txt für Baiduspider, Sogouspider und ByteSpider, XML-Sitemaps sowie Canonical-Tags, die die Autorität nicht über die Sprachversionen zersplittern. Genau an dieser Stelle unterlaufen den meisten internationalen Builds Fehler.',
     tag: 'p.28',
   },
   {
     n: '06',
     title: 'Laufende Überwachung',
-    body: 'DeepSeek hat allein 2025 vier größere Überarbeitungen ausgeliefert. Was im Februar funktionierte, funktionierte im Mai nicht mehr. Wir verfolgen das wöchentlich und steuern nach, bevor die Zitationsraten abrutschen.',
+    body: 'DeepSeek hat allein 2025 vier größere Überarbeitungen ausgerollt. Was im Februar funktionierte, trug im Mai schon nicht mehr. Wir verfolgen diese Entwicklung wöchentlich und steuern nach, bevor die Zitationsraten abrutschen.',
     tag: 'p.34',
   },
 ];
@@ -108,35 +108,35 @@ const stages = [
     n: '01',
     cn: '诊断',
     title: 'Sichtbarkeitsdiagnose',
-    body: 'Wir führen die Fragenmatrix über alle fünf Engines auf echten Geräten in Shanghai, Peking und Shenzhen aus. Ergebnis: ein Basisbericht zur Zitation mit benannten Lücken je Plattform.',
+    body: 'Wir führen die Fragenmatrix über alle fünf Engines auf echten Geräten in Shanghai, Peking und Shenzhen aus. Daraus entsteht ein Basisbericht zur Zitation, der die Lücken je Plattform konkret benennt.',
     output: 'Zitations-Basislinie',
   },
   {
     n: '02',
     cn: '证据',
     title: 'Audit von Belegen und Quellen',
-    body: 'Wir ordnen jede Aussage auf Ihrer Website T1, T2 oder T3 zu. Die schwachen bauen wir mit Patenten, Laborberichten, namentlich genannten Fachleuten und strukturierten Daten neu auf, die die Engines prüfen können.',
+    body: 'Wir ordnen jede Aussage auf Ihrer Website der Stufe T1, T2 oder T3 zu. Die schwachen Aussagen bauen wir mit Patenten, Laborberichten, namentlich genannten Fachleuten und strukturierten Daten neu auf, sodass die Engines sie prüfen können.',
     output: 'Beleg-Karte',
   },
   {
     n: '03',
     cn: '内容',
     title: 'Cluster und Texte',
-    body: 'Muttersprachliche chinesische Pfeilertexte, FAQs, Vergleichsleitfäden, Szenario-Durchläufe, Fallstudien. So gebaut, dass jeder Blickwinkel der Nutzerfrage auf Ihrer Website landet.',
+    body: 'Muttersprachliche chinesische Pfeilertexte, FAQs, Vergleichsleitfäden, Szenario-Durchläufe und Fallstudien, so aufgebaut, dass jeder denkbare Blickwinkel einer Nutzerfrage auf Ihrer Website landet.',
     output: 'Cluster-Seiten live',
   },
   {
     n: '04',
     cn: '分发',
     title: 'Verbreiten und strukturieren',
-    body: '百家号, 知乎, 百度百科 (wo reif), Branchenportale, dazu JSON-LD, robots.txt, llms.txt, Canonical und Sitemap-Arbeit gemeinsam ausgeliefert.',
+    body: 'Verbreitung auf 百家号, 知乎, 百度百科 (sofern die Marke dafür reif ist) und Branchenportalen, dazu JSON-LD, robots.txt, llms.txt, Canonical-Tags und Sitemap-Arbeit, alles gemeinsam ausgeliefert.',
     output: 'Präsenz über alle Graphen',
   },
   {
     n: '05',
     cn: '迭代',
     title: 'Überwachen und nachsteuern',
-    body: 'Wöchentliche Neudurchläufe der Fragenmatrix über alle fünf Engines. Nachsteuern, bevor Modell-Updates als Zitationsabfall ankommen. Monatlicher schriftlicher Bericht.',
+    body: 'Wöchentliche Neudurchläufe der Fragenmatrix über alle fünf Engines, dazu Nachsteuern, bevor Modell-Updates sich als Zitationsabfall niederschlagen. Den Stand fasst ein monatlicher schriftlicher Bericht zusammen.',
     output: 'Wöchentliches Tracking',
   },
 ];
@@ -161,7 +161,7 @@ const evidenceTiers = [
   {
     label: 'T3',
     title: 'Marketingtext',
-    body: 'Unbelegte Markenaussagen ohne externen Beweis. Werden ignoriert oder als unsicher markiert.',
+    body: 'Unbelegte Markenaussagen ohne externen Nachweis. KI-Engines ignorieren sie oder markieren sie als unsicher.',
     weight: 15,
     color: 'red',
     examples: ['"Best in class"', '"Marktführend"', 'Keine Quelle', 'Nur Slogan'],
@@ -170,29 +170,29 @@ const evidenceTiers = [
 
 const stats = [
   { value: '600 Mio.+', label: 'KI-Nutzer in China · 2026', sub: 'CNNIC-Zählung der Nutzer generativer KI in China.' },
-  { value: '20%+', label: 'Baidu-SERPs mit KI-Antworten', sub: '文心X1 und DeepSeek sind jetzt in den Ergebnissen eingebettet.' },
-  { value: '4', label: 'DeepSeek-Überarbeitungen 2025', sub: 'Was im Februar funktionierte, funktionierte im Mai nicht mehr.' },
+  { value: '20%+', label: 'Baidu-SERPs mit KI-Antworten', sub: '文心X1 und DeepSeek sind inzwischen fest in die Ergebnisse eingebettet.' },
+  { value: '4', label: 'DeepSeek-Überarbeitungen 2025', sub: 'Was im Februar funktionierte, trug im Mai schon nicht mehr.' },
 ];
 
 const audiences = [
   {
     label: 'Marken, die auf chinesischer KI unsichtbar sind',
-    description: 'Unternehmen, deren Name nie fällt, wenn Käufer DeepSeek, Doubao oder Yuanbao nach Optionen in ihrer Kategorie fragen, während Wettbewerber zitiert und verlinkt werden.',
+    description: 'Unternehmen, deren Name nie fällt, wenn Käufer DeepSeek, Doubao oder Yuanbao nach Optionen in ihrer Kategorie fragen, während die Wettbewerber zitiert und verlinkt werden.',
     image: '/images/audiences/audience-geo-invisible-on-ai.webp',
   },
   {
     label: 'Internationale Marken, die nach China starten',
-    description: 'Teams, die KI-Sichtbarkeit von Tag eins in den Start einplanen wollen, statt sie sechs Monate später nachzurüsten, wenn die Traffic-Zahlen flach aussehen.',
+    description: 'Teams, die KI-Sichtbarkeit vom ersten Tag an in den Markteintritt einplanen wollen, statt sie sechs Monate später nachzurüsten, wenn die Traffic-Zahlen stagnieren.',
     image: '/images/audiences/audience-geo-launching-china-market.webp',
   },
   {
     label: 'Marken mit Inhalten, aber ohne Belege',
-    description: 'Websites mit durchdachten chinesischen Inhalten, die KI-Engines trotzdem ignorieren, weil den Aussagen die überprüfbaren Quellen, strukturierten Daten und die Bestätigung durch Dritte fehlen, die Zitate verdienen.',
+    description: 'Websites mit durchdachten chinesischen Inhalten, die KI-Engines dennoch übergehen, weil den Aussagen die überprüfbaren Quellen, die strukturierten Daten und die Bestätigung durch Dritte fehlen, die ein Zitat verdienen.',
     image: '/images/audiences/audience-geo-content-without-evidence.webp',
   },
   {
     label: 'Marken, deren organischer Traffic abflacht',
-    description: 'Marketing-Teams, die bemerkt haben, dass der chinesische organische Traffic stagniert, weil Käufer auf KI-gestützte Recherche umsteigen, und die jetzt die Antwort sein wollen, nicht der Link, den niemand anklickt.',
+    description: 'Marketing-Teams, die beobachten, dass der chinesische organische Traffic stagniert, weil Käufer auf KI-gestützte Recherche umsteigen, und die selbst zur zitierten Antwort werden wollen statt zum Link, den niemand anklickt.',
     image: '/images/audiences/audience-geo-search-traffic-flat.webp',
   },
 ];
@@ -215,63 +215,63 @@ const faqs = [
     id: 'difference-from-seo',
     question: 'Worin unterscheidet sich GEO von Baidu-SEO?',
     answer: [
-      'Es überschneidet sich, ist aber nicht dasselbe. Baidu-SEO optimiert für die Baidu-Ergebnisseite, wo Nutzer noch zehn blaue Links überfliegen und klicken. GEO optimiert für KI-Assistenten, die Ihre Inhalte lesen und entscheiden, ob sie Sie in einer einzigen Antwort zitieren. Andere Ranking-Faktoren, andere Content-Struktur, andere Erfolgskennzahlen. Die meisten unserer Kunden betreiben beides als ein Mandat, weil die zugrunde liegende Content-Infrastruktur sich stark überschneidet.',
+      'Beide überschneiden sich, sind aber nicht dasselbe. Baidu-SEO optimiert für die Baidu-Ergebnisseite, auf der Nutzer noch zehn blaue Links überfliegen und anklicken. GEO optimiert für KI-Assistenten, die Ihre Inhalte lesen und entscheiden, ob sie Sie in einer einzigen Antwort zitieren. Die Ranking-Faktoren, die Content-Struktur und die Erfolgskennzahlen unterscheiden sich. Die meisten unserer Kunden vergeben beides als ein Mandat, weil sich die zugrunde liegende Content-Infrastruktur weitgehend deckt.',
     ],
   },
   {
     id: 'platforms-covered',
     question: 'Welche chinesischen KI-Plattformen decken Sie tatsächlich ab?',
     answer: [
-      'DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) und Baidu AI (angetrieben von 文心一言). Das sind die fünf, die heute auf dem chinesischen Festland Volumen bewegen. ChatGPT, Perplexity, Google AI Overviews und Claude sind hier nicht relevant, da sie hinter der Großen Firewall keine nennenswerte Reichweite haben.',
+      'DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) und Baidu AI auf Basis von 文心一言. Diese fünf bewegen heute auf dem chinesischen Festland das Volumen. ChatGPT, Perplexity, Google AI Overviews und Claude spielen hier keine Rolle, weil sie hinter der Großen Firewall keine nennenswerte Reichweite erreichen.',
     ],
   },
   {
     id: 'measurement',
     question: 'Wie messen Sie den Erfolg?',
     answer: [
-      'Drei Zahlen, monatlich verfolgt. Zitationsrate: wie oft Ihre Marke in KI-Antworten auf eine feste Fragenmatrix auftaucht. Empfehlungsrang: wo Sie stehen, wenn die Engine Optionen auflistet. Sentiment: positive, neutrale oder kritische Einordnung der Erwähnung. Die Berichterstattung kommt als monatliche schriftliche Zusammenfassung, daneben ein Live-Dashboard.',
+      'An drei Zahlen, die wir monatlich verfolgen. Die Zitationsrate zeigt, wie oft Ihre Marke in KI-Antworten auf eine feste Fragenmatrix erscheint. Der Empfehlungsrang zeigt, an welcher Stelle Sie stehen, wenn die Engine Optionen auflistet. Das Sentiment ordnet jede Erwähnung als positiv, neutral oder kritisch ein. Die Berichterstattung besteht aus einer monatlichen schriftlichen Zusammenfassung, ergänzt um ein Live-Dashboard.',
     ],
   },
   {
     id: 'how-long',
     question: 'Wie lange dauert es bis zum Zitations-Anstieg?',
     answer: [
-      'Audit und Fundament: 4 bis 6 Wochen. Content-Ausbau und Verbreitung: drei bis vier Monate. Bis zum sechsten Monat sehen die meisten Kunden einen echten Zitations-Anstieg auf mindestens zwei Plattformen. Volle Abdeckung stellt sich in der Regel zwischen Monat 9 und 12 ein. Wer einen KI-Zitationsanteil in 30 Tagen verspricht, verkauft Ihnen etwas anderes.',
+      'Audit und Fundament brauchen 4 bis 6 Wochen, Content-Ausbau und Verbreitung drei bis vier Monate. Bis zum sechsten Monat verzeichnen die meisten Kunden einen spürbaren Zitations-Anstieg auf mindestens zwei Plattformen. Volle Abdeckung stellt sich in der Regel zwischen Monat 9 und 12 ein. Wer einen KI-Zitationsanteil in 30 Tagen verspricht, verkauft Ihnen etwas anderes.',
     ],
   },
   {
     id: 'evidence-tiers',
     question: 'Was sind T1-, T2-, T3-Inhalte und warum zählt das?',
     answer: [
-      'KI-Engines gewichten Quellen danach, wie überprüfbar die Aussagen sind. T1 sind Inhalte, die durch harte Belege gestützt sind: Patentnummern, Prüfberichte unabhängiger Labore, veröffentlichte Normen, offizielle Behördendaten. T2 ist von der Branche anerkannt, aber sekundär: Fachpresse, Analystenberichte, namentlich genannte Fachmeinung. T3 ist Marketingtext ohne externen Beweis, die Sorte, die KI-Engines entweder ignorieren oder als unsicher markieren. Wir ordnen jede Aussage auf Ihrer Website ihrer Stufe zu und bauen die schwachen neu auf.',
+      'KI-Engines gewichten Quellen danach, wie überprüfbar die Aussagen sind. T1 umfasst Inhalte, die durch harte Belege gestützt sind: Patentnummern, Prüfberichte unabhängiger Labore, veröffentlichte Normen und offizielle Behördendaten. T2 gilt als von der Branche anerkannt, bleibt aber sekundär: Fachpresse, Analystenberichte und namentlich genannte Fachmeinung. T3 ist Marketingtext ohne externen Nachweis, also genau die Sorte, die KI-Engines ignorieren oder als unsicher markieren. Wir ordnen jede Aussage auf Ihrer Website ihrer Stufe zu und bauen die schwachen neu auf.',
     ],
   },
   {
     id: 'translated-content',
     question: 'Können wir nicht einfach unsere englischen Inhalte übersetzen?',
     answer: [
-      'Nein. Übersetzte Inhalte wirken für chinesische KI-Engines fremd, verlieren oft die strukturellen Anhaltspunkte, auf die sie sich stützen, und treffen fast nie, wie chinesische Nutzer ihre Fragen tatsächlich formulieren. Wir arbeiten mit muttersprachlichen chinesischen Redakteuren, die von Grund auf neu schreiben, mit den Quellaussagen und Belegen intakt.',
+      'Nein. Übersetzte Inhalte wirken auf chinesische KI-Engines fremd, sie verlieren häufig die strukturellen Anhaltspunkte, an denen sich die Engines orientieren, und treffen fast nie, wie chinesische Nutzer ihre Fragen tatsächlich formulieren. Wir arbeiten mit muttersprachlichen chinesischen Redakteuren, die von Grund auf neu schreiben und dabei die Quellaussagen und Belege unangetastet lassen.',
     ],
   },
   {
     id: 'syndication',
     question: 'Wo verbreiten Sie die Inhalte?',
     answer: [
-      'Baijiahao (百家号) für die Reichweite bei Baidu und Yuanbao, Zhihu (知乎) für Glaubwürdigkeitssignale im technischen und B2B-Bereich, Toutiao (今日头条) und Baijiahao für die ByteDance- und Doubao-Oberflächen und, wo es sinnvoll ist, offizielle Baidu-Baike-Einträge (百度百科). Branchenspezifische Portale kommen je nach Vertical hinzu.',
+      'Baijiahao (百家号) sorgt für Reichweite bei Baidu und Yuanbao, Zhihu (知乎) liefert Glaubwürdigkeitssignale im technischen und im B2B-Bereich, Toutiao (今日头条) und Baijiahao bedienen die ByteDance- und Doubao-Oberflächen, und wo es sinnvoll ist, kommen offizielle Baidu-Baike-Einträge (百度百科) hinzu. Branchenspezifische Portale ergänzen wir je nach Vertical.',
     ],
   },
   {
     id: 'algorithm-changes',
     question: 'Was passiert, wenn die Engines ihre Modelle ändern?',
     answer: [
-      'Das tun sie oft. DeepSeek hat allein 2025 vier größere Überarbeitungen ausgeliefert. Wir überwachen das Zitationsverhalten wöchentlich über dieselbe Fragenmatrix, die wir im Audit verwendet haben, und steuern Inhalte, strukturierte Daten und Verbreitung nach, bevor sich die Änderung als Zitationsabfall zeigt. Teams, die das nicht im Blick haben, verlieren Sichtbarkeit, ohne den Grund zu kennen.',
+      'Das geschieht häufig. DeepSeek allein hat 2025 vier größere Überarbeitungen ausgerollt. Wir überwachen das Zitationsverhalten wöchentlich über dieselbe Fragenmatrix wie im Audit und steuern Inhalte, strukturierte Daten und Verbreitung nach, bevor sich eine Änderung als Zitationsabfall niederschlägt. Teams, die das nicht im Blick behalten, verlieren Sichtbarkeit, ohne den Grund dafür zu kennen.',
     ],
   },
   {
     id: 'cost',
     question: 'Was kostet ein GEO-China-Mandat?',
     answer: [
-      'Das hängt vom Umfang ab: wie viele Produktlinien oder Servicebereiche im Spiel sind, die Tiefe des bestehenden Content-Bestands, die Zahl der Plattformen, auf denen Sie volle Abdeckung brauchen, und ob das Mandat auch die Produktion chinesischer Inhalte und Baidu-SEO umfasst. Beschreiben Sie uns den Umfang, und wir senden innerhalb von zwei Werktagen ein verbindliches Angebot.',
+      'Das hängt vom Umfang ab: davon, wie viele Produktlinien oder Servicebereiche betroffen sind, wie tief der bestehende Content-Bestand reicht, auf wie vielen Plattformen Sie volle Abdeckung brauchen und ob das Mandat auch die Produktion chinesischer Inhalte und Baidu-SEO einschließt. Schildern Sie uns den Umfang, und wir senden Ihnen innerhalb von zwei Werktagen ein verbindliches Angebot.',
     ],
   },
 ];

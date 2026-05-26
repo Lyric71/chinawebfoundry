@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Design
 ---
 
-1,3 Milliarden Internetnutzer, und fast alle am Smartphone. 969 Millionen bezahlen, indem sie einen QR-Code scannen. Allein WeChat verschlingt 34 % des gesamten Internetverkehrs im Land. China hat die Desktop-Ära nicht so durchlaufen wie der Westen. Es ging direkt zu mobil über, und der Abstand zwischen dem, was chinesische Nutzer von einem mobilen Erlebnis erwarten, und dem, was die meisten ausländischen Unternehmen liefern, ist gewaltig. Wer noch desktopzuerst baut und Responsive-Breakpoints im Nachhinein draufsetzt, baut für ein Internet, das chinesische Nutzer schon vor Jahren hinter sich gelassen haben.
+China hat 1,3 Milliarden Internetnutzer, und fast alle gehen über das Smartphone online. 969 Millionen bezahlen, indem sie einen QR-Code scannen. Allein WeChat verschlingt 34 % des gesamten Internetverkehrs im Land. China hat die Desktop-Ära nicht so durchlaufen wie der Westen. Es ging direkt zu mobil über, und der Abstand zwischen dem, was chinesische Nutzer von einem mobilen Erlebnis erwarten, und dem, was die meisten ausländischen Unternehmen liefern, ist gewaltig. Wer noch desktopzuerst baut und Responsive-Breakpoints im Nachhinein draufsetzt, baut für ein Internet, das chinesische Nutzer schon vor Jahren hinter sich gelassen haben.
 
 ## Chinas mobiles Internet in Zahlen
 
@@ -47,17 +47,17 @@ Dann sind da die Zahlungen, und hier werden die Zahlen wirklich frappierend. 969
 
 Mobiles Design für China liegt weit entfernt vom Responsive Design für ein westliches Publikum. Die Erwartungen sind höher, der Kontext des Surfens ist ein anderer, und der Browser, in dem die meisten Ihrer Nutzer stecken, ist der eingebaute Browser von WeChat. Chrome und Safari sind in der Minderheit.
 
-Der größte Wandel: Mobile-only-Denken. Wenn über 95 % Ihrer Nutzer am Smartphone sind, ist der Smartphone-Bildschirm das Produkt. Desktop ist der Nachzügler. Unternehmen, die für Desktop gestalten und das Ganze dann in ein Responsive-Layout quetschen, arbeiten rückwärts, und das sieht man.
+Der wichtigste Wandel ist das Mobile-only-Denken. Wenn über 95 % Ihrer Nutzer am Smartphone sind, ist der Smartphone-Bildschirm das Produkt. Desktop ist der Nachzügler. Unternehmen, die für Desktop gestalten und das Ganze dann in ein Responsive-Layout quetschen, arbeiten rückwärts, und das sieht man.
 
 Der In-App-Browser von WeChat bringt mehr Leute aus dem Tritt als alles andere auf dieser Liste. Er läuft auf einer älteren WebKit-Version, also kann CSS und JavaScript, das in modernen Browsern sauber rendert, innerhalb von WeChat brechen. Wer nur in Chrome und Safari testet, testet nicht für seine tatsächlichen Nutzer. Sie müssen die Seite gezielt im Browser von WeChat laden und alles durchgehen.
 
-Touch-Ziele: mindestens 44 mal 44 Pixel, optimal 48 mal 48, dazu 8 Pixel Abstand zwischen ihnen. Behandeln Sie das als Untergrenze. Kleine Schaltflächen, die für einen Mauszeiger gedacht sind, taugen nichts, wenn jemand mit dem Daumen in einer vollen U-Bahn zur Hauptverkehrszeit navigiert.
+Touch-Ziele sollten mindestens 44 mal 44 Pixel groß sein, optimal 48 mal 48, mit 8 Pixel Abstand zwischen ihnen. Behandeln Sie das als Untergrenze. Kleine Schaltflächen, die für einen Mauszeiger gedacht sind, taugen nichts, wenn jemand mit dem Daumen in einer vollen U-Bahn zur Hauptverkehrszeit navigiert.
 
 Setzen Sie Ihre wichtigsten Call-to-Action-Schaltflächen ins untere Drittel des Bildschirms. Dort liegt der Daumen bei der einhändigen Bedienung von Natur aus. CTAs am oberen Bildschirmrand zwingen die Nutzer dazu, den Griff zu ändern oder beide Hände zu nehmen. Eine kleine Reibung, doch sie kostet Conversions.
 
 Vertikales Scrollen ist der Standard. Chinesische Smartphone-Nutzer verbringen ihren Tag damit, durch lange vertikale Feeds auf WeChat, Douyin und Weibo zu scrollen. Horizontales Wischen, Burger-Menüs und verschachtelte Navigationsstrukturen fühlen sich auf dem Smartphone fremd und unbeholfen an.
 
-Und der Bezahlablauf. Ein QR-Code, der Alipay oder WeChat Pay öffnet. So laufen Transaktionen auf dem Smartphone in China ab. Verlangt Ihre Kasse von den Nutzern, 16 Ziffern von einer Kreditkarte von Hand einzutippen, haben Sie sie schon verloren.
+Bleibt der Bezahlablauf: ein QR-Code, der Alipay oder WeChat Pay öffnet. So laufen Transaktionen auf dem Smartphone in China ab. Verlangt Ihre Kasse von den Nutzern, 16 Ziffern von einer Kreditkarte von Hand einzutippen, haben Sie sie schon verloren.
 
 > QR-Code-Kasse über Alipay oder WeChat Pay. Das ist der Standard. Verlangt Ihr Bezahlablauf das Eintippen von Kartennummern, muten Sie chinesischen Nutzern etwas zu, das sie seit Jahren nicht mehr getan haben.
 
@@ -65,13 +65,13 @@ Und der Bezahlablauf. Ein QR-Code, der Alipay oder WeChat Pay öffnet. So laufen
 
 Chinesische Nutzer leben in Apps, die alles können. Browserbasiertes Surfen, wie westliche Nutzer es betreiben, ist in der Minderheit.
 
-WeChat, Alipay, Meituan. Jede davon ist eine Super-App, die Messaging, Handel, Zahlungen und Dienste in einer einzigen Plattform bündelt. WeChat dient zugleich als Browser, als Geldbörse, als sozialer Feed, als Schaufenster und als Mini-Programm-Plattform, alles auf einmal. Alipay deckt die finanzielle Seite derselben Gleichung ab. Meituan kümmert sich um Essenslieferung, Hotelbuchungen und lokale Dienste, alles an einem Ort.
+WeChat, Alipay und Meituan sind jeweils eine Super-App, die Messaging, Handel, Zahlungen und Dienste in einer einzigen Plattform bündelt. WeChat dient zugleich als Browser, als Geldbörse, als sozialer Feed, als Schaufenster und als Mini-Programm-Plattform, alles auf einmal. Alipay deckt die finanzielle Seite derselben Gleichung ab. Meituan kümmert sich um Essenslieferung, Hotelbuchungen und lokale Dienste, alles an einem Ort.
 
 Mini-Programme haben native Apps für die alltäglichen Aufgaben im Grunde abgelöst. Statt eine eigene App aus dem App Store herunterzuladen, öffnen die Nutzer ein Mini-Programm innerhalb von WeChat oder Alipay. 949 Millionen Menschen nutzen sie. Essen bestellen, eine Fahrt buchen, im Hotel einchecken, ein Produkt kaufen: Das Mini-Programm ist der erwartete Weg, das zu tun. Eine eigenständige App herunterzuladen, ist der Rückfall.
 
 > 949 Millionen Menschen nutzen WeChat-Mini-Programme. Für die meisten Alltagsaufgaben ist das Mini-Programm das Produkt. Der Download aus dem App Store ist der Notnagel.
 
-Die Erwartungen innerhalb dieser Plattformen sind erbarmungslos. Sofortige Zahlung, keine Karteneingabe. Automatischer Login über WeChat SSO. Teilen mit Kontakten und Gruppen per Fingertipp. Jahre ausgefeilter In-App-Erlebnisse haben die Nutzer darauf getrimmt, null Toleranz für zusätzliche Schritte zu haben. Bei der geringsten Reibung sind sie weg.
+Die Erwartungen innerhalb dieser Plattformen sind erbarmungslos: sofortige Zahlung ohne Karteneingabe, automatischer Login über WeChat SSO, das Teilen mit Kontakten und Gruppen per Fingertipp. Jahre ausgefeilter In-App-Erlebnisse haben die Nutzer darauf getrimmt, null Toleranz für zusätzliche Schritte zu haben. Bei der geringsten Reibung sind sie weg.
 
 | Ebene | Zweck |
 |---|---|

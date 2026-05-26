@@ -24,15 +24,15 @@ services: ["strategy-audit", "ux-ui-design", "chinese-content", "china-hosting",
 
 ZeinLey ist ein Zulieferer für Pharmaverpackungen mit Hauptsitz in Ningbo, China. Das Unternehmen fertigt Behältnislösungen für Arzneimittel (Ampullen, Karpulen, Fertigspritzen, Vials, gebrauchsfertige Behältnisse) sowie Verabreichungssysteme (Autoinjektoren, Zweikammersysteme, Pen-Injektoren, Transfersysteme). Beliefert werden Pharmaunternehmen in China und im Ausland.
 
-ZeinLey hatte gerade einen vollständigen Rebrand hinter sich: neue Identität, neue Positionierung, neue visuelle Richtung. Und nun brauchte das Unternehmen eine passende Website. Aber nicht irgendeine. ZeinLey brauchte eine zweisprachige Plattform, die den chinesischen Markt und internationale Pharmakunden zugleich bedienen konnte, mit getrennter Infrastruktur für jeden.
+ZeinLey hatte gerade einen vollständigen Rebrand hinter sich: neue Identität, neue Positionierung, neue visuelle Richtung. Nun brauchte das Unternehmen eine passende Website, und zwar nicht irgendeine. ZeinLey brauchte eine zweisprachige Plattform, die den chinesischen Markt und internationale Pharmakunden zugleich bedienen konnte, mit getrennter Infrastruktur für jeden Markt.
 
 Die größte Hürde waren die Inhalte. Nichts war bislang geschrieben. Keine Sitemap, keine Seitenstruktur, kein Text, nicht einmal eine klare Vorstellung davon, welche Information wohin gehörte.
 
-Für ein Unternehmen im Bereich Pharmaverpackungen, wo Produktspezifikationen präzise sein müssen und regulatorische Glaubwürdigkeit zählt, lässt sich diese Lücke nicht mit einer Vorlage und etwas Platzhaltertext füllen. ZeinLey brauchte ein Team, das bei null anfangen konnte. Festlegen, was die Website sagen soll, das Ganze strukturieren, in zwei Sprachen schreiben und es dann auf WordPress mit zwei getrennten Hosting-Umgebungen aufbauen.
+Für ein Unternehmen im Bereich Pharmaverpackungen, wo Produktspezifikationen präzise sein müssen und regulatorische Glaubwürdigkeit zählt, lässt sich diese Lücke nicht mit einer Vorlage und etwas Platzhaltertext füllen. ZeinLey brauchte ein Team, das bei null anfangen konnte: festlegen, was die Website sagen soll, das Ganze strukturieren, in zwei Sprachen schreiben und es anschließend auf WordPress mit zwei getrennten Hosting-Umgebungen aufbauen.
 
 ## Inhalte zuerst: Interviews, Struktur und die Grenzen von KI
 
-Das Projekt begann dort, wo es tatsächlich beginnen musste: bei der Inhaltsstrategie. Bevor wir WordPress öffneten, bevor wir uns ans Design machten, setzten wir uns mit dem Team von ZeinLey zusammen und begannen mit Interviews. Produktmanager, technische Fachleute, Vertriebsleute. Wir mussten verstehen, wie sich die Produktlinien für Behältnisse und Verabreichung von Arzneimitteln präsentieren lassen, was den chinesischen Pharmakunden im Unterschied zu internationalen Käufern wichtig ist und wie sich eine Website strukturieren lässt, die komplexe Produktkategorien wie Fertigspritzen, Autoinjektoren und Zweikammersysteme so abdeckt, dass sie für die Besucher wirklich verständlich ist.
+Das Projekt begann dort, wo es tatsächlich beginnen musste: bei der Inhaltsstrategie. Bevor wir WordPress öffneten, bevor wir uns ans Design machten, setzten wir uns mit dem Team von ZeinLey zusammen und begannen mit Interviews: mit Produktmanagern, technischen Fachleuten und Vertriebsleuten. Wir mussten verstehen, wie sich die Produktlinien für Behältnisse und Verabreichung von Arzneimitteln präsentieren lassen, was den chinesischen Pharmakunden im Unterschied zu internationalen Käufern wichtig ist und wie sich eine Website strukturieren lässt, die komplexe Produktkategorien wie Fertigspritzen, Autoinjektoren und Zweikammersysteme so abdeckt, dass sie für die Besucher wirklich verständlich ist.
 
 Diese Phase dauerte länger, als die meisten Kunden erwarten. Inzwischen verbreitet sich der Glaube, KI-Werkzeuge könnten Website-Inhalte übernehmen. Bis zu einem gewissen Grad stimmt das, sofern bereits Ausgangsmaterial vorliegt. Doch wenn man bei null anfängt, ohne bestehende Inhalte, ohne interne Unterlagen, aus denen sich schöpfen ließe, ohne ein Botschaftsgerüst, hilft KI kaum weiter. Es braucht weiterhin jemanden, der in diesen Interviews sitzt, die strukturellen Entscheidungen trifft, festlegt, was wohin gehört, und anschließend alles mit den Menschen prüft, die die Produkte tatsächlich kennen. ZeinLey hatte keine dieser Vorarbeiten geleistet, also begannen wir genau dort.
 
@@ -46,7 +46,7 @@ Das Design kam nach den Inhalten. Wir bauten Layouts, die zu ZeinLeys neuer Mark
 
 ## Zwei Märkte, zwei Server, zwei SEO-Strategien
 
-Auf der Infrastrukturseite richteten wir ein doppeltes Hosting ein. Ein Server physisch in China, der die chinesischsprachige Version mit schnellen Ladezeiten und lokaler Regelkonformität bedient. Ein Server außerhalb Chinas für die englischsprachige Version, der internationale Pharmakunden bedient.
+Auf der Infrastrukturseite richteten wir ein doppeltes Hosting ein: einen Server physisch in China, der die chinesischsprachige Version mit schnellen Ladezeiten und lokaler Regelkonformität bedient, und einen Server außerhalb Chinas, der die englischsprachige Version für internationale Pharmakunden bereitstellt.
 
 Jede Version wurde für ihre eigene Suchmaschine optimiert:
 
@@ -61,4 +61,4 @@ Auf beiden Seiten wurde die Analytics eingerichtet, damit ZeinLey tatsächlich g
 
 ZeinLey hat nun eine vollständig zweisprachige Website, die auf zwei getrennten Hosting-Umgebungen läuft. Chinesische Pharmakunden bekommen eine schnelle, lokal gehostete Site, die für Baidu optimiert ist. Internationale Käufer bekommen eine Version für Google, gehostet außerhalb Chinas. Beide Versionen zeigen das gesamte Produktspektrum von ZeinLey, von Ampullen und Vials bis zu Autoinjektoren und Pen-Injektoren, mit der technischen Genauigkeit, die Einkäufer der Pharmabranche erwarten.
 
-Inhalte, Design und Infrastruktur spiegeln allesamt die neue Identität des Unternehmens, und alles wurde von Grund auf gebaut, die Inhalte eingeschlossen. Für einen Zulieferer von Pharmaverpackungen, der eine neue Marke über zwei Märkte hinweg startet und am ersten Tag nichts Geschriebenes hat, ist das eine Menge Boden. Jetzt ist alles live.
+Inhalte, Design und Infrastruktur spiegeln allesamt die neue Identität des Unternehmens, und alles wurde von Grund auf gebaut, die Inhalte eingeschlossen. Für einen Zulieferer von Pharmaverpackungen, der eine neue Marke über zwei Märkte hinweg startet und am ersten Tag nichts Geschriebenes hat, ist das ein beachtliches Pensum. Inzwischen ist alles live.

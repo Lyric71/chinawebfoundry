@@ -11,7 +11,7 @@ services: ["chinese-content", "china-hosting", "technical-integration", "mainten
 
 ## Ein IT-Unternehmen, das seine eigene Website richtig gemacht haben wollte
 
-NETK5 erbringt seit 2002 Dienstleistungen für die IT-Infrastruktur internationaler Unternehmen in China. Netzwerkinstallation, Helpdesk, WLAN-Planung, Cybersicherheit, Cloud-Hosting, Datensicherung. Zu den Kunden zählen De Beers und Orpea, von Shanghaier Flagship-Stores bis zur Fabrikhalle.
+NETK5 erbringt seit 2002 Dienstleistungen für die IT-Infrastruktur internationaler Unternehmen in China: Netzwerkinstallation, Helpdesk, WLAN-Planung, Cybersicherheit, Cloud-Hosting und Datensicherung. Zu den Kunden zählen De Beers und Orpea, von Shanghaier Flagship-Stores bis zur Fabrikhalle.
 
 NETK5 kennt die IT in China so gut wie kaum ein anderer. Doch Infrastruktur zu beherrschen und zu wissen, wie man über 20 Jahre Erfahrung in eine Website verwandelt, die einem neuen Besucher klar etwas mitteilt, sind zwei sehr verschiedene Aufgaben. Das Problem lag bei den Inhalten. Wie ordnet man eine solche Bandbreite an Fachwissen so an, dass sich ein potenzieller Kunde nicht schon beim ersten Klick verliert?
 
@@ -29,7 +29,7 @@ Wir begannen mit der Inhaltsstruktur und der Strategie. Das Angebot von NETK5 is
 
 ## WordPress, Hosting und Integration
 
-Mit festgelegter Strategie bauten wir die Site auf WordPress auf und übernahmen die technische Integration. Gehostet in China auf lokalen Servern, was für ein Unternehmen, dessen gesamter Kundenstamm in China sitzt oder dort geschäftlich tätig ist, keine freie Wahl ist. Keine blockierten Abhängigkeiten, keine externen Skripte, die hinter der Great Firewall alles ausbremsen. Ein Unternehmen, das IT-Zuverlässigkeit verkauft, muss das auch auf der eigenen Site beweisen.
+Mit festgelegter Strategie bauten wir die Website auf WordPress auf und übernahmen die technische Integration. Die Website ist in China auf lokalen Servern gehostet, was für ein Unternehmen, dessen gesamter Kundenstamm in China sitzt oder dort geschäftlich tätig ist, keine freie Wahl ist. Es gibt keine blockierten Abhängigkeiten und keine externen Skripte, die hinter der Großen Firewall alles ausbremsen. Ein Unternehmen, das IT-Zuverlässigkeit verkauft, muss das auch auf der eigenen Website beweisen.
 
 Nach dem Launch richteten wir Wartung und Support ein: Sicherheitsupdates, Performance-Überwachung, Inhaltsaktualisierungen, während NETK5 fortlaufend neue Leistungen ergänzt und Inhalte veröffentlicht.
 
@@ -37,4 +37,4 @@ Nach dem Launch richteten wir Wartung und Support ein: Sicherheitsupdates, Perfo
 
 ## Das Ergebnis
 
-Die WordPress-Site von NETK5 vermittelt internationalen Unternehmen in China nun mehr als zwei Jahrzehnte Erfahrung mit IT-Dienstleistungen. Schnell, lokal gehostet, so strukturiert, dass verschiedene Zielgruppen finden, was sie brauchen. Für ein Unternehmen, das seinen Ruf darauf aufgebaut hat, IT in China zum Laufen zu bringen, leistet die eigene Website nun endlich dasselbe.
+Die WordPress-Website von NETK5 vermittelt internationalen Unternehmen in China nun mehr als zwei Jahrzehnte Erfahrung mit IT-Dienstleistungen. Sie ist schnell, lokal gehostet und so strukturiert, dass verschiedene Zielgruppen finden, was sie brauchen. Für ein Unternehmen, das seinen Ruf darauf aufgebaut hat, IT in China zum Laufen zu bringen, leistet die eigene Website nun endlich dasselbe.

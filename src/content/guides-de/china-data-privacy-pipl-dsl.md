@@ -33,7 +33,7 @@ In der Praxis sieht das so aus: Wenn Ihre Website chinesische Nutzer bedient und
 
 Compliance-Audits sind seit Mai 2025 verpflichtend. Wer Daten von mehr als 1 Million Personen verarbeitet, braucht einen Datenschutzbeauftragten. Grenzüberschreitende Datenübermittlungen, also jedes Mal, wenn Daten chinesischer Nutzer das Land verlassen, verlangen entweder eine staatliche Sicherheitsprüfung, Standardvertragsklauseln oder eine Zertifizierung durch eine zugelassene Stelle. Sie können Daten nicht einfach an Ihre Server in Frankfurt weiterleiten und die Sache für erledigt halten.
 
-Strafen: bis zu 50 Millionen RMB oder 5 Prozent des Vorjahresumsatzes, je nachdem, welcher Betrag höher ist. Auch einzelne Führungskräfte können persönlich haftbar gemacht werden. Wer eine DSGVO-Umsetzung hinter sich hat, dem wird die Struktur vertraut vorkommen, und die Strafen bewegen sich in derselben Größenordnung.
+Die Strafen reichen bis zu 50 Millionen RMB oder 5 Prozent des Vorjahresumsatzes, je nachdem, welcher Betrag höher ist. Auch einzelne Führungskräfte können persönlich haftbar gemacht werden. Wer eine DSGVO-Umsetzung hinter sich hat, dem wird die Struktur vertraut vorkommen, und die Strafen bewegen sich in derselben Größenordnung.
 
 > Strafen für schwere PIPL-Verstöße: bis zu 50 Millionen RMB oder 5 Prozent des Vorjahresumsatzes. Auch einzelne Führungskräfte können persönlich haftbar gemacht werden.
 
@@ -75,6 +75,6 @@ Hier stolpern viele Unternehmen, die an den Ansatz "Mit der weiteren Nutzung die
 
 **Behandeln Sie grenzüberschreitende Übermittlungen ordnungsgemäß.** Wenn Daten chinesischer Nutzer China verlassen müssen, etwa um zu Ihren Unternehmensservern in Europa oder den USA zu fließen, brauchen Sie eine staatliche Sicherheitsprüfung, Standardverträge oder eine Zertifizierung. Es gibt keine Abkürzung und keine Ausnahme für kleine Mengen.
 
-**Führen Sie Compliance-Audits durch.** Seit Mai 2025 unter dem PIPL verpflichtend. Laufend, und die Prüfer schauen genau hin.
+**Führen Sie Compliance-Audits durch.** Sie sind seit Mai 2025 unter dem PIPL verpflichtend, laufend zu wiederholen, und die Prüfer schauen genau hin.
 
 **Halten Sie Verfahren für Datenpannen bereit,** bevor Sie sie brauchen. Kommt es zu einer Datenpanne, müssen Sie Behörden und betroffene Personen innerhalb vorgegebener Fristen benachrichtigen. Unternehmen, die ihr Meldeverfahren erst ausarbeiten, nachdem eine Panne bereits eingetreten ist, stehen deutlich schlechter da.

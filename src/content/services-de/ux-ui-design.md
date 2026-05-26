@@ -1,9 +1,9 @@
 ---
 title: "UX/UI-Design"
 shortTitle: "Design"
-description: "Wir gestalten WordPress-Erlebnisse, die für chinesische Nutzer gebaut sind. Kulturell angepasste Layouts, Mobile First, abgestimmt auf lokale Plattformen, Browser und Vertrauenssignale."
+description: "Wir gestalten WordPress-Erlebnisse, die für chinesische Nutzer gebaut sind: kulturell angepasste Layouts, Mobile-First-Design und eine Abstimmung auf lokale Plattformen, Browser und Vertrauenssignale."
 metaTitle: "UX/UI-Design für das chinesische Publikum | ChinaWebFoundry"
-metaDescription: "Design, das sich danach richtet, wie chinesische Nutzer wirklich lesen, entscheiden und kaufen. Mobile First, vertraute Vertrauenssignale und Zahlungswege, aus Shanghai geliefert."
+metaDescription: "Design, das sich danach richtet, wie chinesische Nutzer wirklich lesen, entscheiden und kaufen. Ein Shanghaier Team liefert Mobile First, vertraute Vertrauenssignale und Zahlungswege."
 icon: "palette"
 order: 3
 keywords: ["ux design china", "ui design wordpress china", "chinesisches webdesign", "mobile first china", "wordpress design china"]
@@ -12,7 +12,7 @@ relatedServices: ["chinese-content", "technical-integration"]
 
 ## Was dazugehört
 
-Wir gestalten WordPress-Sites, die sich für Nutzer in China nativ anfühlen. Kulturell angepasste Layouts, Mobile-First-Design, eingebaute Vertrauenssignale und Gutenberg-eigene Design-Systeme, die Ihr Team ohne Entwickler pflegen kann.
+Wir gestalten WordPress-Websites, die sich für Nutzer in China nativ anfühlen: mit kulturell angepassten Layouts, Mobile-First-Design, eingebauten Vertrauenssignalen und Gutenberg-eigenen Design-Systemen, die Ihr Team ohne Entwickler pflegen kann.
 
 ## Was Sie bekommen
 
@@ -24,4 +24,4 @@ Wir gestalten WordPress-Sites, die sich für Nutzer in China nativ anfühlen. Ku
 
 ## Für wen das gedacht ist
 
-Unternehmen, die eine WordPress-Site für China bauen und das Design von Anfang an richtig machen wollen. Firmen mit einer laufenden Site in China, die hinter den Erwartungen bleibt. Marketingteams, die Kampagnen für chinesische Verbraucher planen. Organisationen mit einem globalen Design-System, das eine echte Anpassung an den chinesischen Markt braucht.
+Der Service richtet sich an Unternehmen, die eine WordPress-Website für China bauen und das Design von Anfang an richtig machen wollen, an Firmen mit einer laufenden Website in China, die hinter den Erwartungen bleibt, an Marketingteams, die Kampagnen für chinesische Verbraucher planen, und an Organisationen mit einem globalen Design-System, das eine echte Anpassung an den chinesischen Markt braucht.

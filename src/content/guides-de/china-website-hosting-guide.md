@@ -28,9 +28,9 @@ Alibaba Cloud ist der dominierende Akteur, mit 36 bis 39 % Marktanteil. Berührt
 
 Huawei Cloud und Tencent Cloud teilen sich die nächste Ebene. Huawei liegt zwischen 12 und 19 % und ist die erste Adresse für Großunternehmen und Behörden. Wer mit chinesischen Staatsbetrieben oder anderen behördennahen Stellen zu tun hat, greift häufig wie selbstverständlich zu Huawei. Tencent hält 11 bis 16 % und ist die klare Wahl, wenn Ihre Strategie WeChat-Mini-Programme oder QQ-Dienste einbezieht. Allein die WeChat-Integration macht den Anbieter zum Standard für Unternehmen, die rund um diese Plattform bauen.
 
-Baidu Cloud bedient eine Nische. Etwa 5 % Marktanteil, ausgerichtet auf KI und maschinelles Lernen. Relevant, wenn Ihr Stack stark KI-lastig ist. Für allgemeines Hosting fangen die wenigsten Unternehmen dort an.
+Baidu Cloud bedient eine Nische. Mit etwa 5 % Marktanteil ist der Anbieter auf KI und maschinelles Lernen ausgerichtet und vor allem dann relevant, wenn Ihr Stack stark KI-lastig ist. Für allgemeines Hosting fangen die wenigsten Unternehmen dort an.
 
-Bleibt AWS China. Ausländische Unternehmen fühlen sich davon angezogen, weil ihnen der Name vertraut ist. Rund 7 % Marktanteil, betrieben über die lokalen Partner Sinnet und NWCD. Wichtig zu verstehen: AWS China ist eine vollständig eigenständige Einheit. Eigene Konten. Eigene Abrechnung. Eigenes Compliance-Verfahren. Das globale AWS-Konto, das Sie bereits besitzen, bringt Ihnen hier nichts.
+Bleibt noch AWS China. Ausländische Unternehmen fühlen sich davon angezogen, weil ihnen der Name vertraut ist. Der Anbieter hält rund 7 % Marktanteil und wird über die lokalen Partner Sinnet und NWCD betrieben. Wichtig zu verstehen ist: AWS China ist eine vollständig eigenständige Einheit, mit eigenen Konten, eigener Abrechnung und eigenem Compliance-Verfahren. Das globale AWS-Konto, das Sie bereits besitzen, bringt Ihnen hier nichts.
 
 > AWS China ist eine vollständig eigenständige Einheit, getrennt vom globalen AWS. Andere Konten, andere Abrechnung, andere Compliance. Gehen Sie nicht davon aus, dass es dasselbe Produkt ist.
 
@@ -48,13 +48,13 @@ Unternehmen, die etwas anderes annehmen, erleben bei der Einrichtung eine Überr
 
 Wo Ihre Server physisch stehen, bestimmt alles Weitere: die Wahl des Anbieters, die Einrichtung des CDN, die Baidu-Strategie. Ist diese eine Entscheidung falsch, lässt sich danach nichts mehr ausbügeln.
 
-**Festlandchina** ist die richtige Antwort, wenn es Ihnen ernst damit ist, chinesische Nutzer zu erreichen. Ladezeiten unter einer Sekunde. Baidu wertet Hosting auf dem Festland als Vertrauenssignal. Die PIPL-Konformität setzt es voraus. Ja, Sie brauchen eine ICP-Lizenz, doch die Bei'an-Registrierung ist für die meisten ausländischen Unternehmen gut zu bewältigen. Sitzt Ihr Publikum in China, müssen Ihre Server es ebenfalls tun.
+**Festlandchina** ist die richtige Antwort, wenn es Ihnen ernst damit ist, chinesische Nutzer zu erreichen. Die Ladezeiten liegen unter einer Sekunde. Baidu wertet Hosting auf dem Festland als Vertrauenssignal. Die PIPL-Konformität setzt es voraus. Ja, Sie brauchen eine ICP-Lizenz, doch die Bei'an-Registrierung ist für die meisten ausländischen Unternehmen gut zu bewältigen. Sitzt Ihr Publikum in China, müssen Ihre Server es ebenfalls tun.
 
 > Auf dem Festland gehostete Seiten laden in unter einer Sekunde. Im Ausland gehostete Seiten brauchen 300 bis 500 ms, bevor die Große Firewall überhaupt ins Spiel kommt.
 
 **Hongkong** taugt als Zwischenschritt. Keine ICP nötig, die Latenz zum Festland liegt bei 50 bis 150 Millisekunden, und für Unternehmen, die den Markt vor dem vollständigen ICP-Verfahren erst einmal testen wollen, ist das eine vertretbare Option. Auch für Seiten, die ein chinesisches und ein internationales Publikum von einem einzigen Standort aus bedienen, taugt Hongkong durchaus. Aber machen Sie sich nichts vor, es ist ein Kompromiss. Für alle, die auf Baidu ranken oder die PIPL-Vorgaben erfüllen wollen, ist es eine Notlösung.
 
-Und dann ist da **das Hosting im Ausland, aus den USA oder Europa.** Dafür entscheiden sich Unternehmen, die das ICP-Verfahren ganz umgehen wollen. Der Preis dafür ist happig. Die Latenz erreicht mindestens 300 bis 500 Millisekunden. Die Große Firewall packt obendrein Paketverluste auf das Bild. Und es besteht das ganz reale Risiko, dass die Seite vollständig gesperrt wird. Kein Vertrauenssignal bei Baidu, keine PIPL-Konformität, dazu Ladezeiten, die so lahm sind, dass die meisten chinesischen Nutzer den Tab schließen, bevor Ihre Seite fertig aufgebaut ist. Wer in Frankfurt hostet, um Nutzer in Shenzhen zu bedienen, verliert sie schon, bevor sie die Startseite sehen.
+Schließlich gibt es **das Hosting im Ausland, aus den USA oder Europa.** Dafür entscheiden sich Unternehmen, die das ICP-Verfahren ganz umgehen wollen. Der Preis dafür ist happig. Die Latenz erreicht mindestens 300 bis 500 Millisekunden. Die Große Firewall packt obendrein Paketverluste auf das Bild. Und es besteht das ganz reale Risiko, dass die Seite vollständig gesperrt wird. Kein Vertrauenssignal bei Baidu, keine PIPL-Konformität, dazu Ladezeiten, die so lahm sind, dass die meisten chinesischen Nutzer den Tab schließen, bevor Ihre Seite fertig aufgebaut ist. Wer in Frankfurt hostet, um Nutzer in Shenzhen zu bedienen, verliert sie schon, bevor sie die Startseite sehen.
 
 ## CDN-Anbieter, die in China tatsächlich funktionieren
 

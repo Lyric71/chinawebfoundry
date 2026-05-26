@@ -1,9 +1,9 @@
 ---
 title: "Chinesische Inhalte"
 shortTitle: "Inhalte"
-description: "Native chinesische Texte, Transkreation und Content-Pflege für WordPress in China. Baidu-optimierte Inhalte von Muttersprachlern, betreut direkt in Ihrem CMS."
+description: "Wir liefern native chinesische Texte, Transkreation und Content-Pflege für WordPress in China: Baidu-optimierte Inhalte von Muttersprachlern, betreut direkt in Ihrem CMS."
 metaTitle: "Chinesische Texte für internationale Marken | ChinaWebFoundry"
-metaDescription: "Chinesische Muttersprachler in Shanghai, die von Grund auf für den chinesischen Leser schreiben. Botschaften, Artikel und Produktseiten, die Käufer bewegen, niemals Übersetzungen."
+metaDescription: "Chinesische Muttersprachler in Shanghai schreiben von Grund auf für den chinesischen Leser: Botschaften, Artikel und Produktseiten, die Käufer bewegen, statt bloßer Übersetzungen."
 icon: "languages"
 order: 5
 keywords: ["chinesische inhalte wordpress", "wordpress übersetzung chinesisch", "china lokalisierung", "chinesische texte", "baidu content", "transkreation chinesisch"]
@@ -12,7 +12,7 @@ relatedServices: ["baidu-seo", "ux-ui-design"]
 
 ## Was dazugehört
 
-Wir erstellen, adaptieren und pflegen native chinesische Inhalte für Ihre WordPress-Site. Für Baidu optimiert, kulturell passend und direkt in Ihrem CMS veröffentlicht.
+Wir erstellen, adaptieren und pflegen native chinesische Inhalte für Ihre WordPress-Website. Sie sind für Baidu optimiert, kulturell passend und werden direkt in Ihrem CMS veröffentlicht.
 
 ## Was Sie bekommen
 
@@ -23,4 +23,4 @@ Wir erstellen, adaptieren und pflegen native chinesische Inhalte für Ihre WordP
 
 ## Für wen das gedacht ist
 
-Unternehmen, die eine chinesischsprachige WordPress-Site starten. Firmen mit veralteten, übersetzten Inhalten, die Baidu nicht mehr rankt. Marketingteams, die Kampagnen für chinesische Verbraucher planen. E-Commerce-Teams, die Produktseiten brauchen, die für den chinesischen Markt richtig geschrieben sind.
+Der Service richtet sich an Unternehmen, die eine chinesischsprachige WordPress-Website starten, an Firmen mit veralteten, übersetzten Inhalten, die Baidu nicht mehr rankt, an Marketingteams, die Kampagnen für chinesische Verbraucher planen, und an E-Commerce-Teams, die Produktseiten brauchen, die für den chinesischen Markt richtig geschrieben sind.

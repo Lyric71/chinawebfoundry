@@ -54,8 +54,8 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       </svg>
     </div>
     <div>
-      <h2 class="text-xl font-semibold text-[var(--color-text-dark)]">Racontez-nous votre projet</h2>
-      <p class="text-sm text-[var(--color-text-muted)]">Les champs signalés par * sont obligatoires.</p>
+      <h2 class="text-xl font-semibold text-[var(--color-text-dark)]">Décrivez-nous votre projet</h2>
+      <p class="text-sm text-[var(--color-text-muted)]">Les champs marqués d'un astérisque (*) sont obligatoires.</p>
     </div>
   </div>
 
@@ -71,7 +71,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       </div>
       <div>
         <label for="email" class={labelClass}>
-          Courriel <span class="text-[var(--color-brand-orange)]">*</span>
+          E-mail <span class="text-[var(--color-brand-orange)]">*</span>
         </label>
         <input type="email" id="email" name="email" required placeholder="marie@entreprise.fr" class={inputClass} />
       </div>
@@ -97,7 +97,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label for="youAre" class={labelClass}>
-          Vous êtes <span class="text-[var(--color-brand-orange)]">*</span>
+          Votre profil <span class="text-[var(--color-brand-orange)]">*</span>
         </label>
         <select id="youAre" name="youAre" required class={selectClass}>
           <option value="" disabled selected>Choisissez une option</option>
@@ -133,7 +133,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     <!-- Budget -->
     <div>
       <span class={labelClass}>
-        Votre budget <span class="text-[var(--color-brand-orange)]">*</span>
+        Budget envisagé <span class="text-[var(--color-brand-orange)]">*</span>
       </span>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {budgetOptions.map((o) => (
@@ -169,7 +169,6 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       <div>
         <span class={labelClass}>
           Avez-vous une présence en Chine ?
-          <span class="text-[var(--color-text-muted)] font-normal normal-case">(en ligne ou physique)</span>
         </span>
         <div class="grid grid-cols-2 gap-3">
           <label class={cardClass}>
@@ -198,7 +197,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
         name="project"
         rows="4"
         required
-        placeholder="Contexte, objectifs, calendrier visé..."
+        placeholder="Contexte, objectifs, échéances..."
         class={inputClass + ' resize-y'}
       ></textarea>
     </div>
@@ -269,7 +268,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Envoi...';
+    submitBtn.textContent = 'Envoi en cours...';
     statusEl.classList.add('hidden');
 
     const data = {
@@ -298,17 +297,17 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       const result = await res.json();
 
       if (res.ok && result.success) {
-        statusEl.textContent = 'Bien reçu. Nous revenons vers vous sous 24 heures.';
+        statusEl.textContent = 'Nous avons bien reçu votre message et revenons vers vous sous 24 heures.';
         statusEl.className = successClass;
         form.reset();
         syncWebsite();
         syncChinaPresence();
       } else {
-        statusEl.textContent = result.error || 'Un souci est survenu. Merci de réessayer.';
+        statusEl.textContent = result.error || 'Une erreur est survenue. Merci de réessayer.';
         statusEl.className = errorClass;
       }
     } catch {
-      statusEl.textContent = 'Serveur injoignable. Vérifiez votre connexion et réessayez.';
+      statusEl.textContent = 'Le serveur est injoignable. Vérifiez votre connexion, puis réessayez.';
       statusEl.className = errorClass;
     } finally {
       submitBtn.disabled = false;

@@ -17,11 +17,11 @@ services: ["strategy-audit", "china-migration", "china-hosting", "maintenance-su
 
 Bassetti ist ein Technologieunternehmen mit Standorten in Europa, Nord- und Südamerika sowie Asien. Als die Entscheidung fiel, die digitale Präsenz auf dem chinesischen Festland auszubauen, wurde dem Team rasch klar: Die bestehende Website reichte nicht aus. Der mit Elementor gebaute WordPress-Auftritt funktionierte für Nutzer in Europa oder Nordamerika tadellos. Aus Shanghai oder Peking sah die Sache anders aus. Google Fonts, reCAPTCHA, externe CDN-Aufrufe, diverse Plugins von Drittanbietern: Vieles davon war entweder schlicht blockiert oder so langsam, dass es praktisch auf dasselbe hinauslief.
 
-Internationale Unternehmen erfahren das meist auf die harte Tour. Eine WordPress-Site, die im Westen einwandfrei läuft, kann in China nahezu unbrauchbar sein, weil ein Großteil des modernen Web-Stacks auf Diensten beruht, die von der Great Firewall blockiert oder gedrosselt werden.
+Internationale Unternehmen erfahren das meist auf die harte Tour. Eine WordPress-Website, die im Westen einwandfrei läuft, kann in China nahezu unbrauchbar sein, weil ein Großteil des modernen Web-Stacks auf Diensten beruht, die von der Großen Firewall blockiert oder gedrosselt werden.
 
 Für Bassetti hieß das: Chinesische Interessenten und Partner konnten die Website schlicht nicht zuverlässig aufrufen. Das ist ein ernstes Problem, wenn man aktiv ein Geschäft in einem neuen Markt aufbauen will, und es musste gelöst werden.
 
-Gebraucht wurde eine komplette Migration. Neue Domain, ICP-Registrierung, Hosting innerhalb Chinas und eine gründliche technische Überarbeitung. Und das alles, ohne die .com-Seite zu stören, mit der der Rest der Welt nach wie vor täglich arbeitete.
+Gebraucht wurde eine komplette Migration: eine neue Domain, die ICP-Registrierung, Hosting innerhalb Chinas und eine gründliche technische Überarbeitung. All das musste gelingen, ohne die .com-Seite zu stören, mit der der Rest der Welt nach wie vor täglich arbeitete.
 
 | | |
 |---|---|

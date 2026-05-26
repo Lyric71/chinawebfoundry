@@ -11,7 +11,7 @@ services: ["china-hosting", "technical-integration", "maintenance-support"]
 
 ## Ein globaler Industriekonzern mit tiefen Wurzeln in China
 
-SNF ist ein Industriechemiekonzern mit Hauptsitz in Frankreich und der weltweit führende Hersteller wasserlöslicher Polymere. Seine Produkte (Flockungsmittel, Koagulationsmittel, Spezialchemikalien) kommen in der Wasseraufbereitung, in der Öl- und Gasbranche, im Bergbau und in der Papierherstellung zum Einsatz. Über 8.000 Beschäftigte weltweit, Standorte auf vier Kontinenten.
+SNF ist ein Industriechemiekonzern mit Hauptsitz in Frankreich und der weltweit führende Hersteller wasserlöslicher Polymere. Seine Produkte (Flockungsmittel, Koagulationsmittel, Spezialchemikalien) kommen in der Wasseraufbereitung, in der Öl- und Gasbranche, im Bergbau und in der Papierherstellung zum Einsatz. Der Konzern beschäftigt weltweit über 8.000 Menschen und unterhält Standorte auf vier Kontinenten.
 
 In China betreibt SNF zwei Produktionsstätten in der Provinz Jiangsu (Taixing und Rudong) sowie sechs Vertriebsbüros in Peking, Shanghai, Guangzhou, Chengdu, Wuhan und Xi'an. China ist inzwischen der drittgrößte Markt der Gruppe weltweit. Die Größenordnung des Geschäfts ist beträchtlich.
 
@@ -30,7 +30,7 @@ Bei einer solchen Präsenz ist die Website Kerninfrastruktur: Vertrieb, Produkti
 
 Wir stellen Hosting, technische Integration und Wartung für die WordPress-Site von SNF China bereit. Gehostet auf Servern im chinesischen Festland, lädt die Site schnell und bleibt für Nutzer von Peking bis Xi'an erreichbar.
 
-Die technische Arbeit geht über die Grundeinrichtung hinaus. Bei einem Unternehmen in der Größenordnung von SNF muss die Site Produktinformationen, technische Spezifikationen und kundenorientierte Inhalte über mehrere Geschäftsbereiche hinweg zuverlässig ausliefern. Wir halten alle externen Abhängigkeiten und Drittanbieterdienste hinter der Great Firewall funktionsfähig und sorgen dafür, dass die lokalen Hosting-Vorgaben eingehalten werden, auch wenn sie sich ändern.
+Die technische Arbeit geht über die Grundeinrichtung hinaus. Bei einem Unternehmen in der Größenordnung von SNF muss die Site Produktinformationen, technische Spezifikationen und kundenorientierte Inhalte über mehrere Geschäftsbereiche hinweg zuverlässig ausliefern. Wir halten alle externen Abhängigkeiten und Drittanbieterdienste hinter der Großen Firewall funktionsfähig und sorgen dafür, dass die lokalen Hosting-Vorgaben eingehalten werden, auch wenn sie sich ändern.
 
 Die Wartung umfasst Sicherheitspatches, Performance-Überwachung und Inhaltsaktualisierungen, während SNF in China weiter expandiert. Wenn man die Site eines Unternehmens mit zwei Fabriken und sechs Standorten im ganzen Land betreut, ist Verfügbarkeit eine betriebliche Anforderung.
 

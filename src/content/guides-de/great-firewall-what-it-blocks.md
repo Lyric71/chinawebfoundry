@@ -28,11 +28,11 @@ Fünf Systeme laufen parallel. Sie fangen Unterschiedliches auf unterschiedliche
 
 **Die IP-Sperre** geht gröber vor. Ganze IP-Bereiche, die an bekannte ausländische Dienste gebunden sind, werden auf Netzwerkebene gekappt. Kommen Sie mit einem alternativen Resolver an der DNS-Vergiftung vorbei, können Sie trotzdem keine Verbindung aufbauen, weil die IP selbst gesperrt ist.
 
-**Die Deep Packet Inspection** ist die Schicht, die am meisten zählt. Das System liest, was in den Paketen steckt, und schaut dabei über den Ziel-Header hinaus. Passt der Inhalt zu auffälligen Mustern, wird die Verbindung mitten in der Übertragung gekappt. Das macht Chinas Firewall zu einem anderen Tier als die einfacheren nationalen Filtersysteme.
+**Die Deep Packet Inspection** ist die Schicht, die am meisten zählt. Das System liest, was in den Paketen steckt, und schaut dabei über den Ziel-Header hinaus. Passt der Inhalt zu auffälligen Mustern, wird die Verbindung mitten in der Übertragung gekappt. Das macht Chinas Firewall ungleich wirksamer als die einfacheren nationalen Filtersysteme.
 
 > Die Deep Packet Inspection liest den Inhalt Ihres Datenverkehrs auf Ebene der Nutzlast. Genau diese Schicht macht die Große Firewall grundsätzlich schwerer zu umgehen als alles andere da draußen.
 
-**Die URL-Filterung** arbeitet auf Seitenebene. Eine Domain bleibt vielleicht erreichbar, doch einzelne URLs mit bestimmten Stichwörtern werden herausgefiltert. Chirurgische Filterung auf Seitenebene.
+**Die URL-Filterung** arbeitet auf Seitenebene. Eine Domain bleibt vielleicht erreichbar, doch einzelne URLs mit bestimmten Stichwörtern werden herausgefiltert: eine chirurgisch genaue Filterung auf Seitenebene.
 
 **Die VPN-Erkennung** ist die jüngste Ergänzung. Die Firewall erkennt VPN-Protokolle an ihren Verkehrssignaturen und drosselt oder sperrt sie. Ein Verbraucher-VPN, das vor zwei Jahren zuverlässig lief, baut heute womöglich gar keine Verbindung mehr auf. Das System wird immer besser darin, sie zu erkennen.
 
@@ -51,11 +51,11 @@ Ausländische Unternehmen richten den Blick gern auf die politische Seite der Gr
 
 Google ist gesperrt. Komplett. Suche, Gmail, Maps, YouTube, Google Ads, Google Analytics, Google Fonts. Jeder Dienst unter dem Google-Dach. Lädt Ihre Seite eine Schrift von fonts.googleapis.com oder feuert sie ein GA-Tracking-Tag ab, hängt diese Anfrage für Nutzer in China fest. Es erscheint keine Fehlermeldung. Die Seite lädt einfach langsamer, oder ein Abschnitt baut sich nicht auf, und Ihr Team in der Heimat ahnt nichts davon, weil es von außerhalb der Firewall surft.
 
-Facebook, Instagram, WhatsApp, Messenger. Alle gesperrt. Twitter/X, Reddit, Pinterest. Gesperrt. Die chinesische Ausgabe von Wikipedia. Gesperrt.
+Gesperrt sind außerdem Facebook, Instagram, WhatsApp und Messenger, ebenso Twitter/X, Reddit und Pinterest sowie die chinesische Ausgabe von Wikipedia.
 
-Arbeitswerkzeuge, auf die sich westliche Unternehmen verlassen: Dropbox, Slack, Notion, Trello. Alle gesperrt. Bindet Ihre Seite eines davon ein oder lädt sie Ressourcen von deren Domains, ist diese Integration in China tot.
+Auch die Arbeitswerkzeuge, auf die sich westliche Unternehmen verlassen, sind gesperrt: Dropbox, Slack, Notion und Trello. Bindet Ihre Seite eines davon ein oder lädt sie Ressourcen von deren Domains, ist diese Integration in China tot.
 
-Netflix, Spotify, Twitch. Alle gesperrt. Die meisten großen westlichen Nachrichtenseiten, darunter die New York Times, das Wall Street Journal und die BBC. Gesperrt.
+Netflix, Spotify und Twitch sind ebenfalls gesperrt, dazu die meisten großen westlichen Nachrichtenseiten, darunter die New York Times, das Wall Street Journal und die BBC.
 
 Was die meisten Unternehmen kalt erwischt, reicht über die gesperrten Dienste selbst hinaus. Jedes Skript, jede Schrift, jedes Widget und jeder API-Aufruf, der eine gesperrte Domain berührt, geht ebenfalls kaputt. Ein einziger vergessener Google-Fonts-Verweis, tief in Ihrem CSS verborgen, kann für jeden einzelnen Nutzer in China Sekunden zur Ladezeit hinzufügen. Ein einziges Analytics-Tag kann den gesamten Seitenaufbau aufhalten.
 
@@ -63,7 +63,7 @@ Was die meisten Unternehmen kalt erwischt, reicht über die gesperrten Dienste s
 
 ## Strategien für ausländische Unternehmen
 
-Durch die Firewall durchschlagen können Sie nicht. Aber Sie können so bauen, dass Ihre Seite sie gar nicht erst überqueren muss.
+Durch die Firewall durchschlagen können Sie nicht, doch Sie können so bauen, dass Ihre Seite sie gar nicht erst überqueren muss.
 
 | Strategie | Was sie löst |
 |---|---|

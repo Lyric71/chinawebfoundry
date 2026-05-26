@@ -8,7 +8,7 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'Warum funktioniert meine bestehende Website in China nicht richtig?',
-        answer: 'Die Große Firewall, kurz gesagt. Chinas nationales Filtersystem blockiert oder bremst die meisten westlichen Dienste, auf die Ihre Website angewiesen ist. Google Fonts, Google Analytics, reCAPTCHA, YouTube, Facebook-Pixel, die großen CDN-Anbieter: alles gesperrt oder gedrosselt. Eine Seite, die in New York in zwei Sekunden lädt, braucht in Shanghai schnell 15 Sekunden. Manchmal läuft sie einfach in einen Timeout. Ohne eine eigens für China ausgelegte Konfiguration ist Ihre Website für niemanden sichtbar, der vom Festland aus surft.',
+        answer: 'Verantwortlich ist die Große Firewall. Chinas nationales Filtersystem blockiert oder bremst die meisten westlichen Dienste, auf die Ihre Website angewiesen ist: Google Fonts, Google Analytics, reCAPTCHA, YouTube, Facebook-Pixel und die großen CDN-Anbieter, allesamt gesperrt oder gedrosselt. Eine Seite, die in New York in zwei Sekunden lädt, braucht in Shanghai schnell 15 Sekunden, mitunter läuft sie schlicht in einen Timeout. Ohne eine eigens für China ausgelegte Konfiguration ist Ihre Website für niemanden sichtbar, der vom Festland aus surft.',
       },
       {
         question: 'Lässt sich das Tempoproblem nicht einfach mit einem CDN lösen?',
@@ -16,11 +16,11 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Reicht ein Hosting in Hongkong für den chinesischen Markt?',
-        answer: 'Besser als ein Hosting in den USA oder Europa, sicher. Aber Nutzer auf dem Festland sehen weiterhin längere Ladezeiten, Baidu behandelt die Seite als ausländisch und stuft sie niedriger ein, und das Vertrauenssignal einer ordentlich lizenzierten Präsenz auf dem Festland fehlt Ihnen. Wer in China ernsthaft Geschäfte machen will, braucht ein Hosting auf dem Festland.',
+        answer: 'Es ist besser als ein Hosting in den USA oder Europa, gewiss. Dennoch sehen Nutzer auf dem Festland weiterhin längere Ladezeiten, Baidu behandelt die Seite als ausländisch und stuft sie niedriger ein, und das Vertrauenssignal einer ordentlich lizenzierten Präsenz auf dem Festland fehlt Ihnen. Wer in China ernsthaft Geschäfte machen will, braucht ein Hosting auf dem Festland.',
       },
       {
         question: 'Surfen chinesische Nutzer wirklich so anders?',
-        answer: 'Ja, von Grund auf. Mobil bis zum Extrem, WeChat (微信) als selbstverständliche Teilen-Ebene, QR-Codes überall, längere Scroll-Seiten, dichtere Informationslayouts, völlig andere ästhetische Konventionen. Eine westliche Website ins Chinesische zu kopieren klappt selten. Wir bauen das Erlebnis dafür neu, wie Menschen das Internet hier tatsächlich nutzen.',
+        answer: 'Ja, von Grund auf. Die Nutzung ist extrem mobil, WeChat (微信) ist die selbstverständliche Ebene zum Teilen, QR-Codes sind allgegenwärtig, die Seiten scrollen länger, die Informationslayouts sind dichter, und die ästhetischen Konventionen unterscheiden sich völlig. Eine westliche Website ins Chinesische zu kopieren gelingt selten. Wir bauen das Erlebnis danach neu, wie Menschen das Internet hier tatsächlich nutzen.',
       },
     ],
   },
@@ -31,11 +31,11 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'Woran erkennen wir, ob wir überhaupt eine eigene China-Website brauchen?',
-        answer: 'Wenn Ihre aktuelle Seite aus Shanghai langsam lädt, bei Baidu nirgends auftaucht oder Ihr Vertrieb von chinesischen Interessenten immer wieder hört "wir haben Sie online nicht gefunden", brauchen Sie wahrscheinlich eine. Vor jeder Zusage machen wir ein kostenloses Audit. Dauert etwa eine Woche. Sie sehen die echten Zahlen, keinen Verkaufspitch.',
+        answer: 'Wenn Ihre aktuelle Seite aus Shanghai langsam lädt, bei Baidu nirgends auftaucht oder Ihr Vertrieb von chinesischen Interessenten immer wieder hört "wir haben Sie online nicht gefunden", brauchen Sie wahrscheinlich eine. Vor jeder Zusage führen wir ein kostenloses Audit durch, das etwa eine Woche dauert. Sie erhalten die echten Zahlen statt eines Verkaufsgesprächs.',
       },
       {
         question: 'Was ist der kleinstmögliche Umfang für den Markteintritt in China?',
-        answer: 'Eine zweisprachige Landingpage auf chinesischem Hosting mit ICP (互联网内容提供商), eingebundenem Baidu Tongji (百度统计) und einem für Baidu (百度) optimierten Einstieg. Das ist die Untergrenze. Damit haben wir Unternehmen an den Start gebracht und von dort aus weiter ausgebaut, sobald echte Verkehrsdaten vorlagen.',
+        answer: 'Die Untergrenze ist eine zweisprachige Landingpage auf chinesischem Hosting, mit ICP (互联网内容提供商), eingebundenem Baidu Tongji (百度统计) und einem für Baidu (百度) optimierten Einstieg. Damit haben wir Unternehmen an den Start gebracht und von dort aus weiter ausgebaut, sobald echte Verkehrsdaten vorlagen.',
       },
       {
         question: 'Können Sie uns sagen, ob sich China für unser Geschäft überhaupt lohnt?',
@@ -43,11 +43,11 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Bieten Sie vor dem eigentlichen Projekt einen Discovery-Workshop an?',
-        answer: 'Ja, in zwei Formaten. Eine halbtägige Remote-Sitzung mit technischem Audit und Strategie, oder ein zweitägiger Workshop vor Ort in Shanghai (上海) für größere Projekte. Beide werden getrennt vom Hauptauftrag abgerechnet.',
+        answer: 'Ja, in zwei Formaten. Das erste ist eine halbtägige Remote-Sitzung mit technischem Audit und Strategie, das zweite ein zweitägiger Workshop vor Ort in Shanghai (上海) für größere Projekte. Beide werden getrennt vom Hauptauftrag abgerechnet.',
       },
       {
         question: 'Welche Informationen brauchen Sie von uns für ein belastbares Angebot?',
-        answer: 'Die URL Ihrer aktuellen Website, Verkehrsdaten, falls vorhanden, Ihre Ziele für China (Leads, Verkäufe, Markenpräsenz, oder alle drei), den Status einer eventuell bestehenden chinesischen Gesellschaft und idealerweise ein kurzes Gespräch. Mit diesen vier Dingen nennen wir eine konkrete Zahl, keine Spanne.',
+        answer: 'Wir brauchen die URL Ihrer aktuellen Website, Verkehrsdaten, sofern vorhanden, Ihre Ziele für China (Leads, Verkäufe, Markenpräsenz oder alle drei), den Status einer eventuell bestehenden chinesischen Gesellschaft und idealerweise ein kurzes Gespräch. Mit diesen Angaben nennen wir Ihnen eine konkrete Zahl statt einer Spanne.',
       },
     ],
   },
@@ -58,27 +58,27 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'Was kostet ein China-Website-Projekt tatsächlich?',
-        answer: 'Das hängt vom Umfang ab. Migrationsprojekte liegen am einen Ende, vollständige Eigenentwicklungen mit WooCommerce oder Mitgliederplattformen am anderen. Nach einem Discovery-Gespräch schicken wir ein Festpreisangebot. Keine Stundenabrechnung bei Projektarbeit, keine bösen Überraschungen mitten im Projekt.',
+        answer: 'Das hängt vom Umfang ab. Migrationsprojekte liegen am einen Ende, vollständige Eigenentwicklungen mit WooCommerce oder Mitgliederplattformen am anderen. Nach einem Discovery-Gespräch schicken wir ein Festpreisangebot. Projektarbeit rechnen wir nicht nach Stunden ab, und böse Überraschungen mitten im Projekt gibt es nicht.',
       },
       {
         question: 'Wie verhalten sich Ihre Preise im Vergleich zu westlichen Agenturen?',
-        answer: 'Ehrlich gesagt vergleichbar. Die Gehälter in Shanghai (上海) liegen höher als in Paris oder Berlin, unser Team ist erfahren, und unsere Arbeit lässt sich nicht aus einer Vorlage stanzen. Für das Budget bekommen Sie ein Team auf dem chinesischen Festland, das echte Bei’an-Anträge (备案) eingereicht hat, Konten in der Baidu Search Resource Platform (百度搜索资源平台) führt und weiß, welcher Hosting-Ansprechpartner bei Aliyun (阿里云) zurückruft. Darin liegt der Wert, nicht in einem Rabatt.',
+        answer: 'Sie sind durchaus vergleichbar. Die Gehälter in Shanghai (上海) liegen höher als in Paris oder Berlin, unser Team ist erfahren, und unsere Arbeit lässt sich nicht aus einer Vorlage stanzen. Für das Budget bekommen Sie ein Team auf dem chinesischen Festland, das echte Bei’an-Anträge (备案) eingereicht hat, Konten in der Baidu Search Resource Platform (百度搜索资源平台) führt und weiß, welcher Hosting-Ansprechpartner bei Aliyun (阿里云) zurückruft. Darin liegt der eigentliche Wert.',
       },
       {
         question: 'Bieten Sie Ratenzahlung an?',
-        answer: 'Bei größeren Projekten ja. Die übliche Aufteilung läuft über Kickoff, Halbzeit und Launch. Bei umfangreicheren Aufträgen vereinbaren wir monatliche Meilensteine. Arbeit gegen Unternehmensanteile machen wir nicht.',
+        answer: 'Bei größeren Projekten bieten wir das an. Die übliche Aufteilung läuft über Kickoff, Halbzeit und Launch, bei umfangreicheren Aufträgen vereinbaren wir monatliche Meilensteine. Arbeit gegen Unternehmensanteile übernehmen wir nicht.',
       },
       {
         question: 'Was ist NICHT im Projektpreis enthalten?',
-        answer: 'Die ICP-Behördengebühren (gering, aber separat), Übersetzungskosten, wenn Sie professionelles chinesisches Texten brauchen, Lizenzen für Stockfotos, Lizenzen für kostenpflichtige Plugins, falls Sie kommerzielle Erweiterungen wünschen, und Drittanbieterdienste wie das Hosting, das Ihnen direkt berechnet wird. Im Angebot weisen wir all das transparent aus.',
+        answer: 'Nicht enthalten sind die ICP-Behördengebühren (gering, aber separat), Übersetzungskosten, falls Sie professionelles chinesisches Texten brauchen, Lizenzen für Stockfotos, Lizenzen für kostenpflichtige Plugins, falls Sie kommerzielle Erweiterungen wünschen, sowie Drittanbieterdienste wie das Hosting, das Ihnen direkt berechnet wird. Im Angebot weisen wir all das transparent aus.',
       },
       {
         question: 'Gibt es versteckte Kosten, die wir kennen sollten?',
-        answer: 'Zwei, die Kunden überraschen. Erstens der administrative Aufwand für die ICP-Verlängerung (互联网内容提供商) alle paar Jahre. Gering, aber nicht null. Zweitens die laufende Baidu-SEO (百度): Wer wirklich ranken will, braucht monatliche Arbeit, keinen einmaligen Launch. Wir benennen beides von Anfang an, damit das Budgetgespräch ehrlich bleibt.',
+        answer: 'Zwei Posten überraschen Kunden regelmäßig. Der erste ist der administrative Aufwand für die ICP-Verlängerung (互联网内容提供商), der alle paar Jahre anfällt: gering, aber nicht null. Der zweite ist die laufende Baidu-SEO (百度), denn wer wirklich ranken will, braucht monatliche Arbeit statt eines einmaligen Launches. Wir benennen beides von Anfang an, damit das Budgetgespräch ehrlich bleibt.',
       },
       {
         question: 'Berechnen Sie Angebote?',
-        answer: 'Nein. Angebot und Audit sind kostenlos. Wir schreiben ausführliche Leistungsbeschreibungen, weil beide Seiten genau wissen sollen, was gebaut wird. Wenn Sie unser Angebot nehmen und es bei günstigeren Anbietern durchrechnen lassen, nun ja, das ist vorgekommen. Wir berechnen es trotzdem nicht.',
+        answer: 'Nein. Angebot und Audit sind kostenlos. Wir schreiben ausführliche Leistungsbeschreibungen, weil beide Seiten genau wissen sollen, was gebaut wird. Dass ein Kunde unser Angebot nimmt und es bei günstigeren Anbietern durchrechnen lässt, ist vorgekommen. Wir berechnen es trotzdem nicht.',
       },
       {
         question: 'Können wir klein anfangen und später ausbauen?',
@@ -124,19 +124,19 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Wie sieht ein typischer Projektzeitplan aus?',
-        answer: 'Woche 1 bis 2: Audit und Discovery. Woche 3 bis 6: ICP-Anmeldung (互联网内容提供商) parallel zu Design und technischer Einrichtung. Woche 7 bis 10: Entwicklung, Content-Integration und Tests. Woche 11 bis 12: Staging, Korrekturen, Launch. Danach setzt die Wartung ein. Im Angebot finden Sie ein Gantt-Diagramm.',
+        answer: 'In Woche 1 bis 2 laufen Audit und Discovery. In Woche 3 bis 6 folgt die ICP-Anmeldung (互联网内容提供商) parallel zu Design und technischer Einrichtung. Woche 7 bis 10 gehört der Entwicklung, der Content-Integration und den Tests, Woche 11 bis 12 dem Staging, den Korrekturen und dem Launch. Danach setzt die Wartung ein. Im Angebot finden Sie ein Gantt-Diagramm.',
       },
       {
         question: 'Was bremst Projekte am häufigsten aus?',
-        answer: 'Die ICP-Unterlagen (互联网内容提供商) von Kundenseite. Wir fragen die Dokumente in Woche eins an und bekommen sie manchmal erst in Woche vier. Der andere große Punkt ist der Content. Man unterschätzt, wie lange chinesischer Text braucht, wenn er sauber geschrieben und nicht bloß übersetzt wird.',
+        answer: 'Am häufigsten bremsen die ICP-Unterlagen (互联网内容提供商) aufseiten des Kunden. Wir fragen die Dokumente in Woche eins an und bekommen sie manchmal erst in Woche vier. Der zweite große Punkt ist der Content, denn man unterschätzt, wie lange chinesischer Text braucht, wenn er sauber geschrieben und nicht bloß übersetzt wird.',
       },
       {
         question: 'Wie oft hören wir während des Projekts von Ihnen?',
-        answer: 'Wöchentliche Status-Calls, schriftliche Updates jeden Montag, ein WeChat-Kanal (微信) für die täglichen Fragen. Dazu Zugriff auf unseren Projekt-Tracker. Sie wissen jederzeit genau, was passiert, keine Blackbox.',
+        answer: 'Sie erhalten wöchentliche Status-Calls, schriftliche Updates jeden Montag und einen WeChat-Kanal (微信) für die täglichen Fragen, dazu Zugriff auf unseren Projekt-Tracker. So wissen Sie jederzeit genau, was geschieht, ohne jede Blackbox.',
       },
       {
         question: 'Mit wem in Ihrem Team sprechen wir?',
-        answer: 'Mit einer Projektleitung, die Ihr Projekt von Anfang bis Ende führt. Sie zieht unsere Spezialisten (Design, Entwicklung, SEO, Content, Hosting) hinzu, wenn es nötig ist. Sie müssen Ihr Geschäft nicht fünf verschiedenen Leuten erklären.',
+        answer: 'Sie sprechen mit einer Projektleitung, die Ihr Projekt von Anfang bis Ende führt. Sie zieht unsere Spezialisten für Design, Entwicklung, SEO, Content und Hosting hinzu, sobald es nötig ist. Sie müssen Ihr Geschäft nicht fünf verschiedenen Personen erklären.',
       },
       {
         question: 'Können wir uns am Designprozess beteiligen?',
@@ -171,11 +171,11 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Fliegen Sie zu Kunden vor Ort?',
-        answer: 'Bei Projekten ab einer bestimmten Größe ja, dann sind Kickoff-Treffen vor Ort inbegriffen. Bei kleineren Projekten machen wir alles remote, was tatsächlich gut funktioniert. Wir betreuen Websites von Kunden, die wir nie persönlich getroffen haben, seit Jahren.',
+        answer: 'Bei Projekten ab einer bestimmten Größe ja; dann sind Kickoff-Treffen vor Ort inbegriffen. Bei kleineren Projekten arbeiten wir vollständig remote, was in der Praxis gut funktioniert. Manche Websites betreuen wir seit Jahren für Kunden, die wir nie persönlich getroffen haben.',
       },
       {
         question: 'In welchen Sprachen kommunizieren Sie?',
-        answer: 'Englisch für internationale Kunden. Mandarin (普通话) intern und mit chinesischen Dienstleistern, Hosting-Anbietern und Behörden. Wenn Ihr Team chinesischsprachige Mitarbeiter hat, mischen wir. WeChat (微信) funktioniert für beides.',
+        answer: 'Mit internationalen Kunden sprechen wir Englisch. Intern sowie mit chinesischen Dienstleistern, Hosting-Anbietern und Behörden nutzen wir Mandarin (普通话). Hat Ihr Team chinesischsprachige Mitarbeiter, mischen wir beides. WeChat (微信) funktioniert für beide Sprachen.',
       },
       {
         question: 'Nutzen Sie WeChat für die Kundenkommunikation?',
@@ -190,15 +190,15 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'Was deckt der Vertrag konkret ab?',
-        answer: 'Leistungsumfang, Liefergegenstände, Zeitplan, Zahlungsplan, Eigentum am geistigen Eigentum, Vertraulichkeit, Kündigungsklauseln, Supportbedingungen nach dem Launch. Ein üblicher Dienstleistungsvertrag, unterliegt dem Recht, das Sie und wir gemeinsam festlegen. Die meisten internationalen Kunden wählen das Recht von Hongkong (香港) oder Singapur (新加坡). Verhandelbar.',
+        answer: 'Der Vertrag deckt Leistungsumfang, Liefergegenstände, Zeitplan, Zahlungsplan, das Eigentum am geistigen Eigentum, Vertraulichkeit, Kündigungsklauseln und die Supportbedingungen nach dem Launch ab. Es ist ein üblicher Dienstleistungsvertrag, der dem Recht unterliegt, das Sie und wir gemeinsam festlegen. Die meisten internationalen Kunden wählen das Recht von Hongkong (香港) oder Singapur (新加坡); das ist verhandelbar.',
       },
       {
         question: 'Wem gehören Website-Code und Inhalte nach dem Launch?',
-        answer: 'Ihnen. Vollständige Übertragung sämtlicher Werte: Quellcode, Designdateien, Inhalte, Hosting-Zugangsdaten. Wir behalten das Recht, das Projekt anonym in unserem Portfolio zu verwenden, sofern Sie dem nicht ausdrücklich widersprechen.',
+        answer: 'Ihnen. Sämtliche Werte gehen vollständig auf Sie über: Quellcode, Designdateien, Inhalte und Hosting-Zugangsdaten. Wir behalten das Recht, das Projekt anonym in unserem Portfolio zu verwenden, sofern Sie dem nicht ausdrücklich widersprechen.',
       },
       {
         question: 'Was, wenn wir mitten im Projekt aussteigen wollen?',
-        answer: 'Die Kündigungsklauseln stehen klar im Vertrag. Sie zahlen für die bis dahin geleistete Arbeit, wir übergeben alles, was wir bisher gebaut haben, in nutzbarer Form. Wir nehmen kein Projekt in Geiselhaft. Eine Rückforderung mussten wir nie durchsetzen, denn Kunden steigen ehrlich gesagt nicht mitten im Projekt aus.',
+        answer: 'Die Kündigungsklauseln stehen klar im Vertrag. Sie zahlen für die bis dahin geleistete Arbeit, und wir übergeben alles, was wir bisher gebaut haben, in nutzbarer Form. Kein Projekt wird bei uns zum Faustpfand. Eine Rückforderung mussten wir noch nie durchsetzen, denn Kunden steigen erfahrungsgemäß nicht mitten im Projekt aus.',
       },
       {
         question: 'Unterzeichnen Sie Geheimhaltungsvereinbarungen?',
@@ -213,15 +213,15 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'WordPress oder Astro? Wie entscheiden wir uns?',
-        answer: 'Das hängt von Ihrem Team und Ihrem Content-Workflow ab. WordPress, wenn Sie Marketingleute haben, die Inhalte täglich ohne Hilfe der Entwicklung aktualisieren müssen. Astro, wenn die Performance entscheidend ist und Sie technische Unterstützung haben. Wir bauen beides, und wir machen auch Hybrid-Setups, bei denen die Marketing-Site auf dem einen und der E-Commerce-Teil auf dem anderen System läuft.',
+        answer: 'Das hängt von Ihrem Team und Ihrem Content-Workflow ab. WordPress eignet sich, wenn Sie Marketingleute haben, die Inhalte täglich ohne Hilfe der Entwicklung aktualisieren müssen. Astro empfiehlt sich, wenn die Performance entscheidend ist und Sie technische Unterstützung haben. Wir bauen beides und setzen auch Hybrid-Lösungen um, bei denen die Marketing-Website auf dem einen und der E-Commerce-Teil auf dem anderen System läuft.',
       },
       {
         question: 'Können Sie mit unserem bestehenden Tech-Stack arbeiten?',
-        answer: 'Ehrlich gesagt nein. Wir versuchen nicht, westliche Stacks so zu verbiegen, dass sie hinter der Großen Firewall laufen; wir haben zu viele solcher Projekte nach sechs Monaten zusammenbrechen sehen. Wir empfehlen chinesische Werkzeuge, die hier nativ funktionieren. Aliyun (阿里云), Tencent Cloud (腾讯云), Baidu Tongji (百度统计), WeChat (微信), die chinesischen KI-Plattformen. Anderes Ökosystem, andere Regeln. Den globalen Stack in China am Leben zu halten, kostet meist mehr an Behelfslösungen als ein sauberer Neubau.',
+        answer: 'Nein. Wir versuchen nicht, westliche Stacks so zu verbiegen, dass sie hinter der Großen Firewall laufen; wir haben zu viele solcher Projekte nach sechs Monaten zusammenbrechen sehen. Wir empfehlen chinesische Werkzeuge, die hier nativ funktionieren: Aliyun (阿里云), Tencent Cloud (腾讯云), Baidu Tongji (百度统计), WeChat (微信) und die chinesischen KI-Plattformen. Es ist ein anderes Ökosystem mit eigenen Regeln. Den globalen Stack in China am Leben zu halten, kostet meist mehr an Behelfslösungen als ein sauberer Neubau.',
       },
       {
         question: 'Warum nutzen Sie für China nicht einfach einen westlichen SaaS-Website-Baukasten?',
-        answer: 'Weil sie in China nicht richtig funktionieren. Die meisten sind teilweise blockiert oder stark gedrosselt, und keiner hat ICP-fähiges Hosting auf dem Festland. Wir haben mehrere Kunden von diesen Plattformen migriert, weil ihre China-Seiten unbrauchbar waren. Wir bauen auf Werkzeugen, die hinter der Firewall laufen, Punkt.',
+        answer: 'Weil sie in China nicht richtig funktionieren. Die meisten sind teilweise blockiert oder stark gedrosselt, und keiner hat ICP-fähiges Hosting auf dem Festland. Wir haben mehrere Kunden von diesen Plattformen migriert, weil ihre China-Seiten unbrauchbar waren. Wir bauen ausschließlich auf Werkzeugen, die hinter der Firewall laufen.',
       },
       {
         question: 'Bauen Sie auch mobile Apps?',
@@ -229,7 +229,7 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Können Sie eine WeChat-Integration umsetzen?',
-        answer: 'Ja. WeChat-Login (微信), Teilen, Mini-Programme, Bezahlung. Wir haben Dutzende WeChat-Integrationen gebaut und kennen die Eigenheiten der API. Dasselbe gilt für Alipay (支付宝) und UnionPay (银联).',
+        answer: 'Ja. Wir setzen WeChat-Login (微信), Teilen-Funktionen, Mini-Programme und die Bezahlung um. Wir haben Dutzende WeChat-Integrationen gebaut und kennen die Eigenheiten der API. Dasselbe gilt für Alipay (支付宝) und UnionPay (银联).',
       },
       {
         question: 'Was ist mit KI und Chatbots auf unserer China-Website?',
@@ -237,11 +237,11 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Wird unsere bestehende WordPress-Website mit Elementor in China funktionieren?',
-        answer: 'In ihrem jetzigen Zustand wahrscheinlich nicht. Aber meistens lässt sie sich zum Laufen bringen. Wir entfernen die Google-Abhängigkeiten, tauschen die Schriften aus, leiten die Integrationen um. Die meisten Elementor-Seiten, die wir übernehmen, laufen innerhalb weniger Wochen sauber hinter der Firewall.',
+        answer: 'In ihrem jetzigen Zustand wahrscheinlich nicht, in den meisten Fällen lässt sie sich jedoch zum Laufen bringen. Wir entfernen die Google-Abhängigkeiten, tauschen die Schriften aus und leiten die Integrationen um. Die meisten Elementor-Seiten, die wir übernehmen, laufen innerhalb weniger Wochen sauber hinter der Firewall.',
       },
       {
         question: 'Was ist mit automatischen Plugin-Updates von wordpress.org?',
-        answer: 'Sie scheitern aus China heraus oft oder laufen in einen Timeout. Wir richten ein Routing der Updates über einen Proxy ein oder geplante manuelle Update-Fenster. So oder so muss Ihr Team nicht daran denken.',
+        answer: 'Sie scheitern aus China heraus oft oder laufen in einen Timeout. Wir leiten die Updates über einen Proxy oder richten geplante manuelle Update-Fenster ein. In beiden Fällen muss Ihr Team nicht daran denken.',
       },
     ],
   },
@@ -252,7 +252,7 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'Was ist bei Baidu-SEO anders als bei Google?',
-        answer: 'So ziemlich alles. Baidu (百度) bevorzugt auf dem Festland gehostete Seiten, bewertet die Qualität chinesischer Inhalte nach eigenen Maßstäben, hat eine eigene Search Resource Platform (百度搜索资源平台) für die Einreichung, behandelt Meta-Tags anders und rankt nach Faktoren, die Google nicht interessieren. Für das eine zu optimieren heißt nicht, für das andere zu optimieren.',
+        answer: 'Es unterscheidet sich in fast allem. Baidu (百度) bevorzugt auf dem Festland gehostete Seiten, bewertet die Qualität chinesischer Inhalte nach eigenen Maßstäben, hat eine eigene Search Resource Platform (百度搜索资源平台) für die Einreichung, behandelt Meta-Tags anders und rankt nach Faktoren, die Google nicht interessieren. Wer für die eine Suchmaschine optimiert, optimiert damit noch nicht für die andere.',
       },
       {
         question: 'Garantieren Sie Baidu-Rankings?',
@@ -260,7 +260,7 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Was ist GEO China und brauchen wir das?',
-        answer: 'Generative Engine Optimisation für chinesische KI-Suche. DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝), Baidu AI (百度AI). Chinesische Nutzer beginnen ihre Recherche zunehmend in diesen Werkzeugen statt direkt bei Baidu (百度). Wenn Ihre Wettbewerber in KI-Antworten auftauchen und Sie nicht, läuft Verkehr an Ihrer Tür vorbei.',
+        answer: 'GEO China steht für Generative Engine Optimisation, also die Optimierung für die chinesische KI-Suche auf DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) und Baidu AI (百度AI). Chinesische Nutzer beginnen ihre Recherche zunehmend in diesen Werkzeugen statt direkt bei Baidu (百度). Wenn Ihre Wettbewerber in KI-Antworten auftauchen und Sie nicht, läuft der Verkehr an Ihrer Tür vorbei.',
       },
       {
         question: 'Wie lange dauert es nach dem Launch, bis wir Baidu-Verkehr sehen?',
@@ -279,11 +279,11 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Was ist der Unterschied zwischen Übersetzung und Lokalisierung?',
-        answer: 'Übersetzung liefert dieselben Worte auf Chinesisch. Lokalisierung schreibt für die Zielgruppe, die Plattform, die kulturellen Bezüge und die Suchbegriffe, die chinesische Nutzer wirklich eintippen, neu. Eine übersetzte Seite liest sich fremd. Eine lokalisierte nicht.',
+        answer: 'Übersetzung liefert dieselben Worte auf Chinesisch. Lokalisierung schreibt für die Zielgruppe, die Plattform, die kulturellen Bezüge und die Suchbegriffe, die chinesische Nutzer wirklich eintippen, neu. Eine übersetzte Seite liest sich fremd, eine lokalisierte nicht.',
       },
       {
         question: 'Sollten wir vereinfachtes oder traditionelles Chinesisch verwenden?',
-        answer: 'Vereinfachtes Chinesisch (简体中文) für das chinesische Festland. Traditionelles Chinesisch (繁體中文) für Hongkong (香港) und Taiwan (台湾). Wenn Sie beide Märkte ansprechen, pflegen wir getrennte Versionen. Beides auf einer Seite zu mischen, ruiniert Ihre Glaubwürdigkeit.',
+        answer: 'Für das chinesische Festland gilt vereinfachtes Chinesisch (简体中文), für Hongkong (香港) und Taiwan (台湾) traditionelles Chinesisch (繁體中文). Wenn Sie beide Märkte ansprechen, pflegen wir getrennte Versionen. Beides auf einer Seite zu mischen, ruiniert Ihre Glaubwürdigkeit.',
       },
     ],
   },
@@ -302,7 +302,7 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Was, wenn die Website nach dem Launch unter den Erwartungen bleibt?',
-        answer: 'Wir stellen eine Diagnose. Es kann technisch sein, am Content liegen oder an einem Bruch mit dem, was chinesische Nutzer erwarten. Fehler beheben wir, das gehört dazu. Größere Optimierungen, Content-Neufassungen, tiefere SEO laufen über die Wartungspauschale.',
+        answer: 'Wir stellen eine Diagnose. Es kann technisch bedingt sein, am Content liegen oder an einem Bruch mit dem, was chinesische Nutzer erwarten. Fehler beheben wir, das gehört dazu. Größere Optimierungen, Content-Neufassungen und tiefere SEO laufen über die Wartungspauschale.',
       },
     ],
   },
@@ -317,15 +317,15 @@ export const faqTopicsDe: FAQTopic[] = [
       },
       {
         question: 'Können wir Ihr Team nach dem Launch für laufende Entwicklung buchen?',
-        answer: 'Ja. Wir bieten Entwicklungsstunden auf Pauschalbasis, Content-Produktion, SEO, GEO-China-Arbeit, Hosting-Management. Die meisten Kunden landen bei einer monatlichen Pauschale, die Wartung plus ein Kontingent an Entwicklungsstunden für das abdeckt, was eben so anfällt.',
+        answer: 'Ja. Wir bieten Entwicklungsstunden auf Pauschalbasis, Content-Produktion, SEO, GEO-China-Arbeit und Hosting-Management. Die meisten Kunden landen bei einer monatlichen Pauschale, die die Wartung und ein Kontingent an Entwicklungsstunden für die laufend anfallenden Aufgaben abdeckt.',
       },
       {
         question: 'Was, wenn wir es irgendwann ins Haus holen wollen?',
-        answer: 'In Ordnung, wir helfen beim Übergang. Wir haben Kundenteams darin geschult, Content-Updates, leichte Entwicklung und Baidu-SEO (百度) selbst zu übernehmen. Wir übergeben die Dokumentation, machen den Wissenstransfer und bleiben für die schwierigen Dinge erreichbar. Ohne Drama.',
+        answer: 'Das ist in Ordnung, wir begleiten den Übergang. Wir haben Kundenteams darin geschult, Content-Updates, leichte Entwicklung und Baidu-SEO (百度) selbst zu übernehmen. Wir übergeben die Dokumentation, führen den Wissenstransfer durch und bleiben für die schwierigen Fälle erreichbar, ganz ohne Reibung.',
       },
       {
         question: 'Bieten Sie Schulungen für unser internes Team an?',
-        answer: 'Ja. WordPress-Schulungen, Baidu-Tongji-Schulungen (百度统计), Grundlagen der Baidu Search Resource Platform (百度搜索资源平台), Content-Workflow. Entweder als Remote-Sitzungen oder vor Ort, wenn Sie in China sind. Das Format reicht von ein paar Stunden bis zu mehrtägigen Workshops, je nach Bedarf.',
+        answer: 'Ja. Wir schulen zu WordPress, zu Baidu Tongji (百度统计), zu den Grundlagen der Baidu Search Resource Platform (百度搜索资源平台) und zum Content-Workflow. Die Schulungen finden entweder als Remote-Sitzungen oder vor Ort statt, wenn Sie in China sind. Das Format reicht je nach Bedarf von wenigen Stunden bis zu mehrtägigen Workshops.',
       },
     ],
   },
@@ -336,15 +336,15 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'Wir arbeiten bereits mit einer globalen Digitalagentur. Warum noch Sie?',
-        answer: 'Weil sie kein ICP (互联网内容提供商) einreichen kann, keine Hosting-Beziehungen in China hat und Baidu (百度) nicht so kennt wie wir. Die meisten unserer Kunden behalten ihre globale Agentur für die globale Arbeit und setzen uns für die China-spezifische Ebene ein. Wir arbeiten ständig mit globalen Agenturen zusammen, ganz ohne Ego-Probleme.',
+        answer: 'Eine globale Agentur kann kein ICP (互联网内容提供商) einreichen, hat keine Hosting-Beziehungen in China und kennt Baidu (百度) nicht so wie wir. Die meisten unserer Kunden behalten ihre globale Agentur für die globale Arbeit und setzen uns für die China-spezifische Ebene ein. Wir arbeiten ständig mit globalen Agenturen zusammen, ganz ohne Konkurrenzdenken.',
       },
       {
         question: 'Unser IT-Team glaubt, das intern stemmen zu können. Was sagen wir ihnen?',
-        answer: 'Sagen Sie ihnen, wir wünschen viel Glück, und rufen Sie uns in drei Monaten an. Halb im Scherz. Eine interne IT kann das durchaus, wenn sie ein Jahr Zeit hat, die Vorschriften zu lernen, Hosting-Beziehungen aufzubauen und die Baidu Search Resource Platform (百度搜索资源平台) zu durchdringen. Den meisten internen Teams wird klar, dass diese Lernkurve nicht dort liegt, wo sie ihre Zeit verbringen sollten.',
+        answer: 'Eine interne IT kann das durchaus leisten, sofern sie ein Jahr Zeit hat, um die Vorschriften zu lernen, Hosting-Beziehungen aufzubauen und die Baidu Search Resource Platform (百度搜索资源平台) zu durchdringen. Den meisten internen Teams wird jedoch rasch klar, dass diese Lernkurve nicht dort liegt, wo ihre Zeit am besten aufgehoben ist. Sprechen Sie uns an, sobald sich dieser Eindruck einstellt.',
       },
       {
         question: 'Was, wenn unser Unternehmen politisch oder regulatorisch heikel ist?',
-        answer: 'Wir haben mit Kunden in regulierten Branchen gearbeitet, vom Gesundheitswesen bis zu verteidigungsnaher Technik. Wir nehmen nicht jedes Projekt an. Wenn Ihre Branche Compliance-Fragen mit sich bringt, die eine China-Webpräsenz riskant machen, sagen wir Ihnen das von Anfang an und empfehlen, zuerst mit einem Rechtsberater zu sprechen. Besser, man weiß es in Woche eins.',
+        answer: 'Wir haben mit Kunden in regulierten Branchen gearbeitet, vom Gesundheitswesen bis zu verteidigungsnaher Technik. Wir nehmen nicht jedes Projekt an. Wenn Ihre Branche Compliance-Fragen mit sich bringt, die eine China-Webpräsenz riskant machen, sagen wir Ihnen das von Anfang an und empfehlen, zuerst mit einem Rechtsberater zu sprechen. Es ist besser, das bereits in Woche eins zu wissen.',
       },
     ],
   },

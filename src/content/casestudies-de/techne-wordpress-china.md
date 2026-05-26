@@ -9,11 +9,11 @@ published: true
 services: ["ux-ui-design", "chinese-content", "technical-integration", "china-hosting", "maintenance-support"]
 ---
 
-## Produktion in China seit 2004. Bis jetzt keine chinesische Website.
+## Produktion in China seit 2004, bis jetzt ohne chinesische Website
 
-Techné stellt seit 1981 Dichtungs- und Gleitlösungen her. O-Ringe, Hydraulikdichtungen, Flachdichtungen, Buchsen, geformte und spanend bearbeitete Teile. Beliefert werden die Automobil- und Luftfahrtbranche, die Pharma- und Lebensmittelverarbeitung, die Öl- und Gasindustrie und mehr. Vom Hauptsitz nahe Lyon aus betreibt das Unternehmen seit 2004 ein Werk im chinesischen Dongguan (TDG).
+Techné stellt seit 1981 Dichtungs- und Gleitlösungen her: O-Ringe, Hydraulikdichtungen, Flachdichtungen, Buchsen sowie geformte und spanend bearbeitete Teile. Beliefert werden die Automobil- und Luftfahrtbranche, die Pharma- und Lebensmittelverarbeitung, die Öl- und Gasindustrie und weitere Sektoren. Vom Hauptsitz nahe Lyon aus betreibt das Unternehmen seit 2004 ein Werk im chinesischen Dongguan (TDG).
 
-Die Fabrik war da. Die Website nicht. Techné brauchte eine chinesische Site, um den Vertrieb vor Ort zu stützen, und das durfte keine schlichte Imagebroschüre werden. Der Katalog ist riesig: Dutzende Produktfamilien über mehr als 12 Branchen hinweg, jede mit eigenen Spezifikationen, Werkstoffen und Zertifizierungen. Das alles so zu ordnen, dass chinesische Industriekunden tatsächlich damit arbeiten können, war die eigentliche Aufgabe.
+Die Fabrik war da, die Website nicht. Techné brauchte eine chinesische Website, um den Vertrieb vor Ort zu stützen, und das durfte keine schlichte Imagebroschüre werden. Der Katalog ist riesig: Dutzende Produktfamilien über mehr als 12 Branchen hinweg, jede mit eigenen Spezifikationen, Werkstoffen und Zertifizierungen. Das alles so zu ordnen, dass chinesische Industriekunden tatsächlich damit arbeiten können, war die eigentliche Aufgabe.
 
 | | |
 |---|---|
@@ -26,7 +26,7 @@ Die Fabrik war da. Die Website nicht. Techné brauchte eine chinesische Site, um
 
 ## Einen riesigen Katalog beherrschbar machen
 
-Bevor wir das Design anfassten, mussten wir die Inhaltsstruktur klären. Statische Dichtungen, dynamische Dichtungen, Hydraulikdichtungen, aseptische Dichtungen, gestanzte Flachdichtungen, Buchsen, federvorgespannte Dichtungen, und das ist noch immer nicht die ganze Liste. Jeder Produkttyp bedient andere Branchen mit anderen Anforderungen.
+Bevor wir das Design anfassten, mussten wir die Inhaltsstruktur klären. Es gibt statische Dichtungen, dynamische Dichtungen, Hydraulikdichtungen, aseptische Dichtungen, gestanzte Flachdichtungen, Buchsen und federvorgespannte Dichtungen, und damit ist die Liste noch nicht vollständig. Jeder Produkttyp bedient andere Branchen mit anderen Anforderungen.
 
 Wir arbeiteten mit Techné heraus, wie chinesische Kunden nach Produkten suchen, ob nach Typ oder nach Branche zu gliedern sei (wir taten beides) und welchen technischen Detailgrad jede Seite tatsächlich brauchte. Bei einem industriellen B2B-Katalog entscheidet genau das darüber, ob eine Site Anfragen erzeugt oder schon nach zwei Klicks verlassen wird.
 

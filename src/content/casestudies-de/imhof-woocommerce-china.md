@@ -35,7 +35,7 @@ IMHOF kam zu uns, um genau das in Ordnung zu bringen: den gesamten WordPress- un
 
 ## Den Stack auseinandernehmen: Das technische Audit
 
-Wir begannen mit einem vollständigen technischen Audit. Die Site war gut gebaut: klares Design, starke Markenidentität, ausgefeilte Produktseiten. Doch all das zählte nichts, wenn die zugrunde liegende Infrastruktur chinesische Nutzer nicht bedienen konnte. Also gingen wir den gesamten Stack durch und dokumentierten jede Abhängigkeit, die hinter der Great Firewall scheitern würde.
+Wir begannen mit einem vollständigen technischen Audit. Die Site war gut gebaut: klares Design, starke Markenidentität, ausgefeilte Produktseiten. Doch all das zählte nichts, wenn die zugrunde liegende Infrastruktur chinesische Nutzer nicht bedienen konnte. Also gingen wir den gesamten Stack durch und dokumentierten jede Abhängigkeit, die hinter der Großen Firewall scheitern würde.
 
 Die Probleme betrafen fast jeden Teil der Site:
 

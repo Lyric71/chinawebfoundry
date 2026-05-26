@@ -33,11 +33,11 @@ Wenn ausländische Unternehmen an Suche in China denken, denken sie an Baidu. Ve
 | **Sprachanfragen pro Tag** | 800 Millionen (Sogou Pinyin) |
 | **Strategie** | Veröffentlichung über einen WeChat Official Account |
 
-506 Millionen monatlich aktive Nutzer. Die meisten Menschen außerhalb Chinas haben noch nie davon gehört.
+Sogou hat 506 Millionen monatlich aktive Nutzer, und die meisten Menschen außerhalb Chinas haben noch nie davon gehört.
 
 Der Marktanteil von Sogou sagt für sich genommen wenig aus. Worauf es ankommt, ist die Position. Sogou treibt die Suche sowohl in WeChat als auch in QQ. Wenn jemand innerhalb von WeChat eine Anfrage eintippt, ist Sogou die Maschine, die dahinter arbeitet. Zwischen WeChat und QQ deckt das den Großteil der chinesischen Messaging-Nutzer ab.
 
-Dank dieser Verzahnung indexiert Sogou öffentliche WeChat-Artikel, Official Accounts und Mini-Programme. Wenn Ihr Unternehmen einen WeChat Official Account betreibt und darüber Inhalte veröffentlicht, werden diese Inhalte vom Index von Sogou erfasst. Einer der wenigen Wege, Markeninhalte direkt in Chinas größter Messaging-App über die Suche sichtbar zu machen.
+Dank dieser Verzahnung indexiert Sogou öffentliche WeChat-Artikel, Official Accounts und Mini-Programme. Wenn Ihr Unternehmen einen WeChat Official Account betreibt und darüber Inhalte veröffentlicht, werden diese Inhalte vom Index von Sogou erfasst. Das ist einer der wenigen Wege, Markeninhalte direkt in Chinas größter Messaging-App über die Suche sichtbar zu machen.
 
 > Sogou verarbeitet täglich 800 Millionen Sprachanfragen über seine Pinyin-Eingabemethode. Wenn Sie auf WeChat veröffentlichen, sind Ihre Inhalte bereits im Index von Sogou. Das sollte man einplanen.
 
@@ -53,13 +53,13 @@ Dank dieser Verzahnung indexiert Sogou öffentliche WeChat-Artikel, Official Acc
 | **Nutzerbasis** | Desktop, sicherheitsorientiert |
 | **Neueste Entwicklung** | Nano Search (Nov. 2024), KI-gestützt |
 
-Eine ungewöhnliche Vorgeschichte. 360 Search startete im Juli 2012 und schoss bis 2014 auf 35 Prozent Marktanteil.
+Die Vorgeschichte ist ungewöhnlich. 360 Search startete im Juli 2012 und schoss bis 2014 auf 35 Prozent Marktanteil.
 
 > 360 Search erreichte binnen zwei Jahren nach dem Start 35 Prozent Marktanteil. Der größte Teil davon kam aus der Browser-Bündelung, nicht aus organischer Akzeptanz.
 
 Das meiste Wachstum kam daher, dass die Suchmaschine als Standard in den Browser- und Sicherheitsprodukten von 360 mitgeliefert wurde. Dieser Anteil ist seither stark gefallen, doch die Plattform liegt noch immer bei etwa 5 Prozent.
 
-Das Publikum ist klar umrissen. Desktop-Nutzer, die sich für die Software von 360 wegen ihrer Antiviren- und Sicherheitsfunktionen entschieden haben. Die meisten Unternehmen müssen sich um diese Plattform keine Sorgen machen. Wenn Ihre Kunden aber eher sicherheitsbewusste Fachleute sind oder wenn Sie in der Cybersicherheit oder verwandten Bereichen tätig sind, ist dies eine Nische des Marktes, die man kennen sollte.
+Das Publikum ist klar umrissen: Desktop-Nutzer, die sich für die Software von 360 wegen ihrer Antiviren- und Sicherheitsfunktionen entschieden haben. Die meisten Unternehmen müssen sich um diese Plattform keine Sorgen machen. Wenn Ihre Kunden aber eher sicherheitsbewusste Fachleute sind oder wenn Sie in der Cybersicherheit oder verwandten Bereichen tätig sind, ist dies eine Nische des Marktes, die man kennen sollte.
 
 360 startete im November 2024 Nano Search, eine multimodale KI-Suchoberfläche. Noch ist zu früh, um zu sagen, ob das etwas bewegt.
 
@@ -73,7 +73,7 @@ Das Publikum ist klar umrissen. Desktop-Nutzer, die sich für die Software von 3
 | **Browser-Integration** | UC Browser (ca. 20 % des chinesischen Marktes) |
 | **E-Commerce-Vorteil** | Taobao/Tmall-Produkte erhalten bevorzugte Platzierung |
 
-Diese hier überrascht viele. Shenma deckt 80 Prozent der mobilen Nutzer Chinas ab. Sie ist reine Mobil-Suche. Eine Desktop-Version gibt es nicht. Und die meisten ausländischen Unternehmen haben noch nie davon gehört.
+Diese Suchmaschine überrascht viele. Shenma deckt 80 Prozent der mobilen Nutzer Chinas ab. Sie ist eine reine Mobil-Suche ohne Desktop-Version, und die meisten ausländischen Unternehmen haben noch nie von ihr gehört.
 
 Es ist ein Gemeinschaftsunternehmen von Alibaba und UCWeb, eingebaut in den UC Browser, der etwa 20 Prozent des chinesischen Browser-Marktes hält. Shenma muss nicht eigenständig um Nutzer kämpfen. Die Suchmaschine kommt vorinstalliert in einem Browser, den Hunderte Millionen Menschen ohnehin auf ihren Telefonen haben.
 
@@ -91,11 +91,11 @@ Für den E-Commerce zählt vor allem dieser Punkt: Produkte, die auf Taobao und 
 | **Enzyklopädie** | übernommen: Hudong Baike |
 | **SEO-Reife** | gering, noch im Aufbau |
 
-Der jüngste Mitspieler auf der Liste und der am wenigsten etablierte. Toutiao Search wohnt in Jinri Toutiao, der Nachrichten-Aggregator-App von ByteDance. Sie nutzt NLP und Computer Vision, um Inhalte zu ranken, und ByteDance hat Hudong Baike übernommen, eine Online-Enzyklopädie, um die Suchergebnisse zu füllen.
+Toutiao Search ist der jüngste Mitspieler auf der Liste und der am wenigsten etablierte. Es wohnt in Jinri Toutiao, der Nachrichten-Aggregator-App von ByteDance. Sie nutzt NLP und Computer Vision, um Inhalte zu ranken, und ByteDance hat Hudong Baike übernommen, eine Online-Enzyklopädie, um die Suchergebnisse zu füllen.
 
 Gut dokumentierte SEO-Best-Practices für Toutiao Search gibt es noch nicht. Die Optimierung dafür ist derzeit eher Experiment als wiederholbares Vorgehen.
 
-Aber ByteDance ist ByteDance. Douyin, Toutiao und eine Reihe weiterer Angebote mit Hunderten Millionen Nutzern. Das ist kein Konzern, der etwas Kleines startet und dann liegen lässt. Wer ohnehin Inhalte für Douyin erstellt, hat in Toutiao Search einen weiteren Ort, an dem diese Inhalte auftauchen können. Für die meisten Unternehmen ist das heute keine Priorität.
+Doch ByteDance bleibt ByteDance. Hinter dem Konzern stehen Douyin, Toutiao und eine Reihe weiterer Angebote mit Hunderten Millionen Nutzern. Das ist kein Konzern, der etwas Kleines startet und dann liegen lässt. Wer ohnehin Inhalte für Douyin erstellt, hat in Toutiao Search einen weiteren Ort, an dem diese Inhalte auftauchen können. Für die meisten Unternehmen ist das heute keine Priorität.
 
 > ByteDance hat Hudong Baike übernommen, um Toutiao Search mit enzyklopädischen Inhalten zu versorgen. Der Schritt zeigt langfristigen Ehrgeiz.
 

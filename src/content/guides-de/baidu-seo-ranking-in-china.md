@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Search
 ---
 
-724 Millionen Menschen nutzen Baidu jeden Monat. 3,3 Milliarden Suchanfragen am Tag. Je nach Quelle zwischen 56 und 64 Prozent des chinesischen Suchmarkts. Wer als ausländisches Unternehmen chinesische Kunden online erreichen will, muss diese Suchmaschine knacken. Google spielt in China kaum eine Rolle. Das Tückische an Baidu: Fast nichts, was man von Google-SEO kennt, lässt sich übertragen. Die Ranking-Logik ist anders. Das Crawling ist anders. Selbst das Ökosystem rundherum funktioniert auf Weisen, mit denen die meisten westlichen Marketer noch nie zu tun hatten.
+724 Millionen Menschen nutzen Baidu jeden Monat, mit 3,3 Milliarden Suchanfragen am Tag. Je nach Quelle entfallen zwischen 56 und 64 Prozent des chinesischen Suchmarkts auf die Plattform. Wer als ausländisches Unternehmen chinesische Kunden online erreichen will, muss diese Suchmaschine knacken. Google spielt in China kaum eine Rolle. Das Tückische an Baidu: Fast nichts, was man von Google-SEO kennt, lässt sich übertragen. Die Ranking-Logik ist anders. Das Crawling ist anders. Selbst das Ökosystem rundherum funktioniert auf Weisen, mit denen die meisten westlichen Marketer noch nie zu tun hatten.
 
 ## Baidu in Zahlen
 
@@ -71,9 +71,9 @@ Einige dieser Punkte treffen besonders hart, wenn man aus der Google-Welt kommt.
 
 **Die ersten 100 bis 120 KB.** Das ist eine Baidu-Eigenheit. Die Crawler von Baidu haben eine Grenze, wie tief sie in eine Seite vordringen. Inhalte, die unterhalb umfangreicher Skripte und Medien liegen, werden mit hoher Wahrscheinlichkeit nie gecrawlt. Stellen Sie das Wichtige nach vorn.
 
-**Strukturierte Daten.** Schema-Markup für Titel, Autor und Datum. Das hilft Baidu, Ihre Seiten einzuordnen, und kann ihre Darstellung in den Ergebnissen verbessern.
+**Strukturierte Daten.** Setzen Sie Schema-Markup für Titel, Autor und Datum ein. Das hilft Baidu, Ihre Seiten einzuordnen, und kann ihre Darstellung in den Ergebnissen verbessern.
 
-**Alt-Texte.** Chinesischsprachige Bildbeschreibungen für jedes Bild, geschrieben von einem echten Menschen. Es ist erstaunlich, wie viele Websites dies noch immer auslassen oder automatisch übersetzen.
+**Alt-Texte.** Schreiben Sie für jedes Bild eine chinesischsprachige Beschreibung, und zwar von einem echten Menschen verfasst. Es ist erstaunlich, wie viele Websites dies noch immer auslassen oder automatisch übersetzen.
 
 > Über 83 Prozent der bestplatzierten Baidu-Seiten sind in nativem vereinfachtem Chinesisch verfasst. Maschinelle Übersetzung reicht nicht aus.
 

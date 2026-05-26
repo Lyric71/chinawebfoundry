@@ -1,6 +1,6 @@
 ---
 title: "ICP-Lizenz und ICP-Registrierung: was ausländische Unternehmen wissen müssen"
-subtitle: "Wer eine Website in Festlandchina hosten will, braucht eine ICP. Ohne Ausnahme. Es gibt sie aber in zwei Varianten, und wer sie verwechselt, verliert leicht Monate."
+subtitle: "Wer eine Website in Festlandchina hosten will, braucht ausnahmslos eine ICP. Es gibt sie jedoch in zwei Varianten, und wer sie verwechselt, verliert leicht Monate."
 summary: "Jede in China gehostete Website braucht eine ICP. Die Bei'an-Registrierung ist einfach. Die kommerzielle Lizenz hat Eigentumsauflagen, die den meisten ausländischen Unternehmen den Weg versperren."
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
@@ -24,13 +24,13 @@ Jede Website auf einem Server in Festlandchina braucht eine ICP-Registrierung. S
 
 ## ICP Bei'an: die Registrierung, die Sie wirklich bekommen
 
-ICP Bei'an ist die Grundvoraussetzung. Pflicht für alle Websites, die auf Servern in Festlandchina liegen, ob die Seite Geld verdient oder nicht. Unternehmensprofile, Blogs, Bildungsseiten, Produktinformationen, der Inhalt spielt keine Rolle. Liegt die Seite in China, braucht sie eine Bei'an.
+ICP Bei'an ist die Grundvoraussetzung und Pflicht für alle Websites, die auf Servern in Festlandchina liegen, ob die Seite Geld verdient oder nicht. Ob Unternehmensprofile, Blogs, Bildungsseiten oder Produktinformationen, der Inhalt spielt keine Rolle. Liegt die Seite in China, braucht sie eine Bei'an.
 
 Das Verfahren ist verhältnismäßig schmerzfrei. Chinesische Unternehmen, WFOEs und ausländische Privatpersonen mit einem chinesischen Vertreter können es alle beantragen. Es dauert zwischen 1 und 4 Wochen, und meistens erledigt Ihr Hosting-Anbieter den Papierkram für Sie. Die Kosten sind entweder gleich null oder gering, wir reden von kleinen Verwaltungsgebühren, nicht von Tausenden RMB.
 
-Für die meisten ausländischen Unternehmen, die mit einer einfachen Firmenseite oder einem Content-Hub nach China kommen, ist die Bei'an die erste ICP, mit der Sie zu tun haben. Es ist die gut zu bewältigende.
+Für die meisten ausländischen Unternehmen, die mit einer einfachen Firmenseite oder einem Content-Hub nach China kommen, ist die Bei'an die erste ICP, mit der sie zu tun haben. Sie lässt sich gut bewältigen.
 
-> Die ICP Bei'an dauert 1 bis 4 Wochen und kostet so gut wie nichts. In der Regel übernimmt Ihr Hosting-Anbieter die Registrierung. Nicht der Teil dieses Prozesses, um den Sie sich Sorgen machen müssen.
+> Die ICP Bei'an dauert 1 bis 4 Wochen und kostet so gut wie nichts. In der Regel übernimmt Ihr Hosting-Anbieter die Registrierung. Um diesen Teil des Prozesses müssen Sie sich nicht sorgen.
 
 Der nächste Teil ist eine andere Geschichte.
 
@@ -46,7 +46,7 @@ Die Dauer liegt bei 2 bis 6 Monaten. Die Kosten reichen von 5.000 RMB bis nördl
 
 ## Was passiert, wenn Sie die ICP ganz überspringen
 
-Manche Unternehmen sehen sich das alles an und beschließen, einfach außerhalb Chinas zu hosten. Den Papierkram umgehen, die Eigentumsfragen umgehen, die Seite von einem Server in Singapur oder Frankfurt aus betreiben. Klingt vernünftig. Doch die Abstriche fallen schlimmer aus, als die meisten Leute vorab annehmen.
+Manche Unternehmen sehen sich das alles an und beschließen, einfach außerhalb Chinas zu hosten: den Papierkram umgehen, die Eigentumsfragen umgehen, die Seite von einem Server in Singapur oder Frankfurt aus betreiben. Das klingt vernünftig, doch die Abstriche fallen schlimmer aus, als die meisten Leute vorab annehmen.
 
 | Folge | Auswirkung |
 |---|---|
@@ -61,6 +61,6 @@ Auch die Rankings nehmen Schaden. Baidu wertet die ICP-Registrierung als Vertrau
 
 Die Große Firewall ist das andere Risiko. Im Ausland gehostete Seiten ohne ICP können zusätzlich zu den langsamen Ladezeiten vollständig gesperrt werden. Es trifft nicht jede Seite, aber es kommt vor, und es gibt keinen verlässlichen Weg, vorherzusagen, wann oder warum.
 
-Und das Nutzervertrauen. 78 % der chinesischen Internetnutzer bevorzugen Websites, die eine gültige ICP-Lizenznummer anzeigen. Sie steht meist unten im Footer, und chinesische Nutzer schauen ganz sicher danach. Eine Seite ohne sie liest sich als entweder ausländisch oder unprofessionell. Nicht der Eindruck, den Sie bei einem möglichen Kunden machen wollen.
+Hinzu kommt das Nutzervertrauen. 78 % der chinesischen Internetnutzer bevorzugen Websites, die eine gültige ICP-Lizenznummer anzeigen. Sie steht meist unten im Footer, und chinesische Nutzer schauen ganz sicher danach. Eine Seite ohne sie wirkt entweder ausländisch oder unprofessionell, und das ist nicht der Eindruck, den Sie bei einem möglichen Kunden hinterlassen wollen.
 
 > 78 % der chinesischen Internetnutzer bevorzugen Websites mit einer gültigen ICP-Nummer. Sie steht im Footer, und sie schauen danach.

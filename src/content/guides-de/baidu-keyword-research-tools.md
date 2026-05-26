@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Search
 ---
 
-Die besten Google-Keywords exportieren, durch einen Übersetzer schicken, in die China-Strategie kopieren. So gehen die meisten ausländischen Unternehmen vor. Und genau deshalb scheitern sie fast immer. Chinesische Nutzer suchen anders, und mit der Übersetzung hat das wenig zu tun. Andere Formulierungen, andere Satzstrukturen. Dazu eine Sprache, in der die Zahl möglicher Keyword-Kombinationen für ein einzelnes Konzept um Größenordnungen höher liegt als im Englischen. Im Folgenden stellen wir die drei Werkzeuge vor, die echten Zugang zu Baidu-Daten verschaffen, und erklären, warum Keyword-Recherche auf Chinesisch eine eigene Disziplin ist.
+Die besten Google-Keywords exportieren, durch einen Übersetzer schicken, in die China-Strategie kopieren: So gehen die meisten ausländischen Unternehmen vor, und genau deshalb scheitern sie fast immer. Chinesische Nutzer suchen anders, und mit der Übersetzung hat das wenig zu tun: andere Formulierungen, andere Satzstrukturen und eine Sprache, in der die Zahl möglicher Keyword-Kombinationen für ein einzelnes Konzept um Größenordnungen höher liegt als im Englischen. Im Folgenden stellen wir die drei Werkzeuge vor, die echten Zugang zu Baidu-Daten verschaffen, und erklären, warum Keyword-Recherche auf Chinesisch eine eigene Disziplin ist.
 
 ## Baidu Index
 
@@ -22,11 +22,11 @@ Die besten Google-Keywords exportieren, durch einen Übersetzer schicken, in die
 | **Keyword-Limit** | 5 gleichzeitig |
 | **Zugangsvoraussetzung** | chinesische Mobilfunknummer (SMS-Verifizierung) |
 
-Hier fängt man an. Kostenlos, öffentlich zugänglich, im Kern Chinas Antwort auf Google Trends.
+Hier fängt man an. Das Werkzeug ist kostenlos, öffentlich zugänglich und im Kern Chinas Antwort auf Google Trends.
 
 Das Werkzeug zeigt die Beliebtheit von Suchbegriffen im Zeitverlauf, aufgeschlüsselt nach Provinzen. Dazu demografische Angaben darüber, wer sucht: Alter, Geschlecht, Standort. Sie wollen wissen, ob ein Keyword zum chinesischen Neujahrsfest ausschlägt oder wie sich das Suchinteresse zwischen Shanghai und Chengdu unterscheidet? Dann ist Baidu Index das richtige Werkzeug.
 
-Ärgerlich ist die Begrenzung: Sie können nur fünf Keywords gleichzeitig betrachten. Fünf. Wer es gewohnt ist, mit Ahrefs Hunderte Begriffe auf einmal zu ziehen, fühlt sich, als arbeite er mit einer Hand auf dem Rücken. Und bevor Sie überhaupt Zugang erhalten, verlangt die Plattform eine chinesische Mobilfunknummer zur SMS-Verifizierung.
+Ärgerlich ist die Begrenzung: Sie können nur fünf Keywords gleichzeitig betrachten. Wer es gewohnt ist, mit Ahrefs Hunderte Begriffe auf einmal zu ziehen, fühlt sich, als arbeite er mit einer Hand auf dem Rücken. Und bevor Sie überhaupt Zugang erhalten, verlangt die Plattform eine chinesische Mobilfunknummer zur SMS-Verifizierung.
 
 > Baidu Index verlangt allein für die Anmeldung eine chinesische Mobilfunknummer. Für die meisten ausländischen Teams ist hier Schluss, bevor sie überhaupt angefangen haben.
 
@@ -66,7 +66,7 @@ Das Werkzeug findet Long-Tail-Keywords, liefert CPC-Schätzungen und Wettbewerbs
 
 Die kostenlose Stufe gibt einen Vorgeschmack. Der eigentliche Funktionsumfang steckt hinter den kostenpflichtigen Tarifen. Für Unternehmen, die dauerhaft Baidu-SEO betreiben, ist dies wahrscheinlich das wichtigste Werkzeug-Abonnement, für das sich die Ausgabe lohnt.
 
-## Warum chinesische Suchanfragen ein anderes Tier sind
+## Warum chinesische Suchanfragen eine eigene Welt sind
 
 Die meisten Unternehmen überspringen diesen Abschnitt zu schnell. Dabei ist er der wichtigste.
 
@@ -88,8 +88,8 @@ Short-Head-Keywords bestehen meist aus einem oder zwei Zeichen. Long-Tail beginn
 
 Hinzu kommt, wie Menschen Baidu tatsächlich benutzen. Chinesische Nutzer tippen bei der Suche oft ganze Fragen aus, statt der knappen Zwei-Wort-Ketten, die man von Google kennt. Wer in Shanghai ein Büro sucht, formuliert etwas, das wie eine Frage an einen Kollegen klingt. Diese Gewohnheit verändert den gesamten Ansatz der Keyword-Recherche.
 
-Der Punkt ist: Wer seine englische Keyword-Liste übersetzt, erfasst kaum etwas Brauchbares. Die Überschneidung zwischen übersetzten Keywords und dem, was chinesische Nutzer tatsächlich bei Baidu eingeben, liegt praktisch bei null. Sie optimieren auf Begriffe, nach denen niemand sucht.
+Entscheidend ist: Wer seine englische Keyword-Liste übersetzt, erfasst kaum etwas Brauchbares. Die Überschneidung zwischen übersetzten Keywords und dem, was chinesische Nutzer tatsächlich bei Baidu eingeben, liegt praktisch bei null. Sie optimieren auf Begriffe, nach denen niemand sucht.
 
 > Die direkte Übersetzung englischer Keywords erfasst bei Baidu so gut wie nichts. Die Überschneidung mit echten chinesischen Suchbegriffen liegt nahe null.
 
-Echte Keyword-Recherche für Baidu beginnt mit einem leeren Blatt. Auf Chinesisch. Erledigt von jemandem, der in der Sprache denkt und die Suchmuster kennt. Es gibt kein Werkzeug, das diese Arbeit abnimmt, und keine Abkürzung, die schneller ans Ziel führt.
+Echte Keyword-Recherche für Baidu beginnt mit einem leeren Blatt, auf Chinesisch und erledigt von jemandem, der in der Sprache denkt und die Suchmuster kennt. Es gibt kein Werkzeug, das diese Arbeit abnimmt, und keine Abkürzung, die schneller ans Ziel führt.
