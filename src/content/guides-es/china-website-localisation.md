@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Content
 ---
 
-Fije un precio en 888 RMB y evoca la prosperidad. Fíjelo en 444 y asocia su producto con la muerte. Ese contraste resume la distancia entre un sitio traducido y un sitio localizado. Localizar para China va mucho más allá del idioma. Afecta a los pagos, a las señales de confianza, al tono editorial, a la rapidez de la atención al cliente y a una larga lista de códigos culturales. La mayoría de las empresas extranjeras los descubre cuando el daño ya está hecho.
+Fije un precio en 888 RMB y evocará la prosperidad. Fíjelo en 444 y asociará su producto con la muerte. Ese contraste resume la distancia entre un sitio traducido y un sitio localizado. Localizar para China va mucho más allá del idioma. Afecta a los pagos, a las señales de confianza, al tono editorial, a la rapidez de la atención al cliente y a una larga lista de códigos culturales. La mayoría de las empresas extranjeras los descubre cuando el daño ya está hecho.
 
 ## La localización de un vistazo
 
@@ -28,7 +28,7 @@ Fije un precio en 888 RMB y evoca la prosperidad. Fíjelo en 444 y asocia su pro
 
 China continental significa chino simplificado. Más del 95 % de los usuarios del continente lee y escribe en caracteres simplificados. El chino tradicional se usa en Taiwán y Hong Kong. Si su mercado es el continente, no hay nada que discutir.
 
-El error más habitual está en la calidad de la redacción, más que en el juego de caracteres. Un texto de máquina suena falso desde la primera frase. Uno escrito por alguien que no es nativo suena aún peor. En los dos casos, la credibilidad se cae de entrada. El contenido lo deben escribir hablantes nativos de chino simplificado que conozcan a su público. Es una partida en la que no conviene ahorrar.
+El error más habitual está en la calidad de la redacción, más que en el juego de caracteres. Un texto de máquina suena falso desde la primera frase. Uno escrito por alguien que no es nativo suena aún peor. En los dos casos, la credibilidad se viene abajo desde el principio. El contenido lo deben escribir hablantes nativos de chino simplificado que conozcan a su público. Es una partida en la que no conviene ahorrar.
 
 ## Pagos: Alipay y WeChat Pay, o nada
 
@@ -49,13 +49,13 @@ Los usuarios chinos pasan cada sitio por la misma criba. Esa criba no se parece 
 
 El público local busca señales concretas. Espera ver el número ICP en el pie de página. Espera un número de teléfono chino. Valora que QQ aparezca como canal de contacto, porque demuestra una cercanía local que un correo no transmite. Y mira los testimonios de clientes, sobre todo si son chinos.
 
-Si faltan esas señales, el sitio parece extranjero, o directamente poco fiable. En los dos casos, la compra no se cierra.
+Si faltan esas señales, el sitio parece extranjero, o directamente poco fiable. En ambos casos, la compra no se cierra.
 
 ## Tono editorial: dejar de lado el argumentario frontal
 
 Los sitios occidentales funcionan a base de afirmaciones rotundas y una seguridad despreocupada. El público chino no responde a esos resortes.
 
-La formalidad importa. El respeto importa igual. Un relato que va ganando confianza a lo largo de la página funciona mejor que un titular que grita «Somos los mejores». En China, un mensaje del tipo «Esta es nuestra historia, estos son los clientes que confían en nosotros, esto es lo que defendemos» casi siempre rinde más que un «Estas son las razones para comprarnos». Las empresas que importan su tono de marketing occidental sin adaptarlo dan una imagen agresiva o superficial. Y esa imagen cuesta mucho corregirla en un mercado nuevo.
+La formalidad importa. El respeto importa igual. Un relato que va ganando confianza a lo largo de la página funciona mejor que un titular que grita «Somos los mejores». En China, un mensaje del tipo «Esta es nuestra historia, estos son los clientes que confían en nosotros, esto es lo que defendemos» casi siempre rinde más que un «Estas son las razones para comprarnos». Las empresas que importan su tono de marketing occidental sin adaptarlo dan una imagen agresiva o superficial. Y luego cuesta mucho corregir esa imagen en un mercado nuevo.
 
 ## Prueba social: poner los números por delante
 
@@ -74,7 +74,7 @@ Los consumidores chinos buscan indicadores concretos y visibles: número de clie
 
 La mayoría de las empresas extranjeras no se hace una idea de lo que supone la atención al cliente en China.
 
-En plena temporada alta, la norma es la disponibilidad las 24 horas. Los plazos de respuesta se miden en minutos: menos de 5 por teléfono, menos de 2 en WeChat o QQ. El mandarín es imprescindible. Para el consumidor chino, un servicio de atención solo en inglés significa que su mercado no se toma en serio.
+En plena temporada alta, la norma es la disponibilidad las 24 horas. Los plazos de respuesta se miden en minutos: menos de 5 por teléfono, menos de 2 en WeChat o QQ. El mandarín es imprescindible. Para el consumidor local, un servicio de atención solo en inglés significa que la empresa no se toma en serio el mercado chino.
 
 Los competidores locales responden en 90 segundos. Quien no se acerca a esa cifra pierde al cliente.
 
@@ -84,7 +84,7 @@ Los competidores locales responden en 90 segundos. Quien no se acerca a esa cifr
 
 Más allá de estos estándares, la localización se parece más a una carrera de obstáculos que a una lista de tareas.
 
-**Los números.** En la cultura china, el 8 evoca la riqueza y la prosperidad. El 6 simboliza la suerte. El 9 remite a la longevidad. Y el 4 se asocia con la muerte. No es un detalle pintoresco. Esas asociaciones marcan cómo lee un consumidor chino una marca, un precio o un nombre de producto. Una tarifa de 888 RMB se lee como algo intencionado y de buen augurio. Una de 444 delata descuido. Ninguna de las dos lecturas le conviene.
+**Los números.** En la cultura china, el 8 evoca la riqueza y la prosperidad. El 6 simboliza la suerte. El 9 remite a la longevidad. Y el 4 se asocia con la muerte. No es un detalle pintoresco. Esas asociaciones marcan cómo lee un consumidor chino una marca, un precio o un nombre de producto. Una tarifa de 888 RMB se lee como algo intencionado y de buen augurio. Una de 444 delata descuido. El consumidor chino lee el número, lo quiera usted o no.
 
 > El 8 evoca la prosperidad, el 6 la suerte, el 9 la longevidad. El 4 se asocia con la muerte. Los consumidores chinos detectan al instante un error numérico en un precio o en un nombre de producto.
 

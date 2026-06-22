@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Hosting
 ---
 
-En una estrategia web para China, el alojamiento es la decisión que más se subestima. Coloque mal el servidor y la página tardará cinco segundos en cargar, si es que carga. Elija mal el proveedor y se quedará sin las integraciones locales que sus competidores ya usan. El mercado chino de la nube está en manos de empresas nacionales. Cada una está conectada a una parte distinta de la red del país. La ubicación física del servidor tiene tres niveles, con compromisos muy distintos. Y el CDN aquí pesa mucho más que en cualquier otro mercado.
+En una estrategia web para China, el alojamiento es la decisión que más se subestima. Coloque mal el servidor y la página tardará cinco segundos en cargar, si es que carga. Elija mal el proveedor y se quedará sin las integraciones locales que sus competidores ya usan. El mercado chino de la nube está en manos de empresas nacionales. Cada una está conectada a una parte distinta de la red del país. La ubicación física del servidor se plantea en tres niveles, cada uno con sus compromisos. Y aquí el CDN pesa mucho más que en cualquier otro mercado.
 
 ## Los proveedores chinos de la nube
 
@@ -22,13 +22,13 @@ En una estrategia web para China, el alojamiento es la decisión que más se sub
 | Baidu Cloud | ~5 % | IA y aprendizaje automático |
 | AWS China | ~7 % | Reconocimiento internacional (a través de Sinnet/NWCD) |
 
-El panorama chino de la nube no tiene equivalente fuera del país. AWS y Azure están, pero muy por detrás. Los primeros puestos son de empresas locales. Cada una se apoya en un ecosistema más amplio, y ese ecosistema define sus fortalezas.
+El panorama chino de la nube no tiene equivalente fuera del país. AWS y Azure están, pero muy por detrás. Los primeros puestos son de empresas locales. Cada una se apoya en un ecosistema más amplio, y de ahí salen sus fortalezas.
 
 Alibaba Cloud domina la categoría, con una cuota del 36 % al 39 %. Si su negocio ya usa el comercio electrónico o los pagos de Alibaba, la elección es obvia. Y si llega a China sin una preferencia clara de ecosistema, Alibaba es la opción más segura. Tiene la documentación más completa, la red de socios más amplia y la plataforma más madura.
 
 Huawei Cloud y Tencent Cloud se disputan el segundo puesto. Huawei tiene del 12 % al 19 % del mercado y se ha hecho fuerte en los proyectos corporativos y en el sector público. Ante empresas estatales u organismos cercanos al gobierno, suele ser la opción esperada. Tencent, con el 11 % al 16 %, es la elección lógica en cuanto la estrategia se apoya en los miniprogramas de WeChat o en QQ. Su integración con WeChat lo convierte en la opción por defecto de cualquier empresa construida en torno a esa plataforma.
 
-Baidu Cloud ocupa un nicho. Tiene cerca del 5 % del mercado y se centra en la inteligencia artificial y el aprendizaje automático. Tiene sentido para una infraestructura muy orientada a la IA. Rara vez es el punto de partida de un alojamiento convencional.
+Baidu Cloud ocupa un nicho. Ronda el 5 % del mercado y se centra en la inteligencia artificial y el aprendizaje automático. Tiene sentido para una infraestructura muy orientada a la IA. Rara vez es el punto de partida de un alojamiento convencional.
 
 Queda AWS China. Las empresas extranjeras acuden a él por inercia, porque el nombre les suena. Tiene cerca del 7 % del mercado y lo operan los socios locales Sinnet y NWCD. Aquí hay que ir con cuidado. AWS China es una entidad distinta de AWS global: cuentas separadas, facturación separada, cumplimiento separado. La cuenta de AWS global que usted ya tiene no le sirve aquí.
 
@@ -73,6 +73,6 @@ Un CDN no compensa una mala decisión de alojamiento. Pero en China sí puede de
 
 **Tencent Cloud CDN** se impone en cuanto los servicios están vinculados a WeChat o a QQ. Su integración con las plataformas de mensajería de Tencent gestiona ese tráfico mejor que cualquier alternativa.
 
-**ChinaCache** es el decano de los CDN en China. Lleva más tiempo en marcha que la mayoría de las soluciones en la nube. Tiene una amplia red doméstica, buena cobertura y mucha experiencia sobre el terreno.
+**ChinaCache** es el decano de los CDN en China. Lleva en marcha más tiempo que la mayoría de las soluciones en la nube. Tiene una amplia red doméstica y mucha experiencia sobre el terreno.
 
 **La red de Cloudflare China** funciona a través de una alianza con JD Cloud. Da a los clientes de Cloudflare de todo el mundo una vía de entrada a China, con una condición: contratar un plan empresarial. No existe registro de autoservicio.

@@ -2,7 +2,7 @@
 name: "Cyril Drouin"
 role: "Fundador y director general"
 photo: "/images/team/cyril-drouin.webp"
-bio: "Acumula veinticinco años de experiencia en el ámbito digital, la publicidad y el comercio. Anteriormente fue director general de Publicis Commerce & Performance Marketing para China y el norte de Asia."
+bio: "Suma veinticinco años de experiencia en digital, publicidad y comercio. Antes fue director general de Publicis Commerce & Performance Marketing para China y el norte de Asia."
 order: 1
 linkedin: "https://www.linkedin.com/in/cyril-d-68835729/"
 substack: "https://cyrildrouin.substack.com/"

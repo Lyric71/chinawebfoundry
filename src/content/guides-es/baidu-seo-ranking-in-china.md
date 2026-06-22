@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-Baidu recibe 724 millones de usuarios al mes y procesa 3.300 millones de búsquedas al día. Controla entre el 56 % y el 64 % del mercado chino de búsqueda, según la fuente. Cualquier empresa extranjera que quiera llegar a clientes chinos por internet tiene que contar con él. Google no cuenta aquí: su presencia en el país es testimonial. El problema es otro. Casi nada de lo que usted sabe sobre el SEO de Google sirve en Baidu. La lógica de posicionamiento es distinta. La indexación también. Y el ecosistema que rodea al buscador funciona con reglas que pocos profesionales del marketing occidentales han visto.
+Baidu recibe 724 millones de usuarios al mes y procesa 3.300 millones de búsquedas al día. Controla entre el 56 % y el 64 % del mercado chino de búsqueda, según la fuente. Cualquier empresa extranjera que quiera llegar a clientes chinos por internet tiene que contar con él. Google no cuenta aquí: su presencia en el país es testimonial. El problema es otro. Casi nada de lo que usted sabe sobre el SEO de Google sirve en Baidu. La lógica de posicionamiento es distinta. La indexación también. Y el ecosistema que rodea al buscador se rige por reglas que pocos responsables de marketing occidentales han visto.
 
 ## Baidu en cifras
 
@@ -31,7 +31,7 @@ El público es joven y masculino. Un 74,3 % son hombres. Más de la mitad tiene 
 
 > El 34,9 % de los diez primeros resultados de Baidu sale hoy de plataformas del propio buscador. Hace cinco años era el 24,7 %. Baidu llena cada vez más sus resultados con servicios propios.
 
-Esa cifra del 34,9 % pesa mucho en la estrategia fuera de la página. Volvemos a ella más adelante.
+Esa cifra del 34,9 % pesa mucho en la estrategia fuera de la página. Volvemos sobre ella más adelante.
 
 ## Criterios de posicionamiento: Baidu frente a Google
 
@@ -49,7 +49,7 @@ Quien lleva años haciendo SEO para Google va a ver caer varias certezas.
 | Enlaces entrantes | Cuenta tanto la calidad como la cantidad | Prima la calidad |
 | Idioma | El 83 % o más de las páginas de cabecera, en chino simplificado | Indexación multilingüe |
 
-Varios puntos merecen una explicación, sobre todo si viene del mundo de Google.
+Varios de estos puntos piden explicación, sobre todo si usted viene del mundo de Google.
 
 **La licencia ICP** es un registro oficial. Es obligatorio para todo sitio alojado en China continental. Baidu lo lee como una prueba de legitimidad. Sin ICP se puede indexar un sitio, en teoría. Pero la desventaja de partida es tan grande que ninguna otra optimización la compensa.
 
@@ -71,7 +71,7 @@ Varios puntos merecen una explicación, sobre todo si viene del mundo de Google.
 
 **Los primeros 100 a 120 kilobytes.** Aquí Baidu tiene una particularidad: sus robots no rastrean más allá de cierto umbral. El contenido enterrado bajo scripts pesados y archivos multimedia puede no indexarse nunca. Lo esencial va en la parte alta de la página.
 
-**Datos estructurados.** Aplique marcado schema al título, al autor y a la fecha. Ayuda a Baidu a clasificar sus páginas. A veces mejora cómo se ven en los resultados.
+**Datos estructurados.** Aplique marcado schema al título, al autor y a la fecha. Ayuda a Baidu a clasificar sus páginas y, a veces, mejora su aspecto en los resultados.
 
 **Texto alternativo.** Describa cada imagen en chino, con textos escritos por una persona. Demasiados sitios usan descripciones automáticas, o las omiten del todo.
 
@@ -87,7 +87,7 @@ Volvamos a ese 34,9 %. Más de uno de cada tres de los diez primeros resultados 
 
 **Baidu Tieba (百度贴吧)** reúne foros por temática. Participar en las conversaciones útiles le abre comunidades ya interesadas en su nicho. Es la plataforma menos institucional de Baidu, y una de las más eficaces.
 
-**El protocolo Baidu News.** Si su empresa produce contenido de actualidad, enviarlo por este protocolo le da una indexación prioritaria. No todas las empresas pueden acogerse. Para las que cumplen los requisitos, la ganancia es real.
+**El protocolo Baidu News.** Si su empresa produce contenido de actualidad, enviarlo por este protocolo le da una indexación prioritaria. No todas las empresas pueden acogerse a él. Para las que cumplen los requisitos, la ganancia es real.
 
 **La presencia en redes sociales.** WeChat, Weibo y Xiaohongshu moldean la imagen que Baidu se forma de su marca. Facebook, Instagram y YouTube están bloqueados en China. Un enlace a esos servicios lleva a su audiencia a un callejón sin salida. Y le dice a Baidu que el sitio no se pensó para este mercado.
 
@@ -95,7 +95,7 @@ Volvamos a ese 34,9 %. Más de uno de cada tres de los diez primeros resultados 
 
 Casi todas las empresas extranjeras que se atascan en Baidu repiten los mismos errores. Copian lo que les funcionó en su país y dan por hecho que rendirá igual en China.
 
-**Traducir el contenido con Google Translate.** Los algoritmos de Baidu detectan el texto traducido por una máquina. Los lectores chinos lo detectan aún antes. Las frases artificiales destruyen la confianza. El cliente cierra la página en cinco segundos, y nadie sabe por qué.
+**Traducir el contenido con Google Translate.** Los algoritmos de Baidu detectan el texto traducido por una máquina. Los lectores chinos lo notan aún antes. Las frases artificiales destruyen la confianza. El cliente cierra la página en cinco segundos, y nadie sabe por qué.
 
 **Prescindir del alojamiento local.** Sin licencia ICP ni servidores en China continental, las páginas cargan despacio. No envían ninguna señal de confianza a Baidu. Y se hunden en los resultados. Es el error técnico más habitual entre las empresas extranjeras, y el más caro en visibilidad.
 

@@ -20,7 +20,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Navegan los internautas chinos de forma distinta?',
-        answer: 'Sí, y la diferencia es enorme. Aquí todo gira en torno al teléfono: WeChat (微信) es el canal con el que la gente comparte y descubre, y los códigos QR están por todas partes. Las páginas son más largas y más densas, y el gusto visual no tiene nada que ver con el occidental. Por eso traducir sin más un sitio occidental casi nunca sale bien; diseñamos cada proyecto a partir de cómo se usa internet en China.',
+        answer: 'Sí, y la diferencia es enorme. Aquí todo gira en torno al teléfono: WeChat (微信) es el canal con el que la gente comparte y descubre, y los códigos QR están por todas partes. Las páginas son más largas y más densas, y el gusto visual no tiene nada que ver con el occidental. Por eso traducir sin más un sitio occidental rara vez funciona; diseñamos cada proyecto a partir de cómo se usa internet en China.',
       },
     ],
   },
@@ -39,7 +39,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Pueden ayudarnos a decidir si China merece la pena para nuestro negocio?',
-        answer: 'No es nuestra especialidad, pero cuando vemos que una inversión no se va a rentabilizar, lo decimos sin rodeos. Hemos rechazado proyectos porque las cifras del mercado no justificaban el gasto. Si lo que busca es un análisis a fondo de la entrada en China, le orientamos hacia las consultoras de Shanghái especializadas en ello.',
+        answer: 'No es nuestra especialidad, pero cuando vemos que una inversión no se va a rentabilizar, lo decimos sin rodeos. Hemos rechazado proyectos porque las cifras del mercado no justificaban el gasto. Si lo que busca es un análisis a fondo de la entrada en China, le remitimos a las consultoras de Shanghái que se dedican a eso.',
       },
       {
         question: '¿Ofrecen un taller de descubrimiento antes del proyecto?',
@@ -47,7 +47,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Qué información necesitan para preparar un presupuesto?',
-        answer: 'Necesitamos la dirección de su sitio actual y, si los tiene, los datos de tráfico. También nos hace falta saber qué busca en China: captar contactos, vender, ganar presencia de marca o varias cosas a la vez. Y conviene saber si ya cuenta con una entidad china; a ser posible, lo vemos todo en una llamada rápida. Con eso preparamos un presupuesto cerrado y exacto.',
+        answer: 'Necesitamos la dirección de su sitio actual y, si los tiene, los datos de tráfico. También nos hace falta saber qué busca en China: captar contactos, vender, ganar presencia de marca o varios objetivos a la vez. Y conviene saber si ya cuenta con una entidad china; a ser posible, lo vemos todo en una llamada rápida. Con eso preparamos un presupuesto cerrado y exacto.',
       },
     ],
   },
@@ -62,7 +62,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Cómo se comparan sus tarifas con las de las agencias occidentales?',
-        answer: 'Son comparables. Los sueldos en Shanghái (上海) superan a los de París o Berlín, el equipo es de perfil sénior y cada proyecto se hace a medida. Por un presupuesto similar le conviene más un equipo radicado en el continente: uno que ha tramitado registros Bei\'an (备案) reales, que trabaja a diario con la Baidu Search Resource Platform (百度搜索资源平台) y que sabe a qué comercial de Aliyun (阿里云) llamar. El valor de la inversión está en esa experiencia.',
+        answer: 'Son comparables. Los sueldos en Shanghái (上海) superan a los de París o Berlín, el equipo es de perfil sénior y cada proyecto se hace a medida. Por un presupuesto similar le conviene más un equipo radicado en el continente: uno que ha tramitado registros Bei\'an (备案) reales, que trabaja a diario con la Baidu Search Resource Platform (百度搜索资源平台) y que sabe a qué comercial de Aliyun (阿里云) llamar.',
       },
       {
         question: '¿Ofrecen pagos fraccionados?',
@@ -70,11 +70,11 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Qué NO está incluido en el precio del proyecto?',
-        answer: 'Hay varias cosas que van aparte. Las tasas administrativas del ICP son bajas, pero se facturan por separado, igual que la redacción profesional en chino, que se cobra solo si la pide. Si opta por extensiones comerciales, corren de su cuenta las licencias de los bancos de imágenes y de los plugins de pago. Y los servicios de terceros, como el alojamiento, los paga usted directamente al proveedor. La propuesta lo deja todo detallado.',
+        answer: 'Hay varios conceptos que van aparte. Las tasas administrativas del ICP son bajas, pero se facturan por separado, igual que la redacción profesional en chino, que se cobra solo si la pide. Si opta por extensiones comerciales, corren de su cuenta las licencias de los bancos de imágenes y de los plugins de pago. Y los servicios de terceros, como el alojamiento, los paga usted directamente al proveedor. La propuesta lo deja todo detallado.',
       },
       {
         question: '¿Hay costes ocultos que debamos conocer?',
-        answer: 'Hay dos, sobre todo. El ICP (互联网内容提供商) se renueva cada dos o tres años; es un gasto pequeño, pero hay que contar con él. Y el SEO en Baidu (百度) es un trabajo continuo: para aparecer en las búsquedas competitivas hay que dedicarle horas mes tras mes. Sacamos los dos temas en la primera llamada, así la conversación sobre el presupuesto queda clara desde el principio.',
+        answer: 'Hay dos, sobre todo. El ICP (互联网内容提供商) se renueva cada dos o tres años; es un gasto pequeño, pero hay que contar con él. Y el SEO en Baidu (百度) es un trabajo continuo: para aparecer en las búsquedas competitivas hay que dedicarle horas mes tras mes. Planteamos los dos puntos en la primera llamada, así la conversación sobre el presupuesto queda clara desde el principio.',
       },
       {
         question: '¿Cobran las propuestas?',
@@ -144,7 +144,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Qué ocurre si nos retrasamos por nuestra parte?',
-        answer: 'Entonces nosotros también paramos. Ese tiempo de espera no se lo cobramos, y retomamos en cuanto usted esté listo. Si la pausa pasa de sesenta días, revisamos el alcance: en China los precios y la disponibilidad del equipo cambian deprisa.',
+        answer: 'Entonces nosotros también paramos. Ese tiempo de espera no se lo cobramos, y retomamos en cuanto usted esté listo. Si la pausa supera los sesenta días, revisamos el alcance: en China los precios y la disponibilidad del equipo cambian deprisa.',
       },
     ],
   },
@@ -233,7 +233,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Y la IA y los chatbots en nuestro sitio chino?',
-        answer: 'Integramos las plataformas de IA chinas: DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) y Baidu AI (百度AI). Las herramientas de IA occidentales suelen estar bloqueadas, o responden de forma poco fiable desde el continente, así que no son una opción real. Si alguien le ha dicho lo contrario, le explicamos en detalle qué funciona y qué no aquí.',
+        answer: 'Integramos las plataformas de IA chinas: DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) y Baidu AI (百度AI). Las herramientas de IA occidentales suelen estar bloqueadas, o responden de forma poco fiable desde el continente, así que no son una opción real. Si alguien le ha dicho lo contrario, le explicamos en detalle qué funciona aquí y qué no.',
       },
       {
         question: '¿Funcionará en China nuestro sitio WordPress con Elementor?',
@@ -298,7 +298,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: '¿Cómo miden el éxito de un proyecto en China?',
-        answer: 'Depende del tipo de proyecto. En la captación de contactos cuentan los formularios enviados y las conversiones que registra Baidu Tongji (百度统计); en una tienda, la facturación y el porcentaje de carritos que llegan al final; en un sitio de marca, el tiempo de permanencia, las visitas que repiten y el tráfico orgánico. Fijamos los indicadores al empezar el proyecto y le enviamos un informe cada mes.',
+        answer: 'Depende del tipo de proyecto. En la captación de contactos cuentan los formularios enviados y las conversiones que registra Baidu Tongji (百度统计); en una tienda, la facturación y el porcentaje de carritos que se completan; en un sitio de marca, el tiempo de permanencia, las visitas que repiten y el tráfico orgánico. Fijamos los indicadores al empezar el proyecto y le enviamos un informe cada mes.',
       },
       {
         question: '¿Y si el sitio rinde por debajo de lo esperado tras el lanzamiento?',
@@ -340,7 +340,7 @@ export const faqTopicsEs: FAQTopic[] = [
       },
       {
         question: 'Nuestro departamento de TI cree que puede gestionarlo internamente. ¿Qué les decimos?',
-        answer: 'Un departamento de TI puede hacerlo, sin duda. Eso sí, tendrá que dedicar cerca de un año a aprender la normativa, a construir la relación con los proveedores de alojamiento y a dominar la Baidu Search Resource Platform (百度搜索资源平台). La mayoría de los equipos internos se da cuenta pronto de que ese aprendizaje no es su prioridad para el año, y ahí solemos entrar nosotros.',
+        answer: 'Un departamento de TI puede hacerlo, sin duda. Eso sí, tendrá que dedicar cerca de un año a aprender la normativa, a establecer la relación con los proveedores de alojamiento y a dominar la Baidu Search Resource Platform (百度搜索资源平台). La mayoría de los equipos internos se da cuenta pronto de que ese aprendizaje no es su prioridad para el año, y ahí solemos entrar nosotros.',
       },
       {
         question: '¿Y si nuestra empresa opera en un sector sensible a nivel político o regulatorio?',

@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-Exportar las mejores palabras clave de Google, pasarlas por un traductor y montar con ellas una estrategia para China: ese es el primer impulso de casi todas las empresas extranjeras, y también la razón de que casi todas fracasen. Los usuarios chinos buscan de otra manera. Usan otras palabras, otra gramática y un idioma con miles de combinaciones posibles para un mismo concepto. Estas son las tres herramientas que dan acceso a los datos reales de Baidu. Y aquí están las razones por las que investigar palabras clave en chino es una disciplina aparte.
+Exportar las mejores palabras clave de Google, pasarlas por un traductor y montar con ellas una estrategia para China: ese es el primer impulso de casi todas las empresas extranjeras, y también la razón de que casi todas fracasen. Los usuarios chinos buscan de otra manera. Usan otras palabras, otra gramática y un idioma con miles de combinaciones posibles para un mismo concepto. Las tres herramientas siguientes abren los datos reales de Baidu. Y explican por qué investigar palabras clave en chino es una disciplina aparte.
 
 ## Baidu Index
 
@@ -22,15 +22,15 @@ Exportar las mejores palabras clave de Google, pasarlas por un traductor y monta
 | **Límite de palabras clave** | 5 a la vez |
 | **Requisito de acceso** | Número de teléfono chino (verificación por SMS) |
 
-Es la primera herramienta que conviene conocer. Es gratuita, pública y, en esencia, la respuesta china a Google Trends.
+Es la primera herramienta que conviene conocer: gratuita, pública y, en esencia, la respuesta china a Google Trends.
 
-Permite seguir la popularidad de cada término en el tiempo, provincia por provincia. También muestra el perfil de quien busca: edad, sexo y ubicación. Con esos datos se ve si un término se dispara en el Año Nuevo chino, o se compara el interés entre Shanghái y Chengdu.
+Permite seguir la popularidad de cada término en el tiempo, provincia por provincia. También muestra el perfil de quien busca: edad, sexo y ubicación. Con esos datos descubre si un término se dispara en el Año Nuevo chino o compara el interés entre Shanghái y Chengdu.
 
 El inconveniente es claro: solo analiza cinco palabras clave a la vez. Quien procesa cientos de términos en Ahrefs lo encontrará frustrante. Y el acceso exige una verificación por SMS a un número de teléfono chino.
 
 > Baidu Index exige un número de teléfono chino solo para abrir una cuenta. Muchos equipos extranjeros se detienen en ese primer obstáculo.
 
-Muchas empresas tropiezan en ese registro y nunca llegan a usar la herramienta.
+Muchas empresas se atascan en ese registro y nunca llegan a usar la herramienta.
 
 ## Baidu Keyword Planner
 
@@ -80,7 +80,7 @@ La mayoría de las empresas despacha esta cuestión sin pensarla. Y es la parte 
 | **Combinaciones por concepto** | Miles | De decenas a centenares |
 | **Estilo de búsqueda habitual** | Preguntas completas, tono conversacional | Fragmentos cortos de palabras clave |
 
-Cada carácter tiene su propio sentido. Los caracteres se combinan para formar conceptos. La consecuencia es directa: para un mismo tema, el chino admite muchísimas más variaciones que el inglés. Miles de combinaciones expresan una misma idea, cada una con un matiz de intención distinto.
+Cada carácter tiene sentido propio y se combina con otros para formar conceptos. La consecuencia es directa: para un mismo tema, el chino admite muchísimas más variaciones que el inglés. Miles de combinaciones expresan una misma idea, cada una con un matiz de intención distinto.
 
 > El chino admite miles de combinaciones de caracteres para un mismo concepto. La cola larga alcanza aquí una dimensión que no tiene nada que ver con la del inglés.
 
@@ -88,7 +88,7 @@ Las palabras clave genéricas caben en uno o dos caracteres. La cola larga empie
 
 Queda un último factor: el uso diario de Baidu. Los usuarios chinos teclean a menudo preguntas completas, lejos de las dos o tres palabras de Google. Quien busca una oficina en Shanghái escribe una frase más cercana a una pregunta a un colega que a una consulta de buscador. Esa costumbre cambia por completo el enfoque de la investigación.
 
-Traducir una lista en inglés es perder el contacto con la realidad. Lo que sale del traductor casi no coincide con lo que los usuarios chinos teclean en Baidu. Al final, el sitio se optimiza para expresiones que nadie escribe.
+Traducir una lista en inglés es perder el contacto con la realidad. Lo que sale del traductor apenas coincide con lo que los usuarios chinos teclean en Baidu. Al final, el sitio se optimiza para expresiones que nadie escribe.
 
 > La traducción directa de palabras clave inglesas rinde muy poco en Baidu: su coincidencia con las búsquedas reales tiende a cero.
 

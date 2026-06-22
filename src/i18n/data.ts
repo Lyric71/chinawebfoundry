@@ -50,11 +50,11 @@ const trustPointsFr: TrustPoint[] = [
 const problemsEs: Problem[] = [
   {
     title: 'Su mensaje suena a texto extranjero',
-    description: 'El lector chino busca unas señales de confianza que las marcas extranjeras suelen relegar a un segundo plano: la trayectoria del fundador, las certificaciones obtenidas, los logotipos de los socios o los premios recibidos. Un redactor chino sabe en qué orden disponerlas para que la página retenga la atención de quien la lee.',
+    description: 'El lector chino busca señales de confianza que las marcas extranjeras suelen dejar en segundo plano: la trayectoria del fundador, las certificaciones obtenidas, los logotipos de los socios o los premios recibidos. Un redactor chino sabe en qué orden colocarlas para que la página retenga la atención del lector.',
   },
   {
     title: 'Su interfaz desorienta al visitante chino',
-    description: 'En China, el sitio se consulta desde el móvil y, casi siempre, dentro del navegador integrado de WeChat. El usuario local espera páginas densas, un desplazamiento largo y señales de confianza desde la primera pantalla; por eso el minimalismo occidental le produce aquí la impresión de un sitio vacío, cuando no a medio terminar.',
+    description: 'En China, el sitio se consulta desde el móvil y, casi siempre, dentro del navegador integrado de WeChat. El usuario local espera páginas densas, un desplazamiento largo y señales de confianza desde la primera pantalla; por eso aquí una página minimalista al estilo occidental le parece vacía, casi a medio terminar.',
   },
   {
     title: 'Baidu ni siquiera sabe que su sitio existe',
@@ -67,7 +67,7 @@ const problemsEs: Problem[] = [
   },
   {
     title: 'El alojamiento en China es solo el punto de partida',
-    description: 'Detrás del Gran Cortafuegos, las páginas tardan en cargar, los plugins quedan fuera de servicio y los scripts fallan en silencio. La infraestructura sienta los cimientos; pero, una vez que son firmes, lo que de verdad hace volver al cliente es la fuerza de la marca.',
+    description: 'Detrás del Gran Cortafuegos, las páginas tardan en cargar, los plugins quedan fuera de servicio y los scripts fallan en silencio. La infraestructura sienta los cimientos; pero, una vez que son firmes, lo que hace volver al cliente es la fuerza de la marca.',
   },
 ];
 

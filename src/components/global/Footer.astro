@@ -17,6 +17,25 @@ const planServices = footerNav.services.filter((s) => s.column === 'plan');
 const buildServices = footerNav.services.filter((s) => s.column === 'build' && !s.subColumn);
 const buildTechnology = footerNav.services.filter((s) => s.column === 'build' && s.subColumn === 'technology');
 const growServices = footerNav.services.filter((s) => s.column === 'grow');
+
+// Sister agencies in the BeyondBorderGroup network
+const ecosystemLabel = ({
+  en: 'Part of BearingBridge',
+  fr: 'Membre du groupe BearingBridge',
+  es: 'Parte del grupo BearingBridge',
+  de: 'Teil der BearingBridge',
+} as Record<string, string>)[currentLang] ?? 'Part of BearingBridge';
+
+const ecosystemSites = [
+  { name: 'The China Path', href: 'https://thechinapath.com', logo: '/images/ecosystem/thechinapath.webp' },
+  { name: 'BeyondBridge', href: 'https://beyondbridge.ai', logo: '/images/ecosystem/beyondbridge.webp' },
+  { name: 'The Red Scroll', href: 'https://theredscroll.com', logo: '/images/ecosystem/theredscroll.webp' },
+  { name: 'Nuvora', href: 'https://nuvora.studio', logo: '/images/ecosystem/nuvora.webp' },
+  { name: 'BeyondCompass', href: 'https://compass.bearingbridge.com', logo: '/images/ecosystem/compass.webp' },
+  { name: 'hubStudio', href: 'https://hubstudio.ai', logo: '/images/ecosystem/hubstudio.webp' },
+  { name: 'BearingBridge AI', href: 'https://bearingbridge.ai', logo: '/images/ecosystem/bearingbridge-ai.svg', sizeClass: 'h-[2.84rem] sm:h-[3.25rem]' },
+  { name: 'BearingBridge', href: 'https://bearingbridge.com', logo: '/images/ecosystem/bearingbridge.webp' },
+];
 ---
 
 <!-- Footer: nav columns + social + legal -->
@@ -198,22 +217,38 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
     </div>
   </div>
 
+  <!-- Sister agencies: BeyondBorderGroup network -->
+  <div class="border-t border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding py-8 lg:py-10">
+      <p class="text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)] mb-6">{ecosystemLabel}</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-7 items-center justify-items-center">
+        {ecosystemSites.map((site) => (
+          <a
+            href={site.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex shrink-0"
+            aria-label={site.name}
+            title={site.name}
+          >
+            <img
+              src={site.logo}
+              alt={`${site.name} logo`}
+              class:list={[site.sizeClass ?? 'h-7 sm:h-8', 'w-auto max-w-[170px] object-contain opacity-65 grayscale transition duration-200 ease-out hover:opacity-100 hover:grayscale-0']}
+              loading="lazy"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
   <!-- Legal bar -->
   <div class="border-t border-[var(--color-surface-border)]">
     <div class="mx-auto max-w-[1400px] section-padding py-6">
       <div class="flex flex-col gap-4 text-sm text-[var(--color-text-muted)]">
         <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
           <span>Copyright {new Date().getFullYear()} - BeyondBorderGroup Ltd - Hong Kong</span>
-          <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-4">
-            <a href="https://beyondbordergroup.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">beyondbordergroup.com</a>
-            <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
-            <a href="https://hubstudio.ai" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">hubstudio.ai</a>
-            <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
-            <a href="https://nuvora.studio" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">nuvora.studio</a>
-            <span class="hidden sm:inline text-[var(--color-surface-border)]">|</span>
-            <a href="https://theredscroll.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">theredscroll.com</a>
-          </div>
         </div>
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
           {legalNav.map((item) => (

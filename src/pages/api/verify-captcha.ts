@@ -14,7 +14,7 @@ const MESSAGES = {
   },
   es: {
     invalidBody: 'Solicitud no válida.',
-    captchaFailed: 'La comprobación de seguridad no es correcta. Vuelva a intentarlo.',
+    captchaFailed: 'La comprobación de seguridad no es correcta. Inténtelo de nuevo.',
   },
 } as const;
 

@@ -1,9 +1,9 @@
 ---
 title: "Alojamiento en China"
 shortTitle: "Alojamiento"
-description: "Alojamiento WordPress estable dentro de China continental, con servidores que disponen de licencia ICP, CDN integrado y supervisión realizada desde Shanghái. Nos encargamos íntegramente de la consola de administración en chino."
+description: "Alojamiento WordPress rápido y estable dentro de China continental: servidores con licencia ICP, CDN integrado y supervisión desde Shanghái. Del panel en chino nos encargamos nosotros."
 metaTitle: "Alojamiento gestionado para sitios en China | ChinaWebFoundry"
-metaDescription: "Alojamiento WordPress estable bajo las condiciones de red de China continental. Expediente ICP completo, supervisión desde Shanghái y disponibilidad del 99,97 %."
+metaDescription: "Alojamiento WordPress preparado para la red china. Tramitamos el ICP completo, supervisamos desde Shanghái y mantenemos una disponibilidad del 99,97 %."
 icon: "server"
 order: 8
 keywords: ["alojamiento wordpress china", "alibaba cloud wordpress", "servidor wordpress china"]

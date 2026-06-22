@@ -26,9 +26,9 @@ Estos son los datos de hoy, sin proyecciones.
 | Mercado del pago móvil | 15.860 millones de dólares hoy, 78.230 millones en 2030 (TCAC del 37,59 %) |
 | Cuota de WeChat en el tráfico de internet chino | 34 % |
 
-China tiene 1.300 millones de usuarios de internet en 2025, el 91,6 % de la población. La cobertura de banda ancha móvil llega al 100 % en 3G, 4G y 5G. Más del 95 % de los usuarios accede a internet primero desde el teléfono.
+En 2025, China cuenta con 1.300 millones de usuarios de internet, el 91,6 % de la población. La cobertura de banda ancha móvil llega al 100 % en 3G, 4G y 5G. Más del 95 % de los usuarios accede a internet primero desde el teléfono.
 
-WeChat reúne 1.481 millones de usuarios activos al mes. 949 millones de ellos usan los miniprogramas, el 90 % de su base. El tráfico de datos de WeChat supone por sí solo el 34 % de toda la internet china.
+WeChat reúne 1.481 millones de usuarios activos al mes. 949 millones de ellos usan los miniprogramas, el 90 % de su base. El tráfico de datos de WeChat acapara el 34 % de toda la internet china.
 
 > WeChat reúne 1.481 millones de usuarios activos al mes y concentra el 34 % de todo el tráfico de internet del país. Es la plataforma donde se decide buena parte de la internet china.
 
@@ -53,7 +53,7 @@ El navegador integrado de WeChat es la gran fuente de confusión. Usa una versi�
 
 Las zonas táctiles necesitan al menos 44 por 44 píxeles, idealmente 48 por 48, con 8 píxeles de separación. Tome esa medida como un mínimo. Los botones pequeños, pensados para el cursor de un ratón, no funcionan cuando alguien navega con el pulgar en un metro lleno en hora punta.
 
-Las llamadas a la acción principales van en el tercio inferior de la pantalla. Es la zona que el pulgar alcanza solo, con el teléfono en una mano. Un CTA en la parte alta obliga a cambiar el agarre o a usar las dos manos. Es una fricción pequeña, pero fricción. Y las conversiones lo acusan.
+Las llamadas a la acción principales van en el tercio inferior de la pantalla. Es la zona que el pulgar alcanza por sí solo, con el teléfono en una mano. Un CTA en la parte alta obliga a cambiar el agarre o a usar las dos manos. Es una fricción pequeña, pero fricción. Y las conversiones lo acusan.
 
 El desplazamiento vertical es el estándar. Los usuarios chinos pasan el día deslizando flujos verticales en WeChat, Douyin y Weibo. Los desplazamientos horizontales, los menús de hamburguesa y las estructuras anidadas les resultan ajenos e incómodos.
 
@@ -63,7 +63,7 @@ Para el pago, el estándar es un código QR que abre Alipay o WeChat Pay. Así s
 
 ## El ecosistema de las superaplicaciones
 
-Los usuarios chinos pasan el día dentro de aplicaciones que lo hacen todo. Navegar desde un navegador web, al estilo occidental, es minoritario.
+Los usuarios chinos viven dentro de aplicaciones que lo hacen todo. Abrir un navegador web, al estilo occidental, es minoritario.
 
 WeChat, Alipay y Meituan son los tres ejemplos de referencia. Cada una es una superaplicación: reúne mensajería, comercio, pagos y servicios en una sola plataforma. WeChat es a la vez navegador, monedero, fuente de noticias, escaparate y plataforma de miniprogramas. Alipay se ocupa de la parte financiera. Meituan cubre el reparto de comida, la reserva de hoteles y los servicios de proximidad.
 
@@ -79,4 +79,4 @@ Las expectativas dentro de estas plataformas son implacables. El usuario da por 
 | Miniprograma de WeChat | Comodidad y descubrimiento dentro de la aplicación |
 | Aplicación nativa | Solo si el producto lo exige |
 
-Para las marcas extranjeras, la mayoría de los equipos termina en la misma configuración: un sitio web móvil adaptable para posicionar en Baidu, un miniprograma de WeChat para la comodidad dentro de la aplicación y una aplicación nativa solo si el producto la justifica. La mayoría de las marcas no necesita esa aplicación. El sitio móvil y el miniprograma cubren lo esencial de lo que un usuario chino espera de una marca.
+Para las marcas extranjeras, la mayoría de los equipos termina en la misma configuración: un sitio web móvil adaptable para posicionar en Baidu, un miniprograma de WeChat para la comodidad dentro de la aplicación y una aplicación nativa solo si el producto la justifica. Casi ninguna marca necesita esa aplicación. El sitio móvil y el miniprograma cubren lo esencial de lo que un usuario chino espera de una marca.

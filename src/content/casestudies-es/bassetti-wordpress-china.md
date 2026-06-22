@@ -1,7 +1,7 @@
 ---
-title: "Bassetti, ya operativo en China: un sitio WordPress desplegado en seis semanas"
-subtitle: "Del .com al .cn: una migración completa con licencia ICP, alojamiento local y puesta a punto técnica para abordar el mercado chino."
-summary: "Trasladamos a China el sitio WordPress y Elementor de Bassetti en seis semanas: licencia ICP, dominio .cn, servidores locales, sustitución de los componentes bloqueados y mantenimiento continuo."
+title: "Bassetti abre su sitio WordPress en China en seis semanas"
+subtitle: "Del .com al .cn: dominio, licencia ICP, alojamiento local y revisión técnica a fondo para entrar en el mercado chino."
+summary: "Llevamos el sitio WordPress de Bassetti a China en seis semanas: licencia ICP, dominio .cn, alojamiento local y sustitución de los componentes bloqueados."
 visual: "/images/casestudies/bassetti-homepage-china.webp"
 visuals:
   - "/images/casestudies/bassetti-homepage-china.webp"
@@ -13,15 +13,15 @@ published: true
 services: ["strategy-audit", "china-migration", "china-hosting", "maintenance-support"]
 ---
 
-## Un sitio ausente justo donde debía convencer
+## Un sitio invisible justo donde tenía que convencer
 
-Bassetti es un grupo tecnológico con presencia en Europa, América y Asia. Decidió reforzar su posición digital en China y el equipo detectó el problema enseguida: el sitio no estaba preparado. Desarrollado con WordPress y Elementor, rendía bien en Europa y Norteamérica. Desde Shanghái o Pekín, el resultado era muy distinto. Google Fonts, reCAPTCHA, llamadas a CDN extranjeros, extensiones de terceros: buena parte de esos elementos aparecía bloqueada o muy ralentizada.
+Bassetti es un grupo tecnológico con operaciones en Europa, América y Asia. Cuando decidió afianzar su presencia digital en China continental, el equipo vio enseguida que su sitio no daba la talla. Construido con WordPress y Elementor, funcionaba sin problemas para los usuarios europeos o norteamericanos. Desde Shanghái o Pekín, la historia era otra. Google Fonts, reCAPTCHA, las llamadas a CDN extranjeras y varias extensiones de terceros: casi todo aparecía bloqueado o tan lento que daba lo mismo.
 
-No es un caso aislado. Muchas empresas internacionales lo descubren por experiencia propia. Un sitio WordPress que funciona bien en Occidente puede quedar inservible en China. Buena parte de la infraestructura web moderna se apoya en servicios que el Gran Cortafuegos bloquea o ralentiza.
+Las empresas internacionales suelen descubrirlo por las malas. Un sitio WordPress que rinde de maravilla en Occidente puede quedar prácticamente inservible en China, porque buena parte de la infraestructura web moderna depende de servicios que el Gran Cortafuegos bloquea o estrangula.
 
-La consecuencia era clara: los clientes y los socios chinos de Bassetti no podían acceder al sitio con fiabilidad. Para una empresa que quiere crecer en un mercado nuevo, es un problema serio. Y había que resolverlo rápido.
+Para Bassetti, esto significaba que sus clientes potenciales y sus socios chinos no lograban acceder al sitio con un mínimo de fiabilidad. Es un obstáculo serio cuando una empresa intenta abrirse mercado en un país nuevo, y había que resolverlo.
 
-La solución era una migración completa: dominio nuevo, registro ICP, alojamiento dentro de China y limpieza técnica a fondo. Todo sin tocar el .com que usa cada día el resto del mundo.
+Lo que necesitaban era una migración completa: dominio nuevo, registro ICP, alojamiento dentro de China y limpieza técnica minuciosa. Y todo sin tocar el .com que el resto del mundo seguía usando a diario.
 
 | | |
 |---|---|
@@ -31,11 +31,11 @@ La solución era una migración completa: dominio nuevo, registro ICP, alojamien
 | **Plazo** | 6 semanas |
 | **Servicios clave** | Auditoría, Migración, Registro ICP, Alojamiento en China, Mantenimiento |
 
-## La auditoría: aislar los puntos de bloqueo
+## La auditoría: localizar qué fallaba
 
-El trabajo empezó con una auditoría completa del sitio. Revisamos uno a uno los componentes que dependían de un servicio alojado fuera de China. Lo hicimos junto al equipo técnico de Bassetti. Ellos conocían su infraestructura a fondo; les faltaba ver cómo se comportaba detrás del cortafuegos.
+Empezamos por una auditoría completa del sitio. No una revisión superficial, sino un repaso minucioso de cada dependencia, cada plugin y cada componente que tocara algo fuera de China. En esta fase trabajamos codo con codo con el equipo técnico de Bassetti. Conocían bien su propia configuración; lo que les faltaba era ver cómo se comportaba todo una vez detrás del cortafuegos.
 
-Las conclusiones confirmaron lo que esperábamos:
+Los hallazgos confirmaron lo que esperábamos:
 
 | Problema | Solución |
 |---|---|
@@ -45,18 +45,18 @@ Las conclusiones confirmaron lo que esperábamos:
 | Varias extensiones bloqueadas o inoperativas | Sustituidas, eliminadas o corregidas |
 | Conflictos en el tema | Correcciones a medida, desarrolladas y probadas |
 
-## La solución: sustituciones precisas y código a medida
+## La solución: sustituciones limpias y código a medida
 
-Algunas correcciones eran una simple sustitución. Otras, ligadas al tema de WordPress, no tenían solución estándar y exigieron código a medida. Lo probamos todo desde conexiones chinas reales, en las mismas condiciones que vería un visitante.
+Algunas correcciones se resolvieron con una sustitución rápida. Pero unos cuantos problemas del tema no tenían arreglo estándar, así que escribimos parches de código a medida. Lo probamos todo desde conexiones reales dentro de China continental. Sin VPN ni proxies, en las mismas condiciones que encuentra cualquier visitante.
 
-En el plano operativo, nos ocupamos del dominio .cn y acompañamos a Bassetti en todo el registro ICP. El ICP es uno de esos trámites que desconciertan a la mayoría de las empresas extranjeras en el primer intento. Una vez resuelto, pusimos el alojamiento en servidores chinos y firmamos un contrato de soporte y mantenimiento.
+En el plano operativo, nos encargamos de configurar el dominio .cn y acompañamos a Bassetti durante todo el registro ICP. Quien no ha pasado por un trámite de ICP no se imagina hasta qué punto descoloca a la mayoría de las empresas extranjeras la primera vez. Después montamos el alojamiento en servidores situados en China y diseñamos un plan continuo de soporte y mantenimiento.
 
 ## El resultado: en línea en seis semanas
 
-Entre el inicio del proyecto y la publicación pasaron seis semanas. El sitio chino de Bassetti se publicó en plena conformidad. Carga rápido desde el continente, sin un solo recurso bloqueado ni dependencias que apunten fuera de China.
+De principio a fin fueron seis semanas. El sitio chino de Bassetti se publicó en plena conformidad, con una carga rápida desde el continente, sin un solo recurso bloqueado ni dependencias que apuntaran a servidores fuera de China.
 
-Los equipos sobre el terreno por fin podían enviar un enlace a sus contactos chinos sabiendo que cargaría. Después de seis semanas, era justo lo que necesitaban.
+Sus equipos sobre el terreno por fin podían pasar un enlace a un contacto chino con la certeza de que cargaría. Tras seis semanas de trabajo, eso era lo que de verdad les importaba.
 
-> «Lo que más nos marcó fue su doble cultura: dominan WordPress de principio a fin y conocen bien las exigencias del mercado chino. Nunca tuvimos que repetir nada.»
+> «Lo que más nos impresionó fue que entendían los dos mundos: dominan WordPress de cabo a rabo y saben exactamente qué exige el mercado chino. No tuvimos que explicar nada dos veces.»
 >
-> **Mohamed V.**, Director de Tecnologías Web, Bassetti
+> **Mohamed V.**, Director de Tecnología Web, Bassetti

@@ -1,9 +1,9 @@
 ---
 title: "Migración a China"
 shortTitle: "Migración"
-description: "Trasladamos su sitio a una infraestructura que cumple la normativa china. Licencia ICP, cambio de DNS y traspaso de la base de datos: nos ocupamos de cada eslabón sin que el servicio llegue a interrumpirse."
-metaTitle: "Migrar su sitio a la China continental | ChinaWebFoundry"
-metaDescription: "Lleve su sitio a la China continental sin perder a su público. Un equipo afincado en Shanghái reconstruye lo necesario para que cargue rápido, hable en clave local y se pueda encontrar."
+description: "Trasladamos su sitio a una infraestructura que cumple la normativa china. Registro ICP, cambio de DNS y traspaso de la base de datos: nos ocupamos de cada paso sin que el servicio se interrumpa."
+metaTitle: "Migrar su sitio web a la China continental | ChinaWebFoundry"
+metaDescription: "Lleve su sitio a la China continental sin perder a su público. Desde Shanghái reconstruimos lo necesario: carga rápida, mensaje en clave local y visibilidad en Baidu."
 icon: "arrow-right-circle"
 order: 2
 heroSubtitle: "Instale su sitio detrás del Gran Cortafuegos"

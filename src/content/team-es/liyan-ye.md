@@ -2,7 +2,7 @@
 name: "Liyan Ye"
 role: "Directora sénior"
 photo: "/images/team/liyan-ye-faced.webp"
-bio: "Suma veinte años de marketing en empresas del Fortune 500 implantadas en China. Aporta la perspectiva del anunciante, una mirada que orienta el modo en que trabajamos para las marcas internacionales que entran en el mercado."
+bio: "Suma veinte años de marketing en empresas del Fortune 500 presentes en China. Aporta la mirada del anunciante, y esa mirada guía cómo trabajamos para las marcas internacionales que entran en China."
 order: 2
 ---
 

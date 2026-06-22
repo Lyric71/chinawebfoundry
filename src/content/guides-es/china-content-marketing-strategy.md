@@ -14,9 +14,9 @@ Internet en China tiene una palabra para lo que consigue un buen marketing de co
 
 ## El modelo 种草 (zhongcao)
 
-A la hora del almuerzo, una mujer joven desliza el dedo por su feed de Xiaohongshu. Se encuentra con una nota fotográfica de alguien parecido a ella. Muestra un producto de cuidado de la piel que no conocía: una persona corriente que comparte un antes y un después. Guarda la publicación y sigue con su día. Quince días después, en Douyin, la misma marca aparece en un vídeo corto. Un mes más tarde llega el 11 de noviembre y compra sin dudarlo. El zhongcao había hecho su trabajo semanas antes. La compra es solo el último paso.
+A la hora del almuerzo, una mujer joven desliza el dedo por su feed de Xiaohongshu. Se encuentra con la nota fotográfica de alguien parecido a ella, que enseña un producto de cuidado de la piel que no conocía: una persona corriente con un antes y un después. Guarda la publicación y sigue con su día. Quince días después, en Douyin, la misma marca aparece en un vídeo corto. Un mes más tarde llega el 11 de noviembre y compra sin dudarlo. El zhongcao había hecho su trabajo semanas antes. La compra es solo el último paso.
 
-Ese es el principio del modelo. El contenido crea notoriedad y curiosidad mucho antes de que haya intención de compra. Se siembra algo y luego germina solo.
+Ese es el principio del modelo. El contenido crea notoriedad y curiosidad mucho antes de que haya intención de compra. Se siembra algo y luego germina por sí solo.
 
 > 种草 (zhongcao) significa «plantar hierba»: se instala un deseo en la mente de alguien y se deja madurar hasta que esa persona pasa a la acción.
 
@@ -35,7 +35,7 @@ Las plataformas donde la semilla echa raíces son Xiaohongshu, Douyin, Weibo, Zh
 
 Cada plataforma cumple una función propia: algunas sirven para el descubrimiento, otras para profundizar y otras para estar presente en los momentos clave.
 
-**Xiaohongshu** sigue siendo el terreno natural del zhongcao. Aquí funcionan las notas fotográficas, los vídeos cortos, las opiniones auténticas y las comparaciones de antes y después. El tono tiene que ser personal y sincero. Todo lo que suena a publicidad pasa inadvertido. Todo lo que recuerda a la recomendación de una amiga entusiasta se guarda, se comparte y se recuerda. Para la mayoría de las marcas que entran en China, Xiaohongshu es la puerta de entrada lógica de la estrategia de contenidos.
+**Xiaohongshu** sigue siendo el terreno natural del zhongcao. Aquí funcionan las notas fotográficas, los vídeos cortos, las opiniones auténticas y las comparaciones de antes y después. El tono tiene que ser personal y sincero. Todo lo que suena a publicidad pasa inadvertido. Todo lo que recuerda a la recomendación de una amiga entusiasta se guarda, se comparte y se recuerda. Para la mayoría de las marcas que entran en China, Xiaohongshu es la puerta de entrada natural a la estrategia de contenidos.
 
 **Douyin** funciona a base de velocidad y entretenimiento. Los vídeos duran entre 15 y 60 segundos. Tienen que ser divertidos o instructivos, mejor las dos cosas. Sumarse a las tendencias es parte del juego: sonidos populares, formatos del momento, hashtags en alza. Si Xiaohongshu es el primer contacto con una marca, Douyin es donde esa marca reaparece sin que nadie la haya buscado.
 
@@ -45,7 +45,7 @@ Cada plataforma cumple una función propia: algunas sirven para el descubrimient
 
 **Zhihu** es el territorio de la credibilidad. Aquí caben las respuestas detalladas a las preguntas de los usuarios, los artículos de fondo y los análisis sectoriales. El público espera experiencia y sustancia. El marketing superficial no resiste. En Zhihu, la confianza se gana demostrando un dominio real del sector.
 
-**Weibo** y **Bilibili** ocupan los dos extremos. Weibo apuesta por la inmediatez: publicaciones cortas, temas de actualidad, clips de vídeo. Es el Twitter chino. Sirve para estar en las conversaciones del momento, pero rinde poco si se busca profundidad. Bilibili apuesta por el formato largo: vídeos de 5 a 30 minutos, análisis a fondo, tutoriales. Su audiencia es joven y exigente, con la calidad de producción y con la solidez del contenido. Las marcas que invierten en serio en Bilibili construyen una comunidad que los formatos cortos nunca llegan a crear.
+**Weibo** y **Bilibili** ocupan los dos extremos. Weibo apuesta por la inmediatez: publicaciones cortas, temas de actualidad, clips de vídeo. Es el Twitter chino. Sirve para estar en las conversaciones del momento, pero rinde poco si se busca profundidad. Bilibili apuesta por el formato largo: vídeos de 5 a 30 minutos, análisis a fondo, tutoriales. Su audiencia es joven y exigente con la calidad de producción y la solidez del contenido. Las marcas que invierten en serio en Bilibili construyen una comunidad que los formatos cortos nunca llegan a crear.
 
 ## Citas comerciales y fiestas que no hay que pasar por alto
 
@@ -58,9 +58,9 @@ Cada plataforma cumple una función propia: algunas sirven para el descubrimient
 | San Valentín + Qixi | 14 de feb. + agosto | Picos de contenido romántico. Guías de regalos. |
 | Doble 12 | 12 de diciembre | Prolongación del Día de los Solteros |
 
-En China, el marketing de contenidos sigue el calendario con una intensidad que Occidente desconoce. Las grandes citas provocan picos de gasto enormes. Llegar sin preparación es perder la oportunidad. La producción de los eventos principales empieza con meses de antelación.
+En China, el marketing de contenidos sigue el calendario con una intensidad que Occidente desconoce. Las grandes citas provocan picos de gasto enormes. Llegar sin preparación es perder la oportunidad. Los eventos principales se preparan con meses de antelación.
 
-**El Día de los Solteros (11 de noviembre)**, o Doble 11, encabeza el cartel. Es la primera cita comercial del planeta. En 2024 generó más de 84.500 millones de dólares de volumen bruto de mercancías. Todo noviembre apunta a esa fecha, y el trabajo editorial empieza mucho antes. Si hay una fecha del calendario comercial chino que ninguna marca extranjera puede ignorar, es esta.
+**El Día de los Solteros (11 de noviembre)**, o Doble 11, encabeza el cartel. Es la mayor cita comercial del planeta. En 2024 generó más de 84.500 millones de dólares de volumen bruto de mercancías. Todo noviembre apunta a esa fecha, y el trabajo editorial empieza mucho antes. Si hay una fecha del calendario comercial chino que ninguna marca extranjera puede ignorar, es esta.
 
 > En 2024, el Día de los Solteros movió más de 84.500 millones de dólares de volumen bruto de mercancías, lo que lo convierte en el mayor evento comercial del mundo. La preparación del contenido empieza con meses de antelación.
 

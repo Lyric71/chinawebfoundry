@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-Cuando una empresa extranjera piensa en la búsqueda en China, piensa en Baidu. Y tiene razón: el buscador controla cerca del 60 % del mercado. Pero cada día hay cientos de millones de consultas que van a otras plataformas. La mayoría de los profesionales del marketing occidentales no las conoce. Una vive dentro de WeChat. Otra está pegada al comercio electrónico de Alibaba. Una tercera apunta a los usuarios de escritorio atentos a la seguridad informática. La más reciente está dentro de la aplicación de noticias de ByteDance. Cada una tiene su público y su contenido. Ignorarlas es perder de vista una buena parte de cómo buscan los chinos.
+Cuando una empresa extranjera piensa en la búsqueda en China, piensa en Baidu. Y tiene razón: el buscador controla cerca del 60 % del mercado. Pero cada día hay cientos de millones de consultas que van a otras plataformas. La mayoría de los responsables de marketing occidentales no las conoce. Una vive dentro de WeChat. Otra está pegada al comercio electrónico de Alibaba. Una tercera apunta a los usuarios de escritorio atentos a la seguridad informática. La más reciente está dentro de la aplicación de noticias de ByteDance. Cada una tiene su público y su contenido. Ignorarlas es perder de vista una buena parte de cómo buscan los chinos.
 
 ## Panorama del mercado
 
@@ -33,15 +33,15 @@ Cuando una empresa extranjera piensa en la búsqueda en China, piensa en Baidu. 
 | **Consultas de voz diarias** | 800 millones (Sogou Pinyin) |
 | **Estrategia** | Publicar a través de una cuenta oficial de WeChat |
 
-Sogou tiene 506 millones de usuarios activos al mes. La mayoría de los profesionales de fuera de China nunca ha oído hablar de él.
+Sogou tiene 506 millones de usuarios activos al mes. Casi ningún profesional de fuera de China lo conoce.
 
 La cuota de mercado de Sogou dice poco por sí sola. Lo que importa es su posición. Sogou es el buscador que funciona dentro de WeChat y de QQ. Cuando alguien busca algo en WeChat, lo resuelve Sogou en segundo plano. Entre WeChat y QQ está casi toda la mensajería de China.
 
-Esa integración tiene una consecuencia directa: Sogou indexa los artículos públicos de WeChat, las cuentas oficiales y los miniprogramas. Si su empresa tiene una cuenta oficial de WeChat y publica en ella, ese contenido entra solo en el índice de Sogou. Es una de las pocas vías para dar visibilidad a su marca en la búsqueda, directamente desde la principal aplicación de mensajería del país.
+Esa integración tiene una consecuencia directa: Sogou indexa los artículos públicos de WeChat, las cuentas oficiales y los miniprogramas. Si su empresa tiene una cuenta oficial de WeChat y publica en ella, ese contenido entra por sí solo en el índice de Sogou. Es una de las pocas vías para dar visibilidad a su marca en la búsqueda, directamente desde la principal aplicación de mensajería del país.
 
 > Sogou procesa 800 millones de consultas de voz al día mediante su método de entrada Pinyin. Si publica en WeChat, su contenido ya está en el índice de Sogou. Conviene aprovecharlo.
 
-Su teclado, Sogou Pinyin, procesa 800 millones de consultas de voz al día. Si su empresa ya está activa en WeChat, su contenido ya está en el índice de Sogou. Lo sensato es contar con ello en la estrategia.
+Su teclado, Sogou Pinyin, procesa 800 millones de consultas de voz al día. Si su empresa ya está activa en WeChat, ese contenido figura en el índice de Sogou. Lo sensato es contar con ello en la estrategia.
 
 ## 360 Search, la seguridad primero, la búsqueda después
 
@@ -57,9 +57,9 @@ La trayectoria de 360 Search es atípica. El buscador se lanzó en julio de 2012
 
 > 360 Search alcanzó el 35 % de cuota de mercado en dos años. La mayor parte de ese crecimiento se apoyó en la instalación por defecto en el navegador, y no en una adopción espontánea.
 
-Ese crecimiento se apoyó sobre todo en la integración por defecto del buscador en el navegador y en los programas de seguridad de 360. Desde entonces su cuota ha caído con claridad. Aun así, la plataforma se mantiene en torno al 5 %.
+Ese crecimiento se apoyó sobre todo en la integración por defecto del buscador en el navegador y en los programas de seguridad de 360. Desde entonces su cuota ha caído con fuerza. Aun así, la plataforma se mantiene en torno al 5 %.
 
-Su audiencia está clara: usuarios de escritorio que eligieron 360 por su antivirus y sus funciones de seguridad. La mayoría de las empresas puede dejar de lado este canal. Si su público son profesionales atentos a la ciberseguridad, o trabaja en ese sector, el nicho sí merece atención.
+Su audiencia está clara: usuarios de escritorio que eligieron 360 por su antivirus y sus funciones de seguridad. La mayoría de las empresas puede dejar de lado este canal. Si su público son profesionales atentos a la ciberseguridad, o si usted trabaja en ese sector, el nicho sí merece atención.
 
 En noviembre de 2024, 360 lanzó Nano Search, una interfaz de búsqueda multimodal basada en inteligencia artificial. Todavía es pronto para medir su impacto.
 
@@ -73,7 +73,7 @@ En noviembre de 2024, 360 lanzó Nano Search, una interfaz de búsqueda multimod
 | **Integración en navegador** | UC Browser (~20 % del mercado chino) |
 | **Ventaja en comercio electrónico** | Posicionamiento prioritario de los productos de Taobao/Tmall |
 
-Shenma es un caso sorprendente. Llega al 80 % de los usuarios de internet móvil de China. Funciona solo en teléfonos. No tiene versión de escritorio. Y la mayoría de las empresas extranjeras nunca ha oído hablar de él.
+Shenma es un caso sorprendente. Llega al 80 % de los usuarios de internet móvil de China. Funciona solo en teléfonos, sin versión de escritorio. Y la mayoría de las empresas extranjeras nunca ha oído hablar de él.
 
 Shenma es una empresa conjunta de Alibaba y UCWeb. Viene integrado en UC Browser, un navegador con cerca del 20 % del mercado chino. No necesita conquistar a sus usuarios uno a uno: ya está preinstalado en un navegador que cientos de millones de chinos llevan en el teléfono.
 

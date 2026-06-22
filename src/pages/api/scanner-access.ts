@@ -21,10 +21,10 @@ const MESSAGES = {
   },
   es: {
     invalidBody: 'Solicitud no válida.',
-    missingFields: 'Todos los campos son obligatorios.',
-    invalidEmail: 'La dirección de correo electrónico no es válida.',
-    captchaFailed: 'La comprobación de seguridad no es correcta. Vuelva a intentarlo.',
-    sendFailed: 'No se ha podido enviar. Vuelva a intentarlo.',
+    missingFields: 'Falta algún campo por completar.',
+    invalidEmail: 'El correo electrónico no es válido.',
+    captchaFailed: 'La comprobación de seguridad no es correcta. Inténtelo de nuevo.',
+    sendFailed: 'No hemos podido enviar el formulario. Inténtelo de nuevo.',
   },
 } as const;
 
