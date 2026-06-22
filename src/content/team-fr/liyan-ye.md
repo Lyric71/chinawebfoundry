@@ -2,7 +2,7 @@
 name: "Liyan Ye"
 role: "Directrice senior"
 photo: "/images/team/liyan-ye-faced.webp"
-bio: "Vingt ans de marketing chez des entreprises du Fortune 500 en Chine. Elle apporte une lecture côté annonceur qui guide la façon dont nous bâtissons pour les clients internationaux qui entrent sur le marché."
+bio: "Vingt ans de marketing chez des entreprises du Fortune 500 en Chine. Sa lecture côté annonceur oriente notre façon de construire pour les marques internationales qui arrivent sur le marché."
 order: 2
 ---
 
