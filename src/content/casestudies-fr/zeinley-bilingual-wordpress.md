@@ -1,7 +1,7 @@
 ---
-title: "Un site WordPress bilingue conçu de A à Z pour la Chine et le grand export"
-subtitle: "Comment nous avons accompagné le fabricant d'emballages pharmaceutiques ZeinLey, de la page blanche à un site WordPress bilingue sur double hébergement, au service des marchés chinois et internationaux."
-summary: "Le fabricant d'emballages pharmaceutiques ZeinLey avait besoin d'un site WordPress bilingue pour la Chine et l'export. Construction intégrale, du contenu jusqu'au lancement sur double hébergement."
+title: "Un site WordPress bilingue bâti de zéro pour la Chine et l'international"
+subtitle: "Comment nous avons mené ZeinLey, fabricant d'emballages pharmaceutiques, de la page blanche à un site WordPress bilingue en double hébergement, pensé pour ses marchés chinois et internationaux."
+summary: "ZeinLey, fabricant d'emballages pharmaceutiques, voulait un site WordPress bilingue pour la Chine et l'export. Nous l'avons construit de bout en bout, du premier mot jusqu'au lancement en double hébergement."
 visual: "/images/casestudies/zeinley-homepage-hero.webp"
 visuals:
   - "/images/casestudies/zeinley-homepage.webp"
@@ -18,47 +18,47 @@ services: ["strategy-audit", "ux-ui-design", "chinese-content", "china-hosting",
 | **Secteur** | Emballages pharmaceutiques et dispositifs d'administration de médicaments |
 | **Siège** | Ningbo, Chine |
 | **Plateforme** | WordPress, multilingue |
-| **Services clés** | Stratégie de contenu, Design, Rédaction (CN et EN), WordPress, Double hébergement, Référencement Baidu et Google |
+| **Services clés** | Stratégie de contenu, design, rédaction (CN et EN), WordPress, double hébergement, référencement Baidu et Google |
 
-## Une marque neuve, sans une ligne écrite
+## Une marque refondue, pas une ligne de texte
 
-ZeinLey est un fabricant d'emballages pharmaceutiques installé à Ningbo. L'entreprise produit des solutions de conditionnement de médicaments (ampoules, cartouches, seringues préremplies, flacons, conteneurs prêts à l'emploi) ainsi que des dispositifs d'administration (auto-injecteurs, systèmes bi-chambre, stylos injecteurs, dispositifs de transfert). Ses clients sont des laboratoires pharmaceutiques chinois et internationaux.
+ZeinLey fabrique des emballages pharmaceutiques à Ningbo. Deux familles de produits : le conditionnement des médicaments (ampoules, cartouches, seringues préremplies, flacons, contenants prêts à l'emploi) et les dispositifs d'administration (auto-injecteurs, systèmes bi-chambre, stylos injecteurs, dispositifs de transfert). Sa clientèle : des laboratoires pharmaceutiques chinois et étrangers.
 
-ZeinLey venait d'achever un repositionnement de fond : nouvelle identité, nouveau discours, nouvelle direction visuelle. Restait à doter la marque d'un site à la mesure de la refonte. ZeinLey avait besoin d'une plateforme bilingue capable de servir en parallèle le marché chinois et les acheteurs pharmaceutiques internationaux, avec une infrastructure dédiée à chacun.
+L'entreprise sortait d'une refonte complète : nouvelle identité, nouveau positionnement, nouvelle direction artistique. Il lui manquait le site qui irait avec. Un site capable de servir à la fois le marché chinois et les acheteurs pharmaceutiques internationaux, chacun sur son infrastructure.
 
-L'enjeu central tenait à l'éditorial. Rien n'avait été rédigé. Aucune arborescence, aucune structure de pages, aucun texte, et même aucune idée arrêtée de ce qui devait aller où.
+Tout le nœud du projet était là, dans l'éditorial. Rien n'existait encore. Pas d'arborescence, pas de structure de pages, pas une ligne de texte, et pas même d'idée arrêtée sur ce qui devait figurer où.
 
-Dans le pharmaceutique, où les spécifications produit ne souffrent aucune approximation et où la crédibilité réglementaire fait foi, on ne comble pas ce vide avec un gabarit et quelques textes de remplissage. ZeinLey avait besoin d'une équipe capable de partir d'une feuille blanche : définir ce que le site devait dire, en dessiner la structure, l'écrire dans deux langues, puis tout intégrer dans WordPress sur deux environnements d'hébergement séparés.
+Dans la pharmacie, où la moindre spécification produit doit tomber juste et où la crédibilité réglementaire se joue à chaque page, on ne bouche pas ce trou avec un gabarit et du faux texte. Il fallait une équipe capable de tout reprendre à la feuille blanche : décider de ce que le site allait dire, en dessiner la structure, l'écrire dans deux langues, puis l'intégrer dans WordPress sur deux environnements d'hébergement distincts.
 
-## D'abord le contenu : entretiens, architecture et limites de l'intelligence artificielle
+## Le contenu d'abord : entretiens, structure et limites de l'IA
 
-Le projet a démarré par la stratégie de contenu. Avant d'ouvrir WordPress, avant même d'aborder le design, nous avons mené des entretiens approfondis avec les équipes de ZeinLey. Responsables produit, ingénieurs, commerciaux. Comprendre comment présenter les gammes de conditionnement et d'administration de médicaments, identifier ce qui pèse chez les acheteurs chinois par rapport aux clients internationaux, structurer un site capable d'embrasser des catégories aussi pointues que les seringues préremplies, les auto-injecteurs et les systèmes bi-chambre sans perdre le visiteur en route.
+Le projet a commencé là où il devait commencer : par la stratégie de contenu. Avant d'ouvrir WordPress, avant même de parler design, nous avons passé du temps avec les équipes de ZeinLey. Chefs de produit, ingénieurs, commerciaux. Il fallait comprendre comment présenter les gammes de conditionnement et d'administration. Cerner ce qui compte pour un acheteur chinois, et ce qui compte pour un acheteur international. Bâtir une arborescence qui tienne la route sur des catégories aussi techniques que les seringues préremplies, les auto-injecteurs ou les systèmes bi-chambre, sans jamais perdre le visiteur.
 
-Cette phase dépasse les attentes de la plupart des clients. L'idée que l'intelligence artificielle peut aujourd'hui rédiger seule le contenu d'un site circule beaucoup. Elle se vérifie partiellement quand on part d'une matière première existante. Mais quand on démarre à partir de rien, sans contenu déjà écrit, sans documentation interne, sans cadre de messages, l'IA n'apporte plus grand-chose. Il faut quelqu'un pour conduire les entretiens, trancher la structure, arbitrer ce qui va où, puis faire valider chaque ligne par ceux qui connaissent vraiment les produits. Chez ZeinLey, ce socle restait à construire. Le chantier a donc commencé là.
+Cette étape prend plus de temps que la plupart des clients l'imaginent. On entend partout que l'IA sait désormais écrire le contenu d'un site. C'est en partie vrai quand on dispose déjà d'une matière première. Quand on part de rien, sans texte existant, sans documentation interne, sans plan de message, elle ne sert plus à grand-chose. Il faut quelqu'un pour mener les entretiens, trancher la structure, décider de ce qui va où, puis faire relire chaque ligne par ceux qui connaissent vraiment les produits. Chez ZeinLey, ce travail de fond restait entier. C'est par là que nous avons commencé.
 
-## Écrire chaque marché dans sa propre langue
+## Écrire chaque marché dans sa langue
 
-Une fois l'arborescence posée, nous avons rédigé l'intégralité des textes nativement en chinois et en anglais. Chaque langue a été écrite séparément pour son public, avec le ton et le vocabulaire technique propres à chaque marché. Quand on décrit des dispositifs d'administration de médicaments et des produits de qualité pharmaceutique, le registre doit être irréprochable. L'à-peu-près fragilise la crédibilité auprès d'acheteurs qui connaissent ces produits dans le détail et savent comment on en parle.
+Une fois l'arborescence figée, nous avons rédigé tous les textes, nativement, en chinois et en anglais. Chaque langue écrite à part, pour son public, avec le ton et le vocabulaire technique qui lui reviennent. Quand on décrit des dispositifs d'administration et des produits de qualité pharmaceutique, le mot juste n'est pas négociable. La moindre approximation entame la crédibilité face à des acheteurs qui connaissent ces produits sur le bout des doigts et savent comment on en parle.
 
-> Rédiger pour le marché chinois est un travail éditorial à part entière, avec ses codes, ses tournures et ses présupposés sur ce que le lecteur sait déjà.
+> Écrire pour le marché chinois est un métier éditorial à part, avec ses codes, ses tournures et ses présupposés sur ce que le lecteur sait déjà.
 
-Le design est venu après le contenu. Nous avons bâti des maquettes fidèles à la nouvelle identité de ZeinLey, en veillant à la lisibilité de la structure bilingue et à ce que chaque utilisateur, quelle que soit sa langue, retrouve ses repères. L'ensemble a été intégré sous WordPress avec un support multilingue complet.
+Le design est venu ensuite. Nous avons construit des maquettes fidèles à la nouvelle identité de ZeinLey, en gardant la structure bilingue claire pour que chacun, dans sa langue, trouve vite ce qu'il cherche. Tout a été intégré dans WordPress, multilingue de bout en bout.
 
 ## Deux marchés, deux serveurs, deux stratégies de référencement
 
-Côté infrastructure, nous avons déployé un double hébergement. Un serveur physiquement implanté en Chine, dédié à la version chinoise, avec des temps de chargement rapides et la conformité réglementaire locale. Un serveur hors de Chine pour la version anglaise, destinée aux clients pharmaceutiques internationaux.
+Côté infrastructure, nous avons monté un double hébergement. Un serveur physiquement en Chine pour la version chinoise, avec des temps de chargement courts et la conformité réglementaire locale. Un serveur hors de Chine pour la version anglaise, destinée aux laboratoires internationaux.
 
-Chaque version a été pensée pour son moteur de recherche :
+Chaque version a été calibrée pour son moteur de recherche :
 
 | Marché | Hébergement | Référencement | Langue |
 |---|---|---|---|
 | **Chine** | Serveur en Chine continentale | Optimisation Baidu | Chinois |
 | **International** | Serveur hors de Chine | Optimisation Google | Anglais |
 
-L'analytique a été posée des deux côtés, pour que ZeinLey suive distinctement l'activité de chaque marché.
+Des outils de mesure d'audience ont été installés des deux côtés, pour que ZeinLey suive chaque marché séparément.
 
-## Le résultat : de la page blanche à deux sites en production
+## Le résultat : de la page blanche à deux sites en ligne
 
-ZeinLey dispose aujourd'hui d'un site entièrement bilingue, adossé à deux environnements d'hébergement distincts. Les clients pharmaceutiques chinois arrivent sur une version rapide, hébergée localement et calibrée pour Baidu. Les acheteurs internationaux accèdent à une version construite pour Google, hébergée hors de Chine. Les deux présentent toute la gamme ZeinLey, des ampoules et flacons jusqu'aux auto-injecteurs et stylos injecteurs, avec le niveau de détail technique et la rigueur qu'exige le secteur.
+ZeinLey a aujourd'hui un site entièrement bilingue, sur deux hébergements séparés. Les laboratoires chinois arrivent sur une version rapide, hébergée sur place et réglée pour Baidu. Les acheteurs internationaux accèdent à une version pensée pour Google, hébergée hors de Chine. Les deux déroulent toute la gamme ZeinLey, des ampoules et flacons aux auto-injecteurs et stylos injecteurs, avec le détail technique et la rigueur qu'attend le secteur.
 
-Contenu, design, infrastructure : l'ensemble reflète la nouvelle identité de l'entreprise, et tout a été bâti à partir d'une feuille vierge, contenu compris. Pour un fabricant d'emballages pharmaceutiques qui lance une marque sur deux marchés sans une seule ligne écrite au départ, le chantier était conséquent. Il est en ligne.
+Contenu, design, infrastructure : tout porte la nouvelle identité de l'entreprise, et tout est parti d'une feuille vierge, le contenu compris. Pour un fabricant d'emballages pharmaceutiques qui lance une marque sur deux marchés sans un mot d'avance, le chantier était lourd. Il est en ligne.

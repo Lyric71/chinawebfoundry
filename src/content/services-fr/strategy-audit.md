@@ -1,7 +1,7 @@
 ---
 title: "Stratégie et audit"
 shortTitle: "Stratégie"
-description: "Un diagnostic sans concession de votre site WordPress face au marché chinois. Nous cartographions les blocages, les failles de performance et les zones de non-conformité, puis posons une feuille de route actionnable."
+description: "Un diagnostic sans concession de votre présence numérique face au marché chinois. Nous cartographions les blocages, les failles de performance et les zones de non-conformité, puis posons une feuille de route actionnable."
 metaTitle: "Stratégie et audit Chine | Feuille de route en 4 semaines"
 metaDescription: "Trois à quatre semaines pour décider quoi construire en Chine, pourquoi et quand. Un document écrit, par une équipe shanghaïenne qui a lancé plus de 50 sites internationaux depuis 2005."
 icon: "clipboard-check"

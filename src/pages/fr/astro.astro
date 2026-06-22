@@ -4,70 +4,70 @@ import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
-const metaTitle = 'Astro en Chine | Sites statiques rapides pour les réseaux mobiles lents';
-const metaDescription = 'Astro reste la voie la plus rapide pour publier un site marketing en Chine continentale. De quoi il s’agit, quand il l’emporte sur WordPress, et les ajustements qui le font tenir derrière le Pare-feu.';
+const metaTitle = 'Astro en Chine | Des sites statiques taillés pour les réseaux mobiles lents';
+const metaDescription = 'Astro reste la façon la plus rapide de publier un site marketing en Chine continentale. Ce qu’il vaut, quand il prend le pas sur WordPress, et les réglages qui le font tenir derrière le Pare-feu.';
 
 const stats = [
-  { value: 100, suffix: '', label: 'Score Lighthouse atteint en moyenne par un site Astro, sans réglage manuel', source: 'Sitepins, Astro en 2026' },
-  { value: 60, suffix: '%', label: 'des sites Astro franchissent les seuils « Good » des Core Web Vitals', source: 'Contre 38 % chez WordPress' },
-  { value: 50, suffix: '%', label: 'de LCP en moins qu’un WordPress comparable, à hébergeur chinois équivalent', source: 'Mesures ChinaWebFoundry' },
+  { value: 100, suffix: '', label: 'Score Lighthouse moyen d’un site Astro, sans le moindre réglage manuel', source: 'Sitepins, Astro en 2026' },
+  { value: 60, suffix: '%', label: 'des sites Astro passent les seuils « Good » des Core Web Vitals', source: 'Contre 38 % côté WordPress' },
+  { value: 50, suffix: '%', label: 'de LCP en moins qu’un WordPress équivalent, sur le même hébergeur chinois', source: 'Mesures ChinaWebFoundry' },
 ];
 
 const useCases = [
   {
     icon: 'rocket',
     title: 'Sites marketing et sites de marque',
-    body: 'Sites de marque, pages produit, pages d’atterrissage, microsites de campagne. La vitesse doit rester excellente, le contenu évolue une fois par semaine, parfois moins. Astro a précisément été pensé pour ce terrain, et l’avantage de performance y devient flagrant.',
+    body: 'Sites de marque, pages produit, pages d’atterrissage, microsites de campagne. La vitesse doit rester irréprochable, alors que le contenu bouge une fois par semaine, parfois moins. C’est exactement le terrain pour lequel Astro a été conçu, et c’est là que son avance en performance saute aux yeux.',
     span: 'feature',
     badges: ['Sites de marque', 'Pages d’atterrissage', 'Microsites'],
   },
   {
     icon: 'book',
     title: 'Documentation et bibliothèques de ressources',
-    body: 'Starlight, le framework de documentation maison d’Astro, reste ce qui se fait de plus solide dans son écosystème. Pour la documentation technique, les bases de connaissances et les centres de ressources servis depuis la Chine, le contenu se charge vite, la navigation reste limpide.',
+    body: 'Starlight, l’outil de documentation maison d’Astro, n’a pas vraiment d’équivalent dans son écosystème. Documentation technique, bases de connaissances, centres de ressources servis depuis la Chine : le contenu s’affiche vite et la navigation reste claire.',
     span: 'normal',
   },
   {
     icon: 'pen',
     title: 'Sites éditoriaux et blogs',
-    body: 'Les Content Collections proposent un Markdown et un MDX typés, validés à la compilation. Le circuit de production gagne en vitesse face à WordPress, et le rendu se fait nettement plus léger sur les réseaux mobiles chinois.',
+    body: 'Les Content Collections, c’est du Markdown et du MDX typés, vérifiés à la compilation. La chaîne de publication va plus vite que sous WordPress, et le rendu pèse nettement moins lourd sur les réseaux mobiles chinois.',
     span: 'normal',
   },
   {
     icon: 'languages',
     title: 'Sites marketing multilingues',
-    body: 'Astro intègre nativement le routage i18n. Le chinois cohabite sans difficulté avec l’anglais, le français, l’allemand ou le japonais. Nous avons livré des sites Astro à dix langues ou davantage, sans accroc.',
+    body: 'Le routage i18n est intégré d’origine. Le chinois cohabite sans peine avec l’anglais, le français, l’allemand ou le japonais. Nous avons livré des sites Astro de dix langues et plus, sans accroc.',
     span: 'normal',
   },
   {
     icon: 'zap',
     title: 'Sites où les Core Web Vitals pilotent le budget',
-    body: 'Quand l’achat média dépend de la vitesse de la page d’atterrissage, ou que votre référencement repose sur l’indexation Baidu, Astro reste le framework qui vous y conduit avec le moins de frictions. Premier rendu sous la seconde sur un téléphone chinois de milieu de gamme.',
+    body: 'Quand le budget média dépend de la vitesse de la page d’atterrissage, ou que votre référencement tient à l’indexation Baidu, Astro reste le framework qui vous y amène avec le moins d’obstacles. Premier rendu sous la seconde sur un téléphone chinois de milieu de gamme.',
     span: 'normal',
   },
   {
     icon: 'shield',
     title: 'Sites à forte exigence de sécurité',
-    body: 'Du HTML statique, donc aucune base de données à attaquer, aucun PHP à exploiter, aucune connexion admin à forcer. Pour les marques qui ont déjà essuyé un piratage, ou pour les secteurs régulés où la sécurité remonte jusqu’au comité de direction, la surface d’attaque réduite pèse réellement dans la balance.',
+    body: 'Du HTML statique : pas de base de données à attaquer, pas de PHP à exploiter, pas de connexion admin à forcer. Pour une marque qui a déjà encaissé un piratage, ou un secteur régulé où la sécurité remonte jusqu’au comité de direction, cette surface d’attaque réduite compte vraiment.',
     span: 'wide',
     badges: ['Sans base de données', 'Sans runtime PHP', 'Sans connexion admin', 'Livraison statique'],
   },
 ];
 
 const pickAstro = [
-  'Le site se veut avant tout porté par le contenu et la communication',
-  'La vitesse d’affichage relève d’une exigence chiffrée, non négociable',
-  'L’équipe accepte un circuit piloté par les développeurs, ou nous y greffons un CMS headless',
-  'Vous cherchez à réduire les coûts d’hébergement et de maintenance sur la durée',
-  'La sécurité et une surface d’attaque réduite priment sur la souplesse éditoriale',
+  'Le site repose avant tout sur le contenu et la communication',
+  'La vitesse d’affichage est une exigence chiffrée, non négociable',
+  'L’équipe accepte un flux piloté par les développeurs, ou nous y branchons un CMS headless',
+  'Vous voulez alléger les coûts d’hébergement et de maintenance sur la durée',
+  'La sécurité et une faible surface d’attaque passent avant la souplesse éditoriale',
 ];
 
 const pickWordPress = [
-  'Votre équipe contenu publie au quotidien, sans solliciter un développeur',
-  'Vous opérez du e-commerce avec des centaines, voire des milliers de références sous WooCommerce',
-  'Vous dépendez d’extensions WordPress précises (adhésion, LMS, automatisation marketing)',
-  'L’équipe marketing travaille déjà sous Elementor ou Divi et n’a pas envie de migrer',
-  'Le projet relève du très interactif (tableaux de bord connectés, fonctionnalités en temps réel)',
+  'Votre équipe contenu publie tous les jours, sans passer par un développeur',
+  'Vous gérez un e-commerce de plusieurs centaines, voire milliers de références sous WooCommerce',
+  'Vous dépendez d’extensions WordPress bien précises (adhésion, LMS, automatisation marketing)',
+  'L’équipe marketing vit déjà dans Elementor ou Divi et n’a aucune envie de migrer',
+  'Le projet est très interactif (tableaux de bord connectés, fonctions en temps réel)',
 ];
 
 const changeGroups = [
@@ -78,17 +78,17 @@ const changeGroups = [
       {
         icon: 'type',
         title: 'Polices',
-        body: 'Les modèles de départ Astro vont chercher leurs polices sur Google Fonts. Nous coupons l’appel et auto-hébergeons les fontes, ou nous les remplaçons par des polices qui couvrent à la fois les glyphes latins et CJK dans un même fichier.',
+        body: 'Les modèles de départ Astro chargent leurs polices depuis Google Fonts. Nous coupons l’appel et hébergeons les fontes nous-mêmes, ou nous les remplaçons par des polices qui réunissent glyphes latins et CJK dans un seul fichier.',
       },
       {
         icon: 'palette',
         title: 'Ressources externes et images',
-        body: 'Certains thèmes Astro vont chercher leurs icônes ou leurs bibliothèques sur des CDN occidentaux (jsDelivr, unpkg). Nous redirigeons l’ensemble vers un CDN chinois, ou nous embarquons ces ressources directement dans le build. Les images, elles, sont servies depuis Aliyun OSS ou Tencent COS, en formats modernes.',
+        body: 'Certains thèmes Astro tirent leurs icônes ou leurs bibliothèques de CDN occidentaux (jsDelivr, unpkg). Nous basculons le tout sur un CDN chinois, ou nous intégrons ces ressources directement au build. Les images, elles, sont servies depuis Aliyun OSS ou Tencent COS, en formats modernes.',
       },
       {
         icon: 'blocks',
         title: 'Scripts tiers',
-        body: 'Tout appel vers un service bloqué est retiré ou remplacé. Cartes, polices, mesure d’audience, captchas et contenus intégrés reçoivent chacun leur équivalent compatible Chine pendant la compilation, avant que le rendu statique ne parte en production.',
+        body: 'Le moindre appel vers un service bloqué est retiré ou remplacé. Cartes, polices, mesure d’audience, captchas, contenus intégrés : chacun reçoit son équivalent compatible Chine à la compilation, avant que le rendu statique ne parte en production.',
       },
     ],
   },
@@ -99,17 +99,17 @@ const changeGroups = [
       {
         icon: 'plug',
         title: 'CMS headless, quand il faut',
-        body: 'Quand l’équipe éditoriale réclame une interface visuelle, nous greffons Storyblok, Sanity, Decap ou WordPress en mode headless. Le CMS vit hors de Chine, le contenu se synchronise à la compilation, et le site statique vit sur un serveur continental.',
+        body: 'Quand l’équipe éditoriale veut une interface visuelle, nous branchons Storyblok, Sanity, Decap ou WordPress en mode headless. Le CMS reste hors de Chine, le contenu se synchronise à la compilation, et le site statique tourne sur un serveur continental.',
       },
       {
         icon: 'card',
         title: 'Formulaires et widgets',
-        body: 'Les formulaires tournent en Astro Islands. Google reCAPTCHA cède à un captcha chinois. Google Maps fait place à Baidu Map ou Amap. Les blocs interactifs continuent de fonctionner sans la moindre dépendance externe.',
+        body: 'Les formulaires tournent en Astro Islands. Le reCAPTCHA de Google laisse la place à un captcha chinois, Google Maps à Baidu Map ou Amap. Les blocs interactifs continuent de marcher sans aucune dépendance externe.',
       },
       {
         icon: 'chart',
         title: 'Mesure d’audience',
-        body: 'Vercel Analytics ou Plausible laissent la place à Baidu Tongji, ou à un outil auto-hébergé. Les mêmes tableaux de bord dont l’équipe a besoin, sans le moindre endpoint bloqué.',
+        body: 'Vercel Analytics ou Plausible cèdent à Baidu Tongji, ou à un outil auto-hébergé. Les tableaux de bord dont l’équipe a besoin, sans aucun endpoint bloqué.',
       },
     ],
   },
@@ -120,17 +120,17 @@ const changeGroups = [
       {
         icon: 'server',
         title: 'Hébergement',
-        body: 'Serveur en Chine continentale, licence ICP en règle sur le domaine. Aliyun, Tencent Cloud ou Huawei Cloud, derrière un CDN chinois. Le CDN propre de Cloudflare se comporte mal sur le continent ; nous n’y déployons donc pas.',
+        body: 'Serveur en Chine continentale, licence ICP en règle sur le domaine. Aliyun, Tencent Cloud ou Huawei Cloud, derrière un CDN chinois. Le CDN maison de Cloudflare se comporte mal sur le continent, nous n’y déployons donc pas.',
       },
       {
         icon: 'refresh',
         title: 'Pipeline de compilation',
-        body: 'La compilation tourne hors de Chine sur un pipeline CI (GitHub Actions, GitLab CI). Le rendu statique est poussé vers l’hébergeur chinois. Un push sur la branche principale, et le site se met à jour en quelques minutes.',
+        body: 'La compilation tourne hors de Chine, sur un pipeline CI (GitHub Actions, GitLab CI). Le rendu statique part vers l’hébergeur chinois. Un push sur la branche principale, et le site se met à jour en quelques minutes.',
       },
       {
         icon: 'shield',
         title: 'Posture de sécurité',
-        body: 'Aucune base de données, aucun runtime PHP, aucune connexion admin. Le travail de sécurité se déplace vers le pipeline de compilation et la périphérie du cloud chinois, plutôt que vers un runtime à corriger chaque semaine.',
+        body: 'Pas de base de données, pas de runtime PHP, pas de connexion admin. La sécurité se joue désormais sur le pipeline de compilation et la périphérie du cloud chinois, et non plus sur un runtime à rustiner chaque semaine.',
       },
     ],
   },
@@ -141,12 +141,12 @@ const changeGroups = [
       {
         icon: 'zap',
         title: 'Performance',
-        body: 'Du HTML statique servi par un CDN continental reste difficile à battre. Nous visons un premier rendu utile sous la seconde sur un téléphone chinois de milieu de gamme, et nous l’atteignons la plupart du temps.',
+        body: 'Du HTML statique servi par un CDN continental, c’est dur à battre. Nous visons un premier rendu utile sous la seconde sur un téléphone chinois de milieu de gamme, et nous y arrivons la plupart du temps.',
       },
       {
         icon: 'search',
         title: 'Baidu et recherche IA',
-        body: 'Baidu n’indexe pas à la manière de Google. Nous calons donc les métadonnées avec soin, nous raccordons Baidu Webmaster Tools, et nous structurons le site pour que Doubao, Kimi, DeepSeek et Wenxin puissent le lire et le citer. Des fichiers en clair dans Git rendent les données structurées et le llms.txt faciles à générer.',
+        body: 'Baidu n’indexe pas comme Google. Nous réglons donc les métadonnées au cordeau, nous raccordons Baidu Webmaster Tools, et nous structurons le site pour que Doubao, Kimi, DeepSeek et Wenxin puissent le lire et le citer. Comme tout est en fichiers clairs sous Git, générer les données structurées et le llms.txt devient simple.',
       },
     ],
   },
@@ -156,17 +156,17 @@ const fitBuckets = [
   {
     eyebrow: 'Astro convient',
     title: 'Sites marketing à interactivité légère',
-    body: 'Un site marketing avec une petite vitrine produit, un formulaire de contact ou quelques widgets interactifs : Astro a été conçu précisément pour cet usage. Pages statiques, chargements rapides, JavaScript uniquement aux endroits où il sert à quelque chose.',
+    body: 'Un site marketing avec une petite vitrine produit, un formulaire de contact, deux ou trois widgets : Astro a été pensé pile pour ça. Pages statiques, chargement rapide, du JavaScript seulement là où il sert vraiment.',
   },
   {
     eyebrow: 'WordPress convient mieux',
     title: 'E-commerce et éditorial quotidien',
-    body: 'Des milliers de références pilotées au jour le jour par une équipe non technique, des dépendances profondes à des extensions, des équipes marketing qui vivent dans un constructeur de pages. Pour ces usages, WooCommerce sur WordPress reste la bonne réponse la plupart du temps.',
+    body: 'Des milliers de références gérées au jour le jour par une équipe non technique, une forte dépendance aux extensions, des marketeurs qui vivent dans un constructeur de pages. Là, WooCommerce sur WordPress reste le bon choix la plupart du temps.',
   },
   {
     eyebrow: 'Un autre outil',
     title: 'Expériences proches d’une application',
-    body: 'Tableaux de bord connectés, collaboration en temps réel, espaces sociaux, tout ce qui ressemble davantage à une application qu’à un site. Au-delà de cette frontière, Next.js ou Remix prennent le relais avec plus d’aisance qu’Astro.',
+    body: 'Tableaux de bord connectés, collaboration en temps réel, espaces sociaux, tout ce qui tient plus de l’application que du site. Passé cette limite, Next.js ou Remix prennent le relais plus à l’aise qu’Astro.',
   },
 ];
 
@@ -183,52 +183,52 @@ const faqs = [
   {
     id: 'astro-icp',
     question: 'Notre site Astro a-t-il besoin d’une licence ICP pour fonctionner en Chine ?',
-    answer: 'Hébergé en Chine continentale, oui. Hébergé via Hong Kong ou Cloudflare, non, mais le site y perdra en vitesse de manière mesurable pour les utilisateurs continentaux, et Baidu le traitera comme un site étranger. Pour les marques sérieuses sur le marché chinois, le dépôt ICP justifie l’investissement.',
+    answer: 'Hébergé en Chine continentale, oui. Hébergé via Hong Kong ou Cloudflare, non, mais le site perdra alors en vitesse de façon mesurable pour les internautes du continent, et Baidu le traitera comme un site étranger. Pour une marque qui prend le marché chinois au sérieux, le dépôt ICP vaut l’investissement.',
   },
   {
     id: 'astro-marketing-team',
     question: 'L’équipe marketing pourra-t-elle continuer à mettre à jour le site ?',
-    answer: 'Tout dépend de la configuration retenue. En Markdown et avec les Content Collections, les modifications transitent par Git et réclament un développeur, ou un utilisateur technique à l’aise. Avec un CMS headless raccordé (Storyblok, Sanity, Decap), l’équipe éditoriale dispose d’une interface visuelle et met le site à jour sans toucher au code. Nous choisissons le modèle qui colle vraiment à la façon dont l’équipe travaille.',
+    answer: 'Cela dépend de la configuration retenue. En Markdown avec les Content Collections, les changements passent par Git et demandent un développeur, ou quelqu’un d’assez technique. Avec un CMS headless branché (Storyblok, Sanity, Decap), l’équipe éditoriale a une interface visuelle et met le site à jour sans toucher au code. Nous choisissons le modèle qui colle à la façon dont l’équipe travaille vraiment.',
   },
   {
     id: 'astro-vs-wp-speed',
     question: 'Astro est-il vraiment plus rapide que WordPress en Chine ?',
-    answer: 'En chiffres bruts, oui. Astro livre du HTML statique avec quasiment zéro JavaScript, ce qui réduit le volume transféré, accélère le rendu et limite les allers-retours serveur. Nous avons mesuré 40 à 60 % de Largest Contentful Paint en moins sur Astro face à un WordPress comparable, sur le même hébergeur chinois.',
+    answer: 'En chiffres bruts, oui. Astro sert du HTML statique avec quasiment zéro JavaScript : moins de données transférées, un rendu plus rapide, moins d’allers-retours serveur. Nous avons mesuré un Largest Contentful Paint inférieur de 40 à 60 % sur Astro face à un WordPress équivalent, sur le même hébergeur chinois.',
   },
   {
     id: 'astro-headless-cms',
     question: 'Peut-on associer un CMS headless à Astro ?',
-    answer: 'Oui, et il s’agit de l’un des modèles les plus solides d’Astro. Nous avons livré des sites avec Storyblok, Sanity, Decap et WordPress en mode headless. Le CMS vit hors de Chine, là où les rédacteurs travaillent sans contrainte de VPN. Le front statique vit sur un serveur continental. Le contenu se synchronise à la compilation. L’équipe éditoriale conserve l’interface qu’elle connaît, et l’audience chinoise reçoit un site rapide.',
+    answer: 'Oui, et c’est l’un des montages les plus solides d’Astro. Nous avons livré des sites avec Storyblok, Sanity, Decap et WordPress en mode headless. Le CMS reste hors de Chine, là où les rédacteurs travaillent sans VPN. Le front statique tourne sur un serveur continental. Le contenu se synchronise à la compilation. L’équipe éditoriale garde l’interface qu’elle connaît, et l’audience chinoise reçoit un site rapide.',
   },
   {
     id: 'astro-ecommerce',
     question: 'Et le e-commerce sur Astro ?',
-    answer: 'Pour les catalogues petits à moyens (moins de cinq cents références), Astro s’associe convenablement au commerce headless : Shopify Storefront, Snipcart ou Stripe Checkout pour les paiements internationaux, plus des intégrations sur mesure côté Alipay et WeChat Pay pour les consommateurs chinois. Pour les gros e-commerces avec des milliers de références, et une équipe non technique qui pilote l’inventaire au quotidien, WooCommerce sur WordPress reste la bonne réponse la plupart du temps.',
+    answer: 'Pour un catalogue petit ou moyen (moins de cinq cents références), Astro se marie bien au commerce headless : Shopify Storefront, Snipcart ou Stripe Checkout pour les paiements internationaux, et des intégrations sur mesure côté Alipay et WeChat Pay pour les consommateurs chinois. Pour un gros e-commerce de plusieurs milliers de références, avec une équipe non technique qui gère le stock au quotidien, WooCommerce sur WordPress reste le bon choix la plupart du temps.',
   },
   {
     id: 'astro-multilingual',
     question: 'Comment Astro gère-t-il le multilingue côté Chine ?',
-    answer: 'Astro intègre nativement le routage i18n. La cohabitation du chinois avec l’anglais, le français ou toute autre langue reste propre et structurée. URL, balises hreflang et sitemaps par langue fonctionnent dès le départ. Nous avons livré des sites Astro à dix langues ou davantage.',
+    answer: 'Le routage i18n est intégré d’origine. Le chinois cohabite proprement avec l’anglais, le français ou n’importe quelle autre langue. URL, balises hreflang et sitemaps par langue marchent dès le départ. Nous avons livré des sites Astro de dix langues et plus.',
   },
   {
     id: 'astro-migrate-wp',
     question: 'Peut-on migrer notre WordPress existant vers Astro ?',
-    answer: 'Oui, et nous le faisons régulièrement. Le contenu est exporté depuis WordPress, restructuré en Content Collections Astro ou redirigé vers un CMS headless, puis le design est reconstruit pour la nouvelle pile. Le délai habituel se situe entre quatre et huit semaines. Le résultat : un site plus rapide et des coûts de fonctionnement plus bas. La contrepartie : la disparition de l’interface admin WordPress, sauf si elle est conservée en back-office headless.',
+    answer: 'Oui, et nous le faisons souvent. On exporte le contenu depuis WordPress, on le restructure en Content Collections Astro ou on le redirige vers un CMS headless, puis on reconstruit le design pour la nouvelle pile. Comptez quatre à huit semaines en général. À la clé, un site plus rapide et des coûts de fonctionnement plus bas. En contrepartie, l’interface admin WordPress disparaît, sauf si on la garde en back-office headless.',
   },
   {
     id: 'astro-hosting',
     question: 'Quel hébergement utilisez-vous pour Astro en Chine ?',
-    answer: 'Nous hébergeons sur Aliyun, Tencent Cloud ou Huawei Cloud selon les projets. La compilation tourne hors de Chine sur un pipeline CI. Le rendu statique est poussé vers l’hébergeur chinois, derrière un CDN continental. Nous pilotons le compte d’hébergement, le dépôt ICP et le pipeline de déploiement, pour que votre équipe n’ait jamais à se connecter elle-même à un panneau d’hébergeur chinois.',
+    answer: 'Nous hébergeons sur Aliyun, Tencent Cloud ou Huawei Cloud selon les projets. La compilation tourne hors de Chine, sur un pipeline CI. Le rendu statique part vers l’hébergeur chinois, derrière un CDN continental. Nous gérons le compte d’hébergement, le dépôt ICP et le pipeline de déploiement, pour que votre équipe n’ait jamais à se connecter elle-même au panneau d’un hébergeur chinois.',
   },
   {
     id: 'astro-maintenance',
     question: 'Quelle maintenance demande un site Astro ?',
-    answer: 'Beaucoup moins qu’un WordPress, et de loin. Aucune base de données à sauvegarder, aucune extension à mettre à jour, aucune version PHP à faire évoluer, aucun correctif de sécurité à appliquer toutes les deux semaines. Le framework lui-même reçoit quelques mises à jour par an, les dépendances méritent une revue de temps à autre, et l’essentiel s’arrête là. Pour la plupart des sites marketing, une passe trimestrielle suffit largement.',
+    answer: 'Beaucoup moins qu’un WordPress, et de loin. Pas de base de données à sauvegarder, pas d’extension à mettre à jour, pas de version PHP à faire évoluer, pas de correctif de sécurité à poser tous les quinze jours. Le framework reçoit quelques mises à jour par an, les dépendances méritent une revue de temps en temps, et c’est à peu près tout. Pour la plupart des sites marketing, une passe par trimestre suffit largement.',
   },
   {
     id: 'astro-cloudflare',
     question: 'Et le rachat d’Astro par Cloudflare, qu’est-ce que ça change pour la Chine ?',
-    answer: 'Oui et non. L’investissement plus profond de Cloudflare signifie qu’Astro repose désormais sur une infrastructure adossée à un acteur valorisé à trente milliards de dollars, ce qui rassure les clients soucieux de la viabilité à long terme. Le framework reste sous licence MIT et déployable où l’on veut, y compris chez les fournisseurs cloud chinois. Le CDN propre de Cloudflare se comporte mal sur le continent, mais les sites Astro se déploient très bien sur Aliyun ou Tencent Cloud, sans rien perdre en fonctionnalités.',
+    answer: 'Oui et non. Avec l’engagement plus fort de Cloudflare, Astro s’appuie désormais sur un acteur valorisé à trente milliards de dollars, de quoi rassurer les clients inquiets de sa pérennité. Le framework reste sous licence MIT et déployable où l’on veut, y compris chez les fournisseurs cloud chinois. Le CDN maison de Cloudflare se comporte mal sur le continent, mais les sites Astro tournent très bien sur Aliyun ou Tencent Cloud, sans rien perdre au passage.',
   },
 ];
 
@@ -281,10 +281,10 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             <span class="block mt-2 text-[var(--color-brand-orange)]">Pensé pour la vitesse.</span>
           </h1>
           <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
-            Le framework front-end moderne pour les sites portés par le contenu. Statique d’abord, JavaScript proche de zéro, et particulièrement tolérant aux réseaux mobiles chinois saturés.
+            Le framework front-end moderne pour les sites portés par le contenu. Statique d’abord, presque pas de JavaScript, et taillé pour encaisser les réseaux mobiles chinois saturés.
           </p>
           <p class="mt-4 text-base text-white/40 max-w-xl leading-relaxed">
-            Repris par Cloudflare depuis janvier 2026. Nous concevons aussi bien Astro que WordPress, ce qui nous autorise à vous dire lequel convient.
+            Repris par Cloudflare depuis janvier 2026. Nous construisons aussi bien sous Astro que sous WordPress, ce qui nous permet de vous dire lequel vous convient.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
             <Button href="/fr/contact/" variant="primary" size="lg">Échanger avec l’équipe</Button>
@@ -374,10 +374,10 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             Du HTML statique, sans démêlés avec le Pare-feu.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Astro compile les pages en HTML statique et les distribue via un CDN. Aucun PHP, aucune base de données, du JavaScript uniquement aux endroits où il sert à quelque chose. L’architecture en îlots, c’est le nom technique, et Astro reste celui qui l’a popularisée.
+            Astro compile les pages en HTML statique et les sert via un CDN. Pas de PHP, pas de base de données, du JavaScript là où il sert, nulle part ailleurs. On appelle ça l’architecture en îlots, et c’est Astro qui l’a popularisée.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            En Chine, cette forme tombe juste. Moins de données à transférer sur des réseaux mobiles saturés, moins de pièces susceptibles de casser en silence derrière le Pare-feu, et Baidu comme les moteurs IA chinois lisent le contenu sans qu’un runtime JavaScript ne vienne se mettre en travers de leur chemin.
+            En Chine, cette approche tombe juste. Moins de données à transférer sur des réseaux mobiles saturés, moins de pièces qui peuvent casser en silence derrière le Pare-feu, et Baidu comme les moteurs IA chinois lisent le contenu sans qu’un runtime JavaScript ne leur barre la route.
           </p>
         </div>
 
@@ -387,7 +387,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             <div class="relative aspect-square rounded-2xl overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]">
               <img
                 src="/images/astro-code-editor.webp"
-                alt="Un éditeur de code moderne montrant la structure d’un projet Astro, des fichiers Markdown de Content Collection dans la barre latérale et une page statique rendue à droite"
+                alt="Éditeur de code affichant la structure d’un projet Astro, des fichiers Markdown de Content Collections dans la barre latérale et la page statique rendue à droite"
                 class="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
@@ -400,7 +400,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
                 Des fichiers en clair, sous Git →
               </p>
               <p class="text-sm text-[var(--color-text-body)] leading-snug">
-                Contenu Markdown, Content Collections typées et composants Astro vivent tous sous gestion de versions. La compilation produit du HTML statique, prêt à rejoindre un CDN chinois.
+                Contenu Markdown, Content Collections typées et composants Astro vivent tous sous gestion de versions. La compilation sort du HTML statique, prêt à partir sur un CDN chinois.
               </p>
             </div>
             <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
@@ -423,7 +423,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           </h2>
         </div>
         <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed lg:max-w-md">
-          Conçu pour les sites portés par le contenu. Sur ce terrain, l’outil reste difficile à battre aujourd’hui.
+          Pensé pour les sites portés par le contenu. Sur ce terrain, il reste difficile à battre aujourd’hui.
         </p>
       </div>
 
@@ -518,7 +518,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           Les cas où WordPress reste la bonne réponse.
         </h2>
         <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-          Nous construisons avec les deux, ce qui nous autorise à être honnêtes sur le bon outil pour le bon projet. WordPress reste devant pour les sites pilotés par l’éditorial, pour le e-commerce à grande échelle et pour les flux orchestrés par les extensions.
+          Nous construisons avec les deux, ce qui nous permet d’être honnêtes sur le bon outil pour chaque projet. WordPress garde l’avantage pour les sites pilotés par l’éditorial, le e-commerce à grande échelle et les flux orchestrés par des extensions.
         </p>
       </div>
 
@@ -583,7 +583,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       </div>
 
       <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-3xl mx-auto">
-        Au moindre doute, la <a href="/fr/services/strategie-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Stratégie et Audit</a> reste l’amorce naturelle de la discussion.
+        Dans le doute, la <a href="/fr/services/strategie-audit/" class="text-[var(--color-brand-orange)] underline-offset-4 hover:underline">Stratégie et Audit</a> reste le bon point de départ.
       </p>
     </div>
   </section>
@@ -616,7 +616,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             Ce que nous ajustons pour qu’Astro tienne en Chine.
           </h2>
           <p class="text-base lg:text-lg text-white/75 leading-relaxed">
-            Astro arrive en Chine plus près de la ligne de départ que la plupart des piles, dès l’installation. Quelques réglages par défaut réclament tout de même un ajustement avant que le site ne tourne correctement sur le continent.
+            Astro débarque en Chine plus près de la ligne d’arrivée que la plupart des piles, dès l’installation. Quelques réglages par défaut demandent tout de même un ajustement avant que le site tourne correctement sur le continent.
           </p>
         </div>
       </div>
@@ -707,7 +707,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           </h2>
         </div>
         <p class="lg:max-w-xs text-sm text-[var(--color-text-muted)] leading-relaxed">
-          Des fournisseurs sous licence continentale, des performances mesurées sur les réseaux chinois, et les services grand public que votre audience utilise au quotidien.
+          Des fournisseurs sous licence continentale, des performances mesurées sur les réseaux chinois, et les services grand public que votre audience utilise tous les jours.
         </p>
       </div>
 
@@ -743,7 +743,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-6 lg:mt-0">
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Nous le disons à nos clients dès le départ. Chaque projet se range dans l’une des trois cases qui suivent.
+            Nous le disons à nos clients d’emblée. Chaque projet entre dans l’une des trois cases qui suivent.
           </p>
         </div>
       </div>
@@ -779,7 +779,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       </div>
 
       <p class="mt-10 text-base text-[var(--color-text-body)] leading-relaxed max-w-3xl">
-        Au-delà du périmètre du site marketing, on commence à se battre contre le framework au lieu de travailler avec lui. Nous vous prévenons dès que cette frontière approche.
+        Au-delà du site marketing, on finit par se battre contre le framework au lieu de travailler avec lui. Nous vous prévenons dès qu’on approche de cette frontière.
       </p>
     </div>
   </section>
@@ -878,7 +878,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           <div class="flex-1">
             <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">Le dépôt ICP avance en parallèle</p>
             <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              Vingt jours ouvrés au minimum à l’échelon provincial, parfois davantage. Nous engageons la procédure dès le premier jour, pour qu’elle ne se retrouve jamais sur le chemin critique de la mise en ligne.
+              Vingt jours ouvrés au minimum à l’échelon provincial, parfois plus. Nous lançons la procédure dès le premier jour, pour qu’elle ne se retrouve jamais sur le chemin critique de la mise en ligne.
             </p>
           </div>
         </div>
@@ -935,7 +935,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
         Astro pour la Chine, vous y réfléchissez ?
       </h2>
       <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Vous partez de zéro et visez le site le plus rapide possible pour le marché chinois ? Astro reste la réponse la plupart du temps. Déjà sous WordPress, et la migration commence à devenir urgente ? Nous vous aidons à bâtir le dossier et à mener le projet.
+        Vous partez de zéro et visez le site le plus rapide possible pour le marché chinois ? Astro reste la réponse la plupart du temps. Déjà sous WordPress, avec une migration qui devient urgente ? Nous vous aidons à monter le dossier et à mener le projet.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/fr/contact/" variant="primary" size="lg">Échanger avec l’équipe</Button>

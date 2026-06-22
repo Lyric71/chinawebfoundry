@@ -16,7 +16,7 @@ const includedItems = [
     n: '01',
     cn: '内容',
     title: 'Mises à jour éditoriales',
-    body: "Deux à quatre pièces par mois pour les clients actifs : un article au format long compatible Baidu (1 500 à 2 500 caractères chinois), une étude de cas ou mise à jour produit, une à deux brèves d’actualité. Tout est rédigé en chinois natif, jamais traduit. On syndique les meilleures pièces sur Baijiahao (百家号), Zhihu (知乎) et Sohu Hao (搜狐号), que les IA traitent comme signaux de vérification.",
+    body: "Deux à quatre publications par mois pour les comptes actifs : un article de fond pensé pour Baidu (1 500 à 2 500 caractères chinois), une étude de cas ou une annonce produit, une ou deux brèves d’actualité. Tout est rédigé en chinois, jamais traduit. Les meilleures pièces sont reprises sur Baijiahao (百家号), Zhihu (知乎) et Sohu Hao (搜狐号), des plateformes que les IA chinoises lisent comme autant de signaux de fiabilité.",
     tag: 'Contenu',
     chips: ['百家号', '知乎', '搜狐号', 'ZH natif', '双11 / 618 / 春节'],
   },
@@ -24,7 +24,7 @@ const includedItems = [
     n: '02',
     cn: '搜索',
     title: 'Suivi SEO Baidu',
-    body: "Rapport mensuel de positions sur vos 30 à 50 mots-clés prioritaires, contrôle d’indexation sur plus de 100 URL via 百度搜索资源平台, deux à trois correctifs techniques par mois selon ce que disent les chiffres. On pousse chaque nouveau contenu via les outils de soumission Baidu le jour de la publication, on corrige les erreurs de crawl, on reconstruit ce qui sort de l’index.",
+    body: "Chaque mois, un rapport de positions sur vos 30 à 50 mots-clés prioritaires, un contrôle d’indexation de plus de 100 URL via 百度搜索资源平台 et deux à trois correctifs techniques décidés d’après ce que montrent les chiffres. Dès sa parution, chaque contenu est soumis à Baidu ; nous corrigeons les erreurs d’exploration et reconstruisons les pages tombées de l’index.",
     tag: 'SEO Baidu',
     chips: ['Rang', '主动推送', 'Index', 'Réponse algo'],
   },
@@ -32,7 +32,7 @@ const includedItems = [
     n: '03',
     cn: '智能',
     title: 'Suivi GEO',
-    body: "Contrôles de visibilité hebdomadaires sur DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) et Baidu IA (百度AI), avec une matrice de 40 requêtes fixes par client couvrant marque, catégorie, scénario et concurrence. Les rapports donnent taux de citation, rang de recommandation, sentiment, plus la liste des ajustements à pousser dans le mois.",
+    body: "Contrôles de visibilité chaque semaine sur DeepSeek (深度求索), Doubao (豆包), Kimi, Yuanbao (元宝) et Baidu IA (百度AI), à partir d’une grille de 40 requêtes fixes par client : marque, catégorie, cas d’usage, concurrents. Les rapports donnent le taux de citation, le rang de recommandation et la tonalité, avec la liste des ajustements à mener dans le mois.",
     tag: 'Recherche IA',
     chips: ['DeepSeek', 'Doubao', 'Kimi', '元宝', '文心X1'],
   },
@@ -40,23 +40,23 @@ const includedItems = [
     n: '04',
     cn: '技术',
     title: 'Maintenance technique',
-    body: "Mises à jour du cœur WordPress, des extensions et des thèmes testées en préproduction avant passage en ligne. Sauvegardes quotidiennes hors site, conservées 30 jours. Scan de sécurité Wordfence ou Sucuri en continu. Contrôles de disponibilité toutes les 5 minutes depuis des serveurs en Chine. Nettoyage trimestriel de la base. Renouvellement des SSL compatibles Chine via Aliyun (阿里云) ou autorités locales.",
+    body: "Mises à jour du cœur WordPress, des extensions et des thèmes, testées en préproduction avant tout passage en ligne. Sauvegardes quotidiennes hébergées hors site et conservées 30 jours. Analyse de sécurité Wordfence ou Sucuri en continu. Contrôles de disponibilité toutes les 5 minutes depuis des serveurs situés en Chine. Nettoyage de la base de données chaque trimestre. Renouvellement des certificats SSL compatibles avec la Chine, via Aliyun (阿里云) ou une autorité locale.",
     tag: 'Technique',
     chips: ['Mises à jour', 'Sauvegardes', 'Sécurité', 'Disponibilité', 'SSL'],
   },
   {
     n: '05',
     cn: '防火',
-    title: 'La couche Great Firewall',
-    body: "On surveille en temps réel le comportement du Great Firewall. Quand un CDN, une bibliothèque de polices ou une API externe se retrouve bloqué, on bascule sur un équivalent compatible. Délai moyen entre détection et déploiement : 14 minutes. On reteste les connexions WeChat (微信), Alipay (支付宝), WeChat Pay (微信支付) et la mesure d’audience (Baidu Tongji ou 51la) à chaque cycle de mise à jour.",
+    title: 'Veille Great Firewall',
+    body: "Nous surveillons le comportement du Great Firewall en temps réel. Dès qu’un CDN, une bibliothèque de polices ou une API externe se retrouve bloqué, nous basculons sur un équivalent qui fonctionne en Chine. Entre la détection et le déploiement, il s’écoule 14 minutes en moyenne. À chaque mise à jour, nous retestons les connexions WeChat (微信), Alipay (支付宝), WeChat Pay (微信支付) et la mesure d’audience (Baidu Tongji ou 51la).",
     tag: 'Great Firewall',
     chips: ['CDN', 'Polices', 'WeChat', 'Alipay', 'Mesure d’audience'],
   },
   {
     n: '06',
     cn: '主机',
-    title: 'Hébergement',
-    body: "Serveurs sous licence ICP (ICP备案) chez Aliyun, Tencent Cloud (腾讯云) ou Huawei Cloud (华为云), gérés de bout en bout. Optimisation lors des pics de trafic. Renouvellements Bei’an (备案) suivis sur la console MIIT pour qu’aucun ne passe à la trappe. SLA de 99,9 % avec délais documentés : 30 minutes pour les incidents critiques, 4 heures pour les tickets standards.",
+    title: 'Hébergement géré',
+    body: "Serveurs déclarés ICP (ICP备案) chez Aliyun, Tencent Cloud (腾讯云) ou Huawei Cloud (华为云), administrés de bout en bout. Réglages renforcés à l’approche des pics de trafic. Renouvellements Bei’an (备案) suivis sur la console du MIIT, pour qu’aucun ne passe à la trappe. SLA de 99,9 %, avec des délais écrits : 30 minutes sur un incident critique, 4 heures sur un ticket courant.",
     tag: 'Hébergement',
     chips: ['ICP 备案', 'Aliyun', 'Tencent', 'Huawei', '99,9% SLA'],
   },
@@ -64,7 +64,7 @@ const includedItems = [
     n: '07',
     cn: '修复',
     title: 'Dépannage',
-    body: "Quand quelque chose casse, l’équipe en Chine prend la main immédiatement. Bugs, conflits d’extension, incidents de sécurité, erreurs sur Alipay ou WeChat Pay. En cas de piratage : isoler, nettoyer, restaurer, durcir, post-mortem sous 48 heures.",
+    body: "Quand quelque chose casse, l’équipe sur place intervient sans attendre : bugs, conflits d’extension, alertes de sécurité, erreurs de paiement sur Alipay ou WeChat Pay. En cas d’intrusion, nous isolons, nettoyons, restaurons, durcissons, puis livrons un post-mortem sous 48 heures.",
     tag: 'Incident',
     chips: ['Bugs', 'Conflits', 'Piratage', '48h post-mortem'],
   },
@@ -74,40 +74,40 @@ const insightItems = [
   {
     n: '01',
     cn: '变',
-    title: 'Le numérique chinois bouge plus vite',
-    body: "L’algorithme Baidu a changé onze fois en 2025. DeepSeek a publié quatre révisions majeures de modèle. Doubao a remanié son ingestion de contenu au moins une fois par mois. Le rythme ne ralentit pas.",
+    title: 'Le numérique chinois va plus vite',
+    body: "L’algorithme de Baidu a évolué onze fois en 2025. DeepSeek a sorti quatre versions majeures de son modèle. Doubao a revu sa façon d’ingérer les contenus presque tous les mois. Rien n’indique que le rythme ralentisse.",
   },
   {
     n: '02',
     cn: '退',
-    title: 'Les sites laissés en l’état se dégradent',
-    body: "Les sites lancés correctement et laissés intacts un an finissent presque toujours invisibles au neuvième mois. La dégradation est progressive, puis soudaine.",
+    title: 'Un site laissé à l’abandon se dégrade',
+    body: "Un site bien lancé, puis laissé tel quel pendant un an, devient presque toujours invisible vers le neuvième mois. Le déclin est lent, jusqu’au décrochage.",
   },
   {
     n: '03',
     cn: '增',
-    title: 'Les sites maintenus composent',
-    body: "Les sites qui publient un contenu frais régulier, suivent leurs citations IA chaque semaine et gardent la pile technique propre composent leurs gains. Les positions montent, les mentions IA s’accumulent, le coût pour rester visible baisse.",
+    title: 'Un site entretenu capitalise',
+    body: "Les sites qui publient régulièrement, suivent leurs citations dans les IA chaque semaine et gardent une base technique saine voient leurs efforts porter : les positions montent, les mentions par les IA se multiplient, et rester visible coûte de moins en moins cher.",
   },
   {
     n: '04',
     cn: '盲',
-    title: 'Les agences étrangères passent à côté',
-    body: "Les agences internationales ne voient pas la plupart des modes d’échec sans VPN. Depuis Londres ou Chicago, tout semble aller bien, jusqu’au moment où ce n’est plus le cas.",
+    title: 'L’angle mort des agences étrangères',
+    body: "Sans VPN, une agence installée à l’étranger passe à côté de la plupart des pannes. Vu de Londres ou de Chicago, tout paraît normal, jusqu’au jour où ça ne l’est plus.",
   },
 ];
 
 const stats = [
-  { value: '14 min', label: 'Détection-déploiement moyen', sub: 'Quand une police, un CDN ou une API se trouve bloqué.' },
-  { value: '99,9 %', label: 'SLA de disponibilité', sub: 'Réponse en 30 minutes sur les incidents critiques.' },
-  { value: '40', label: 'Requêtes IA par semaine', sub: 'Suivi des citations sur 5 moteurs, hebdomadaire.' },
+  { value: '14 min', label: 'De la détection au déploiement', sub: 'Le temps moyen pour remplacer une police, un CDN ou une API bloqués.' },
+  { value: '99,9 %', label: 'Disponibilité garantie par le SLA', sub: 'Première intervention en 30 minutes sur un incident critique.' },
+  { value: '40', label: 'Requêtes IA par semaine', sub: 'Des citations suivies chaque semaine sur cinq moteurs.' },
 ];
 
 const audiences = [
-  { label: 'Pas d’équipe locale', description: 'Sociétés avec un site chinois en ligne mais sans équipe sur place, qui ont besoin de soutien expert sans tout monter en interne.', image: '/images/audiences/wordpress-china-no-local-team.webp' },
-  { label: 'Marketing d’abord', description: 'Équipes marketing qui préfèrent travailler sur les campagnes plutôt que de pourchasser des extensions cassées à neuf fuseaux horaires de distance.', image: '/images/audiences/marketing-not-debugging.webp' },
-  { label: 'IT sans expert Chine en interne', description: 'Équipes IT qui ont besoin d’expertise Chine mais ne peuvent pas justifier un poste à temps plein à l’organigramme.', image: '/images/audiences/it-team-china-expertise.webp' },
-  { label: 'E-commerce en Chine', description: 'Activités e-commerce sur WooCommerce ou Shopify avec passerelles de paiement chinoises et logistique locale.', image: '/images/audiences/woocommerce-china-payments.webp' },
+  { label: 'Pas d’équipe locale', description: 'Entreprises dont le site chinois tourne déjà, mais sans personne sur place : elles veulent un appui expert sans bâtir une équipe en interne.', image: '/images/audiences/wordpress-china-no-local-team.webp' },
+  { label: 'Marketing d’abord', description: 'Équipes marketing qui préfèrent mener leurs campagnes plutôt que courir après une extension cassée à neuf fuseaux horaires de là.', image: '/images/audiences/marketing-not-debugging.webp' },
+  { label: 'IT sans expert Chine en interne', description: 'Directions informatiques qui ont besoin d’une expertise Chine sans pouvoir justifier un poste à plein temps.', image: '/images/audiences/it-team-china-expertise.webp' },
+  { label: 'E-commerce en Chine', description: 'Marchands en ligne sous WooCommerce ou Shopify, avec passerelles de paiement chinoises et logistique locale.', image: '/images/audiences/woocommerce-china-payments.webp' },
 ];
 
 const marqueePhrases = [
@@ -126,58 +126,58 @@ const marqueePhrases = [
 const faqs = [
   {
     id: 'why-not-internal',
-    question: 'Pourquoi ne pas confier ça à notre IT interne ?',
+    question: 'Pourquoi ne pas confier tout cela à notre informatique interne ?',
     answer: [
-      "Elles peuvent, en théorie. En pratique, les équipes internes perdent presque toujours la visibilité côté Chine : elles n’atteignent pas les tableaux de bord (百度站长资源, console Aliyun, plateforme WeChat) sans VPN, et les alertes arrivent en chinois. La plupart de nos clients gardent leur IT pour le global et nous prennent comme bureau Chine.",
+      "Sur le papier, elle le peut. Dans les faits, une équipe interne perd presque toujours la main côté Chine : sans VPN, elle n’accède pas aux tableaux de bord (百度站长资源, console Aliyun, plateforme WeChat), et les alertes lui parviennent en chinois. La plupart de nos clients gardent leur informatique pour le périmètre mondial et nous confient tout le volet chinois.",
     ],
   },
   {
     id: 'pricing',
-    question: 'Comment sont tarifés les forfaits ?',
+    question: 'Comment les forfaits sont-ils tarifés ?',
     answer: [
-      "Forfaits mensuels à partir de 1 200 USD, ajustés aux besoins réels du site. Le montant dépend du volume de trafic, de la cadence éditoriale, du nombre de moteurs IA suivis, de l’intégration ou non de l’hébergement. Décrivez-nous votre situation, nous revenons sous deux jours ouvrés avec un chiffre précis.",
+      "À partir de 1 200 USD par mois, le forfait s’ajuste à ce dont le site a réellement besoin : volume de trafic, rythme de publication, nombre de moteurs IA suivis, hébergement intégré ou non. Décrivez-nous votre situation ; nous revenons sous deux jours ouvrés avec un montant précis.",
     ],
   },
   {
     id: 'response-time',
-    question: 'À quelle vitesse réagissez-vous aux incidents ?',
+    question: 'À quelle vitesse réagissez-vous aux incidents ?',
     answer: [
-      "Incidents critiques (site hors ligne, paiement, piratage) : 30 minutes entre l’alerte et la première action, 24/7. Tickets standards (conflit d’extension, modification de contenu, question sur un tableau de bord) : 4 heures ouvrées. Tous les délais sont écrits dans le SLA.",
+      "Sur un incident critique (site hors ligne, paiement, intrusion), 30 minutes séparent l’alerte de la première intervention, 24 h/24. Sur un ticket courant (conflit d’extension, modification de contenu, question sur un tableau de bord), 4 heures ouvrées. Tous ces délais figurent au SLA.",
     ],
   },
   {
     id: 'content-cadence',
-    question: 'Combien de contenu sortez-vous par mois ?',
+    question: 'Combien de contenu publiez-vous par mois ?',
     answer: [
-      "Deux à quatre pièces sur un forfait actif : un article au format long pour Baidu (1 500 à 2 500 caractères chinois), une étude de cas ou mise à jour produit, une à deux brèves. La cadence monte autour des fenêtres de campagne : 双11, 618, 春节.",
+      "Deux à quatre pièces sur un forfait actif : un article de fond pour Baidu (1 500 à 2 500 caractères chinois), une étude de cas ou une annonce produit, une ou deux brèves. Le rythme s’accélère à l’approche des temps forts commerciaux : 双11, 618, 春节.",
     ],
   },
   {
     id: 'baidu-and-geo',
-    question: 'Le SEO Baidu et le GEO sont-ils inclus ou séparés ?',
+    question: 'Le SEO Baidu et le GEO sont-ils compris ou facturés à part ?',
     answer: [
-      "Les deux sont inclus dans le forfait pour les clients actifs. Rapport mensuel de positions Baidu et contrôle d’indexation, suivi hebdomadaire des citations IA sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA. Les chantiers structurels lourds, refonte de cartographie de mots-clés ou grappes de contenu, restent des missions à part.",
+      "Les deux sont compris dans le forfait des clients actifs : rapport mensuel de positions Baidu et contrôle d’indexation, suivi hebdomadaire des citations IA sur DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA. Les gros chantiers structurels, refonte de la cartographie de mots-clés ou création de grappes de contenu, font l’objet de missions distinctes.",
     ],
   },
   {
     id: 'hosting',
-    question: 'Doit-on déplacer notre hébergement chez vous ?',
+    question: 'Faut-il transférer notre hébergement chez vous ?',
     answer: [
-      "Non. On travaille avec ce que vous avez chez Aliyun, Tencent Cloud ou Huawei Cloud. Si l’hébergement entre dans le forfait, on gère tout, renouvellements 备案 sur la console MIIT compris. Sinon, on coordonne avec celui qui le pilote.",
+      "Non. Nous travaillons avec ce que vous avez déjà chez Aliyun, Tencent Cloud ou Huawei Cloud. Si l’hébergement entre dans le forfait, nous prenons tout en charge, renouvellements 备案 sur la console du MIIT compris. Sinon, nous nous coordonnons avec votre prestataire.",
     ],
   },
   {
     id: 'firewall',
-    question: 'Que se passe-t-il quand le Great Firewall bloque quelque chose ?',
+    question: 'Que se passe-t-il quand le Great Firewall bloque quelque chose ?',
     answer: [
-      "On surveille le comportement en temps réel et on bascule vers des équivalents compatibles Chine quand un CDN, une bibliothèque de polices ou une API externe ne résout plus. Délai moyen : 14 minutes entre détection et déploiement. Chaque trimestre, on reteste les connexions WeChat, Alipay, WeChat Pay et Baidu Tongji, parce que les régressions y sont silencieuses.",
+      "Nous surveillons son comportement en temps réel et basculons vers un équivalent compatible avec la Chine dès qu’un CDN, une bibliothèque de polices ou une API externe cesse de répondre. Délai moyen : 14 minutes entre la détection et le déploiement. Chaque trimestre, nous retestons les connexions WeChat, Alipay, WeChat Pay et Baidu Tongji, car les régressions y passent inaperçues.",
     ],
   },
   {
     id: 'reporting',
-    question: 'À quoi ressemble le reporting ?',
+    question: 'Comment se présente le reporting ?',
     answer: [
-      "Synthèse écrite mensuelle couvrant le contenu publié, les mouvements de positions Baidu, le suivi des citations GEO, le travail technique réalisé, les incidents résolus et les priorités recommandées pour le mois suivant. Plus un tableau de bord en direct, consultable à tout moment.",
+      "Chaque mois, une synthèse écrite : contenus publiés, mouvements de positions Baidu, suivi des citations GEO, travaux techniques réalisés, incidents résolus et priorités recommandées pour le mois suivant. À cela s’ajoute un tableau de bord en direct, consultable à tout moment.",
     ],
   },
 ];
@@ -227,7 +227,7 @@ const pageLd = [...serviceLd];
           </h1>
 
           <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
-            Contenu, SEO Baidu, suivi GEO sur les cinq moteurs d’IA chinois, maintenance technique, hébergement. Tout est porté par une équipe qui opère depuis l’intérieur du Great Firewall, chaque jour. <span class="text-white font-medium">Une équipe. Une facture. Aucun renvoi de balle à neuf fuseaux horaires.</span>
+            Contenu, SEO Baidu, suivi GEO sur les cinq moteurs d’IA chinois, maintenance technique, hébergement : le tout porté au quotidien par une équipe qui travaille depuis l’intérieur du Great Firewall. <span class="text-white font-medium">Une seule équipe, une seule facture, et personne à qui renvoyer la balle à neuf fuseaux horaires.</span>
           </p>
 
           <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
@@ -268,7 +268,7 @@ const pageLd = [...serviceLd];
               </div>
               <div class="mt-4 inline-flex items-center gap-1.5 text-[10px] font-mono text-red-300/70">
                 <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
-                Position Baidu : en perte
+                Position Baidu : en recul
               </div>
             </div>
 
@@ -355,7 +355,7 @@ const pageLd = [...serviceLd];
             <span class="text-3xl lg:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] ml-2">mois</span>
           </div>
           <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
-            Temps moyen avant qu’un site chinois lancé puis abandonné ne disparaisse des radars. Dégradation progressive, puis sortie brutale des positions.
+            Le temps qu’il faut, en moyenne, pour qu’un site chinois lancé puis laissé à l’abandon disparaisse des radars. Un déclin progressif, puis un décrochage brutal des positions.
           </p>
         </div>
 
@@ -365,10 +365,10 @@ const pageLd = [...serviceLd];
             Le lancement, c’est la partie facile.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Un site chinois ne se lance pas pour qu’on l’oublie ensuite. Baidu fait reculer les sites qui cessent de publier. Les moteurs d’IA changent leur logique de crawl toutes les quelques semaines. Une Google Font oubliée par votre développeur dans le thème se retrouve bloquée un mardi sans prévenir, et la page d’accueil casse pour tous les visiteurs à Shanghai, Shenzhen et Pékin.
+            Un site chinois ne se lance pas pour être oublié le lendemain. Baidu fait reculer ceux qui cessent de publier. Les moteurs d’IA revoient leur logique d’exploration toutes les deux ou trois semaines. Et la Google Font qu’un développeur a laissée traîner dans le thème finit par être bloquée un mardi, sans prévenir : la page d’accueil casse d’un coup pour tous les visiteurs de Shanghai, Shenzhen ou Pékin.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            Depuis votre bureau à Londres ou Chicago, tout semble aller bien jusqu’au moment où ça cesse. On porte la veille, le contenu, le travail de référencement et la couche technique dans un même engagement.
+            Depuis un bureau à Londres ou à Chicago, tout a l’air d’aller bien, jusqu’au moment où ça lâche. Nous réunissons la veille, le contenu, le référencement et la partie technique dans un seul et même engagement.
           </p>
 
           <div class="flex flex-wrap items-center gap-2.5">
@@ -381,7 +381,7 @@ const pageLd = [...serviceLd];
             <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Maintenance</span>
             <svg class="w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Composition</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--color-surface-border)] text-[var(--color-text-dark)] text-sm font-medium">Capitalisation</span>
           </div>
         </div>
       </div>
@@ -401,7 +401,7 @@ const pageLd = [...serviceLd];
           Sept chantiers. Un seul forfait.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Les trois premiers gardent le site visible. Les trois suivants le tiennent debout. Le dernier rattrape ce qui passe entre les mailles.
+          Les trois premiers gardent le site visible. Les trois suivants le tiennent debout. Le dernier récupère ce qui glisse entre les mailles.
         </p>
       </div>
 
@@ -462,7 +462,7 @@ const pageLd = [...serviceLd];
           Les sites laissés en l’état deviennent invisibles.
         </h2>
         <p class="text-lg text-white/65 leading-relaxed">
-          Les sites maintenus composent leurs gains. L’écart entre les deux se creuse vite.
+          Les sites entretenus, eux, capitalisent. Et l’écart entre les deux se creuse vite.
         </p>
       </div>
 
@@ -513,7 +513,7 @@ const pageLd = [...serviceLd];
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0" data-reveal data-reveal-delay="80">
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Inscrits dans le SLA. Visibles dans le tableau de bord en direct. Repris chaque mois dans une synthèse écrite.
+            Inscrits au SLA, visibles dans le tableau de bord en direct, et repris chaque mois dans une synthèse écrite.
           </p>
         </div>
       </div>
@@ -556,7 +556,7 @@ const pageLd = [...serviceLd];
             <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">FAQ · 常见问题</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
-            Huit questions qu’on nous pose sur la maintenance et l’accompagnement
+            Huit questions qui reviennent sur la maintenance et l’accompagnement
           </h2>
           <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
             Cliquez sur une question pour la déplier. Si la vôtre n’y est pas, posez-la-nous directement.
@@ -609,7 +609,7 @@ const pageLd = [...serviceLd];
           Vous avez fait le plus dur. Ne le laissez pas filer.
         </h2>
         <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
-          Décrivez-nous votre situation. On revient avec un plan couvrant cadence éditoriale, actions SEO et GEO, maintenance technique et hébergement. Forfaits mensuels à partir de 1 200 USD, ajustés aux besoins réels du site.
+          Décrivez-nous votre situation. Nous revenons avec un plan qui couvre le rythme de publication, le SEO et le GEO, la maintenance technique et l’hébergement. Forfaits mensuels à partir de 1 200 USD, calés sur les besoins réels du site.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button href="/fr/contact/" variant="primary" size="lg">Proposition sur mesure</Button>

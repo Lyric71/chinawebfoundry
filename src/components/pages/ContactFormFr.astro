@@ -148,7 +148,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     <!-- Row: Has a website + Presence in China -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
       <div>
-        <span class={labelClass}>Avez-vous déjà un site web ?</span>
+        <span class={labelClass}>Avez-vous déjà un site web ?</span>
         <div class="grid grid-cols-2 gap-3">
           <label class={cardClass}>
             <input type="radio" name="hasWebsite" value="Yes" class={choiceClass} />
@@ -168,7 +168,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       </div>
       <div>
         <span class={labelClass}>
-          Avez-vous une présence en Chine ?
+          Avez-vous une présence en Chine ?
         </span>
         <div class="grid grid-cols-2 gap-3">
           <label class={cardClass}>
@@ -181,7 +181,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
           </label>
         </div>
         <div id="china-detail-field" class="hidden mt-4">
-          <label for="chinaPresenceDetail" class={labelClass}>Si oui, sous quelle forme ?</label>
+          <label for="chinaPresenceDetail" class={labelClass}>Si oui, sous quelle forme ?</label>
           <input type="text" id="chinaPresenceDetail" name="chinaPresenceDetail" placeholder="Boutique Tmall, compte WeChat, bureau local..." class={inputClass} />
         </div>
       </div>
@@ -297,13 +297,13 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       const result = await res.json();
 
       if (res.ok && result.success) {
-        statusEl.textContent = 'Nous avons bien reçu votre message et revenons vers vous sous 24 heures.';
+        statusEl.textContent = 'Message bien reçu. Nous revenons vers vous sous 24 heures.';
         statusEl.className = successClass;
         form.reset();
         syncWebsite();
         syncChinaPresence();
       } else {
-        statusEl.textContent = result.error || 'Une erreur est survenue. Merci de réessayer.';
+        statusEl.textContent = result.error || 'Un problème est survenu de notre côté. Merci de réessayer.';
         statusEl.className = errorClass;
       }
     } catch {

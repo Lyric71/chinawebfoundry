@@ -14,7 +14,7 @@ const metaDescription = service.data.metaDescription;
 const proofStats = [
   { value: '0,8', suffix: ' s', label: 'Temps de chargement médian depuis le continent', sub: 'Mesuré sur smartphone chinois milieu de gamme, réseau Shanghai' },
   { value: '99,97', suffix: '%', label: 'Disponibilité observée sur les sites que nous hébergeons', sub: 'Moyenne glissante sur les 30 derniers jours' },
-  { value: '100', suffix: '%', label: "Taux d'aboutissement des dossiers ICP", sub: 'Aucun dossier instruit par nos soins resté sur le carreau' },
+  { value: '100', suffix: '%', label: 'Dossiers ICP menés jusqu\'au bout', sub: 'Aucun de ceux que nous avons pris en charge n\'a échoué' },
   { value: '20', suffix: '+', label: 'Années de présence à Shanghai', sub: 'Même équipe, même bureau, depuis 2005' },
 ];
 
@@ -35,9 +35,9 @@ const hostingOptions = [
     name: 'Chine continentale',
     tag: 'ICP requis',
     tagline: 'Serveurs à Pékin, Shanghai, Shenzhen ou Canton.',
-    headline: 'L’option de référence. Chargements sous la seconde, levier Baidu à plein régime.',
-    body: 'Votre site tourne sur des serveurs implantés en Chine continentale. Selon le profil du projet, le déploiement se fait chez Aliyun, Tencent Cloud ou Huawei Cloud. Trois fournisseurs que nous pratiquons depuis des années, dont nous connaissons les forces respectives à la virgule près.',
-    detail: 'Les pages s’affichent sous la seconde. Baidu favorise nettement les sites sous licence ICP hébergés sur le continent, ce qui change la donne dès que le référencement entre en ligne de compte. Le dépôt ICP, nous l’instruisons également en interne. C’est typiquement l’étape sur laquelle les marques étrangères s’enlisent quand elles avancent sans relais local.',
+    headline: 'L’option de référence : chargement sous la seconde et plein effet Baidu.',
+    body: 'Votre site tourne sur des serveurs implantés en Chine continentale. Selon le profil du projet, nous déployons chez Aliyun, Tencent Cloud ou Huawei Cloud. Trois fournisseurs que nous pratiquons depuis des années, dont nous connaissons les forces respectives à la virgule près.',
+    detail: 'Les pages s’affichent sous la seconde. Baidu favorise nettement les sites sous licence ICP hébergés sur le continent, ce qui change tout dès que le référencement compte. Le dépôt ICP, nous le montons aussi en interne. C’est typiquement l’étape sur laquelle les marques étrangères s’enlisent quand elles avancent sans relais local.',
     fit: 'Marques installées sur le marché chinois, projets à fort enjeu de référencement Baidu, plateformes e-commerce, sites qui collectent des données auprès d’utilisateurs chinois.',
     image: '/images/hosting-china-cdn-map.webp',
     imageAlt: 'Carte stylisée de la Chine continentale avec des nœuds de centres de données à Pékin, Shanghai, Shenzhen et Canton reliés par un maillage CDN',
@@ -55,8 +55,8 @@ const hostingOptions = [
     tag: 'Sans ICP',
     tagline: 'Mise en ligne rapide, sans formalité administrative chinoise.',
     headline: 'Une passerelle vers le continent, en service immédiat.',
-    body: 'Sans licence ICP en main, Hong Kong reste l’option la plus rapide à mettre en service. Aucun dossier à instruire, déploiement direct. Avec un CDN bien dimensionné et un cache calibré, les visiteurs chinois reçoivent la page en 2 à 4 secondes. Face à un site servi depuis Francfort ou la Virginie, le saut qualitatif est considérable.',
-    detail: 'Cette configuration sert souvent de palier intermédiaire, le temps d’obtenir la licence ICP ou de décider d’une implantation pleine et entière sur le marché chinois. Certains clients de longue date sont restés à Hong Kong pendant des années sans jamais en éprouver les limites.',
+    body: 'Sans licence ICP en main, Hong Kong reste l’option la plus rapide à mettre en service. Aucun dossier à instruire, déploiement direct. Avec un CDN bien dimensionné et un cache calibré, la page s’affiche en 2 à 4 secondes pour les visiteurs chinois. Face à un site servi depuis Francfort ou la Virginie, l’écart est spectaculaire.',
+    detail: 'Cette configuration sert souvent d’étape intermédiaire, le temps d’obtenir la licence ICP ou de décider d’une implantation pleine et entière sur le marché chinois. Certains clients de longue date sont restés à Hong Kong pendant des années sans jamais en éprouver les limites.',
     fit: 'Lancements rapides, solutions provisoires, projets pour lesquels la licence ICP n’est pas accessible immédiatement, marques en phase de test avant un engagement plus durable.',
     image: '/images/hosting-hong-kong-bridge.webp',
     imageAlt: 'Skyline de Hong Kong à l’heure bleue depuis Victoria Harbour, avec des traînées lumineuses orange traversant l’eau vers la Chine continentale',
@@ -74,8 +74,8 @@ const hostingOptions = [
     tag: 'Mondial + Chine',
     tagline: 'Le continent pour les visiteurs chinois. Votre infrastructure mondiale pour le reste.',
     headline: 'Une marque, deux architectures, performance équivalente des deux côtés.',
-    body: 'Certaines marques ne peuvent pas concentrer leurs investissements numériques sur la seule Chine. Le site doit fonctionner partout, avec le même niveau de service. Dans cette configuration, nous mettons en place un dispositif partagé : les visiteurs chinois sont routés vers un serveur continental, le reste du monde demeure servi par votre infrastructure existante.',
-    detail: 'Le routage est piloté par le DNS, sans intervention manuelle. Un back-end unique alimente les deux faces, le contenu se synchronise automatiquement. Le site continental porte son propre dépôt ICP, le site international reste là où il opère déjà. Nous prenons en charge l’ensemble dans une même mission, et la rédaction ne pilote qu’un seul flux éditorial.',
+    body: 'Certaines marques ne peuvent pas concentrer leurs investissements numériques sur la seule Chine. Le site doit fonctionner partout, avec le même niveau de service. Dans cette configuration, nous mettons en place un dispositif partagé : les visiteurs chinois sont routés vers un serveur continental, le reste du monde reste servi par votre infrastructure actuelle.',
+    detail: 'Le routage est piloté par le DNS, sans intervention manuelle. Un back-end unique alimente les deux faces, le contenu se synchronise automatiquement. Le site continental porte son propre dépôt ICP, le site international reste là où il est déjà. Nous prenons en charge l’ensemble dans une même mission, et la rédaction ne pilote qu’un seul flux éditorial.',
     fit: 'Marques internationales dotées d’une véritable audience chinoise, plateformes e-commerce multinationales, sites pour lesquels la performance compte autant en Chine qu’en dehors.',
     image: '/images/hosting-dual-stack-globe.webp',
     imageAlt: 'Illustration 3D isométrique d’un globe avec deux grappes de serveurs lumineux (orange sur la Chine, cyan sur l’Occident) et des chemins de routage qui répartissent le trafic selon la géographie',
@@ -93,17 +93,17 @@ const includedItems = [
   {
     icon: 'server',
     title: 'Mise en place et optimisation serveur',
-    body: 'Serveur calibré pour votre pile applicative, certificat SSL adapté à l’environnement chinois, pare-feu et protection DDoS configurés au regard des contraintes du Grand Pare-feu.',
+    body: 'Serveur calibré pour votre pile applicative, certificat SSL adapté à l’environnement chinois, pare-feu et protection DDoS réglés face aux contraintes du Grand Pare-feu.',
   },
   {
     icon: 'cdn',
     title: 'CDN Chine intégré',
-    body: 'CDN Aliyun ou Tencent Cloud déployé en bonne et due forme. Vos fichiers statiques sont servis depuis des nœuds situés au plus près des visiteurs, à Shanghai ou Chengdu, sans détour par le Pacifique.',
+    body: 'CDN Aliyun ou Tencent Cloud déployé dans les règles. Vos fichiers statiques sont servis depuis des nœuds situés au plus près des visiteurs, à Shanghai ou Chengdu, sans détour par le Pacifique.',
   },
   {
     icon: 'monitor',
-    title: 'Supervision depuis la Chine',
-    body: 'La plupart des sondes mesurent la performance depuis l’extérieur du Grand Pare-feu, ce qui livre des tableaux de bord trompeurs. Notre supervision est conduite depuis la Chine, en condition réelle. Un point technique en apparence, qui modifie radicalement la lecture des indicateurs.',
+    title: 'Surveillance depuis la Chine',
+    body: 'La plupart des sondes mesurent la performance depuis l’extérieur du Grand Pare-feu, d’où des tableaux de bord trompeurs. Nous, nous surveillons depuis la Chine, en conditions réelles. Le détail paraît technique ; il change tout à la lecture des chiffres.',
   },
   {
     icon: 'backup',
@@ -182,7 +182,7 @@ const timelines = [
       { name: 'Développement (en parallèle)', width: '35%' },
       { name: 'Bascule', width: '15%' },
     ],
-    note: 'Le dépôt ICP commande tout le calendrier. Il est lancé dès le premier jour, le développement est mené en parallèle pour ne pas perdre de temps.',
+    note: 'Le dépôt ICP commande tout le calendrier. On le lance dès le premier jour et le développement avance en même temps, sans attendre la licence.',
   },
   {
     label: 'Dual-stack',
@@ -207,7 +207,7 @@ const performanceRows = [
 const audiences = [
   { label: 'Lancement en Chine', description: 'Entreprises internationales qui ouvrent un nouveau site à destination du marché chinois.', image: '/images/audiences/new-site-for-china.webp' },
   { label: 'Site lent depuis le continent', description: 'Entreprises dont le site actuel met 10 à 15 secondes à se charger pour les visiteurs venus de Chine continentale.', image: '/images/audiences/slow-site-mainland.webp' },
-  { label: 'Premier dépôt ICP', description: 'Équipes confrontées au dépôt ICP pour la première fois, et qui buttent sur la complexité du dossier ou son instruction administrative.', image: '/images/audiences/icp-paperwork-first-time.webp' },
+  { label: 'Premier dépôt ICP', description: 'Équipes qui affrontent un dépôt ICP pour la première fois et butent sur la complexité du dossier ou sa lourdeur administrative.', image: '/images/audiences/icp-paperwork-first-time.webp' },
   { label: 'E-commerce en règle', description: 'Marques en quête d’un hébergement performant, conforme à la réglementation chinoise et compatible avec les solutions de paiement locales.', image: '/images/audiences/ecommerce-compliant-hosting.webp' },
 ];
 
@@ -215,7 +215,7 @@ const faqs = [
   {
     id: 'mainland-or-hk',
     question: 'Faut-il impérativement héberger sur le continent, ou peut-on rester à Hong Kong ?',
-    answer: 'Hong Kong reste une option viable, en particulier pour un lancement transitoire. Reste que Baidu traite les sites hongkongais comme étrangers, avec une pénalité de classement bien réelle. Pour les marques qui s’installent en Chine sur le long terme, l’hébergement continental sous licence ICP demeure la voie la plus efficace.',
+    answer: 'Hong Kong reste une option viable, surtout pour un lancement transitoire. Mais Baidu traite les sites hongkongais comme étrangers, avec une pénalité de classement bien réelle. Pour les marques qui s’installent en Chine sur le long terme, l’hébergement continental sous licence ICP demeure la voie la plus efficace.',
   },
   {
     id: 'aliyun-overseas',
@@ -225,7 +225,7 @@ const faqs = [
   {
     id: 'cost',
     question: 'Combien coûte un hébergement Chine ?',
-    answer: 'Le coût dépend du trafic, du volume de stockage et du niveau d’infogérance retenu. La plupart des sites institutionnels rentrent dans une fourchette mensuelle stable, en pratique inférieure à un hébergement WordPress infogéré équivalent en Europe ou aux États-Unis. Communiquez-nous le périmètre, nous établissons un devis détaillé sous 2 jours ouvrés.',
+    answer: 'Le coût dépend du trafic, du volume de stockage et du niveau d’infogérance retenu. La plupart des sites institutionnels tiennent dans une fourchette mensuelle stable, en pratique inférieure à un hébergement WordPress infogéré équivalent en Europe ou aux États-Unis. Communiquez-nous le périmètre, nous établissons un devis détaillé sous 2 jours ouvrés.',
   },
   {
     id: 'add-china',
@@ -240,7 +240,7 @@ const faqs = [
   {
     id: 'icp-rejection',
     question: 'Que se passe-t-il si la demande d’ICP est rejetée ?',
-    answer: 'Le rejet survient parfois, surtout lors d’un premier dépôt par une entité étrangère. Dans la grande majorité des cas, l’origine est une pièce manquante ou une incohérence dans l’immatriculation de la société. Nous instruisons alors une nouvelle soumission. À ce jour, l’ensemble des dossiers que nous avons portés ont fini par aboutir.',
+    answer: 'Le rejet survient parfois, surtout lors d’un premier dépôt par une entité étrangère. Dans la grande majorité des cas, l’origine est une pièce manquante ou une incohérence dans l’immatriculation de la société. Nous corrigeons le dossier et le redéposons. À ce jour, l’ensemble des dossiers que nous avons portés ont fini par aboutir.',
   },
   {
     id: 'astro-headless',
@@ -250,7 +250,7 @@ const faqs = [
   {
     id: 'data-privacy',
     question: 'L’hébergement continental est-il conforme aux lois chinoises sur la vie privée ?',
-    answer: 'Pour les sites qui collectent des données auprès d’utilisateurs chinois, oui. Un hébergement continental sur un compte Aliyun ou Tencent Cloud correctement paramétré reste la voie la plus claire pour respecter la PIPL, la loi sur la cybersécurité et la loi sur la sécurité des données. L’architecture est conçue pour que les données personnelles ne quittent pas le territoire chinois.',
+    answer: 'Pour les sites qui collectent des données auprès d’utilisateurs chinois, oui. Un hébergement continental sur un compte Aliyun ou Tencent Cloud correctement paramétré reste la voie la plus claire pour respecter la PIPL, la loi sur la cybersécurité et la loi sur la sécurité des données. Tout est pensé pour que les données personnelles ne sortent pas du territoire chinois.',
   },
   {
     id: 'hosting-panel',
@@ -326,10 +326,10 @@ const pageLd = [...serviceLd];
           </h1>
 
           <p class="mt-8 text-lg lg:text-xl text-white/60 max-w-[560px] leading-relaxed">
-            Nous concevons et opérons un hébergement taillé pour l’internet chinois. Pages rapides, dépôt ICP instruit de bout en bout, CDN intégré, supervision conduite depuis la Chine. Quelle que soit la pile technique sur laquelle votre site tourne.
+            Nous concevons et faisons tourner un hébergement taillé pour l’internet chinois : pages rapides, dossier ICP monté de bout en bout, CDN intégré, surveillance menée depuis la Chine. Quelle que soit la pile technique de votre site.
           </p>
           <p class="mt-4 text-base text-white/40 max-w-[560px] leading-relaxed">
-            Plus de 15 ans à Shanghai. 100 % d’aboutissement sur les dossiers ICP à ce jour.
+            Plus de 15 ans sur place à Shanghai. À ce jour, aucun dossier ICP confié resté sans suite.
           </p>
 
           <div class="mt-10 flex flex-wrap items-center gap-5">
@@ -439,13 +439,13 @@ const pageLd = [...serviceLd];
             Le constat
           </p>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
-            Depuis la Chine, votre site se charge mal, voire pas du tout.
+            Depuis la Chine, votre site se charge mal. Parfois pas du tout.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Essayez d’ouvrir votre site depuis Shanghai un de ces jours. La plupart des sites internationaux mettent 10 à 15 secondes pour répondre. Et il arrive que la page ne s’affiche tout bonnement pas.
+            Ouvrez votre site depuis Shanghai, pour voir. La plupart des sites internationaux mettent 10 à 15 secondes à répondre. Et bien souvent, la page ne s’affiche tout simplement pas.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-            Le Grand Pare-feu fait son œuvre : trafic ralenti, CDN bloqués, appels à Google Fonts qui n’aboutissent pas. Vingt ans plus tard, cela reste le premier motif d’appel qui nous parvient. Un site impeccable à New York peut s’effondrer à Pékin.
+            Le Grand Pare-feu fait son œuvre : trafic étranglé, CDN bloqués, appels à Google Fonts qui tournent dans le vide. Depuis vingt ans, c’est la première raison qui pousse nos clients à décrocher leur téléphone. Un site impeccable à New York peut s’écrouler à Pékin.
           </p>
         </div>
 
@@ -524,7 +524,7 @@ const pageLd = [...serviceLd];
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 mt-4 lg:mt-0">
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Le choix dépend de votre situation au regard de l’ICP, de la vitesse de mise en ligne attendue et du niveau de performance que votre site doit conserver hors de Chine.
+            Tout dépend de votre situation côté ICP, de la vitesse de mise en ligne souhaitée et du niveau de performance que le site doit garder hors de Chine.
           </p>
         </div>
       </div>
@@ -695,7 +695,7 @@ const pageLd = [...serviceLd];
             <span class="block text-[var(--color-brand-orange)]">Pris en charge à votre place.</span>
           </h2>
           <p class="text-lg text-white/70 leading-relaxed mb-5 max-w-2xl">
-            Pour héberger un site sur des serveurs continentaux, la licence ICP est obligatoire. Aucun raccourci, aucune dérogation. Sans licence valide, l’hébergeur coupe l’accès au site. Sans préavis : il bascule hors ligne.
+            Pour héberger un site sur des serveurs continentaux, la licence ICP est obligatoire. Aucun raccourci, aucune dérogation. Sans licence valide, l’hébergeur coupe l’accès du jour au lendemain, et le site bascule hors ligne.
           </p>
           <p class="text-base text-white/60 leading-relaxed max-w-2xl">
             Il existe 2 catégories d’ICP. Nous identifions celle qui correspond à votre projet, constituons le dossier, le déposons auprès de l’autorité provinciale et relançons l’instruction lorsqu’elle s’enlise. À ce jour, l’ensemble des dossiers que nous avons portés ont fini par aboutir.
@@ -758,7 +758,7 @@ const pageLd = [...serviceLd];
         <div class="flex-1">
           <p class="text-sm font-semibold text-white mb-1">Bon à savoir</p>
           <p class="text-[15px] text-white/70 leading-relaxed">
-            Le dépôt suppose l’existence d’une entité juridique enregistrée en Chine. Si ce n’est pas encore le cas, nous vous exposons les alternatives possibles.
+            Le dépôt suppose une entité juridique enregistrée en Chine. Si ce n’est pas encore votre cas, nous vous présentons les options.
           </p>
         </div>
       </div>
@@ -778,7 +778,7 @@ const pageLd = [...serviceLd];
             L’hébergement face aux lois chinoises sur les données.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            L’hébergement en Chine répond aussi à une exigence de résidence des données. Certaines catégories de données personnelles concernant les résidents chinois doivent demeurer sur des serveurs implantés sur le continent.
+            L’hébergement en Chine répond aussi à une exigence de résidence des données. Certaines catégories de données personnelles concernant les résidents chinois doivent rester sur des serveurs implantés sur le continent.
           </p>
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
             Si votre site collecte des données auprès d’utilisateurs chinois, l’hébergement continental reste la voie la plus directe vers la conformité. L’architecture est conçue pour que les données personnelles ne quittent pas le territoire chinois.
@@ -944,14 +944,14 @@ const pageLd = [...serviceLd];
         </div>
 
         <p class="mt-10 pt-6 border-t border-[var(--color-surface-border)] text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-2xl mx-auto">
-          Les internautes chinois attendent des pages rapides ; à défaut, ils referment l’onglet. L’hébergement continental sous licence ICP est ce qui rétablit le contact.
+          Les internautes chinois veulent des pages rapides ; sinon, ils referment l’onglet. L’hébergement continental sous licence ICP, c’est ce qui remet votre site dans la course.
         </p>
       </div>
     </div>
   </section>
 
   <!-- WHO IS THIS FOR -->
-  <WhoIsThisFor heading="Qui nous sollicite pour un hébergement" audiences={audiences} footnote="Vous n’avez pas à maîtriser la technique. C’est notre métier. Notre équipe est en Chine, à cette tâche depuis plus de vingt ans, et nous prenons l’infrastructure en main pour vous laisser vous concentrer sur ce qui fait votre activité." background="light" />
+  <WhoIsThisFor heading="Qui nous sollicite pour un hébergement" audiences={audiences} footnote="Vous n’avez pas à maîtriser la technique. C’est notre métier. Notre équipe est en Chine, sur le terrain depuis plus de vingt ans, et nous prenons l’infrastructure en main pour vous laisser à votre vrai métier." background="light" />
 
   <!-- FAQ -->
   <section id="faq" class="section-spacing scroll-mt-32">
@@ -965,7 +965,7 @@ const pageLd = [...serviceLd];
             10 questions qui reviennent à propos de l’hébergement Chine.
           </h2>
           <p class="mt-6 text-base text-[var(--color-text-body)] leading-relaxed">
-            Cliquez sur une question pour développer la réponse. Et si la vôtre n’y figure pas, posez-la nous directement.
+            Cliquez sur une question pour développer la réponse. Et si la vôtre n’y figure pas, posez-la-nous directement.
           </p>
         </div>
 
@@ -1005,7 +1005,7 @@ const pageLd = [...serviceLd];
         Parlons de votre projet d’hébergement.
       </h2>
       <p class="mt-6 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        Aucun projet ne ressemble à un autre. Calendrier, situation ICP, audience visée, budget. Indiquez-nous votre point de départ ; nous revenons vers vous sous 2 jours ouvrés avec une recommandation d’hébergement taillée pour votre cas. Aucune réponse générique.
+        Aucun projet ne ressemble à un autre. Calendrier, situation ICP, audience visée, budget. Dites-nous d’où vous partez ; nous vous répondons sous 2 jours ouvrés avec une recommandation taillée pour votre cas. Pas de réponse toute faite.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button href="/fr/contact/" variant="primary" size="lg">Recevoir une recommandation</Button>

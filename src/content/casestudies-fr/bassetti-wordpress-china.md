@@ -1,7 +1,7 @@
 ---
-title: "Bassetti en ligne en Chine : un site WordPress déployé en six semaines"
-subtitle: "Du .com au .cn : migration intégrale, licence ICP, hébergement local et remise à plat technique pour aborder le marché chinois."
-summary: "Bascule du site WordPress et Elementor de Bassetti vers la Chine en six semaines. Licence ICP, domaine .cn, serveurs locaux, substitution des briques bloquées et maintenance continue."
+title: "Bassetti en ligne en Chine : un site WordPress livré en six semaines"
+subtitle: "Migration complète du .com vers le .cn : domaine, dépôt ICP, hébergement local et remise à plat technique pour s'adresser au marché chinois."
+summary: "Le site WordPress et Elementor de Bassetti basculé vers la Chine en six semaines : dépôt ICP, domaine .cn, hébergement local, dépendances bloquées remplacées et maintenance continue."
 visual: "/images/casestudies/bassetti-homepage-china.webp"
 visuals:
   - "/images/casestudies/bassetti-homepage-china.webp"
@@ -13,15 +13,15 @@ published: true
 services: ["strategy-audit", "china-migration", "china-hosting", "maintenance-support"]
 ---
 
-## Un site aux abonnés absents là où il devait convaincre
+## Un site qui flanchait là où tout se jouait
 
-Bassetti, groupe technologique présent en Europe, sur le continent américain et en Asie, a décidé de muscler son dispositif numérique en Chine continentale. Premier constat de l'équipe : le site existant ne tiendrait pas la route. Bâti sur WordPress et Elementor, il fonctionnait correctement pour les internautes européens et nord-américains. Vu depuis Shanghai ou Pékin, changement de registre. Google Fonts, reCAPTCHA, appels vers des CDN étrangers, extensions tierces : l'essentiel de ces briques était bloqué net ou si ralenti qu'il en devenait inutilisable.
+Bassetti, groupe technologique implanté en Europe, en Amérique et en Asie, voulait renforcer sa présence numérique en Chine continentale. L'équipe a vite vu où le bât blessait : le site en place ne suivrait pas. Monté sur WordPress et Elementor, il tournait sans accroc pour les visiteurs européens et nord-américains. Depuis Shanghai ou Pékin, tout changeait. Google Fonts, reCAPTCHA, appels aux CDN étrangers, extensions tierces : la plupart de ces éléments étaient bloqués, ou si lents qu'ils revenaient au même.
 
-Beaucoup d'entreprises internationales découvrent ce phénomène à leurs dépens. Un site WordPress qui tourne comme une horloge en Occident peut se figer en Chine, parce qu'une part décisive de l'infrastructure web moderne s'appuie sur des services que le Grand Pare-feu bloque ou ralentit.
+Beaucoup d'entreprises internationales l'apprennent à leurs dépens. Un site WordPress impeccable en Occident peut devenir quasi inutilisable en Chine, parce que le web moderne s'appuie en grande partie sur des services que le Grand Pare-feu bloque ou bride.
 
-Le constat opérationnel était simple : les prospects et partenaires chinois de Bassetti n'accédaient pas au site dans des conditions fiables. Un vrai frein quand on cherche à prendre pied sur un nouveau marché, et un dossier à traiter sans tarder.
+Concrètement, les prospects et partenaires chinois de Bassetti n'arrivaient pas à consulter le site de façon fiable. Un sérieux handicap quand on cherche à s'installer sur un nouveau marché. Impossible de laisser traîner.
 
-L'issue passait par une migration de fond en comble. Nouveau domaine, enregistrement ICP, hébergement en Chine, ménage technique en règle. Le tout en préservant le .com sur lequel s'appuie le reste du monde au quotidien.
+La solution tenait en un mot : tout migrer. Nouveau domaine, dépôt ICP, hébergement en Chine, grand nettoyage technique. Sans jamais toucher au .com dont le reste du monde se sert tous les jours.
 
 | | |
 |---|---|
@@ -31,32 +31,32 @@ L'issue passait par une migration de fond en comble. Nouveau domaine, enregistre
 | **Délai** | 6 semaines |
 | **Services clés** | Audit, Migration, Enregistrement ICP, Hébergement en Chine, Maintenance |
 
-## L'audit : isoler les points de blocage
+## L'audit : repérer ce qui casse
 
-Le chantier a démarré par un audit complet du site. Une revue approfondie, dépendance par dépendance, appel d'extension par appel d'extension, de chaque composant qui sollicitait un service hors de Chine. Le travail s'est conduit main dans la main avec l'équipe technique de Bassetti. Ils connaissaient leur infrastructure dans le détail. Ce qui leur manquait, c'était la lecture précise de son comportement réel derrière le pare-feu.
+Tout a commencé par un audit complet du site, poussé jusque dans le détail : chaque dépendance, chaque appel d'extension, chaque brique qui sollicitait un service hors de Chine. Nous avons travaillé avec l'équipe technique de Bassetti, qui connaissait son installation sur le bout des doigts. Ce qui lui manquait, c'était de voir comment tout cela se comportait une fois passé le pare-feu.
 
-Les conclusions ont confirmé nos hypothèses :
+Les conclusions n'ont guère surpris :
 
 | Problème | Correctif |
 |---|---|
 | Google Fonts bloquées en Chine | Retrait et bascule vers des polices hébergées localement |
 | reCAPTCHA hors service | Alternative compatible avec la Chine |
-| CDN routé via des serveurs étrangers | Bascule sur une infrastructure basée en Chine |
+| CDN routé via des serveurs étrangers | Bascule sur une infrastructure hébergée en Chine |
 | Plusieurs extensions bloquées ou inopérantes | Remplacées, supprimées ou corrigées |
 | Conflits côté thème | Correctifs sur mesure, développés et testés |
 
-## La réponse : substitutions ciblées, code sur mesure et tests grandeur nature
+## La réponse : remplacements propres, code sur mesure et tests réels
 
-Certains correctifs relevaient de la simple permutation. D'autres, liés au thème, n'avaient pas de solution sur étagère. Nous avons écrit du code sur mesure pour chacun. L'ensemble a été testé depuis de vraies connexions chinoises, dans les conditions réelles du terrain.
+Certains points se réglaient par un simple remplacement. Mais quelques blocages liés au thème n'avaient aucune solution toute faite : nous avons écrit des correctifs sur mesure. Puis nous avons tout testé depuis de vraies connexions en Chine continentale. Pas de VPN, pas de proxy, les conditions réelles du terrain.
 
-Côté opérationnel, nous avons pris en main la configuration du domaine .cn et accompagné Bassetti tout au long de la procédure d'enregistrement ICP. Pour qui n'y a jamais touché, l'ICP fait partie de ces étapes réglementaires qui désarçonnent la plupart des entreprises étrangères au premier passage. Nous avons ensuite mis en production l'hébergement sur des serveurs situés en Chine, puis structuré un contrat de support et de maintenance.
+Côté opérations, nous avons pris en charge la configuration du domaine .cn et accompagné Bassetti dans le dépôt ICP. Quand on n'y a jamais touché, l'ICP fait partie de ces formalités réglementaires qui prennent au dépourvu la plupart des entreprises étrangères. Nous avons ensuite installé l'hébergement sur des serveurs en Chine, puis mis en place un contrat de support et de maintenance.
 
-## Le verdict : en ligne en six semaines
+## Le résultat : en ligne en six semaines
 
-Six semaines du coup d'envoi à la mise en ligne. Le site chinois de Bassetti est sorti en pleine conformité, avec des temps de chargement rapides depuis le continent, sans ressource bloquée ni dépendance résiduelle pointant hors de Chine.
+Du cadrage à la mise en ligne, six semaines. Le site chinois de Bassetti est entré en service en pleine conformité, rapide à charger depuis le continent, sans ressource bloquée ni dépendance résiduelle hors de Chine.
 
-Les équipes sur place pouvaient enfin transmettre une URL à leurs interlocuteurs chinois en sachant qu'elle se chargerait. Au bout de six semaines de chantier, c'est ce qui comptait à leurs yeux.
+Les équipes sur place pouvaient enfin donner une adresse à leurs contacts chinois, certaines qu'elle se chargerait. Après six semaines de travail, le reste comptait peu.
 
-> « Ce qui nous a le plus marqués, c'est leur double culture. Ils maîtrisent WordPress de bout en bout et savent précisément ce que réclame le marché chinois. Jamais eu besoin de nous répéter. »
+> « Ce qui nous a le plus frappés, c'est leur connaissance des deux mondes. Ils maîtrisent WordPress de A à Z et savent exactement ce qu'exige le marché chinois. Nous n'avons jamais eu à répéter quoi que ce soit. »
 >
 > **Mohamed V.**, Directeur des technologies web, Bassetti

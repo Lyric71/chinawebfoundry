@@ -7,24 +7,24 @@ import { trustPoints as trustPointsEn } from '../data/trustPoints';
 const problemsFr: Problem[] = [
   {
     title: 'Votre discours sonne comme un texte étranger',
-    description: 'Le lecteur chinois cherche des repères que les marques étrangères mettent rarement en avant. Cautions tierces, partenaires reconnus, biographie du fondateur, certifications obtenues, distinctions reçues. Un rédacteur chinois sait dans quel ordre les disposer pour retenir l\'attention.',
+    description: 'Le lecteur chinois cherche des repères que les marques étrangères mettent rarement en avant. Cautions tierces, partenaires reconnus, biographie du fondateur, certifications obtenues, distinctions reçues. Un rédacteur chinois sait dans quel ordre les disposer pour retenir l’attention.',
   },
   {
     title: 'Votre interface dépayse vos visiteurs',
-    description: 'En Chine, le site se lit sur mobile, le plus souvent à l\'intérieur du navigateur intégré à WeChat. Pages denses, défilement long, marqueurs de confiance posés dès l\'ouverture. Le minimalisme à l\'occidentale donne ici l\'impression d\'un site vide, parfois même inachevé.',
+    description: 'En Chine, le site se lit sur mobile, le plus souvent à l’intérieur du navigateur intégré à WeChat. Pages denses, défilement long, marqueurs de confiance posés dès l’ouverture. Le minimalisme à l’occidentale donne ici l’impression d’un site vide, parfois même inachevé.',
   },
   {
     title: 'Baidu ignore votre existence',
-    description: 'D\'autres signaux, d\'autres règles d\'indexation. En l\'absence de licence ICP et d\'hébergement local, Baidu indexe mal votre site, et parfois ne l\'indexe pas du tout. Les méthodes éprouvées sur Google ne s\'y transposent pas.',
+    description: 'D’autres signaux, d’autres règles d’indexation. En l’absence de licence ICP et d’hébergement local, Baidu indexe mal votre site, et parfois ne l’indexe pas du tout. Les méthodes éprouvées sur Google ne s’y transposent pas.',
     citation: 'Baidu capte près de la moitié de la recherche chinoise. Google plafonne sous les 3 %. Source : Statcounter Global Stats, Chine, 2024.',
   },
   {
-    title: 'Pour de nombreux acheteurs chinois, l\'IA a déjà supplanté la recherche',
-    description: 'Doubao, Kimi, DeepSeek, le Wenxin de Baidu : les questions qui passaient hier par un moteur trouvent aujourd\'hui leurs réponses chez ces IA. L\'utilisateur clique rarement. Un site qui ne se prête pas à la citation par ces IA reste hors champ.',
+    title: 'Pour de nombreux acheteurs chinois, l’IA a déjà supplanté la recherche',
+    description: 'Doubao, Kimi, DeepSeek, le Wenxin de Baidu : les questions qui passaient hier par un moteur trouvent aujourd’hui leurs réponses chez ces IA. L’utilisateur clique rarement. Un site qui ne se prête pas à la citation par ces assistants reste hors champ.',
   },
   {
-    title: 'Hors de Chine, l\'hébergement reste le maillon faible',
-    description: 'Pages qui peinent à se charger, extensions hors service, scripts qui lâchent en silence derrière le Pare-feu. L\'infrastructure pose les fondations. Une fois ces fondations stables, c\'est la résonance de la marque qui fait revenir les clients.',
+    title: 'Hors de Chine, l’hébergement reste le maillon faible',
+    description: 'Pages qui peinent à se charger, extensions hors service, scripts qui lâchent en silence derrière le Pare-feu. L’infrastructure pose les fondations. Une fois ces fondations stables, c’est la résonance de la marque qui fait revenir les clients.',
   },
 ];
 

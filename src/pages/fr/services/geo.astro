@@ -17,7 +17,7 @@ const engines = [
     cn: '深度',
     name: 'DeepSeek',
     enLabel: '深度求索',
-    body: "Privilégie le contenu structuré, techniquement irréprochable, issu de sites officiels. Si votre site charge lentement depuis la Chine ou s’appuie sur des ressources bloquées par le Great Firewall (防火长城), DeepSeek ne vous voit tout simplement pas.",
+    body: "Privilégie le contenu structuré, techniquement irréprochable, issu de sources officielles. Si votre site charge lentement depuis la Chine ou s’appuie sur des ressources bloquées par le Great Firewall (防火长城), DeepSeek ne vous voit pas, tout simplement.",
     tag: 'Long format, structuré',
     chips: ['JSON-LD', 'SSR', 'Vitesse', 'Sans dépendances bloquées'],
   },
@@ -26,7 +26,7 @@ const engines = [
     cn: '豆包',
     name: 'Doubao',
     enLabel: '字节跳动',
-    body: 'Le porte-étendard de ByteDance, qui puise massivement dans son propre écosystème : Toutiao (今日头条), Douyin (抖音), Baijiahao (百家号). Optimiser pour Doubao, c’est nourrir le graphe ByteDance en parallèle de votre site.',
+    body: 'Le porte-étendard de ByteDance, qui puise massivement dans son propre écosystème : Toutiao (今日头条), Douyin (抖音), Baijiahao (百家号). Optimiser pour Doubao, c’est nourrir le graphe ByteDance autant que votre propre site.',
     tag: 'Graphe ByteDance',
     chips: ['Toutiao', 'Douyin', 'Baijiahao', 'Syndication'],
   },
@@ -63,7 +63,7 @@ const services = [
   {
     n: '01',
     title: 'Diagnostic de visibilité',
-    body: 'Une matrice structurée de 80 à 150 requêtes lancées sur les cinq plateformes chinoises, depuis de vrais appareils à Shanghai, Pékin et Shenzhen, sur des réseaux résidentiels et professionnels, jamais sur VPN.',
+    body: 'Une matrice de 80 à 150 requêtes lancées sur les cinq plateformes chinoises, depuis de vrais appareils à Shanghai, Pékin et Shenzhen, sur des réseaux résidentiels et professionnels, jamais sur VPN.',
     bullets: [
       'Taux de citation : à quelle fréquence votre marque apparaît dans les réponses pertinentes.',
       'Rang de recommandation : votre place quand le moteur énumère les options.',
@@ -74,7 +74,7 @@ const services = [
   {
     n: '02',
     title: 'Audit des sources',
-    body: 'Les moteurs d’IA récompensent la preuve vérifiable. Numéros de brevet, rapports de laboratoires indépendants, normes publiées : ce qu’on appelle du contenu T1. Le contenu marketing sans appui externe, c’est du T3, ignoré ou marqué comme peu fiable. On cartographie chaque affirmation de votre site et on reconstruit les points faibles avec des éléments de preuve que l’IA peut valider.',
+    body: 'Les moteurs d’IA récompensent la preuve vérifiable. Numéros de brevet, rapports de laboratoires indépendants, normes publiées : ce qu’on appelle du contenu T1. Le contenu marketing sans appui externe, c’est du T3, ignoré ou signalé comme peu fiable. On cartographie chaque affirmation de votre site et on reconstruit les points faibles avec des éléments de preuve que l’IA peut valider.',
     tag: 'p.10',
   },
   {
@@ -164,7 +164,7 @@ const evidenceTiers = [
     body: 'Affirmations de marque sans appui externe. Ignorées ou signalées comme peu fiables.',
     weight: 15,
     color: 'red',
-    examples: ['« Le meilleur »', '« Leader du marché »', 'Sans source', 'Slogan seul'],
+    examples: ['« Le meilleur »', '« Leader du marché »', 'Sans source', 'Slogan seul'],
   },
 ];
 
@@ -236,7 +236,7 @@ const faqs = [
     id: 'how-long',
     question: 'Combien de temps avant de voir les citations décoller ?',
     answer: [
-      'Audit et fondations : 4 à 6 semaines. Production éditoriale et syndication : trois à quatre mois. Au sixième mois, la plupart des clients constatent une vraie progression sur au moins deux plateformes. La couverture pleine s’établit en général entre le neuvième et le douzième mois. Quiconque vous promet une part de citation IA en trente jours vend autre chose.',
+      'Audit et fondations : 4 à 6 semaines. Production éditoriale et syndication : 3 à 4 mois. Au sixième mois, la plupart des clients constatent une vraie progression sur au moins deux plateformes. La couverture pleine s’établit en général entre le neuvième et le douzième mois. Quiconque vous promet une part de citation IA en 30 jours vend autre chose.',
     ],
   },
   {
@@ -271,7 +271,7 @@ const faqs = [
     id: 'cost',
     question: "Combien coûte un programme GEO China ?",
     answer: [
-      'Cela dépend du périmètre : nombre de gammes ou d’axes, profondeur du capital éditorial existant, plateformes à couvrir intégralement, intégration ou non de la production de contenu chinois et du SEO Baidu. Décrivez-nous le périmètre, nous revenons sous deux jours ouvrés avec un chiffre ferme.',
+      'Cela dépend du périmètre : nombre de gammes ou d’axes, profondeur du capital éditorial existant, plateformes à couvrir intégralement, intégration ou non de la production de contenu chinois et du SEO Baidu. Décrivez-nous le vôtre, nous revenons sous deux jours ouvrés avec un chiffre ferme.',
     ],
   },
 ];
@@ -322,7 +322,7 @@ const pageLd = [...serviceLd];
           </h1>
 
           <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
-            L’optimisation pour les moteurs génératifs, à destination du marché chinois. Nous faisons de votre contenu la réponse que DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA jugent assez fiable pour la rendre aux internautes. <span class="text-white font-medium">Une seule réponse par question, votre marque dedans.</span>
+            L’optimisation pour les moteurs génératifs, version marché chinois. Nous faisons de votre contenu la réponse que DeepSeek, Doubao, Kimi, Yuanbao et Baidu IA servent aux internautes. <span class="text-white font-medium">Une seule réponse par question, votre marque dedans.</span>
           </p>
 
           <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
@@ -476,7 +476,7 @@ const pageLd = [...serviceLd];
             La Chine compte plus de 600 millions d’utilisateurs d’IA générative en 2026, selon le CNNIC. Une part croissante d’acheteurs ouvre sa recherche en interrogeant DeepSeek, Doubao ou Yuanbao, plutôt qu’en saisissant une requête.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            Le GEO consiste à devenir la source que l’IA cite quand on lui pose une question. Le SEO s’en rapproche, mais les règles diffèrent, et en Chine elles diffèrent encore de tout ce qui marche sur ChatGPT ou Perplexity.
+            Le GEO consiste à devenir la source que l’IA cite quand on lui pose une question. Le SEO s’en rapproche, mais les règles ne sont pas les mêmes, et en Chine elles s’éloignent encore de tout ce qui marche sur ChatGPT ou Perplexity.
           </p>
 
           <div class="flex flex-wrap items-center gap-2.5">
@@ -664,7 +664,7 @@ const pageLd = [...serviceLd];
           Ce que recouvre vraiment le GEO China.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Six chantiers menés ensemble. Sautez l’un d’eux, les autres cessent de composer.
+          Six chantiers menés de front. Sautez-en un, les autres ne composent plus.
         </p>
       </div>
 

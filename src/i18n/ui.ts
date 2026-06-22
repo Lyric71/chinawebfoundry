@@ -113,15 +113,15 @@ export const ui = {
     'nav.technology': 'Technologie',
 
     // Navigation service descriptions
-    'nav.desc.strategyAudit': 'Jauger votre degré de préparation',
+    'nav.desc.strategyAudit': 'Voir où vous en êtes pour la Chine',
     'nav.desc.chinaMigration': 'Basculer votre site derrière le Grand Pare-feu',
     'nav.desc.uxUiDesign': 'Penser l\'interface pour les internautes chinois',
     'nav.desc.technicalIntegration': 'CDN, paiements, performance',
     'nav.desc.pluginsExtensions': 'Remplacer les extensions bloquées',
     'nav.desc.baiduSeo': 'Vous rendre visible sur le premier moteur de Chine',
-    'nav.desc.geo': 'Apparaître dans les réponses des IA',
-    'nav.desc.chineseContent': 'Des textes écrits en chinois, qui convertissent',
-    'nav.desc.chinaHosting': 'Serveurs rapides, licence ICP au clair',
+    'nav.desc.geo': 'Être cité par les IA',
+    'nav.desc.chineseContent': 'Des textes en chinois qui font vendre',
+    'nav.desc.chinaHosting': 'Serveurs rapides, licence ICP en règle',
     'nav.desc.maintenanceSupport': 'Mises à jour et supervision en continu',
     'nav.desc.chinaSiteScanner': 'Tester votre site face à la réalité chinoise',
     'nav.desc.chinaWebGuide': 'Le guide pour décoder le web chinois',
@@ -143,10 +143,10 @@ export const ui = {
     'nav.label.wechat': 'WeChat',
 
     // Footer
-    'footer.manifesto': 'Des sites pensés pour la manière dont les internautes chinois naviguent, lisent et achètent vraiment. Une équipe sur place, des standards internationaux. De la stratégie à la mise en ligne, et bien au-delà.',
+    'footer.manifesto': 'Des sites taillés pour la façon dont les internautes chinois naviguent, lisent et achètent réellement. Une équipe sur place, des standards internationaux. De la stratégie à la mise en ligne, et longtemps après.',
     'footer.services': 'Prestations',
     'footer.company': 'L\'agence',
-    'footer.connect': 'Contact',
+    'footer.connect': 'Nous joindre',
     'footer.ourWork': 'Nos réalisations',
     'footer.copyright': 'Copyright',
     'footer.contact': 'Contact',

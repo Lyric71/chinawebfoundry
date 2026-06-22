@@ -5,10 +5,10 @@ import FAQItem from '../../components/pages/FAQItem.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
 const metaTitle = 'WordPress en Chine | Ce qui tient, ce qu’il faut revoir | ChinaWebFoundry';
-const metaDescription = 'WordPress tient bien en Chine continentale dès qu’il est bâti pour. Les usages où il s’impose, les refontes que le Grand Pare-feu impose, et les alternatives qui ne tiennent pas la distance.';
+const metaDescription = 'WordPress tient bien en Chine continentale, à condition d’être construit pour. Les usages où il s’impose, ce que le Grand Pare-feu oblige à revoir, et les alternatives qui ne tiennent pas la distance.';
 
 const stats = [
-  { value: 43, suffix: '%', label: 'des sites Web fonctionnent sous WordPress', source: 'W3Techs, 2024' },
+  { value: 43, suffix: '%', label: 'des sites web fonctionnent sous WordPress', source: 'W3Techs, 2024' },
   { value: 20, suffix: '+', label: 'ans de WordPress en Chine', source: 'Implantés à Shanghai depuis 2005' },
   { value: 50, suffix: '+', label: 'sites internationaux mis en ligne derrière le Pare-feu', source: 'Tous secteurs confondus' },
 ];
@@ -42,13 +42,13 @@ const useCases = [
   {
     icon: 'sliders',
     title: 'Sites à logique métier',
-    body: 'Espaces membres, captation de prospects conditionnelle, contenus réservés, outillage commercial. L’écosystème d’extensions couvre l’essentiel sans le moindre développement sur mesure.',
+    body: 'Espaces membres, formulaires de capture conditionnels, contenus réservés, outils pour les commerciaux. L’écosystème d’extensions couvre l’essentiel sans le moindre développement sur mesure.',
     span: 'normal',
   },
   {
     icon: 'layers',
     title: 'Sites bâtis avec un constructeur de pages',
-    body: 'La majorité des sites que nous reprenons reposent sur Elementor, Divi ou Gutenberg. Les trois tiennent la route une fois les dépendances purgées. Gutenberg garde l’avantage : plus léger, plus simple à maintenir rapide sur un serveur chinois.',
+    body: 'La majorité des sites que nous reprenons reposent sur Elementor, Divi ou Gutenberg. Les trois tiennent la route une fois les dépendances purgées. Gutenberg garde l’avantage : plus léger, plus simple à garder rapide sur un serveur chinois.',
     span: 'wide',
     badges: ['Elementor', 'Divi', 'Gutenberg'],
   },
@@ -88,7 +88,7 @@ const changeGroups = [
       {
         icon: 'blocks',
         title: 'Constructeurs de pages',
-        body: 'Chaque builder réclame un nettoyage ciblé. Nous coupons les chargeurs Google Fonts, nous rapatrions les bibliothèques d’icônes externes en local, et nous désactivons tout appel vers un service bloqué.',
+        body: 'Chaque constructeur réclame un nettoyage ciblé. Nous coupons les chargeurs Google Fonts, nous rapatrions les bibliothèques d’icônes externes en local, et nous désactivons tout appel vers un service bloqué.',
       },
     ],
   },
@@ -125,7 +125,7 @@ const changeGroups = [
       {
         icon: 'refresh',
         title: 'Mises à jour automatiques',
-        body: 'Le noyau et les extensions interrogent wordpress.org, et l’appel arrive souvent à expiration depuis la Chine. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles.',
+        body: 'Le noyau et les extensions interrogent wordpress.org, et la requête expire souvent depuis la Chine. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles.',
       },
       {
         icon: 'shield',
@@ -182,7 +182,7 @@ const chinaStack = [
 const elementorItems = [
   {
     label: 'Polices',
-    body: 'Elementor charge Google Fonts par défaut, et l’appel échoue à résoudre en Chine. Nous auto-hébergeons les fontes, ou nous les remplaçons par des polices qui couvrent à la fois les glyphes latins et chinois.',
+    body: 'Elementor charge Google Fonts par défaut, et la requête n’aboutit pas en Chine. Nous auto-hébergeons les fontes, ou nous les remplaçons par des polices qui couvrent à la fois les glyphes latins et chinois.',
   },
   {
     label: 'Widgets et composants',
@@ -207,7 +207,7 @@ const faqs = [
   {
     id: 'wp-marketing-team',
     question: 'Notre équipe marketing pourra-t-elle continuer à mettre à jour le site WordPress ?',
-    answer: 'Oui. WordPress reste WordPress. L’interface d’administration ne bouge pas, le circuit éditorial non plus, et les rôles utilisateurs continuent de se comporter comme à l’accoutumée. Les retouches que nous opérons en arrière-plan restent, pour l’essentiel, invisibles côté rédaction.',
+    answer: 'Oui. WordPress reste WordPress. L’interface d’administration ne bouge pas, le circuit éditorial non plus, et les rôles utilisateurs continuent de se comporter comme à l’accoutumée. Les retouches que nous faisons en arrière-plan restent, pour l’essentiel, invisibles côté rédaction.',
   },
   {
     id: 'wp-vs-astro-speed',
@@ -222,7 +222,7 @@ const faqs = [
   {
     id: 'wp-auto-updates',
     question: 'Et les mises à jour automatiques d’extensions depuis wordpress.org ?',
-    answer: 'Elles échouent ou arrivent à expiration le plus souvent depuis la Chine, parce que le dépôt wordpress.org répond mal, voire pas du tout, sur les réseaux chinois. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles. Dans les deux cas, votre équipe n’a pas à s’en occuper au quotidien.',
+    answer: 'Elles échouent ou expirent le plus souvent depuis la Chine, parce que le dépôt wordpress.org répond mal, voire pas du tout, sur les réseaux chinois. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles. Dans les deux cas, votre équipe n’a pas à s’en occuper au quotidien.',
   },
   {
     id: 'wp-multilingual',
@@ -247,7 +247,7 @@ const faqs = [
   {
     id: 'wp-hosting-provider',
     question: 'Quel hébergeur WordPress convient le mieux pour la Chine ?',
-    answer: 'Nous travaillons avec Aliyun, Tencent Cloud et Huawei Cloud selon les projets. Les trois disposent de licences continentales, les trois affichent de bonnes performances, et les trois portent correctement la pile WordPress. Aliyun reste le choix par défaut sur les sites marketing. Tencent Cloud se montre solide sur les projets qui s’intègrent à WeChat. Huawei Cloud revient plus souvent chez les clients déjà installés sur l’écosystème Huawei par ailleurs. Nous pilotons le compte d’hébergement, le dépôt ICP et les opérations serveur au quotidien, pour que vous n’ayez jamais à entrer dans un panneau de contrôle d’hébergement chinois par vous-même.',
+    answer: 'Nous travaillons avec Aliyun, Tencent Cloud et Huawei Cloud selon les projets. Les trois disposent de licences continentales, les trois affichent de bonnes performances, et les trois portent correctement la pile WordPress. Aliyun reste le choix par défaut sur les sites marketing. Tencent Cloud se montre solide sur les projets qui s’intègrent à WeChat. Huawei Cloud revient plus souvent chez les clients déjà installés sur l’écosystème Huawei par ailleurs. Nous pilotons le compte d’hébergement, le dépôt ICP et les opérations serveur au quotidien, pour que vous n’ayez jamais à mettre les mains dans une console d’hébergement chinoise.',
   },
 ];
 
@@ -366,7 +366,7 @@ const faqLd = {
             Le moteur WordPress fonctionne en Chine.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            WordPress fonctionne en Chine. Le noyau, le code livré par wordpress.org, le circuit de publication standard : tout se comporte de la même manière sur un serveur shanghaien que sur un serveur londonien. Le wp-admin reste accessible sans VPN.
+            Le cœur de WordPress tourne sans souci en Chine. Le noyau, le code livré par wordpress.org, le circuit de publication standard : tout se comporte pareil sur un serveur shanghaïen que sur un serveur londonien. Le wp-admin reste accessible sans VPN.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
             L’écueil vient de ses dépendances par défaut. Les thèmes appellent Google Fonts. Les extensions interrogent des API situées hors du Pare-feu. Les bibliothèques se chargent depuis des CDN bloqués. Les contenus intégrés pointent vers YouTube. L’outil de mesure d’audience interroge Google.
@@ -418,7 +418,7 @@ const faqLd = {
           </h2>
         </div>
         <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed lg:max-w-md">
-          La bonne réponse pour un éventail précis de besoins. Sur ces terrains, l’outil reste devant.
+          La bonne réponse pour une poignée de besoins bien précis. Sur ces terrains, l’outil reste devant.
         </p>
       </div>
 
@@ -514,7 +514,7 @@ const faqLd = {
           Les cas où Astro l’emporte.
         </h2>
         <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-          Nous construisons avec les deux, ce qui nous autorise à être honnêtes sur le bon outil pour le bon projet. Astro joue la carte du statique d’abord. Il file vite sur les réseaux mobiles chinois et représente la meilleure réponse pour une partie des projets.
+          Nous construisons avec les deux, ce qui nous autorise à être honnêtes sur le bon outil pour le bon projet. Astro joue la carte du statique d’abord. Il file vite sur les réseaux mobiles chinois, et c’est la meilleure réponse pour une partie des projets.
         </p>
       </div>
 
@@ -613,7 +613,7 @@ const faqLd = {
             Ce que nous retouchons pour que WordPress tienne en Chine.
           </h2>
           <p class="text-base lg:text-lg text-white/75 leading-relaxed">
-            Une installation WordPress par défaut s’effondre en Chine dès le premier chargement. Voici ce que nous retouchons, regroupé par couche de travail.
+            Une installation WordPress par défaut s’effondre en Chine dès le premier chargement. Voici ce que nous reprenons, couche par couche.
           </p>
         </div>
       </div>
@@ -746,7 +746,7 @@ const faqLd = {
             Un site Elementor qui file sans accroc à Paris se traîne ou s’effondre presque toujours depuis Shanghai. Ses réglages d’usine en sont la cause directe.
           </p>
           <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-            Une fois assaini, Elementor sert convenablement les marques internationales dont l’équipe Chine doit pouvoir mettre le site à jour sans dépendre d’un développeur.
+            Une fois assaini, Elementor convient bien aux marques internationales dont l’équipe Chine doit pouvoir mettre le site à jour sans dépendre d’un développeur.
           </p>
         </div>
 
@@ -837,7 +837,7 @@ const faqLd = {
           Le temps que cela demande.
         </h2>
         <p class="mt-4 text-lg text-[var(--color-text-body)] leading-relaxed">
-          Le dépôt ICP se trouve presque toujours sur le chemin critique. Nous le lançons dès le premier jour.
+          Le dépôt ICP menace presque toujours de bloquer le calendrier. Nous le lançons dès le premier jour.
         </p>
       </div>
 

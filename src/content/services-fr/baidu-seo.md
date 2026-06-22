@@ -1,9 +1,9 @@
 ---
 title: "Référencement Baidu"
 shortTitle: "SEO"
-description: "Se positionner sur Baidu demande une stratégie radicalement différente de Google. Nous optimisons la structure de votre site WordPress, ses métadonnées, son contenu et son profil de liens pour l'algorithme de Baidu et ses protocoles de soumission."
+description: "Se classer sur Baidu n'a presque rien à voir avec Google. Nous réglons la structure de votre site, son contenu, ses métadonnées et son autorité pour l'algorithme de Baidu et ses protocoles de soumission, le tout piloté depuis la Chine."
 metaTitle: "Référencement Baidu pour marques internationales | ChinaWebFoundry"
-metaDescription: "Faites-vous trouver par les acheteurs chinois sur le moteur qu’ils utilisent vraiment. Référencement Baidu piloté depuis la Chine par des spécialistes qui suivent chaque mise à jour algorithmique."
+metaDescription: "Faites-vous trouver par les acheteurs chinois sur le moteur qu’ils utilisent vraiment. Référencement Baidu piloté depuis Shanghai par une équipe qui suit chaque évolution de l’algorithme."
 icon: "search"
 order: 6
 keywords: ["référencement baidu wordpress", "optimisation wordpress baidu", "seo chine", "positionnement baidu", "recherche mots-clés chinois"]

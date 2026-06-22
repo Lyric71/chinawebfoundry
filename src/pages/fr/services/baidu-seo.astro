@@ -15,40 +15,40 @@ const whyDifferent = [
   {
     n: '01',
     cn: '算法',
-    title: 'Baidu récompense d’autres choses',
-    body: '知心算法 (Zhixin) reconnaît désormais plus de 200 relations sémantiques dans les requêtes en chinois. 飓风算法 3.0 sanctionne le contenu IA mal relu. La copie traduite mot pour mot perd vite ses positions.',
+    title: 'Baidu ne récompense pas les mêmes choses',
+    body: 'L’algorithme 知心 (Zhixin) lit aujourd’hui plus de 200 relations sémantiques dans une requête chinoise. 飓风算法 3.0 sanctionne le contenu IA bâclé. Et une page traduite au mot à mot décroche vite.',
     tag: 'Critères de classement',
     chips: ['知心算法', '飓风算法 3.0', 'Original ZH', 'Sémantique'],
   },
   {
     n: '02',
     cn: '蜘蛛',
-    title: 'Baidu Spider joue avec un autre rythme',
-    body: "Baidu Spider rend le JavaScript avec plusieurs années de retard sur Googlebot : tout contenu chargé côté client passe souvent à la trappe. Le crawl en priorité mobile est exigé, le chargement sous trois secondes est un seuil dur, le HTTPS un signal positif.",
+    title: 'Baidu Spider n’avance pas au même rythme',
+    body: "Sur le rendu JavaScript, Baidu Spider a des années de retard sur Googlebot : ce qui se charge côté client lui échappe le plus souvent. Il indexe d’abord la version mobile, exige un affichage sous trois secondes et lit le HTTPS comme un gage de sérieux.",
     tag: 'Crawl et rendu',
     chips: ['Baiduspider', 'Priorité mobile', 'SSR / static', 'HTTPS'],
   },
   {
     n: '03',
     cn: '主机',
-    title: 'L’emplacement de l’hébergement est un signal',
-    body: 'Les sites sans dépôt ICP sont pénalisés dans l’index. À contenu identique, un hébergement continental surclasse un site logé à Hong Kong ou à l’étranger. Un signal structurel, qui pèse sur chaque requête.',
+    title: 'L’emplacement de l’hébergement compte',
+    body: 'Sans licence ICP, un site est rétrogradé dans l’index. À contenu égal, un hébergement en Chine continentale passe devant un site logé à Hong Kong ou à l’étranger. C’est un signal de fond, qui joue sur chaque requête.',
     tag: 'Infrastructure',
     chips: ['ICP', 'Continental', 'Aliyun', 'Tencent Cloud'],
   },
   {
     n: '04',
     cn: '推送',
-    title: 'Le modèle de soumission est différent',
-    body: "Baidu ne trouve pas votre contenu tout seul. Il attend qu’on lui pousse les nouvelles URL via 主动推送 (Active Push) dans les minutes qui suivent la publication. On câble le push directement dans le CMS.",
+    title: 'On ne soumet pas ses pages de la même façon',
+    body: "Baidu ne va pas dénicher vos pages tout seul. Il faut lui pousser chaque nouvelle URL via 主动推送 (Active Push) dans les minutes qui suivent la publication. On branche ce push directement dans le CMS.",
     tag: 'Soumission',
     chips: ['主动推送', '自动推送', 'Sitemap', '手工提交'],
   },
   {
     n: '05',
     cn: '关键词',
-    title: 'La recherche de mots-clés se fait en chinois, depuis la page blanche',
-    body: 'Ce que les internautes chinois cherchent réellement n’a presque rien à voir avec une liste de mots-clés anglais traduite. On travaille avec 百度指数 (Baidu Index) et 百度关键词规划师 pour bâtir la cartographie depuis la page blanche.',
+    title: 'Les mots-clés se cherchent en chinois, page blanche',
+    body: 'Ce que tapent vraiment les internautes chinois n’a presque rien à voir avec une liste de mots-clés anglais passée au traducteur. On repart de zéro avec 百度指数 (Baidu Index) et 百度关键词规划师 pour dresser la cartographie.',
     tag: 'Découverte',
     chips: ['百度指数', '关键词规划师', '5118', 'Longue traîne'],
   },
@@ -58,37 +58,37 @@ const services = [
   {
     n: '01',
     title: 'SEO technique pour Baidu',
-    body: 'Vérification du site sur 百度搜索资源平台. Les quatre méthodes de soumission d’URL configurées par ordre de priorité, plus 死链提交, 站点子链 et la vérification du crawl en priorité mobile. Vitesse mesurée depuis la Chine continentale.',
+    body: 'On vérifie le site sur 百度搜索资源平台, puis on configure les quatre méthodes de soumission d’URL par ordre de priorité, avec 死链提交, 站点子链 et le contrôle du crawl mobile. La vitesse, on la mesure depuis la Chine continentale.',
     bullets: [
-      '主动推送 (Active Push) câblé dans le CMS pour la soumission en temps réel.',
-      '自动推送 (Auto Push) en JS pour rattraper les URL visitées avant le déclenchement du hook CMS.',
-      'Sitemap complet, rafraîchi automatiquement (50 000 URL / 10 Mo max par fichier).',
-      '手工提交 en dernier recours pour les pages à forte valeur.',
+      '主动推送 (Active Push) branché dans le CMS pour pousser chaque URL en temps réel.',
+      '自动推送 (Auto Push) en JavaScript pour rattraper les URL visitées avant que le hook du CMS ne se déclenche.',
+      'Sitemap complet, rafraîchi tout seul (50 000 URL et 10 Mo maximum par fichier).',
+      '手工提交 en dernier recours, réservé aux pages à forte valeur.',
     ],
     tag: 'p.04',
   },
   {
     n: '02',
     title: 'Contenu chinois natif, structuré pour Baidu',
-    body: 'Baidu valorise 深度原创. 飓风算法 déclasse les pages minces ou copiées, 飓风算法 3.0 vise le contenu IA sans relecture humaine. On écrit avec des éditeurs natifs chinois : format long, balisage Schema, réponses factuelles que les IA peuvent citer.',
+    body: 'Baidu récompense le 深度原创, le fond original et fouillé. 飓风算法 déclasse les pages minces ou recopiées, et sa version 3.0 traque le contenu IA publié sans relecture. On écrit avec des rédacteurs chinois natifs : format long, balisage Schema, réponses factuelles qu’une IA peut reprendre telles quelles.',
     tag: 'p.10',
   },
   {
     n: '03',
     title: 'Optimisation pour la recherche IA (文心X1, DeepSeek, Doubao, Kimi)',
-    body: "Plus de 20 % des résultats Baidu en 2025 contenaient une réponse générée par IA. Baidu intègre désormais 文心X1 et la recherche profonde DeepSeek directement dans la page de résultats. On structure le contenu pour que ces moteurs le lisent, le comprennent, et nomment votre marque dans la réponse.",
+    body: "En 2025, plus de 20 % des résultats Baidu affichaient déjà une réponse rédigée par une IA. 文心X1 et la recherche approfondie de DeepSeek sont maintenant branchés au cœur de la page de résultats. On structure le contenu pour que ces moteurs le lisent, le comprennent et citent votre marque dans leur réponse.",
     tag: 'p.16',
   },
   {
     n: '04',
     title: 'Autorité dans l’écosystème web chinois',
-    body: "Vos backlinks internationaux ne pèsent presque rien sur Baidu. Les plateformes qui font réellement bouger les classements : 百度百科, 百度知道, 百度贴吧, 知乎, 百家号, 百度爱采购, plus les portails B2B sectoriels et les signaux WeChat / Weibo. On bâtit la présence et on pilote la syndication.",
+    body: "Vos backlinks internationaux ne pèsent presque rien aux yeux de Baidu. Ce qui fait vraiment bouger les positions, c’est la présence sur 百度百科, 百度知道, 百度贴吧, 知乎, 百家号 et 百度爱采购, sur les portails B2B de votre secteur, sans oublier les signaux WeChat et Weibo. On installe cette présence et on pilote la diffusion.",
     tag: 'p.22',
   },
   {
     n: '05',
     title: 'Optimisation continue et réponse aux algorithmes',
-    body: "Baidu n’annonce pas la plupart de ses mises à jour, et celles qui sortent paraissent en chinois sur le blog 百度搜索资源平台. Sur les douze derniers mois, on a suivi les évolutions de 知心算法, de 飓风算法 3.0 et l’intégration de 文心X1 + DeepSeek. Chacune a redéfini ce qui gagne.",
+    body: "Baidu garde le silence sur la plupart de ses mises à jour, et celles qu’il annonce paraissent en chinois sur le blog 百度搜索资源平台. Sur les douze derniers mois, on a suivi les évolutions de 知心算法 et de 飓风算法 3.0, ainsi que l’arrivée de 文心X1 et de DeepSeek. À chaque fois, les règles du jeu changent.",
     tag: 'p.30',
   },
 ];
@@ -98,7 +98,7 @@ const tools = [
     name: '百度搜索资源平台',
     en: 'Plateforme webmaster Baidu',
     cn: '资源',
-    body: 'La console webmaster officielle : vérification du site, soumission d’URL, sitemaps, rapports d’indexation, test mobile, signalement de liens morts, fil d’annonces algorithmiques.',
+    body: 'La console webmaster officielle. C’est là qu’on vérifie le site, soumet les URL, dépose les sitemaps, lit les rapports d’indexation, teste l’affichage mobile, signale les liens morts et suit les annonces algorithmiques.',
     feature: true,
     items: ['Vérification du site', 'API de push d’URL', 'Sitemap', 'Rapports d’indexation', 'Test mobile', '死链提交', 'Fil algo'],
   },
@@ -106,25 +106,25 @@ const tools = [
     name: '百度统计',
     en: 'Baidu Tongji',
     cn: '统计',
-    body: 'L’équivalent Baidu de Google Analytics. Indispensable pour toute mesure sérieuse côté Chine.',
+    body: 'Le Google Analytics de Baidu. Sans lui, aucune mesure sérieuse côté Chine.',
   },
   {
     name: '百度指数',
     en: 'Baidu Index et Keyword Planner',
     cn: '指数',
-    body: 'Le point de départ d’une vraie recherche de mots-clés en chinois, plutôt qu’une liste anglaise traduite. À utiliser avec 百度关键词规划师.',
+    body: 'Le point de départ d’une vraie recherche de mots-clés chinois, loin d’une liste anglaise passée au traducteur. On l’utilise avec 百度关键词规划师.',
   },
   {
     name: '5118 · 爱站 · 站长之家',
     en: 'Outils SEO chinois tiers',
     cn: '工具',
-    body: 'Souvent une intelligence concurrentielle et un historique de positions plus profonds que les outils officiels.',
+    body: 'Souvent plus riches que les outils officiels sur la veille concurrentielle et l’historique des positions.',
   },
   {
     name: 'API webmaster Baidu',
     en: 'Intégration Active Push',
     cn: '接口',
-    body: 'Pour 主动推送, on câble directement dans le CMS plutôt que de passer par les tableaux de bord.',
+    body: 'Pour 主动推送, on branche l’API directement dans le CMS au lieu de passer par les tableaux de bord.',
   },
 ];
 
@@ -133,64 +133,64 @@ const stages = [
     n: '01',
     cn: '审计',
     title: 'Audit Baidu',
-    body: 'Tests depuis la Chine continentale : indexation, santé du crawl Baiduspider, profondeur du contenu, signaux ICP et hébergement, plus position actuelle sur 50 à 100 mots-clés ciblés.',
+    body: 'On teste tout depuis la Chine continentale : indexation, santé du crawl Baiduspider, profondeur du contenu, signaux ICP et hébergement, et position de départ sur 50 à 100 mots-clés visés.',
     output: 'Rapport d’audit',
   },
   {
     n: '02',
     cn: '关键词',
     title: 'Cartographie des mots-clés',
-    body: 'Recherche en chinois natif via 百度指数 et 关键词规划师. Cartographie avec étiquettes d’intention, volumes et brief de contenu par grappe.',
+    body: 'Recherche en chinois natif avec 百度指数 et 关键词规划师, puis cartographie : intention, volumes et un brief de contenu par grappe.',
     output: 'Carte + briefs',
   },
   {
     n: '03',
     cn: '部署',
     title: 'Déploiement technique',
-    body: 'Vérification du site, 主动推送 câblé dans le CMS, sitemaps, balisage Schema, optimisations mobile et vitesse, llms.txt et structure pour la recherche IA livrés ensemble.',
+    body: 'Vérification du site, 主动推送 branché dans le CMS, sitemaps, balisage Schema, réglages mobile et vitesse, llms.txt et structure pour la recherche IA : tout livré d’un bloc.',
     output: 'Indexation en ligne',
   },
   {
     n: '04',
     cn: '权威',
     title: 'Autorité et contenu',
-    body: 'Contenu chinois natif, plus syndication sur 百家号, 知乎, 百度知道 et les portails sectoriels pertinents. Fiches 百度百科 ajoutées quand la marque est prête.',
+    body: 'Contenu chinois natif, relayé sur 百家号, 知乎, 百度知道 et les portails de votre secteur. Fiches 百度百科 ajoutées une fois la marque prête.',
     output: 'Citations + progression',
   },
   {
     n: '05',
     cn: '迭代',
     title: 'Suivi et itération',
-    body: "Suivi hebdomadaire des positions, rapport mensuel écrit, réaction aux mises à jour algorithmiques dans la même semaine. Baidu change ; l’équipe qui ne suit pas perd ses positions sans comprendre pourquoi.",
+    body: "Positions suivies chaque semaine, rapport mensuel écrit, réaction aux mises à jour dans la semaine. Baidu bouge sans prévenir ; qui ne suit pas perd ses places sans même savoir pourquoi.",
     output: 'Rapport mensuel',
   },
 ];
 
 const stats = [
-  { value: '24-72h', label: 'Indexation via 主动推送', sub: 'Nouvelles URL dans Baidu en quelques heures, là où le crawl naturel demande des semaines.' },
-  { value: '11', label: 'Mises à jour algo suivies en 2025', sub: '知心算法, 飓风算法 3.0, intégration 文心X1.' },
-  { value: '20%+', label: 'Pages Baidu avec réponse IA', sub: '文心X1 et DeepSeek désormais intégrés aux résultats.' },
+  { value: '24-72h', label: 'Indexation via 主动推送', sub: 'Une nouvelle URL entre dans Baidu en quelques heures, quand le crawl naturel met des semaines.' },
+  { value: '11', label: 'Mises à jour algo suivies en 2025', sub: '知心算法, 飓风算法 3.0 et l’arrivée de 文心X1.' },
+  { value: '20%+', label: 'Pages Baidu avec réponse IA', sub: '文心X1 et DeepSeek sont désormais dans les résultats.' },
 ];
 
 const audiences = [
   {
     label: 'Marques étrangères invisibles sur Baidu',
-    description: 'Sociétés dont le site chinois génère moins de cinquante visites organiques par mois depuis Baidu, alors qu’elles paient déjà des annonces sur les mêmes mots-clés.',
+    description: 'Des entreprises dont le site chinois récolte moins de cinquante visites organiques par mois sur Baidu, alors qu’elles paient déjà des annonces sur les mêmes mots-clés.',
     image: '/images/audiences/no-organic-traffic-china.webp',
   },
   {
     label: 'Marques avec un contenu traduit, ancien',
-    description: 'Sites étrangers dont les pages chinoises sont restées de simples traductions et n’ont pas évolué depuis le lancement.',
+    description: 'Des marques étrangères dont les pages chinoises sont restées de simples traductions, figées depuis le lancement.',
     image: '/images/audiences/outdated-translated-content.webp',
   },
   {
     label: 'Marques qui se lancent depuis zéro',
-    description: 'Entreprises qui veulent une visibilité Baidu dès le premier jour, intégrée à la conception du site et au calendrier de mise en ligne.',
+    description: 'Des entreprises qui veulent exister sur Baidu dès le premier jour, avec la visibilité pensée dès la conception du site et le calendrier de lancement.',
     image: '/images/audiences/launching-chinese-market.webp',
   },
   {
     label: 'Marques sérieuses sur la recherche IA',
-    description: 'Équipes qui voient les réponses IA s’afficher en haut des résultats Baidu et veulent que ces moteurs nomment leur marque dans la réponse.',
+    description: 'Des équipes qui voient les réponses IA monter en tête des résultats Baidu et veulent que ces moteurs citent leur marque.',
     image: '/images/audiences/seo-pro-needs-baidu.webp',
   },
 ];
@@ -211,70 +211,70 @@ const faqs = [
     id: 'outside-china',
     question: 'Peut-on piloter le SEO Baidu depuis l’étranger ?',
     answer: [
-      "Techniquement oui, mais avec de fortes limites. La vérification Baidu attend des numéros chinois, le tableau de bord est en chinois, la documentation n’est pas traduite, et beaucoup d’outils Baidu limitent ou bloquent les adresses IP étrangères. La plupart des équipes étrangères qui s’y essaient abandonnent en un trimestre. Nous pilotons depuis Shanghai parce que c’est là que le travail se fait vraiment.",
+      "En théorie oui, mais les obstacles s’accumulent vite. La vérification Baidu réclame un numéro chinois, le tableau de bord est en chinois, la documentation n’est jamais traduite, et beaucoup d’outils brident ou bloquent carrément les adresses IP étrangères. La plupart des équipes qui tentent le coup depuis l’étranger laissent tomber au bout d’un trimestre. Si on pilote depuis Shanghai, c’est que le travail se fait là, pas ailleurs.",
     ],
   },
   {
     id: 'how-long',
     question: 'Combien de temps avant de voir des résultats ?',
     answer: [
-      'Mouvement sur la longue traîne en 6 à 10 semaines. Termes concurrentiels en 3 à 6 mois minimum. Vraie croissance organique sur une courbe de 6 à 12 mois. Indexation des nouveaux contenus via 主动推送 en 24 à 72 heures.',
+      'Les premiers mouvements sur la longue traîne arrivent en 6 à 10 semaines. Les termes concurrentiels, comptez 3 à 6 mois au minimum. La vraie croissance organique se joue sur 6 à 12 mois. Et l’indexation d’un nouveau contenu via 主动推送 tient en 24 à 72 heures.',
     ],
   },
   {
     id: 'no-icp',
     question: 'Et si notre site n’a pas de dépôt ICP ?',
     answer: [
-      'Il se positionnera, mais avec un handicap mesurable. Baidu traite les sites de Hong Kong et offshore comme étrangers, les crawle moins souvent, et les classe en dessous des sites continentaux. Pour une marque sérieuse sur Baidu, l’ICP sur hébergement continental reste le bon choix.',
+      'Il se classera, mais avec un handicap qui se mesure. Baidu range les sites de Hong Kong et offshore parmi les étrangers : il les crawle moins souvent et les place sous les sites continentaux. Pour une marque qui vise vraiment Baidu, l’ICP sur hébergement continental reste le bon choix.',
     ],
   },
   {
     id: 'baidu-ads',
     question: 'Pilotez-vous aussi Baidu Ads (SEM) ?',
     answer: [
-      "Non, nous nous concentrons sur le SEO Baidu organique. Le payant est un métier distinct, mené par d’autres équipes. Nous travaillons aux côtés des partenaires média et veillons à ce que le contenu SEO et les pages d’atterrissage payantes ne se tirent pas dans les pattes.",
+      "Non, on se concentre sur le référencement organique. Le payant est un autre métier, que d’autres équipes mènent mieux. On travaille avec les agences média pour que le contenu SEO et les pages d’atterrissage payantes ne se marchent pas dessus.",
     ],
   },
   {
     id: 'chinese-content',
     question: 'Comment cela s’articule avec le travail de contenu chinois ?',
     answer: [
-      'Étroitement. Faire du SEO Baidu sans contenu chinois natif revient à creuser dans le vide. La plupart de nos clients prennent les deux en une seule mission, l’équipe contenu et l’équipe SEO travaillant sur la même cartographie de mots-clés et la même architecture éditoriale.',
+      'De très près. Faire du SEO Baidu sans contenu chinois natif, c’est pédaler dans le vide. La plupart de nos clients prennent les deux d’un coup : l’équipe contenu et l’équipe SEO partagent la même cartographie de mots-clés et la même architecture éditoriale.',
     ],
   },
   {
     id: 'ai-search',
     question: 'Quid de la visibilité IA sur Doubao, Kimi, DeepSeek, 文心X1 ?',
     answer: [
-      'De plus en plus le même chantier. Baidu intègre désormais 文心X1 et DeepSeek dans plus de 20 % de ses pages de résultats. Structurer le contenu pour les IA (réponses factuelles propres, balisage Schema, llms.txt, structure sémantique) recoupe largement la structure attendue par Baidu. On traite les deux ensemble.',
+      'De plus en plus, c’est le même chantier. 文心X1 et DeepSeek apparaissent maintenant dans plus de 20 % des pages de résultats Baidu. Structurer le contenu pour les IA (réponses factuelles nettes, balisage Schema, llms.txt, structure sémantique) recoupe largement ce qu’attend déjà Baidu. On mène les deux de front.',
     ],
   },
   {
     id: 'links',
     question: 'Faites-vous du netlinking ?',
     answer: [
-      "On bâtit l’autorité sur les plateformes chinoises (百度百科, 百度知道, 知乎, 百家号, 百度爱采购, portails B2B sectoriels) où la présence fait réellement bouger les classements Baidu. Acheter des backlinks génériques chez un courtier occidental ne marche pas et fait courir un risque 飓风算法. L’autorité en Chine se gagne sur les plateformes chinoises, ou pas du tout.",
+      "On construit l’autorité sur les plateformes chinoises (百度百科, 百度知道, 知乎, 百家号, 百度爱采购, portails B2B de chaque secteur), là où la présence pèse vraiment sur les positions Baidu. Acheter des backlinks génériques chez un courtier occidental ne donne rien et vous expose à 飓风算法. En Chine, l’autorité se gagne sur les plateformes chinoises, ou pas du tout.",
     ],
   },
   {
     id: 'measurement',
     question: 'Comment mesurez-vous le succès ?',
     answer: [
-      'Inclusion dans l’index (nombre de pages indexées), positions sur mots-clés (suivi hebdomadaire), trafic organique Baidu (via 百度统计), attribution des conversions, part de voix face à trois à cinq concurrents nommés. Restitution : synthèse mensuelle écrite, doublée d’un tableau de bord en direct.',
+      'Pages indexées, positions sur les mots-clés (relevé chaque semaine), trafic organique Baidu (via 百度统计), conversions attribuées, part de voix face à trois ou cinq concurrents nommés. Côté restitution : une synthèse mensuelle écrite, doublée d’un tableau de bord en direct.',
     ],
   },
   {
     id: 'algorithm-changes',
     question: 'Que faites-vous quand Baidu change son algorithme ?',
     answer: [
-      "On suit chaque semaine les annonces du 百度搜索资源平台 et on réagit dans la semaine quand quelque chose de matériel sort. Sur les douze derniers mois : extensions de 知心算法, 飓风算法 3.0 contre le contenu IA, intégration de 文心X1 dans les résultats, plus plusieurs ajustements mineurs.",
+      "On suit chaque semaine les annonces du 百度搜索资源平台 et on réagit dans la semaine dès que quelque chose d’important tombe. Sur les douze derniers mois : extensions de 知心算法, 飓风算法 3.0 contre le contenu IA, arrivée de 文心X1 dans les résultats, et plusieurs ajustements plus discrets.",
     ],
   },
   {
     id: 'cost',
-    question: 'Quel coût ?',
+    question: 'Quel budget prévoir ?',
     answer: [
-      'Cela dépend du périmètre : taille du site, volume de contenu, intensité concurrentielle, intégration ou non de la production de contenu chinois et de l’optimisation IA. Décrivez-nous le périmètre, nous revenons sous deux jours ouvrés avec un chiffre ferme.',
+      'Tout dépend du périmètre : taille du site, volume de contenu, intensité de la concurrence, présence ou non de la production de contenu chinois et de l’optimisation IA. Décrivez-nous le vôtre, on revient sous deux jours ouvrés avec un chiffre ferme.',
     ],
   },
 ];
@@ -336,7 +336,7 @@ const pageLd = [...serviceLd, faqLd];
           </h1>
 
           <p class="mt-7 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
-            Baidu joue avec son propre crawler, son propre index, sa propre API de soumission, son propre cycle algorithmique, et désormais une couche IA (文心X1, DeepSeek) qui rédige plus de vingt pour cent des résultats. <span class="text-white font-medium">Pilotage depuis Shanghai, sur les outils maison de Baidu.</span>
+            Baidu a son crawler, son index, son API de soumission, son cycle algorithmique à lui, et désormais une couche IA (文心X1, DeepSeek) qui rédige plus de vingt pour cent des résultats. <span class="text-white font-medium">On pilote depuis Shanghai, sur ses outils maison.</span>
           </p>
 
           <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
@@ -457,7 +457,7 @@ const pageLd = [...serviceLd, faqLd];
             <span class="text-[10rem] lg:text-[14rem] font-medium font-[var(--font-heading)] leading-none bg-gradient-to-br from-[var(--color-brand-orange)] via-[#FF7E47] to-[#D94E1F] bg-clip-text text-transparent" data-counter data-counter-suffix="%" data-counter-duration="1800">50</span>
           </div>
           <p class="mt-4 text-base text-[var(--color-text-muted)] max-w-sm">
-            La part de la recherche chinoise qui passe encore par Baidu. La sauter, c’est rater la moitié des points d’entrée du pays avant même que l’IA n’entre dans l’équation.
+            La part de la recherche chinoise qui passe encore par Baidu. L’ignorer, c’est perdre la moitié des portes d’entrée du pays, avant même que l’IA n’entre en jeu.
           </p>
         </div>
 
@@ -467,10 +467,10 @@ const pageLd = [...serviceLd, faqLd];
             La recette Google ne s’exporte pas.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Crawler distinct, API de soumission distincte, cycle algorithmique distinct, définition de l’autorité distincte. Onze évolutions algorithmiques sur 2025, sans compter les deux moteurs IA désormais branchés directement sur les résultats.
+            Un autre crawler, une autre API de soumission, un autre cycle algorithmique, une autre définition de l’autorité. Onze évolutions de l’algorithme rien qu’en 2025, sans compter les deux moteurs IA désormais branchés au cœur des résultats.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            On traite Baidu comme une discipline à part. Une équipe à Shanghai qui surveille les tableaux de bord chaque jour.
+            On traite Baidu comme une discipline à part, avec une équipe à Shanghai qui surveille les tableaux de bord tous les jours.
           </p>
 
           <div class="flex flex-wrap items-center gap-2.5">
@@ -503,7 +503,7 @@ const pageLd = [...serviceLd, faqLd];
           Cinq endroits où chaque équipe se cogne.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Même les équipes SEO chevronnées tombent sur les mêmes cinq murs une fois passé le Great Firewall. Chacun défait un réflexe que la recette Google a mis des années à graver.
+          Même les équipes SEO chevronnées butent sur les mêmes cinq murs une fois passé le Great Firewall. Chacun démonte un réflexe que des années de Google ont gravé.
         </p>
       </div>
 
@@ -564,7 +564,7 @@ const pageLd = [...serviceLd, faqLd];
           À quoi ressemble vraiment le SEO Baidu.
         </h2>
         <p class="text-lg text-white/65 leading-relaxed">
-          Cinq chantiers, menés en parallèle. Sautez-en un et les autres cessent de capitaliser.
+          Cinq chantiers, menés de front. Lâchez-en un, et les autres cessent de capitaliser.
         </p>
       </div>
 
@@ -655,7 +655,7 @@ const pageLd = [...serviceLd, faqLd];
           </h2>
         </div>
         <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed max-w-md">
-          L’outillage côté chinois forme un écosystème à part. La plupart des outils n’ont pas d’équivalent Google, et les tableaux de bord sont en mandarin.
+          Côté chinois, l’outillage forme un monde à part. La plupart de ces outils n’ont aucun équivalent Google, et tout le tableau de bord est en mandarin.
         </p>
       </div>
 
@@ -728,7 +728,7 @@ const pageLd = [...serviceLd, faqLd];
           Cinq étapes, menées comme un seul programme.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Audit dès le premier jour. Indexation en ligne dès la sixième semaine. Citations et progression qui composent à partir du troisième mois.
+          Audit dès le premier jour. Site indexé dès la sixième semaine. Citations et progression qui s’accumulent à partir du troisième mois.
         </p>
       </div>
 
@@ -885,7 +885,7 @@ const pageLd = [...serviceLd, faqLd];
           Prêt à vraiment vous classer sur Baidu ?
         </h2>
         <p class="mt-6 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
-          La plupart des projets en cours associent SEO Baidu, contenu chinois et optimisation pour la recherche IA, parce que les trois sont indissociables sur le terrain. Si vous avez besoin des trois, l’audit stratégique est le point d’entrée habituel.
+          La plupart de nos projets en cours réunissent SEO Baidu, contenu chinois et optimisation pour la recherche IA, parce que sur le terrain on ne peut pas les séparer. Si les trois vous manquent, l’audit stratégique est le point de départ habituel.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button href="/fr/contact/" variant="primary" size="lg">Demander un audit Baidu</Button>
