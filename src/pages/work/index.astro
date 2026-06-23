@@ -3,9 +3,13 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 
-const casestudies = (await getCollection('casestudies'))
-  .filter((cs) => cs.data.published)
-  .sort((a, b) => a.data.order - b.data.order);
+const casestudies = (await getCollection('casestudies')).filter((cs) => cs.data.published);
+
+// Randomise display order so no single project is always shown first.
+for (let i = casestudies.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [casestudies[i], casestudies[j]] = [casestudies[j], casestudies[i]];
+}
 ---
 
 <PageLayout
@@ -28,7 +32,7 @@ const casestudies = (await getCollection('casestudies'))
         </div>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-10">
           <p class="text-lg text-white/60 leading-relaxed">
-            Real results from companies that moved their WordPress sites into China with our team.
+            Real results from companies that brought their websites into China with our team.
           </p>
         </div>
       </div>
@@ -86,7 +90,7 @@ const casestudies = (await getCollection('casestudies'))
         Ready to Be the Next Success Story?
       </h2>
       <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
-        Tell us where you are with China and we will map out what it takes to get your WordPress site performing behind the Great Firewall.
+        Tell us where you are with China and we will map out what it takes to get your site performing behind the Great Firewall.
       </p>
       <Button href="/contact/" variant="primary" size="lg">Talk to Us</Button>
     </div>

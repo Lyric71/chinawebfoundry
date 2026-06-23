@@ -1,7 +1,7 @@
 ---
 title: "Strategie & Audit"
 shortTitle: "Strategie"
-description: "Wir analysieren die China-Reife Ihrer WordPress-Website umfassend, decken blockierende Probleme, Leistungsbremsen und Compliance-Lücken auf und liefern einen klaren Fahrplan für einen erfolgreichen Markteintritt."
+description: "Wir prüfen, wie weit Ihre China-Präsenz heute trägt, benennen die blockierenden Probleme, die Tempobremsen und die offenen Compliance-Punkte und schreiben den Fahrplan, der Sie in der richtigen Reihenfolge zu einem belastbaren Auftritt führt."
 metaTitle: "China-Digitalstrategie und Audit | 4-Wochen-Fahrplan | ChinaWebFoundry"
 metaDescription: "In drei bis vier Wochen entscheiden Sie, was Sie in China bauen, warum und wann. Den schriftlichen Fahrplan liefert ein Shanghaier Team mit über 50 gestarteten Websites."
 icon: "clipboard-check"

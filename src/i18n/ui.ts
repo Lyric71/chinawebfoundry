@@ -301,7 +301,7 @@ export const ui = {
     'nav.desc.baiduSeo': 'Sichtbar in Chinas größter Suchmaschine',
     'nav.desc.geo': 'In den Antworten der KI auftauchen',
     'nav.desc.chineseContent': 'Chinesische Texte, die überzeugen',
-    'nav.desc.chinaHosting': 'Schnelle Server, ICP-Lizenz im Klaren',
+    'nav.desc.chinaHosting': 'Schnelle Server mit ICP-Lizenz',
     'nav.desc.maintenanceSupport': 'Laufende Updates und Überwachung',
     'nav.desc.chinaSiteScanner': 'Ihre Website auf China-Tauglichkeit prüfen',
     'nav.desc.chinaWebGuide': 'Ihr Wegweiser durch das chinesische Web',
