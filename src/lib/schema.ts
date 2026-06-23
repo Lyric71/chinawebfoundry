@@ -22,14 +22,17 @@ export function serviceSchema(astroUrl: URL, astroSite: URL | undefined, service
   const pageUrl = `${siteOrigin}${path}`;
   const homeUrl = `${siteOrigin}${localizePath('/', locale)}`;
   const servicesUrl = `${siteOrigin}${localizePath('/services/', locale)}`;
-  const homeLabelMap = { en: 'Home', fr: 'Accueil', es: 'Inicio' } as const;
-  const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
+  const contactUrl = `${siteOrigin}${localizePath('/contact/', locale)}`;
+  const homeLabelMap = { en: 'Home', fr: 'Accueil', es: 'Inicio', de: 'Startseite' } as const;
+  const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES', de: 'de-DE' } as const;
+  const servicesLabelMap = { en: 'Services', fr: 'Services', es: 'Servicios', de: 'Leistungen' } as const;
   const homeLabel = homeLabelMap[locale];
-  const servicesLabel = locale === 'es' ? 'Servicios' : 'Services';
+  const servicesLabel = servicesLabelMap[locale];
 
   const serviceLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${pageUrl}#service`,
     name: service.title,
     description: service.description,
     url: pageUrl,
@@ -37,6 +40,12 @@ export function serviceSchema(astroUrl: URL, astroSite: URL | undefined, service
     provider: { '@id': `${siteOrigin}/#organization` },
     areaServed: { '@type': 'Country', name: 'China' },
     serviceType: service.title,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: contactUrl,
+    },
   };
 
   const breadcrumbLd = {
@@ -57,8 +66,8 @@ export function serviceSchema(astroUrl: URL, astroSite: URL | undefined, service
  * Accepts answers as string OR string[] (the Baidu SEO page splits answers
  * into paragraphs as arrays).
  */
-export function faqSchema(faqs: Array<{ question: string; answer: string | string[] }>, lang: 'en' | 'fr' | 'es' = 'en') {
-  const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
+export function faqSchema(faqs: Array<{ question: string; answer: string | string[] }>, lang: 'en' | 'fr' | 'es' | 'de' = 'en') {
+  const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES', de: 'de-DE' } as const;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

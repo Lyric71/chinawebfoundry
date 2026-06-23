@@ -29,9 +29,12 @@ const servicesLabelMap = { en: 'Services', fr: 'Services', es: 'Servicios', de: 
 const servicesLabel = servicesLabelMap[currentLang];
 const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES', de: 'de-DE' } as const;
 
+const contactUrl = `${siteOrigin}${localePath('/contact/', currentLang)}`;
+
 const serviceLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  '@id': `${pageUrl}#service`,
   name: title,
   description,
   url: pageUrl,
@@ -39,6 +42,12 @@ const serviceLd = {
   provider: { '@id': `${siteOrigin}/#organization` },
   areaServed: { '@type': 'Country', name: 'China' },
   serviceType: title,
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: contactUrl,
+  },
 };
 
 const breadcrumbLd = {

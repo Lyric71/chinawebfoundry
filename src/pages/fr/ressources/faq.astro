@@ -3,15 +3,20 @@ import PageLayout from '../../../layouts/PageLayout.astro';
 import FAQAccordion from '../../../components/pages/FAQAccordionFrFull.astro';
 import FAQTopicNav from '../../../components/pages/FAQTopicNavFr.astro';
 import { faqTopicsFr } from '../../../data/faq-fr';
+import { buildFaqPageLd } from '../../../lib/seoSchema';
 
 const totalQuestions = faqTopicsFr.reduce((sum, t) => sum + t.items.length, 0);
 const totalTopics = faqTopicsFr.length;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const faqLd = buildFaqPageLd(faqTopicsFr, pageUrl, 'fr');
 ---
 
 <PageLayout
   title="FAQ : lancer et gérer un site web en Chine | ChinaWebFoundry"
   description={`Les ${totalQuestions} questions que posent vraiment les entreprises internationales avant de lancer un site en Chine. Réponses directes d’une équipe installée à Shanghai.`}
   lang="fr"
+  jsonLd={[faqLd]}
+  breadcrumbName="FAQ"
 >
   <!-- Reading progress bar -->
   <div

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { existsSync, statSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
@@ -47,6 +48,28 @@ function sourceFileForPath(canonical, locale) {
   candidates.push(`./src/pages${pageDir}${localized.endsWith('/') ? localized : localized + '/'}index.astro`);
 
   return candidates.find(existsSync);
+}
+
+// Real content date for a source file from its last git commit. On a fresh CI
+// checkout every file's mtime is the build time, which makes all sitemap
+// lastmod values identical and signals nothing useful to crawlers. The git
+// commit date is the actual last-modified date. Falls back to mtime when git
+// history is unavailable (e.g. a shallow clone with no commit for the file).
+const gitDateCache = new Map();
+function lastModFor(src) {
+  if (gitDateCache.has(src)) return gitDateCache.get(src);
+  let date;
+  try {
+    const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', src], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+    date = iso ? new Date(iso) : statSync(src).mtime;
+  } catch {
+    date = statSync(src).mtime;
+  }
+  gitDateCache.set(src, date);
+  return date;
 }
 
 export default defineConfig({
@@ -112,7 +135,7 @@ export default defineConfig({
         // Per-file lastmod: use source file mtime when we can locate it.
         const src = sourceFileForPath(canonical, locale);
         if (src) {
-          item.lastmod = statSync(src).mtime;
+          item.lastmod = lastModFor(src);
         } else {
           delete item.lastmod;
         }

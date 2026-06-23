@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import { getLangFromUrl, getHreflangUrls } from '../i18n/utils';
+import { getLangFromUrl, getHreflangUrls, localePath } from '../i18n/utils';
+import { buildBreadcrumbLd } from '../lib/seoSchema';
 import type { Locale } from '../i18n/ui';
 import Analytics from '@vercel/analytics/astro';
 
@@ -12,11 +13,13 @@ interface Props {
   lang?: Locale;
   /** Optional extra JSON-LD blocks (e.g. Service, Article, FAQPage) emitted in addition to the sitewide Organization + WebSite. */
   jsonLd?: Record<string, unknown>[];
+  /** When set, emits a two-level BreadcrumbList (Home > breadcrumbName) for second-level pages that don't already build their own. */
+  breadcrumbName?: string;
   /** Override the auto-computed hreflang URLs when locales use different slugs (e.g. /web-agency-china/ vs /fr/agence-web-chine/ vs /es/agencia-web-china/ vs /de/webagentur-china/). Pass absolute paths starting with /. */
   alternateUrls?: { en: string; fr: string; es?: string; de?: string };
 }
 
-const { title, description, canonical, ogImage = '/images/og-default.webp', lang, jsonLd = [], alternateUrls } = Astro.props;
+const { title, description, canonical, ogImage = '/images/og-default.webp', lang, jsonLd = [], alternateUrls, breadcrumbName } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toString();
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
@@ -39,20 +42,36 @@ const organizationLd = {
   name: 'ChinaWebFoundry',
   alternateName: 'China Web Foundry',
   url: `${siteOrigin}/`,
-  logo: `${siteOrigin}/Logo-ChinaWebFoundry-final.webp`,
+  logo: {
+    '@type': 'ImageObject',
+    '@id': `${siteOrigin}/#logo`,
+    url: `${siteOrigin}/Logo-ChinaWebFoundry-final.webp`,
+    contentUrl: `${siteOrigin}/Logo-ChinaWebFoundry-final.webp`,
+    width: 160,
+    height: 139,
+    caption: 'ChinaWebFoundry',
+  },
   description: 'Web agency based in Shanghai. We build and maintain websites for international brands operating in mainland China.',
   slogan: 'Web agency in China for international brands',
-  keywords: 'web agency China, web agency Shanghai, China web agency, Baidu SEO, China hosting, ICP licensing, Chinese AI search optimisation, GEO China',
   priceRange: '$$$',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '19th Floor, Trinity Plaza, 868 Changshou Road',
     addressLocality: 'Shanghai',
     addressRegion: 'Putuo District',
+    postalCode: '200060',
     addressCountry: 'CN',
   },
   areaServed: { '@type': 'Country', name: 'China' },
-  knowsLanguage: ['en', 'fr', 'zh-CN'],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: 'hello@bearingbridge.com',
+    url: `${siteOrigin}/contact/`,
+    availableLanguage: ['English', 'French', 'Spanish', 'German', 'Chinese'],
+    areaServed: 'CN',
+  },
+  knowsLanguage: ['en', 'fr', 'es', 'de', 'zh-CN'],
   founder: {
     '@type': 'Person',
     name: 'Cyril Drouin',
@@ -64,6 +83,8 @@ const organizationLd = {
   },
   sameAs: [
     'https://www.linkedin.com/in/cyril-d-68835729/',
+    'https://cyrildrouin.substack.com/',
+    'https://bearingbridge.com',
   ],
 };
 
@@ -78,7 +99,17 @@ const websiteLd = {
   publisher: { '@id': `${siteOrigin}/#organization` },
 };
 
-const sitewideLd = [organizationLd, websiteLd, ...jsonLd];
+const homeLabelMap = { en: 'Home', fr: 'Accueil', es: 'Inicio', de: 'Startseite' } as const;
+const breadcrumbLd = breadcrumbName
+  ? [
+      buildBreadcrumbLd([
+        { name: homeLabelMap[currentLang], item: `${siteOrigin}${localePath('/', currentLang)}` },
+        { name: breadcrumbName, item: canonicalURL },
+      ]),
+    ]
+  : [];
+
+const sitewideLd = [organizationLd, websiteLd, ...breadcrumbLd, ...jsonLd];
 ---
 
 <!doctype html>
@@ -87,6 +118,7 @@ const sitewideLd = [organizationLd, websiteLd, ...jsonLd];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={hreflang.en} />
     <link rel="alternate" hreflang="fr" href={hreflang.fr} />

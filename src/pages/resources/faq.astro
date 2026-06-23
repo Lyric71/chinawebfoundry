@@ -3,14 +3,19 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import FAQAccordion from '../../components/pages/FAQAccordion.astro';
 import FAQTopicNav from '../../components/pages/FAQTopicNav.astro';
 import { faqTopics } from '../../data/faq';
+import { buildFaqPageLd } from '../../lib/seoSchema';
 
 const totalQuestions = faqTopics.reduce((sum, t) => sum + t.items.length, 0);
 const totalTopics = faqTopics.length;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const faqLd = buildFaqPageLd(faqTopics, pageUrl, 'en');
 ---
 
 <PageLayout
   title="FAQ on building a website in China | ChinaWebFoundry"
   description={`${totalQuestions} real questions from international clients before and during a China website project. Straight answers from a Shanghai team that has been at it for 20 years.`}
+  jsonLd={[faqLd]}
+  breadcrumbName="FAQ"
 >
   <!-- Reading progress bar -->
   <div

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import { buildBreadcrumbLd, inLanguageMap } from '../../lib/seoSchema';
 
 export async function getStaticPaths() {
   const casestudies = await getCollection('casestudies');
@@ -23,18 +24,41 @@ const relatedServices = casestudy.data.services
   .filter(Boolean) || [];
 
 const visuals = casestudy.data.visuals || [];
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: casestudy.data.title,
+  description: casestudy.data.summary,
+  url: pageUrl,
+  inLanguage: inLanguageMap.en,
+  ...(casestudy.data.visual && { image: new URL(casestudy.data.visual, Astro.site).toString() }),
+  author: { '@id': `${siteOrigin}/#organization` },
+  publisher: { '@id': `${siteOrigin}/#organization` },
+  about: { '@type': 'Thing', name: casestudy.data.title },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+};
+const breadcrumbLd = buildBreadcrumbLd([
+  { name: 'Home', item: `${siteOrigin}/` },
+  { name: 'Work', item: `${siteOrigin}/work/` },
+  { name: casestudy.data.title, item: pageUrl },
+]);
 ---
 
 <PageLayout
   title={`${casestudy.data.title} | Case Study | ChinaWebFoundry`}
   description={casestudy.data.summary}
+  jsonLd={[articleLd, breadcrumbLd]}
 >
   <!-- Hero -->
   <section class="relative overflow-hidden">
     {casestudy.data.visual ? (
       <img
         src={casestudy.data.visual}
-        alt=""
+        alt={casestudy.data.title}
         class="absolute inset-0 w-full h-full object-cover object-top"
         loading="eager"
         decoding="async"
