@@ -91,12 +91,15 @@ const stories = casestudies.map((cs) => ({
       aria-label="Referenzen"
     >
       {stories.map((story, i) => (
-        <a
-          href={story.href}
-          class="group relative flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] rounded-xl overflow-hidden no-underline"
+        <div
+          class="flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[380px]"
           role="group"
           aria-roledescription="slide"
           aria-label={`Projekt ${i + 1} von ${stories.length}`}
+        >
+        <a
+          href={story.href}
+          class="group relative block rounded-xl overflow-hidden no-underline"
         >
           <div class="relative min-h-[26rem] md:min-h-[28rem] w-full">
             {story.image ? (
@@ -132,6 +135,7 @@ const stories = casestudies.map((cs) => ({
             </div>
           </div>
         </a>
+        </div>
       ))}
     </div>
   </div>
