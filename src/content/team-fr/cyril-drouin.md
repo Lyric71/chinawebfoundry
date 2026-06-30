@@ -1,7 +1,7 @@
 ---
 name: "Cyril Drouin"
 role: "Fondateur et directeur général"
-photo: "/images/team/cyril-drouin.webp"
+photo: "/images/team/cyril-drouin-faced.webp"
 bio: "25 ans d'expérience dans le numérique, la publicité et le commerce. Ancien directeur général de Publicis Commerce & Performance Marketing pour la Chine et l'Asie du Nord."
 order: 1
 linkedin: "https://www.linkedin.com/in/cyril-d-68835729/"
