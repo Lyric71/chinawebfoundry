@@ -5,7 +5,11 @@ import Button from '../../../components/ui/Button.astro';
 
 const guides = (await getCollection('guides'))
   .filter((guide) => guide.data.published)
-  .sort((a, b) => a.data.order - b.data.order);
+  .sort((a, b) => {
+    const dateA = a.data.publishedAt?.getTime() ?? 0;
+    const dateB = b.data.publishedAt?.getTime() ?? 0;
+    return dateB - dateA;
+  });
 
 const categories = ['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search'] as const;
 ---

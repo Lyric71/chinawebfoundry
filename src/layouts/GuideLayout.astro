@@ -41,7 +41,6 @@ const guideIndexLabel = t('guide.backLink');
 const homeLabel = t('service.home');
 
 const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
-const byLabelMap = { en: 'By', fr: 'Par', es: 'Por' } as const;
 const updatedLabelMap = { en: 'updated', fr: 'mis à jour le', es: 'actualizado el' } as const;
 
 const dateFormatter = new Intl.DateTimeFormat(inLanguageMap[currentLang], {
@@ -114,21 +113,10 @@ const jsonLd = [articleLd, breadcrumbLd];
         <p class="text-lg lg:text-xl text-[var(--color-brand-orange)] font-medium leading-relaxed">
           {subtitle}
         </p>
-        {(author || publishedAt || updatedAt) && (
+        {(publishedAt || updatedAt) && (
           <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/55">
-            {author && (
-              <span>
-                {byLabelMap[currentLang]}{' '}
-                {author.url
-                  ? <a href={author.url} class="text-white/80 hover:text-[var(--color-brand-orange)] no-underline" rel="author">{author.name}</a>
-                  : <span class="text-white/80">{author.name}</span>
-                }
-                {author.role && <span class="text-white/40">, {author.role}</span>}
-              </span>
-            )}
             {publishedAt && (
               <span class="text-white/40">
-                <span class="hidden sm:inline">·</span>{' '}
                 <time datetime={publishedAt.toISOString()}>{dateFormatter.format(publishedAt)}</time>
               </span>
             )}
