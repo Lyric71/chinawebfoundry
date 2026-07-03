@@ -6,5 +6,19 @@
     "allow": [
       "Bash(echo \"---EXIT:$?---\")"
     ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "if (Get-NetTCPConnection -LocalPort 4321 -State Listen -ErrorAction SilentlyContinue) { '{\"suppressOutput\":true}' } else { Start-Process -WindowStyle Hidden -FilePath cmd.exe -ArgumentList '/c','npm run dev' -WorkingDirectory 'C:\\Users\\cyril\\Project\\Chinawebfoundry'; '{\"systemMessage\":\"Started Astro dev server (npm run dev) on http://127.0.0.1:4321\"}' }",
+            "statusMessage": "Ensuring Astro dev server is running"
+          }
+        ]
+      }
+    ]
   }
 }
