@@ -59,6 +59,7 @@ export const guideSlugs: Record<string, Trans> = {
   'china-website-hosting-guide': { fr: 'hebergement-web-chine', es: 'alojamiento-web-china', de: 'website-hosting-china' },
   'china-website-localisation': { fr: 'localiser-site-chine', es: 'localizar-sitio-china', de: 'website-lokalisierung-china' },
   'great-firewall-what-it-blocks': { fr: 'grand-pare-feu-chine', es: 'gran-cortafuegos-china', de: 'great-firewall-china' },
+  'host-website-in-china': { fr: 'heberger-site-web-chine', es: 'alojar-sitio-web-china', de: 'website-in-china-hosten' },
   'icp-licence-filing-foreign-companies': { fr: 'licence-icp-entreprises-etrangeres', es: 'licencia-icp-empresas-extranjeras', de: 'icp-lizenz-auslaendische-unternehmen' },
   'mobile-first-design-china': { fr: 'design-mobile-first-chine', es: 'diseno-mobile-first-china', de: 'mobile-first-design-china' },
   'wordpress-agency-china': { fr: 'agence-wordpress-chine', es: 'agencia-wordpress-china', de: 'wordpress-agentur-china' },
