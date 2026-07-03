@@ -42,6 +42,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Clip stray horizontal overflow (reveal-animation transforms, decorative
+       glows) without creating a scroll container, so position: sticky keeps
+       working. `clip` is deliberate here, not `hidden`. */
+    overflow-x: clip;
   }
 
   body {
@@ -52,6 +56,7 @@
     background-color: var(--color-surface-white);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {

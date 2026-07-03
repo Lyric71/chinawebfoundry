@@ -333,13 +333,13 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
         {stats.map((stat, i) => (
           <div class:list={[
-            'flex flex-col md:flex-row items-start md:items-center gap-5',
-            i > 0 ? 'md:pl-10 md:border-l md:border-[var(--color-surface-border)]' : '',
+            'flex flex-col lg:flex-row items-start lg:items-center gap-5',
+            i > 0 ? 'lg:pl-10 lg:border-l lg:border-[var(--color-surface-border)]' : '',
           ]}>
             <div class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
               0{stat.suffix}
             </div>
-            <div class="flex-1">
+            <div class="flex-1 min-w-0">
               <p class="text-base text-[var(--color-text-dark)] leading-snug font-medium">
                 {stat.label}
               </p>
