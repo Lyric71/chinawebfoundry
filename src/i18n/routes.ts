@@ -61,6 +61,7 @@ export const guideSlugs: Record<string, Trans> = {
   'great-firewall-what-it-blocks': { fr: 'grand-pare-feu-chine', es: 'gran-cortafuegos-china', de: 'great-firewall-china' },
   'icp-licence-filing-foreign-companies': { fr: 'licence-icp-entreprises-etrangeres', es: 'licencia-icp-empresas-extranjeras', de: 'icp-lizenz-auslaendische-unternehmen' },
   'mobile-first-design-china': { fr: 'design-mobile-first-chine', es: 'diseno-mobile-first-china', de: 'mobile-first-design-china' },
+  'wordpress-agency-china': { fr: 'agence-wordpress-chine', es: 'agencia-wordpress-china', de: 'wordpress-agentur-china' },
 };
 
 /** Case study slugs, keyed by English content id. Client brand names kept. */
