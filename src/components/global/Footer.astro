@@ -26,6 +26,14 @@ const ecosystemLabel = ({
   de: 'Teil der BearingBridge',
 } as Record<string, string>)[currentLang] ?? 'Part of BearingBridge';
 
+// Google Ads landing page: localised slug + label per locale
+const wpLandingLabel = ({
+  en: 'WordPress agency in China',
+  fr: 'Agence WordPress en Chine',
+  es: 'Agencia WordPress en China',
+  de: 'WordPress-Agentur in China',
+} as Record<string, string>)[currentLang] ?? 'WordPress agency in China';
+
 const ecosystemSites = [
   { name: 'The China Path', href: 'https://thechinapath.com', logo: '/images/ecosystem/thechinapath.webp' },
   { name: 'BeyondBridge', href: 'https://beyondbridge.ai', logo: '/images/ecosystem/beyondbridge.webp' },
@@ -256,11 +264,9 @@ const ecosystemSites = [
               {item.label}
             </a>
           ))}
-          {currentLang === 'en' && (
-            <a href="/wordpress-agency-china/" class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
-              WordPress agency in China
-            </a>
-          )}
+          <a href={localePath('/wordpress-agency-china/', currentLang)} class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
+            {wpLandingLabel}
+          </a>
         </div>
       </div>
     </div>

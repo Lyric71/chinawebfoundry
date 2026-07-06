@@ -1,16 +1,17 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import Button from '../components/ui/Button.astro';
-import FAQItem from '../components/pages/FAQItem.astro';
-import ScrollEffects from '../components/global/ScrollEffects.astro';
-import PageScrollEffects from '../components/pages/ScrollEffects.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQItem from '../../components/pages/FAQItem.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
+import PageScrollEffects from '../../components/pages/ScrollEffects.astro';
 import { getCollection } from 'astro:content';
+import { localizePath } from '../../i18n/routes';
 
-const metaTitle = 'WordPress Agency in China | Build, Host & Rank | ChinaWebFoundry';
-const metaDescription = 'Hire a specialist WordPress agency for China. Firewall-safe hosting, ICP licensing, fast load times and Baidu SEO, built to launch and rank in mainland China.';
-const canonicalPath = '/wordpress-agency-china/';
+const metaTitle = 'Agence WordPress en Chine : créer, héberger, référencer | ChinaWebFoundry';
+const metaDescription = 'Agence WordPress spécialiste de la Chine : hébergement adapté au pare-feu, licence ICP, site rapide, SEO Baidu. Lancez et référencez votre site en Chine.';
+const canonicalPath = '/fr/agence-wordpress-chine/';
 
-const casestudies = (await getCollection('casestudies'))
+const casestudies = (await getCollection('casestudies-fr'))
   .filter((cs) => cs.data.published)
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
@@ -21,240 +22,240 @@ const pageUrl = `${siteOrigin}${canonicalPath}`;
 const services = [
   {
     key: 'dev',
-    title: 'WordPress design & development',
-    body: 'Custom themes designed for Chinese users and built without a single call to a blocked domain. Responsive, bilingual-ready, tested at 375px on the phones people actually use here.',
-    deliverable: 'A production WordPress site verified from mainland connections.',
-    href: '/services/ux-ui-design/',
-    linkLabel: 'Design & development',
+    title: 'Design & développement WordPress',
+    body: 'Des thèmes dessinés pour l’internaute chinois et développés sans un seul appel vers un domaine bloqué. Responsive, prêts pour le bilingue, testés à 375 px sur les téléphones réellement en usage ici.',
+    deliverable: 'Un site WordPress en production, contrôlé depuis des connexions de Chine continentale.',
+    href: '/fr/services/design-ux-ui/',
+    linkLabel: 'Design & développement',
   },
   {
     key: 'hosting',
-    title: 'Firewall-safe hosting & CDN',
-    body: 'Mainland or Hong Kong hosting on Alibaba Cloud or Tencent Cloud, fronted by a China CDN. We target sub-2-second loads in tier-1 cities and monitor from nodes inside China.',
-    deliverable: 'A hosting setup with in-China response times you can check yourself.',
-    href: '/services/china-hosting/',
-    linkLabel: 'China hosting',
+    title: 'Hébergement & CDN compatibles pare-feu',
+    body: 'Hébergement en Chine continentale ou à Hong Kong, chez Alibaba Cloud ou Tencent Cloud, derrière un CDN chinois. Le cap : moins de 2 secondes dans les grandes villes, sous surveillance depuis des nœuds en Chine.',
+    deliverable: 'Une infrastructure dont vous vérifiez vous-même les temps de réponse en Chine.',
+    href: '/fr/services/hebergement-chine/',
+    linkLabel: 'Hébergement Chine',
   },
   {
     key: 'icp',
-    title: 'ICP licence & regulatory support',
-    body: 'We prepare your ICP Bei’an filing, submit it through your host to MIIT, and tell you plainly if your business model needs the commercial licence instead.',
-    deliverable: 'An ICP number in your footer, registered to your entity.',
-    href: '/resources/china-web-guide/icp-licence-filing-foreign-companies/',
-    linkLabel: 'How ICP filing works',
+    title: 'Licence ICP & accompagnement réglementaire',
+    body: 'Nous montons votre dossier ICP Bei’an, le déposons au MIIT via votre hébergeur, et vous disons sans détour si votre activité relève plutôt de la licence commerciale.',
+    deliverable: 'Un numéro ICP affiché dans votre pied de page, enregistré au nom de votre société.',
+    href: '/fr/ressources/guide-web-chine/licence-icp-entreprises-etrangeres/',
+    linkLabel: 'Comment fonctionne le dépôt ICP',
   },
   {
     key: 'seo',
-    title: 'Baidu & China SEO',
-    body: 'Technical and on-page work for Baidu, Sogou and 360. Baidu Webmaster Tools setup, Simplified Chinese keyword research, and content written by native speakers.',
-    deliverable: 'A Baidu-indexed site with a keyword plan and monthly ranking reports.',
-    href: '/services/baidu-seo/',
-    linkLabel: 'Baidu SEO service',
+    title: 'SEO Baidu & référencement en Chine',
+    body: 'Travail technique et éditorial pour Baidu, Sogou et 360 : Baidu Webmaster Tools configuré, mots-clés recherchés en chinois simplifié, contenus signés par des rédacteurs natifs.',
+    deliverable: 'Un site indexé par Baidu, un plan de mots-clés et un rapport de positions chaque mois.',
+    href: '/fr/services/baidu-seo/',
+    linkLabel: 'Service SEO Baidu',
   },
   {
     key: 'migration',
-    title: 'Migration & site rescue',
-    body: 'Your WordPress site already exists but crawls or breaks in China. We move it onto China-ready infrastructure and strip the blocked resources, keeping your content and rankings.',
-    deliverable: 'The same site, loading in seconds from Shanghai.',
-    href: '/services/china-migration/',
-    linkLabel: 'China migration',
+    title: 'Migration & sauvetage de site',
+    body: 'Votre site WordPress existe, mais en Chine il rame ou il casse. Nous le déplaçons vers une infrastructure taillée pour la Chine et retirons les ressources bloquées, sans toucher à vos contenus ni à vos positions.',
+    deliverable: 'Le même site, affiché en quelques secondes depuis Shanghai.',
+    href: '/fr/services/migration-chine/',
+    linkLabel: 'Migration Chine',
   },
   {
     key: 'care',
     title: 'Maintenance & support',
-    body: 'Core and plugin updates tested against the firewall before they go live, security patching, uptime monitoring from Chinese nodes, and a human who replies within 24 hours.',
-    deliverable: 'A monthly report and a site that stays fast.',
-    href: '/services/maintenance-support/',
-    linkLabel: 'Maintenance plans',
+    body: 'Mises à jour du cœur et des plugins éprouvées face au pare-feu avant toute mise en ligne, correctifs de sécurité, surveillance depuis des nœuds chinois. Et un humain qui vous répond sous 24 heures.',
+    deliverable: 'Un rapport mensuel et un site qui garde sa vitesse.',
+    href: '/fr/services/maintenance-support/',
+    linkLabel: 'Formules de maintenance',
   },
 ];
 
 const breakages = [
   {
     resource: 'Google Fonts',
-    broken: 'Text invisible for 20+ seconds while the browser waits for a timeout.',
-    fixed: 'Every font self-hosted as WOFF2 on your own server.',
+    broken: 'Plus de 20 secondes de texte invisible, jusqu’à ce que le navigateur renonce.',
+    fixed: 'Chaque police auto-hébergée en WOFF2 sur votre propre serveur.',
   },
   {
     resource: 'reCAPTCHA',
-    broken: 'Contact forms that never submit. Enquiries silently lost.',
-    fixed: 'Honeypot fields and China-friendly anti-spam instead of Google’s widget.',
+    broken: 'Des formulaires qui ne partent jamais. Des demandes de contact perdues sans bruit.',
+    fixed: 'Champs pièges et anti-spam qui passe en Chine, à la place du widget de Google.',
   },
   {
     resource: 'Google Maps',
-    broken: 'A grey box where your office location should be.',
-    fixed: 'AutoNavi (Gaode) or Baidu Maps embeds.',
+    broken: 'Un rectangle gris là où devrait figurer l’adresse de vos bureaux.',
+    fixed: 'Une carte AutoNavi (Gaode) ou Baidu Maps intégrée.',
   },
   {
-    resource: 'YouTube embeds',
-    broken: 'Dead video players across your product pages.',
-    fixed: 'Self-hosted video or a Tencent Video / Youku embed.',
+    resource: 'Vidéos YouTube',
+    broken: 'Des lecteurs vidéo morts sur l’ensemble de vos pages produits.',
+    fixed: 'Vidéo auto-hébergée, ou intégrée via Tencent Video ou Youku.',
   },
   {
     resource: 'Gravatar',
-    broken: 'Comment sections and author boxes that stall the whole page.',
-    fixed: 'Remote avatars disabled, local images served instead.',
+    broken: 'Des blocs commentaires et des fiches auteurs qui bloquent la page entière.',
+    fixed: 'Avatars distants coupés, images servies en local.',
   },
   {
-    resource: 'CDN-hosted scripts',
-    broken: 'jQuery from ajax.googleapis.com hangs everything that depends on it.',
-    fixed: 'Every script bundled and served from your own hosting.',
+    resource: 'Scripts sur CDN',
+    broken: 'Un jQuery servi par ajax.googleapis.com paralyse tout ce qui en dépend.',
+    fixed: 'Chaque script regroupé et servi depuis votre propre hébergement.',
   },
   {
     resource: 'Google Analytics',
-    broken: 'No visitor data, plus one more blocked request on every page.',
-    fixed: 'Baidu Tongji or a self-hosted tool such as Matomo.',
+    broken: 'Aucune donnée de fréquentation, et une requête bloquée de plus sur chaque page.',
+    fixed: 'Baidu Tongji, ou un outil auto-hébergé comme Matomo.',
   },
 ];
 
 const processSteps = [
   {
-    title: 'Discovery',
-    when: 'Weeks 1-2',
-    body: 'We audit your current site from a Shanghai connection, map your goals for the China market, and agree scope and budget.',
+    title: 'Cadrage',
+    when: 'Semaines 1-2',
+    body: 'Audit de votre site depuis une connexion shanghaïenne, objectifs posés pour le marché chinois, périmètre et budget arrêtés.',
   },
   {
     title: 'Design',
-    when: 'Weeks 2-4',
-    body: 'Wireframes and visual design shaped for Chinese users: denser layouts, mobile-first, checked inside WeChat.',
+    when: 'Semaines 2-4',
+    body: 'Maquettes et direction artistique pensées pour l’internaute chinois : mises en page plus denses, mobile en premier, rendu vérifié dans WeChat.',
   },
   {
-    title: 'Build',
-    when: 'Weeks 4-8',
-    body: 'Theme and plugin development with zero blocked resources. Every dependency self-hosted from the first commit.',
+    title: 'Développement',
+    when: 'Semaines 4-8',
+    body: 'Thème et plugins écrits sans la moindre ressource bloquée. Chaque dépendance auto-hébergée dès le premier commit.',
   },
   {
-    title: 'China performance testing',
-    when: 'Weeks 8-9',
-    body: 'We load the site from Beijing, Shanghai and Guangzhou nodes and fix anything slower than 2 seconds before you ever see a staging link.',
+    title: 'Tests de performance en Chine',
+    when: 'Semaines 8-9',
+    body: 'Le site est chargé depuis des nœuds de Pékin, Shanghai et Canton. Tout ce qui dépasse 2 secondes est corrigé avant même que vous receviez un lien de préproduction.',
   },
   {
-    title: 'ICP & hosting setup',
-    when: 'In parallel',
-    body: 'ICP filing prepared and submitted, hosting and CDN configured. Runs alongside the build, so it costs no extra calendar time.',
+    title: 'ICP & hébergement',
+    when: 'En parallèle',
+    body: 'Dossier ICP monté et déposé, hébergement et CDN configurés. Le tout avance au rythme du développement, sans un jour de plus au calendrier.',
   },
   {
-    title: 'Baidu SEO foundations',
-    when: 'Weeks 9-10',
-    body: 'Baidu Webmaster Tools, sitemap submission, Chinese keyword mapping and on-page work. Before launch, never bolted on after.',
+    title: 'Fondations SEO Baidu',
+    when: 'Semaines 9-10',
+    body: 'Baidu Webmaster Tools, sitemap soumis, mots-clés chinois cartographiés, pages travaillées. Avant le lancement, pas après coup.',
   },
   {
-    title: 'Launch',
-    when: 'Week 10',
-    body: 'DNS switch, CDN warm-up, and a launch-day check from mainland connections.',
+    title: 'Mise en ligne',
+    when: 'Semaine 10',
+    body: 'DNS basculé, CDN préchauffé, et un contrôle le jour même depuis des connexions de Chine continentale.',
   },
   {
-    title: 'Support',
-    when: 'Ongoing',
-    body: 'Updates, monitoring and monthly reporting under a maintenance plan. Most clients stay with us for years.',
+    title: 'Suivi',
+    when: 'En continu',
+    body: 'Mises à jour, surveillance et rapport mensuel au sein d’une formule de maintenance. La plupart de nos clients restent plusieurs années.',
   },
 ];
 
 const alternatives = [
   {
-    title: 'WordPress, localised properly',
-    body: 'The right choice when your team already knows the editor, you publish often, or you run multilingual content. Hosted in China with local assets, it loads in under 2 seconds and Baidu indexes it well.',
-    verdict: 'Our default for content-led brand sites.',
+    title: 'WordPress, localisé dans les règles',
+    body: 'Le bon choix quand votre équipe maîtrise déjà l’éditeur, publie souvent ou gère plusieurs langues. Hébergé en Chine avec des ressources locales, il s’affiche en moins de 2 secondes et Baidu l’indexe sans difficulté.',
+    verdict: 'Notre choix par défaut pour les sites de marque à forte dimension éditoriale.',
   },
   {
-    title: 'WeChat-only or a local CMS',
-    body: 'A WeChat official account matters in China and we build for it. On its own though, you rent your audience from Tencent, and a local CMS locks your content into a platform your HQ team can’t use.',
-    verdict: 'Good alongside a website. Risky as a replacement for one.',
+    title: 'WeChat seul ou un CMS local',
+    body: 'Un compte officiel WeChat pèse en Chine, et nous savons le construire. Seul, en revanche, vous louez votre audience à Tencent. Et un CMS local enferme vos contenus dans une plateforme inutilisable pour votre siège.',
+    verdict: 'Précieux à côté d’un site. Risqué à sa place.',
   },
   {
-    title: 'Astro or headless',
-    body: 'When raw speed wins and content changes rarely, a static or headless build beats WordPress on performance. We build these too, and we’ll recommend one when it fits.',
-    verdict: 'The brief decides the stack. If WordPress is wrong for your project, we say so on the first call.',
+    title: 'Astro ou headless',
+    body: 'Quand la vitesse prime et que le contenu bouge peu, un site statique ou headless devance WordPress en performance. Nous en construisons aussi, et nous le recommandons quand le projet s’y prête.',
+    verdict: 'Le brief tranche. Si WordPress ne convient pas à votre projet, nous vous le disons dès le premier échange.',
   },
 ];
 
 const industries = [
-  'B2B & industrial',
-  'Education & universities',
-  'Hospitality & travel',
-  'Luxury & consumer brands',
-  'SaaS & technology',
-  'Life sciences',
-  'MNCs entering China',
+  'B2B & industrie',
+  'Éducation & universités',
+  'Hôtellerie & voyage',
+  'Luxe & marques grand public',
+  'SaaS & technologie',
+  'Sciences de la vie',
+  'Multinationales entrant en Chine',
 ];
 
 const differentiators = [
   {
-    title: 'We test where your visitors are',
-    body: 'Every build is checked from Chinese connections in Beijing, Shanghai and Guangzhou. A green light in Frankfurt means nothing to a visitor in Chengdu.',
+    title: 'Nous testons là où vivent vos visiteurs',
+    body: 'Chaque livraison est contrôlée depuis des connexions chinoises, à Pékin, Shanghai et Canton. Un voyant vert à Francfort ne dit rien à un visiteur de Chengdu.',
   },
   {
-    title: 'ICP handled in Mandarin',
-    body: 'Our team files ICP paperwork directly with hosts and MIIT, in Mandarin, and has done so for years. You sign documents; we do the rest.',
+    title: 'L’ICP traité en mandarin',
+    body: 'Notre équipe dépose les dossiers ICP directement auprès des hébergeurs et du MIIT, en mandarin, depuis des années. Vous signez les documents, nous faisons le reste.',
   },
   {
-    title: 'Baidu expertise in-house',
-    body: 'Chinese keyword research, Baidu Webmaster Tools and Chinese content written by native speakers. The same team that builds your site ranks it.',
+    title: 'L’expertise Baidu, en interne',
+    body: 'Mots-clés recherchés en chinois, Baidu Webmaster Tools, contenus rédigés par des natifs. L’équipe qui construit votre site est celle qui le fait monter.',
   },
   {
-    title: 'Bilingual, single point of contact',
-    body: 'One account lead who answers in English or French within 24 hours, backed by a Shanghai delivery team. We never subcontract.',
+    title: 'Bilingue, un interlocuteur unique',
+    body: 'Un référent vous répond en français ou en anglais sous 24 heures, épaulé par l’équipe de production de Shanghai. Nous ne sous-traitons jamais.',
   },
 ];
 
 const faqs = [
   {
     id: 'works-in-china',
-    q: 'Does WordPress actually work in China?',
-    a: 'Yes, when it’s hosted in or near China and stripped of blocked resources. WordPress core itself is fine; the problems come from themes and plugins that call Google Fonts, reCAPTCHA, Gravatar and other blocked services. We’ve shipped 50+ WordPress sites that load in under 2 seconds from mainland connections.',
+    q: 'WordPress fonctionne-t-il vraiment en Chine ?',
+    a: 'Oui, à condition de l’héberger en Chine ou à proximité et de le débarrasser des ressources bloquées. Le cœur de WordPress ne pose aucun problème. Les ennuis viennent des thèmes et des plugins qui appellent Google Fonts, reCAPTCHA, Gravatar et d’autres services bloqués. Nous avons livré plus de 50 sites WordPress qui s’affichent en moins de 2 secondes depuis la Chine continentale.',
   },
   {
     id: 'icp-needed',
-    q: 'Do I need an ICP licence for my WordPress site?',
-    a: 'Only if you host in mainland China. The basic ICP Bei’an filing covers brochure and marketing sites and requires a Chinese legal entity. Selling directly to Chinese consumers from the site usually means the commercial ICP licence, which has stricter requirements. If you have no Chinese entity, Hong Kong hosting skips the ICP entirely and still performs well.',
+    q: 'Ai-je besoin d’une licence ICP pour mon site WordPress ?',
+    a: 'Uniquement si vous hébergez en Chine continentale. Le dépôt ICP Bei’an couvre les sites vitrines et marketing ; il exige une entité juridique chinoise. Vendre directement aux consommateurs chinois depuis le site relève en général de la licence ICP commerciale, plus exigeante. Sans entité chinoise, l’hébergement à Hong Kong dispense d’ICP et reste performant.',
   },
   {
     id: 'fix-without-rebuild',
-    q: 'My existing WordPress site is slow in China. Can you fix it without a rebuild?',
-    a: 'Usually, yes. Most slow sites suffer from blocked third-party resources and distant hosting, and both are fixable without touching your design or content. We migrate the site to China-ready hosting, localise fonts and scripts, and swap the plugins that break. Run our free China site scanner to see exactly what’s blocking yours.',
+    q: 'Mon site WordPress est lent en Chine. Pouvez-vous le corriger sans le refaire ?',
+    a: 'Dans la plupart des cas, oui. La lenteur tient presque toujours à deux causes, des ressources tierces bloquées et un hébergement lointain, et les deux se corrigent sans toucher au design ni aux contenus. Nous migrons le site vers un hébergement prêt pour la Chine, localisons polices et scripts, remplaçons les plugins fautifs. Notre scanner gratuit vous montre précisément ce qui bloque le vôtre.',
   },
   {
     id: 'timeline',
-    q: 'How long does it take to launch a WordPress site in China?',
-    a: 'A new brand site takes 8 to 12 weeks from kickoff to launch. Migrating and localising an existing global site takes 14 to 20 weeks including content rewrite and Baidu indexing. The ICP filing takes 2 to 4 weeks and runs in parallel with the build.',
+    q: 'Combien de temps pour lancer un site WordPress en Chine ?',
+    a: 'Comptez 8 à 12 semaines du premier appel à la mise en ligne pour un nouveau site de marque. Migrer et localiser un site global existant demande 14 à 20 semaines, réécriture des contenus et indexation Baidu comprises. Le dépôt ICP prend 2 à 4 semaines et avance en parallèle du développement.',
   },
   {
     id: 'woocommerce',
-    q: 'Does WooCommerce work in China?',
-    a: 'Yes, with local adjustments. Checkout needs WeChat Pay and Alipay rather than Stripe or PayPal, and selling domestically requires the commercial ICP licence plus a Chinese entity. Many foreign brands start with cross-border e-commerce instead, which has lighter requirements. We’ve built both.',
+    q: 'WooCommerce fonctionne-t-il en Chine ?',
+    a: 'Oui, moyennant des ajustements locaux. Le paiement passe par WeChat Pay et Alipay plutôt que par Stripe ou PayPal, et la vente sur le marché domestique suppose la licence ICP commerciale et une entité chinoise. Beaucoup de marques étrangères démarrent par l’e-commerce transfrontalier, moins contraignant. Nous avons construit les deux.',
   },
   {
     id: 'google-rankings',
-    q: 'Will optimising for China hurt my Google rankings elsewhere?',
-    a: 'No. Your China site runs alongside your global site, usually on a subdomain or a .cn domain, with hreflang tags telling Google and Baidu which version serves which audience. Your existing rankings stay where they are.',
+    q: 'Optimiser pour la Chine pénalisera-t-il mes positions Google ailleurs ?',
+    a: 'Non. Votre site Chine vit à côté de votre site global, en général sur un sous-domaine ou un domaine .cn, avec des balises hreflang qui indiquent à Google et à Baidu quelle version sert quel public. Vos positions actuelles ne bougent pas.',
   },
   {
     id: 'chinese-content',
-    q: 'Can you handle Simplified Chinese content and multilingual setup?',
-    a: 'Yes. We work with WPML and Polylang for multilingual WordPress, and our native Chinese writers produce the Simplified Chinese content. Machine-translated Chinese reads as poorly to Chinese buyers as machine-translated English reads to you, so we don’t use it.',
+    q: 'Prenez-vous en charge le chinois simplifié et le multilingue ?',
+    a: 'Oui. Nous travaillons avec WPML et Polylang pour le WordPress multilingue, et nos rédacteurs chinois natifs écrivent les contenus en chinois simplifié. Un chinois traduit à la machine sonne aussi faux pour un acheteur chinois qu’un français traduit à la machine pour vous. Nous n’y touchons donc pas.',
   },
   {
     id: 'cost',
-    q: 'How much does a China WordPress project cost?',
-    a: 'It depends on page count, whether you need an ICP filing, the hosting tier, localisation volume and any e-commerce. We quote a fixed price after a scoping call, and the call and quote are free. Ongoing maintenance and hosting run on a flat monthly retainer.',
+    q: 'Combien coûte un projet WordPress pour la Chine ?',
+    a: 'Tout dépend du nombre de pages, de la nécessité ou non d’un dépôt ICP, du niveau d’hébergement, du volume à localiser et d’un éventuel volet e-commerce. Nous chiffrons un prix ferme après un appel de cadrage ; l’appel comme le devis sont gratuits. Maintenance et hébergement fonctionnent ensuite au forfait mensuel.',
   },
 ];
 
-// Service schema reinforcing the "WordPress agency in China" entity for this page
+// Schéma Service : ancre l'entité « agence WordPress en Chine » pour cette page
 const serviceLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   '@id': `${pageUrl}#service`,
-  name: 'WordPress agency in China',
-  description: 'Specialist WordPress agency for the China market. Design, development, firewall-safe hosting, ICP licensing, Baidu SEO, migration and maintenance for WordPress sites in mainland China.',
-  serviceType: 'WordPress development',
+  name: 'Agence WordPress en Chine',
+  description: 'Agence WordPress dédiée au marché chinois : design, développement, hébergement adapté au pare-feu, licence ICP, SEO Baidu, migration et maintenance de sites WordPress en Chine continentale.',
+  serviceType: 'Développement WordPress',
   provider: { '@id': `${siteOrigin}/#organization` },
   areaServed: { '@type': 'Country', name: 'China' },
   url: pageUrl,
-  inLanguage: 'en-GB',
+  inLanguage: 'fr-FR',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'WordPress services for China',
+    name: 'Services WordPress pour la Chine',
     itemListElement: services.map((s, i) => ({
       '@type': 'Offer',
       position: i + 1,
@@ -283,8 +284,8 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteOrigin}/` },
-    { '@type': 'ListItem', position: 2, name: 'WordPress agency in China', item: pageUrl },
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${siteOrigin}/fr/` },
+    { '@type': 'ListItem', position: 2, name: 'Agence WordPress en Chine', item: pageUrl },
   ],
 };
 ---
@@ -293,13 +294,14 @@ const breadcrumbLd = {
   title={metaTitle}
   description={metaDescription}
   heroPage={true}
+  lang="fr"
   jsonLd={[serviceLd, faqLd, breadcrumbLd]}
   alternateUrls={{ en: '/wordpress-agency-china/', fr: '/fr/agence-wordpress-chine/', es: '/es/agencia-wordpress-china/', de: '/de/wordpress-agentur-china/' }}
 >
   <ScrollEffects />
   <PageScrollEffects />
 
-  <!-- ============= HERO with live network simulation ============= -->
+  <!-- ============= HERO avec simulation réseau ============= -->
   <section
     data-hero
     class="relative bg-[var(--color-surface-dark)] overflow-hidden flex flex-col"
@@ -331,36 +333,36 @@ const breadcrumbLd = {
 
     <div class="relative z-10 mx-auto w-full max-w-[1240px] section-padding flex-1 pt-32 lg:pt-40 pb-16 lg:pb-24">
       <div class="grid grid-cols-12 gap-10 lg:gap-8 items-center">
-        <!-- Left: headline -->
+        <!-- Gauche : titre -->
         <div class="col-span-12 lg:col-span-6">
           <div class="flex items-center gap-3 mb-6">
             <div class="h-px w-10 bg-[var(--color-brand-orange)]"></div>
             <span class="text-xs lg:text-sm font-medium tracking-[0.18em] text-[var(--color-brand-orange)] uppercase">
-              WordPress specialists · Based in Shanghai
+              Spécialistes WordPress · Installés à Shanghai
             </span>
           </div>
 
           <h1 class="text-[clamp(2.3rem,4.6vw,3.9rem)] font-medium font-[var(--font-heading)] text-white leading-[1.04] tracking-tight">
-            WordPress agency in China:
+            Agence WordPress en Chine :
             <span class="block mt-2">
               <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
-                build, host and rank
+                créer, héberger, référencer
               </span>
             </span>
-            <span class="block mt-2 text-white/95">behind the Great Firewall.</span>
+            <span class="block mt-2 text-white/95">derrière le Grand Pare-feu.</span>
           </h1>
 
           <p class="mt-7 text-base lg:text-lg text-white/65 leading-relaxed max-w-[560px]">
-            Our WordPress sites load in under 2 seconds inside mainland China. Design, build, hosting, ICP licensing and Baidu SEO, all handled by one Shanghai-based team.
+            Nos sites WordPress s’affichent en moins de 2 secondes en Chine continentale. Conception, développement, hébergement, licence ICP, SEO Baidu : une seule équipe s’en charge, depuis Shanghai.
           </p>
 
           <div class="mt-9 flex flex-wrap items-center gap-4">
-            <Button href="/contact/" variant="primary" size="lg">Request a quote</Button>
+            <Button href="/fr/contact/" variant="primary" size="lg">Demander un devis</Button>
             <a
-              href="/china-site-scanner/"
+              href="/fr/china-site-scanner/"
               class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
             >
-              Free China readiness audit
+              Audit Chine gratuit
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -370,20 +372,20 @@ const breadcrumbLd = {
           <div class="mt-12 grid grid-cols-3 gap-6 max-w-xl">
             <div class="border-l-2 border-[var(--color-brand-orange)]/70 pl-4">
               <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">50</span></div>
-              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">WordPress sites shipped</div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Sites WordPress livrés</div>
             </div>
             <div class="border-l-2 border-white/15 pl-4">
               <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">15</span></div>
-              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Years in China</div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Années en Chine</div>
             </div>
             <div class="border-l-2 border-white/15 pl-4">
               <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">&lt;2s</div>
-              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Load time in tier-1 cities</div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Chargement grandes villes</div>
             </div>
           </div>
         </div>
 
-        <!-- Right: live network simulation -->
+        <!-- Droite : simulation réseau en direct -->
         <div class="col-span-12 lg:col-span-6" data-reveal="right">
           <div id="net-sim" class="relative max-w-[560px] mx-auto lg:ml-auto rounded-2xl border border-white/12 bg-[#101016]/90 backdrop-blur-md shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8)] overflow-hidden">
             <div class="flex items-center gap-3 px-4 py-3 border-b border-white/10 bg-white/[0.03]">
@@ -394,7 +396,7 @@ const breadcrumbLd = {
               </div>
               <div class="flex-1 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.06] text-[12px] font-mono text-white/60 truncate">
                 <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 3.935"/></svg>
-                yourbrand.com
+                votremarque.com
               </div>
               <div class="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-white/50 shrink-0">
                 <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -409,43 +411,43 @@ const breadcrumbLd = {
             <div class="flex items-center justify-between px-4 pt-3.5 pb-1">
               <span id="sim-phase" class="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.14em] text-white/60">
                 <span id="sim-phase-dot" class="w-1.5 h-1.5 rounded-full bg-[#EF4444]"></span>
-                <span id="sim-phase-label">Standard WordPress install</span>
+                <span id="sim-phase-label">Installation WordPress standard</span>
               </span>
               <span class="text-[13px] font-mono text-white/80 tabular-nums">
-                <span id="sim-timer">0.0</span>&nbsp;s
+                <span id="sim-timer">0,0</span>&nbsp;s
               </span>
             </div>
 
             <div id="sim-rows" class="px-4 pb-3 pt-1.5 min-h-[248px] flex flex-col gap-1.5" aria-live="off"></div>
 
             <div id="sim-verdict" class="mx-4 mb-4 rounded-lg px-3.5 py-2.5 text-[12.5px] font-mono border border-white/10 bg-white/[0.04] text-white/45 transition-colors duration-500">
-              Waiting for the first request...
+              En attente de la première requête...
             </div>
           </div>
           <p class="mt-3 text-center lg:text-right text-[11px] font-mono uppercase tracking-[0.14em] text-white/35">
-            Simulation · modelled on the audits we run every day
+            Simulation fidèle aux audits que nous réalisons chaque jour
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Firewall divider -->
+    <!-- Séparateur pare-feu -->
     <div class="relative z-10 border-t border-white/[0.07]">
       <div class="mx-auto max-w-[1240px] section-padding py-4 flex items-center justify-between gap-4">
-        <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.2em] text-white/35">Your server · Frankfurt</span>
+        <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.2em] text-white/35">Votre serveur · Francfort</span>
         <span class="flex-1 h-px bg-gradient-to-r from-transparent via-[#EF4444]/60 to-transparent relative">
           <span class="absolute inset-0 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-orange)]/70 to-transparent animate-pulse"></span>
         </span>
-        <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-brand-orange)]/90 whitespace-nowrap">防火长城 · The Great Firewall</span>
+        <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-brand-orange)]/90 whitespace-nowrap">防火长城 · Le Grand Pare-feu</span>
         <span class="flex-1 h-px bg-gradient-to-r from-transparent via-[#EF4444]/60 to-transparent relative">
           <span class="absolute inset-0 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-orange)]/70 to-transparent animate-pulse"></span>
         </span>
-        <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.2em] text-white/35">Your buyers · Shanghai</span>
+        <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.2em] text-white/35">Vos acheteurs · Shanghai</span>
       </div>
     </div>
   </section>
 
-  <!-- ============= THE PROBLEM + connection switcher ============= -->
+  <!-- ============= LE PROBLÈME + comparateur de connexions ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
     <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
       <div class="absolute -top-32 right-[8%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px]"></div>
@@ -456,27 +458,27 @@ const breadcrumbLd = {
       <div class="grid grid-cols-12 gap-10 lg:gap-14 items-center">
         <div class="col-span-12 lg:col-span-6" data-reveal="left">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EF4444]/[0.08] border border-[#EF4444]/20 mb-5">
-            <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[#DC2626]">The problem · 问题</span>
+            <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[#DC2626]">Le problème · 问题</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-6">
-            Why a standard WordPress site fails in China.
+            Pourquoi un site WordPress standard échoue en Chine.
           </h2>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            Take a WordPress site built for Europe or North America and open it in Shanghai. It loads in 20 to 40 seconds, if it loads at all. The theme calls Google Fonts. The contact form waits on reCAPTCHA. The footer map calls Google Maps. The Great Firewall blocks all 3, and each one hangs the page while the browser waits for a timeout.
+            Prenez un site WordPress conçu pour l’Europe ou l’Amérique du Nord et ouvrez-le à Shanghai. Vingt à quarante secondes d’attente, dans le meilleur des cas. Le thème appelle Google Fonts, le formulaire attend reCAPTCHA, la carte du pied de page interroge Google Maps. Trois services bloqués par le Grand Pare-feu, et autant de requêtes qui figent la page jusqu’à ce que le navigateur renonce.
           </p>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            Distance makes it worse. Every request travels from the visitor in China to a server in Frankfurt or Virginia through congested international gateways. And without an ICP filing you can't host in mainland China or use a mainland CDN, so there's no way to shorten that trip.
+            La distance n’arrange rien. Chaque requête part du visiteur en Chine vers un serveur de Francfort ou de Virginie, via des passerelles internationales saturées. Et sans dépôt ICP, ni hébergement en Chine continentale ni CDN local : le trajet reste incompressible.
           </p>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            A China-specialist WordPress agency deals with all of this before launch. Flip the switcher to see what your buyers see, then run the real test on your own site.
+            Une agence WordPress spécialiste de la Chine règle tout cela avant la mise en ligne. Basculez le comparateur pour voir ce que voient vos clients, puis faites le vrai test sur votre propre site.
           </p>
           <div class="flex flex-wrap items-center gap-4">
-            <Button href="/china-site-scanner/" variant="primary" size="md">Run a free China readiness audit</Button>
-            <Button href="/contact/" variant="secondary" size="md">Request a quote</Button>
+            <Button href="/fr/china-site-scanner/" variant="primary" size="md">Lancer un audit Chine gratuit</Button>
+            <Button href="/fr/contact/" variant="secondary" size="md">Demander un devis</Button>
           </div>
         </div>
 
-        <!-- Switcher: same site, two connections -->
+        <!-- Comparateur : même site, deux connexions -->
         <div class="col-span-12 lg:col-span-6" data-reveal="right">
           <div id="view-switch" data-view="shanghai" class="rounded-2xl border border-[var(--color-surface-border)] bg-white shadow-[0_30px_70px_-30px_rgba(15,15,18,0.25)] overflow-hidden">
             <div class="flex flex-wrap items-center gap-3 px-4 py-3 border-b border-[var(--color-surface-border)] bg-[var(--color-surface-light)]">
@@ -485,20 +487,20 @@ const breadcrumbLd = {
                 <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
                 <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
               </div>
-              <span class="text-[12px] font-mono text-[var(--color-text-muted)] truncate">yourbrand.com · same site, two connections</span>
-              <div class="ml-auto inline-flex rounded-full border border-[var(--color-surface-border)] bg-white p-0.5" role="group" aria-label="Choose the connection location">
-                <button type="button" data-view-btn="frankfurt" class="view-btn px-3.5 py-1.5 rounded-full text-[12px] font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">From Frankfurt</button>
-                <button type="button" data-view-btn="shanghai" class="view-btn px-3.5 py-1.5 rounded-full text-[12px] font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">From Shanghai</button>
+              <span class="text-[12px] font-mono text-[var(--color-text-muted)] truncate">votremarque.com · même site, deux connexions</span>
+              <div class="ml-auto inline-flex rounded-full border border-[var(--color-surface-border)] bg-white p-0.5" role="group" aria-label="Choisir le lieu de connexion">
+                <button type="button" data-view-btn="frankfurt" class="view-btn px-3.5 py-1.5 rounded-full text-[12px] font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Depuis Francfort</button>
+                <button type="button" data-view-btn="shanghai" class="view-btn px-3.5 py-1.5 rounded-full text-[12px] font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Depuis Shanghai</button>
               </div>
             </div>
 
             <div class="relative p-5 sm:p-6 bg-white">
               <div class="absolute top-4 right-4 z-10">
                 <span class="load-chip-ok inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 text-[11px] font-mono text-[#15803D] transition-opacity duration-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#22C55E]"></span>Loaded in 1.2s
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#22C55E]"></span>Chargé en 1,2 s
                 </span>
                 <span class="load-chip-bad absolute top-0 right-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[11px] font-mono text-[#DC2626] whitespace-nowrap transition-opacity duration-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#EF4444] animate-pulse"></span>23.4s and still loading
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#EF4444] animate-pulse"></span>23,4 s et la page charge encore
                 </span>
               </div>
 
@@ -516,7 +518,7 @@ const breadcrumbLd = {
                   <div class="h-5 w-3/4 rounded bg-[var(--color-text-dark)]"></div>
                   <div class="h-5 w-1/2 rounded bg-[var(--color-text-dark)]"></div>
                 </div>
-                <span class="mock-font-tag absolute -top-1 right-0 inline-flex items-center px-2 py-0.5 rounded bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono text-[#DC2626] opacity-0 transition-opacity duration-500">fonts.googleapis.com · blocked</span>
+                <span class="mock-font-tag absolute -top-1 right-0 inline-flex items-center px-2 py-0.5 rounded bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono text-[#DC2626] opacity-0 transition-opacity duration-500">fonts.googleapis.com · bloqué</span>
                 <div class="h-2.5 w-full rounded-full bg-[var(--color-surface-border)] mt-4"></div>
                 <div class="h-2.5 w-5/6 rounded-full bg-[var(--color-surface-border)] mt-2"></div>
               </div>
@@ -531,7 +533,7 @@ const breadcrumbLd = {
                   <div class="map-bad absolute inset-0 grid place-items-center bg-[#F3F4F6] transition-opacity duration-500">
                     <div class="text-center px-3">
                       <svg class="w-6 h-6 mx-auto mb-1.5 text-[#DC2626]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                      <span class="block text-[10px] font-mono text-[#6B7280]">maps.googleapis.com<br/>failed to respond</span>
+                      <span class="block text-[10px] font-mono text-[#6B7280]">maps.googleapis.com<br/>ne répond pas</span>
                     </div>
                   </div>
                 </div>
@@ -540,11 +542,11 @@ const breadcrumbLd = {
                   <div class="h-7 rounded-lg bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]"></div>
                   <div class="h-7 rounded-lg bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]"></div>
                   <div class="mock-submit relative h-8 rounded-lg grid place-items-center transition-all duration-500">
-                    <span class="submit-ok text-[11px] font-medium text-white transition-opacity duration-300">Send enquiry</span>
+                    <span class="submit-ok text-[11px] font-medium text-white transition-opacity duration-300">Envoyer</span>
                     <span class="submit-bad absolute inset-0 grid place-items-center gap-1 transition-opacity duration-300">
                       <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-[#DC2626]">
                         <svg class="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v3a5 5 0 00-5 5H4z"></path></svg>
-                        waiting for reCAPTCHA
+                        en attente de reCAPTCHA
                       </span>
                     </span>
                   </div>
@@ -553,14 +555,14 @@ const breadcrumbLd = {
             </div>
           </div>
           <p class="mt-3 text-center text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-            Interactive · switch between the two connections
+            Interactif · basculez entre les deux connexions
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============= SERVICES: dark bento ============= -->
+  <!-- ============= SERVICES : bento sombre ============= -->
   <section class="relative section-spacing bg-[#0a0a0e] overflow-hidden">
     <div class="absolute inset-0">
       <img
@@ -580,23 +582,23 @@ const breadcrumbLd = {
     <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="max-w-3xl mb-12 lg:mb-16" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 mb-5">
-          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Our services · 服务</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Nos services · 服务</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[46px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
-          Our WordPress services for China.
+          Nos services WordPress pour la Chine.
         </h2>
         <p class="text-lg text-white/60 leading-relaxed">
-          6 things we do every week for foreign brands running WordPress in China. Each comes with a named deliverable, and the same in-house team in Shanghai ships all 6.
+          6 interventions que nous menons chaque semaine pour des marques étrangères qui font tourner WordPress en Chine. Chacune débouche sur un livrable précis, et la même équipe interne, à Shanghai, les assure toutes les 6.
         </p>
       </div>
 
       <div class="grid grid-cols-12 gap-4 lg:gap-5">
-        {/* Dev: wide card with browser mock */}
+        {/* Dev : grande carte avec maquette navigateur */}
         <article data-reveal data-cursor-spotlight class="svc-card col-span-12 lg:col-span-7 group relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
           <div class="relative z-[2] lg:max-w-[55%]">
             <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[0].title}</h3>
             <p class="text-[14.5px] text-white/60 leading-relaxed mb-3">{services[0].body}</p>
-            <p class="text-[13px] text-[#FF9466] leading-relaxed mb-5"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[0].deliverable}</p>
+            <p class="text-[13px] text-[#FF9466] leading-relaxed mb-5"><strong class="text-white/80 font-medium">Livrable :</strong> {services[0].deliverable}</p>
             <a href={services[0].href} class="svc-link">{services[0].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
           </div>
           <div aria-hidden="true" class="relative lg:absolute lg:right-[-2rem] lg:top-1/2 lg:-translate-y-1/2 mt-6 lg:mt-0 lg:w-[46%] rounded-xl border border-white/10 bg-[#15151c] p-3 shadow-2xl rotate-0 lg:rotate-[3deg] transition-transform duration-500 group-hover:lg:rotate-[1deg]">
@@ -609,19 +611,19 @@ const breadcrumbLd = {
               <div class="h-10 rounded bg-white/[0.07]"></div>
               <div class="h-10 rounded bg-[var(--color-brand-orange)]/25"></div>
             </div>
-            <div class="mt-2.5 flex items-center gap-1.5 text-[9px] font-mono text-[#22C55E]"><span class="w-1 h-1 rounded-full bg-[#22C55E]"></span>0 blocked requests</div>
+            <div class="mt-2.5 flex items-center gap-1.5 text-[9px] font-mono text-[#22C55E]"><span class="w-1 h-1 rounded-full bg-[#22C55E]"></span>0 requête bloquée</div>
           </div>
         </article>
 
-        {/* Hosting: latency meter */}
+        {/* Hébergement : baromètre de latence */}
         <article data-reveal data-reveal-delay="80" data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-5 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
           <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[1].title}</h3>
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[1].body}</p>
           <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 space-y-3">
             {[
-              { city: 'Beijing', ms: '48ms', w: 'w-[28%]' },
-              { city: 'Shanghai', ms: '36ms', w: 'w-[21%]' },
-              { city: 'Guangzhou', ms: '61ms', w: 'w-[35%]' },
+              { city: 'Pékin', ms: '48 ms', w: 'w-[28%]' },
+              { city: 'Shanghai', ms: '36 ms', w: 'w-[21%]' },
+              { city: 'Canton', ms: '61 ms', w: 'w-[35%]' },
             ].map((row) => (
               <div class="flex items-center gap-3">
                 <span class="w-20 text-[11px] font-mono text-white/50">{row.city}</span>
@@ -632,23 +634,23 @@ const breadcrumbLd = {
               </div>
             ))}
           </div>
-          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[1].deliverable}</p>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Livrable :</strong> {services[1].deliverable}</p>
           <a href={services[1].href} class="svc-link">{services[1].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </article>
 
-        {/* ICP: licence number */}
+        {/* ICP : numéro de licence */}
         <article data-reveal data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
           <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[2].title}</h3>
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[2].body}</p>
           <div aria-hidden="true" class="rounded-xl border border-dashed border-[var(--color-brand-orange)]/40 bg-[var(--color-brand-orange)]/[0.06] px-4 py-3 mb-4 flex items-center justify-between gap-3">
             <span class="text-[12px] font-mono text-[#FF9466]">沪ICP备2026XXXX号</span>
-            <span class="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-[#4ADE80]"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Filed</span>
+            <span class="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-[#4ADE80]"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Déposé</span>
           </div>
-          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[2].deliverable}</p>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Livrable :</strong> {services[2].deliverable}</p>
           <a href={services[2].href} class="svc-link">{services[2].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </article>
 
-        {/* Baidu: mini SERP */}
+        {/* Baidu : mini SERP */}
         <article data-reveal data-reveal-delay="80" data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
           <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[3].title}</h3>
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[3].body}</p>
@@ -663,93 +665,93 @@ const breadcrumbLd = {
             </div>
             <div class="px-3 py-1.5 opacity-40"><div class="h-2 w-2/3 rounded bg-white/25 mb-1.5"></div><div class="h-1.5 w-5/6 rounded bg-white/15"></div></div>
           </div>
-          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[3].deliverable}</p>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Livrable :</strong> {services[3].deliverable}</p>
           <a href={services[3].href} class="svc-link">{services[3].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </article>
 
-        {/* Migration: before/after */}
+        {/* Migration : avant/après */}
         <article data-reveal data-reveal-delay="160" data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
           <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[4].title}</h3>
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[4].body}</p>
           <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 flex items-center justify-center gap-3">
             <div class="text-center">
-              <div class="text-lg font-mono text-[#F87171] line-through decoration-2">23.4s</div>
-              <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">Before</div>
+              <div class="text-lg font-mono text-[#F87171] line-through decoration-2">23,4 s</div>
+              <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">Avant</div>
             </div>
             <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             <div class="text-center">
-              <div class="text-lg font-mono text-[#4ADE80]">1.8s</div>
-              <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">After</div>
+              <div class="text-lg font-mono text-[#4ADE80]">1,8 s</div>
+              <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">Après</div>
             </div>
           </div>
-          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[4].deliverable}</p>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Livrable :</strong> {services[4].deliverable}</p>
           <a href={services[4].href} class="svc-link">{services[4].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </article>
 
-        {/* Maintenance: uptime sparkline */}
+        {/* Maintenance : courbe de disponibilité */}
         <article data-reveal data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-7 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
           <div class="lg:flex lg:items-center lg:gap-8">
             <div class="lg:flex-1">
               <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[5].title}</h3>
               <p class="text-[14.5px] text-white/60 leading-relaxed mb-3">{services[5].body}</p>
-              <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[5].deliverable}</p>
+              <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Livrable :</strong> {services[5].deliverable}</p>
               <a href={services[5].href} class="svc-link">{services[5].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
             </div>
             <div aria-hidden="true" class="mt-5 lg:mt-0 lg:w-[240px] rounded-xl border border-white/10 bg-[#15151c] p-4">
               <div class="flex items-baseline justify-between mb-2">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-white/40">Uptime · 90 days</span>
-                <span class="text-[13px] font-mono text-[#4ADE80]">99.98%</span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/40">Disponibilité · 90 jours</span>
+                <span class="text-[13px] font-mono text-[#4ADE80]">99,98 %</span>
               </div>
               <svg viewBox="0 0 220 48" class="w-full h-12" preserveAspectRatio="none">
                 <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
                 <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
               </svg>
-              <div class="mt-2 flex items-center gap-1.5 text-[10px] font-mono text-white/40"><span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse"></span>Monitored from Shanghai</div>
+              <div class="mt-2 flex items-center gap-1.5 text-[10px] font-mono text-white/40"><span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse"></span>Surveillé depuis Shanghai</div>
             </div>
           </div>
         </article>
 
-        {/* CTA card closing the bento */}
+        {/* Carte CTA qui ferme le bento */}
         <article data-reveal data-reveal-delay="80" class="col-span-12 md:col-span-6 lg:col-span-5 relative rounded-3xl border border-[var(--color-brand-orange)]/40 bg-gradient-to-br from-[var(--color-brand-orange)]/[0.16] to-[#FF7E47]/[0.06] p-7 lg:p-8 flex flex-col justify-center overflow-hidden">
           <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-2.5rem] text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.05] leading-none select-none pointer-events-none">一</span>
-          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">All 6, scoped in a single quote.</h3>
-          <p class="text-[14.5px] text-white/65 leading-relaxed mb-6">One team, one contract, one point of contact. Tell us where your China project stands; we scope the rest.</p>
-          <div><Button href="/contact/" variant="primary" size="md">Request a quote</Button></div>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">Les 6, réunis dans un seul devis.</h3>
+          <p class="text-[14.5px] text-white/65 leading-relaxed mb-6">Une équipe, un contrat, un interlocuteur. Dites-nous où en est votre projet Chine ; nous cadrons le reste.</p>
+          <div><Button href="/fr/contact/" variant="primary" size="md">Demander un devis</Button></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ============= WHAT BREAKS: the switchboard ============= -->
+  <!-- ============= CE QUI CASSE : le tableau de bord ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
     <span aria-hidden="true" data-float="slow" class="absolute left-[-3rem] top-[10%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">修</span>
     <div class="relative mx-auto max-w-[1100px] section-padding">
       <div class="max-w-3xl mb-10 lg:mb-12" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">The technical work · 技术</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Le travail technique · 技术</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
-          What breaks WordPress in China, and how we fix it.
+          Ce qui casse WordPress en Chine, et comment on le répare.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          The Great Firewall doesn't block WordPress. It blocks the services a typical theme quietly depends on. Flip the switch to see what our rebuild changes.
+          Le Grand Pare-feu ne bloque pas WordPress. Il bloque les services dont un thème classique dépend sans le dire. Actionnez l’interrupteur : vous verrez ce que change notre refonte.
         </p>
       </div>
 
-      <!-- master toggle -->
+      <!-- interrupteur principal -->
       <div class="flex items-center justify-center gap-4 mb-8" data-reveal>
-        <span id="fix-label-before" class="text-sm font-medium font-[var(--font-button)] text-[#DC2626] transition-colors duration-300">Standard install</span>
+        <span id="fix-label-before" class="text-sm font-medium font-[var(--font-button)] text-[#DC2626] transition-colors duration-300">Installation standard</span>
         <button
           type="button"
           id="fix-toggle"
           role="switch"
           aria-checked="false"
-          aria-label="Toggle between standard install and our rebuild"
+          aria-label="Basculer entre installation standard et notre refonte"
           class="relative w-16 h-8 rounded-full border cursor-pointer transition-colors duration-300 bg-[#EF4444]/15 border-[#EF4444]/40"
         >
           <span id="fix-knob" class="absolute top-1/2 -translate-y-1/2 left-1 w-6 h-6 rounded-full bg-[#EF4444] shadow-md transition-all duration-300"></span>
         </button>
-        <span id="fix-label-after" class="text-sm font-medium font-[var(--font-button)] text-[var(--color-text-muted)] transition-colors duration-300">After our rebuild</span>
+        <span id="fix-label-after" class="text-sm font-medium font-[var(--font-button)] text-[var(--color-text-muted)] transition-colors duration-300">Après notre refonte</span>
       </div>
 
       <div id="fix-rows" data-state="broken" class="space-y-2.5">
@@ -765,8 +767,8 @@ const breadcrumbLd = {
               <span class="text-[15px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{b.resource}</span>
             </div>
             <div class="sm:col-span-2">
-              <span class="fix-chip-broken inline-flex items-center px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#DC2626] transition-all duration-300">Blocked</span>
-              <span class="fix-chip-fixed hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#15803D] transition-all duration-300">Fixed</span>
+              <span class="fix-chip-broken inline-flex items-center px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#DC2626] transition-all duration-300">Bloqué</span>
+              <span class="fix-chip-fixed hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#15803D] transition-all duration-300">Corrigé</span>
             </div>
             <div class="sm:col-span-7 relative min-h-[1.5em]">
               <p class="fix-text-broken text-[14px] text-[var(--color-text-body)] leading-relaxed transition-all duration-300">{b.broken}</p>
@@ -778,38 +780,38 @@ const breadcrumbLd = {
 
       <div class="mt-10 max-w-3xl mx-auto text-center" data-reveal>
         <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-          Plugins are the sneaky part. A page builder or slider plugin can bundle its own calls to blocked CDNs, so we audit every plugin from a Chinese connection before it ships. For the full list, read our guide:
-          <a href="/resources/china-web-guide/great-firewall-what-it-blocks/" class="text-[var(--color-brand-orange-text)] font-medium">what the Great Firewall blocks</a>.
+          Les plugins sont le piège invisible. Un constructeur de pages ou un plugin de slider peut embarquer ses propres appels vers des CDN bloqués, donc nous auditons chaque plugin depuis une connexion chinoise avant la mise en ligne. Pour la liste complète, lisez
+          <a href="/fr/ressources/guide-web-chine/grand-pare-feu-chine/" class="text-[var(--color-brand-orange-text)] font-medium">ce que bloque le Grand Pare-feu</a>.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ============= ICP & HOSTING: decision helper ============= -->
+  <!-- ============= ICP & HÉBERGEMENT : aide à la décision ============= -->
   <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
     <span aria-hidden="true" data-float class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">证</span>
     <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="max-w-3xl mb-10 lg:mb-12" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Licensing & hosting · 备案</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Licence & hébergement · 备案</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
-          ICP licence and hosting requirements, explained.
+          Licence ICP et hébergement : ce qu’il faut savoir.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-          Every website hosted in mainland China needs an ICP filing with MIIT, the Chinese telecoms ministry. There are 2 kinds. The <strong>ICP Bei'an (备案)</strong> is a registration that covers brochure and marketing sites. The <strong>commercial ICP licence</strong> is a full permit, required when you sell directly to Chinese consumers from the site.
+          Tout site hébergé en Chine continentale doit être déclaré auprès du MIIT, le ministère chinois des télécommunications. Deux régimes existent. L’<strong>ICP Bei’an (备案)</strong>, simple enregistrement, couvre les sites vitrines et marketing. La <strong>licence ICP commerciale</strong>, elle, est un véritable permis, exigé dès que le site vend directement aux consommateurs chinois.
         </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Both require a Chinese legal entity. Answer one question and we'll point you at the right setup.
+          Les deux exigent une entité juridique chinoise. Une seule question suffit pour vous orienter vers la bonne configuration.
         </p>
       </div>
 
-      <!-- entity question -->
+      <!-- question entité -->
       <div class="mb-8 flex flex-col sm:flex-row items-center justify-center gap-4" data-reveal>
-        <span class="text-base font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">Do you have a Chinese legal entity?</span>
-        <div id="entity-picker" class="inline-flex rounded-full border border-[var(--color-surface-border)] bg-white p-1 shadow-sm" role="group" aria-label="Do you have a Chinese legal entity?">
-          <button type="button" data-entity="yes" class="entity-btn px-5 py-2 rounded-full text-sm font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Yes</button>
-          <button type="button" data-entity="no" class="entity-btn px-5 py-2 rounded-full text-sm font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Not yet</button>
+        <span class="text-base font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">Avez-vous une entité juridique chinoise ?</span>
+        <div id="entity-picker" class="inline-flex rounded-full border border-[var(--color-surface-border)] bg-white p-1 shadow-sm" role="group" aria-label="Avez-vous une entité juridique chinoise ?">
+          <button type="button" data-entity="yes" class="entity-btn px-5 py-2 rounded-full text-sm font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Oui</button>
+          <button type="button" data-entity="no" class="entity-btn px-5 py-2 rounded-full text-sm font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Pas encore</button>
         </div>
       </div>
 
@@ -817,53 +819,53 @@ const breadcrumbLd = {
         <article data-reveal data-tilt id="host-mainland" class="host-card relative rounded-3xl border-2 border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-400">
           <span class="host-badge absolute -top-3.5 left-7 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)] text-white text-[11px] font-semibold font-[var(--font-button)] opacity-0 -translate-y-1 transition-all duration-300 shadow-lg">
             <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            Recommended for you
+            Recommandé pour vous
           </span>
           <div class="flex items-center justify-between mb-4">
-            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Mainland China hosting</h3>
-            <span class="text-[11px] font-mono text-[#15803D] bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-full px-2.5 py-1 whitespace-nowrap">50-100ms</span>
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Hébergement en Chine continentale</h3>
+            <span class="text-[11px] font-mono text-[#15803D] bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-full px-2.5 py-1 whitespace-nowrap">50-100 ms</span>
           </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Alibaba Cloud or Tencent Cloud, inside the firewall. Full access to mainland CDNs and the strongest signal you can send Baidu.
+            Alibaba Cloud ou Tencent Cloud, à l’intérieur du pare-feu. L’accès complet aux CDN chinois, et le signal le plus fort qu’on puisse envoyer à Baidu.
           </p>
           <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
-            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Requires an ICP filing, which requires a Chinese entity</li>
-            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Filing takes 2 to 4 weeks; we run it in parallel with the build</li>
-            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>The right choice when you have, or are opening, an entity in China</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Exige un dépôt ICP, qui exige une entité chinoise</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Dépôt en 2 à 4 semaines, mené en parallèle du développement</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Le bon choix si vous avez, ou ouvrez, une entité en Chine</li>
           </ul>
         </article>
 
         <article data-reveal data-reveal-delay="120" data-tilt id="host-hk" class="host-card relative rounded-3xl border-2 border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-400">
           <span class="host-badge absolute -top-3.5 left-7 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)] text-white text-[11px] font-semibold font-[var(--font-button)] opacity-0 -translate-y-1 transition-all duration-300 shadow-lg">
             <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            Recommended for you
+            Recommandé pour vous
           </span>
           <div class="flex items-center justify-between mb-4">
-            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Hong Kong hosting</h3>
-            <span class="text-[11px] font-mono text-[#B45309] bg-[#F59E0B]/10 border border-[#F59E0B]/25 rounded-full px-2.5 py-1 whitespace-nowrap">No ICP needed</span>
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Hébergement à Hong Kong</h3>
+            <span class="text-[11px] font-mono text-[#B45309] bg-[#F59E0B]/10 border border-[#F59E0B]/25 rounded-full px-2.5 py-1 whitespace-nowrap">Sans licence ICP</span>
           </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Just outside the firewall, so no licence to file. With a tuned site and the right routing, load times in southern and eastern China stay comfortably under 3 seconds.
+            Juste de l’autre côté du pare-feu, donc aucune licence à déposer. Avec un site bien réglé et le bon routage, le chargement reste nettement sous les 3 secondes dans le sud et l’est de la Chine.
           </p>
           <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
-            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>No Chinese entity or licence needed</li>
-            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>The usual starting point for foreign brands</li>
-            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>You can move to the mainland later without rebuilding</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Aucune entité chinoise ni licence nécessaire</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Le point de départ classique des marques étrangères</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Passage en Chine continentale possible plus tard, sans refonte</li>
           </ul>
         </article>
       </div>
 
       <div class="max-w-3xl" data-reveal>
         <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-          We handle the filing end to end: paperwork prepared in Mandarin, submission through your host, and follow-up with MIIT until the number comes through. More detail in our guides on
-          <a href="/resources/china-web-guide/icp-licence-filing-foreign-companies/" class="text-[var(--color-brand-orange-text)] font-medium">ICP filing for foreign companies</a> and
-          <a href="/resources/china-web-guide/china-website-hosting-guide/" class="text-[var(--color-brand-orange-text)] font-medium">hosting a website in China</a>.
+          Nous prenons le dépôt en charge de bout en bout : dossier rédigé en mandarin, soumission via votre hébergeur, relances auprès du MIIT jusqu’à l’obtention du numéro. Pour aller plus loin, consultez nos guides sur
+          <a href="/fr/ressources/guide-web-chine/licence-icp-entreprises-etrangeres/" class="text-[var(--color-brand-orange-text)] font-medium">la licence ICP pour les entreprises étrangères</a> et
+          <a href="/fr/ressources/guide-web-chine/hebergement-web-chine/" class="text-[var(--color-brand-orange-text)] font-medium">l’hébergement d’un site en Chine</a>.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ============= PROCESS: scroll-fill timeline ============= -->
+  <!-- ============= MÉTHODE : frise au fil du scroll ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
     <span aria-hidden="true" data-float="slow" class="absolute right-[-3rem] bottom-[5%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">程</span>
     <div class="relative mx-auto max-w-[1240px] section-padding">
@@ -871,21 +873,21 @@ const breadcrumbLd = {
         <div class="col-span-12 lg:col-span-5">
           <div class="lg:sticky lg:top-32" data-reveal="left">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-              <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">How we work · 流程</span>
+              <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Notre méthode · 流程</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-6">
-              Our process, from kickoff to China launch.
+              Notre méthode, du premier appel au lancement en Chine.
             </h2>
             <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-              A new brand site takes 8 to 12 weeks start to finish. Licensing and SEO run in parallel with the build; no workstream waits on another.
+              Comptez 8 à 12 semaines de bout en bout pour un nouveau site de marque. La licence et le SEO avancent en parallèle du développement ; aucun chantier n’attend l’autre.
             </p>
             <div class="flex items-baseline gap-3 mb-8">
               <span class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none"><span data-counter>8</span>-<span data-counter>12</span></span>
-              <span class="text-sm uppercase tracking-[0.14em] text-[var(--color-text-muted)]">weeks to launch</span>
+              <span class="text-sm uppercase tracking-[0.14em] text-[var(--color-text-muted)]">semaines jusqu’au lancement</span>
             </div>
             <div class="flex flex-wrap items-center gap-4">
-              <Button href="/contact/" variant="primary" size="md">Start your project</Button>
-              <Button href="/china-site-scanner/" variant="secondary" size="md">Audit your site first</Button>
+              <Button href="/fr/contact/" variant="primary" size="md">Lancer votre projet</Button>
+              <Button href="/fr/china-site-scanner/" variant="secondary" size="md">Auditer votre site d’abord</Button>
             </div>
           </div>
         </div>
@@ -914,18 +916,18 @@ const breadcrumbLd = {
     </div>
   </section>
 
-  <!-- ============= WORDPRESS VS ALTERNATIVES ============= -->
+  <!-- ============= WORDPRESS FACE AUX ALTERNATIVES ============= -->
   <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
     <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Choosing a stack · 选型</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Choisir sa stack · 选型</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
-          WordPress vs the alternatives for China.
+          WordPress face aux alternatives pour la Chine.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          "Should we even use WordPress in China?" is a fair question. Here's how we answer it, honestly, from a team that builds on more than one stack.
+          « Faut-il seulement utiliser WordPress en Chine ? » La question mérite d’être posée. Voici notre réponse, sans langue de bois, de la part d’une équipe qui construit sur plusieurs stacks.
         </p>
       </div>
 
@@ -935,7 +937,7 @@ const breadcrumbLd = {
             <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">{alt.title}</h3>
             <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-5 flex-1">{alt.body}</p>
             <p class="text-[14px] text-[var(--color-card-blue,#344480)] leading-relaxed border-t border-[var(--color-surface-border)] pt-4">
-              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[var(--color-brand-orange)] mr-2">Our take</span>
+              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[var(--color-brand-orange)] mr-2">Notre avis</span>
               {alt.verdict}
             </p>
           </article>
@@ -944,23 +946,23 @@ const breadcrumbLd = {
     </div>
   </section>
 
-  <!-- ============= INDUSTRIES + WORK ============= -->
+  <!-- ============= SECTEURS + RÉALISATIONS ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
     <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="max-w-3xl mb-8 lg:mb-10" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Industries & clients · 客户</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Secteurs & clients · 客户</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
-          Who we build for.
+          Pour qui nous construisons.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Most of our clients are foreign companies with revenue at stake in China: exporters, universities recruiting Chinese students, hotels courting Chinese travellers, and SaaS firms whose product pages need to load in Shenzhen. Your buyers are in China and your site isn't: that's exactly the gap we close.
+          La plupart de nos clients sont des entreprises étrangères dont le chiffre d’affaires se joue en Chine : exportateurs, universités qui recrutent des étudiants chinois, hôtels qui courtisent les voyageurs chinois, éditeurs SaaS dont les pages produit doivent s’afficher à Shenzhen. Vos clients sont en Chine, votre site n’y est pas : c’est exactement l’écart que nous comblons.
         </p>
       </div>
     </div>
 
-    <!-- industries marquee -->
+    <!-- bandeau défilant -->
     <div class="relative mb-12 lg:mb-16 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]" data-reveal>
       <div class="marquee-track flex w-max gap-3 py-1">
         {[0, 1, 2].map(() => (
@@ -980,7 +982,7 @@ const breadcrumbLd = {
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
         {casestudies.map((cs, i) => (
           <a
-            href={`/work/${cs.id}/`}
+            href={localizePath(`/work/${cs.id}/`, 'fr')}
             data-reveal="zoom"
             data-reveal-delay={String(i * 100)}
             class="group relative block rounded-2xl overflow-hidden no-underline"
@@ -1010,37 +1012,37 @@ const breadcrumbLd = {
       </div>
 
       <div class="mt-10 text-center" data-reveal>
-        <a href="/work/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline hover:gap-3 transition-all">
-          See all case studies
+        <a href="/fr/realisations/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline hover:gap-3 transition-all">
+          Voir toutes les réalisations
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ============= PRICING ============= -->
+  <!-- ============= TARIFS ============= -->
   <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
     <span aria-hidden="true" data-float class="absolute right-[-2rem] bottom-[5%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">价</span>
     <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pricing · 价格</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Tarifs · 价格</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
-          Pricing and engagement models.
+          Tarifs et modes de collaboration.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          We work 2 ways. The quote follows a 30-minute scoping call: the call is free, the price is fixed, and within a week you'll know whether the numbers work for you.
+          Nous travaillons de 2 façons. Le devis suit un appel de cadrage de 30 minutes : appel gratuit, prix ferme, et sous une semaine vous savez si les chiffres vous conviennent.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 mb-10">
         <article data-reveal data-tilt class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)]">
-          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">The build</div>
-          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">Project-based</h3>
-          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-5">A defined build or migration: fixed scope, fixed price, agreed timeline. One invoice, no surprises.</p>
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">La construction</div>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">Au projet</h3>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-5">Une construction ou une migration bien délimitée : périmètre fixe, prix fixe, calendrier convenu. Une facture, aucune surprise.</p>
           <ul class="space-y-2.5 text-[14px] text-[var(--color-text-body)]">
-            {['Design and development', 'ICP filing and hosting setup', 'China performance testing', 'Baidu SEO foundations and launch'].map((item) => (
+            {['Design et développement', 'Dépôt ICP et mise en place de l’hébergement', 'Tests de performance en Chine', 'Fondations SEO Baidu et mise en ligne'].map((item) => (
               <li class="flex gap-2.5 items-start">
                 <svg class="w-4 h-4 mt-0.5 shrink-0 text-[#22C55E]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                 {item}
@@ -1050,11 +1052,11 @@ const breadcrumbLd = {
         </article>
 
         <article data-reveal data-reveal-delay="120" data-tilt class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)]">
-          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">After launch</div>
-          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">Monthly retainer</h3>
-          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-5">Everything that keeps the site fast and climbing, billed as one flat monthly fee.</p>
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">Après la mise en ligne</div>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">Forfait mensuel</h3>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-5">Tout ce qui maintient le site rapide et le fait progresser dans les résultats, réuni dans un forfait mensuel unique.</p>
           <ul class="space-y-2.5 text-[14px] text-[var(--color-text-body)]">
-            {['Hosting and China CDN', 'Updates, security and monitoring', 'Baidu SEO and reporting', 'Chinese content production'].map((item) => (
+            {['Hébergement et CDN Chine', 'Mises à jour, sécurité et surveillance', 'SEO Baidu et rapports', 'Production de contenu chinois'].map((item) => (
               <li class="flex gap-2.5 items-start">
                 <svg class="w-4 h-4 mt-0.5 shrink-0 text-[#22C55E]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                 {item}
@@ -1065,9 +1067,9 @@ const breadcrumbLd = {
       </div>
 
       <div class="max-w-3xl" data-reveal>
-        <p class="text-[15px] text-[var(--color-text-muted)] leading-relaxed mb-3">What moves the price:</p>
+        <p class="text-[15px] text-[var(--color-text-muted)] leading-relaxed mb-3">Ce qui fait varier le prix :</p>
         <div class="flex flex-wrap gap-2">
-          {['Page count and templates', 'ICP filing', 'Hosting tier', 'Chinese localisation volume', 'E-commerce'].map((chip) => (
+          {['Nombre de pages et de gabarits', 'Dépôt ICP', 'Niveau d’hébergement', 'Volume de localisation en chinois', 'E-commerce'].map((chip) => (
             <span class="inline-flex items-center px-3.5 py-1.5 rounded-full border border-[var(--color-surface-border)] bg-white text-[13px] text-[var(--color-text-body)]">{chip}</span>
           ))}
         </div>
@@ -1075,7 +1077,7 @@ const breadcrumbLd = {
     </div>
   </section>
 
-  <!-- ============= WHY US ============= -->
+  <!-- ============= POURQUOI NOUS ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
     <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="grid grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -1084,7 +1086,7 @@ const breadcrumbLd = {
             <div class="rounded-3xl overflow-hidden border border-[var(--color-surface-border)] shadow-[0_30px_60px_-30px_rgba(15,15,18,0.25)]">
               <img
                 src="/images/team/team-photo.webp"
-                alt="ChinaWebFoundry team in Shanghai"
+                alt="L’équipe ChinaWebFoundry à Shanghai"
                 class="w-full h-auto object-cover"
                 loading="lazy"
                 decoding="async"
@@ -1092,20 +1094,20 @@ const breadcrumbLd = {
             </div>
             <div class="absolute -bottom-5 -right-4 sm:right-6 rounded-2xl bg-[#0a0a0e] border border-white/10 px-5 py-3.5 shadow-xl">
               <div class="text-[11px] font-mono uppercase tracking-[0.14em] text-white/50">Shanghai · GMT+8</div>
-              <div class="text-sm font-medium text-white mt-0.5">In-house, never subcontracted</div>
+              <div class="text-sm font-medium text-white mt-0.5">En interne, jamais sous-traité</div>
             </div>
           </div>
         </div>
 
         <div class="col-span-12 lg:col-span-7" data-reveal="right">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-            <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Why us · 为什么</span>
+            <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pourquoi nous · 为什么</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-5">
-            Why brands choose ChinaWebFoundry.
+            Pourquoi les marques choisissent ChinaWebFoundry.
           </h2>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            ChinaWebFoundry is led by Cyril Drouin, in China since 2005. The delivery team lives in Shanghai and works full-time on China web projects. Everything this page claims is something we do weekly; you can check each point on a first call.
+            ChinaWebFoundry est dirigée par Cyril Drouin, installé en Chine depuis 2005. L’équipe de production vit à Shanghai et consacre tout son temps à des projets web pour la Chine. Tout ce qu’avance cette page, nous le faisons chaque semaine ; vous pourrez le vérifier point par point dès le premier appel.
           </p>
 
           <div class="space-y-5">
@@ -1135,7 +1137,7 @@ const breadcrumbLd = {
           <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Questions · 常见问题</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
-          WordPress in China, answered.
+          WordPress en Chine : vos questions, nos réponses.
         </h2>
       </div>
 
@@ -1149,7 +1151,7 @@ const breadcrumbLd = {
     </div>
   </section>
 
-  <!-- ============= FINAL CTA ============= -->
+  <!-- ============= CTA FINAL ============= -->
   <section class="relative py-24 md:py-32 lg:py-36 bg-[#0a0a0e] overflow-hidden">
     <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
       <div class="absolute -top-32 -left-20 w-[520px] h-[520px] rounded-full bg-[var(--color-brand-orange)]/[0.18] blur-[160px]"></div>
@@ -1163,28 +1165,28 @@ const breadcrumbLd = {
           <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-70 animate-ping"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
         </span>
-        <span class="text-[11px] font-semibold uppercase tracking-[0.20em] text-white/95">Booking this quarter</span>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.20em] text-white/95">Réservations ce trimestre</span>
       </div>
 
       <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight mb-7" data-reveal data-reveal-delay="80">
-        Your WordPress site,
+        Votre site WordPress,
         <span class="block">
           <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
-            working in China.
+            opérationnel en Chine.
           </span>
         </span>
       </h2>
       <p class="text-base lg:text-xl text-white/65 leading-relaxed max-w-2xl mx-auto mb-9" data-reveal data-reveal-delay="160">
-        Send us a brief or book a 30-minute call. A human writes back within 24 hours, in your timezone.
+        Envoyez-nous un brief ou réservez 30 minutes d’appel. Un humain vous répond sous 24 heures, dans votre fuseau horaire.
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4" data-reveal data-reveal-delay="200">
-        <Button href="/contact/" variant="primary" size="lg">Request a quote</Button>
+        <Button href="/fr/contact/" variant="primary" size="lg">Demander un devis</Button>
         <a
-          href="/china-site-scanner/"
+          href="/fr/china-site-scanner/"
           class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
         >
-          Free China readiness audit
+          Audit Chine gratuit
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
@@ -1365,24 +1367,28 @@ const breadcrumbLd = {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  /* ============ 1. Hero network simulation ============ */
+  function fmtSeconds(n: number) {
+    return n.toFixed(1).replace('.', ',');
+  }
+
+  /* ============ 1. Simulation réseau du hero ============ */
   const BROKEN_REQUESTS = [
-    { url: 'yourbrand.com', status: 'ok', label: '200 · 1.9s', t: 1.9 },
-    { url: 'fonts.googleapis.com/css2?family=...', status: 'blocked', label: 'Blocked', t: 5.2 },
-    { url: 'fonts.gstatic.com/s/opensans.woff2', status: 'blocked', label: 'Blocked', t: 7.8 },
-    { url: 'ajax.googleapis.com/jquery.min.js', status: 'slow', label: '8.4s', t: 10.6 },
-    { url: 'maps.googleapis.com/maps/api/js', status: 'blocked', label: 'Blocked', t: 14.1 },
-    { url: 'www.google.com/recaptcha/api.js', status: 'blocked', label: 'Blocked', t: 17.9 },
-    { url: 'youtube.com/embed/product-tour', status: 'blocked', label: 'Blocked', t: 20.7 },
-    { url: 'gravatar.com/avatar/9f8b2c...', status: 'blocked', label: 'Blocked', t: 23.4 },
+    { url: 'votremarque.com', status: 'ok', label: '200 · 1,9 s', t: 1.9 },
+    { url: 'fonts.googleapis.com/css2?family=...', status: 'blocked', label: 'Bloqué', t: 5.2 },
+    { url: 'fonts.gstatic.com/s/opensans.woff2', status: 'blocked', label: 'Bloqué', t: 7.8 },
+    { url: 'ajax.googleapis.com/jquery.min.js', status: 'slow', label: '8,4 s', t: 10.6 },
+    { url: 'maps.googleapis.com/maps/api/js', status: 'blocked', label: 'Bloqué', t: 14.1 },
+    { url: 'www.google.com/recaptcha/api.js', status: 'blocked', label: 'Bloqué', t: 17.9 },
+    { url: 'youtube.com/embed/visite-produit', status: 'blocked', label: 'Bloqué', t: 20.7 },
+    { url: 'gravatar.com/avatar/9f8b2c...', status: 'blocked', label: 'Bloqué', t: 23.4 },
   ];
   const FIXED_REQUESTS = [
-    { url: 'yourbrand.cn', status: 'ok', label: '200 · 0.3s', t: 0.3 },
-    { url: 'yourbrand.cn/fonts/poppins.woff2', status: 'ok', label: '200 · 0.1s', t: 0.5 },
-    { url: 'yourbrand.cn/assets/app.min.js', status: 'ok', label: '200 · 0.2s', t: 0.8 },
-    { url: 'webapi.amap.com/maps (Gaode)', status: 'ok', label: '200 · 0.3s', t: 1.2 },
-    { url: 'cdn.yourbrand.cn/img/hero.webp', status: 'ok', label: '200 · 0.2s', t: 1.5 },
-    { url: 'hm.baidu.com/tongji.js', status: 'ok', label: '200 · 0.1s', t: 1.8 },
+    { url: 'votremarque.cn', status: 'ok', label: '200 · 0,3 s', t: 0.3 },
+    { url: 'votremarque.cn/fonts/poppins.woff2', status: 'ok', label: '200 · 0,1 s', t: 0.5 },
+    { url: 'votremarque.cn/assets/app.min.js', status: 'ok', label: '200 · 0,2 s', t: 0.8 },
+    { url: 'webapi.amap.com/maps (Gaode)', status: 'ok', label: '200 · 0,3 s', t: 1.2 },
+    { url: 'cdn.votremarque.cn/img/hero.webp', status: 'ok', label: '200 · 0,2 s', t: 1.5 },
+    { url: 'hm.baidu.com/tongji.js', status: 'ok', label: '200 · 0,1 s', t: 1.8 },
   ];
 
   function initNetSim() {
@@ -1407,9 +1413,9 @@ const breadcrumbLd = {
     function renderStatic() {
       rowsEl!.innerHTML = '';
       BROKEN_REQUESTS.forEach(renderRow);
-      timerEl!.textContent = '23.4';
+      timerEl!.textContent = '23,4';
       progress!.style.width = '38%';
-      verdict!.textContent = '6 of 8 requests blocked · unusable in China';
+      verdict!.textContent = '6 requêtes sur 8 bloquées · page inutilisable en Chine';
       verdict!.className = verdict!.className.replace(/text-white\/45/, 'text-[#F87171]');
     }
 
@@ -1434,18 +1440,18 @@ const breadcrumbLd = {
       function tick(now: number) {
         const p = Math.min(1, (now - start) / durationMs);
         const val = from + (to - from) * p;
-        timerEl!.textContent = val.toFixed(1);
+        timerEl!.textContent = fmtSeconds(val);
         progress!.style.width = `${Math.min(96, p * (to > 5 ? 40 : 100))}%`;
         if (p < 1) rafId = requestAnimationFrame(tick);
       }
       rafId = requestAnimationFrame(tick);
     }
 
-    const SPEED = 380; // ms per simulated second
+    const SPEED = 380; // ms par seconde simulée
 
     function runPhase(requests: typeof BROKEN_REQUESTS, opts: { name: string; dot: string; done: string; doneClass: string; nextDelay: number; next: () => void }) {
       rowsEl!.innerHTML = '';
-      verdict!.textContent = 'Loading...';
+      verdict!.textContent = 'Chargement...';
       verdict!.style.color = 'rgba(255,255,255,0.45)';
       verdict!.style.borderColor = 'rgba(255,255,255,0.1)';
       phaseLabel!.textContent = opts.name;
@@ -1468,16 +1474,16 @@ const breadcrumbLd = {
 
     function loop() {
       runPhase(BROKEN_REQUESTS, {
-        name: 'Standard WordPress install',
+        name: 'Installation WordPress standard',
         dot: '#EF4444',
-        done: '6 of 8 requests blocked · your visitors are long gone',
+        done: '6 requêtes sur 8 bloquées · vos visiteurs sont déjà partis',
         doneClass: '#F87171',
         nextDelay: 3200,
         next: () =>
           runPhase(FIXED_REQUESTS, {
-            name: 'After our rebuild',
+            name: 'Après notre refonte',
             dot: '#22C55E',
-            done: 'Loaded in 1.8s · no blocked requests',
+            done: 'Chargé en 1,8 s · aucune requête bloquée',
             doneClass: '#4ADE80',
             nextDelay: 4200,
             next: loop,
@@ -1502,7 +1508,7 @@ const breadcrumbLd = {
     io.observe(sim);
   }
 
-  /* ============ 2. Connection switcher ============ */
+  /* ============ 2. Comparateur de connexions ============ */
   function initViewSwitch() {
     const wrap = document.getElementById('view-switch');
     if (!wrap || wrap.dataset.bound === 'true') return;
@@ -1514,7 +1520,7 @@ const breadcrumbLd = {
     });
   }
 
-  /* ============ 3. Fix switchboard ============ */
+  /* ============ 3. Tableau de bord des correctifs ============ */
   function initFixToggle() {
     const toggle = document.getElementById('fix-toggle');
     const rows = document.getElementById('fix-rows');
@@ -1553,7 +1559,7 @@ const breadcrumbLd = {
     }
   }
 
-  /* ============ 4. Entity question ============ */
+  /* ============ 4. Question entité ============ */
   function initEntityPicker() {
     const picker = document.getElementById('entity-picker');
     const options = document.getElementById('hosting-options');
@@ -1568,7 +1574,7 @@ const breadcrumbLd = {
     });
   }
 
-  /* ============ 5. Scroll-fill timeline ============ */
+  /* ============ 5. Frise au fil du scroll ============ */
   function initTimeline() {
     const timeline = document.getElementById('timeline');
     const fill = document.getElementById('timeline-fill');

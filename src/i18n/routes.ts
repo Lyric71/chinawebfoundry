@@ -35,6 +35,7 @@ export const staticRoutes: Record<string, Trans> = {
   '/terms-of-service/': { fr: '/conditions-generales/', es: '/condiciones-del-servicio/', de: '/nutzungsbedingungen/' },
   '/cookie-policy/': { fr: '/politique-cookies/', es: '/politica-de-cookies/', de: '/cookie-richtlinie/' },
   '/web-agency-china/': { fr: '/agence-web-chine/', es: '/agencia-web-china/', de: '/webagentur-china/' },
+  '/wordpress-agency-china/': { fr: '/agence-wordpress-chine/', es: '/agencia-wordpress-china/', de: '/wordpress-agentur-china/' },
 };
 
 /** Service detail slugs, keyed by English content id. baidu-seo + geo unchanged. */
