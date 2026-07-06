@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Button from '../components/ui/Button.astro';
+import FAQItem from '../components/pages/FAQItem.astro';
 import ScrollEffects from '../components/global/ScrollEffects.astro';
 import PageScrollEffects from '../components/pages/ScrollEffects.astro';
 import { getCollection } from 'astro:content';
@@ -19,7 +20,7 @@ const pageUrl = `${siteOrigin}${canonicalPath}`;
 
 const services = [
   {
-    cn: '建',
+    key: 'dev',
     title: 'WordPress design & development',
     body: 'Custom themes designed for Chinese users and built without a single call to a blocked domain. Responsive, bilingual-ready, tested at 375px on the phones people actually use here.',
     deliverable: 'A production WordPress site verified from mainland connections.',
@@ -27,7 +28,7 @@ const services = [
     linkLabel: 'Design & development',
   },
   {
-    cn: '云',
+    key: 'hosting',
     title: 'Firewall-safe hosting & CDN',
     body: 'Mainland or Hong Kong hosting on Alibaba Cloud or Tencent Cloud, fronted by a China CDN. We target sub-2-second loads in tier-1 cities and monitor from nodes inside China.',
     deliverable: 'A hosting setup with in-China response times you can check yourself.',
@@ -35,7 +36,7 @@ const services = [
     linkLabel: 'China hosting',
   },
   {
-    cn: '证',
+    key: 'icp',
     title: 'ICP licence & regulatory support',
     body: 'We prepare your ICP Bei’an filing, submit it through your host to MIIT, and tell you plainly if your business model needs the commercial licence instead.',
     deliverable: 'An ICP number in your footer, registered to your entity.',
@@ -43,7 +44,7 @@ const services = [
     linkLabel: 'How ICP filing works',
   },
   {
-    cn: '搜',
+    key: 'seo',
     title: 'Baidu & China SEO',
     body: 'Technical and on-page work for Baidu, Sogou and 360. Baidu Webmaster Tools setup, Simplified Chinese keyword research, and content written by native speakers.',
     deliverable: 'A Baidu-indexed site with a keyword plan and monthly ranking reports.',
@@ -51,7 +52,7 @@ const services = [
     linkLabel: 'Baidu SEO service',
   },
   {
-    cn: '修',
+    key: 'migration',
     title: 'Migration & site rescue',
     body: 'Your WordPress site already exists but crawls or breaks in China. We move it onto China-ready infrastructure and strip the blocked resources, keeping your content and rankings.',
     deliverable: 'The same site, loading in seconds from Shanghai.',
@@ -59,7 +60,7 @@ const services = [
     linkLabel: 'China migration',
   },
   {
-    cn: '护',
+    key: 'care',
     title: 'Maintenance & support',
     body: 'Core and plugin updates tested against the firewall before they go live, security patching, uptime monitoring from Chinese nodes, and a human who replies within 24 hours.',
     deliverable: 'A monthly report and a site that stays fast.',
@@ -71,72 +72,80 @@ const services = [
 const breakages = [
   {
     resource: 'Google Fonts',
-    symptom: 'Text invisible for 20+ seconds while the browser waits for a timeout.',
-    fix: 'Self-host every font as WOFF2 on your own server.',
+    broken: 'Text invisible for 20+ seconds while the browser waits for a timeout.',
+    fixed: 'Every font self-hosted as WOFF2 on your own server.',
   },
   {
     resource: 'reCAPTCHA',
-    symptom: 'Contact forms that never submit. Enquiries silently lost.',
-    fix: 'Honeypot fields and China-friendly anti-spam instead of Google’s widget.',
+    broken: 'Contact forms that never submit. Enquiries silently lost.',
+    fixed: 'Honeypot fields and China-friendly anti-spam instead of Google’s widget.',
   },
   {
     resource: 'Google Maps',
-    symptom: 'A grey box where your office location should be.',
-    fix: 'AutoNavi (Gaode) or Baidu Maps embeds.',
+    broken: 'A grey box where your office location should be.',
+    fixed: 'AutoNavi (Gaode) or Baidu Maps embeds.',
   },
   {
     resource: 'YouTube embeds',
-    symptom: 'Dead video players across your product pages.',
-    fix: 'Self-hosted video or a Tencent Video / Youku embed.',
+    broken: 'Dead video players across your product pages.',
+    fixed: 'Self-hosted video or a Tencent Video / Youku embed.',
   },
   {
     resource: 'Gravatar',
-    symptom: 'Comment sections and author boxes that stall the whole page.',
-    fix: 'Remote avatars disabled, local images served instead.',
+    broken: 'Comment sections and author boxes that stall the whole page.',
+    fixed: 'Remote avatars disabled, local images served instead.',
   },
   {
     resource: 'CDN-hosted scripts',
-    symptom: 'jQuery from ajax.googleapis.com hangs everything that depends on it.',
-    fix: 'Every script bundled and served from your own hosting.',
+    broken: 'jQuery from ajax.googleapis.com hangs everything that depends on it.',
+    fixed: 'Every script bundled and served from your own hosting.',
   },
   {
     resource: 'Google Analytics',
-    symptom: 'No visitor data, plus one more blocked request on every page.',
-    fix: 'Baidu Tongji or a self-hosted analytics tool such as Matomo.',
+    broken: 'No visitor data, plus one more blocked request on every page.',
+    fixed: 'Baidu Tongji or a self-hosted analytics tool such as Matomo.',
   },
 ];
 
 const processSteps = [
   {
     title: 'Discovery',
-    body: 'We audit your current site from a Shanghai connection, map your goals for the China market, and agree scope and budget. 1 to 2 weeks.',
+    when: 'Weeks 1-2',
+    body: 'We audit your current site from a Shanghai connection, map your goals for the China market, and agree scope and budget.',
   },
   {
     title: 'Design',
+    when: 'Weeks 2-4',
     body: 'Wireframes and visual design shaped for Chinese users: denser layouts, mobile-first, WeChat-aware.',
   },
   {
     title: 'Build',
+    when: 'Weeks 4-8',
     body: 'Theme and plugin development with zero blocked resources. Every dependency self-hosted from the first commit.',
   },
   {
     title: 'China performance testing',
+    when: 'Weeks 8-9',
     body: 'We load the site from Beijing, Shanghai and Guangzhou nodes and fix anything slower than 2 seconds before you ever see a staging link.',
   },
   {
     title: 'ICP & hosting setup',
-    body: 'ICP filing prepared and submitted, hosting and CDN configured. Runs in parallel with the build, so it costs no extra calendar time.',
+    when: 'In parallel',
+    body: 'ICP filing prepared and submitted, hosting and CDN configured. Runs alongside the build, so it costs no extra calendar time.',
   },
   {
     title: 'Baidu SEO foundations',
+    when: 'Weeks 9-10',
     body: 'Baidu Webmaster Tools, sitemap submission, Chinese keyword mapping and on-page work, done before launch rather than bolted on after.',
   },
   {
     title: 'Launch',
+    when: 'Week 10',
     body: 'DNS switch, CDN warm-up, and a launch-day check from mainland connections.',
   },
   {
     title: 'Support',
+    when: 'Ongoing',
     body: 'Updates, monitoring and monthly reporting under a maintenance plan. Most clients stay with us for years.',
   },
 ];
@@ -190,34 +199,42 @@ const differentiators = [
 
 const faqs = [
   {
+    id: 'works-in-china',
     q: 'Does WordPress actually work in China?',
     a: 'Yes, when it’s hosted in or near China and stripped of blocked resources. WordPress core itself is fine; the problems come from themes and plugins that call Google Fonts, reCAPTCHA, Gravatar and other blocked services. We’ve shipped 50+ WordPress sites that load in under 2 seconds from mainland connections.',
   },
   {
+    id: 'icp-needed',
     q: 'Do I need an ICP licence for my WordPress site?',
     a: 'Only if you host in mainland China. The basic ICP Bei’an filing covers brochure and marketing sites and requires a Chinese legal entity. Selling directly to Chinese consumers from the site usually means the commercial ICP licence, which has stricter requirements. If you have no Chinese entity, Hong Kong hosting skips the ICP entirely and still performs well.',
   },
   {
+    id: 'fix-without-rebuild',
     q: 'My existing WordPress site is slow in China. Can you fix it without a rebuild?',
     a: 'Usually, yes. Most slow sites suffer from blocked third-party resources and distant hosting, and both are fixable without touching your design or content. We migrate the site to China-ready hosting, localise fonts and scripts, and swap the plugins that break. Run our free China site scanner to see exactly what’s blocking yours.',
   },
   {
+    id: 'timeline',
     q: 'How long does it take to launch a WordPress site in China?',
     a: 'A new brand site takes 8 to 12 weeks from kickoff to launch. Migrating and localising an existing global site takes 14 to 20 weeks including content rewrite and Baidu indexing. The ICP filing takes 2 to 4 weeks and runs in parallel with the build.',
   },
   {
+    id: 'woocommerce',
     q: 'Does WooCommerce work in China?',
     a: 'Yes, with local adjustments. Checkout needs WeChat Pay and Alipay rather than Stripe or PayPal, and selling domestically requires the commercial ICP licence plus a Chinese entity. Many foreign brands start with cross-border e-commerce instead, which has lighter requirements. We’ve built both.',
   },
   {
-    q: 'Will the China version hurt my Google rankings elsewhere?',
+    id: 'google-rankings',
+    q: 'Will optimising for China hurt my Google rankings elsewhere?',
     a: 'No. Your China site runs alongside your global site, usually on a subdomain or a .cn domain, with hreflang tags telling Google and Baidu which version serves which audience. Your existing rankings stay where they are.',
   },
   {
+    id: 'chinese-content',
     q: 'Can you handle Simplified Chinese content and multilingual setup?',
     a: 'Yes. We work with WPML and Polylang for multilingual WordPress, and our native Chinese writers produce the Simplified Chinese content. Machine-translated Chinese reads as poorly to Chinese buyers as machine-translated English reads to you, so we don’t use it.',
   },
   {
+    id: 'cost',
     q: 'How much does a China WordPress project cost?',
     a: 'It depends on page count, whether you need an ICP filing, the hosting tier, localisation volume and any e-commerce. We quote a fixed price after a scoping call, and the call and quote are free. Ongoing maintenance and hosting run on a flat monthly retainer.',
   },
@@ -281,116 +298,169 @@ const breadcrumbLd = {
   <ScrollEffects />
   <PageScrollEffects />
 
-  <!-- ============= HERO ============= -->
+  <!-- ============= HERO with live network simulation ============= -->
   <section
     data-hero
-    class="relative bg-[var(--color-surface-dark)] overflow-hidden min-h-[88vh] flex flex-col"
+    class="relative bg-[var(--color-surface-dark)] overflow-hidden flex flex-col"
   >
-    <!-- Background -->
     <div class="absolute inset-0">
       <img
         src="/images/hero-wordpress-agency-china.webp"
         alt=""
         width="1600"
         height="900"
-        class="absolute inset-0 w-full h-full object-cover scale-105"
+        class="absolute inset-0 w-full h-full object-cover scale-105 opacity-60"
         loading="eager"
         decoding="async"
         fetchpriority="high"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0e]/95 via-[#0a0a0e]/80 to-[#0a0a0e]/40"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0e]/60 via-transparent to-[#0a0a0e]/95"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0e]/97 via-[#0a0a0e]/88 to-[#0a0a0e]/60"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0e]/70 via-transparent to-[#0a0a0e]"></div>
     </div>
 
-    <!-- Mesh orbs -->
     <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div class="absolute top-[10%] -left-32 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/[0.18] blur-[140px]"></div>
-      <div class="absolute bottom-[5%] -right-20 w-[500px] h-[500px] rounded-full bg-[#FF7E47]/[0.12] blur-[160px]"></div>
+      <div class="absolute top-[8%] -left-32 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/[0.16] blur-[140px]"></div>
+      <div class="absolute bottom-[5%] right-[15%] w-[500px] h-[500px] rounded-full bg-[#EF4444]/[0.08] blur-[160px]"></div>
     </div>
 
-    <!-- Dot grid -->
     <div
       aria-hidden="true"
-      class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:38px_38px] pointer-events-none"
+      class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:38px_38px] pointer-events-none"
     ></div>
 
-    <!-- Decorative giant glyph -->
-    <span
-      aria-hidden="true"
-      class="absolute right-[-4rem] bottom-[-2rem] text-[26rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block"
-    >建</span>
-
-    <!-- Main content -->
-    <div class="relative z-10 mx-auto w-full max-w-[1200px] section-padding flex-1 flex items-center pt-32 lg:pt-40 pb-20 lg:pb-28">
-      <div class="max-w-[860px]">
-        <!-- Eyebrow -->
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-10 bg-[var(--color-brand-orange)]"></div>
-          <span class="text-xs lg:text-sm font-medium tracking-[0.18em] text-[var(--color-brand-orange)] uppercase">
-            WordPress specialists · Based in Shanghai
-          </span>
-        </div>
-
-        <!-- Headline -->
-        <h1 class="text-[clamp(2.4rem,5.2vw,4.2rem)] font-medium font-[var(--font-heading)] text-white leading-[1.04] tracking-tight">
-          WordPress agency in China:
-          <span class="block mt-2">
-            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
-              build, host and rank
+    <div class="relative z-10 mx-auto w-full max-w-[1240px] section-padding flex-1 pt-32 lg:pt-40 pb-16 lg:pb-24">
+      <div class="grid grid-cols-12 gap-10 lg:gap-8 items-center">
+        <!-- Left: headline -->
+        <div class="col-span-12 lg:col-span-6">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="h-px w-10 bg-[var(--color-brand-orange)]"></div>
+            <span class="text-xs lg:text-sm font-medium tracking-[0.18em] text-[var(--color-brand-orange)] uppercase">
+              WordPress specialists · Based in Shanghai
             </span>
-          </span>
-          <span class="block mt-2 text-white/95">behind the Great Firewall.</span>
-        </h1>
+          </div>
 
-        <p class="mt-7 text-base lg:text-xl text-white/65 leading-relaxed max-w-[700px]">
-          We design, build, host and maintain WordPress sites that load in under 2 seconds inside mainland China. ICP licensing, firewall-safe hosting and Baidu SEO, all handled by one Shanghai-based team.
-        </p>
+          <h1 class="text-[clamp(2.3rem,4.6vw,3.9rem)] font-medium font-[var(--font-heading)] text-white leading-[1.04] tracking-tight">
+            WordPress agency in China:
+            <span class="block mt-2">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
+                build, host and rank
+              </span>
+            </span>
+            <span class="block mt-2 text-white/95">behind the Great Firewall.</span>
+          </h1>
 
-        <!-- CTAs -->
-        <div class="mt-9 flex flex-wrap items-center gap-4">
-          <Button href="/contact/" variant="primary" size="lg">Request a quote</Button>
-          <a
-            href="/china-site-scanner/"
-            class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
-          >
-            Free China readiness audit
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+          <p class="mt-7 text-base lg:text-lg text-white/65 leading-relaxed max-w-[560px]">
+            We design, build, host and maintain WordPress sites that load in under 2 seconds inside mainland China. ICP licensing, firewall-safe hosting and Baidu SEO, all handled by one Shanghai-based team.
+          </p>
+
+          <div class="mt-9 flex flex-wrap items-center gap-4">
+            <Button href="/contact/" variant="primary" size="lg">Request a quote</Button>
+            <a
+              href="/china-site-scanner/"
+              class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
+            >
+              Free China readiness audit
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="mt-12 grid grid-cols-3 gap-6 max-w-xl">
+            <div class="border-l-2 border-[var(--color-brand-orange)]/70 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">50</span></div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">WordPress sites shipped</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">15</span></div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Years in China</div>
+            </div>
+            <div class="border-l-2 border-white/15 pl-4">
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">&lt;2s</div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Load time in tier-1 cities</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Stats strip -->
-        <div class="mt-14 grid grid-cols-3 gap-6 max-w-2xl">
-          <div class="border-l-2 border-[var(--color-brand-orange)]/70 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">50</span></div>
-            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">WordPress sites shipped</div>
+        <!-- Right: live network panel simulation (the signature) -->
+        <div class="col-span-12 lg:col-span-6" data-reveal="right">
+          <div id="net-sim" class="relative max-w-[560px] mx-auto lg:ml-auto rounded-2xl border border-white/12 bg-[#101016]/90 backdrop-blur-md shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8)] overflow-hidden">
+            <!-- window chrome -->
+            <div class="flex items-center gap-3 px-4 py-3 border-b border-white/10 bg-white/[0.03]">
+              <div class="flex gap-1.5" aria-hidden="true">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
+              </div>
+              <div class="flex-1 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.06] text-[12px] font-mono text-white/60 truncate">
+                <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 3.935"/></svg>
+                yourbrand.com
+              </div>
+              <div class="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-white/50 shrink-0">
+                <svg class="w-3.5 h-3.5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Shanghai, CN
+              </div>
+            </div>
+
+            <!-- loading bar -->
+            <div class="h-[3px] bg-white/[0.06]">
+              <div id="sim-progress" class="h-full w-0 bg-[#EF4444] transition-none"></div>
+            </div>
+
+            <!-- phase + timer -->
+            <div class="flex items-center justify-between px-4 pt-3.5 pb-1">
+              <span id="sim-phase" class="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.14em] text-white/60">
+                <span id="sim-phase-dot" class="w-1.5 h-1.5 rounded-full bg-[#EF4444]"></span>
+                <span id="sim-phase-label">Standard WordPress install</span>
+              </span>
+              <span class="text-[13px] font-mono text-white/80 tabular-nums">
+                <span id="sim-timer">0.0</span>s
+              </span>
+            </div>
+
+            <!-- request rows -->
+            <div id="sim-rows" class="px-4 pb-3 pt-1.5 min-h-[248px] flex flex-col gap-1.5" aria-live="off"></div>
+
+            <!-- verdict -->
+            <div id="sim-verdict" class="mx-4 mb-4 rounded-lg px-3.5 py-2.5 text-[12.5px] font-mono border border-white/10 bg-white/[0.04] text-white/45 transition-colors duration-500">
+              Waiting for first request...
+            </div>
           </div>
-          <div class="border-l-2 border-white/15 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">15</span></div>
-            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Years in China</div>
-          </div>
-          <div class="border-l-2 border-white/15 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">&lt;<span data-counter data-counter-suffix="s">2</span></div>
-            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Load time in tier-1 cities</div>
-          </div>
+          <p class="mt-3 text-center lg:text-right text-[11px] font-mono uppercase tracking-[0.14em] text-white/35">
+            Simulation · based on real audits we run daily
+          </p>
         </div>
+      </div>
+    </div>
+
+    <!-- Firewall divider -->
+    <div class="relative z-10 border-t border-white/[0.07]">
+      <div class="mx-auto max-w-[1240px] section-padding py-4 flex items-center justify-between gap-4">
+        <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.2em] text-white/35">Your server · Frankfurt</span>
+        <span class="flex-1 h-px bg-gradient-to-r from-transparent via-[#EF4444]/60 to-transparent relative">
+          <span class="absolute inset-0 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-orange)]/70 to-transparent animate-pulse"></span>
+        </span>
+        <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-brand-orange)]/90 whitespace-nowrap">防火长城 · The Great Firewall</span>
+        <span class="flex-1 h-px bg-gradient-to-r from-transparent via-[#EF4444]/60 to-transparent relative">
+          <span class="absolute inset-0 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-orange)]/70 to-transparent animate-pulse"></span>
+        </span>
+        <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.2em] text-white/35">Your buyers · Shanghai</span>
       </div>
     </div>
   </section>
 
-  <!-- ============= WHY A SPECIALIST ============= -->
+  <!-- ============= WHY A SPECIALIST + viewport switcher ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
     <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
       <div class="absolute -top-32 right-[8%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px]"></div>
-      <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:34px_34px] opacity-[0.035]"></div>
+      <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:34px_34px] opacity-[0.03]"></div>
     </div>
 
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="grid grid-cols-12 gap-8 lg:gap-14 items-center">
-        <div class="col-span-12 lg:col-span-7" data-reveal>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">The problem · 问题</span>
+    <div class="relative mx-auto max-w-[1240px] section-padding">
+      <div class="grid grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="col-span-12 lg:col-span-6" data-reveal="left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EF4444]/[0.08] border border-[#EF4444]/20 mb-5">
+            <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[#DC2626]">The problem · 问题</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-6">
             Why a standard WordPress site fails in China.
@@ -402,7 +472,7 @@ const breadcrumbLd = {
             Distance makes it worse. Every request travels from the visitor in China to a server in Frankfurt or Virginia through congested international gateways. And without an ICP filing you can't host in mainland China or use a mainland CDN, so there's no way to shorten that trip.
           </p>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            A China-specialist WordPress agency deals with all of this before launch: hosting inside or next to China, an ICP filing in your name, themes stripped of blocked resources, and every plugin tested from a Chinese connection. That's the work this page describes.
+            A China-specialist WordPress agency deals with all of this before launch. Flip the viewer to see what your buyers see. Then run the real test on your own site.
           </p>
           <div class="flex flex-wrap items-center gap-4">
             <Button href="/china-site-scanner/" variant="primary" size="md">Run a free China readiness audit</Button>
@@ -410,127 +480,329 @@ const breadcrumbLd = {
           </div>
         </div>
 
-        <div class="col-span-12 lg:col-span-5" data-reveal data-reveal-delay="120">
-          <div class="rounded-3xl border border-[var(--color-surface-border)] bg-[var(--color-surface-light)] p-7 lg:p-8">
-            <div class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">What your visitors in China hit</div>
-            <ul class="space-y-4">
-              {[
-                'Google Fonts, Maps and reCAPTCHA: blocked, page hangs',
-                'YouTube embeds and Gravatar: blocked, layouts break',
-                'Hosting in Europe or the US: 300ms+ latency per request',
-                'No ICP filing: no mainland hosting, no mainland CDN',
-                'Plugins calling foreign CDNs: silent failures everywhere',
-              ].map((item) => (
-                <li class="flex items-start gap-3 text-[15px] text-[var(--color-text-body)] leading-relaxed">
-                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-hero-red,#EF4444)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+        <!-- Viewport switcher: same site, two places -->
+        <div class="col-span-12 lg:col-span-6" data-reveal="right">
+          <div id="view-switch" data-view="shanghai" class="rounded-2xl border border-[var(--color-surface-border)] bg-white shadow-[0_30px_70px_-30px_rgba(15,15,18,0.25)] overflow-hidden">
+            <!-- toolbar -->
+            <div class="flex flex-wrap items-center gap-3 px-4 py-3 border-b border-[var(--color-surface-border)] bg-[var(--color-surface-light)]">
+              <div class="flex gap-1.5" aria-hidden="true">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
+              </div>
+              <span class="text-[12px] font-mono text-[var(--color-text-muted)] truncate">yourbrand.com · same site, two connections</span>
+              <div class="ml-auto inline-flex rounded-full border border-[var(--color-surface-border)] bg-white p-0.5" role="group" aria-label="Choose viewing location">
+                <button type="button" data-view-btn="frankfurt" class="view-btn px-3.5 py-1.5 rounded-full text-[12px] font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">From Frankfurt</button>
+                <button type="button" data-view-btn="shanghai" class="view-btn px-3.5 py-1.5 rounded-full text-[12px] font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">From Shanghai</button>
+              </div>
+            </div>
+
+            <!-- mock page -->
+            <div class="relative p-5 sm:p-6 bg-white">
+              <!-- load chip -->
+              <div class="absolute top-4 right-4 z-10">
+                <span class="load-chip-ok inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 text-[11px] font-mono text-[#15803D] transition-opacity duration-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#22C55E]"></span>Loaded in 1.2s
+                </span>
+                <span class="load-chip-bad absolute top-0 right-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[11px] font-mono text-[#DC2626] whitespace-nowrap transition-opacity duration-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#EF4444] animate-pulse"></span>23.4s, still loading
+                </span>
+              </div>
+
+              <!-- nav mock -->
+              <div class="flex items-center justify-between mb-6">
+                <div class="mock-logo h-4 w-24 rounded bg-[var(--color-text-dark)] transition-all duration-500"></div>
+                <div class="flex gap-2.5">
+                  <span class="h-2.5 w-10 rounded-full bg-[var(--color-surface-border)]"></span>
+                  <span class="h-2.5 w-10 rounded-full bg-[var(--color-surface-border)]"></span>
+                  <span class="h-2.5 w-10 rounded-full bg-[var(--color-surface-border)]"></span>
+                </div>
+              </div>
+
+              <!-- hero text mock: swaps to invisible-font state -->
+              <div class="mb-5 relative">
+                <div class="mock-heading space-y-2 transition-all duration-500">
+                  <div class="h-5 w-3/4 rounded bg-[var(--color-text-dark)]"></div>
+                  <div class="h-5 w-1/2 rounded bg-[var(--color-text-dark)]"></div>
+                </div>
+                <span class="mock-font-tag absolute -top-1 right-0 inline-flex items-center px-2 py-0.5 rounded bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono text-[#DC2626] opacity-0 transition-opacity duration-500">fonts.googleapis.com · blocked</span>
+                <div class="h-2.5 w-full rounded-full bg-[var(--color-surface-border)] mt-4"></div>
+                <div class="h-2.5 w-5/6 rounded-full bg-[var(--color-surface-border)] mt-2"></div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <!-- map block -->
+                <div class="mock-map relative aspect-[4/3] rounded-xl overflow-hidden border border-[var(--color-surface-border)] transition-all duration-500">
+                  <div class="map-ok absolute inset-0 bg-gradient-to-br from-[#B8D8C7] via-[#DCE8D4] to-[#AECBDB] transition-opacity duration-500">
+                    <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full w-4 h-4 rounded-full bg-[var(--color-brand-orange)] border-2 border-white shadow"></span>
+                    <span class="absolute left-[20%] top-[30%] h-px w-[60%] bg-white/70 rotate-12"></span>
+                    <span class="absolute left-[10%] top-[60%] h-px w-[80%] bg-white/70 -rotate-6"></span>
+                  </div>
+                  <div class="map-bad absolute inset-0 grid place-items-center bg-[#F3F4F6] transition-opacity duration-500">
+                    <div class="text-center px-3">
+                      <svg class="w-6 h-6 mx-auto mb-1.5 text-[#DC2626]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                      <span class="block text-[10px] font-mono text-[#6B7280]">maps.googleapis.com<br/>failed to respond</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- form block -->
+                <div class="relative rounded-xl border border-[var(--color-surface-border)] p-3.5 flex flex-col gap-2.5">
+                  <div class="h-2 w-16 rounded-full bg-[var(--color-surface-border)]"></div>
+                  <div class="h-7 rounded-lg bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]"></div>
+                  <div class="h-7 rounded-lg bg-[var(--color-surface-light)] border border-[var(--color-surface-border)]"></div>
+                  <div class="mock-submit relative h-8 rounded-lg grid place-items-center transition-all duration-500">
+                    <span class="submit-ok text-[11px] font-medium text-white transition-opacity duration-300">Send enquiry</span>
+                    <span class="submit-bad absolute inset-0 grid place-items-center gap-1 transition-opacity duration-300">
+                      <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-[#DC2626]">
+                        <svg class="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v3a5 5 0 00-5 5H4z"></path></svg>
+                        waiting for reCAPTCHA
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          <p class="mt-3 text-center text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+            Interactive · flip between the two connections
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============= SERVICES ============= -->
-  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
-    <span aria-hidden="true" class="absolute right-[-3rem] top-[8%] text-[20rem] lg:text-[26rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">服务</span>
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Our services · 服务</span>
+  <!-- ============= SERVICES: dark bento ============= -->
+  <section class="relative section-spacing bg-[#0a0a0e] overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/firewall-network-map.webp"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-[0.22]"
+        loading="lazy"
+        decoding="async"
+        onerror="this.style.display='none'"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0e] via-[#0a0a0e]/70 to-[#0a0a0e]"></div>
+    </div>
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-[15%] -left-24 w-[480px] h-[480px] rounded-full bg-[var(--color-brand-orange)]/[0.12] blur-[150px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1240px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 mb-5">
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Our services · 服务</span>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+        <h2 class="text-3xl sm:text-4xl lg:text-[46px] font-medium font-[var(--font-heading)] text-white leading-[1.08] mb-5">
           Our WordPress services for China.
         </h2>
-        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+        <p class="text-lg text-white/60 leading-relaxed">
           6 things we do every week for foreign brands running WordPress in China. Each comes with a named deliverable, and the same in-house team in Shanghai ships all 6.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-        {services.map((s) => (
-          <article
-            data-reveal
-            class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_22px_45px_-22px_rgba(15,15,18,0.15)] hover:-translate-y-1"
-          >
-            <span aria-hidden="true" class="absolute right-[-0.5rem] bottom-[-1.5rem] text-[7rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none">{s.cn}</span>
-            <div class="relative">
-              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
-                {s.title}
-              </h3>
-              <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed mb-3">
-                {s.body}
-              </p>
-              <p class="text-[13px] text-[var(--color-card-blue,#344480)] leading-relaxed mb-4">
-                <strong>Deliverable:</strong> {s.deliverable}
-              </p>
-              <a href={s.href} class="inline-flex items-center gap-1.5 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline hover:gap-2.5 transition-all">
-                {s.linkLabel}
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-              </a>
+      <div class="grid grid-cols-12 gap-4 lg:gap-5">
+        {/* Dev: wide card with browser mock */}
+        <article data-reveal data-cursor-spotlight class="svc-card col-span-12 lg:col-span-7 group relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
+          <div class="relative z-[2] lg:max-w-[55%]">
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[0].title}</h3>
+            <p class="text-[14.5px] text-white/60 leading-relaxed mb-3">{services[0].body}</p>
+            <p class="text-[13px] text-[#FF9466] leading-relaxed mb-5"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[0].deliverable}</p>
+            <a href={services[0].href} class="svc-link">{services[0].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          </div>
+          <div aria-hidden="true" class="relative lg:absolute lg:right-[-2rem] lg:top-1/2 lg:-translate-y-1/2 mt-6 lg:mt-0 lg:w-[46%] rounded-xl border border-white/10 bg-[#15151c] p-3 shadow-2xl rotate-0 lg:rotate-[3deg] transition-transform duration-500 group-hover:lg:rotate-[1deg]">
+            <div class="flex gap-1.5 mb-2.5"><span class="w-2 h-2 rounded-full bg-white/20"></span><span class="w-2 h-2 rounded-full bg-white/20"></span><span class="w-2 h-2 rounded-full bg-white/20"></span></div>
+            <div class="h-3 w-2/3 rounded bg-[var(--color-brand-orange)]/70 mb-2"></div>
+            <div class="h-2 w-full rounded bg-white/10 mb-1.5"></div>
+            <div class="h-2 w-5/6 rounded bg-white/10 mb-3"></div>
+            <div class="grid grid-cols-3 gap-1.5">
+              <div class="h-10 rounded bg-white/[0.07]"></div>
+              <div class="h-10 rounded bg-white/[0.07]"></div>
+              <div class="h-10 rounded bg-[var(--color-brand-orange)]/25"></div>
             </div>
-          </article>
-        ))}
+            <div class="mt-2.5 flex items-center gap-1.5 text-[9px] font-mono text-[#22C55E]"><span class="w-1 h-1 rounded-full bg-[#22C55E]"></span>0 blocked requests</div>
+          </div>
+        </article>
+
+        {/* Hosting: latency meter */}
+        <article data-reveal data-reveal-delay="80" data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-5 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[1].title}</h3>
+          <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[1].body}</p>
+          <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 space-y-3">
+            {[
+              { city: 'Beijing', ms: '48ms', w: 'w-[28%]' },
+              { city: 'Shanghai', ms: '36ms', w: 'w-[21%]' },
+              { city: 'Guangzhou', ms: '61ms', w: 'w-[35%]' },
+            ].map((row) => (
+              <div class="flex items-center gap-3">
+                <span class="w-20 text-[11px] font-mono text-white/50">{row.city}</span>
+                <span class="flex-1 h-1.5 rounded-full bg-white/[0.07] overflow-hidden">
+                  <span class:list={['lat-bar block h-full rounded-full bg-gradient-to-r from-[#22C55E] to-[#4ADE80]', row.w]}></span>
+                </span>
+                <span class="text-[11px] font-mono text-[#4ADE80] tabular-nums">{row.ms}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[1].deliverable}</p>
+          <a href={services[1].href} class="svc-link">{services[1].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </article>
+
+        {/* ICP: licence chip */}
+        <article data-reveal data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
+          <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[2].title}</h3>
+          <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[2].body}</p>
+          <div aria-hidden="true" class="rounded-xl border border-dashed border-[var(--color-brand-orange)]/40 bg-[var(--color-brand-orange)]/[0.06] px-4 py-3 mb-4 flex items-center justify-between gap-3">
+            <span class="text-[12px] font-mono text-[#FF9466]">沪ICP备2026XXXX号</span>
+            <span class="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-[#4ADE80]"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Filed</span>
+          </div>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[2].deliverable}</p>
+          <a href={services[2].href} class="svc-link">{services[2].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </article>
+
+        {/* Baidu: mini SERP */}
+        <article data-reveal data-reveal-delay="80" data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
+          <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[3].title}</h3>
+          <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[3].body}</p>
+          <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4">
+            <div class="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-3 py-1.5 mb-3">
+              <svg class="w-3 h-3 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <span class="text-[11px] font-mono text-white/60">wordpress 建站 公司</span>
+            </div>
+            <div class="rounded-lg bg-[var(--color-brand-orange)]/[0.12] border border-[var(--color-brand-orange)]/30 px-3 py-2 mb-2">
+              <div class="h-2 w-3/4 rounded bg-[#FF9466]/80 mb-1.5"></div>
+              <div class="h-1.5 w-full rounded bg-white/15"></div>
+            </div>
+            <div class="px-3 py-1.5 opacity-40"><div class="h-2 w-2/3 rounded bg-white/25 mb-1.5"></div><div class="h-1.5 w-5/6 rounded bg-white/15"></div></div>
+          </div>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[3].deliverable}</p>
+          <a href={services[3].href} class="svc-link">{services[3].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </article>
+
+        {/* Migration: before/after timer */}
+        <article data-reveal data-reveal-delay="160" data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
+          <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[4].title}</h3>
+          <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[4].body}</p>
+          <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 flex items-center justify-center gap-3">
+            <div class="text-center">
+              <div class="text-lg font-mono text-[#F87171] line-through decoration-2">23.4s</div>
+              <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">Before</div>
+            </div>
+            <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <div class="text-center">
+              <div class="text-lg font-mono text-[#4ADE80]">1.8s</div>
+              <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">After</div>
+            </div>
+          </div>
+          <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[4].deliverable}</p>
+          <a href={services[4].href} class="svc-link">{services[4].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </article>
+
+        {/* Maintenance: uptime sparkline */}
+        <article data-reveal data-cursor-spotlight class="svc-card col-span-12 md:col-span-6 lg:col-span-7 relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 lg:p-8 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/40 hover:-translate-y-1">
+          <div class="lg:flex lg:items-center lg:gap-8">
+            <div class="lg:flex-1">
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">{services[5].title}</h3>
+              <p class="text-[14.5px] text-white/60 leading-relaxed mb-3">{services[5].body}</p>
+              <p class="text-[13px] text-[#FF9466] leading-relaxed mb-4"><strong class="text-white/80 font-medium">Deliverable:</strong> {services[5].deliverable}</p>
+              <a href={services[5].href} class="svc-link">{services[5].linkLabel}<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+            </div>
+            <div aria-hidden="true" class="mt-5 lg:mt-0 lg:w-[240px] rounded-xl border border-white/10 bg-[#15151c] p-4">
+              <div class="flex items-baseline justify-between mb-2">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/40">Uptime · 90 days</span>
+                <span class="text-[13px] font-mono text-[#4ADE80]">99.98%</span>
+              </div>
+              <svg viewBox="0 0 220 48" class="w-full h-12" preserveAspectRatio="none">
+                <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
+              </svg>
+              <div class="mt-2 flex items-center gap-1.5 text-[10px] font-mono text-white/40"><span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse"></span>Monitored from Shanghai</div>
+            </div>
+          </div>
+        </article>
+
+        {/* CTA card closes the bento */}
+        <article data-reveal data-reveal-delay="80" class="col-span-12 md:col-span-6 lg:col-span-5 relative rounded-3xl border border-[var(--color-brand-orange)]/40 bg-gradient-to-br from-[var(--color-brand-orange)]/[0.16] to-[#FF7E47]/[0.06] p-7 lg:p-8 flex flex-col justify-center overflow-hidden">
+          <span aria-hidden="true" class="absolute right-[-1.5rem] bottom-[-2.5rem] text-[10rem] font-medium font-[var(--font-heading)] text-white/[0.05] leading-none select-none pointer-events-none">一</span>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-white leading-tight mb-3">All 6, scoped in one quote.</h3>
+          <p class="text-[14.5px] text-white/65 leading-relaxed mb-6">One team, one contract, one point of contact. Tell us where your China project stands and we'll scope the rest.</p>
+          <div><Button href="/contact/" variant="primary" size="md">Request a quote</Button></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ============= WHAT BREAKS ============= -->
+  <!-- ============= WHAT BREAKS: the switchboard ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
-    <span aria-hidden="true" class="absolute left-[-3rem] top-[10%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">修</span>
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+    <span aria-hidden="true" data-float="slow" class="absolute left-[-3rem] top-[10%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">修</span>
+    <div class="relative mx-auto max-w-[1100px] section-padding">
+      <div class="max-w-3xl mb-10 lg:mb-12" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">The technical work · 技术</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">The technical work · 技术</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
           What breaks WordPress in China, and how we fix it.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          WordPress core runs fine in China. The damage comes from the services a typical theme quietly depends on. Here's the standard damage report and what we do about each line.
+          The Great Firewall doesn't block WordPress. It blocks the services a typical theme quietly depends on. Flip the switch to see what our rebuild changes.
         </p>
       </div>
 
-      <div class="space-y-3">
+      <!-- master toggle -->
+      <div class="flex items-center justify-center gap-4 mb-8" data-reveal>
+        <span id="fix-label-before" class="text-sm font-medium font-[var(--font-button)] text-[#DC2626] transition-colors duration-300">Standard install</span>
+        <button
+          type="button"
+          id="fix-toggle"
+          role="switch"
+          aria-checked="false"
+          aria-label="Toggle between standard install and our rebuild"
+          class="relative w-16 h-8 rounded-full border cursor-pointer transition-colors duration-300 bg-[#EF4444]/15 border-[#EF4444]/40"
+        >
+          <span id="fix-knob" class="absolute top-1/2 -translate-y-1/2 left-1 w-6 h-6 rounded-full bg-[#EF4444] shadow-md transition-all duration-300"></span>
+        </button>
+        <span id="fix-label-after" class="text-sm font-medium font-[var(--font-button)] text-[var(--color-text-muted)] transition-colors duration-300">After our rebuild</span>
+      </div>
+
+      <div id="fix-rows" data-state="broken" class="space-y-2.5">
         {breakages.map((b, i) => (
           <div
             data-reveal
-            data-reveal-delay={String(i * 40)}
-            class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 rounded-2xl border border-[var(--color-surface-border)] bg-white p-5 lg:px-7 lg:py-5 transition-all duration-200 hover:border-[var(--color-brand-orange)]/30"
+            data-reveal-delay={String(Math.min(i * 50, 300))}
+            class="fix-row grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-5 items-center rounded-2xl border p-4 sm:px-6 sm:py-4 transition-all duration-500"
+            style={`--stagger: ${i * 60}ms`}
           >
-            <div class="md:col-span-3">
+            <div class="sm:col-span-3 flex items-center gap-2.5">
+              <span class="fix-dot w-2 h-2 rounded-full shrink-0 transition-colors duration-500"></span>
               <span class="text-[15px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{b.resource}</span>
             </div>
-            <div class="md:col-span-5 text-[14px] text-[var(--color-text-body)] leading-relaxed">
-              {b.symptom}
+            <div class="sm:col-span-2">
+              <span class="fix-chip-broken inline-flex items-center px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#DC2626] transition-all duration-300">Blocked</span>
+              <span class="fix-chip-fixed hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#15803D] transition-all duration-300">Fixed</span>
             </div>
-            <div class="md:col-span-4 text-[14px] text-[var(--color-card-blue,#344480)] leading-relaxed">
-              <span class="font-medium">Fix:</span> {b.fix}
+            <div class="sm:col-span-7 relative min-h-[1.5em]">
+              <p class="fix-text-broken text-[14px] text-[var(--color-text-body)] leading-relaxed transition-all duration-300">{b.broken}</p>
+              <p class="fix-text-fixed sm:absolute sm:inset-0 text-[14px] text-[var(--color-text-body)] leading-relaxed transition-all duration-300">{b.fixed}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div class="mt-10 max-w-3xl" data-reveal>
+      <div class="mt-10 max-w-3xl mx-auto text-center" data-reveal>
         <p class="text-base text-[var(--color-text-body)] leading-relaxed">
-          Plugins are the sneaky part. A page builder or slider plugin can bundle its own calls to blocked CDNs, so we audit every plugin from a Chinese connection before it ships. For the full list of what the firewall blocks and why, read our guide:
+          Plugins are the sneaky part. A page builder or slider plugin can bundle its own calls to blocked CDNs, so we audit every plugin from a Chinese connection before it ships. For the full list, read
           <a href="/resources/china-web-guide/great-firewall-what-it-blocks/" class="text-[var(--color-brand-orange-text)] font-medium">what the Great Firewall blocks</a>.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ============= ICP & HOSTING ============= -->
+  <!-- ============= ICP & HOSTING: decision helper ============= -->
   <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
-    <span aria-hidden="true" class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">证</span>
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+    <span aria-hidden="true" data-float class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">证</span>
+    <div class="relative mx-auto max-w-[1240px] section-padding">
+      <div class="max-w-3xl mb-10 lg:mb-12" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Licensing & hosting · 备案</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Licensing & hosting · 备案</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
           ICP licence and hosting requirements, explained.
@@ -539,30 +811,56 @@ const breadcrumbLd = {
           Every website hosted in mainland China needs an ICP filing with MIIT, the Chinese telecoms ministry. There are 2 kinds. The <strong>ICP Bei'an (备案)</strong> is a registration that covers brochure and marketing sites. The <strong>commercial ICP licence</strong> is a full permit, required when you sell directly to Chinese consumers from the site.
         </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Both require a Chinese legal entity. If you don't have one yet, Hong Kong hosting is the standard workaround, and it's how many of our clients start.
+          Both require a Chinese legal entity. Answer one question and we'll point you at the right setup.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 mb-10">
-        <article data-reveal class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9">
-          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">Option A</div>
-          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">Mainland China hosting</h3>
+      <!-- entity question -->
+      <div class="mb-8 flex flex-col sm:flex-row items-center justify-center gap-4" data-reveal>
+        <span class="text-base font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">Do you have a Chinese legal entity?</span>
+        <div id="entity-picker" class="inline-flex rounded-full border border-[var(--color-surface-border)] bg-white p-1 shadow-sm" role="group" aria-label="Do you have a Chinese legal entity?">
+          <button type="button" data-entity="yes" class="entity-btn px-5 py-2 rounded-full text-sm font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Yes</button>
+          <button type="button" data-entity="no" class="entity-btn px-5 py-2 rounded-full text-sm font-medium font-[var(--font-button)] cursor-pointer transition-all duration-200">Not yet</button>
+        </div>
+      </div>
+
+      <div id="hosting-options" class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 mb-10">
+        <article data-reveal data-tilt id="host-mainland" class="host-card relative rounded-3xl border-2 border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-400">
+          <span class="host-badge absolute -top-3.5 left-7 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)] text-white text-[11px] font-semibold font-[var(--font-button)] opacity-0 -translate-y-1 transition-all duration-300 shadow-lg">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Recommended for you
+          </span>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Mainland China hosting</h3>
+            <span class="text-[11px] font-mono text-[#15803D] bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-full px-2.5 py-1 whitespace-nowrap">50-100ms</span>
+          </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Alibaba Cloud or Tencent Cloud, inside the firewall. 50 to 100ms from tier-1 cities, full access to mainland CDNs, and the strongest signal to Baidu.
+            Alibaba Cloud or Tencent Cloud, inside the firewall. Full access to mainland CDNs and the strongest signal to Baidu.
           </p>
-          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
-            Requires an ICP filing, which requires a Chinese entity. Filing takes 2 to 4 weeks and we run it in parallel with your build. The right choice when you have, or are opening, an entity in China.
-          </p>
+          <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Requires an ICP filing, which requires a Chinese entity</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Filing takes 2 to 4 weeks; we run it in parallel with your build</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Best when you have, or are opening, an entity in China</li>
+          </ul>
         </article>
-        <article data-reveal data-reveal-delay="120" class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9">
-          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">Option B</div>
-          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">Hong Kong hosting</h3>
+
+        <article data-reveal data-reveal-delay="120" data-tilt id="host-hk" class="host-card relative rounded-3xl border-2 border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-400">
+          <span class="host-badge absolute -top-3.5 left-7 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--color-brand-orange)] text-white text-[11px] font-semibold font-[var(--font-button)] opacity-0 -translate-y-1 transition-all duration-300 shadow-lg">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Recommended for you
+          </span>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Hong Kong hosting</h3>
+            <span class="text-[11px] font-mono text-[#B45309] bg-[#F59E0B]/10 border border-[#F59E0B]/25 rounded-full px-2.5 py-1 whitespace-nowrap">No ICP needed</span>
+          </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Just outside the firewall, so no ICP required. With a tuned site and the right routing, load times in southern and eastern China stay comfortably under 3 seconds.
+            Just outside the firewall. With a tuned site and the right routing, load times in southern and eastern China stay comfortably under 3 seconds.
           </p>
-          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
-            The right choice when you have no Chinese entity yet. You can move to mainland hosting later without rebuilding the site.
-          </p>
+          <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>No Chinese entity or licence required</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>The standard starting point for foreign brands</li>
+            <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Move to mainland hosting later without rebuilding</li>
+          </ul>
         </article>
       </div>
 
@@ -576,48 +874,65 @@ const breadcrumbLd = {
     </div>
   </section>
 
-  <!-- ============= PROCESS ============= -->
+  <!-- ============= PROCESS: scroll-filled timeline ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
-    <span aria-hidden="true" class="absolute right-[-3rem] bottom-[5%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">程</span>
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">How we work · 流程</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
-          Our process, from kickoff to China launch.
-        </h2>
-        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          A new brand site takes 8 to 12 weeks start to finish. Licensing and SEO run in parallel with the build, so nothing waits on anything else.
-        </p>
-      </div>
-
-      <div class="relative">
-        <div aria-hidden="true" class="absolute left-[7px] top-2 bottom-2 w-px bg-[var(--color-surface-border)] hidden md:block"></div>
-        <div class="space-y-8 md:space-y-10">
-          {processSteps.map((step, i) => (
-            <div data-reveal data-reveal-delay={String(i * 50)} class="relative md:pl-12">
-              <span aria-hidden="true" class="absolute left-0 top-1.5 hidden md:block w-[15px] h-[15px] rounded-full border-2 border-[var(--color-brand-orange)] bg-white"></span>
-              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{step.title}</h3>
-              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed max-w-2xl">{step.body}</p>
+    <span aria-hidden="true" data-float="slow" class="absolute right-[-3rem] bottom-[5%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">程</span>
+    <div class="relative mx-auto max-w-[1240px] section-padding">
+      <div class="grid grid-cols-12 gap-10 lg:gap-16">
+        <!-- Sticky intro -->
+        <div class="col-span-12 lg:col-span-5">
+          <div class="lg:sticky lg:top-32" data-reveal="left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+              <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">How we work · 流程</span>
             </div>
-          ))}
+            <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-6">
+              Our process, from kickoff to China launch.
+            </h2>
+            <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+              A new brand site takes 8 to 12 weeks start to finish. Licensing and SEO run in parallel with the build, so nothing waits on anything else.
+            </p>
+            <div class="flex items-baseline gap-3 mb-8">
+              <span class="text-5xl lg:text-6xl font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none"><span data-counter>8</span>-<span data-counter>12</span></span>
+              <span class="text-sm uppercase tracking-[0.14em] text-[var(--color-text-muted)]">weeks to launch</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+              <Button href="/contact/" variant="primary" size="md">Start your project</Button>
+              <Button href="/china-site-scanner/" variant="secondary" size="md">Audit your site first</Button>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="mt-12 flex flex-wrap items-center gap-4" data-reveal>
-        <Button href="/contact/" variant="primary" size="md">Start your project</Button>
-        <Button href="/china-site-scanner/" variant="secondary" size="md">Audit your current site first</Button>
+        <!-- Timeline -->
+        <div class="col-span-12 lg:col-span-7">
+          <div id="timeline" class="relative pl-10">
+            <div aria-hidden="true" class="absolute left-[9px] top-2 bottom-2 w-[2px] bg-[var(--color-surface-border)] rounded-full"></div>
+            <div aria-hidden="true" id="timeline-fill" class="absolute left-[9px] top-2 w-[2px] bg-gradient-to-b from-[var(--color-brand-orange)] to-[#FF9466] rounded-full origin-top" style="height: 0%"></div>
+            <div class="space-y-9 lg:space-y-11">
+              {processSteps.map((step) => (
+                <div class="tl-step relative" data-reveal>
+                  <span aria-hidden="true" class="tl-dot absolute -left-10 top-1 w-[20px] h-[20px] rounded-full border-2 border-[var(--color-surface-border)] bg-white transition-all duration-400 grid place-items-center">
+                    <span class="tl-dot-core w-2 h-2 rounded-full bg-transparent transition-colors duration-400"></span>
+                  </span>
+                  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                    <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">{step.title}</h3>
+                    <span class="text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-brand-orange)]">{step.when}</span>
+                  </div>
+                  <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed max-w-xl">{step.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============= WORDPRESS VS ALTERNATIVES ============= -->
   <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
-    <div class="relative mx-auto max-w-[1200px] section-padding">
+    <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Choosing a stack · 选型</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Choosing a stack · 选型</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
           WordPress vs the alternatives for China.
@@ -628,12 +943,13 @@ const breadcrumbLd = {
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-        {alternatives.map((alt) => (
-          <article data-reveal class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-8 flex flex-col">
+        {alternatives.map((alt, i) => (
+          <article data-reveal data-reveal-delay={String(i * 100)} data-tilt class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-8 flex flex-col transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)]">
             <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">{alt.title}</h3>
             <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-5 flex-1">{alt.body}</p>
             <p class="text-[14px] text-[var(--color-card-blue,#344480)] leading-relaxed border-t border-[var(--color-surface-border)] pt-4">
-              <span class="font-medium">Our take:</span> {alt.verdict}
+              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[var(--color-brand-orange)] mr-2">Our take</span>
+              {alt.verdict}
             </p>
           </article>
         ))}
@@ -641,13 +957,12 @@ const breadcrumbLd = {
     </div>
   </section>
 
-  <!-- ============= INDUSTRIES & WORK ============= -->
+  <!-- ============= INDUSTRIES marquee + WORK ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
-    <span aria-hidden="true" class="absolute left-[-2rem] top-[8%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">客</span>
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="max-w-3xl mb-10 lg:mb-12" data-reveal>
+    <div class="relative mx-auto max-w-[1240px] section-padding">
+      <div class="max-w-3xl mb-8 lg:mb-10" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Industries & clients · 客户</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Industries & clients · 客户</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
           Who we build for.
@@ -656,18 +971,31 @@ const breadcrumbLd = {
           Most of our clients are foreign companies with revenue at stake in China: exporters, universities recruiting Chinese students, hotels courting Chinese travellers, and SaaS firms whose product pages need to load in Shenzhen. If your buyers are in China and your site isn't, that's the gap we close.
         </p>
       </div>
+    </div>
 
-      <div class="flex flex-wrap gap-2.5 mb-14" data-reveal>
-        {industries.map((ind) => (
-          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[var(--color-surface-border)] bg-[var(--color-surface-light)] text-sm text-[var(--color-text-body)]">{ind}</span>
+    <!-- full-bleed marquee -->
+    <div class="relative mb-12 lg:mb-16 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]" data-reveal>
+      <div class="marquee-track flex w-max gap-3 py-1">
+        {[0, 1, 2].map(() => (
+          <div class="flex gap-3 pr-3" aria-hidden={undefined}>
+            {industries.map((ind) => (
+              <span class="inline-flex items-center gap-2 whitespace-nowrap px-5 py-2.5 rounded-full border border-[var(--color-surface-border)] bg-[var(--color-surface-light)] text-sm text-[var(--color-text-body)]">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)]"></span>
+                {ind}
+              </span>
+            ))}
+          </div>
         ))}
       </div>
+    </div>
 
+    <div class="relative mx-auto max-w-[1240px] section-padding">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-        {casestudies.map((cs) => (
+        {casestudies.map((cs, i) => (
           <a
             href={`/work/${cs.id}/`}
-            data-reveal
+            data-reveal="zoom"
+            data-reveal-delay={String(i * 100)}
             class="group relative block rounded-2xl overflow-hidden no-underline"
           >
             <div class="relative aspect-[4/5]">
@@ -675,7 +1003,7 @@ const breadcrumbLd = {
                 <img
                   src={cs.data.visual}
                   alt={cs.data.title}
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
                 />
@@ -683,11 +1011,11 @@ const breadcrumbLd = {
                 <div class="absolute inset-0" style={`background: linear-gradient(135deg, ${cs.data.color}, ${cs.data.color}dd)`}></div>
               )}
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-              <div class="absolute inset-x-0 bottom-0 p-6 lg:p-7">
+              <div class="absolute inset-x-0 bottom-0 p-6 lg:p-7 translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
                 <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-snug mb-2">
                   {cs.data.title}
                 </h3>
-                <p class="text-sm text-white/70 leading-relaxed line-clamp-2">{cs.data.summary}</p>
+                <p class="text-sm text-white/70 leading-relaxed line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">{cs.data.summary}</p>
               </div>
             </div>
           </a>
@@ -705,39 +1033,56 @@ const breadcrumbLd = {
 
   <!-- ============= PRICING ============= -->
   <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
-    <span aria-hidden="true" class="absolute right-[-2rem] bottom-[5%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">价</span>
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="grid grid-cols-12 gap-8 lg:gap-14">
-        <div class="col-span-12 lg:col-span-6" data-reveal>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pricing · 价格</span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
-            Pricing and engagement models.
-          </h2>
-          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            We work 2 ways. <strong>Project-based</strong> for a defined build or migration: fixed scope, fixed price, agreed timeline. <strong>Retainer</strong> for what comes after: hosting, maintenance, Baidu SEO and content, billed as a flat monthly fee.
-          </p>
-          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            What moves the price: page count and the number of templates, whether you need an ICP filing, the hosting tier, how much content needs Chinese localisation, and whether e-commerce is involved.
-          </p>
-          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
-            We quote after a 30-minute scoping call. The call is free, the quote is fixed, and you'll know within a week whether the numbers work for you.
-          </p>
+    <span aria-hidden="true" data-float class="absolute right-[-2rem] bottom-[5%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">价</span>
+    <div class="relative mx-auto max-w-[1240px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pricing · 价格</span>
         </div>
-        <div class="col-span-12 lg:col-span-6" data-reveal data-reveal-delay="120">
-          <div class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 h-full flex flex-col justify-center">
-            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
-              Get a fixed quote this week.
-            </h3>
-            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-7">
-              Send us your current site and your goals for China. We'll come back with a scoped proposal: deliverables, timeline and a fixed price, with the ICP and hosting questions already answered.
-            </p>
-            <div class="flex flex-wrap items-center gap-4">
-              <Button href="/contact/" variant="primary" size="md">Request a quote</Button>
-              <Button href="/china-site-scanner/" variant="ghost" size="md">Or scan your site first</Button>
-            </div>
-          </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          Pricing and engagement models.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          We work 2 ways. We quote after a 30-minute scoping call: the call is free, the quote is fixed, and you'll know within a week whether the numbers work for you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 mb-10">
+        <article data-reveal data-tilt class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)]">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">The build</div>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">Project-based</h3>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-5">A defined build or migration: fixed scope, fixed price, agreed timeline. One invoice, no surprises.</p>
+          <ul class="space-y-2.5 text-[14px] text-[var(--color-text-body)]">
+            {['Design and development', 'ICP filing and hosting setup', 'China performance testing', 'Baidu SEO foundations and launch'].map((item) => (
+              <li class="flex gap-2.5 items-start">
+                <svg class="w-4 h-4 mt-0.5 shrink-0 text-[#22C55E]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article data-reveal data-reveal-delay="120" data-tilt class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)]">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">What comes after</div>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">Monthly retainer</h3>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-5">Everything your site needs to stay fast and keep ranking, billed as one flat monthly fee.</p>
+          <ul class="space-y-2.5 text-[14px] text-[var(--color-text-body)]">
+            {['Hosting and China CDN', 'Updates, security and monitoring', 'Baidu SEO and reporting', 'Chinese content production'].map((item) => (
+              <li class="flex gap-2.5 items-start">
+                <svg class="w-4 h-4 mt-0.5 shrink-0 text-[#22C55E]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+
+      <div class="max-w-3xl" data-reveal>
+        <p class="text-[15px] text-[var(--color-text-muted)] leading-relaxed mb-3">What moves the price:</p>
+        <div class="flex flex-wrap gap-2">
+          {['Page count and templates', 'ICP filing', 'Hosting tier', 'Chinese localisation volume', 'E-commerce'].map((chip) => (
+            <span class="inline-flex items-center px-3.5 py-1.5 rounded-full border border-[var(--color-surface-border)] bg-white text-[13px] text-[var(--color-text-body)]">{chip}</span>
+          ))}
         </div>
       </div>
     </div>
@@ -745,65 +1090,73 @@ const breadcrumbLd = {
 
   <!-- ============= WHY US ============= -->
   <section class="relative section-spacing bg-white overflow-hidden">
-    <div class="relative mx-auto max-w-[1200px] section-padding">
-      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Why us · 为什么</span>
+    <div class="relative mx-auto max-w-[1240px] section-padding">
+      <div class="grid grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="col-span-12 lg:col-span-5" data-reveal="left">
+          <div class="relative">
+            <div class="rounded-3xl overflow-hidden border border-[var(--color-surface-border)] shadow-[0_30px_60px_-30px_rgba(15,15,18,0.25)]">
+              <img
+                src="/images/team/team-photo.webp"
+                alt="ChinaWebFoundry team in Shanghai"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="absolute -bottom-5 -right-4 sm:right-6 rounded-2xl bg-[#0a0a0e] border border-white/10 px-5 py-3.5 shadow-xl">
+              <div class="text-[11px] font-mono uppercase tracking-[0.14em] text-white/50">Shanghai · GMT+8</div>
+              <div class="text-sm font-medium text-white mt-0.5">In-house, never subcontracted</div>
+            </div>
+          </div>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
-          Why brands choose ChinaWebFoundry.
-        </h2>
-        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          ChinaWebFoundry is led by Cyril Drouin, in China since 2005. The delivery team lives in Shanghai and works full-time on China web projects. Every claim on this page is something we do weekly, and you can check each one in a first call.
-        </p>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-        {differentiators.map((d) => (
-          <article
-            data-reveal
-            class="group relative rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)] hover:-translate-y-1"
-          >
-            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">{d.title}</h3>
-            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">{d.body}</p>
-          </article>
-        ))}
+        <div class="col-span-12 lg:col-span-7" data-reveal="right">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Why us · 为什么</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-5">
+            Why brands choose ChinaWebFoundry.
+          </h2>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            ChinaWebFoundry is led by Cyril Drouin, in China since 2005. The delivery team lives in Shanghai and works full-time on China web projects. Every claim on this page is something we do weekly, and you can check each one in a first call.
+          </p>
+
+          <div class="space-y-5">
+            {differentiators.map((d) => (
+              <div data-reveal class="flex gap-4 group">
+                <span class="mt-1 w-9 h-9 rounded-xl bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 grid place-items-center shrink-0 transition-all duration-300 group-hover:bg-[var(--color-brand-orange)] group-hover:border-[var(--color-brand-orange)]">
+                  <svg class="w-4 h-4 text-[var(--color-brand-orange)] transition-colors duration-300 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <div>
+                  <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-1.5">{d.title}</h3>
+                  <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{d.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============= FAQ ============= -->
   <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
-    <span aria-hidden="true" class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">问</span>
+    <span aria-hidden="true" data-float class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">问</span>
     <div class="relative mx-auto max-w-[900px] section-padding">
       <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
-          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Questions · 常见问题</span>
+          <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Questions · 常见问题</span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
           WordPress in China, answered.
         </h2>
       </div>
 
-      <div class="space-y-3">
-        {faqs.map((f, i) => (
-          <details
-            class="group rounded-2xl border border-[var(--color-surface-border)] bg-white p-6 lg:p-7 transition-all duration-200 hover:border-[var(--color-brand-orange)]/30 open:border-[var(--color-brand-orange)]/40"
-            data-reveal
-            data-reveal-delay={String(i * 60)}
-          >
-            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none">
-              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug pr-4">
-                {f.q}
-              </h3>
-              <svg class="w-5 h-5 flex-shrink-0 mt-1 text-[var(--color-brand-orange)] transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-              </svg>
-            </summary>
-            <p class="mt-4 text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
-              {f.a}
-            </p>
-          </details>
+      <div data-faq-accordion class="space-y-3">
+        {faqs.map((f) => (
+          <FAQItem question={f.q} id={f.id}>
+            <p>{f.a}</p>
+          </FAQItem>
         ))}
       </div>
     </div>
@@ -817,7 +1170,7 @@ const breadcrumbLd = {
       <div class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:38px_38px] opacity-50"></div>
     </div>
 
-    <div class="relative mx-auto max-w-[1200px] section-padding text-center">
+    <div class="relative mx-auto max-w-[1240px] section-padding text-center">
       <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 mb-7" data-reveal>
         <span class="relative flex h-2 w-2">
           <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-70 animate-ping"></span>
@@ -853,3 +1206,425 @@ const breadcrumbLd = {
     </div>
   </section>
 </PageLayout>
+
+<style>
+  /* ---------- shared ---------- */
+  .svc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-button);
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #ff9466;
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+  .svc-link:hover {
+    gap: 0.625rem;
+    color: #ffb28a;
+  }
+
+  /* ---------- hero network sim ---------- */
+  .sim-row {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.4rem 0.625rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.65);
+    opacity: 0;
+    transform: translateY(6px);
+    animation: sim-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes sim-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .sim-row .sim-url {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sim-status {
+    flex-shrink: 0;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .sim-status.ok      { background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.35); color: #4ade80; }
+  .sim-status.blocked { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; animation: sim-flash 0.5s ease; }
+  .sim-status.slow    { background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); color: #fbbf24; }
+  @keyframes sim-flash {
+    0% { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.25); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  }
+
+  /* ---------- viewport switcher states ---------- */
+  .view-btn { color: var(--color-text-muted); }
+  .view-btn.is-active { background: var(--color-text-dark); color: #fff; }
+  #view-switch[data-view='shanghai'] .view-btn[data-view-btn='shanghai'],
+  #view-switch[data-view='frankfurt'] .view-btn[data-view-btn='frankfurt'] {
+    background: var(--color-text-dark);
+    color: #fff;
+  }
+
+  #view-switch .load-chip-bad { opacity: 0; pointer-events: none; }
+  #view-switch[data-view='shanghai'] .load-chip-ok { opacity: 0; }
+  #view-switch[data-view='shanghai'] .load-chip-bad { opacity: 1; }
+
+  #view-switch .mock-logo { background: var(--color-brand-orange); }
+  #view-switch[data-view='shanghai'] .mock-logo { background: var(--color-surface-border); }
+
+  #view-switch .mock-heading > div { transition: all 0.5s ease; }
+  #view-switch[data-view='shanghai'] .mock-heading > div {
+    background: transparent;
+    outline: 1.5px dashed #ef4444aa;
+    outline-offset: -1.5px;
+  }
+  #view-switch[data-view='shanghai'] .mock-font-tag { opacity: 1; }
+
+  #view-switch .map-bad { opacity: 0; }
+  #view-switch[data-view='shanghai'] .map-ok { opacity: 0; }
+  #view-switch[data-view='shanghai'] .map-bad { opacity: 1; }
+
+  #view-switch .mock-submit { background: var(--color-brand-orange); }
+  #view-switch[data-view='shanghai'] .mock-submit { background: #f3f4f6; }
+  #view-switch .submit-bad { opacity: 0; }
+  #view-switch[data-view='shanghai'] .submit-ok { opacity: 0; }
+  #view-switch[data-view='shanghai'] .submit-bad { opacity: 1; }
+
+  /* ---------- latency bars: animate in when card reveals ---------- */
+  .svc-card .lat-bar {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+  }
+  .svc-card.is-revealed .lat-bar { transform: scaleX(1); }
+
+  /* ---------- fix switchboard states ---------- */
+  .fix-row { background: #fff; border-color: var(--color-surface-border); transition-delay: var(--stagger); }
+  #fix-rows[data-state='broken'] .fix-row { border-color: rgba(239, 68, 68, 0.25); background: rgba(239, 68, 68, 0.03); }
+  #fix-rows[data-state='fixed'] .fix-row { border-color: rgba(34, 197, 94, 0.3); background: rgba(34, 197, 94, 0.04); }
+
+  .fix-dot { background: #ef4444; transition-delay: var(--stagger); }
+  #fix-rows[data-state='fixed'] .fix-dot { background: #22c55e; }
+
+  .fix-chip-fixed { display: none; opacity: 0; }
+  .fix-chip-broken { display: inline-flex; }
+  #fix-rows[data-state='fixed'] .fix-chip-broken { display: none; }
+  #fix-rows[data-state='fixed'] .fix-chip-fixed { display: inline-flex; opacity: 1; animation: chip-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both; animation-delay: var(--stagger); }
+  @keyframes chip-pop {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .fix-text-fixed { opacity: 0; visibility: hidden; }
+  #fix-rows[data-state='fixed'] .fix-text-broken { opacity: 0; visibility: hidden; }
+  #fix-rows[data-state='fixed'] .fix-text-fixed { opacity: 1; visibility: visible; transition-delay: var(--stagger); }
+  @media (max-width: 639px) {
+    .fix-text-fixed { display: none; }
+    #fix-rows[data-state='fixed'] .fix-text-broken { display: none; }
+    #fix-rows[data-state='fixed'] .fix-text-fixed { display: block; }
+  }
+
+  #fix-toggle[aria-checked='true'] { background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.4); }
+  #fix-toggle[aria-checked='true'] #fix-knob { left: calc(100% - 1.75rem); background: #22c55e; }
+
+  /* ---------- entity picker + hosting cards ---------- */
+  .entity-btn { color: var(--color-text-muted); }
+  .entity-btn.is-active { background: var(--color-brand-orange); color: #fff; }
+
+  #hosting-options[data-choice='yes'] #host-mainland,
+  #hosting-options[data-choice='no'] #host-hk {
+    border-color: var(--color-brand-orange);
+    box-shadow: 0 30px 60px -25px rgba(242, 95, 41, 0.35);
+    transform: translateY(-4px);
+  }
+  #hosting-options[data-choice='yes'] #host-mainland .host-badge,
+  #hosting-options[data-choice='no'] #host-hk .host-badge {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #hosting-options[data-choice='yes'] #host-hk,
+  #hosting-options[data-choice='no'] #host-mainland {
+    opacity: 0.55;
+  }
+
+  /* ---------- timeline ---------- */
+  .tl-step.is-active .tl-dot { border-color: var(--color-brand-orange); }
+  .tl-step.is-active .tl-dot-core { background: var(--color-brand-orange); }
+
+  /* ---------- marquee ---------- */
+  .marquee-track { animation: marquee 36s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+    .sim-row { animation: none; opacity: 1; transform: none; }
+    .svc-card .lat-bar { transform: scaleX(1); transition: none; }
+    .fix-row, .fix-dot, .fix-chip-fixed { transition: none; animation: none; }
+  }
+</style>
+
+<script>
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  /* ============ 1. Hero network simulation ============ */
+  const BROKEN_REQUESTS = [
+    { url: 'yourbrand.com', status: 'ok', label: '200 · 1.9s', t: 1.9 },
+    { url: 'fonts.googleapis.com/css2?family=...', status: 'blocked', label: 'Blocked', t: 5.2 },
+    { url: 'fonts.gstatic.com/s/opensans.woff2', status: 'blocked', label: 'Blocked', t: 7.8 },
+    { url: 'ajax.googleapis.com/jquery.min.js', status: 'slow', label: '8.4s', t: 10.6 },
+    { url: 'maps.googleapis.com/maps/api/js', status: 'blocked', label: 'Blocked', t: 14.1 },
+    { url: 'www.google.com/recaptcha/api.js', status: 'blocked', label: 'Blocked', t: 17.9 },
+    { url: 'youtube.com/embed/product-tour', status: 'blocked', label: 'Blocked', t: 20.7 },
+    { url: 'gravatar.com/avatar/9f8b2c...', status: 'blocked', label: 'Blocked', t: 23.4 },
+  ];
+  const FIXED_REQUESTS = [
+    { url: 'yourbrand.cn', status: 'ok', label: '200 · 0.3s', t: 0.3 },
+    { url: 'yourbrand.cn/fonts/poppins.woff2', status: 'ok', label: '200 · 0.1s', t: 0.5 },
+    { url: 'yourbrand.cn/assets/app.min.js', status: 'ok', label: '200 · 0.2s', t: 0.8 },
+    { url: 'webapi.amap.com/maps (Gaode)', status: 'ok', label: '200 · 0.3s', t: 1.2 },
+    { url: 'cdn.yourbrand.cn/img/hero.webp', status: 'ok', label: '200 · 0.2s', t: 1.5 },
+    { url: 'hm.baidu.com/tongji.js', status: 'ok', label: '200 · 0.1s', t: 1.8 },
+  ];
+
+  function initNetSim() {
+    const sim = document.getElementById('net-sim');
+    const rowsEl = document.getElementById('sim-rows');
+    const timerEl = document.getElementById('sim-timer');
+    const phaseLabel = document.getElementById('sim-phase-label');
+    const phaseDot = document.getElementById('sim-phase-dot');
+    const progress = document.getElementById('sim-progress');
+    const verdict = document.getElementById('sim-verdict');
+    if (!sim || !rowsEl || !timerEl || !phaseLabel || !phaseDot || !progress || !verdict) return;
+    if ((sim as HTMLElement).dataset.simBound === 'true') return;
+    (sim as HTMLElement).dataset.simBound = 'true';
+
+    function renderRow(req: { url: string; status: string; label: string }) {
+      const row = document.createElement('div');
+      row.className = 'sim-row';
+      row.innerHTML = `<span class="sim-url">GET ${req.url}</span><span class="sim-status ${req.status}">${req.label}</span>`;
+      rowsEl!.appendChild(row);
+    }
+
+    function renderStatic() {
+      rowsEl!.innerHTML = '';
+      BROKEN_REQUESTS.forEach(renderRow);
+      timerEl!.textContent = '23.4';
+      progress!.style.width = '38%';
+      verdict!.textContent = '6 of 8 requests blocked · page unusable in China';
+      verdict!.className = verdict!.className.replace(/text-white\/45/, 'text-[#F87171]');
+    }
+
+    if (prefersReducedMotion()) {
+      renderStatic();
+      return;
+    }
+
+    let timeouts: number[] = [];
+    let rafId = 0;
+    let running = false;
+
+    function clearAll() {
+      timeouts.forEach((t) => clearTimeout(t));
+      timeouts = [];
+      cancelAnimationFrame(rafId);
+    }
+
+    function animateTimer(from: number, to: number, durationMs: number, color: string) {
+      const start = performance.now();
+      progress!.style.background = color;
+      function tick(now: number) {
+        const p = Math.min(1, (now - start) / durationMs);
+        const val = from + (to - from) * p;
+        timerEl!.textContent = val.toFixed(1);
+        progress!.style.width = `${Math.min(96, p * (to > 5 ? 40 : 100))}%`;
+        if (p < 1) rafId = requestAnimationFrame(tick);
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+
+    const SPEED = 380; // ms per simulated second
+
+    function runPhase(requests: typeof BROKEN_REQUESTS, opts: { name: string; dot: string; done: string; doneClass: string; nextDelay: number; next: () => void }) {
+      rowsEl!.innerHTML = '';
+      verdict!.textContent = 'Loading...';
+      verdict!.style.color = 'rgba(255,255,255,0.45)';
+      verdict!.style.borderColor = 'rgba(255,255,255,0.1)';
+      phaseLabel!.textContent = opts.name;
+      (phaseDot as HTMLElement).style.background = opts.dot;
+      const total = requests[requests.length - 1].t;
+      animateTimer(0, total, total * SPEED, opts.dot);
+      requests.forEach((req) => {
+        timeouts.push(window.setTimeout(() => renderRow(req), req.t * SPEED));
+      });
+      timeouts.push(
+        window.setTimeout(() => {
+          verdict!.textContent = opts.done;
+          verdict!.style.color = opts.doneClass;
+          verdict!.style.borderColor = opts.doneClass + '55';
+          progress!.style.width = '100%';
+        }, total * SPEED + 200),
+      );
+      timeouts.push(window.setTimeout(opts.next, total * SPEED + opts.nextDelay));
+    }
+
+    function loop() {
+      runPhase(BROKEN_REQUESTS, {
+        name: 'Standard WordPress install',
+        dot: '#EF4444',
+        done: '6 of 8 requests blocked · visitors give up',
+        doneClass: '#F87171',
+        nextDelay: 3200,
+        next: () =>
+          runPhase(FIXED_REQUESTS, {
+            name: 'After our rebuild',
+            dot: '#22C55E',
+            done: 'Loaded in 1.8s · 0 blocked requests',
+            doneClass: '#4ADE80',
+            nextDelay: 4200,
+            next: loop,
+          }),
+      });
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !running) {
+            running = true;
+            loop();
+          } else if (!entry.isIntersecting && running) {
+            running = false;
+            clearAll();
+          }
+        });
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(sim);
+  }
+
+  /* ============ 2. Viewport switcher ============ */
+  function initViewSwitch() {
+    const wrap = document.getElementById('view-switch');
+    if (!wrap || wrap.dataset.bound === 'true') return;
+    wrap.dataset.bound = 'true';
+    wrap.querySelectorAll<HTMLButtonElement>('[data-view-btn]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        wrap.setAttribute('data-view', btn.dataset.viewBtn || 'shanghai');
+      });
+    });
+  }
+
+  /* ============ 3. Fix switchboard ============ */
+  function initFixToggle() {
+    const toggle = document.getElementById('fix-toggle');
+    const rows = document.getElementById('fix-rows');
+    const labelBefore = document.getElementById('fix-label-before');
+    const labelAfter = document.getElementById('fix-label-after');
+    if (!toggle || !rows || toggle.dataset.bound === 'true') return;
+    toggle.dataset.bound = 'true';
+
+    function setState(fixed: boolean) {
+      rows!.setAttribute('data-state', fixed ? 'fixed' : 'broken');
+      toggle!.setAttribute('aria-checked', String(fixed));
+      labelBefore?.classList.toggle('text-[#DC2626]', !fixed);
+      labelBefore?.classList.toggle('text-[var(--color-text-muted)]', fixed);
+      labelAfter?.classList.toggle('text-[#15803D]', fixed);
+      labelAfter?.classList.toggle('text-[var(--color-text-muted)]', !fixed);
+    }
+
+    toggle.addEventListener('click', () => {
+      setState(rows.getAttribute('data-state') !== 'fixed');
+    });
+
+    // One-time auto demo: flip to "fixed" shortly after the section scrolls into view
+    if (!prefersReducedMotion()) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            io.disconnect();
+            window.setTimeout(() => {
+              if (rows.getAttribute('data-state') === 'broken') setState(true);
+            }, 1600);
+          });
+        },
+        { threshold: 0.45 },
+      );
+      io.observe(rows);
+    }
+  }
+
+  /* ============ 4. Entity picker ============ */
+  function initEntityPicker() {
+    const picker = document.getElementById('entity-picker');
+    const options = document.getElementById('hosting-options');
+    if (!picker || !options || picker.dataset.bound === 'true') return;
+    picker.dataset.bound = 'true';
+    picker.querySelectorAll<HTMLButtonElement>('[data-entity]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        picker.querySelectorAll('.entity-btn').forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        options.setAttribute('data-choice', btn.dataset.entity || '');
+      });
+    });
+  }
+
+  /* ============ 5. Timeline scroll fill ============ */
+  function initTimeline() {
+    const timeline = document.getElementById('timeline');
+    const fill = document.getElementById('timeline-fill');
+    if (!timeline || !fill || timeline.dataset.bound === 'true') return;
+    timeline.dataset.bound = 'true';
+    const steps = Array.from(timeline.querySelectorAll<HTMLElement>('.tl-step'));
+
+    function update() {
+      const rect = timeline!.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const anchor = vh * 0.62;
+      const progress = Math.min(1, Math.max(0, (anchor - rect.top) / rect.height));
+      fill!.style.height = `${(progress * 100).toFixed(1)}%`;
+      steps.forEach((step) => {
+        const sRect = step.getBoundingClientRect();
+        step.classList.toggle('is-active', sRect.top < anchor);
+      });
+    }
+
+    if (prefersReducedMotion()) {
+      fill.style.height = '100%';
+      steps.forEach((s) => s.classList.add('is-active'));
+      return;
+    }
+
+    let raf = 0;
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(() => { update(); raf = 0; });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+
+  function bootWpChina() {
+    initNetSim();
+    initViewSwitch();
+    initFixToggle();
+    initEntityPicker();
+    initTimeline();
+  }
+
+  bootWpChina();
+  document.addEventListener('astro:page-load', bootWpChina);
+</script>
