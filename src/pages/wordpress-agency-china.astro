@@ -1,0 +1,855 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Button from '../components/ui/Button.astro';
+import ScrollEffects from '../components/global/ScrollEffects.astro';
+import PageScrollEffects from '../components/pages/ScrollEffects.astro';
+import { getCollection } from 'astro:content';
+
+const metaTitle = 'WordPress Agency in China | Build, Host & Rank | ChinaWebFoundry';
+const metaDescription = 'Hire a specialist WordPress agency for China. Firewall-safe hosting, ICP licensing, fast load times and Baidu SEO, built to launch and rank in mainland China.';
+const canonicalPath = '/wordpress-agency-china/';
+
+const casestudies = (await getCollection('casestudies'))
+  .filter((cs) => cs.data.published)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
+const pageUrl = `${siteOrigin}${canonicalPath}`;
+
+const services = [
+  {
+    cn: '建',
+    title: 'WordPress design & development',
+    body: 'Custom themes designed for Chinese users and built without a single call to a blocked domain. Responsive, bilingual-ready, tested at 375px on the phones people actually use here.',
+    deliverable: 'A production WordPress site verified from mainland connections.',
+    href: '/services/ux-ui-design/',
+    linkLabel: 'Design & development',
+  },
+  {
+    cn: '云',
+    title: 'Firewall-safe hosting & CDN',
+    body: 'Mainland or Hong Kong hosting on Alibaba Cloud or Tencent Cloud, fronted by a China CDN. We target sub-2-second loads in tier-1 cities and monitor from nodes inside China.',
+    deliverable: 'A hosting setup with in-China response times you can check yourself.',
+    href: '/services/china-hosting/',
+    linkLabel: 'China hosting',
+  },
+  {
+    cn: '证',
+    title: 'ICP licence & regulatory support',
+    body: 'We prepare your ICP Bei’an filing, submit it through your host to MIIT, and tell you plainly if your business model needs the commercial licence instead.',
+    deliverable: 'An ICP number in your footer, registered to your entity.',
+    href: '/resources/china-web-guide/icp-licence-filing-foreign-companies/',
+    linkLabel: 'How ICP filing works',
+  },
+  {
+    cn: '搜',
+    title: 'Baidu & China SEO',
+    body: 'Technical and on-page work for Baidu, Sogou and 360. Baidu Webmaster Tools setup, Simplified Chinese keyword research, and content written by native speakers.',
+    deliverable: 'A Baidu-indexed site with a keyword plan and monthly ranking reports.',
+    href: '/services/baidu-seo/',
+    linkLabel: 'Baidu SEO service',
+  },
+  {
+    cn: '修',
+    title: 'Migration & site rescue',
+    body: 'Your WordPress site already exists but crawls or breaks in China. We move it onto China-ready infrastructure and strip the blocked resources, keeping your content and rankings.',
+    deliverable: 'The same site, loading in seconds from Shanghai.',
+    href: '/services/china-migration/',
+    linkLabel: 'China migration',
+  },
+  {
+    cn: '护',
+    title: 'Maintenance & support',
+    body: 'Core and plugin updates tested against the firewall before they go live, security patching, uptime monitoring from Chinese nodes, and a human who replies within 24 hours.',
+    deliverable: 'A monthly report and a site that stays fast.',
+    href: '/services/maintenance-support/',
+    linkLabel: 'Maintenance plans',
+  },
+];
+
+const breakages = [
+  {
+    resource: 'Google Fonts',
+    symptom: 'Text invisible for 20+ seconds while the browser waits for a timeout.',
+    fix: 'Self-host every font as WOFF2 on your own server.',
+  },
+  {
+    resource: 'reCAPTCHA',
+    symptom: 'Contact forms that never submit. Enquiries silently lost.',
+    fix: 'Honeypot fields and China-friendly anti-spam instead of Google’s widget.',
+  },
+  {
+    resource: 'Google Maps',
+    symptom: 'A grey box where your office location should be.',
+    fix: 'AutoNavi (Gaode) or Baidu Maps embeds.',
+  },
+  {
+    resource: 'YouTube embeds',
+    symptom: 'Dead video players across your product pages.',
+    fix: 'Self-hosted video or a Tencent Video / Youku embed.',
+  },
+  {
+    resource: 'Gravatar',
+    symptom: 'Comment sections and author boxes that stall the whole page.',
+    fix: 'Remote avatars disabled, local images served instead.',
+  },
+  {
+    resource: 'CDN-hosted scripts',
+    symptom: 'jQuery from ajax.googleapis.com hangs everything that depends on it.',
+    fix: 'Every script bundled and served from your own hosting.',
+  },
+  {
+    resource: 'Google Analytics',
+    symptom: 'No visitor data, plus one more blocked request on every page.',
+    fix: 'Baidu Tongji or a self-hosted analytics tool such as Matomo.',
+  },
+];
+
+const processSteps = [
+  {
+    title: 'Discovery',
+    body: 'We audit your current site from a Shanghai connection, map your goals for the China market, and agree scope and budget. 1 to 2 weeks.',
+  },
+  {
+    title: 'Design',
+    body: 'Wireframes and visual design shaped for Chinese users: denser layouts, mobile-first, WeChat-aware.',
+  },
+  {
+    title: 'Build',
+    body: 'Theme and plugin development with zero blocked resources. Every dependency self-hosted from the first commit.',
+  },
+  {
+    title: 'China performance testing',
+    body: 'We load the site from Beijing, Shanghai and Guangzhou nodes and fix anything slower than 2 seconds before you ever see a staging link.',
+  },
+  {
+    title: 'ICP & hosting setup',
+    body: 'ICP filing prepared and submitted, hosting and CDN configured. Runs in parallel with the build, so it costs no extra calendar time.',
+  },
+  {
+    title: 'Baidu SEO foundations',
+    body: 'Baidu Webmaster Tools, sitemap submission, Chinese keyword mapping and on-page work, done before launch rather than bolted on after.',
+  },
+  {
+    title: 'Launch',
+    body: 'DNS switch, CDN warm-up, and a launch-day check from mainland connections.',
+  },
+  {
+    title: 'Support',
+    body: 'Updates, monitoring and monthly reporting under a maintenance plan. Most clients stay with us for years.',
+  },
+];
+
+const alternatives = [
+  {
+    title: 'WordPress, localised properly',
+    body: 'The right choice when your team already knows the editor, you publish often, or you run multilingual content. Hosted in China with local assets, it loads in under 2 seconds and Baidu indexes it well.',
+    verdict: 'Our default for content-led brand sites.',
+  },
+  {
+    title: 'WeChat-only or a local CMS',
+    body: 'A WeChat official account matters in China and we build for it. On its own though, you rent your audience from Tencent, and a local CMS locks your content into a platform your HQ team can’t use.',
+    verdict: 'Good alongside a website. Risky as a replacement for one.',
+  },
+  {
+    title: 'Astro or headless',
+    body: 'When raw speed wins and content changes rarely, a static or headless build beats WordPress on performance. We build these too, and we’ll recommend one when it fits.',
+    verdict: 'The brief decides the stack. If WordPress is wrong for your project, we say so on the first call.',
+  },
+];
+
+const industries = [
+  'B2B & industrial',
+  'Education & universities',
+  'Hospitality & travel',
+  'Luxury & consumer brands',
+  'SaaS & technology',
+  'Life sciences',
+  'MNCs entering China',
+];
+
+const differentiators = [
+  {
+    title: 'We test where your visitors are',
+    body: 'Every build is checked from Chinese connections in Beijing, Shanghai and Guangzhou. A green light in Frankfurt means nothing to a visitor in Chengdu.',
+  },
+  {
+    title: 'ICP handled in Mandarin',
+    body: 'Our team files ICP paperwork directly with hosts and MIIT, in Mandarin, and has done so for years. You sign documents; we do the rest.',
+  },
+  {
+    title: 'Baidu expertise in-house',
+    body: 'Chinese keyword research, Baidu Webmaster Tools and Chinese content written by native speakers. The same team that builds your site ranks it.',
+  },
+  {
+    title: 'Bilingual, single point of contact',
+    body: 'One account lead who answers in English or French within 24 hours, backed by a Shanghai delivery team. We never subcontract.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Does WordPress actually work in China?',
+    a: 'Yes, when it’s hosted in or near China and stripped of blocked resources. WordPress core itself is fine; the problems come from themes and plugins that call Google Fonts, reCAPTCHA, Gravatar and other blocked services. We’ve shipped 50+ WordPress sites that load in under 2 seconds from mainland connections.',
+  },
+  {
+    q: 'Do I need an ICP licence for my WordPress site?',
+    a: 'Only if you host in mainland China. The basic ICP Bei’an filing covers brochure and marketing sites and requires a Chinese legal entity. Selling directly to Chinese consumers from the site usually means the commercial ICP licence, which has stricter requirements. If you have no Chinese entity, Hong Kong hosting skips the ICP entirely and still performs well.',
+  },
+  {
+    q: 'My existing WordPress site is slow in China. Can you fix it without a rebuild?',
+    a: 'Usually, yes. Most slow sites suffer from blocked third-party resources and distant hosting, and both are fixable without touching your design or content. We migrate the site to China-ready hosting, localise fonts and scripts, and swap the plugins that break. Run our free China site scanner to see exactly what’s blocking yours.',
+  },
+  {
+    q: 'How long does it take to launch a WordPress site in China?',
+    a: 'A new brand site takes 8 to 12 weeks from kickoff to launch. Migrating and localising an existing global site takes 14 to 20 weeks including content rewrite and Baidu indexing. The ICP filing takes 2 to 4 weeks and runs in parallel with the build.',
+  },
+  {
+    q: 'Does WooCommerce work in China?',
+    a: 'Yes, with local adjustments. Checkout needs WeChat Pay and Alipay rather than Stripe or PayPal, and selling domestically requires the commercial ICP licence plus a Chinese entity. Many foreign brands start with cross-border e-commerce instead, which has lighter requirements. We’ve built both.',
+  },
+  {
+    q: 'Will the China version hurt my Google rankings elsewhere?',
+    a: 'No. Your China site runs alongside your global site, usually on a subdomain or a .cn domain, with hreflang tags telling Google and Baidu which version serves which audience. Your existing rankings stay where they are.',
+  },
+  {
+    q: 'Can you handle Simplified Chinese content and multilingual setup?',
+    a: 'Yes. We work with WPML and Polylang for multilingual WordPress, and our native Chinese writers produce the Simplified Chinese content. Machine-translated Chinese reads as poorly to Chinese buyers as machine-translated English reads to you, so we don’t use it.',
+  },
+  {
+    q: 'How much does a China WordPress project cost?',
+    a: 'It depends on page count, whether you need an ICP filing, the hosting tier, localisation volume and any e-commerce. We quote a fixed price after a scoping call, and the call and quote are free. Ongoing maintenance and hosting run on a flat monthly retainer.',
+  },
+];
+
+// Service schema reinforcing the "WordPress agency in China" entity for this page
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${pageUrl}#service`,
+  name: 'WordPress agency in China',
+  description: 'Specialist WordPress agency for the China market. Design, development, firewall-safe hosting, ICP licensing, Baidu SEO, migration and maintenance for WordPress sites in mainland China.',
+  serviceType: 'WordPress development',
+  provider: { '@id': `${siteOrigin}/#organization` },
+  areaServed: { '@type': 'Country', name: 'China' },
+  url: pageUrl,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'WordPress services for China',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      itemOffered: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.body,
+        url: `${siteOrigin}${s.href}`,
+      },
+    })),
+  },
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteOrigin}/` },
+    { '@type': 'ListItem', position: 2, name: 'WordPress agency in China', item: pageUrl },
+  ],
+};
+---
+
+<PageLayout
+  title={metaTitle}
+  description={metaDescription}
+  heroPage={true}
+  jsonLd={[serviceLd, faqLd, breadcrumbLd]}
+  alternateUrls={{ en: canonicalPath, fr: canonicalPath, es: canonicalPath, de: canonicalPath }}
+>
+  <ScrollEffects />
+  <PageScrollEffects />
+
+  <!-- ============= HERO ============= -->
+  <section
+    data-hero
+    class="relative bg-[var(--color-surface-dark)] overflow-hidden min-h-[88vh] flex flex-col"
+  >
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/hero-wordpress-agency-china.webp"
+        alt=""
+        width="1600"
+        height="900"
+        class="absolute inset-0 w-full h-full object-cover scale-105"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0e]/95 via-[#0a0a0e]/80 to-[#0a0a0e]/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0e]/60 via-transparent to-[#0a0a0e]/95"></div>
+    </div>
+
+    <!-- Mesh orbs -->
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-[10%] -left-32 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/[0.18] blur-[140px]"></div>
+      <div class="absolute bottom-[5%] -right-20 w-[500px] h-[500px] rounded-full bg-[#FF7E47]/[0.12] blur-[160px]"></div>
+    </div>
+
+    <!-- Dot grid -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:38px_38px] pointer-events-none"
+    ></div>
+
+    <!-- Decorative giant glyph -->
+    <span
+      aria-hidden="true"
+      class="absolute right-[-4rem] bottom-[-2rem] text-[26rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block"
+    >建</span>
+
+    <!-- Main content -->
+    <div class="relative z-10 mx-auto w-full max-w-[1200px] section-padding flex-1 flex items-center pt-32 lg:pt-40 pb-20 lg:pb-28">
+      <div class="max-w-[860px]">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-10 bg-[var(--color-brand-orange)]"></div>
+          <span class="text-xs lg:text-sm font-medium tracking-[0.18em] text-[var(--color-brand-orange)] uppercase">
+            WordPress specialists · Based in Shanghai
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-[clamp(2.4rem,5.2vw,4.2rem)] font-medium font-[var(--font-heading)] text-white leading-[1.04] tracking-tight">
+          WordPress agency in China:
+          <span class="block mt-2">
+            <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
+              build, host and rank
+            </span>
+          </span>
+          <span class="block mt-2 text-white/95">behind the Great Firewall.</span>
+        </h1>
+
+        <p class="mt-7 text-base lg:text-xl text-white/65 leading-relaxed max-w-[700px]">
+          We design, build, host and maintain WordPress sites that load in under 2 seconds inside mainland China. ICP licensing, firewall-safe hosting and Baidu SEO, all handled by one Shanghai-based team.
+        </p>
+
+        <!-- CTAs -->
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <Button href="/contact/" variant="primary" size="lg">Request a quote</Button>
+          <a
+            href="/china-site-scanner/"
+            class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
+          >
+            Free China readiness audit
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="mt-14 grid grid-cols-3 gap-6 max-w-2xl">
+          <div class="border-l-2 border-[var(--color-brand-orange)]/70 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">50</span></div>
+            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">WordPress sites shipped</div>
+          </div>
+          <div class="border-l-2 border-white/15 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">15</span></div>
+            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Years in China</div>
+          </div>
+          <div class="border-l-2 border-white/15 pl-4">
+            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">&lt;<span data-counter data-counter-suffix="s">2</span></div>
+            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Load time in tier-1 cities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= WHY A SPECIALIST ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-32 right-[8%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.06] blur-[140px]"></div>
+      <div class="absolute inset-0 [background-image:radial-gradient(var(--color-text-dark)_1px,transparent_1px)] [background-size:34px_34px] opacity-[0.035]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="grid grid-cols-12 gap-8 lg:gap-14 items-center">
+        <div class="col-span-12 lg:col-span-7" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">The problem · 问题</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-6">
+            Why a standard WordPress site fails in China.
+          </h2>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            Take a WordPress site built for Europe or North America and open it in Shanghai. It loads in 20 to 40 seconds, if it loads at all. The theme calls Google Fonts. The contact form waits on reCAPTCHA. The footer map calls Google Maps. The Great Firewall blocks all 3, and each one hangs the page while the browser waits for a timeout.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            Distance makes it worse. Every request travels from the visitor in China to a server in Frankfurt or Virginia through congested international gateways. And without an ICP filing you can't host in mainland China or use a mainland CDN, so there's no way to shorten that trip.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
+            A China-specialist WordPress agency deals with all of this before launch: hosting inside or next to China, an ICP filing in your name, themes stripped of blocked resources, and every plugin tested from a Chinese connection. That's the work this page describes.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <Button href="/china-site-scanner/" variant="primary" size="md">Run a free China readiness audit</Button>
+            <Button href="/contact/" variant="secondary" size="md">Request a quote</Button>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5" data-reveal data-reveal-delay="120">
+          <div class="rounded-3xl border border-[var(--color-surface-border)] bg-[var(--color-surface-light)] p-7 lg:p-8">
+            <div class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)] mb-5">What your visitors in China hit</div>
+            <ul class="space-y-4">
+              {[
+                'Google Fonts, Maps and reCAPTCHA: blocked, page hangs',
+                'YouTube embeds and Gravatar: blocked, layouts break',
+                'Hosting in Europe or the US: 300ms+ latency per request',
+                'No ICP filing: no mainland hosting, no mainland CDN',
+                'Plugins calling foreign CDNs: silent failures everywhere',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-[15px] text-[var(--color-text-body)] leading-relaxed">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-hero-red,#EF4444)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SERVICES ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-3rem] top-[8%] text-[20rem] lg:text-[26rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">服务</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-14 lg:mb-16" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Our services · 服务</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          Our WordPress services for China.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          6 things we do every week for foreign brands running WordPress in China. Each comes with a named deliverable, and the same in-house team in Shanghai ships all 6.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        {services.map((s) => (
+          <article
+            data-reveal
+            class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 overflow-hidden transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_22px_45px_-22px_rgba(15,15,18,0.15)] hover:-translate-y-1"
+          >
+            <span aria-hidden="true" class="absolute right-[-0.5rem] bottom-[-1.5rem] text-[7rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none">{s.cn}</span>
+            <div class="relative">
+              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3">
+                {s.title}
+              </h3>
+              <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed mb-3">
+                {s.body}
+              </p>
+              <p class="text-[13px] text-[var(--color-card-blue,#344480)] leading-relaxed mb-4">
+                <strong>Deliverable:</strong> {s.deliverable}
+              </p>
+              <a href={s.href} class="inline-flex items-center gap-1.5 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline hover:gap-2.5 transition-all">
+                {s.linkLabel}
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= WHAT BREAKS ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <span aria-hidden="true" class="absolute left-[-3rem] top-[10%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">修</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">The technical work · 技术</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          What breaks WordPress in China, and how we fix it.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          WordPress core runs fine in China. The damage comes from the services a typical theme quietly depends on. Here's the standard damage report and what we do about each line.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        {breakages.map((b, i) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(i * 40)}
+            class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 rounded-2xl border border-[var(--color-surface-border)] bg-white p-5 lg:px-7 lg:py-5 transition-all duration-200 hover:border-[var(--color-brand-orange)]/30"
+          >
+            <div class="md:col-span-3">
+              <span class="text-[15px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{b.resource}</span>
+            </div>
+            <div class="md:col-span-5 text-[14px] text-[var(--color-text-body)] leading-relaxed">
+              {b.symptom}
+            </div>
+            <div class="md:col-span-4 text-[14px] text-[var(--color-card-blue,#344480)] leading-relaxed">
+              <span class="font-medium">Fix:</span> {b.fix}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 max-w-3xl" data-reveal>
+        <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+          Plugins are the sneaky part. A page builder or slider plugin can bundle its own calls to blocked CDNs, so we audit every plugin from a Chinese connection before it ships. For the full list of what the firewall blocks and why, read our guide:
+          <a href="/resources/china-web-guide/great-firewall-what-it-blocks/" class="text-[var(--color-brand-orange-text)] font-medium">what the Great Firewall blocks</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= ICP & HOSTING ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">证</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Licensing & hosting · 备案</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          ICP licence and hosting requirements, explained.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+          Every website hosted in mainland China needs an ICP filing with MIIT, the Chinese telecoms ministry. There are 2 kinds. The <strong>ICP Bei'an (备案)</strong> is a registration that covers brochure and marketing sites. The <strong>commercial ICP licence</strong> is a full permit, required when you sell directly to Chinese consumers from the site.
+        </p>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Both require a Chinese legal entity. If you don't have one yet, Hong Kong hosting is the standard workaround, and it's how many of our clients start.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 mb-10">
+        <article data-reveal class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">Option A</div>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">Mainland China hosting</h3>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
+            Alibaba Cloud or Tencent Cloud, inside the firewall. 50 to 100ms from tier-1 cities, full access to mainland CDNs, and the strongest signal to Baidu.
+          </p>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+            Requires an ICP filing, which requires a Chinese entity. Filing takes 2 to 4 weeks and we run it in parallel with your build. The right choice when you have, or are opening, an entity in China.
+          </p>
+        </article>
+        <article data-reveal data-reveal-delay="120" class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9">
+          <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">Option B</div>
+          <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">Hong Kong hosting</h3>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
+            Just outside the firewall, so no ICP required. With a tuned site and the right routing, load times in southern and eastern China stay comfortably under 3 seconds.
+          </p>
+          <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+            The right choice when you have no Chinese entity yet. You can move to mainland hosting later without rebuilding the site.
+          </p>
+        </article>
+      </div>
+
+      <div class="max-w-3xl" data-reveal>
+        <p class="text-base text-[var(--color-text-body)] leading-relaxed">
+          We handle the filing end to end: paperwork prepared in Mandarin, submission through your host, and follow-up with MIIT until the number comes through. More detail in our guides on
+          <a href="/resources/china-web-guide/icp-licence-filing-foreign-companies/" class="text-[var(--color-brand-orange-text)] font-medium">ICP filing for foreign companies</a> and
+          <a href="/resources/china-web-guide/china-website-hosting-guide/" class="text-[var(--color-brand-orange-text)] font-medium">hosting a website in China</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= PROCESS ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-3rem] bottom-[5%] text-[18rem] lg:text-[24rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">程</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">How we work · 流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          Our process, from kickoff to China launch.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          A new brand site takes 8 to 12 weeks start to finish. Licensing and SEO run in parallel with the build, so nothing waits on anything else.
+        </p>
+      </div>
+
+      <div class="relative">
+        <div aria-hidden="true" class="absolute left-[7px] top-2 bottom-2 w-px bg-[var(--color-surface-border)] hidden md:block"></div>
+        <div class="space-y-8 md:space-y-10">
+          {processSteps.map((step, i) => (
+            <div data-reveal data-reveal-delay={String(i * 50)} class="relative md:pl-12">
+              <span aria-hidden="true" class="absolute left-0 top-1.5 hidden md:block w-[15px] h-[15px] rounded-full border-2 border-[var(--color-brand-orange)] bg-white"></span>
+              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-2">{step.title}</h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed max-w-2xl">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-wrap items-center gap-4" data-reveal>
+        <Button href="/contact/" variant="primary" size="md">Start your project</Button>
+        <Button href="/china-site-scanner/" variant="secondary" size="md">Audit your current site first</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= WORDPRESS VS ALTERNATIVES ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Choosing a stack · 选型</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          WordPress vs the alternatives for China.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          "Should we even use WordPress in China?" is a fair question. Here's how we answer it, honestly, given that we build on more than one stack.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        {alternatives.map((alt) => (
+          <article data-reveal class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-8 flex flex-col">
+            <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">{alt.title}</h3>
+            <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed mb-5 flex-1">{alt.body}</p>
+            <p class="text-[14px] text-[var(--color-card-blue,#344480)] leading-relaxed border-t border-[var(--color-surface-border)] pt-4">
+              <span class="font-medium">Our take:</span> {alt.verdict}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= INDUSTRIES & WORK ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <span aria-hidden="true" class="absolute left-[-2rem] top-[8%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">客</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-10 lg:mb-12" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Industries & clients · 客户</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          Who we build for.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Most of our clients are foreign companies with revenue at stake in China: exporters, universities recruiting Chinese students, hotels courting Chinese travellers, and SaaS firms whose product pages need to load in Shenzhen. If your buyers are in China and your site isn't, that's the gap we close.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2.5 mb-14" data-reveal>
+        {industries.map((ind) => (
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[var(--color-surface-border)] bg-[var(--color-surface-light)] text-sm text-[var(--color-text-body)]">{ind}</span>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        {casestudies.map((cs) => (
+          <a
+            href={`/work/${cs.id}/`}
+            data-reveal
+            class="group relative block rounded-2xl overflow-hidden no-underline"
+          >
+            <div class="relative aspect-[4/5]">
+              {cs.data.visual ? (
+                <img
+                  src={cs.data.visual}
+                  alt={cs.data.title}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div class="absolute inset-0" style={`background: linear-gradient(135deg, ${cs.data.color}, ${cs.data.color}dd)`}></div>
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 p-6 lg:p-7">
+                <h3 class="text-xl font-medium font-[var(--font-heading)] text-white leading-snug mb-2">
+                  {cs.data.title}
+                </h3>
+                <p class="text-sm text-white/70 leading-relaxed line-clamp-2">{cs.data.summary}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center" data-reveal>
+        <a href="/work/" class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline hover:gap-3 transition-all">
+          See all case studies
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= PRICING ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-2rem] bottom-[5%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">价</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="grid grid-cols-12 gap-8 lg:gap-14">
+        <div class="col-span-12 lg:col-span-6" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pricing · 价格</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
+            Pricing and engagement models.
+          </h2>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            We work 2 ways. <strong>Project-based</strong> for a defined build or migration: fixed scope, fixed price, agreed timeline. <strong>Retainer</strong> for what comes after: hosting, maintenance, Baidu SEO and content, billed as a flat monthly fee.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            What moves the price: page count and the number of templates, whether you need an ICP filing, the hosting tier, how much content needs Chinese localisation, and whether e-commerce is involved.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+            We quote after a 30-minute scoping call. The call is free, the quote is fixed, and you'll know within a week whether the numbers work for you.
+          </p>
+        </div>
+        <div class="col-span-12 lg:col-span-6" data-reveal data-reveal-delay="120">
+          <div class="rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 h-full flex flex-col justify-center">
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+              Get a fixed quote this week.
+            </h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-7">
+              Send us your current site and your goals for China. We'll come back with a scoped proposal: deliverables, timeline and a fixed price, with the ICP and hosting questions already answered.
+            </p>
+            <div class="flex flex-wrap items-center gap-4">
+              <Button href="/contact/" variant="primary" size="md">Request a quote</Button>
+              <Button href="/china-site-scanner/" variant="ghost" size="md">Or scan your site first</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= WHY US ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Why us · 为什么</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          Why brands choose ChinaWebFoundry.
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          ChinaWebFoundry is led by Cyril Drouin, in China since 2005. The delivery team lives in Shanghai and works full-time on China web projects. Every claim on this page is something we do weekly, and you can check each one in a first call.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        {differentiators.map((d) => (
+          <article
+            data-reveal
+            class="group relative rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)] hover:-translate-y-1"
+          >
+            <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">{d.title}</h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">{d.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">问</span>
+    <div class="relative mx-auto max-w-[900px] section-padding">
+      <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Questions · 常见问题</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+          WordPress in China, answered.
+        </h2>
+      </div>
+
+      <div class="space-y-3">
+        {faqs.map((f, i) => (
+          <details
+            class="group rounded-2xl border border-[var(--color-surface-border)] bg-white p-6 lg:p-7 transition-all duration-200 hover:border-[var(--color-brand-orange)]/30 open:border-[var(--color-brand-orange)]/40"
+            data-reveal
+            data-reveal-delay={String(i * 60)}
+          >
+            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none">
+              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug pr-4">
+                {f.q}
+              </h3>
+              <svg class="w-5 h-5 flex-shrink-0 mt-1 text-[var(--color-brand-orange)] transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
+              {f.a}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FINAL CTA ============= -->
+  <section class="relative py-24 md:py-32 lg:py-36 bg-[#0a0a0e] overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-32 -left-20 w-[520px] h-[520px] rounded-full bg-[var(--color-brand-orange)]/[0.18] blur-[160px]"></div>
+      <div class="absolute -bottom-32 right-[5%] w-[440px] h-[440px] rounded-full bg-[#FF7E47]/[0.14] blur-[170px]"></div>
+      <div class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:38px_38px] opacity-50"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1200px] section-padding text-center">
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 mb-7" data-reveal>
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-70 animate-ping"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
+        </span>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.20em] text-white/95">Booking this quarter</span>
+      </div>
+
+      <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight mb-7" data-reveal data-reveal-delay="80">
+        Your WordPress site,
+        <span class="block">
+          <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
+            working in China.
+          </span>
+        </span>
+      </h2>
+      <p class="text-base lg:text-xl text-white/65 leading-relaxed max-w-2xl mx-auto mb-9" data-reveal data-reveal-delay="160">
+        Send us a brief or book a 30-minute call. A human writes back within 24 hours, in your timezone.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4" data-reveal data-reveal-delay="200">
+        <Button href="/contact/" variant="primary" size="lg">Request a quote</Button>
+        <a
+          href="/china-site-scanner/"
+          class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200"
+        >
+          Free China readiness audit
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
