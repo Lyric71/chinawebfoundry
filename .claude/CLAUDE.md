@@ -87,7 +87,7 @@ with structured frontmatter (title, slug, description, icon, order).
 - Self-host all fonts and assets - no external CDN dependencies
 - Use Astro Image component for automatic optimisation
 - Lazy-load all below-fold images
-- No Google services (Analytics, Fonts, reCAPTCHA, Maps)
+- No Google services (Fonts, reCAPTCHA, Maps). EXCEPTION: Google Analytics 4 (G-YZCLZT8H8Q) is loaded via the first-party `/ga.js` endpoint (src/pages/ga.js.ts), which gates on `x-vercel-ip-country` and serves an inert stub to mainland-China visitors so no request ever reaches Google from behind the Great Firewall. Do not add gtag/GTM directly to any page - always go through /ga.js.
 - CRITICAL: All images must be WebP format, max 1050px wide (2x retina for ~525px cards). When adding new case study or content images, convert PNGs/JPGs to WebP and resize with: `npx sharp-cli -i input.png -o output.webp -- resize 1050 --withoutEnlargement`
 - Never commit PNG or JPEG images to `public/images/` - always convert to WebP first
 

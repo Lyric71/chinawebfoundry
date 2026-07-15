@@ -75,9 +75,7 @@ function lastModFor(src) {
 export default defineConfig({
   site: 'https://www.chinawebfoundry.com',
   output: 'static',
-  adapter: vercel({
-    webAnalytics: { enabled: true },
-  }),
+  adapter: vercel(),
   build: {
     inlineStylesheets: 'always',
   },

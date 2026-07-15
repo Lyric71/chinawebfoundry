@@ -3,7 +3,6 @@ import '../styles/global.css';
 import { getLangFromUrl, getHreflangUrls, localePath } from '../i18n/utils';
 import { buildBreadcrumbLd } from '../lib/seoSchema';
 import type { Locale } from '../i18n/ui';
-import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string;
@@ -159,9 +158,13 @@ const sitewideLd = [organizationLd, websiteLd, ...breadcrumbLd, ...jsonLd];
     {sitewideLd.map((ld) => (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(ld)} />
     ))}
+
+    <!-- Google Analytics, loaded via a first-party endpoint that gates on
+         visitor country. Mainland China visitors receive an inert stub, so no
+         request is ever made to Google from behind the Great Firewall. -->
+    <script is:inline async src="/ga.js"></script>
   </head>
   <body>
     <slot />
-    <Analytics />
   </body>
 </html>
