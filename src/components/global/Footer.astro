@@ -20,11 +20,11 @@ const growServices = footerNav.services.filter((s) => s.column === 'grow');
 
 // Sister agencies in the BeyondBorderGroup network
 const ecosystemLabel = ({
-  en: 'Part of BearingBridge',
-  fr: 'Membre du groupe BearingBridge',
-  es: 'Parte del grupo BearingBridge',
-  de: 'Teil der BearingBridge',
-} as Record<string, string>)[currentLang] ?? 'Part of BearingBridge';
+  en: 'Part of',
+  fr: 'Membre du groupe',
+  es: 'Parte del grupo',
+  de: 'Teil der',
+} as Record<string, string>)[currentLang] ?? 'Part of';
 
 // Google Ads landing page: localised slug + label per locale
 const wpLandingLabel = ({
@@ -34,15 +34,14 @@ const wpLandingLabel = ({
   de: 'WordPress-Agentur in China',
 } as Record<string, string>)[currentLang] ?? 'WordPress agency in China';
 
-const ecosystemSites = [
+const ecosystemSites: { name: string; href: string; logo: string; sizeClass?: string }[] = [
+  { name: 'hubStudio', href: 'https://hubstudio.ai', logo: '/images/ecosystem/hubstudio.webp', sizeClass: 'h-6 sm:h-7' },
   { name: 'The China Path', href: 'https://thechinapath.com', logo: '/images/ecosystem/thechinapath.webp' },
   { name: 'BeyondBridge', href: 'https://beyondbridge.ai', logo: '/images/ecosystem/beyondbridge.webp' },
   { name: 'The Red Scroll', href: 'https://theredscroll.com', logo: '/images/ecosystem/theredscroll.webp' },
+  { name: 'BeyondCompass', href: 'https://compass.bearingbridge.com', logo: '/images/ecosystem/compass.svg', sizeClass: 'h-6 sm:h-7' },
   { name: 'Nuvora', href: 'https://nuvora.studio', logo: '/images/ecosystem/nuvora.webp' },
-  { name: 'BeyondCompass', href: 'https://compass.bearingbridge.com', logo: '/images/ecosystem/compass.webp' },
-  { name: 'hubStudio', href: 'https://hubstudio.ai', logo: '/images/ecosystem/hubstudio.webp' },
-  { name: 'BearingBridge AI', href: 'https://bearingbridge.ai', logo: '/images/ecosystem/bearingbridge-ai.svg', sizeClass: 'h-[2.84rem] sm:h-[3.25rem]' },
-  { name: 'BearingBridge', href: 'https://bearingbridge.com', logo: '/images/ecosystem/bearingbridge.webp' },
+  { name: 'BearingBridge AI', href: 'https://bearingbridge.ai', logo: '/images/ecosystem/bearingbridge-ai.svg', sizeClass: 'h-5 sm:h-6' },
 ];
 ---
 
@@ -228,8 +227,13 @@ const ecosystemSites = [
   <!-- Sister agencies: BeyondBorderGroup network -->
   <div class="border-t border-[var(--color-surface-border)]">
     <div class="mx-auto max-w-[1400px] section-padding py-8 lg:py-10">
-      <p class="text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)] mb-6">{ecosystemLabel}</p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-7 items-center justify-items-center">
+      <p class="flex items-center gap-2.5 text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)] mb-6">
+        {ecosystemLabel}
+        <a href="https://bearingbridge.com" target="_blank" rel="noopener noreferrer" class="inline-flex shrink-0" aria-label="BearingBridge" title="BearingBridge">
+          <img src="/images/ecosystem/bearingbridge.webp" alt="BearingBridge logo" class="h-5 w-auto object-contain" loading="lazy" />
+        </a>
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-x-6 gap-y-7 items-center justify-items-center">
         {ecosystemSites.map((site) => (
           <a
             href={site.href}
@@ -242,7 +246,7 @@ const ecosystemSites = [
             <img
               src={site.logo}
               alt={`${site.name} logo`}
-              class:list={[site.sizeClass ?? 'h-7 sm:h-8', 'w-auto max-w-[170px] object-contain opacity-65 grayscale transition duration-200 ease-out hover:opacity-100 hover:grayscale-0']}
+              class:list={[site.sizeClass ?? 'h-7 sm:h-8', 'w-auto max-w-[150px] object-contain opacity-65 grayscale transition duration-200 ease-out hover:opacity-100 hover:grayscale-0']}
               loading="lazy"
             />
           </a>
