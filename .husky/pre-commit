@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Images are optimised locally or not at all: Astro uses passthroughImageService()
+# and Vercel Image Optimization is off, so committed bytes are the bytes served.
+# Reject anything unoptimised before it can reach the repo.
+node scripts/check-images.mjs --staged

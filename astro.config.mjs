@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import { existsSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import tailwindcss from '@tailwindcss/vite';
@@ -75,7 +75,10 @@ function lastModFor(src) {
 export default defineConfig({
   site: 'https://www.chinawebfoundry.com',
   output: 'static',
-  adapter: vercel(),
+  // imageService: false keeps Vercel's Image Optimization service switched off.
+  // It is the adapter default, set explicitly so a future upgrade cannot flip it
+  // on and start billing image transforms. See the `image` block below.
+  adapter: vercel({ imageService: false }),
   build: {
     inlineStylesheets: 'always',
   },
@@ -157,6 +160,20 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   image: {
+    // Every image is optimised locally before it is committed: WebP, max 1050px,
+    // produced by scripts/generate-image.mjs or sharp-cli. Nothing is resized or
+    // re-encoded at request time on Vercel.
+    //
+    // The passthrough service serves images byte-for-byte as they are on disk. It
+    // also keeps sharp (a ~40MB native binary) and the /_image transform endpoint
+    // out of the Vercel serverless function entirely, so there is no code path
+    // left that could optimise on their side.
+    //
+    // Consequence: <Image /> and getImage() no longer transform anything. Add new
+    // images as plain <img> tags pointing at an already-optimised file in public/.
+    service: passthroughImageService(),
+    // No remote hosts may be transformed either.
     domains: [],
+    remotePatterns: [],
   },
 });

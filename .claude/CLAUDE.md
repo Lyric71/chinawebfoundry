@@ -60,7 +60,7 @@ located outside of China.
 - Service pages use `ServiceLayout.astro` and pull from content collections
 - Data that drives UI (nav items, problem cards, trust points) lives in `src/data/`
 - Static assets (images, fonts) go in `public/`
-- Processed/optimised images go in `src/assets/images/` (Astro image pipeline)
+- All images go in `public/images/`, already optimised. There is no Astro image pipeline on this project (see Performance Constraints); `src/assets/images/` is unused.
 
 ## Content Collections
 Services, testimonials, team members, and FAQs are Astro content collections
@@ -85,7 +85,7 @@ with structured frontmatter (title, slug, description, icon, order).
 ## Performance Constraints
 - Target: LCP < 2.5s, FCP < 1.5s, total page weight < 1.5MB
 - Self-host all fonts and assets - no external CDN dependencies
-- Use Astro Image component for automatic optimisation
+- CRITICAL: All image optimisation happens locally, before commit. Astro is configured with `passthroughImageService()`, so `<Image />` and `getImage()` transform nothing and sharp is not bundled into the Vercel function. Vercel Image Optimization is off (`vercel({ imageService: false })`). Never re-enable either. Add images as plain `<img>` tags pointing at an already-optimised file in `public/images/`, sized and encoded with `scripts/generate-image.mjs` or sharp-cli.
 - Lazy-load all below-fold images
 - No Google services (Fonts, reCAPTCHA, Maps). EXCEPTION: Google Analytics 4 (G-YZCLZT8H8Q) is loaded via the first-party `/ga.js` endpoint (src/pages/ga.js.ts), which gates on `x-vercel-ip-country` and serves an inert stub to mainland-China visitors so no request ever reaches Google from behind the Great Firewall. Do not add gtag/GTM directly to any page - always go through /ga.js.
 - CRITICAL: All images must be WebP format, max 1050px wide (2x retina for ~525px cards). When adding new case study or content images, convert PNGs/JPGs to WebP and resize with: `npx sharp-cli -i input.png -o output.webp -- resize 1050 --withoutEnlargement`
@@ -100,7 +100,7 @@ with structured frontmatter (title, slug, description, icon, order).
 - Requires `WAVESPEED_API_KEY` in `.env` (already configured locally).
 
 ## Testing
-- Run `npm run build` before committing to catch build errors
+- CRITICAL: Never run `npm run build` on your own initiative. Build only when the user explicitly asks for it, including before a commit (ask first).
 - Run `npx astro check` for TypeScript validation
 - Verify responsive at 375px (mobile), 768px (tablet), 1280px (desktop)
 
@@ -114,4 +114,4 @@ with structured frontmatter (title, slug, description, icon, order).
 ## Git Conventions
 - Commit messages: conventional commits (feat:, fix:, chore:, docs:, style:)
 - Branch naming: feature/page-name, fix/description
-- Always run build before pushing
+- Do not build before pushing unless the user asks for it

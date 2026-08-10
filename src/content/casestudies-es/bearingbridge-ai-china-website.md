@@ -1,44 +1,53 @@
 ---
-title: "Una consultora de IA que quería ser la respuesta que da la IA"
-subtitle: "BearingBridge AI asesora a las empresas sobre una IA que aguanta en el mundo real. Su web tenía que cargar en Asia y en Europa y, como es lógico, convertirse en la fuente que citan los asistentes de IA cuando un comprador pregunta."
-summary: "BearingBridge AI necesitaba una web rápida y creíble, accesible en Asia y en Europa, y diseñada para que la cite la búsqueda con IA. La reconstruimos sobre alojamiento accesible desde China y afinamos cada página para el GEO."
+title: "La consultora de IA que rehízo su web para sus servicios y su producto"
+subtitle: "BearingBridge AI sigue asesorando y ahora entrega además un producto que acorta el camino hacia la IA. La nueva web tenía que sostener cinco áreas, 12 funciones de empresa y dos idiomas, y abrirse desde Shanghái tan rápido como desde Fráncfort."
+summary: "La nueva web de BearingBridge AI tenía que vender la consultoría igual que el producto, cubrir 12 funciones de empresa en inglés y en francés y aguantar la velocidad a ambos lados del cortafuegos. La rehicimos desde cero y calibramos cada página para que la búsqueda con IA la cite."
 visual: "/images/casestudies/bearingbridge-ai-hero.webp"
 visuals:
   - "/images/casestudies/bearingbridge-ai-full.webp"
-color: "#1E293B"
+color: "#141416"
 order: 14
 published: true
 services: ["ux-ui-design", "china-hosting", "geo", "technical-integration"]
 ---
 
-## Predicar con el ejemplo
+## Un discurso que se le había quedado grande a la web anterior
 
-BearingBridge AI ayuda a las grandes organizaciones a adoptar una IA que «aguanta el contacto con la realidad». La consultora compara los modelos occidentales como GPT y Claude con los chinos como Qwen y DeepSeek, y dice sin rodeos cuándo es mejor renunciar a la IA.
+BearingBridge AI asesora a grandes organizaciones en inteligencia artificial, y su discurso se ha endurecido. La inteligencia entra primero en los datos del cliente y el producto se levanta después a su alrededor. Pruebas antes que ruido, como dice el pie de página.
 
-Una consultora que vende criterio lúcido sobre la IA tiene que acertar en dos cosas en su propia web. Primero, debe cargar bien en las regiones donde trabaja, Hong Kong, Shanghái, el resto de Asia, Europa, lo que implica ser accesible desde China sin la ralentización habitual del cortafuegos. Segundo, y esto es lo que la mayoría de las consultoras pasa por alto, debería ser la fuente a la que un asistente de IA remite cuando un directivo pregunta quién puede ayudarle a adoptar la IA.
+La frase cabe en una línea. La maquetación, mucho menos. La firma trabaja sobre cinco áreas: consultoría, datos, IA, tecnología y formación. Explica qué cambia la IA en 12 puestos distintos, desde el consejero delegado hasta compras y recursos humanos. Pone frente a frente los modelos occidentales, GPT y Claude, y los chinos, Qwen y DeepSeek. Y sabe decirle a un cliente que un proyecto no merece la pena. Todo ello, además, en inglés y en francés.
 
-Si asesoras a la gente sobre la IA y una IA no te encuentra, la imagen es incómoda.
+Queda la geografía. Los equipos trabajan en Hong Kong y en Shanghái, los compradores leen desde Europa, y la red que une ambos extremos atraviesa el Gran Cortafuegos. Una web que se atasca en un lado pierde la sala antes de la primera reunión.
+
+Y queda un último punto, el que casi todas las consultoras se saltan. Vender criterio sobre la IA y que ningún asistente sepa nombrarte deja en mal lugar.
 
 | | |
 |---|---|
 | **Cliente** | BearingBridge AI |
 | **Sector** | Consultoría de IA para empresas |
+| **Idiomas** | Inglés, francés |
 | **Regiones** | Hong Kong, Shanghái, el resto de Asia, Europa |
-| **Plataforma** | Web corporativa con biblioteca de análisis |
+| **Plataforma** | Web corporativa con demostrador de producto y biblioteca de análisis |
 | **Servicios clave** | Implementación del diseño, Alojamiento en China, GEO, Integración |
 
-## El planteamiento: accesible y citable por las máquinas
+## El planteamiento: 12 funciones, dos idiomas, una página rápida
 
-Reconstruimos la web para que cargue con limpieza a ambos lados del cortafuegos, alojándola de modo que un visitante de Hong Kong, de Shanghái o de Fráncfort obtenga una página rápida y fiable. Se retiraron las dependencias extranjeras que fallan en China.
+Diseñamos una web oscura y técnica, más cerca de un terminal que de un folleto, porque estos compradores se pasan el día leyendo cuadros de mando. Tipografía grande, líneas de rejilla marcadas y las cifras llevando la voz cantante.
 
-Lo interesante fue el GEO. Estructuramos toda la web para que los buscadores con IA la lean, la entiendan y la citen: afirmaciones claras, pasajes que responden a las preguntas, un marcado limpio y legible para la máquina, una biblioteca de análisis escrita para ser citada y no solo ojeada. Cuando alguien le pregunta a un asistente por la adopción pragmática de la IA en la empresa, queríamos que BearingBridge figurara en la respuesta.
+La arquitectura sigue el recorrido real de esos compradores. Cinco páginas de área para los servicios. Doce páginas de función, que arrancan de los datos que un responsable de marketing o un director financiero ya tiene encima de la mesa y muestran después la inteligencia que se apoya en ellos. Una sección de método recorre un proyecto en orden, rumbo a rumbo. Y un demostrador preside la parte alta de la página: el cliente potencial ve la herramienta funcionando antes de que nadie le proponga una llamada.
 
-## El resultado: citada, y rápida allá donde opera
+Los dos ecosistemas de modelos tienen su sección, nombres occidentales y nombres chinos en la misma tabla. La afirmación solo se sostiene si la página abre a ambos lados, así que la alojamos para aguantar el cruce y luego le quitamos las dependencias extranjeras que se atascan en China.
 
-La web de BearingBridge AI carga ahora rápido en Asia y en Europa, y está diseñada de cabo a rabo para asomar en la búsqueda con IA en lugar de quedar sepultada en ella.
+El inglés y el francés funcionan con un hreflang en regla: cada lector aterriza en su idioma y los buscadores indexan las dos versiones sin confundirlas.
 
-Para una consultora cuya credibilidad depende de entender los dos ecosistemas de IA y los dos extremos del planeta, una web que rinde de una región a otra y a la que citan las propias herramientas que asesora es la mejor prueba.
+Después llegó el GEO. Afirmaciones dichas sin rodeos, pasajes que responden por sí solos a una pregunta, marcado limpio que la máquina sabe leer y una biblioteca de análisis escrita para que la citen, no para que la hojeen. Incluso las cifras llevan su fuente en la propia página: ese 80 % de proyectos de IA que fracasan se atribuye a RAND justo donde se usa el dato, y ese es justo el pasaje que un asistente se lleva.
 
-> «Les decimos a nuestros clientes que diseñen para la forma en que la IA lee de verdad el mundo. Primero teníamos que aplicárnoslo a nuestra propia web. Hoy, cuando le preguntas a un asistente por una adopción seria de la IA, estamos en la respuesta.»
+## El resultado: rápida en ambos lados y citable por las máquinas
+
+BearingBridge AI tiene ahora una sola web, rápida en Asia y en Europa, que sostiene la consultoría y el producto al mismo nivel y que levantamos de arriba abajo para asomar en la búsqueda con IA en vez de quedar sepultada en ella.
+
+La consultora se juega la credibilidad en su lectura de los dos ecosistemas de IA y de los dos extremos del mapa. Una web que rinde en ambos, y a la que citan las propias herramientas sobre las que asesora, dice más que cualquier folleto.
+
+> «Les decimos a nuestros clientes que diseñen para la forma en que la IA lee el mundo. Lo primero era aplicárnoslo a nosotros mismos. Hoy, cuando le preguntas a un asistente por una adopción seria de la IA, estamos en la respuesta.»
 >
 > **Adrian P.**, socio, BearingBridge AI
