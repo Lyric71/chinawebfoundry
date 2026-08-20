@@ -64,6 +64,23 @@ export const guideSlugs: Record<string, Trans> = {
   'icp-licence-filing-foreign-companies': { fr: 'licence-icp-entreprises-etrangeres', es: 'licencia-icp-empresas-extranjeras', de: 'icp-lizenz-auslaendische-unternehmen' },
   'mobile-first-design-china': { fr: 'design-mobile-first-chine', es: 'diseno-mobile-first-china', de: 'mobile-first-design-china' },
   'wordpress-agency-china': { fr: 'agence-wordpress-chine', es: 'agencia-wordpress-china', de: 'wordpress-agentur-china' },
+  // Baidu series. Product names (Merchant Center, Aicaigou, Baiduspider) keep their English slug.
+  'baidu-search-resource-platform': { fr: 'plateforme-ressources-recherche-baidu', es: 'plataforma-recursos-busqueda-baidu', de: 'baidu-suchressourcen-plattform' },
+  'baidu-account-ownership': { fr: 'proprietaire-compte-baidu', es: 'propiedad-cuenta-baidu', de: 'baidu-konto-eigentum' },
+  'baidu-account-foreign-company': { fr: 'compte-baidu-entreprise-etrangere', es: 'cuenta-baidu-empresa-extranjera', de: 'baidu-konto-auslaendisches-unternehmen' },
+  'baidu-site-verification': { fr: 'verification-site-baidu', es: 'verificacion-sitio-baidu', de: 'baidu-site-verifizierung' },
+  'baidu-verification-scope': { fr: 'perimetre-verification-baidu', es: 'alcance-verificacion-baidu', de: 'baidu-verifizierung-umfang' },
+  'baidu-verification-failed': { fr: 'echec-verification-baidu', es: 'verificacion-baidu-fallida', de: 'baidu-verifizierung-fehlgeschlagen' },
+  'baiduspider-firewall': { fr: 'baiduspider-pare-feu', es: 'baiduspider-cortafuegos', de: 'baiduspider-firewall' },
+  'submitting-urls-to-baidu': { fr: 'soumettre-urls-baidu', es: 'enviar-urls-baidu', de: 'urls-an-baidu-senden' },
+  'baidu-fast-inclusion-gone': { fr: 'fin-indexation-rapide-baidu', es: 'fin-inclusion-rapida-baidu', de: 'baidu-schnellindexierung-ende' },
+  'baidu-index-traffic-data': { fr: 'donnees-index-trafic-baidu', es: 'datos-indice-trafico-baidu', de: 'baidu-index-traffic-daten' },
+  'baidu-merchant-center': { fr: 'baidu-merchant-center', es: 'baidu-merchant-center', de: 'baidu-merchant-center' },
+  'baidu-product-feed': { fr: 'flux-produits-baidu', es: 'feed-productos-baidu', de: 'baidu-produktfeed' },
+  'baidu-product-data-destinations': { fr: 'destinations-donnees-produits-baidu', es: 'destinos-datos-productos-baidu', de: 'baidu-produktdaten-ziele' },
+  'baidu-ads-account-foreign': { fr: 'compte-baidu-ads-entreprise-etrangere', es: 'cuenta-baidu-ads-empresa-extranjera', de: 'baidu-ads-konto-auslaendisches-unternehmen' },
+  'baidu-structured-data': { fr: 'donnees-structurees-baidu', es: 'datos-estructurados-baidu', de: 'baidu-strukturierte-daten' },
+  'baidu-aicaigou-b2b': { fr: 'baidu-aicaigou-b2b', es: 'baidu-aicaigou-b2b', de: 'baidu-aicaigou-b2b' },
 };
 
 /** Case study slugs, keyed by English content id. Client brand names kept. */
