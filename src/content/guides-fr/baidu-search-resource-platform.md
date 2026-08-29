@@ -10,7 +10,7 @@ updatedAt: 2026-08-19
 category: Search
 ---
 
-La Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) est l'endroit où se pilote réellement le référencement sur Baidu. Elle indique si Baidu a exploré votre site, combien de pages il a conservées, quelles requêtes ont généré des clics. Elle signale aussi ce qui casse. Sans elle, une stratégie de recherche en Chine relève de la divination, facture de traduction en prime.
+La Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) est l'endroit où se pilote réellement le référencement sur Baidu. Elle indique si Baidu a exploré votre site, combien de pages il a conservées, quelles requêtes ont généré des clics. Elle signale aussi ce qui casse. Sans elle, une stratégie de recherche en Chine relève de la divination, facture de traduction en prime, quel que soit le soin apporté à [la construction WordPress du site pour la Chine](/fr/wordpress-en-chine/).
 
 Elle s'appelait autrefois Baidu Webmaster Platform (百度站长平台, Bǎidù Zhànzhǎng Píngtái). Beaucoup de documentation emploie encore l'ancien nom, y compris certaines pages d'aide de Baidu. Même plateforme.
 

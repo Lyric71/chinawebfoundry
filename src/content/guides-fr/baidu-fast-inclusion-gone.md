@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-L'indexation rapide (快速收录, kuàisù shōulù) était le seul outil de soumission de Baidu qui suscitait de l'enthousiasme. Vous y poussiez une URL et la page était censée doubler la file. Les guides anglophones lui consacraient des sections entières, et beaucoup le font encore.
+L'indexation rapide (快速收录, kuàisù shōulù) était le seul outil de soumission de Baidu qui suscitait de l'enthousiasme. Vous y poussiez une URL et la page était censée doubler la file, ce qui en faisait la première extension réclamée sur [tout projet WordPress destiné à la Chine](/fr/wordpress-en-chine/). Les guides anglophones lui consacraient des sections entières, et beaucoup le font encore.
 
 Baidu l'a retirée et a mis quelque chose de plus étroit à sa place.
 

@@ -38,7 +38,7 @@ export const mainNav: NavItem[] = [
       },
       {
         label: 'WordPress',
-        href: '/wordpress/',
+        href: '/wordpress-in-china/',
         column: 'build',
         subColumn: 'technology',
       },

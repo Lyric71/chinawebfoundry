@@ -12,7 +12,7 @@ category: Technology
 
 Google Analytics est bloqué en Chine continentale. googletagmanager.com et google-analytics.com se trouvent tous les deux derrière le Grand Pare-feu. Le tag sur lequel repose votre équipe marketing ne rapporte donc rien des visiteurs chinois : il leur coûte seulement du temps.
 
-La plupart des équipes tranchent mal. Soit elles retirent GA et perdent la mesure partout, soit elles le gardent et servent en silence un site plus lent à tout Shanghai.
+La plupart des équipes tranchent mal. Soit elles retirent GA et perdent la mesure partout, soit elles le gardent et servent en silence un site plus lent à tout Shanghai, l'une des façons les plus courantes de [casser un site WordPress en Chine](/fr/wordpress-en-chine/).
 
 Il existe une troisième voie. Vingt-cinq lignes de code serveur, et elle tourne sur la page que vous êtes en train de lire.
 

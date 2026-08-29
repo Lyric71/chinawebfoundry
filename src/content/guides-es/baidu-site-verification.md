@@ -10,7 +10,7 @@ updatedAt: 2026-08-18
 category: Search
 ---
 
-Verificar un dominio en la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) convierte una URL en una propiedad de la que puede extraer datos y a la que puede enviar páginas. El trámite lleva diez minutos, suponiendo que el alojamiento colabore. Conseguir la cuenta que hay detrás es la parte difícil, y eso [es materia de otro artículo](/es/recursos/guia-web-china/cuenta-baidu-empresa-extranjera/).
+Verificar un dominio en la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) convierte una URL en una propiedad de la que puede extraer datos y a la que puede enviar páginas. El trámite lleva diez minutos, suponiendo que el alojamiento colabore y que [el WordPress ya esté preparado para China](/es/wordpress-en-china/). Conseguir la cuenta que hay detrás es la parte difícil, y eso [es materia de otro artículo](/es/recursos/guia-web-china/cuenta-baidu-empresa-extranjera/).
 
 > Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
 >

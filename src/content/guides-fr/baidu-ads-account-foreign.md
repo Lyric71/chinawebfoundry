@@ -18,7 +18,7 @@ Deux voies existent pour une entreprise sans entité continentale, et aucune ne 
 
 Rien d'autre en Chine n'achète cette portée, et c'est pourquoi les équipes affrontent la paperasse au lieu de renoncer. Le panel chinois de StatCounter bouge : lisez ce chiffre comme un ordre de grandeur.
 
-Ce que l'une ou l'autre voie vous coûte tient au contrôle plus qu'à l'argent, et ce choix vous suit jusque dans l'hébergement et les performances d'exploration, longtemps après le lancement.
+Ce que l'une ou l'autre voie vous coûte tient au contrôle plus qu'à l'argent, et ce choix vous suit jusque dans l'hébergement et les performances d'exploration, longtemps après le lancement, et c'est là qu'[une agence web basée en Chine](/fr/agence-web-chine/) justifie ses honoraires.
 
 ## Ce que Baidu réclame à un annonceur continental
 

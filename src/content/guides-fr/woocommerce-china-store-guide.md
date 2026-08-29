@@ -11,7 +11,7 @@ category: Technology
 
 À Francfort ou à Chicago, votre boutique WooCommerce tourne sans le moindre accroc. Ouvrez-la depuis Shanghai : elle devient presque inutilisable. Même thème, mêmes extensions. Et pourtant, le paiement se fige, les images produit ne s'affichent jamais, et le seul bouton de paiement qui compte manque à l'appel.
 
-Pour un acheteur chinois, rien d'anodin là-dedans. C'est exactement ce qui lui fait fermer l'onglet. WooCommerce fonctionne très bien en Chine. Servi tel quel à un public occidental, il cale.
+Pour un acheteur chinois, rien d'anodin là-dedans. C'est exactement ce qui lui fait fermer l'onglet. WooCommerce fonctionne très bien en Chine, aux mêmes conditions que [n'importe quel site WordPress derrière le Grand Pare-feu](/fr/wordpress-en-chine/). Servi tel quel à un public occidental, il cale.
 
 Ce guide suppose que vous avez déjà lu notre guide pilier, Localiser un site pour la Chine. Tout part de ces fondations : commencez par là si ce n'est pas déjà fait.
 

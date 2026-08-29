@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Content
 ---
 
-Affichez un prix à 888 RMB : vous évoquez la prospérité. Affichez-le à 444 : vous associez votre produit à la mort. Tout l'écart entre un site traduit et un site localisé tient dans cet exemple. La vraie localisation pour la Chine déborde largement la langue. Elle touche aux paiements, aux marqueurs de confiance, au registre éditorial, à la réactivité du service client et à toute une série de codes culturels que la plupart des entreprises étrangères ne détectent qu'une fois le mal fait.
+Affichez un prix à 888 RMB : vous évoquez la prospérité. Affichez-le à 444 : vous associez votre produit à la mort. Tout l'écart entre un site traduit et un site localisé tient dans cet exemple. La vraie localisation pour la Chine déborde largement la langue. Elle touche aux paiements, aux marqueurs de confiance, au registre éditorial, à la réactivité du service client, à [ce qu'il faut changer dans un site WordPress pour la Chine](/fr/wordpress-en-chine/) et à toute une série de codes culturels que la plupart des entreprises étrangères ne détectent qu'une fois le mal fait.
 
 ## La localisation en bref
 

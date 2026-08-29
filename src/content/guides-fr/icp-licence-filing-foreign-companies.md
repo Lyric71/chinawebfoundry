@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Legal
 ---
 
-Tout site posé sur un serveur en Chine continentale doit disposer d'un enregistrement ICP. Jusque-là, rien de compliqué. Le piège pour les entreprises étrangères tient à un autre détail : il existe 2 types d'ICP, régis par des règles très différentes. Le premier est rapide, presque gratuit et accessible à la plupart des sociétés étrangères. Le second prend des mois, coûte vraiment, et impose une restriction d'actionnariat qui verrouille d'entrée la plupart des entreprises étrangères. Les confondre, ou passer outre, expose à des pages lentes, à un référencement dégradé et à un site auquel les internautes chinois n'accorderont aucune confiance.
+Tout site posé sur un serveur en Chine continentale doit disposer d'un enregistrement ICP. Jusque-là, rien de compliqué. Le piège pour les entreprises étrangères tient à un autre détail : il existe 2 types d'ICP, régis par des règles très différentes. Le premier est rapide, presque gratuit et accessible à la plupart des sociétés étrangères. Le second prend des mois, coûte vraiment, et impose une restriction d'actionnariat qui verrouille d'entrée la plupart des entreprises étrangères. Les confondre, ou passer outre, expose à des pages lentes, à un référencement dégradé et à un site auquel les internautes chinois n'accorderont aucune confiance, et c'est pourquoi [une agence qui dépose des dossiers ICP à longueur d'année](/fr/agence-wordpress-chine/) vaut mieux ici qu'un devis moins cher.
 
 ## L'ICP en bref
 

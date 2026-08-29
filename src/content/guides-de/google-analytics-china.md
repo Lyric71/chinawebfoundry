@@ -12,7 +12,7 @@ category: Technology
 
 Google Analytics ist auf dem chinesischen Festland gesperrt. googletagmanager.com und google-analytics.com liegen beide hinter der Great Firewall. Das Tag, auf das sich Ihr Marketing verlässt, liefert über chinesische Besucher also nichts. Es kostet sie nur Zeit.
 
-Die meisten Teams entscheiden sich falsch. Entweder sie werfen GA raus und messen nirgendwo mehr, oder sie lassen es drin und servieren ganz Shanghai eine langsamere Website.
+Die meisten Teams entscheiden sich falsch. Entweder sie werfen GA raus und messen nirgendwo mehr, oder sie lassen es drin und servieren ganz Shanghai eine langsamere Website, einer der häufigsten Wege, auf denen [eine WordPress-Website in China unbrauchbar wird](/de/wordpress-in-china/).
 
 Es gibt einen dritten Weg. Fünfundzwanzig Zeilen Servercode, und er läuft auf der Seite, die Sie gerade lesen.
 

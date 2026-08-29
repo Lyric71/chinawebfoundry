@@ -20,7 +20,7 @@ Baidus eigene Definition liest sich so.
 >
 > *Quelle: Baidu Marketing Academy, Produktseite*
 
-Achten Sie darauf, was fehlt. Kein Wort dieses Satzes berührt Suchergebnisse oder die Indexierung Ihrer Website.
+Achten Sie darauf, was fehlt. Kein Wort dieses Satzes berührt Suchergebnisse oder die Indexierung Ihrer Website, eine Aufgabe, die [Ihr Web-Team in China](/de/webagentur-china/) getrennt davon erledigen muss.
 
 ## Baidu legt Ihre Produktdaten neben Ihre Banner
 

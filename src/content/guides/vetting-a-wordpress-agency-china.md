@@ -1,12 +1,12 @@
 ---
-title: "WordPress Agency China: How to Vet One"
+title: "How to Vet a WordPress Agency for China"
 subtitle: "A web shop cannot file your ICP, host inside the mainland, or build around the Great Firewall. Here is how to hire one who can."
-summary: "How to vet a WordPress agency for China: ICP filing, mainland hosting, firewall-aware builds, and the questions that expose pretenders."
+summary: "The capabilities that separate a China WordPress specialist from a generic agency, and the questions that expose the difference on the first call."
 visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-07-03
+updatedAt: 2026-08-29
 category: Technology
 ---
 
@@ -14,7 +14,7 @@ Most agencies can build you a beautiful WordPress site. Far fewer can build one 
 
 Your global agency ships a polished site. It flies in London, it flies in Chicago. Then a colleague in Shanghai opens it and the hero image never loads, the contact form hangs on a script stuck behind the Great Firewall, and Baidu has no idea the site exists. Nothing is broken, exactly. It just doesn't work where you need it to.
 
-Picking a WordPress agency for China is not the same decision as picking one anywhere else. The stack is only half of it. The other half is a set of compliance and infrastructure hurdles a shop outside China has usually never touched. This guide covers what separates a real China WordPress partner from a generic agency, the capabilities to check, the questions that expose a pretender, and how these engagements get priced.
+Picking a WordPress agency for China is not the same decision as picking one anywhere else. The stack is only half of it. The other half is a set of compliance and infrastructure hurdles a shop outside China has usually never touched. This guide covers what separates [a specialist WordPress agency for China](/wordpress-agency-china/) from a generic agency, the capabilities to check, the questions that expose a pretender, and how these engagements get priced.
 
 This assumes you have read our pillar guide, Website Localisation for China. If you haven't, start there, since everything below builds on it.
 

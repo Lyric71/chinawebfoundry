@@ -36,6 +36,9 @@ export const staticRoutes: Record<string, Trans> = {
   '/cookie-policy/': { fr: '/politique-cookies/', es: '/politica-de-cookies/', de: '/cookie-richtlinie/' },
   '/web-agency-china/': { fr: '/agence-web-chine/', es: '/agencia-web-china/', de: '/webagentur-china/' },
   '/wordpress-agency-china/': { fr: '/agence-wordpress-chine/', es: '/agencia-wordpress-china/', de: '/wordpress-agentur-china/' },
+  '/wordpress-in-china/': { fr: '/wordpress-en-chine/', es: '/wordpress-en-china/', de: '/wordpress-in-china/' },
+  // Reserved route, Move 1 Task E. Noindexed and sitemap-excluded until real copy ships.
+  '/website-in-china/': { fr: '/site-web-en-chine/', es: '/sitio-web-en-china/', de: '/website-in-china/' },
 };
 
 /** Service detail slugs, keyed by English content id. baidu-seo + geo unchanged. */
@@ -62,9 +65,12 @@ export const guideSlugs: Record<string, Trans> = {
   'google-analytics-china': { fr: 'google-analytics-chine', es: 'google-analytics-china', de: 'google-analytics-china' },
   'great-firewall-what-it-blocks': { fr: 'grand-pare-feu-chine', es: 'gran-cortafuegos-china', de: 'great-firewall-china' },
   'host-website-in-china': { fr: 'heberger-site-web-chine', es: 'alojar-sitio-web-china', de: 'website-in-china-hosten' },
+  'is-wordpress-blocked-in-china': { fr: 'wordpress-bloque-en-chine', es: 'wordpress-bloqueado-en-china', de: 'ist-wordpress-in-china-gesperrt' },
   'icp-licence-filing-foreign-companies': { fr: 'licence-icp-entreprises-etrangeres', es: 'licencia-icp-empresas-extranjeras', de: 'icp-lizenz-auslaendische-unternehmen' },
   'mobile-first-design-china': { fr: 'design-mobile-first-chine', es: 'diseno-mobile-first-china', de: 'mobile-first-design-china' },
-  'wordpress-agency-china': { fr: 'agence-wordpress-chine', es: 'agencia-wordpress-china', de: 'wordpress-agentur-china' },
+  'vetting-a-wordpress-agency-china': { fr: 'choisir-agence-wordpress-chine', es: 'elegir-agencia-wordpress-china', de: 'wordpress-agentur-china-pruefen' },
+  'wordpress-hosting-china': { fr: 'hebergement-wordpress-chine', es: 'alojamiento-wordpress-china', de: 'wordpress-hosting-china' },
+  'choosing-web-agency-china': { fr: 'choisir-agence-web-chine', es: 'elegir-agencia-web-china', de: 'webagentur-china-auswaehlen' },
   // Baidu series. Product names (Merchant Center, Aicaigou, Baiduspider) keep their English slug.
   'baidu-search-resource-platform': { fr: 'plateforme-ressources-recherche-baidu', es: 'plataforma-recursos-busqueda-baidu', de: 'baidu-suchressourcen-plattform' },
   'baidu-account-ownership': { fr: 'proprietaire-compte-baidu', es: 'propiedad-cuenta-baidu', de: 'baidu-konto-eigentum' },

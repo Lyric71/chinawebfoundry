@@ -1,12 +1,12 @@
 ---
-title: "Agencia WordPress en China: cómo escoger la adecuada"
+title: "Cómo elegir una agencia WordPress en China"
 subtitle: "Un estudio web corriente no puede tramitar su ICP, alojar dentro del continente ni desarrollar contando con el Gran Cortafuegos. Le contamos cómo dar con la agencia que sí sabe hacerlo."
-summary: "Cómo evaluar a una agencia WordPress para China: tramitación del ICP, alojamiento continental, desarrollo que sortea el cortafuegos y las preguntas que delatan a quien improvisa."
+summary: "Qué separa a un especialista en WordPress para China de una agencia genérica, y las preguntas que revelan la diferencia en la primera llamada."
 visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-07-03
+updatedAt: 2026-08-29
 category: Technology
 ---
 
@@ -14,7 +14,7 @@ Casi cualquier agencia sabe montarle un sitio WordPress atractivo. Son muchas me
 
 Su agencia global le entrega un sitio impecable. Rinde en Londres y rinde en Chicago. Luego un compañero lo abre en Shanghái: la imagen principal no llega a cargar, el formulario de contacto se queda colgado a la espera de un script atrapado tras el Gran Cortafuegos y Baidu ignora por completo que el sitio existe. Técnicamente no hay nada roto, y aun así el sitio no funciona allí donde usted lo necesita.
 
-Elegir una agencia WordPress para China no se parece a elegirla en ningún otro mercado. La tecnología es apenas la mitad del trabajo. La otra mitad la forman una serie de obstáculos normativos y de infraestructura que un estudio de fuera de China rara vez ha pisado. Esta guía repasa qué diferencia a un socio WordPress con experiencia real en China de una agencia cualquiera, qué capacidades conviene comprobar, qué preguntas destapan a quien improvisa y cómo se fija el precio de estos encargos.
+Elegir una agencia WordPress para China no se parece a elegirla en ningún otro mercado. La tecnología es apenas la mitad del trabajo. La otra mitad la forman una serie de obstáculos normativos y de infraestructura que un estudio de fuera de China rara vez ha pisado. Esta guía repasa qué diferencia a [una agencia WordPress especializada en China](/es/agencia-wordpress-china/) de una agencia cualquiera, qué capacidades conviene comprobar, qué preguntas destapan a quien improvisa y cómo se fija el precio de estos encargos.
 
 Damos por hecho que ya ha leído nuestra guía de referencia, Localización de sitios web para China. Si todavía no lo ha hecho, empiece por ahí, porque todo lo que viene a continuación se apoya en ella.
 

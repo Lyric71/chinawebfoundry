@@ -12,7 +12,7 @@ category: Search
 
 Antes de poder verificar un sitio, enviar una URL o leer una sola cifra de índice, hace falta una cuenta de Baidu que haya superado la verificación de identidad real (实名认证, shímíng rènzhèng). Esa cuenta no es papeleo que pueda dejarse para más adelante. Desde septiembre de 2023 determina si sus herramientas de envío funcionan siquiera, y es lo más parecido a un registro de propiedad que Baidu conserva sobre su activo de búsqueda.
 
-Calcule un día para la versión sencilla. Varias semanas para la complicada.
+Calcule un día para la versión sencilla y varias semanas para la complicada, menos si [un socio que ya opera en China](/es/agencia-web-china/) prepara el expediente con usted.
 
 ## El número de teléfono es el obstáculo famoso
 

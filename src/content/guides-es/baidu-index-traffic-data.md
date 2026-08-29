@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-La parte de informes de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) no es un cuadro de mando en el sentido al que usted está acostumbrado. Es un conjunto de instrumentos separados que comparten un acceso, cada uno con su propio reloj, y varios de ellos vacíos durante semanas por diseño.
+La parte de informes de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) no es un cuadro de mando en el sentido al que usted está acostumbrado. Es un conjunto de instrumentos separados que comparten un acceso, cada uno con su propio reloj, y varios de ellos vacíos durante semanas por diseño, razón por la cual [la agencia que los interpreta por usted](/es/agencia-web-china/) importa más que el propio cuadro de mando.
 
 ## El volumen de índice es una línea de tendencia, no un recuento de páginas
 

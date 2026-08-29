@@ -12,7 +12,7 @@ category: Hosting
 
 Su sitio carga sin problemas en todas partes, salvo en el único mercado para el que lo construyó. Ábralo desde Shanghái y a esperar. Y a seguir esperando. Hay veces en que la página no llega a cargar.
 
-Esa diferencia casi siempre se reduce al alojamiento. De dónde esté físicamente su servidor depende que un visitante chino vea su página de inicio en menos de un segundo o que se rinda ante una ruedecita que gira sin fin. Esta guía repasa por qué el alojamiento en el extranjero se rompe dentro de China, qué necesita legalmente antes de poder alojar en el continente, cómo se comparan los grandes proveedores y en qué orden conviene hacerlo todo.
+Esa diferencia casi siempre se reduce al alojamiento. De dónde esté físicamente su servidor depende que un visitante chino vea su página de inicio en menos de un segundo o que se rinda ante una ruedecita que gira sin fin, y esa decisión pesa más que cualquier otra dentro de [un WordPress construido para China](/es/wordpress-en-china/). Esta guía repasa por qué el alojamiento en el extranjero se rompe dentro de China, qué necesita legalmente antes de poder alojar en el continente, cómo se comparan los grandes proveedores y en qué orden conviene hacerlo todo.
 
 Buena parte de lo que sigue amplía nuestra guía de referencia, Localización de sitios web para China. Si aún no la ha leído, empiece por ahí y vuelva luego a por los detalles del alojamiento.
 

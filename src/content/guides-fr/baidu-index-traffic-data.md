@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-Le versant reporting de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) n'est pas un tableau de bord au sens où vous l'entendez. C'est un ensemble d'instruments distincts partageant un même identifiant, chacun sur son horloge, plusieurs restant vides des semaines durant par construction.
+Le versant reporting de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) n'est pas un tableau de bord au sens où vous l'entendez. C'est un ensemble d'instruments distincts partageant un même identifiant, chacun sur son horloge, plusieurs restant vides des semaines durant par construction, ce qui rend [l'agence qui les lit pour vous](/fr/agence-web-chine/) plus déterminante que le tableau de bord.
 
 ## Le volume d'index est une courbe de tendance, pas un décompte de pages
 

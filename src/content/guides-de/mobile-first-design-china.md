@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Design
 ---
 
-China hat 1,3 Milliarden Internetnutzer, und fast alle gehen über das Smartphone online. 969 Millionen bezahlen, indem sie einen QR-Code scannen. Allein WeChat verschlingt 34 % des gesamten Internetverkehrs im Land. China hat die Desktop-Ära nicht so durchlaufen wie der Westen. Es ging direkt zu mobil über, und der Abstand zwischen dem, was chinesische Nutzer von einem mobilen Erlebnis erwarten, und dem, was die meisten ausländischen Unternehmen liefern, ist gewaltig. Wer noch desktopzuerst baut und Responsive-Breakpoints im Nachhinein draufsetzt, baut für ein Internet, das chinesische Nutzer schon vor Jahren hinter sich gelassen haben.
+China hat 1,3 Milliarden Internetnutzer, und fast alle gehen über das Smartphone online. 969 Millionen bezahlen, indem sie einen QR-Code scannen. Allein WeChat verschlingt 34 % des gesamten Internetverkehrs im Land. China hat die Desktop-Ära nicht so durchlaufen wie der Westen. Es ging direkt zu mobil über, und der Abstand zwischen dem, was chinesische Nutzer von einem mobilen Erlebnis erwarten, und dem, was die meisten ausländischen Unternehmen liefern, ist gewaltig. Wer noch desktopzuerst baut und Responsive-Breakpoints im Nachhinein draufsetzt, baut für ein Internet, das chinesische Nutzer schon vor Jahren hinter sich gelassen haben, und keine spätere Feinarbeit an [einem WordPress-Theme für China](/de/wordpress-in-china/) rettet diese Entscheidung.
 
 ## Chinas mobiles Internet in Zahlen
 

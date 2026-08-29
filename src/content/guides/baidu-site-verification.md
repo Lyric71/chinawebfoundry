@@ -10,7 +10,7 @@ updatedAt: 2026-08-18
 category: Search
 ---
 
-Verifying a domain on the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) turns a URL into a property you can pull data from and submit pages to. The job takes ten minutes, assuming the hosting cooperates. Getting the account that sits behind it is the hard part, and that is [a separate piece](/resources/china-web-guide/baidu-account-foreign-company/).
+Verifying a domain on the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) turns a URL into a property you can pull data from and submit pages to. The job takes ten minutes, assuming the hosting cooperates and [the WordPress side is already China-ready](/wordpress-in-china/). Getting the account that sits behind it is the hard part, and that is [a separate piece](/resources/china-web-guide/baidu-account-foreign-company/).
 
 > Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
 >

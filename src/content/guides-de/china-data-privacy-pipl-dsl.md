@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Legal
 ---
 
-Die meisten ausländischen Unternehmen nehmen an, Chinas Datenschutzgesetze greifen nur, wenn man ein Büro in Peking oder Shanghai hat. So funktioniert es nicht. Das PIPL, Chinas Antwort auf die DSGVO, gilt für jede Einheit, die personenbezogene Daten chinesischer Einwohner verarbeitet, unabhängig davon, wo diese Einheit sitzt. Wenn Ihre Website Cookies nutzt, E-Mail-Adressen sammelt oder das Verhalten von Besuchern aus China verfolgt, fallen Sie in den Anwendungsbereich. Strafen für schwere Verstöße reichen bis zu 50 Millionen RMB oder 5 Prozent des Vorjahresumsatzes. Pflicht-Compliance-Audits gelten seit Mai 2025. Es geschieht jetzt.
+Die meisten ausländischen Unternehmen nehmen an, Chinas Datenschutzgesetze greifen nur, wenn man ein Büro in Peking oder Shanghai hat. So funktioniert es nicht. Das PIPL, Chinas Antwort auf die DSGVO, gilt für jede Einheit, die personenbezogene Daten chinesischer Einwohner verarbeitet, unabhängig davon, wo diese Einheit sitzt. Wenn Ihre Website Cookies nutzt, E-Mail-Adressen sammelt oder das Verhalten von Besuchern aus China verfolgt, fallen Sie in den Anwendungsbereich, und [ein unangetastetes WordPress tut mindestens zwei dieser drei Dinge](/de/wordpress-in-china/). Strafen für schwere Verstöße reichen bis zu 50 Millionen RMB oder 5 Prozent des Vorjahresumsatzes. Pflicht-Compliance-Audits gelten seit Mai 2025. Es geschieht jetzt.
 
 ## Drei Gesetze auf einen Blick
 

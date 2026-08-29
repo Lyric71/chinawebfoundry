@@ -10,7 +10,7 @@ updatedAt: 2026-08-17
 category: Search
 ---
 
-That gap trips up more foreign teams than anything else in the setup of the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). A site here is one protocol and one host, nothing wider. Scope it wrong and a quarter later you are reading dashboards about a version of your website nobody visits.
+That gap trips up more foreign teams than anything else in the setup of the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). A site here is one protocol and one host, nothing wider, which matters if [your China WordPress site](/wordpress-in-china/) answers on more than one of them. Scope it wrong and a quarter later you are reading dashboards about a version of your website nobody visits.
 
 > Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
 >

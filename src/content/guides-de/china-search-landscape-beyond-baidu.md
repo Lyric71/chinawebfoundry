@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Search
 ---
 
-Wenn ausländische Unternehmen an Suche in China denken, denken sie an Baidu. Verständlich, denn Baidu hält rund 60 Prozent des Marktes. Die übrigen 40 Prozent ergeben dennoch Hunderte Millionen Suchanfragen, die auf Plattformen stattfinden, mit denen die meisten westlichen Marketer nie zu tun hatten. Eine davon steckt in WeChat. Eine andere ist mit dem E-Commerce-System von Alibaba verbunden. Eine dritte bedient Desktop-Nutzer, die ihren Browser aus Sicherheitsgründen gewählt haben. Und die jüngste sitzt in der Nachrichten-App von ByteDance. Jede bedient ein anderes Publikum und indexiert andere Inhalte. Wer sie ignoriert, übersieht einen echten Teil dessen, wie Menschen in China suchen.
+Wenn ausländische Unternehmen an Suche in China denken, denken sie an Baidu. Verständlich, denn Baidu hält rund 60 Prozent des Marktes. Die übrigen 40 Prozent ergeben dennoch Hunderte Millionen Suchanfragen, die auf Plattformen stattfinden, mit denen die meisten westlichen Marketer nie zu tun hatten. Eine davon steckt in WeChat. Eine andere ist mit dem E-Commerce-System von Alibaba verbunden. Eine dritte bedient Desktop-Nutzer, die ihren Browser aus Sicherheitsgründen gewählt haben. Und die jüngste sitzt in der Nachrichten-App von ByteDance. Jede bedient ein anderes Publikum und indexiert andere Inhalte. Wer sie ignoriert, übersieht einen echten Teil dessen, wie Menschen in China suchen, eine Lücke, die [ein WordPress-Spezialist für China](/de/wordpress-agentur-china/) vor jeder Unterschrift ansprechen sollte.
 
 ## Marktüberblick
 

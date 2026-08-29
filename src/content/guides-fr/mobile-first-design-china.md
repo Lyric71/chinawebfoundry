@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Design
 ---
 
-1,3 milliard d'internautes, quasiment tous sur leur téléphone. 969 millions qui paient en scannant un QR code. WeChat à lui seul absorbe 34 % de tout le trafic internet du pays. La Chine n'a jamais traversé l'ère du bureau comme l'Occident. Elle est passée directement au mobile, et le fossé entre ce que les utilisateurs chinois attendent d'une expérience mobile et ce que proposent la plupart des entreprises étrangères donne le tournis. Concevoir d'abord pour le bureau, puis ajouter des points de rupture responsive, c'est bâtir pour un internet que les Chinois ont déserté depuis longtemps.
+1,3 milliard d'internautes, quasiment tous sur leur téléphone. 969 millions qui paient en scannant un QR code. WeChat à lui seul absorbe 34 % de tout le trafic internet du pays. La Chine n'a jamais traversé l'ère du bureau comme l'Occident. Elle est passée directement au mobile, et le fossé entre ce que les utilisateurs chinois attendent d'une expérience mobile et ce que proposent la plupart des entreprises étrangères donne le tournis. Concevoir d'abord pour le bureau, puis ajouter des points de rupture responsive, c'est bâtir pour un internet que les Chinois ont déserté depuis longtemps, et aucun réglage apporté ensuite à [un thème WordPress pour la Chine](/fr/wordpress-en-chine/) ne rattrape ce choix.
 
 ## L'internet mobile chinois en chiffres
 

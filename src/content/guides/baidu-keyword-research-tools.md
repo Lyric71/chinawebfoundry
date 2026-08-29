@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Search
 ---
 
-Take your top-performing Google keywords, run them through a translator, plug them into your China strategy. That's what most foreign companies do. And it fails almost every time. Chinese users search in ways that have almost nothing to do with how English speakers search. Different phrases. Different sentence structures. And a language where the number of keyword combinations for any single concept is orders of magnitude larger than English. Below are the three tools that give you real Baidu data, plus a look at why Chinese keyword research has to be treated as its own thing.
+Take your top-performing Google keywords, run them through a translator, plug them into your China strategy. That's what most foreign companies do. And it fails almost every time. Chinese users search in ways that have almost nothing to do with how English speakers search. Different phrases. Different sentence structures. And a language where the number of keyword combinations for any single concept is orders of magnitude larger than English. Below are the three tools that give you real Baidu data, plus a look at why Chinese keyword research has to be treated as its own thing, whoever ends up running it, your team or [a web agency working inside China](/web-agency-china/).
 
 ## Baidu Index
 

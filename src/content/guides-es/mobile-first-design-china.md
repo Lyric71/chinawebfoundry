@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Design
 ---
 
-China tiene 1.300 millones de usuarios de internet, casi todos con el teléfono en la mano. 969 millones pagan escaneando un código QR. WeChat absorbe por sí solo el 34 % de todo el tráfico de internet del país. China no pasó por la era del ordenador de escritorio como Occidente: saltó directamente al móvil. Lo que los usuarios chinos esperan de una experiencia móvil y lo que ofrece la mayoría de las empresas extranjeras no se parece en nada. Diseñar primero para el escritorio y añadir después puntos de ruptura adaptables es construir para una internet que los chinos dejaron atrás hace años.
+China tiene 1.300 millones de usuarios de internet, casi todos con el teléfono en la mano. 969 millones pagan escaneando un código QR. WeChat absorbe por sí solo el 34 % de todo el tráfico de internet del país. China no pasó por la era del ordenador de escritorio como Occidente: saltó directamente al móvil. Lo que los usuarios chinos esperan de una experiencia móvil y lo que ofrece la mayoría de las empresas extranjeras no se parece en nada. Diseñar primero para el escritorio y añadir después puntos de ruptura adaptables es construir para una internet que los chinos dejaron atrás hace años, y ningún ajuste posterior sobre [una plantilla de WordPress para China](/es/wordpress-en-china/) rescata esa decisión.
 
 ## La internet móvil china en cifras
 

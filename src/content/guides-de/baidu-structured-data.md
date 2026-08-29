@@ -10,7 +10,7 @@ updatedAt: 2026-08-12
 category: Search
 ---
 
-Baidu hat nie eine schema.org-Spezifikation veröffentlicht. Keine unterstützten Typen, kein Validator, nirgends ein Bericht im Webmaster-Werkzeug. Das eine Werkzeug, das gebaut wurde, ist seit Jahren defekt. Ein lebender Kanal bringt Ihre Daten in ein organisches Ergebnis, und er funktioniert ganz anders als Markup. Die meisten Unternehmen, die das hier lesen, können ihn nicht nutzen, womit die Frage offenbleibt, was man ausliefern soll.
+Baidu hat nie eine schema.org-Spezifikation veröffentlicht. Keine unterstützten Typen, kein Validator, nirgends ein Bericht im Webmaster-Werkzeug. Das eine Werkzeug, das gebaut wurde, ist seit Jahren defekt. Ein lebender Kanal bringt Ihre Daten in ein organisches Ergebnis, und er funktioniert ganz anders als Markup. Die meisten Unternehmen, die das hier lesen, können ihn nicht nutzen, womit die Frage offenbleibt, was man aus [einer für China gebauten WordPress-Website](/de/wordpress-in-china/) ausliefern soll.
 
 ## Baidu baute einmal ein Werkzeug für strukturierte Daten, 2013
 

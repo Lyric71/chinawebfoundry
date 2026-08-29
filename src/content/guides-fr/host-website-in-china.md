@@ -12,7 +12,7 @@ category: Hosting
 
 Votre site s'affiche sans accroc partout, sauf sur le seul marché pour lequel vous l'avez pensé. Ouvrez-le depuis Shanghai : ça rame. Ça rame encore. Et parfois la page ne se charge jamais.
 
-Neuf fois sur dix, la cause tient à l'hébergement. L'endroit où se trouve physiquement votre serveur décide de tout : votre page d'accueil s'affiche en moins d'une seconde pour un visiteur chinois, ou il baisse les bras devant un écran qui tourne. Ce guide explique pourquoi l'hébergement à l'étranger casse en Chine, ce qu'il vous faut légalement avant de pouvoir héberger sur le continent, ce que valent les grands fournisseurs et dans quel ordre tout enchaîner.
+Neuf fois sur dix, la cause tient à l'hébergement. L'endroit où se trouve physiquement votre serveur décide de tout, davantage que n'importe quel autre choix dans [un site WordPress pensé pour la Chine](/fr/wordpress-en-chine/) : votre page d'accueil s'affiche en moins d'une seconde pour un visiteur chinois, ou il baisse les bras devant un écran qui tourne. Ce guide explique pourquoi l'hébergement à l'étranger casse en Chine, ce qu'il vous faut légalement avant de pouvoir héberger sur le continent, ce que valent les grands fournisseurs et dans quel ordre tout enchaîner.
 
 L'essentiel de ce qui suit prolonge notre guide de référence, La localisation d'un site web pour la Chine. Si vous ne l'avez pas encore lu, commencez par lui, puis revenez pour les détails d'hébergement.
 

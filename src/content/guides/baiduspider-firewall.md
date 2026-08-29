@@ -12,7 +12,7 @@ category: Search
 
 Nothing in a normal monitoring stack is watching for this. Uptime checks run from Frankfurt and Virginia, and real user monitoring only sees people who already got a page. Meanwhile the one visitor that matters is being turned away at the edge, and the only place that shows up is a dashboard nobody has opened.
 
-We see it more than any other technical cause of a stalled China launch, and it is almost always a setting nobody remembers making.
+We see it more than any other technical cause of a stalled China launch, well ahead of anything in [the WordPress build itself](/wordpress-in-china/), and it is almost always a setting nobody remembers making.
 
 ## Why your default rules catch Baidu's crawler
 

@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Content
 ---
 
-Fije un precio en 888 RMB y evocará la prosperidad. Fíjelo en 444 y asociará su producto con la muerte. Ese contraste resume la distancia entre un sitio traducido y un sitio localizado. Localizar para China va mucho más allá del idioma. Afecta a los pagos, a las señales de confianza, al tono editorial, a la rapidez de la atención al cliente y a una larga lista de códigos culturales. La mayoría de las empresas extranjeras los descubre cuando el daño ya está hecho.
+Fije un precio en 888 RMB y evocará la prosperidad. Fíjelo en 444 y asociará su producto con la muerte. Ese contraste resume la distancia entre un sitio traducido y un sitio localizado. Localizar para China va mucho más allá del idioma. Afecta a los pagos, a las señales de confianza, al tono editorial, a la rapidez de la atención al cliente, a [lo que hay que cambiar en un WordPress pensado para China](/es/wordpress-en-china/) y a una larga lista de códigos culturales. La mayoría de las empresas extranjeras los descubre cuando el daño ya está hecho.
 
 ## La localización de un vistazo
 

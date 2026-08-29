@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-Fast inclusion (快速收录, kuàisù shōulù) was the one Baidu submission tool anybody got excited about. You pushed a URL into it and the page was supposed to jump the queue. English-language guides built whole sections around it, and a great many of them still do.
+Fast inclusion (快速收录, kuàisù shōulù) was the one Baidu submission tool anybody got excited about. You pushed a URL into it and the page was supposed to jump the queue, which made it the first plugin request on every [WordPress project aimed at China](/wordpress-in-china/). English-language guides built whole sections around it, and a great many of them still do.
 
 Baidu took it offline and put something narrower in its place.
 

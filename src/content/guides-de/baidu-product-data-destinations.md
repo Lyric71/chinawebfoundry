@@ -10,7 +10,7 @@ updatedAt: 2026-08-13
 category: Search
 ---
 
-Baidu Merchant Center, BMC, ist das Produktdatenlager hinter Baidus Werbesystemen. Ein Satz in Baidus Produkt-FAQ listet auf, wohin diese Daten reisen dürfen. Alle drei Ziele werden gekauft.
+Baidu Merchant Center, BMC, ist das Produktdatenlager hinter Baidus Werbesystemen. Ein Satz in Baidus Produkt-FAQ listet auf, wohin diese Daten reisen dürfen, und alle drei Ziele werden gekauft, was das Budgetgespräch mit [den Leuten, die Ihren China-Webauftritt betreiben](/de/webagentur-china/), verändert.
 
 ## Baidu hat die Ziele aufgeschrieben, und es sind drei
 

@@ -18,7 +18,7 @@ Two routes exist for a company with no mainland entity, and neither is a workaro
 
 Nothing else in China buys that reach, which is why teams clear the paperwork instead of walking away. StatCounter's China panel moves around, so read it as a scale.
 
-What either route costs you is control more than money, and the choice follows you into hosting and crawl performance long after launch.
+What either route costs you is control more than money, and the choice follows you into hosting and crawl performance long after launch, which is where [a web agency based in China](/web-agency-china/) earns its fee.
 
 ## What Baidu asks a mainland advertiser for
 

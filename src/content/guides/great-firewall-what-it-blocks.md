@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Technology
 ---
 
-The Great Firewall doesn't work the way most people imagine. It's a layered system that poisons DNS queries, blocks entire IP ranges, reads the contents of your data packets in real time, and actively hunts for VPN connections. For foreign companies, that means any website with even one dependency on a blocked service - a font file, a tracking script, a map embed - is delivering a broken experience to users in China. And usually nobody on the team knows it's happening.
+The Great Firewall doesn't work the way most people imagine. It's a layered system that poisons DNS queries, blocks entire IP ranges, reads the contents of your data packets in real time, and actively hunts for VPN connections. For foreign companies, that means any website with even one dependency on a blocked service - a font file, a tracking script, a map embed - is delivering a broken experience to users in China, and [a default WordPress install carries several of them](/wordpress-in-china/). And usually nobody on the team knows it's happening.
 
 ## How the Great Firewall actually works
 

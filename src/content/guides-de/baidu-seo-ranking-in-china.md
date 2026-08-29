@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Search
 ---
 
-724 Millionen Menschen nutzen Baidu jeden Monat, mit 3,3 Milliarden Suchanfragen am Tag. Je nach Quelle entfallen zwischen 56 und 64 Prozent des chinesischen Suchmarkts auf die Plattform. Wer als ausländisches Unternehmen chinesische Kunden online erreichen will, muss diese Suchmaschine knacken. Google spielt in China kaum eine Rolle. Das Tückische an Baidu: Fast nichts, was man von Google-SEO kennt, lässt sich übertragen. Die Ranking-Logik ist anders. Das Crawling ist anders. Selbst das Ökosystem rundherum funktioniert auf Weisen, mit denen die meisten westlichen Marketer noch nie zu tun hatten.
+724 Millionen Menschen nutzen Baidu jeden Monat, mit 3,3 Milliarden Suchanfragen am Tag. Je nach Quelle entfallen zwischen 56 und 64 Prozent des chinesischen Suchmarkts auf die Plattform. Wer als ausländisches Unternehmen chinesische Kunden online erreichen will, muss diese Suchmaschine knacken, und danach fragt man [eine in China tätige WordPress-Agentur](/de/wordpress-agentur-china/) als Erstes. Google spielt in China kaum eine Rolle. Das Tückische an Baidu: Fast nichts, was man von Google-SEO kennt, lässt sich übertragen. Die Ranking-Logik ist anders. Das Crawling ist anders. Selbst das Ökosystem rundherum funktioniert auf Weisen, mit denen die meisten westlichen Marketer noch nie zu tun hatten.
 
 ## Baidu in Zahlen
 

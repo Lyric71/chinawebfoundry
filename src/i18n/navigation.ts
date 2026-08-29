@@ -37,7 +37,7 @@ export function getMainNav(lang: Locale): NavItem[] {
         },
         {
           label: t('nav.label.wordpress'),
-          href: lp('/wordpress/'),
+          href: lp('/wordpress-in-china/'),
           column: 'build',
           subColumn: 'technology',
         },

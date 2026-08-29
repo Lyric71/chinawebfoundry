@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Technology
 ---
 
-Le Grand Pare-feu fonctionne autrement que ce que la plupart imaginent. C'est un dispositif multicouche qui empoisonne les requêtes DNS, coupe des plages entières d'adresses IP, lit en temps réel le contenu de vos paquets et traque activement les connexions VPN. Pour les entreprises étrangères, la conséquence est brutale : un site qui embarque ne serait-ce qu'une seule dépendance vers un service bloqué, un fichier de police, un script de suivi, une carte, livre une expérience dégradée aux utilisateurs en Chine. Et le plus souvent, personne dans l'équipe ne s'en aperçoit.
+Le Grand Pare-feu fonctionne autrement que ce que la plupart imaginent. C'est un dispositif multicouche qui empoisonne les requêtes DNS, coupe des plages entières d'adresses IP, lit en temps réel le contenu de vos paquets et traque activement les connexions VPN. Pour les entreprises étrangères, la conséquence est brutale : un site qui embarque ne serait-ce qu'une seule dépendance vers un service bloqué, un fichier de police, un script de suivi, une carte, livre une expérience dégradée aux utilisateurs en Chine, et [une installation WordPress standard en embarque plusieurs](/fr/wordpress-en-chine/). Et le plus souvent, personne dans l'équipe ne s'en aperçoit.
 
 ## Comment fonctionne vraiment le Grand Pare-feu
 

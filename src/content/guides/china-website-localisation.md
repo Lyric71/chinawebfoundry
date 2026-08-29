@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Content
 ---
 
-Price something at 888 RMB and you're signalling prosperity. Price it at 444 and you're associating your product with death. That's the gap between a translated website and a localised one. Real localisation for China goes way beyond language. It touches payments, trust indicators, content tone, customer service speed, and cultural choices that most foreign companies don't realise they're getting wrong until the damage is already done.
+Price something at 888 RMB and you're signalling prosperity. Price it at 444 and you're associating your product with death. That's the gap between a translated website and a localised one. Real localisation for China goes way beyond language. It touches payments, trust indicators, content tone, customer service speed, [what has to change in a WordPress build for China](/wordpress-in-china/), and cultural choices that most foreign companies don't realise they're getting wrong until the damage is already done.
 
 ## Localisation at a glance
 

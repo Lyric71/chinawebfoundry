@@ -100,8 +100,14 @@ export default defineConfig({
           de: 'de',
         },
       },
-      // Skip 404 page from sitemap.
-      filter: (page) => !page.includes('/404'),
+      // Skip the 404 page, and the reserved /website-in-china/ routes, which are
+      // noindexed until Move 1 ships real copy for them. See
+      // docs/specs/move-1-findings.md.
+      filter: (page) => {
+        if (page.includes('/404')) return false;
+        const { locale, path } = splitLocale(new URL(page).pathname);
+        return canonicalizePath(path, locale) !== '/website-in-china/';
+      },
       // Per-route priority + per-file lastmod + hreflang cluster.
       serialize(item) {
         const url = new URL(item.url);
@@ -125,7 +131,7 @@ export default defineConfig({
         } else if (/^\/resources\/china-web-guide\/[^/]+\/?$/.test(canonical)) {
           item.priority = 0.8;
           item.changefreq = 'monthly';
-        } else if (/^\/(who-we-are|wordpress|astro|wechat|china-site-scanner|contact|web-agency-china)\/?$/.test(canonical)) {
+        } else if (/^\/(who-we-are|wordpress-in-china|astro|wechat|china-site-scanner|contact|web-agency-china|wordpress-agency-china)\/?$/.test(canonical)) {
           item.priority = 0.8;
           item.changefreq = 'monthly';
         } else if (/^\/(privacy-policy|terms-of-service|cookie-policy)\/?$/.test(canonical)) {

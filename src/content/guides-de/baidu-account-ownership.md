@@ -10,7 +10,7 @@ updatedAt: 2026-08-19
 category: Search
 ---
 
-Das Baidu-Konto wird als operatives Detail abgelegt. Es lebt in einem Passwortmanager, oder eben nicht, und niemand spricht es an, bis ein Vertrag endet oder eine Marketingleitung kündigt. Dann hört es auf, technisch zu sein. Die Identität an diesem Konto ist das, was einem Grundbucheintrag für Ihre Präsenz in der chinesischen Suche bei Baidu am nächsten kommt.
+Das Baidu-Konto wird als operatives Detail abgelegt. Es lebt in einem Passwortmanager, oder eben nicht, und niemand spricht es an, bis ein Vertrag endet oder eine Marketingleitung kündigt. Dann hört es auf, technisch zu sein. Die Identität an diesem Konto ist das, was einem Grundbucheintrag für Ihre Präsenz in der chinesischen Suche bei Baidu am nächsten kommt, prüfen Sie also den Namen darauf, bevor [eine Agentur vor Ort](/de/webagentur-china/) eines für Sie anlegt.
 
 > Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
 >

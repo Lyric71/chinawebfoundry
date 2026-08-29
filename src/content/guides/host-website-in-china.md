@@ -12,7 +12,7 @@ category: Hosting
 
 Your site loads fine everywhere except the one market you built it for. Open it from Shanghai and you wait. And wait. Sometimes the page never resolves at all.
 
-That gap is almost always hosting. Where your server physically sits decides whether a Chinese visitor sees your homepage in under a second or gives up on a spinner. This guide walks through why offshore hosting breaks inside China, what you legally need before you can host on the mainland, how the main providers compare, and the order to do everything in.
+That gap is almost always hosting. Where your server physically sits decides whether a Chinese visitor sees your homepage in under a second or gives up on a spinner, and it outweighs every other choice in [a WordPress build for China](/wordpress-in-china/). This guide walks through why offshore hosting breaks inside China, what you legally need before you can host on the mainland, how the main providers compare, and the order to do everything in.
 
 Most of what follows builds on our pillar guide, Website Localisation for China. If you have not read that yet, start there, then come back for the hosting specifics.
 

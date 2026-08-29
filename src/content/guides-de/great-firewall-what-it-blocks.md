@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Technology
 ---
 
-Die Große Firewall arbeitet anders, als die meisten Menschen sich das vorstellen. Sie ist ein mehrschichtiges System: Es vergiftet DNS-Anfragen, sperrt ganze IP-Bereiche, liest in Echtzeit den Inhalt Ihrer Datenpakete und macht aktiv Jagd auf VPN-Verbindungen. Für ausländische Unternehmen heißt das: Jede Website mit auch nur einer einzigen Abhängigkeit von einem gesperrten Dienst, sei es eine Schriftdatei, ein Tracking-Skript oder eine eingebettete Karte, liefert chinesischen Nutzern ein kaputtes Erlebnis. Und meist weiß niemand im Team, dass das gerade passiert.
+Die Große Firewall arbeitet anders, als die meisten Menschen sich das vorstellen. Sie ist ein mehrschichtiges System: Es vergiftet DNS-Anfragen, sperrt ganze IP-Bereiche, liest in Echtzeit den Inhalt Ihrer Datenpakete und macht aktiv Jagd auf VPN-Verbindungen. Für ausländische Unternehmen heißt das: Jede Website mit auch nur einer einzigen Abhängigkeit von einem gesperrten Dienst, sei es eine Schriftdatei, ein Tracking-Skript oder eine eingebettete Karte, liefert chinesischen Nutzern ein kaputtes Erlebnis, und [eine Standardinstallation von WordPress bringt gleich mehrere davon mit](/de/wordpress-in-china/). Und meist weiß niemand im Team, dass das gerade passiert.
 
 ## Wie die Große Firewall tatsächlich funktioniert
 

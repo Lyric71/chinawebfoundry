@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-Exportar las mejores palabras clave de Google, pasarlas por un traductor y montar con ellas una estrategia para China: ese es el primer impulso de casi todas las empresas extranjeras, y también la razón de que casi todas fracasen. Los usuarios chinos buscan de otra manera. Usan otras palabras, otra gramática y un idioma con miles de combinaciones posibles para un mismo concepto. Las tres herramientas siguientes abren los datos reales de Baidu. Y explican por qué investigar palabras clave en chino es una disciplina aparte.
+Exportar las mejores palabras clave de Google, pasarlas por un traductor y montar con ellas una estrategia para China: ese es el primer impulso de casi todas las empresas extranjeras, y también la razón de que casi todas fracasen. Los usuarios chinos buscan de otra manera. Usan otras palabras, otra gramática y un idioma con miles de combinaciones posibles para un mismo concepto. Las tres herramientas siguientes abren los datos reales de Baidu. Y explican por qué investigar palabras clave en chino es una disciplina aparte, la lleve su equipo o [una agencia web instalada en China](/es/agencia-web-china/).
 
 ## Baidu Index
 

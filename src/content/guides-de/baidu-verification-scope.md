@@ -10,7 +10,7 @@ updatedAt: 2026-08-17
 category: Search
 ---
 
-An dieser Lücke stolpern mehr ausländische Teams als an irgendeinem anderen Punkt beim Einrichten der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Eine Website ist hier ein Protokoll und ein Host, mehr nicht. Wer den Zuschnitt falsch wählt, liest ein Quartal später Dashboards über eine Fassung der eigenen Website, die niemand besucht.
+An dieser Lücke stolpern mehr ausländische Teams als an irgendeinem anderen Punkt beim Einrichten der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Eine Website ist hier ein Protokoll und ein Host, mehr nicht, was zählt, sobald [Ihre chinesische WordPress-Website](/de/wordpress-in-china/) auf mehreren davon antwortet. Wer den Zuschnitt falsch wählt, liest ein Quartal später Dashboards über eine Fassung der eigenen Website, die niemand besucht.
 
 > Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
 >

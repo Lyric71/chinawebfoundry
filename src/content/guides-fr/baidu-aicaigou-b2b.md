@@ -12,7 +12,7 @@ category: Search
 
 Baidu Aicaigou (百度爱采购, Bǎidù Àicǎigòu) est le produit de recherche verticale B2B de Baidu. Les fournisseurs paient pour y figurer, et ces fiches occupent les premières places des pages de résultats Baidu sur les requêtes porteuses d'intention d'achat. Dans une catégorie industrielle, cela décrit une bonne partie des recherches qui vous intéressent.
 
-C'est un canal payant. Pour la personne qui cherche, cela n'en a pas l'air. C'est dans cet écart que les plans marketing étrangers dérapent.
+C'est un canal payant. Pour la personne qui cherche, cela n'en a pas l'air. C'est dans cet écart que les plans marketing étrangers dérapent, et là que [confier son marketing chinois à une équipe sur place](/fr/agence-web-chine/) se rentabilise.
 
 ## Le bloc au-dessus de votre position n'est pas une position
 

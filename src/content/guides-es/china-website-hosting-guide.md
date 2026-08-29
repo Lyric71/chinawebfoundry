@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Hosting
 ---
 
-En una estrategia web para China, el alojamiento es la decisión que más se subestima. Coloque mal el servidor y la página tardará cinco segundos en cargar, si es que carga. Elija mal el proveedor y se quedará sin las integraciones locales que sus competidores ya usan. El mercado chino de la nube está en manos de empresas nacionales. Cada una está conectada a una parte distinta de la red del país. La ubicación física del servidor se plantea en tres niveles, cada uno con sus compromisos. Y aquí el CDN pesa mucho más que en cualquier otro mercado.
+En una estrategia web para China, el alojamiento es la decisión que más se subestima, y pesa más sobre la velocidad de carga que [cualquier ajuste que usted haga dentro de un WordPress](/es/wordpress-en-china/). Coloque mal el servidor y la página tardará cinco segundos en cargar, si es que carga. Elija mal el proveedor y se quedará sin las integraciones locales que sus competidores ya usan. El mercado chino de la nube está en manos de empresas nacionales. Cada una está conectada a una parte distinta de la red del país. La ubicación física del servidor se plantea en tres niveles, cada uno con sus compromisos. Y aquí el CDN pesa mucho más que en cualquier otro mercado.
 
 ## Los proveedores chinos de la nube
 

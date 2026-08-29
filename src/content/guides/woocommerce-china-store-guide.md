@@ -15,7 +15,7 @@ plugins. But the checkout stalls, the product images never load, and the
 one payment button that actually matters isn't there.
 
 For a Chinese buyer, that is not minor friction. That is the reason they
-close the tab. WooCommerce can absolutely work in China. Pointed straight
+close the tab. WooCommerce can absolutely work in China, on the same terms as [any WordPress site that runs behind the Great Firewall](/wordpress-in-china/). Pointed straight
 out of the box at a Western audience, it does not.
 
 This piece assumes you've already read our pillar guide, Website

@@ -12,7 +12,7 @@ category: Search
 
 Rien dans une stack de supervision normale ne guette ce phénomène. Les contrôles de disponibilité partent de Francfort et de Virginie, et le suivi des utilisateurs réels ne voit que ceux qui ont déjà obtenu une page. Pendant ce temps, le seul visiteur qui compte se fait refouler à la périphérie, et cela n'apparaît que sur un tableau de bord que personne n'a ouvert.
 
-Nous le rencontrons plus souvent que toute autre cause technique de lancement chinois enlisé, et il s'agit presque toujours d'un réglage dont personne ne se souvient.
+Nous le rencontrons plus souvent que toute autre cause technique de lancement chinois enlisé, bien avant quoi que ce soit dans [la construction WordPress elle-même](/fr/wordpress-en-chine/), et il s'agit presque toujours d'un réglage dont personne ne se souvient.
 
 ## Pourquoi vos règles par défaut attrapent le robot de Baidu
 

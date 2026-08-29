@@ -12,7 +12,7 @@ category: Technology
 
 Google Analytics está bloqueado en China continental. Tanto googletagmanager.com como google-analytics.com se encuentran detrás del Gran Cortafuegos, de modo que la etiqueta en la que se apoya su equipo de marketing no aporta absolutamente nada sobre los visitantes chinos: lo único que hace es costarles tiempo.
 
-La mayoría de los equipos resuelve mal el dilema. O retiran GA y se quedan a ciegas en todos los mercados, o lo mantienen y sirven en silencio un sitio más lento a todo Shanghái.
+La mayoría de los equipos resuelve mal el dilema. O retiran GA y se quedan a ciegas en todos los mercados, o lo mantienen y sirven en silencio un sitio más lento a todo Shanghái, una de las maneras más habituales de que [un sitio WordPress acabe roto en China](/es/wordpress-en-china/).
 
 Existe una tercera vía. Son veinticinco líneas de código de servidor y están funcionando en la página que usted está leyendo ahora mismo.
 

@@ -1,12 +1,12 @@
 ---
-title: "Agence WordPress en Chine : comment bien la choisir"
+title: "Bien choisir son agence WordPress en Chine"
 subtitle: "Aucun studio web ne dépose votre dossier ICP à votre place, n'héberge sur le continent chinois ni ne conçoit un site qui tienne face au Grand Pare-feu. Voici comment recruter celle qui, elle, en est capable."
-summary: "Comment jauger une agence WordPress pour la Chine : dépôt ICP, hébergement continental, conception pensée pour le pare-feu et les questions qui démasquent les amateurs."
+summary: "Ce qui distingue un spécialiste WordPress Chine d'une agence généraliste, et les questions qui font la différence dès le premier appel."
 visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-07-03
+updatedAt: 2026-08-29
 category: Technology
 ---
 
@@ -14,7 +14,7 @@ La plupart des agences vous construisent un beau site WordPress. Rares sont cell
 
 Votre agence internationale livre un site impeccable. Il tourne à Londres, il tourne à Chicago. Un collègue l'ouvre depuis Shanghai : l'image d'accueil ne se charge jamais, le formulaire de contact reste figé sur un script prisonnier du Grand Pare-feu, et Baidu ignore jusqu'à son existence. Au sens strict, rien n'est en panne. Le site refuse juste de fonctionner là où vous en avez besoin.
 
-Recruter une agence WordPress pour la Chine n'a rien de commun avec le même exercice ailleurs. La technique ne compte que pour moitié. Le reste tient à des barrières réglementaires et à une infrastructure qu'un studio installé hors de Chine n'a, le plus souvent, jamais affrontées. Ce guide démonte ce qui sépare un véritable partenaire WordPress chinois d'une agence quelconque : les compétences à vérifier, les questions qui trahissent un amateur et la manière dont se chiffrent ces missions.
+Recruter une agence WordPress pour la Chine n'a rien de commun avec le même exercice ailleurs. La technique ne compte que pour moitié. Le reste tient à des barrières réglementaires et à une infrastructure qu'un studio installé hors de Chine n'a, le plus souvent, jamais affrontées. Ce guide démonte ce qui sépare [une agence WordPress spécialisée sur la Chine](/fr/agence-wordpress-chine/) d'une agence quelconque : les compétences à vérifier, les questions qui trahissent un amateur et la manière dont se chiffrent ces missions.
 
 Nous partons ici du principe que vous avez lu notre guide de référence, La localisation d'un site web pour la Chine. Sinon, commencez par lui : tout ce qui suit en découle.
 

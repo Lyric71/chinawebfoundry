@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-Baidu recibe 724 millones de usuarios al mes y procesa 3.300 millones de búsquedas al día. Controla entre el 56 % y el 64 % del mercado chino de búsqueda, según la fuente. Cualquier empresa extranjera que quiera llegar a clientes chinos por internet tiene que contar con él. Google no cuenta aquí: su presencia en el país es testimonial. El problema es otro. Casi nada de lo que usted sabe sobre el SEO de Google sirve en Baidu. La lógica de posicionamiento es distinta. La indexación también. Y el ecosistema que rodea al buscador se rige por reglas que pocos responsables de marketing occidentales han visto.
+Baidu recibe 724 millones de usuarios al mes y procesa 3.300 millones de búsquedas al día. Controla entre el 56 % y el 64 % del mercado chino de búsqueda, según la fuente. Cualquier empresa extranjera que quiera llegar a clientes chinos por internet tiene que contar con él, y es lo primero que conviene preguntarle a [una agencia WordPress que trabaje en China](/es/agencia-wordpress-china/). Google no cuenta aquí: su presencia en el país es testimonial. El problema es otro. Casi nada de lo que usted sabe sobre el SEO de Google sirve en Baidu. La lógica de posicionamiento es distinta. La indexación también. Y el ecosistema que rodea al buscador se rige por reglas que pocos responsables de marketing occidentales han visto.
 
 ## Baidu en cifras
 

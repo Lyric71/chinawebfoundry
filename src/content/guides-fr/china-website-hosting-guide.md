@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Hosting
 ---
 
-Dans toute stratégie web orientée vers la Chine, l'hébergement reste la décision la plus sous-estimée. Serveur mal placé, et la page met 5 secondes à charger, quand elle charge. Fournisseur mal choisi, et vous passez à côté d'intégrations dans l'écosystème local que vos concurrents exploitent déjà. Le marché chinois du cloud est tenu par des acteurs nationaux, chacun branché sur une portion différente de l'internet chinois. La question de l'emplacement physique se décline sur 3 niveaux aux arbitrages très différents. Et le CDN pèse ici bien plus qu'ailleurs.
+Dans toute stratégie web orientée vers la Chine, l'hébergement reste la décision la plus sous-estimée : il pèse davantage sur la vitesse d'affichage que [tout ce que vous réglez dans un site WordPress](/fr/wordpress-en-chine/). Serveur mal placé, et la page met 5 secondes à charger, quand elle charge. Fournisseur mal choisi, et vous passez à côté d'intégrations dans l'écosystème local que vos concurrents exploitent déjà. Le marché chinois du cloud est tenu par des acteurs nationaux, chacun branché sur une portion différente de l'internet chinois. La question de l'emplacement physique se décline sur 3 niveaux aux arbitrages très différents. Et le CDN pèse ici bien plus qu'ailleurs.
 
 ## Les acteurs chinois du cloud
 

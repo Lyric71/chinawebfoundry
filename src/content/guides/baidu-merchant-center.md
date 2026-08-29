@@ -20,7 +20,7 @@ Baidu's own definition runs like this.
 >
 > *Source: Baidu Marketing Academy, product page*
 
-Notice what is absent. Nothing in that sentence touches search results or the indexing of your website.
+Notice what is absent. Nothing in that sentence touches search results or the indexing of your website, which is the job [your web team in China](/web-agency-china/) should be doing separately.
 
 ## Baidu files your product data next to your banner ads
 

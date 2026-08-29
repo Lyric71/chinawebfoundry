@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-Cuando una empresa extranjera piensa en la búsqueda en China, piensa en Baidu. Y tiene razón: el buscador controla cerca del 60 % del mercado. Pero cada día hay cientos de millones de consultas que van a otras plataformas. La mayoría de los responsables de marketing occidentales no las conoce. Una vive dentro de WeChat. Otra está pegada al comercio electrónico de Alibaba. Una tercera apunta a los usuarios de escritorio atentos a la seguridad informática. La más reciente está dentro de la aplicación de noticias de ByteDance. Cada una tiene su público y su contenido. Ignorarlas es perder de vista una buena parte de cómo buscan los chinos.
+Cuando una empresa extranjera piensa en la búsqueda en China, piensa en Baidu. Y tiene razón: el buscador controla cerca del 60 % del mercado. Pero cada día hay cientos de millones de consultas que van a otras plataformas. La mayoría de los responsables de marketing occidentales no las conoce. Una vive dentro de WeChat. Otra está pegada al comercio electrónico de Alibaba. Una tercera apunta a los usuarios de escritorio atentos a la seguridad informática. La más reciente está dentro de la aplicación de noticias de ByteDance. Cada una tiene su público y su contenido. Ignorarlas es perder de vista una buena parte de cómo buscan los chinos, una laguna que [un especialista en WordPress para China](/es/agencia-wordpress-china/) debería plantear antes de que usted firme nada.
 
 ## Panorama del mercado
 

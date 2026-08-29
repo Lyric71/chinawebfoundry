@@ -10,7 +10,7 @@ updatedAt: 2026-08-12
 category: Search
 ---
 
-Baidu nunca ha publicado una especificación de schema.org. Ningún tipo admitido, ningún validador, ningún informe en sus herramientas para webmasters. La herramienta que sí llegó a construir lleva años rota. Hay un canal vivo que llevará sus datos a un resultado orgánico, y no se parece en nada al marcado. La mayoría de las empresas que leen esto no pueden usarlo, lo que deja abierta la pregunta de qué conviene entregar.
+Baidu nunca ha publicado una especificación de schema.org. Ningún tipo admitido, ningún validador, ningún informe en sus herramientas para webmasters. La herramienta que sí llegó a construir lleva años rota. Hay un canal vivo que llevará sus datos a un resultado orgánico, y no se parece en nada al marcado. La mayoría de las empresas que leen esto no pueden usarlo, lo que deja abierta la pregunta de qué conviene entregar desde [un sitio WordPress construido para China](/es/wordpress-en-china/).
 
 ## Baidu construyó una herramienta de datos estructurados una vez, en 2013
 

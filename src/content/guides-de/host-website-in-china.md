@@ -12,7 +12,7 @@ category: Hosting
 
 Ihre Website lädt überall einwandfrei, nur nicht in dem einen Markt, für den Sie sie gebaut haben. Öffnen Sie sie aus Shanghai, und Sie warten. Und warten weiter. Manchmal lädt die Seite überhaupt nicht.
 
-Neun von zehn Mal liegt es am Hosting. An seinem Standort hängt, ob Ihre Startseite für einen chinesischen Besucher in unter einer Sekunde steht oder er vor dem drehenden Ladekreis kapituliert. Dieser Leitfaden zeigt, warum Hosting im Ausland in China zusammenbricht, was Sie rechtlich brauchen, bevor Sie auf dem Festland hosten dürfen, wie sich die wichtigsten Anbieter schlagen und in welcher Reihenfolge Sie alles angehen.
+Neun von zehn Mal liegt es am Hosting. An seinem Standort hängt, ob Ihre Startseite für einen chinesischen Besucher in unter einer Sekunde steht oder er vor dem drehenden Ladekreis kapituliert, und das wiegt schwerer als jede andere Entscheidung in [einer WordPress-Umsetzung für China](/de/wordpress-in-china/). Dieser Leitfaden zeigt, warum Hosting im Ausland in China zusammenbricht, was Sie rechtlich brauchen, bevor Sie auf dem Festland hosten dürfen, wie sich die wichtigsten Anbieter schlagen und in welcher Reihenfolge Sie alles angehen.
 
 Das meiste im Folgenden knüpft an unseren Grundlagenleitfaden an, Website-Lokalisierung für China. Falls Sie den noch nicht gelesen haben, beginnen Sie dort und kommen dann für die Hosting-Details zurück.
 

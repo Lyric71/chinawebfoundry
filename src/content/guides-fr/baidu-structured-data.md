@@ -10,7 +10,7 @@ updatedAt: 2026-08-12
 category: Search
 ---
 
-Baidu n'a jamais publié de spécification schema.org. Aucun type pris en charge, aucun validateur, aucun rapport dans son outillage pour webmasters. L'outil qu'il avait construit est cassé depuis des années. Un canal actif fera entrer vos données dans un résultat organique, et il ne ressemble en rien à du balisage. La plupart des entreprises qui lisent ces lignes ne peuvent pas y accéder, ce qui laisse entière la question de ce qu'il faut livrer.
+Baidu n'a jamais publié de spécification schema.org. Aucun type pris en charge, aucun validateur, aucun rapport dans son outillage pour webmasters. L'outil qu'il avait construit est cassé depuis des années. Un canal actif fera entrer vos données dans un résultat organique, et il ne ressemble en rien à du balisage. La plupart des entreprises qui lisent ces lignes ne peuvent pas y accéder, ce qui laisse entière la question de ce qu'il faut livrer depuis [un site WordPress construit pour la Chine](/fr/wordpress-en-chine/).
 
 ## Baidu a construit un outil de données structurées, une fois, en 2013
 

@@ -10,7 +10,7 @@ updatedAt: 2026-08-16
 category: Search
 ---
 
-La soumission standard (普通收录, pǔtōng shōulù) est la partie de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) qui signale à Baidu qu'une page existe. Trois canaux : push, sitemap, manuel. La plateforme les aligne côte à côte comme si choisir relevait de la préférence, alors qu'ils obéissent à une hiérarchie de privilèges. L'un plafonne à vingt liens par envoi. Les deux autres sont conditionnels : l'accès au sitemap s'attribue et se retire à la discrétion de Baidu, et la forme la plus rapide du push n'est ouverte qu'aux sites rattachés à une entité juridique enregistrée en Chine.
+La soumission standard (普通收录, pǔtōng shōulù) est la partie de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) qui signale à Baidu qu'une page existe, que ces pages sortent d'[un WordPress hébergé en Chine](/fr/wordpress-en-chine/) ou d'autre chose. Trois canaux : push, sitemap, manuel. La plateforme les aligne côte à côte comme si choisir relevait de la préférence, alors qu'ils obéissent à une hiérarchie de privilèges. L'un plafonne à vingt liens par envoi. Les deux autres sont conditionnels : l'accès au sitemap s'attribue et se retire à la discrétion de Baidu, et la forme la plus rapide du push n'est ouverte qu'aux sites rattachés à une entité juridique enregistrée en Chine.
 
 > Baidu détenait 63,97 % du marché chinois de la recherche tous appareils confondus en novembre 2025, et 77,86 % sur mobile.
 >

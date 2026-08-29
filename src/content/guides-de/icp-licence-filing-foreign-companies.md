@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Legal
 ---
 
-Jede Website auf einem Server in Festlandchina braucht eine ICP-Registrierung. So weit, so einfach. Worüber ausländische Unternehmen stolpern: Es gibt zwei getrennte ICP-Arten mit sehr unterschiedlichen Regeln. Die eine ist schnell, günstig und den meisten ausländischen Unternehmen zugänglich. Die andere dauert Monate, kostet echtes Geld und trägt eine Eigentumsauflage, die den meisten ausländischen Unternehmen den Weg von vornherein versperrt. Beide zu verwechseln oder beide zu überspringen bedeutet langsamere Seiten, schlechtere Rankings und einen Auftritt, dem chinesische Nutzer womöglich nie vertrauen.
+Jede Website auf einem Server in Festlandchina braucht eine ICP-Registrierung. So weit, so einfach. Worüber ausländische Unternehmen stolpern: Es gibt zwei getrennte ICP-Arten mit sehr unterschiedlichen Regeln. Die eine ist schnell, günstig und den meisten ausländischen Unternehmen zugänglich. Die andere dauert Monate, kostet echtes Geld und trägt eine Eigentumsauflage, die den meisten ausländischen Unternehmen den Weg von vornherein versperrt. Beide zu verwechseln oder beide zu überspringen bedeutet langsamere Seiten, schlechtere Rankings und einen Auftritt, dem chinesische Nutzer womöglich nie vertrauen, weshalb [eine Agentur, die ICP-Anträge routiniert einreicht](/de/wordpress-agentur-china/), hier mehr wert ist als das günstigere Angebot.
 
 ## ICP im Überblick
 

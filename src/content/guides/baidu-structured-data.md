@@ -10,7 +10,7 @@ updatedAt: 2026-08-12
 category: Search
 ---
 
-Baidu has never published a schema.org specification. No supported types, no validator, no report anywhere in its webmaster tooling. The tool it did build has been broken for years. One live channel will put your data into an organic result, and it works nothing like markup. Most companies reading this cannot use it, which still leaves the question of what to ship.
+Baidu has never published a schema.org specification. No supported types, no validator, no report anywhere in its webmaster tooling. The tool it did build has been broken for years. One live channel will put your data into an organic result, and it works nothing like markup. Most companies reading this cannot use it, which still leaves the question of what to ship from [a WordPress site built for China](/wordpress-in-china/).
 
 ## Baidu built a structured data tool once, in 2013
 

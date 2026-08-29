@@ -10,7 +10,7 @@ updatedAt: 2026-08-17
 category: Search
 ---
 
-Cet écart piège plus d'équipes étrangères que n'importe quel autre point du paramétrage de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Un site, ici, se réduit à un protocole et un hôte. Mal cadrez le périmètre et, un trimestre plus tard, vous lisez des tableaux de bord portant sur une version de votre site que personne ne visite.
+Cet écart piège plus d'équipes étrangères que n'importe quel autre point du paramétrage de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Un site, ici, se réduit à un protocole et un hôte, ce qui compte si [votre site WordPress chinois](/fr/wordpress-en-chine/) répond sur plusieurs d'entre eux. Mal cadrez le périmètre et, un trimestre plus tard, vous lisez des tableaux de bord portant sur une version de votre site que personne ne visite.
 
 > Baidu détenait 63,97 % du marché chinois de la recherche tous appareils confondus en novembre 2025, et 77,86 % sur mobile.
 >

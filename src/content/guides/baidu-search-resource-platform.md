@@ -10,7 +10,7 @@ updatedAt: 2026-08-19
 category: Search
 ---
 
-The Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) is where Baidu SEO is actually operated. It reports whether Baidu has crawled your site, how many of those pages it kept, and which queries sent clicks. It also tells you what broke. Skip it and a China search strategy is guesswork with a translation invoice attached.
+The Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) is where Baidu SEO is actually operated. It reports whether Baidu has crawled your site, how many of those pages it kept, and which queries sent clicks. It also tells you what broke. Skip it and a China search strategy is guesswork with a translation invoice attached, however carefully [the WordPress side of the site was built for China](/wordpress-in-china/).
 
 It used to be called Baidu Webmaster Platform (百度站长平台, Bǎidù Zhànzhǎng Píngtái). Plenty of documentation still uses the old name, including some of Baidu's own help pages. Same platform.
 

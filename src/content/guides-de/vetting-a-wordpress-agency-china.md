@@ -1,12 +1,12 @@
 ---
-title: "WordPress-Agentur für China: Woran Sie eine gute erkennen"
+title: "WordPress-Agentur in China richtig prüfen"
 subtitle: "Die meisten Webagenturen können Ihre ICP-Anmeldung nicht einreichen, nicht in China hosten und nicht um die Große Firewall herum bauen. Worauf es bei der Auswahl einer Agentur ankommt, die es kann."
-summary: "So prüfen Sie eine WordPress-Agentur für China: ICP-Anmeldung, Hosting auf dem Festland, eine Firewall-taugliche Umsetzung und die Fragen, die leere Versprechen entlarven."
+summary: "Woran Sie eine echte China-WordPress-Agentur erkennen: ICP-Antrag, Hosting auf dem Festland, Firewall-Wissen und die Fragen für das erste Gespräch."
 visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-07-03
+updatedAt: 2026-08-29
 category: Technology
 ---
 
@@ -14,7 +14,7 @@ Eine ansehnliche WordPress-Website bekommen Sie bei nahezu jeder Agentur. Eine, 
 
 Ihre internationale Agentur liefert eine saubere Seite. In London läuft sie, in Chicago läuft sie. Dann öffnet ein Kollege in Shanghai dieselbe Seite: Das Hero-Bild erscheint nie, das Kontaktformular bleibt an einem Skript hängen, das hinter der Großen Firewall festsitzt, und Baidu ahnt nicht einmal, dass es die Seite gibt. Defekt ist streng genommen nichts. Die Seite tut ihren Dienst bloß nicht dort, wo Sie ihn brauchen.
 
-Wer eine WordPress-Agentur für China sucht, entscheidet nach anderen Maßstäben als anderswo. Der Technik-Stack macht nur die Hälfte aus. Die andere Hälfte sind Auflagen und Fragen der Infrastruktur, mit denen eine Agentur außerhalb Chinas in aller Regel noch nie zu tun hatte. Dieser Leitfaden zeigt, was einen echten China-Partner von einer beliebigen Agentur unterscheidet, welche Fähigkeiten Sie abklopfen sollten, mit welchen Fragen Sie leere Versprechen entlarven und wie solche Projekte kalkuliert werden.
+Wer eine WordPress-Agentur für China sucht, entscheidet nach anderen Maßstäben als anderswo. Der Technik-Stack macht nur die Hälfte aus. Die andere Hälfte sind Auflagen und Fragen der Infrastruktur, mit denen eine Agentur außerhalb Chinas in aller Regel noch nie zu tun hatte. Dieser Leitfaden zeigt, was [eine auf China spezialisierte WordPress-Agentur](/de/wordpress-agentur-china/) von einer beliebigen Agentur unterscheidet, welche Fähigkeiten Sie abklopfen sollten, mit welchen Fragen Sie leere Versprechen entlarven und wie solche Projekte kalkuliert werden.
 
 Wir setzen voraus, dass Sie unseren Grundlagenleitfaden zur Website-Lokalisierung für China kennen. Falls nicht, beginnen Sie dort, denn alles Weitere baut darauf auf.
 

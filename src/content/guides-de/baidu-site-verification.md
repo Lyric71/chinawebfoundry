@@ -10,7 +10,7 @@ updatedAt: 2026-08-18
 category: Search
 ---
 
-Eine Domain auf der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) zu verifizieren macht aus einer URL ein Objekt, aus dem sich Daten ziehen und an das sich Seiten einreichen lassen. Die Arbeit dauert zehn Minuten, sofern das Hosting mitspielt. Das Konto dahinter zu bekommen ist der schwere Teil, und das ist [ein eigenes Thema](/de/ressourcen/china-web-leitfaden/baidu-konto-auslaendisches-unternehmen/).
+Eine Domain auf der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) zu verifizieren macht aus einer URL ein Objekt, aus dem sich Daten ziehen und an das sich Seiten einreichen lassen. Die Arbeit dauert zehn Minuten, sofern das Hosting mitspielt und [das WordPress bereits china-tauglich ist](/de/wordpress-in-china/). Das Konto dahinter zu bekommen ist der schwere Teil, und das ist [ein eigenes Thema](/de/ressourcen/china-web-leitfaden/baidu-konto-auslaendisches-unternehmen/).
 
 > Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
 >

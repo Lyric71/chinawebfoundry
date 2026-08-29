@@ -12,7 +12,7 @@ category: Search
 
 Baidu Aicaigou (百度爱采购, Bǎidù Àicǎigòu) is Baidu's B2B vertical search product. Suppliers pay to be listed there, and those listings occupy top slots on Baidu results pages for queries carrying buying intent. In an industrial category, that describes a lot of the searches you would care about.
 
-It is a paid channel. To the person searching, it does not look like one. That gap is where foreign marketing plans go wrong.
+It is a paid channel. To the person searching, it does not look like one. That gap is where foreign marketing plans go wrong, and where [having someone run your China marketing on the ground](/web-agency-china/) pays for itself.
 
 ## The block above your ranking is not a ranking
 

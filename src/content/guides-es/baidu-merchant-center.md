@@ -20,7 +20,7 @@ La definición del propio Baidu dice lo siguiente.
 >
 > *Fuente: Baidu Marketing Academy, página de producto*
 
-Fíjese en lo que falta. Nada en esa frase toca los resultados de búsqueda ni la indexación de su web.
+Fíjese en lo que falta. Nada en esa frase toca los resultados de búsqueda ni la indexación de su web, un trabajo que [su equipo web en China](/es/agencia-web-china/) debe llevar por separado.
 
 ## Baidu archiva sus datos de producto junto a sus banners
 

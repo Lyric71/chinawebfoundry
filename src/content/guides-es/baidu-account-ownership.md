@@ -10,7 +10,7 @@ updatedAt: 2026-08-19
 category: Search
 ---
 
-La cuenta de Baidu se archiva como un detalle operativo. Vive en un gestor de contraseñas, o no vive en ninguna parte, y nadie la menciona hasta que termina un contrato o dimite un responsable de marketing. Entonces deja de ser técnica. La identidad asociada a esa cuenta es lo más parecido a una escritura de propiedad que Baidu conserva sobre su presencia en la búsqueda china.
+La cuenta de Baidu se archiva como un detalle operativo. Vive en un gestor de contraseñas, o no vive en ninguna parte, y nadie la menciona hasta que termina un contrato o dimite un responsable de marketing. Entonces deja de ser técnica. La identidad asociada a esa cuenta es lo más parecido a una escritura de propiedad que Baidu conserva sobre su presencia en la búsqueda china, así que compruebe a qué nombre está antes de que [una agencia sobre el terreno](/es/agencia-web-china/) abra una por usted.
 
 > Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
 >

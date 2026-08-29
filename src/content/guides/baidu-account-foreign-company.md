@@ -12,7 +12,7 @@ category: Search
 
 Before you can verify a site, submit a URL or read a single index number, you need a Baidu account that has passed real-name verification (实名认证, shímíng rènzhèng). The account is not paperwork you can leave for later. Since September 2023 it decides whether your submission tools work at all, and it is the closest thing Baidu keeps to an ownership record for your search property.
 
-Budget a day for the easy version of this. Several weeks for the hard one.
+Budget a day for the easy version of this, or several weeks for the hard one, less if [a partner already operating in China](/web-agency-china/) does the filing with you.
 
 ## The phone number is the famous obstacle
 

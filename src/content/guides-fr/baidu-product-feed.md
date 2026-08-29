@@ -16,7 +16,7 @@ Baidu Merchant Center (百度商品中心, Bǎidù Shāngpǐn Zhōngxīn) stocke
 >
 > *Source : China Internet Network Information Center, 57e rapport statistique, 17 mars 2026*
 
-Voilà le marché qui se trouve de l'autre côté du fichier, atteint par les annonces produit payantes que ces données alimentent. L'essentiel du chantier se joue sur des problèmes dont personne ne vous a averti.
+Voilà le marché qui se trouve de l'autre côté du fichier, atteint par les annonces produit payantes que ces données alimentent. L'essentiel du chantier se joue sur des problèmes dont personne ne vous a averti, ce qui explique que ce travail atterrisse le plus souvent chez [une agence déjà implantée en Chine](/fr/agence-web-chine/).
 
 ## Quatre objets, et c'est la plus petite dotation qui fait mal
 

@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-La inclusión rápida (快速收录, kuàisù shōulù) era la única herramienta de envío de Baidu que entusiasmaba a alguien. Usted empujaba una URL y se suponía que la página se saltaba la cola. Las guías en inglés le dedicaban secciones enteras, y muchas lo siguen haciendo.
+La inclusión rápida (快速收录, kuàisù shōulù) era la única herramienta de envío de Baidu que entusiasmaba a alguien. Usted empujaba una URL y se suponía que la página se saltaba la cola, lo que la convirtió en el primer plugin que se pedía en [cualquier proyecto WordPress dirigido a China](/es/wordpress-en-china/). Las guías en inglés le dedicaban secciones enteras, y muchas lo siguen haciendo.
 
 Baidu la retiró y colocó en su lugar algo más estrecho.
 

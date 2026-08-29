@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Content
 ---
 
-Internet en China tiene una palabra para lo que consigue un buen marketing de contenidos: 种草 (zhongcao), que significa, literalmente, «plantar hierba». La idea es producir contenido que despierte el deseo, sin querer vender en el acto. Así la marca queda instalada en la mente del consumidor antes de que piense en comprar. La compra llega más tarde, a veces semanas después. El marketing chino siembra y deja crecer. Esa mecánica cambia por completo cómo se eligen las plataformas, los formatos y el calendario editorial.
+Internet en China tiene una palabra para lo que consigue un buen marketing de contenidos: 种草 (zhongcao), que significa, literalmente, «plantar hierba». La idea es producir contenido que despierte el deseo, sin querer vender en el acto. Así la marca queda instalada en la mente del consumidor antes de que piense en comprar. La compra llega más tarde, a veces semanas después. El marketing chino siembra y deja crecer. Esa mecánica cambia por completo cómo se eligen las plataformas, los formatos, el calendario editorial y lo que cabe esperar de [la agencia que construye el sitio por debajo](/es/agencia-wordpress-china/).
 
 ## El modelo 种草 (zhongcao)
 

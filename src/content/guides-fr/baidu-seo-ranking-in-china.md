@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-724 millions de personnes utilisent Baidu chaque mois. 3,3 milliards de recherches par jour. Entre 56 et 64 % du marché chinois de la recherche, selon les sources. Toute entreprise étrangère qui veut atteindre des clients chinois en ligne doit composer avec ce moteur. Google ne pèse rien dans la balance, sa présence en Chine restant anecdotique. Le piège, avec Baidu, tient à ceci : presque rien de ce qu'on sait du référencement Google ne s'y applique. La logique de classement diverge. L'indexation aussi. Et l'écosystème qui gravite autour du moteur tourne selon des règles que la plupart des marketeurs occidentaux n'ont jamais croisées.
+724 millions de personnes utilisent Baidu chaque mois. 3,3 milliards de recherches par jour. Entre 56 et 64 % du marché chinois de la recherche, selon les sources. Toute entreprise étrangère qui veut atteindre des clients chinois en ligne doit composer avec ce moteur, et c'est la première question à poser à [une agence WordPress qui travaille en Chine](/fr/agence-wordpress-chine/). Google ne pèse rien dans la balance, sa présence en Chine restant anecdotique. Le piège, avec Baidu, tient à ceci : presque rien de ce qu'on sait du référencement Google ne s'y applique. La logique de classement diverge. L'indexation aussi. Et l'écosystème qui gravite autour du moteur tourne selon des règles que la plupart des marketeurs occidentaux n'ont jamais croisées.
 
 ## Baidu en chiffres
 

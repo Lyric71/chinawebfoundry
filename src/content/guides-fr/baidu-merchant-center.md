@@ -20,7 +20,7 @@ La définition de Baidu se lit ainsi.
 >
 > *Source : Baidu Marketing Academy, page produit*
 
-Remarquez ce qui manque. Rien dans cette phrase ne touche aux résultats de recherche ni à l'indexation de votre site.
+Remarquez ce qui manque. Rien dans cette phrase ne touche aux résultats de recherche ni à l'indexation de votre site, un travail que [votre équipe web en Chine](/fr/agence-web-chine/) doit mener séparément.
 
 ## Baidu range vos données produit à côté de vos bannières
 

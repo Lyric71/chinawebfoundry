@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Legal
 ---
 
-Most foreign companies assume China's data privacy laws only kick in if you have an office in Beijing or Shanghai. That's not how it works. The PIPL - China's answer to GDPR - applies to any entity processing personal information of Chinese residents, no matter where that entity is located. If your website uses cookies, collects emails, or tracks user behaviour for visitors from China, you're in scope. Penalties for serious violations run up to RMB 50 million or 5% of your prior year's turnover. Compliance audits became mandatory in May 2025. It's happening now.
+Most foreign companies assume China's data privacy laws only kick in if you have an office in Beijing or Shanghai. That's not how it works. The PIPL - China's answer to GDPR - applies to any entity processing personal information of Chinese residents, no matter where that entity is located. If your website uses cookies, collects emails, or tracks user behaviour for visitors from China, you're in scope, and [a stock WordPress install does at least two of the three](/wordpress-in-china/). Penalties for serious violations run up to RMB 50 million or 5% of your prior year's turnover. Compliance audits became mandatory in May 2025. It's happening now.
 
 ## Three laws at a glance
 

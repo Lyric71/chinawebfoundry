@@ -12,7 +12,7 @@ category: Search
 
 Nichts in einem üblichen Monitoring-Stack achtet darauf. Verfügbarkeitsprüfungen laufen aus Frankfurt und Virginia, und Real-User-Monitoring sieht nur Menschen, die bereits eine Seite bekommen haben. Währenddessen wird der eine Besucher, auf den es ankommt, an der Edge abgewiesen, und sichtbar wird das allein auf einem Dashboard, das niemand geöffnet hat.
 
-Wir sehen das häufiger als jede andere technische Ursache für einen festgefahrenen China-Start, und fast immer steckt eine Einstellung dahinter, an die sich niemand erinnert.
+Wir sehen das häufiger als jede andere technische Ursache für einen festgefahrenen China-Start, weit vor allem, was in [der WordPress-Umsetzung selbst](/de/wordpress-in-china/) passiert, und fast immer steckt eine Einstellung dahinter, an die sich niemand erinnert.
 
 ## Warum Ihre Standardregeln Baidus Crawler erwischen
 

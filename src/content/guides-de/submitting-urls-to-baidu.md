@@ -10,7 +10,7 @@ updatedAt: 2026-08-16
 category: Search
 ---
 
-Die Standardeinreichung (普通收录, pǔtōng shōulù) ist der Teil der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái), der Baidu mitteilt, dass eine Seite existiert. Drei Kanäle: Push, Sitemap, manuell. Die Plattform stellt sie nebeneinander, als wäre die Wahl eine Frage der Vorliebe, dabei stehen sie in einer Rangfolge von Privilegien. Einer ist bei zwanzig Links pro Vorgang gedeckelt. Die beiden anderen sind an Bedingungen geknüpft: Der Sitemap-Zugang wird nach Baidus Ermessen vergeben und wieder entzogen, und die schnellste Form des Push steht nur Websites offen, die an eine in China registrierte juristische Person gebunden sind.
+Die Standardeinreichung (普通收录, pǔtōng shōulù) ist der Teil der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái), der Baidu mitteilt, dass eine Seite existiert, ganz gleich ob diese Seiten aus [einem in China gehosteten WordPress](/de/wordpress-in-china/) stammen oder aus etwas anderem. Drei Kanäle: Push, Sitemap, manuell. Die Plattform stellt sie nebeneinander, als wäre die Wahl eine Frage der Vorliebe, dabei stehen sie in einer Rangfolge von Privilegien. Einer ist bei zwanzig Links pro Vorgang gedeckelt. Die beiden anderen sind an Bedingungen geknüpft: Der Sitemap-Zugang wird nach Baidus Ermessen vergeben und wieder entzogen, und die schnellste Form des Push steht nur Websites offen, die an eine in China registrierte juristische Person gebunden sind.
 
 > Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
 >

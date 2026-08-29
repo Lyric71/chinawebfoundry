@@ -16,7 +16,7 @@ Baidu Merchant Center (百度商品中心, Bǎidù Shāngpǐn Zhōngxīn) almace
 >
 > *Fuente: China Internet Network Information Center, 57.º informe estadístico, 17 de marzo de 2026*
 
-Ese es el mercado que está al otro lado del archivo, al que se llega mediante los anuncios de producto de pago que alimentan estos datos. La mayor parte del trabajo se va en problemas de los que nadie le avisó.
+Ese es el mercado que está al otro lado del archivo, al que se llega mediante los anuncios de producto de pago que alimentan estos datos. La mayor parte del trabajo se va en problemas de los que nadie le avisó, y esa es la razón habitual de que este encargo acabe en manos de [una agencia ya implantada en China](/es/agencia-web-china/).
 
 ## Cuatro objetos, y la dotación más pequeña es la que duele
 

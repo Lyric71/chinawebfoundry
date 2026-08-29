@@ -12,7 +12,7 @@ category: Technology
 
 Google Analytics is blocked in mainland China. Both googletagmanager.com and google-analytics.com sit behind the Great Firewall, so the tag your marketing team depends on does nothing for Chinese visitors except cost them time.
 
-Most teams pick one of two bad answers. Rip GA out and go blind everywhere, or leave it in and quietly serve a slower site to everyone in Shanghai.
+Most teams pick one of two bad answers. Rip GA out and go blind everywhere, or leave it in and quietly serve a slower site to everyone in Shanghai, which is one of the commonest ways [a WordPress site ends up broken in China](/wordpress-in-china/).
 
 There's a third answer. It's 25 lines of server code, and it's running on the page you're reading right now.
 

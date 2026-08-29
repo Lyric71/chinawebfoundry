@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Technology
 ---
 
-El Gran Cortafuegos es más complejo de lo que parece. Funciona en varias capas a la vez. Envenena las consultas DNS y corta rangos enteros de direcciones IP. Lee el contenido de cada paquete de datos en tiempo real. Rastrea las conexiones VPN una por una. Para una empresa extranjera, el efecto es inmediato. Basta con que el sitio dependa de un servicio bloqueado (una tipografía, un script, un mapa) para que la experiencia se degrade en China. Y casi nadie del equipo se entera.
+El Gran Cortafuegos es más complejo de lo que parece. Funciona en varias capas a la vez. Envenena las consultas DNS y corta rangos enteros de direcciones IP. Lee el contenido de cada paquete de datos en tiempo real. Rastrea las conexiones VPN una por una. Para una empresa extranjera, el efecto es inmediato. Basta con que el sitio dependa de un servicio bloqueado (una tipografía, un script, un mapa) para que la experiencia se degrade en China, y [una instalación estándar de WordPress arrastra varios de esos servicios](/es/wordpress-en-china/). Y casi nadie del equipo se entera.
 
 ## Cómo funciona realmente el Gran Cortafuegos
 

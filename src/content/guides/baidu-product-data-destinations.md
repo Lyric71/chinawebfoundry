@@ -10,7 +10,7 @@ updatedAt: 2026-08-13
 category: Search
 ---
 
-Baidu Merchant Center, BMC, is the product data warehouse behind Baidu's ad systems. One sentence in Baidu's product FAQ lists everywhere that data can travel. All three destinations are bought.
+Baidu Merchant Center, BMC, is the product data warehouse behind Baidu's ad systems. One sentence in Baidu's product FAQ lists everywhere that data can travel, and all three destinations are bought, which changes the budget conversation with [whoever runs your China web operation](/web-agency-china/).
 
 ## Baidu wrote down the destinations, and there are three
 

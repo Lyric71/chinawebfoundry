@@ -10,7 +10,7 @@ updatedAt: 2026-08-17
 category: Search
 ---
 
-Verification on the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) is one HTTP request. Baidu fetches a URL from inside China and looks for one string, either an HTML file at your document root or a meta tag in the homepage head. Not much can break that, and what does break it sits between Baiduspider and your server.
+Verification on the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) is one HTTP request. Baidu fetches a URL from inside China and looks for one string, either an HTML file at your document root or a meta tag in the homepage head. Not much can break that, and what does break it sits between Baiduspider and your server rather than in [the WordPress install behind it](/wordpress-in-china/).
 
 The check runs anywhere from a few seconds to 24 hours, so a failure that returns instantly is a failed fetch, not a queue. And if you are verifying by CNAME, change methods.
 

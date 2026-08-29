@@ -12,7 +12,7 @@ category: Search
 
 Avant de pouvoir vérifier un site, soumettre une URL ou lire le moindre chiffre d'index, il faut un compte Baidu ayant passé la vérification d'identité réelle (实名认证, shímíng rènzhèng). Ce compte n'est pas une formalité que l'on remet à plus tard. Depuis septembre 2023, il détermine si vos outils de soumission fonctionnent, et il constitue ce que Baidu tient de plus proche d'un titre de propriété sur votre ressource de recherche.
 
-Comptez une journée pour la version facile. Plusieurs semaines pour la difficile.
+Comptez une journée pour la version facile, plusieurs semaines pour la difficile, moins si [un partenaire déjà opérationnel en Chine](/fr/agence-web-chine/) monte le dossier avec vous.
 
 ## Le numéro de téléphone, l'obstacle célèbre
 

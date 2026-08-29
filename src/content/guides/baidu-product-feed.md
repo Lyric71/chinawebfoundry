@@ -16,7 +16,7 @@ Baidu Merchant Center (百度商品中心, Bǎidù Shāngpǐn Zhōngxīn) stores
 >
 > *Source: China Internet Network Information Center, 57th Statistical Report, March 17, 2026*
 
-That is the market on the far side of the file, reached through the paid product ads this data feeds. Most of the build goes on problems nobody warned you about.
+That is the market on the far side of the file, reached through the paid product ads this data feeds. Most of the build goes on problems nobody warned you about, which is the usual reason this work lands with [an agency that already operates in China](/web-agency-china/).
 
 ## Four objects, and the smallest allowance is the one that hurts
 

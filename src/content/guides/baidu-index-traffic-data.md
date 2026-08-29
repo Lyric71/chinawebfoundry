@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-The reporting side of the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) is not a dashboard in the sense you are used to. It is a set of separate instruments sharing a login, each on its own clock, several of them empty for weeks by design.
+The reporting side of the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) is not a dashboard in the sense you are used to. It is a set of separate instruments sharing a login, each on its own clock, several of them empty for weeks by design, which is why [the agency reading them for you](/web-agency-china/) matters more than the dashboard does.
 
 ## Index volume is a trend line, not a page count
 

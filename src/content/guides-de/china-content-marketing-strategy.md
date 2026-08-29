@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Content
 ---
 
-Das chinesische Internet hat einen eigenen Begriff für das, was gutes Content-Marketing leistet: 种草 (zhongcao), wörtlich Gras pflanzen. Sie schaffen Inhalte, die ein Begehren im Kopf eines Menschen pflanzen, nicht um ihn heute zu einem Kauf zu bewegen, sondern damit Ihre Marke schon da ist, wenn er bereit ist, Geld auszugeben. Das kann Tage später sein, es können Monate sein. Westliches Content-Marketing drängt auf den Abschluss. Chinesisches Content-Marketing sät und wartet. Dieser eine Unterschied verändert, wie Sie an Plattformen, Formate und das Timing all dessen herangehen, was Sie veröffentlichen.
+Das chinesische Internet hat einen eigenen Begriff für das, was gutes Content-Marketing leistet: 种草 (zhongcao), wörtlich Gras pflanzen. Sie schaffen Inhalte, die ein Begehren im Kopf eines Menschen pflanzen, nicht um ihn heute zu einem Kauf zu bewegen, sondern damit Ihre Marke schon da ist, wenn er bereit ist, Geld auszugeben. Das kann Tage später sein, es können Monate sein. Westliches Content-Marketing drängt auf den Abschluss. Chinesisches Content-Marketing sät und wartet. Dieser eine Unterschied verändert, wie Sie an Plattformen, Formate und das Timing all dessen herangehen, was Sie veröffentlichen, und was Sie von [der Agentur erwarten sollten, die die Website darunter baut](/de/wordpress-agentur-china/).
 
 ## Das Modell 种草 (zhongcao)
 

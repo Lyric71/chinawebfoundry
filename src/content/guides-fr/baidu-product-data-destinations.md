@@ -10,7 +10,7 @@ updatedAt: 2026-08-13
 category: Search
 ---
 
-Baidu Merchant Center, BMC, est l'entrepôt de données produit qui alimente les systèmes publicitaires de Baidu. Une phrase de la FAQ produit de Baidu énumère tous les endroits où ces données peuvent circuler. Les trois destinations s'achètent.
+Baidu Merchant Center, BMC, est l'entrepôt de données produit qui alimente les systèmes publicitaires de Baidu. Une phrase de la FAQ produit de Baidu énumère tous les endroits où ces données peuvent circuler, et les trois destinations s'achètent, ce qui change la discussion budgétaire avec [qui pilote votre présence web en Chine](/fr/agence-web-chine/).
 
 ## Baidu a écrit les destinations, et elles sont au nombre de trois
 

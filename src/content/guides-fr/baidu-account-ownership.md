@@ -10,7 +10,7 @@ updatedAt: 2026-08-19
 category: Search
 ---
 
-Le compte Baidu se classe dans les détails opérationnels. Il vit dans un gestionnaire de mots de passe, ou nulle part, et personne ne le mentionne avant qu'un contrat s'achève ou qu'un responsable marketing démissionne. Il cesse alors d'être technique. L'identité rattachée à ce compte constitue ce que Baidu tient de plus proche d'un titre de propriété sur votre présence dans la recherche chinoise.
+Le compte Baidu se classe dans les détails opérationnels. Il vit dans un gestionnaire de mots de passe, ou nulle part, et personne ne le mentionne avant qu'un contrat s'achève ou qu'un responsable marketing démissionne. Il cesse alors d'être technique. L'identité rattachée à ce compte constitue ce que Baidu tient de plus proche d'un titre de propriété sur votre présence dans la recherche chinoise, alors vérifiez à quel nom il est ouvert avant qu'[une agence sur place](/fr/agence-web-chine/) en crée un pour votre compte.
 
 > Baidu détenait 63,97 % du marché chinois de la recherche tous appareils confondus en novembre 2025, et 77,86 % sur mobile.
 >

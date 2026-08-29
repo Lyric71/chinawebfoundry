@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Content
 ---
 
-The Chinese internet has a term for what good content marketing does. 种草 (zhongcao). Translates to "planting grass." You create content that puts a desire in someone's head - not to convert them today, but so your brand is already there when they're ready to spend. Could be days later, could be months. Western content marketing pushes toward conversion. Chinese content marketing plants and waits. That single difference changes how you approach platforms, formats, and the timing of everything you publish.
+The Chinese internet has a term for what good content marketing does. 种草 (zhongcao). Translates to "planting grass." You create content that puts a desire in someone's head - not to convert them today, but so your brand is already there when they're ready to spend. Could be days later, could be months. Western content marketing pushes toward conversion. Chinese content marketing plants and waits. That single difference changes how you approach platforms, formats, the timing of everything you publish, and what you should expect from [the agency building the site underneath it](/wordpress-agency-china/).
 
 ## The 种草 (zhongcao) model
 

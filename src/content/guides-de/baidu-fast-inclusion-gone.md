@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-Die Schnellindexierung (快速收录, kuàisù shōulù) war das eine Einreichungswerkzeug von Baidu, für das sich überhaupt jemand begeisterte. Man schob eine URL hinein, und die Seite sollte die Warteschlange überspringen. Englischsprachige Ratgeber bauten ganze Abschnitte darum herum, und viele tun es bis heute.
+Die Schnellindexierung (快速收录, kuàisù shōulù) war das eine Einreichungswerkzeug von Baidu, für das sich überhaupt jemand begeisterte. Man schob eine URL hinein, und die Seite sollte die Warteschlange überspringen, weshalb es in [jedem WordPress-Projekt mit China-Ziel](/de/wordpress-in-china/) das erste angefragte Plugin war. Englischsprachige Ratgeber bauten ganze Abschnitte darum herum, und viele tun es bis heute.
 
 Baidu nahm es vom Netz und stellte etwas Engeres an seine Stelle.
 

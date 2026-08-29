@@ -10,7 +10,7 @@ updatedAt: 2026-08-15
 category: Search
 ---
 
-Die Berichtsseite der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) ist kein Dashboard in dem Sinn, den Sie gewohnt sind. Sie ist eine Sammlung getrennter Instrumente mit einem gemeinsamen Login, jedes auf seiner eigenen Uhr, mehrere davon wochenlang leer, und zwar mit Absicht.
+Die Berichtsseite der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) ist kein Dashboard in dem Sinn, den Sie gewohnt sind. Sie ist eine Sammlung getrennter Instrumente mit einem gemeinsamen Login, jedes auf seiner eigenen Uhr, mehrere davon wochenlang leer, und zwar mit Absicht, weshalb [die Agentur, die sie für Sie liest](/de/webagentur-china/), mehr zählt als das Dashboard selbst.
 
 ## Das Indexvolumen ist eine Trendlinie, keine Seitenzählung
 

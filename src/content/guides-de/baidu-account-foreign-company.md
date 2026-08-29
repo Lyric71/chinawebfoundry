@@ -12,7 +12,7 @@ category: Search
 
 Bevor sich eine Website verifizieren, eine URL einreichen oder auch nur eine einzige Indexzahl ablesen lässt, braucht es ein Baidu-Konto mit bestandener Realnamen-Verifizierung (实名认证, shímíng rènzhèng). Dieses Konto ist kein Papierkram, den man später erledigt. Seit September 2023 entscheidet es darüber, ob die Einreichungswerkzeuge überhaupt funktionieren, und es ist das, was einem Eigentumsnachweis für das Suchobjekt bei Baidu am nächsten kommt.
 
-Rechnen Sie mit einem Tag für die einfache Variante. Mit mehreren Wochen für die schwierige.
+Rechnen Sie mit einem Tag für die einfache Variante und mit mehreren Wochen für die schwierige, mit weniger, wenn [ein Partner mit laufendem Geschäft in China](/de/webagentur-china/) den Antrag mit Ihnen stellt.
 
 ## Die Telefonnummer ist die bekannte Hürde
 

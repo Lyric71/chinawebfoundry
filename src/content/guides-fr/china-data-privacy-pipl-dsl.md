@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Legal
 ---
 
-Beaucoup d'entreprises étrangères s'imaginent que les lois chinoises sur la protection des données ne visent que les sociétés disposant d'un bureau à Pékin ou à Shanghai. C'est faux. Le PIPL, l'équivalent chinois du RGPD, couvre toute entité qui traite des informations personnelles de résidents chinois, où qu'elle se trouve. Si votre site dépose des cookies, collecte des adresses e-mail ou suit le comportement de visiteurs situés en Chine, vous êtes dans le périmètre. En cas d'infraction grave, l'addition grimpe jusqu'à 50 millions de RMB ou 5 % du chiffre d'affaires de l'exercice précédent. Les audits de conformité sont obligatoires depuis mai 2025. C'est en cours.
+Beaucoup d'entreprises étrangères s'imaginent que les lois chinoises sur la protection des données ne visent que les sociétés disposant d'un bureau à Pékin ou à Shanghai. C'est faux. Le PIPL, l'équivalent chinois du RGPD, couvre toute entité qui traite des informations personnelles de résidents chinois, où qu'elle se trouve. Si votre site dépose des cookies, collecte des adresses e-mail ou suit le comportement de visiteurs situés en Chine, vous êtes dans le périmètre, et [une installation WordPress standard fait au moins deux de ces trois choses](/fr/wordpress-en-chine/). En cas d'infraction grave, l'addition grimpe jusqu'à 50 millions de RMB ou 5 % du chiffre d'affaires de l'exercice précédent. Les audits de conformité sont obligatoires depuis mai 2025. C'est en cours.
 
 ## Trois lois, un panorama
 

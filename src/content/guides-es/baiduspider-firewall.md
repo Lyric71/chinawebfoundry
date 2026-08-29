@@ -12,7 +12,7 @@ category: Search
 
 Nada en una pila de monitorización normal está vigilando esto. Las comprobaciones de disponibilidad se lanzan desde Fráncfort y Virginia, y la monitorización de usuarios reales solo ve a quienes ya han conseguido una página. Mientras tanto, al único visitante que importa lo están echando en el borde de la red, y eso solo aparece en un panel que nadie ha abierto.
 
-Lo vemos con más frecuencia que cualquier otra causa técnica de un lanzamiento chino encallado, y casi siempre se trata de un ajuste que nadie recuerda haber hecho.
+Lo vemos con más frecuencia que cualquier otra causa técnica de un lanzamiento chino encallado, muy por delante de cualquier cosa que ocurra en [la propia construcción del sitio WordPress](/es/wordpress-en-china/), y casi siempre se trata de un ajuste que nadie recuerda haber hecho.
 
 ## Por qué sus reglas por defecto atrapan al rastreador de Baidu
 

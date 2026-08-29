@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Content
 ---
 
-L'internet chinois a un mot pour qualifier l'effet d'un marketing de contenu réussi. 种草 (zhongcao). Littéralement : « planter l'herbe ». On produit du contenu qui fait naître une envie, sans chercher à convertir sur l'instant, pour que la marque s'installe dans la tête du consommateur avant même qu'il pense à acheter. Quelques jours plus tard, quelques mois plus tard, l'achat se déclenche. Le marketing chinois sème et laisse pousser. Cette mécanique redessine toute l'approche des plateformes, des formats et du calendrier éditorial.
+L'internet chinois a un mot pour qualifier l'effet d'un marketing de contenu réussi. 种草 (zhongcao). Littéralement : « planter l'herbe ». On produit du contenu qui fait naître une envie, sans chercher à convertir sur l'instant, pour que la marque s'installe dans la tête du consommateur avant même qu'il pense à acheter. Quelques jours plus tard, quelques mois plus tard, l'achat se déclenche. Le marketing chinois sème et laisse pousser. Cette mécanique redessine toute l'approche des plateformes, des formats, du calendrier éditorial et de ce que vous attendez de [l'agence qui construit le site en dessous](/fr/agence-wordpress-chine/).
 
 ## Le modèle 种草 (Zhongcao)
 

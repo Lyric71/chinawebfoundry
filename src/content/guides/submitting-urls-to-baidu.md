@@ -10,7 +10,7 @@ updatedAt: 2026-08-16
 category: Search
 ---
 
-Standard submission (普通收录, pǔtōng shōulù) is the part of the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) that tells Baidu a page exists. Three channels: push, sitemap, manual. The platform lays them out side by side as though choosing between them were a matter of preference, when they really sit in an order of privilege. One is capped at twenty links a go. The other two are conditional: sitemap access gets handed out and taken away at Baidu's discretion, and the fastest form of push is open only to sites tied to a registered legal entity in China.
+Standard submission (普通收录, pǔtōng shōulù) is the part of the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) that tells Baidu a page exists, whether those pages come from [a WordPress install running in China](/wordpress-in-china/) or anything else. Three channels: push, sitemap, manual. The platform lays them out side by side as though choosing between them were a matter of preference, when they really sit in an order of privilege. One is capped at twenty links a go. The other two are conditional: sitemap access gets handed out and taken away at Baidu's discretion, and the fastest form of push is open only to sites tied to a registered legal entity in China.
 
 > Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
 >

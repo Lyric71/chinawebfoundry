@@ -18,7 +18,7 @@ Für ein Unternehmen ohne Festlandgesellschaft gibt es zwei Wege, und keiner dav
 
 Nichts sonst in China kauft diese Reichweite, und deshalb arbeiten Teams den Papierkram ab, statt sich abzuwenden. StatCounters China-Panel bewegt sich, lesen Sie den Wert also als Größenordnung.
 
-Was Sie beide Wege kosten, ist eher Kontrolle als Geld, und die Entscheidung folgt Ihnen bis ins Hosting und in die Crawl-Leistung, lange nach dem Start.
+Was Sie beide Wege kosten, ist eher Kontrolle als Geld, und die Entscheidung folgt Ihnen bis ins Hosting und in die Crawl-Leistung, lange nach dem Start, und genau dort verdient [eine Webagentur mit Sitz in China](/de/webagentur-china/) ihr Honorar.
 
 ## Was Baidu von einem festlandchinesischen Werbetreibenden verlangt
 

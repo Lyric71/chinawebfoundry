@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Design
 ---
 
-1.3 billion internet users and almost all of them on their phones. 969 million paying for things by scanning a QR code. WeChat alone eating 34% of all internet traffic in the country. China didn't go through the desktop era the way the West did. It went straight to mobile, and the gap between what Chinese users expect from a mobile experience and what most foreign companies deliver is enormous. If you're still building desktop-first and adding responsive breakpoints after the fact, you're building for an internet that Chinese users left behind years ago.
+1.3 billion internet users and almost all of them on their phones. 969 million paying for things by scanning a QR code. WeChat alone eating 34% of all internet traffic in the country. China didn't go through the desktop era the way the West did. It went straight to mobile, and the gap between what Chinese users expect from a mobile experience and what most foreign companies deliver is enormous. If you're still building desktop-first and adding responsive breakpoints after the fact, you're building for an internet that Chinese users left behind years ago, and no amount of tuning [a WordPress theme for China](/wordpress-in-china/) rescues that decision afterwards.
 
 ## China's mobile internet by the numbers
 

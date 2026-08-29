@@ -10,7 +10,7 @@ updatedAt: 2026-08-17
 category: Search
 ---
 
-Esa diferencia hace tropezar a más equipos extranjeros que cualquier otro punto de la configuración de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Aquí un sitio es un protocolo y un host, nada más amplio. Si delimita mal el alcance, un trimestre después estará leyendo paneles referidos a una versión de su web que no visita nadie.
+Esa diferencia hace tropezar a más equipos extranjeros que cualquier otro punto de la configuración de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Aquí un sitio es un protocolo y un host, nada más amplio, algo que importa si [su sitio WordPress chino](/es/wordpress-en-china/) responde en más de uno de ellos. Si delimita mal el alcance, un trimestre después estará leyendo paneles referidos a una versión de su web que no visita nadie.
 
 > Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
 >

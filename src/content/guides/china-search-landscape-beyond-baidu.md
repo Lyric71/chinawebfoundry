@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Search
 ---
 
-When foreign companies think about search in China, they think Baidu. And fair enough, Baidu controls roughly 60% of the market. The remaining 40% still amounts to hundreds of millions of searches happening on platforms that most Western marketers have never touched. One lives inside WeChat. Another is tied to Alibaba's e-commerce system. A third caters to desktop users who picked their browser for security reasons. And the newest one sits inside ByteDance's news app. Each one serves a different audience and indexes different content. Ignoring them means missing a real chunk of how Chinese people search.
+When foreign companies think about search in China, they think Baidu. And fair enough, Baidu controls roughly 60% of the market. The remaining 40% still amounts to hundreds of millions of searches happening on platforms that most Western marketers have never touched. One lives inside WeChat. Another is tied to Alibaba's e-commerce system. A third caters to desktop users who picked their browser for security reasons. And the newest one sits inside ByteDance's news app. Each one serves a different audience and indexes different content. Ignoring them means missing a real chunk of how Chinese people search, and it is a gap [a China WordPress specialist](/wordpress-agency-china/) should raise before you sign anything.
 
 ## Market overview
 

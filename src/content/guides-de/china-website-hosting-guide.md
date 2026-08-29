@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Hosting
 ---
 
-In jeder China-Strategie für das Web ist das Hosting die am stärksten unterschätzte Entscheidung. Steht der Server am falschen Ort, braucht die Seite fünf Sekunden zum Laden, sofern sie überhaupt lädt. Wählen Sie den falschen Anbieter, entgehen Ihnen Integrationen ins lokale Ökosystem, die Ihre Wettbewerber längst nutzen. Der chinesische Cloud-Markt wird von einheimischen Akteuren beherrscht, von denen jeder an einen anderen Teil des chinesischen Internets angeschlossen ist. Beim Serverstandort selbst geht es um drei Stufen mit sehr unterschiedlichen Abwägungen. Und das CDN wiegt hier schwerer als irgendwo sonst auf der Welt.
+In jeder China-Strategie für das Web ist das Hosting die am stärksten unterschätzte Entscheidung, und es wiegt für die Ladezeit schwerer als [alles, was Sie an einer WordPress-Installation drehen](/de/wordpress-in-china/). Steht der Server am falschen Ort, braucht die Seite fünf Sekunden zum Laden, sofern sie überhaupt lädt. Wählen Sie den falschen Anbieter, entgehen Ihnen Integrationen ins lokale Ökosystem, die Ihre Wettbewerber längst nutzen. Der chinesische Cloud-Markt wird von einheimischen Akteuren beherrscht, von denen jeder an einen anderen Teil des chinesischen Internets angeschlossen ist. Beim Serverstandort selbst geht es um drei Stufen mit sehr unterschiedlichen Abwägungen. Und das CDN wiegt hier schwerer als irgendwo sonst auf der Welt.
 
 ## Chinas Cloud-Anbieter
 

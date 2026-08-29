@@ -10,7 +10,7 @@ updatedAt: 2026-08-17
 category: Search
 ---
 
-La verificación en la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) se reduce a una petición HTTP. Baidu recupera una URL desde dentro de China y busca una cadena concreta, ya sea un archivo HTML en la raíz del documento o una etiqueta meta en el head de la portada. No hay mucho que pueda romper eso, y lo que lo rompe se encuentra entre Baiduspider y su servidor.
+La verificación en la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) se reduce a una petición HTTP. Baidu recupera una URL desde dentro de China y busca una cadena concreta, ya sea un archivo HTML en la raíz del documento o una etiqueta meta en el head de la portada. No hay mucho que pueda romper eso, y lo que lo rompe se encuentra entre Baiduspider y su servidor, aguas arriba de [la propia instalación de WordPress](/es/wordpress-en-china/).
 
 La comprobación tarda entre unos segundos y 24 horas, de modo que un fallo que vuelve al instante indica una recuperación fallida y no una cola de espera. Y si está verificando por CNAME, cambie de método.
 

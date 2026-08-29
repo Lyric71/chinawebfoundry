@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Search
 ---
 
-Quand les entreprises étrangères pensent recherche en Chine, elles pensent Baidu. Et elles ont raison : le moteur contrôle environ 60 % du marché. Reste que des centaines de millions de requêtes partent chaque jour vers des plateformes que la plupart des marketeurs occidentaux n'ont jamais approchées. L'une vit à l'intérieur de WeChat. Une autre s'arrime au commerce en ligne d'Alibaba. Une troisième cible les utilisateurs de bureau attentifs à la sécurité informatique. La plus récente est intégrée à l'application d'actualités de ByteDance. Chacune s'adresse à un public différent et indexe un contenu différent. Les ignorer revient à passer à côté d'une part significative de la manière dont les Chinois cherchent l'information.
+Quand les entreprises étrangères pensent recherche en Chine, elles pensent Baidu. Et elles ont raison : le moteur contrôle environ 60 % du marché. Reste que des centaines de millions de requêtes partent chaque jour vers des plateformes que la plupart des marketeurs occidentaux n'ont jamais approchées. L'une vit à l'intérieur de WeChat. Une autre s'arrime au commerce en ligne d'Alibaba. Une troisième cible les utilisateurs de bureau attentifs à la sécurité informatique. La plus récente est intégrée à l'application d'actualités de ByteDance. Chacune s'adresse à un public différent et indexe un contenu différent. Les ignorer revient à passer à côté d'une part significative de la manière dont les Chinois cherchent l'information, une lacune qu'[un spécialiste WordPress de la Chine](/fr/agence-wordpress-chine/) devrait soulever avant toute signature.
 
 ## Vue d'ensemble du marché
 

@@ -10,7 +10,7 @@ updatedAt: 2026-05-02
 category: Legal
 ---
 
-Todo sitio alojado en un servidor de China continental necesita un registro ICP. Hasta aquí, la norma es sencilla. La trampa para las empresas extranjeras está en un detalle: hay dos tipos de ICP, con reglas muy distintas. El primero es rápido, prácticamente gratuito y accesible para casi cualquier sociedad extranjera. El segundo lleva meses, cuesta dinero e impone una restricción de accionariado que deja fuera a casi todas las empresas extranjeras. Confundir los dos, o prescindir de ellos, condena el sitio a páginas lentas, a un mal posicionamiento y a la desconfianza de los usuarios chinos.
+Todo sitio alojado en un servidor de China continental necesita un registro ICP. Hasta aquí, la norma es sencilla. La trampa para las empresas extranjeras está en un detalle: hay dos tipos de ICP, con reglas muy distintas. El primero es rápido, prácticamente gratuito y accesible para casi cualquier sociedad extranjera. El segundo lleva meses, cuesta dinero e impone una restricción de accionariado que deja fuera a casi todas las empresas extranjeras. Confundir los dos, o prescindir de ellos, condena el sitio a páginas lentas, a un mal posicionamiento y a la desconfianza de los usuarios chinos, y por eso [una agencia que tramita expedientes ICP a diario](/es/agencia-wordpress-china/) vale más aquí que un presupuesto más barato.
 
 ## El ICP en breve
 

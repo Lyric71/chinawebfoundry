@@ -18,7 +18,7 @@ Existen dos vías para una empresa sin entidad continental, y ninguna de ellas e
 
 Nada más en China compra ese alcance, y por eso los equipos se enfrentan al papeleo en lugar de darse la vuelta. El panel chino de StatCounter se mueve, así que léalo como un orden de magnitud.
 
-Lo que cualquiera de las dos vías le cuesta tiene más que ver con el control que con el dinero, y esa elección le acompaña hasta el alojamiento y el rendimiento del rastreo mucho después del lanzamiento.
+Lo que cualquiera de las dos vías le cuesta tiene más que ver con el control que con el dinero, y esa elección le acompaña hasta el alojamiento y el rendimiento del rastreo mucho después del lanzamiento, y ahí es donde [una agencia web con base en China](/es/agencia-web-china/) justifica sus honorarios.
 
 ## Qué pide Baidu a un anunciante continental
 

@@ -10,7 +10,7 @@ updatedAt: 2026-08-16
 category: Search
 ---
 
-El envío estándar (普通收录, pǔtōng shōulù) es la parte de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) que le comunica a Baidu que una página existe. Tres canales: push, sitemap y envío manual. La plataforma los presenta uno junto a otro como si elegir entre ellos fuese cuestión de preferencia, cuando en realidad forman una jerarquía de privilegios. Uno está limitado a veinte enlaces por envío. Los otros dos son condicionales: el acceso al sitemap se concede y se retira a discreción de Baidu, y la forma más rápida de push solo se abre a los sitios vinculados a una entidad jurídica registrada en China.
+El envío estándar (普通收录, pǔtōng shōulù) es la parte de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) que le comunica a Baidu que una página existe, tanto si esas páginas salen de [un WordPress alojado en China](/es/wordpress-en-china/) como de cualquier otro sistema. Tres canales: push, sitemap y envío manual. La plataforma los presenta uno junto a otro como si elegir entre ellos fuese cuestión de preferencia, cuando en realidad forman una jerarquía de privilegios. Uno está limitado a veinte enlaces por envío. Los otros dos son condicionales: el acceso al sitemap se concede y se retira a discreción de Baidu, y la forma más rápida de push solo se abre a los sitios vinculados a una entidad jurídica registrada en China.
 
 > Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
 >

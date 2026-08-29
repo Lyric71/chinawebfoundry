@@ -10,7 +10,7 @@ updatedAt: 2026-08-13
 category: Search
 ---
 
-Baidu Merchant Center, BMC, es el almacén de datos de producto que hay detrás de los sistemas publicitarios de Baidu. Una frase de la FAQ de producto de Baidu enumera todos los lugares a los que pueden viajar esos datos. Los tres destinos se compran.
+Baidu Merchant Center, BMC, es el almacén de datos de producto que hay detrás de los sistemas publicitarios de Baidu. Una frase de la FAQ de producto de Baidu enumera todos los lugares a los que pueden viajar esos datos, y los tres destinos se compran, lo que cambia la conversación presupuestaria con [quien dirija su operación web en China](/es/agencia-web-china/).
 
 ## Baidu escribió los destinos, y son tres
 

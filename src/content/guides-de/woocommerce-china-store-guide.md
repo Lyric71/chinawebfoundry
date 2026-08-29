@@ -11,7 +11,7 @@ category: Technology
 
 In Frankfurt oder Chicago läuft Ihr WooCommerce-Shop rund. Öffnet ihn jemand in Shanghai, wird er fast unbrauchbar. Gleiches Theme, gleiche Plugins. Und trotzdem hängt die Kasse, laden die Produktbilder nie, fehlt der eine Bezahl-Button, auf den es ankommt.
 
-Für einen chinesischen Käufer ist das keine Kleinigkeit. Genau deshalb schließt er den Tab. WooCommerce funktioniert in China gut. Unverändert auf ein westliches Publikum gerichtet, tut es das nicht.
+Für einen chinesischen Käufer ist das keine Kleinigkeit. Genau deshalb schließt er den Tab. WooCommerce funktioniert in China gut, zu denselben Bedingungen wie [jede WordPress-Website hinter der Großen Firewall](/de/wordpress-in-china/). Unverändert auf ein westliches Publikum gerichtet, tut es das nicht.
 
 Dieser Leitfaden setzt voraus, dass Sie unseren Grundlagentext Website-Lokalisierung für China schon gelesen haben. Alles baut darauf auf, fangen Sie also dort an, falls noch nicht geschehen.
 

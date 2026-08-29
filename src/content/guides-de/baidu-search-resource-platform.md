@@ -10,7 +10,7 @@ updatedAt: 2026-08-19
 category: Search
 ---
 
-Die Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) ist der Ort, an dem Baidu-SEO in der Praxis betrieben wird. Sie zeigt, ob Baidu die Website gecrawlt hat, wie viele dieser Seiten im Index geblieben sind und über welche Suchanfragen Klicks kamen. Und sie meldet, was kaputt ist. Wer sie auslässt, betreibt China-Suchstrategie als Ratespiel, mit einer Übersetzungsrechnung obendrauf.
+Die Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) ist der Ort, an dem Baidu-SEO in der Praxis betrieben wird. Sie zeigt, ob Baidu die Website gecrawlt hat, wie viele dieser Seiten im Index geblieben sind und über welche Suchanfragen Klicks kamen. Und sie meldet, was kaputt ist. Wer sie auslässt, betreibt China-Suchstrategie als Ratespiel, mit einer Übersetzungsrechnung obendrauf, so sorgfältig [die WordPress-Seite des Projekts für China](/de/wordpress-in-china/) auch gebaut sein mag.
 
 Früher hieß sie Baidu Webmaster Platform (百度站长平台, Bǎidù Zhànzhǎng Píngtái). In vielen Dokumentationen steht bis heute der alte Name, auch auf einigen Hilfeseiten von Baidu selbst. Es ist dieselbe Plattform.
 

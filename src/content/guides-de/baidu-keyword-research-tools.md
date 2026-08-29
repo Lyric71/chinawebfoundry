@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Search
 ---
 
-Die besten Google-Keywords exportieren, durch einen Übersetzer schicken, in die China-Strategie kopieren: So gehen die meisten ausländischen Unternehmen vor, und genau deshalb scheitern sie fast immer. Chinesische Nutzer suchen anders, und mit der Übersetzung hat das wenig zu tun: andere Formulierungen, andere Satzstrukturen und eine Sprache, in der die Zahl möglicher Keyword-Kombinationen für ein einzelnes Konzept um Größenordnungen höher liegt als im Englischen. Im Folgenden stellen wir die drei Werkzeuge vor, die echten Zugang zu Baidu-Daten verschaffen, und erklären, warum Keyword-Recherche auf Chinesisch eine eigene Disziplin ist.
+Die besten Google-Keywords exportieren, durch einen Übersetzer schicken, in die China-Strategie kopieren: So gehen die meisten ausländischen Unternehmen vor, und genau deshalb scheitern sie fast immer. Chinesische Nutzer suchen anders, und mit der Übersetzung hat das wenig zu tun: andere Formulierungen, andere Satzstrukturen und eine Sprache, in der die Zahl möglicher Keyword-Kombinationen für ein einzelnes Konzept um Größenordnungen höher liegt als im Englischen. Im Folgenden stellen wir die drei Werkzeuge vor, die echten Zugang zu Baidu-Daten verschaffen, und erklären, warum Keyword-Recherche auf Chinesisch eine eigene Disziplin ist, ob sie nun im eigenen Team landet oder bei [einer Webagentur vor Ort in China](/de/webagentur-china/).
 
 ## Baidu Index
 

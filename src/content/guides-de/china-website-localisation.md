@@ -10,7 +10,7 @@ updatedAt: 2026-05-01
 category: Content
 ---
 
-Setzen Sie einen Preis auf 888 RMB an, signalisieren Sie Wohlstand. Setzen Sie ihn auf 444, verbinden Sie Ihr Produkt mit dem Tod. Genau das ist der Abstand zwischen einer übersetzten und einer lokalisierten Website. Echte Lokalisierung für China reicht weit über die Sprache hinaus. Sie berührt Zahlungsverkehr, Vertrauensindikatoren, den Tonfall der Inhalte, das Tempo des Kundenservice und kulturelle Entscheidungen, von denen die meisten ausländischen Unternehmen erst merken, dass sie sie falsch getroffen haben, wenn der Schaden längst angerichtet ist.
+Setzen Sie einen Preis auf 888 RMB an, signalisieren Sie Wohlstand. Setzen Sie ihn auf 444, verbinden Sie Ihr Produkt mit dem Tod. Genau das ist der Abstand zwischen einer übersetzten und einer lokalisierten Website. Echte Lokalisierung für China reicht weit über die Sprache hinaus. Sie berührt Zahlungsverkehr, Vertrauensindikatoren, den Tonfall der Inhalte, das Tempo des Kundenservice, [das, was sich an einer WordPress-Umsetzung für China ändern muss](/de/wordpress-in-china/), und kulturelle Entscheidungen, von denen die meisten ausländischen Unternehmen erst merken, dass sie sie falsch getroffen haben, wenn der Schaden längst angerichtet ist.
 
 ## Lokalisierung im Überblick
 

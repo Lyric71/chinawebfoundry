@@ -14,11 +14,14 @@ interface Props {
   jsonLd?: Record<string, unknown>[];
   /** When set, emits a two-level BreadcrumbList (Home > breadcrumbName) for second-level pages that don't already build their own. */
   breadcrumbName?: string;
+  /** Emit `noindex, follow` instead of the default index directive. Used by routes that are
+   *  reserved but not yet published. See docs/specs/move-1-findings.md. */
+  noindex?: boolean;
   /** Override the auto-computed hreflang URLs when locales use different slugs (e.g. /web-agency-china/ vs /fr/agence-web-chine/ vs /es/agencia-web-china/ vs /de/webagentur-china/). Pass absolute paths starting with /. */
   alternateUrls?: { en: string; fr: string; es?: string; de?: string };
 }
 
-const { title, description, canonical, ogImage = '/images/og-default.webp', lang, jsonLd = [], alternateUrls, breadcrumbName } = Astro.props;
+const { title, description, canonical, ogImage = '/images/og-default.webp', lang, jsonLd = [], alternateUrls, breadcrumbName, noindex = false } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toString();
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
@@ -117,7 +120,7 @@ const sitewideLd = [organizationLd, websiteLd, ...breadcrumbLd, ...jsonLd];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={hreflang.en} />
     <link rel="alternate" hreflang="fr" href={hreflang.fr} />
