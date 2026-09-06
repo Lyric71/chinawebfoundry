@@ -115,3 +115,35 @@ with structured frontmatter (title, slug, description, icon, order).
 - Commit messages: conventional commits (feat:, fix:, chore:, docs:, style:)
 - Branch naming: feature/page-name, fix/description
 - Do not build before pushing unless the user asks for it
+
+## Editorial System (78 pieces, 8 Sept 2026 to 5 Mar 2027)
+The content pipeline lives in `editorial/`. When the user says "Draft today's
+piece", "Draft brief A3" or "Publish <slug>", read `editorial/CLAUDE.md` and
+`editorial/SPEC.md` first and follow `editorial/RUNBOOK.md`. The plan itself
+is `editorial/PLAN.md`; the briefs in `editorial/briefs/` are generated from
+it by `editorial/scripts/build-briefs.mjs`.
+
+Pipeline, in order, none optional: fact bank and ledger first, live research
+with every source validated twice, `/createarticle` (house version in
+`.claude/skills/createarticle/`, iteration 7 is a cadence pass, never planted
+errors), `/content-quality-us` on every piece with British spelling (mandatory for all
+78, including upgrade copy and translation sources; no piece is published
+without a `quality_passed_on` date),
+`/generate-image-openai` for the hero image, every translation through
+`/deep-translate` run interactively in the main conversation (never a
+subagent, all three passes step by step, FR then ES then DE, none skipped),
+then the publish step only when
+a person asks or the 10:00 scheduled task finds a due `image_ready` row, then
+one email via `editorial/scripts/notify-publish.mjs` (Resend) when the
+publish is done. House SEO ceilings are title 52, meta 152, excerpt 25 words.
+Guide heroes go to `public/images/guides/<slug>.webp`, max 1050px, under
+350KB. No T2 or T4 piece publishes without an original measurement from
+`editorial/harness/`. Nothing on the Do Not Assert list in
+`editorial/sources/fact-bank.md` gets published, ever.
+
+Three standing rules from Cyril, carried over from TheRedScroll: when the
+runbook asks for something the repo cannot do, use what the repo has and log
+the substitution. Every pipeline step runs on the most capable model
+available, never a faster or smaller mode; images use gpt-image-2 at high
+quality. The scheduled publish task and a spoken "Publish <slug>" are the
+only two places where `npm run build` runs without being asked.
