@@ -100,14 +100,9 @@ export default defineConfig({
           de: 'de',
         },
       },
-      // Skip the 404 page, and the reserved /website-in-china/ routes, which are
-      // noindexed until Move 1 ships real copy for them. See
-      // docs/specs/move-1-findings.md.
-      filter: (page) => {
-        if (page.includes('/404')) return false;
-        const { locale, path } = splitLocale(new URL(page).pathname);
-        return canonicalizePath(path, locale) !== '/website-in-china/';
-      },
+      // Skip the 404 page. The /website-in-china/ routes rejoined the sitemap on
+      // 2026-09-06 when M1 shipped (editorial/PLAN.md, week 1 slot 1).
+      filter: (page) => !page.includes('/404'),
       // Per-route priority + per-file lastmod + hreflang cluster.
       serialize(item) {
         const url = new URL(item.url);

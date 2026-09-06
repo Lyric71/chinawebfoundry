@@ -1,26 +1,462 @@
 ---
-// RESERVED ROUTE. Move 1, Task E. See docs/specs/move-1-spec / docs/specs/move-1-findings.md.
-//
-// TODO(move-1-task-e): replace this placeholder with real copy targeting
-// "launch a website in China". Competitor research found the query unowned by any
-// vendor, so the route is claimed now and the slug agreed across all four
-// locales while hreflang is being wired, rather than twice.
-//
-// Until the copy ships this page is noindex, excluded from the sitemap
-// (astro.config.mjs `filter`), and linked from nowhere. Remove the `noindex`
-// prop and the sitemap exclusion in the same commit that ships the copy.
+// Página de conversión M1, «Sitio web en China». Versión española de /website-in-china/,
+// publicada el 2026-09-06 (programa editorial, semana 1, franja 1).
+// Reescritura nativa en tres pasadas (/deep-translate), no una traducción.
 import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import ScrollEffects from '../../components/global/ScrollEffects.astro';
+import PageScrollEffects from '../../components/pages/ScrollEffects.astro';
+import { getCollection, getEntry } from 'astro:content';
+import { localizePath } from '../../i18n/routes';
+
+const metaTitle = 'Sitio web en China para marcas internacionales | ChinaWebFoundry';
+const metaDescription = 'Planteamos, construimos, alojamos y operamos sitios web en China continental para empresas extranjeras, registro ICP incluido. Equipo en Shanghái.';
+const canonicalPath = '/es/sitio-web-en-china/';
+
+const services = (await getCollection('services-es')).sort((a, b) => a.data.order - b.data.order);
+const bassetti = await getEntry('casestudies-es', 'bassetti-wordpress-china');
+const snf = await getEntry('casestudies-es', 'snf-china-wordpress');
+const featured = [bassetti, snf].filter(Boolean);
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
+const pageUrl = `${siteOrigin}${canonicalPath}`;
+
+const breaks = [
+  {
+    cn: '断',
+    label: 'Un script que nunca responde',
+    body: 'Miles de plantillas comerciales siguen cargando jQuery desde Google Hosted Libraries. Esa única etiqueta bloquea el renderizado: el navegador la espera antes de pintar nada. El visitante ve una página en blanco durante unos segundos y se marcha. Las herramientas de medición no registran la visita, porque tampoco llegaron a cargarse. Se pierde la visita, y la empresa queda como si no operara en China.',
+    quote: 'Desde una instancia de Alibaba Cloud (阿里云) en Zhangjiakou, el 29 de agosto de 2026, peticiones repetidas a ajax.googleapis.com no devolvieron ningún primer byte antes del abandono a los 60 segundos.',
+    source: 'Medición de ChinaWebFoundry, 29 de agosto de 2026',
+  },
+  {
+    cn: '备',
+    label: 'Un servidor a oscuras hasta que el expediente se aprueba',
+    body: 'Un sitio servido desde una IP continental permanece bloqueado por el proveedor de alojamiento hasta que se aprueba su registro ICP (ICP备案). Alibaba Cloud muestra «网站暂时无法访问» (sitio temporalmente no disponible) en cualquier dominio sin registro que apunte a un servidor de una región continental. Sin lanzamiento discreto. Sin URL de pruebas en el alojamiento definitivo. Cuente con entre tres y seis semanas en la ruta crítica, las que casi todos los cronogramas olvidan.',
+  },
+  {
+    cn: '慢',
+    label: 'Un origen demasiado lejano',
+    body: 'Un sitio alojado en Fráncfort o en Virginia cruza la frontera en cada petición. La cifra de Chinafy citada más arriba, un tiempo hasta el primer byte multiplicado por 4 o 4,5, mide lo que cuesta ese cruce antes de que se ejecute una sola línea de su código. Segundos en cada página, y una tasa de rebote que sus equipos europeos no consiguen reproducir desde la oficina.',
+  },
+  {
+    cn: '爬',
+    label: 'Un rastreador para el que nadie diseñó el sitio',
+    body: 'Baidu (百度) ejecuta JavaScript desde que anunció Baiduspider-render/2.0 en marzo de 2017. El buscador no publica nada sobre qué parte de la web renderiza realmente ni sobre lo larga que es su cola. Un sitio que solo existe una vez ejecutado el JavaScript en el cliente asume un riesgo que Baidu nunca le pidió asumir. La factura: páginas indexadas tarde, o nunca.',
+  },
+];
+
+const conditions = [
+  {
+    title: 'Las dependencias extranjeras han desaparecido',
+    body: 'Tipografías, scripts, mapas, vídeo, formularios, captcha y analítica llegan desde dentro de China o desde su propio servidor.',
+    link: { href: '/es/recursos/guia-web-china/gran-cortafuegos-china/', label: 'Qué bloquea el Gran Cortafuegos' },
+  },
+  {
+    title: 'El sitio se sirve desde China continental, o desde Hong Kong',
+    body: 'Hong Kong es la alternativa honesta cuando el registro aún no es posible: no exige expediente, supone un solo cruce de frontera en lugar de varios y permite migrar sin sobresaltos a un origen continental más adelante.',
+    link: { href: '/es/servicios/alojamiento-china/', label: 'Alojamiento en China' },
+  },
+  {
+    title: 'El registro está hecho',
+    body: 'Un registro ICP (ICP备案), gratuito, para un sitio informativo; una licencia ICP comercial (ICP许可证) si el sitio cobra. Una entidad continental figura como titular. Nosotros llevamos el trámite en chino ante el regulador provincial y mantenemos la página de espera durante toda la revisión.',
+    link: { href: '/es/recursos/guia-web-china/licencia-icp-empresas-extranjeras/', label: 'La licencia ICP, explicada' },
+  },
+  {
+    title: 'Baidu puede rastrearlo sin ejecutar JavaScript',
+    body: 'HTML renderizado en el servidor, etiquetas de título reales y un mapa del sitio enviado a través de la Baidu Search Resource Platform (百度搜索资源平台).',
+    link: { href: '/es/recursos/guia-web-china/seo-baidu-china/', label: 'Nuestras guías de SEO en Baidu' },
+  },
+];
+
+const phases = [
+  { name: 'Planificar', weeks: '1 a 2', gate: 'Una entidad continental que sea titular del registro, o la decisión de Hong Kong', body: 'Auditoría desde una conexión china. Comprobación de la entidad, porque una sociedad continental debe figurar como titular del expediente; si no la tiene, aquí es donde hablamos de Hong Kong. Elección de la tecnología. Inventario de dependencias.' },
+  { name: 'Registrar', weeks: '2 a 8', gate: 'Revisión de Alibaba Cloud y después el regulador provincial', body: 'La revisión interna de Alibaba Cloud lleva uno o dos días hábiles. El regulador provincial anuncia después hasta 20 días hábiles, y el plazo cambia de una provincia a otra. Nosotros planificamos de tres a seis semanas y rara vez hemos necesitado menos. El alojamiento definitivo permanece inaccesible durante todo ese tiempo, así que el sitio se construye en otro lugar.' },
+  { name: 'Construir', weeks: '3 a 12', gate: 'Fuera de China continental, en paralelo al expediente', body: 'Diseño, contenidos, sustitución de dependencias y preparación para Baidu, en un servidor de pruebas fuera de China continental. Probado desde Shanghái cada semana.' },
+  { name: 'Lanzar y operar', weeks: '12 a 14', gate: 'La aprobación del expediente. Los puertos se abren ese día.', body: 'Puesta en producción, cambio de DNS, número de registro en el pie de página y envío del mapa del sitio a Baidu. Después arranca el contrato de mantenimiento, porque un servidor continental necesita a alguien que vigile la ruta de actualizaciones.' },
+];
+
+const faqs = [
+  {
+    q: '¿Hace falta una empresa china para tener un sitio web en China?',
+    a: 'Para ser titular de un registro ICP, sí. El expediente pertenece a una entidad continental, y el proveedor no abre el sitio sin él. Si no la tiene, alojamos desde Hong Kong, que no exige registro y está a un salto de red de Shenzhen. Es más lento que un origen continental y más rápido que cualquier servidor en Europa o Estados Unidos.',
+  },
+  {
+    q: '¿Cuánto tarda un sitio web en China?',
+    a: 'Catorce semanas es nuestra referencia de planificación desde el briefing hasta el lanzamiento, de las cuales entre tres y seis se van en el registro. Un sitio más pequeño con una entidad continental ya constituida puede ir más deprisa. Un sitio que cobra necesita una licencia comercial y debe prever de doce a dieciocho semanas solo para ella.',
+  },
+  {
+    q: '¿No basta con traducir mi sitio actual?',
+    a: 'Nada lo impide. El sitio traducido cargará tan despacio como el original y perderá todo lo que recurra a Google. La lentitud viene del alojamiento y de las dependencias, y la traducción no cambia ninguna de las dos cosas. Lo habitual es conservar sus contenidos y su diseño, reconstruir la fontanería que hay debajo y encargar la reescritura del chino a un redactor chino.',
+  },
+  {
+    q: '¿WordPress o Astro para China?',
+    a: 'El que encaje con las personas que van a mantener el sitio. WordPress cuando un equipo publica a menudo y necesita un panel de gestión. Astro cuando el sitio cambia al ritmo de las versiones y un editor quedaría sin uso. Ambos funcionan en China una vez limpias las dependencias.',
+  },
+  {
+    q: '¿Encontrará Baidu mi sitio?',
+    a: 'Si está renderizado en el servidor, registrado, alojado en China continental y enviado a través de la Baidu Search Resource Platform, sí, y la primera indexación tarda de dos a cuatro semanas. Baidu eliminó la indexación rápida en 2024, de modo que ya no hay atajos. Nuestro servicio de SEO en Baidu cubre el envío, los datos estructurados y el seguimiento del posicionamiento.',
+  },
+  {
+    q: '¿Cuánto cuesta un sitio web en China?',
+    a: 'Depende de si el sitio se construye o se migra, de cuántos idiomas lleva y de si necesita un registro o una licencia comercial. Presupuestamos tras la auditoría, con el alojamiento y el mantenimiento separados del coste de construcción para que se vea qué se repite cada mes. Una llamada de encuadre basta para darle una horquilla.',
+  },
+  {
+    q: '¿Dónde está su equipo?',
+    a: 'En Shanghái, en el distrito de Putuo. Cyril Drouin dirige negocios digitales en China desde 2005. Echo Peng lleva la producción y suma dieciocho años de comercio electrónico y digital para marcas globales sobre el terreno. Todas las personas que tocan su sitio trabajan desde la oficina de Shanghái.',
+  },
+];
+
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${pageUrl}#service`,
+  name: 'Sitio web en China',
+  description: metaDescription,
+  serviceType: 'Agencia web',
+  provider: { '@id': `${siteOrigin}/#organization` },
+  areaServed: { '@type': 'Country', name: 'China' },
+  url: pageUrl,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Servicios',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      itemOffered: { '@type': 'Service', name: s.data.title, description: s.data.description, url: `${siteOrigin}${localizePath(`/services/${s.id}/`, 'es')}` },
+    })),
+  },
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${siteOrigin}/es/` },
+    { '@type': 'ListItem', position: 2, name: 'Sitio web en China', item: pageUrl },
+  ],
+};
 ---
 
-<PageLayout
-  title="Lanzar un sitio web en China | ChinaWebFoundry"
-  description="Marcador de posición. El texto definitivo llega con Move 1, tarea E."
-  lang="es"
-  noindex
->
-  <section class="mx-auto max-w-[1200px] section-padding py-32">
-    <h1 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
-      Lanzar un sitio web en China
-    </h1>
+<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="es" jsonLd={[serviceLd, faqLd, breadcrumbLd]}>
+  <ScrollEffects />
+  <PageScrollEffects />
+
+  <!-- ============= HERO ============= -->
+  <section data-hero class="relative bg-[var(--color-surface-dark)] overflow-hidden min-h-[80vh] flex flex-col">
+    <div class="absolute inset-0">
+      <img src="/images/hero-wordpress-china-skyline.webp" alt="" width="1600" height="900" class="absolute inset-0 w-full h-full object-cover scale-105" loading="eager" decoding="async" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0e]/95 via-[#0a0a0e]/80 to-[#0a0a0e]/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0e]/60 via-transparent to-[#0a0a0e]/95"></div>
+    </div>
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-[10%] -left-32 w-[600px] h-[600px] rounded-full bg-[var(--color-brand-orange)]/[0.18] blur-[140px]"></div>
+    </div>
+    <span aria-hidden="true" class="absolute right-[-4rem] bottom-[-2rem] text-[26rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block">站</span>
+
+    <div class="relative z-10 mx-auto w-full max-w-[1200px] section-padding flex-1 flex items-center pt-32 lg:pt-40 pb-20 lg:pb-28">
+      <div class="max-w-[860px]">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-10 bg-[var(--color-brand-orange)]"></div>
+          <span class="text-xs lg:text-sm font-medium tracking-[0.18em] text-[var(--color-brand-orange)] uppercase">Sitio web en China · Shanghái</span>
+        </div>
+        <h1 class="text-[clamp(2.4rem,5.2vw,4.5rem)] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+          Un sitio web en China
+          <span class="block mt-2 text-white/95">para marcas internacionales.</span>
+        </h1>
+        <p class="mt-7 text-base lg:text-xl text-white/65 leading-relaxed max-w-[720px]">
+          Planteamos, construimos, alojamos y operamos sitios web en China continental para empresas extranjeras, registro ICP incluido. El equipo trabaja en Shanghái, y cada sitio se prueba desde una conexión china antes de salir a producción.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <Button href="/es/contacto/" variant="primary" size="lg">Reservar una llamada de encuadre de 30 minutos</Button>
+          <a href="/es/china-site-scanner/" class="inline-flex items-center gap-2 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 no-underline transition-all duration-200">
+            Analizar gratis su sitio para China
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= INTRO + QUÉ FALLA ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <p class="text-lg lg:text-xl text-[var(--color-text-body)] leading-relaxed mb-8">
+          Su sitio global probablemente funciona en todas partes salvo en China. Es el punto de partida habitual de las empresas que nos llaman, y responde a cuatro causas. Todas tienen solución. Aplicarla lleva unas catorce semanas, y lo que más se alarga es el papeleo.
+        </p>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Qué falla · 故障</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-6">
+          Cuatro cosas rompen un sitio extranjero en China
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-6">Dos de cada tres sitios extranjeros fallan antes de que un visitante chino llegue a ver nada.</p>
+        <blockquote class="border-l-4 border-[var(--color-brand-orange)] pl-6 py-2 text-[var(--color-text-body)] leading-relaxed">
+          <p>Chinafy probó 614 sitios web globales desde Pekín, Virginia y Londres con WebPageTest en 2026. El 66,4&nbsp;% no consiguió cargarse desde Pekín, el tiempo medio hasta la visualización completa fue de 17,2 segundos y el 44&nbsp;% de las pruebas desde Pekín agotaron el tiempo de espera. El tiempo hasta el primer byte fue entre 4 y 4,5 veces mayor que desde Virginia o Londres.</p>
+          <footer class="mt-3 text-sm text-[var(--color-text-body)]/70">Fuente: <a href="https://insights.chinafy.com/" rel="nofollow noopener" target="_blank">Chinafy, State of Global Website Performance in China</a>, abril de 2026</footer>
+        </blockquote>
+        <p class="mt-8 text-lg text-[var(--color-text-body)] leading-relaxed">
+          La cifra describe el síntoma. Las causas son más concretas que «el Gran Cortafuegos», y cada una tiene su precio. Comprobamos las cuatro desde puntos de medición continentales el 29 de agosto de 2026.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        {breaks.map((b) => (
+          <article data-reveal class="group relative rounded-3xl border border-[var(--color-surface-border)] bg-white p-7 lg:p-9 overflow-hidden transition-all duration-500 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_30px_60px_-25px_rgba(15,15,18,0.18)] hover:-translate-y-1">
+            <span aria-hidden="true" class="absolute right-[-1rem] bottom-[-2rem] text-[12rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none">{b.cn}</span>
+            <div class="relative">
+              <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">{b.label}</h3>
+              <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">{b.body}</p>
+              {b.quote && (
+                <blockquote class="mt-5 border-l-2 border-[var(--color-brand-orange)]/60 pl-4 text-sm text-[var(--color-text-body)] leading-relaxed">
+                  <p>{b.quote}</p>
+                  <footer class="mt-2 text-xs text-[var(--color-text-body)]/70">Fuente: {b.source}</footer>
+                </blockquote>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= LAS CONDICIONES ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-3rem] top-[8%] text-[20rem] lg:text-[26rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">通</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Las condiciones · 条件</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          Las cuatro condiciones de un sitio que funciona en China
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">Si falla una sola, el ticket de soporte es cuestión de tiempo.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        {conditions.map((c) => (
+          <div data-reveal class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8">
+            <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">{c.title}</h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">{c.body}</p>
+            <a href={c.link.href} class="inline-flex items-center gap-1.5 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline hover:gap-2.5 transition-all">
+              {c.link.label}
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= WORDPRESS O ASTRO ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">La tecnología · 技术选型</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
+          WordPress o Astro: por qué no imponemos nada por defecto
+        </h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">La mayoría de las agencias eligen una tecnología y la venden. Nosotros trabajamos con dos, y es el briefing el que decide.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+        <div data-reveal>
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">WordPress, cuando el sitio funciona como una redacción</h3>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            Un equipo de marketing en Shanghái que publica cada semana, un catálogo de productos que edita un distribuidor, doce personas con acceso y un flujo de aprobación entre ellas. WordPress ofrece a ese equipo un panel que ya conoce, y los problemas que trae consigo en China (Gravatar, los servidores de actualización, los recursos de Google incrustados en las plantillas) son todos conocidos y todos tienen solución.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+            Escribimos <a href="/es/wordpress-en-china/">la página sobre WordPress en China</a> porque hemos resuelto cada uno de ellos más de una vez.
+          </p>
+        </div>
+        <div data-reveal data-reveal-delay="120">
+          <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-4">Astro, cuando el sitio cambia al ritmo de las versiones</h3>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+            Un sitio de marca, un sitio de lanzamiento, una presencia corporativa con una sola persona a cargo de los contenidos. Astro genera HTML estático: no hay panel de administración que proteger en un servidor continental, y nada se interpone entre Baidu y la página.
+          </p>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+            <a href="/es/astro/">Nuestra página sobre Astro</a> explica cómo construimos con él aquí.
+          </p>
+        </div>
+      </div>
+      <div class="max-w-3xl rounded-3xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-8 lg:p-10" data-reveal>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+          Nuestra opinión cabe en una frase. Todo depende de quién mantendrá el sitio, y con qué frecuencia. La velocidad deja de marcar diferencias una vez limpias las dependencias (el 1,2 segundos que aparece más abajo en esta página corresponde a un sitio WordPress), y a tres años el coste también se equilibra.
+        </p>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+          Así que en la primera reunión hacemos dos preguntas: ¿quién cambiará este sitio el mes que viene, y qué cambiará? La respuesta señala la tecnología. Y a partir de ahí dejamos de hablar de tecnología.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= DIEZ SERVICIOS ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-3rem] top-[8%] text-[20rem] lg:text-[26rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.04] leading-none select-none pointer-events-none hidden md:block">服务</span>
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Cómo trabajamos · 服务</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">Diez servicios, un solo equipo</h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-4">Todo lo que necesita un sitio web en China, a cargo de las mismas personas, en Shanghái.</p>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+          Empieza por la estrategia y la auditoría: qué hace su sitio actual desde una conexión china y qué le exigirá el registro. La migración a China cuando el sitio ya existe y hay que trasladarlo. El diseño UX y UI para los hábitos de lectura chinos y el navegador integrado de WeChat. La integración técnica con WeChat (微信), Alipay (支付宝), Baidu Maps (百度地图) y la analítica local.
+        </p>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+          Después, todo lo que lo mantiene con vida. Plugins y extensiones, la mitad WordPress del trabajo sobre dependencias. Contenidos en chino, redactados por plumas chinas a partir de un briefing, nunca pasados por un traductor. SEO en Baidu. GEO, que es como llamamos a la visibilidad en DeepSeek, Doubao (豆包), Kimi y las respuestas de IA de Baidu. Alojamiento en China en Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) o Huawei Cloud (华为云). Y mantenimiento, porque en un servidor continental la ruta de actualizaciones es toda la cuestión de seguridad.
+        </p>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+          Cada uno tiene su propia página en <a href="/es/servicios/">nuestros servicios</a>. Rara vez necesitará los diez a la vez (el único cliente que lo hizo migraba cuatro sitios de golpe). La mayoría de los proyectos empiezan con una auditoría y terminan con un contrato de mantenimiento.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        {services.map((s) => (
+          <a href={localizePath(`/services/${s.id}/`, 'es')} data-reveal class="group relative rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-7 no-underline transition-all duration-300 hover:border-[var(--color-brand-orange)]/30 hover:shadow-[0_22px_45px_-22px_rgba(15,15,18,0.15)] hover:-translate-y-1">
+            <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-3 transition-colors duration-200 group-hover:text-[var(--color-brand-orange)]">{s.data.title}</h3>
+            <p class="text-[14px] text-[var(--color-text-body)] leading-relaxed line-clamp-3">{s.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= PRUEBAS ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="grid grid-cols-12 gap-8 lg:gap-14">
+        <div class="col-span-12 lg:col-span-6" data-reveal>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Pruebas · 数据</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">Las cifras que publicamos</h2>
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-8">Pocas agencias de este mercado publican sus cifras. Estas son las nuestras.</p>
+          <blockquote class="border-l-4 border-[var(--color-brand-orange)] pl-6 py-2 mb-6 text-[var(--color-text-body)] leading-relaxed">
+            <p>En una migración que llevamos a cabo, la mediana del tiempo de carga pasó de 23,4 segundos en un origen europeo a 1,2 segundos en un origen continental.</p>
+            <footer class="mt-3 text-sm text-[var(--color-text-body)]/70">Fuente: ChinaWebFoundry, publicado el 29 de agosto de 2026</footer>
+          </blockquote>
+          <blockquote class="border-l-4 border-[var(--color-brand-orange)] pl-6 py-2 mb-8 text-[var(--color-text-body)] leading-relaxed">
+            <p>En una ventana de 90 días, un sitio de cliente alojado en China continental registró una disponibilidad del 99,98&nbsp;%, con una mediana de tiempo de respuesta de 48 ms desde Pekín, 36 ms desde Shanghái y 61 ms desde Cantón.</p>
+            <footer class="mt-3 text-sm text-[var(--color-text-body)]/70">Fuente: ChinaWebFoundry, cifras publicadas, 2026</footer>
+          </blockquote>
+          <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">
+            Las dos cifras son nuestras: léalas con esa reserva. El operador y las fechas exactas de medición que hay detrás de cada una se incorporarán a los casos de estudio este otoño, porque una cifra sin punto de medición merece desconfianza, también cuando la publicamos nosotros.
+          </p>
+        </div>
+        <div class="col-span-12 lg:col-span-6" data-reveal data-reveal-delay="120">
+          <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-6">
+            Dos proyectos que merece la pena leer enteros. Bassetti, editor francés de software de ingeniería, trasladó un sitio en WordPress y Elementor a un origen continental en seis semanas, con registro, dominio .cn y sustitución de dependencias incluidos. SNF, el mayor fabricante mundial de polímeros hidrosolubles, mantiene su sitio chino en un alojamiento continental que gestionamos para dos fábricas y seis oficinas.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {featured.map((cs) => cs && (
+              <a href={localizePath(`/work/${cs.id}/`, 'es')} class="group relative block rounded-2xl overflow-hidden no-underline">
+                <div class="relative aspect-[4/5]">
+                  <img src={cs.data.visual} alt={cs.data.title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                  <div class="absolute inset-x-0 bottom-0 p-6">
+                    <h3 class="text-lg font-medium font-[var(--font-heading)] text-white leading-snug">{cs.data.title}</h3>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <a href="/es/proyectos/" class="mt-6 inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline hover:gap-3 transition-all">
+            Todos los casos de estudio
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= MÉTODO ============= -->
+  <section class="relative section-spacing bg-[var(--color-surface-light)] overflow-hidden">
+    <div class="relative mx-auto max-w-[1200px] section-padding">
+      <div class="max-w-3xl mb-12" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Método · 流程</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">Catorce semanas, cuatro fases</h2>
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">El registro ocupa la ruta crítica y todo lo demás espera detrás de él. Por eso el plan empieza ahí.</p>
+      </div>
+      <div class="overflow-x-auto rounded-2xl border border-[var(--color-surface-border)] bg-white mb-10" data-reveal>
+        <table class="w-full text-left text-[15px] text-[var(--color-text-body)]">
+          <thead class="bg-[var(--color-surface-light)] text-[var(--color-text-dark)]">
+            <tr>
+              <th class="px-5 py-3 font-medium">Fase</th>
+              <th class="px-5 py-3 font-medium">Semanas</th>
+              <th class="px-5 py-3 font-medium">De qué depende</th>
+            </tr>
+          </thead>
+          <tbody>
+            {phases.map((p) => (
+              <tr class="border-t border-[var(--color-surface-border)]">
+                <td class="px-5 py-3 font-medium text-[var(--color-text-dark)]">{p.name}</td>
+                <td class="px-5 py-3">{p.weeks}</td>
+                <td class="px-5 py-3">{p.gate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        {phases.map((p) => (
+          <div data-reveal class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7">
+            <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{p.name}</h3>
+            <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 max-w-3xl text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed" data-reveal>
+        Si el sitio cobra, añada la licencia comercial: de 60 a 90 días hábiles a escala nacional, es decir, de doce a dieciocho semanas solo para ella.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section class="relative section-spacing bg-white overflow-hidden">
+    <span aria-hidden="true" class="absolute right-[-2rem] top-[6%] text-[18rem] lg:text-[22rem] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)]/[0.05] leading-none select-none pointer-events-none hidden md:block">问</span>
+    <div class="relative mx-auto max-w-[900px] section-padding">
+      <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-5">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-orange)]">Preguntas · 常见问题</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">Preguntas frecuentes</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map((f, i) => (
+          <details class="group rounded-2xl border border-[var(--color-surface-border)] bg-white p-6 lg:p-7 transition-all duration-200 hover:border-[var(--color-brand-orange)]/30 open:border-[var(--color-brand-orange)]/40" data-reveal data-reveal-delay={String(i * 60)}>
+            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none">
+              <h3 class="text-lg lg:text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug pr-4">{f.q}</h3>
+              <svg class="w-5 h-5 flex-shrink-0 mt-1 text-[var(--color-brand-orange)] transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </summary>
+            <p class="mt-4 text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= CTA ============= -->
+  <section class="relative py-24 md:py-32 bg-[#0a0a0e] overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-[20%] left-[10%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-orange)]/[0.15] blur-[140px]"></div>
+    </div>
+    <div class="relative mx-auto max-w-[1200px] section-padding text-center">
+      <h2 class="text-4xl sm:text-5xl lg:text-[56px] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight mb-7" data-reveal>Hable con el equipo de Shanghái.</h2>
+      <p class="text-lg text-white/65 leading-relaxed max-w-2xl mx-auto mb-10" data-reveal data-reveal-delay="80">Treinta minutos bastan para decirle si su sitio necesita un registro, una migración o una reconstrucción, y cuánto tiempo llevaría cada una de esas opciones.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4" data-reveal data-reveal-delay="160">
+        <Button href="/es/contacto/" variant="primary" size="lg">Reservar una llamada de encuadre de 30 minutos</Button>
+        <Button href="/es/china-site-scanner/" variant="secondary" size="lg">Analizar gratis su sitio para China</Button>
+      </div>
+    </div>
   </section>
 </PageLayout>

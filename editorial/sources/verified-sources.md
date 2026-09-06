@@ -109,19 +109,93 @@ primary source, record the URL and the check 2 date, and move the entry to
 
 ## Platform and vendor figures
 
-(Move a fact bank entry here once check 2 is done, in the full entry format.)
+### Baidu renders JavaScript: Baiduspider-render/2.0 announcement
+- Fact ID: F19
+- Value: new rendering UA announced, limited beta from 24 March 2017; fetches CSS, JS and images
+- Vantage point: n/a
+- As of: 24 March 2017
+- Source: Baidu Search Resource Platform (百度搜索资源平台), 百度Spider新增渲染抓取UA公告
+- URL: https://ziyuan.baidu.com/wiki/990
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-06, fetched via search; date is March, not April as the fact bank says
+- Used in: website-in-china
+- Notes: Baidu publishes no rendering coverage or queue latency. Frame SSR as risk reduction.
+
+### Unfiled domain on a mainland-region server is blocked by the provider
+- Fact ID: F25
+- Value: 网站暂时无法访问 shown until the ICP 备案 is approved
+- Vantage point: n/a
+- As of: 20 March 2022 (community article); behaviour current 2026-09-06
+- Source: Alibaba Cloud (阿里云) developer community
+- URL: https://developer.aliyun.com/article/877910
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-06, fetched. Official help centre confirms the block; the 80/443 port mechanism rests on the fact bank and community threads (developer.aliyun.com/ask/55623)
+- Used in: website-in-china
+- Notes: Say "unreachable until the filing clears". Say "ports 80 and 443" only with the fact bank attribution.
+
+### ICP filing review times at Alibaba Cloud
+- Fact ID: F26
+- Value: Alibaba Cloud initial review 1 to 2 working days; provincial regulator (管局) 1 to 20 working days, varies by province
+- Vantage point: n/a
+- As of: page undated; confirmed 2026-09-06
+- Source: Alibaba Cloud help centre (阿里云帮助中心), 阿里云ICP备案流程概述
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
+- Verified 1: 2026-08-29 (fact bank, as 10 to 30 working days)
+- Verified 2: 2026-09-06, fetched
+- Used in: website-in-china
+- Notes: Planning number stays 3 to 6 weeks. Commercial licence 60 to 90 working days is from the fact bank, not re-fetched today.
 
 ## Measurements (ours)
 
-Every entry names the vantage point, the attempts, the abandon threshold and
-the run_id from `harness/runs/`.
+### ajax.googleapis.com returns no first byte from a mainland datacenter
+- Fact ID: F1
+- Value: no first byte before a 60-second abandon, repeated attempts
+- Vantage point: Alibaba Cloud (阿里云) instance, Zhangjiakou
+- As of: 2026-08-29
+- Source: ChinaWebFoundry probe record, published in is-wordpress-blocked-in-china
+- URL: https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-06, live guide re-read
+- Used in: is-wordpress-blocked-in-china, website-in-china
+- Notes: Re-run through the harness before 2026-11-27 (90 days).
 
-(None yet. The harness is not up.)
+### Migration: 23.4s on a European origin to 1.2s on a mainland origin
+- Fact ID: F32
+- Value: median page load 23.4s before, 1.2s after
+- Vantage point: mainland; carrier and date NOT published. TODO T3-01
+- As of: published 2026-08-29
+- Source: ChinaWebFoundry, is-wordpress-blocked-in-china and the agency pages
+- URL: https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-06, found in repo
+- Used in: website-in-china
+- Notes: Labelled as ours in copy with the vantage caveat stated.
+
+### 99.98% uptime over 90 days; 48ms, 36ms, 61ms from Beijing, Shanghai, Guangzhou
+- Fact ID: F32
+- Value: as stated
+- Vantage point: Beijing, Shanghai, Guangzhou; carriers and window NOT published. TODO T3-02
+- As of: live 2026-09-06
+- Source: ChinaWebFoundry, maintenance-support and agency pages
+- URL: https://www.chinawebfoundry.com/services/maintenance-support/
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-06, found in repo
+- Used in: website-in-china
+- Notes: Labelled as ours in copy with the vantage caveat stated.
 
 ## Third-party measurements
 
-(21YunBox, GreatFire, Chinafy benchmark entries in full entry format, as
-they get used.)
+### Chinafy 2026 benchmark: 614 sites, 66.4% failed in Beijing
+- Fact ID: F31
+- Value: 614 sites, 11 industries, WebPageTest (Catchpoint) from Beijing, Virginia, London, Chrome on cable; 66.4% failed to load successfully in Beijing; median visually complete 17.2s; 44% timed out; TTFB 4 to 4.5x (1.4s vs 0.35s and 0.31s)
+- Vantage point: Beijing, WebPageTest node
+- As of: April 2026 (blog post dated 14 April 2026; report labelled 2025-26)
+- Source: Chinafy, State of Global Website Performance in China
+- URL: https://insights.chinafy.com/ and https://www.chinafy.com/blog/china-website-performance-benchmarks-2026
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-06, both pages fetched, all figures confirmed
+- Used in: website-in-china, is-wordpress-blocked-in-china
+- Notes: Vendor benchmark with a stated method. Cite with attribution and its own framing. Never cite Chinafy's 2023 marketing figures (Do Not Assert).
 
 ## Retired
 
