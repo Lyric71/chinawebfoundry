@@ -51,6 +51,14 @@ export const ui = {
     'nav.label.wordpress': 'WordPress',
     'nav.label.astro': 'Astro',
     'nav.label.wechat': 'WeChat',
+    'nav.label.websiteInChina': 'Your website in China',
+    'nav.desc.websiteInChina': 'Plan, build, file, host and run',
+    'nav.label.webAgencyChina': 'Web agency in China',
+    'nav.desc.webAgencyChina': 'The Shanghai team and how we work',
+    'nav.label.wordpressAgencyChina': 'WordPress agency in China',
+    'nav.desc.wordpressAgencyChina': 'WordPress built and hosted for the mainland',
+    'nav.label.wordpressInChina': 'WordPress in China',
+    'nav.desc.wordpressInChina': 'What breaks, and what we fix',
 
     // Footer
     'footer.manifesto': 'Websites built for the way Chinese users actually browse, read, and buy. Local team, global standards. From strategy to launch and beyond.',
@@ -141,6 +149,14 @@ export const ui = {
     'nav.label.wordpress': 'WordPress',
     'nav.label.astro': 'Astro',
     'nav.label.wechat': 'WeChat',
+    'nav.label.websiteInChina': 'Votre site web en Chine',
+    'nav.desc.websiteInChina': 'Concevoir, construire, enregistrer, héberger',
+    'nav.label.webAgencyChina': 'Agence web en Chine',
+    'nav.desc.webAgencyChina': 'L’équipe de Shanghai et sa méthode',
+    'nav.label.wordpressAgencyChina': 'Agence WordPress en Chine',
+    'nav.desc.wordpressAgencyChina': 'WordPress construit et hébergé pour la Chine continentale',
+    'nav.label.wordpressInChina': 'WordPress en Chine',
+    'nav.desc.wordpressInChina': 'Ce qui casse, et ce que nous corrigeons',
 
     // Footer
     'footer.manifesto': 'Des sites taillés pour la façon dont les internautes chinois naviguent, lisent et achètent réellement. Une équipe sur place, des standards internationaux. De la stratégie à la mise en ligne, et longtemps après.',
@@ -231,6 +247,14 @@ export const ui = {
     'nav.label.wordpress': 'WordPress',
     'nav.label.astro': 'Astro',
     'nav.label.wechat': 'WeChat',
+    'nav.label.websiteInChina': 'Su sitio web en China',
+    'nav.desc.websiteInChina': 'Plantear, construir, registrar, alojar',
+    'nav.label.webAgencyChina': 'Agencia web en China',
+    'nav.desc.webAgencyChina': 'El equipo de Shanghái y su forma de trabajar',
+    'nav.label.wordpressAgencyChina': 'Agencia WordPress en China',
+    'nav.desc.wordpressAgencyChina': 'WordPress construido y alojado para China continental',
+    'nav.label.wordpressInChina': 'WordPress en China',
+    'nav.desc.wordpressInChina': 'Qué falla y qué arreglamos',
 
     // Footer
     'footer.manifesto': 'Sitios pensados para la forma en que los usuarios chinos navegan, leen y compran de verdad. Equipo sobre el terreno, estándares internacionales. De la estrategia al lanzamiento, y mucho más allá.',
@@ -321,6 +345,14 @@ export const ui = {
     'nav.label.wordpress': 'WordPress',
     'nav.label.astro': 'Astro',
     'nav.label.wechat': 'WeChat',
+    'nav.label.websiteInChina': 'Ihre Website in China',
+    'nav.desc.websiteInChina': 'Planen, bauen, registrieren, hosten',
+    'nav.label.webAgencyChina': 'Webagentur in China',
+    'nav.desc.webAgencyChina': 'Das Team in Shanghai und seine Arbeitsweise',
+    'nav.label.wordpressAgencyChina': 'WordPress-Agentur in China',
+    'nav.desc.wordpressAgencyChina': 'WordPress gebaut und gehostet für Festlandchina',
+    'nav.label.wordpressInChina': 'WordPress in China',
+    'nav.desc.wordpressInChina': 'Was kaputtgeht und was wir beheben',
 
     // Footer
     'footer.manifesto': 'Websites, die sich danach richten, wie Chinas Nutzer wirklich surfen, lesen und kaufen. Team vor Ort, internationale Standards. Von der Strategie bis zum Launch und weit darüber hinaus.',

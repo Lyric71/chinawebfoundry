@@ -26,14 +26,6 @@ const ecosystemLabel = ({
   de: 'Teil der',
 } as Record<string, string>)[currentLang] ?? 'Part of';
 
-// Google Ads landing page: localised slug + label per locale
-const wpLandingLabel = ({
-  en: 'WordPress agency in China',
-  fr: 'Agence WordPress en Chine',
-  es: 'Agencia WordPress en China',
-  de: 'WordPress-Agentur in China',
-} as Record<string, string>)[currentLang] ?? 'WordPress agency in China';
-
 const ecosystemSites: { name: string; href: string; logo: string; sizeClass?: string }[] = [
   { name: 'hubStudio', href: 'https://www.hubstudio.ai', logo: '/images/ecosystem/hubstudio.webp', sizeClass: 'h-6 sm:h-7' },
   { name: 'The China Path', href: 'https://www.thechinapath.com', logo: '/images/ecosystem/thechinapath.webp' },
@@ -266,9 +258,11 @@ const ecosystemSites: { name: string; href: string; logo: string; sizeClass?: st
               {item.label}
             </a>
           ))}
-          <a href={localePath('/wordpress-agency-china/', currentLang)} class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
-            {wpLandingLabel}
-          </a>
+          {footerNav.moneyPages.map((item) => (
+            <a href={item.href} class="text-[var(--color-text-muted)] hover:text-[var(--color-brand-orange)] no-underline transition-colors">
+              {item.label}
+            </a>
+          ))}
         </div>
       </div>
     </div>

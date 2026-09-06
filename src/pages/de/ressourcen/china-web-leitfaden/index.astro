@@ -106,4 +106,10 @@ const categoryLabels: Record<(typeof categories)[number], string> = {
       cards.forEach((card) => { card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none'; });
     });
   });
+  // Preselect a topic passed in the URL, e.g. ?topic=Search (used by the service pages).
+  const topic = new URLSearchParams(window.location.search).get('topic');
+  if (topic) {
+    const match = Array.from(buttons).find((b) => b.dataset.filter === topic);
+    if (match) match.click();
+  }
 </script>

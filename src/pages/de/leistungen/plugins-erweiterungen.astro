@@ -6,6 +6,7 @@ import CaseStudyCards from '../../../components/ui/CaseStudyCards.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
 import { getEntry } from 'astro:content';
+import RelatedGuides from '../../../components/pages/RelatedGuides.astro';
 const service = (await getEntry('services-de', 'plugins-extensions'))!;
 const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
@@ -313,6 +314,9 @@ const pageLd = [...serviceLd];
   </section>
 
   <WhoIsThisFor heading="Wer uns für Plugin-Arbeit anspricht" audiences={audiences} footnote="Wenn Standard-Plugins Ihr China-Problem nicht lösen, sprechen Sie mit uns. Wir bauen, was fehlt." background="light" />
+
+  <!-- Related China Web Guide articles -->
+  <RelatedGuides service="plugins-extensions" lang="de" />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">

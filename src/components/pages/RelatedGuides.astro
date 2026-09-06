@@ -1,0 +1,124 @@
+---
+/**
+ * Three China Web Guide articles related to a service page, plus a link to the
+ * full listing filtered on the matching topic. Reads the guide collection for
+ * the current locale; guide ids are shared across locales.
+ */
+import { getCollection } from 'astro:content';
+import { relatedGuideTopics, relatedGuidesCopy } from '../../data/relatedGuides';
+import { localePath } from '../../i18n/utils';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  /** English service slug, e.g. "baidu-seo". */
+  service: string;
+  lang?: Locale;
+  /** Number of cards to show. */
+  count?: number;
+}
+
+const { service, lang = 'en', count = 3 } = Astro.props;
+
+const topic = relatedGuideTopics[service];
+if (!topic) {
+  throw new Error(`RelatedGuides: no topic defined for service "${service}" in src/data/relatedGuides.ts`);
+}
+
+const collectionByLang = {
+  en: 'guides',
+  fr: 'guides-fr',
+  es: 'guides-es',
+  de: 'guides-de',
+} as const;
+
+// Newest published guides first. Same-topic guides take the slots; if the topic
+// has fewer than `count` articles, the newest guides from other topics fill in.
+const all = (await getCollection(collectionByLang[lang]))
+  .filter((g) => g.data.published)
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+const inTopic = all.filter((g) => g.data.category === topic);
+const guides = [...inTopic, ...all.filter((g) => g.data.category !== topic)].slice(0, count);
+
+const copy = relatedGuidesCopy[lang];
+const allLabel = copy.allLink.replace('{topic}', copy.topics[topic]);
+const allHref = `${localePath('/resources/china-web-guide/', lang)}?topic=${topic}`;
+---
+
+{guides.length > 0 && (
+  <section aria-labelledby="related-guides-title" class="relative section-spacing bg-[var(--color-surface-light)] border-t border-[var(--color-surface-border)] overflow-hidden">
+    <div class="relative mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-14">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-4">
+            {copy.eyebrow}
+          </p>
+          <h2 id="related-guides-title" class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
+            {copy.title}
+          </h2>
+          <p class="mt-5 text-lg text-[var(--color-text-body)] leading-relaxed">
+            {copy.intro}
+          </p>
+        </div>
+        <a
+          href={allHref}
+          class="hidden lg:inline-flex items-center gap-2 shrink-0 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] hover:gap-3 transition-all duration-200 no-underline"
+        >
+          {allLabel}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {guides.map((guide) => (
+          <a
+            href={localePath(`/resources/china-web-guide/${guide.id}/`, lang)}
+            class="group flex flex-col bg-white border border-[var(--color-surface-border)] rounded-2xl overflow-hidden no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
+          >
+            <div class="aspect-[16/9] bg-[var(--color-surface-light)] overflow-hidden">
+              <img
+                src={guide.data.visual}
+                alt=""
+                width="525"
+                height="295"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="flex flex-col flex-1 p-6 lg:p-7">
+              <span class="inline-block self-start px-2.5 py-0.5 rounded-md text-xs font-medium bg-[var(--color-surface-light)] text-[var(--color-text-muted)] mb-3">
+                {guide.data.category}
+              </span>
+              <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">
+                {guide.data.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-6 flex-1 line-clamp-3">
+                {guide.data.summary}
+              </p>
+              <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] group-hover:gap-3 transition-all duration-200">
+                {copy.read}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 lg:hidden">
+        <a
+          href={allHref}
+          class="inline-flex items-center gap-2 text-base font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] no-underline"
+        >
+          {allLabel}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+)}

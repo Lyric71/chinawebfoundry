@@ -7,6 +7,7 @@ import WhoIsThisFor from '../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 
 import { getEntry } from 'astro:content';
+import RelatedGuides from '../../components/pages/RelatedGuides.astro';
 const service = (await getEntry('services', 'china-hosting'))!;
 const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
@@ -980,6 +981,9 @@ const pageLd = [...serviceLd];
       </div>
     </div>
   </section>
+
+  <!-- Related China Web Guide articles -->
+  <RelatedGuides service="china-hosting" />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-24 lg:py-32">

@@ -7,6 +7,7 @@ import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 import ScrollEffects from '../../../components/pages/ScrollEffects.astro';
 
 import { getEntry } from 'astro:content';
+import RelatedGuides from '../../../components/pages/RelatedGuides.astro';
 const service = (await getEntry('services-es', 'strategy-audit'))!;
 const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
@@ -810,6 +811,9 @@ const pageLd = [...serviceLd];
       </div>
     </div>
   </section>
+
+  <!-- Related China Web Guide articles -->
+  <RelatedGuides service="strategy-audit" lang="es" />
 
   <!-- CTA + marquee -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">

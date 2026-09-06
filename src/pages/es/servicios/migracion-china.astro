@@ -5,6 +5,7 @@ import Button from '../../../components/ui/Button.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
 import { getEntry } from 'astro:content';
+import RelatedGuides from '../../../components/pages/RelatedGuides.astro';
 const service = (await getEntry('services-es', 'china-migration'))!;
 const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
@@ -627,6 +628,9 @@ const pageLd = [...serviceLd];
   </section>
 
   <WhoIsThisFor heading="Pensado para las marcas que dan el salto a China" audiences={audiences} background="light" />
+
+  <!-- Related China Web Guide articles -->
+  <RelatedGuides service="china-migration" lang="es" />
 
   <!-- CTA -->
   <section class="relative bg-[var(--color-surface-dark)] overflow-hidden py-16 sm:py-20 lg:py-32">

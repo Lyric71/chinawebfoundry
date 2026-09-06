@@ -111,6 +111,18 @@ export function getMainNav(lang: Locale): NavItem[] {
   ];
 }
 
+/** The four money pages. Search landing pages: linked from the footer and the home page, never from the header menu. */
+export function getMoneyPages(lang: Locale): NavItem[] {
+  const t = useTranslations(lang);
+  const lp = (path: string) => localePath(path, lang);
+  return [
+    { label: t('nav.label.websiteInChina'), href: lp('/website-in-china/'), description: t('nav.desc.websiteInChina') },
+    { label: t('nav.label.webAgencyChina'), href: lp('/web-agency-china/'), description: t('nav.desc.webAgencyChina') },
+    { label: t('nav.label.wordpressAgencyChina'), href: lp('/wordpress-agency-china/'), description: t('nav.desc.wordpressAgencyChina') },
+    { label: t('nav.label.wordpressInChina'), href: lp('/wordpress-in-china/'), description: t('nav.desc.wordpressInChina') },
+  ];
+}
+
 export function getCtaNav(lang: Locale): NavItem {
   const t = useTranslations(lang);
   const lp = (path: string) => localePath(path, lang);
@@ -127,6 +139,7 @@ export function getFooterNav(lang: Locale) {
 
   return {
     services: nav[0].children!,
+    moneyPages: getMoneyPages(lang),
     company: [
       { label: t('footer.ourWork'), href: lp('/work/') },
       { label: t('nav.whoWeAre'), href: lp('/who-we-are/') },

@@ -5,6 +5,7 @@ import Button from '../../../components/ui/Button.astro';
 import WhoIsThisFor from '../../../components/pages/WhoIsThisFor.astro';
 
 import { getEntry } from 'astro:content';
+import RelatedGuides from '../../../components/pages/RelatedGuides.astro';
 const service = (await getEntry('services-de', 'ux-ui-design'))!;
 const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
@@ -659,6 +660,9 @@ const pageLd = [...serviceLd];
   </section>
 
   <WhoIsThisFor heading="An wen sich diese Seite richtet" audiences={audiences} />
+
+  <!-- Related China Web Guide articles -->
+  <RelatedGuides service="ux-ui-design" lang="de" />
 
   <!-- CTA -->
   <section class="relative bg-[#0a0a0d] overflow-hidden py-16 sm:py-20 lg:py-32">
