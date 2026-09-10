@@ -62,7 +62,7 @@ Publish wordpress-plugins-china
     `quality_passed_on` and `image_generated_on` filled.
 13. Writes `logs/YYYY-MM-DD.md`.
 
-Then it stops. A person reviews the draft (see below), or the 10:00 publish
+Then it stops. A person reviews the draft (see below), or the 05:30 publish
 task picks it up.
 
 ## Publishing a reviewed draft
@@ -96,9 +96,20 @@ every locale, image, `src/i18n/routes.ts` if changed, `editorial/output`,
 `logs`, `schedule.csv`, `sources`), one commit on main
 (`feat(guide): publish <slug>`, or `feat(work):`, `feat(page):`,
 `fix(guide):` for upgrades, `feat(i18n):` for translations), `git push
-origin main`. The repo's pre-push hook runs the build a second time; that is
-expected. A failed build or check means no commit, no push, the row stays at
-`image_ready`, and the email reports the failure. Vercel deploys from main,
+origin main`. Read `git status` first and stage nothing that belongs to
+another session or another piece. The repo's pre-push hook runs the build a
+second time; that is expected.
+
+`npx astro check` passes when it reports no more errors than a clean checkout
+of HEAD, same count and same files. Cyril decided this on 10 September 2026,
+because the repo already carried 22 errors before the programme began. Run the
+baseline in a temporary `git worktree` at HEAD with `node_modules` junctioned
+to the repo's, and log both results. Delete the junction with
+`DirectoryInfo.Delete()` before `git worktree remove`.
+
+A failed build, or a check with errors beyond the HEAD baseline, means no
+commit, no push, the row stays at `image_ready`, and the email goes out with
+`--status held`. Vercel deploys from main,
 so the push is what puts the piece live.
 
 After a successful push, run `npm run indexnow` once the deploy is live so
@@ -108,8 +119,8 @@ When the publish finishes, Claude runs `editorial/scripts/notify-publish.mjs`
 from the repo root. It sends one email through Resend to
 cyril.drouin@outlook.com (Resend testing mode delivers only to the account
 owner; verify a domain at resend.com/domains, then change `FROM` and
-`DEFAULT_TO` in the script to use gmail): subject `Published: <title>`, body
-with the live URL per locale, the image path, build status, open TODOs and
+`DEFAULT_TO` in the script to use gmail): subject `Published: <title>` (`Held: <title>` with `--status held`), body
+with the live URL per locale, the image path, build and check status, open TODOs and
 the run log path. `RESEND_API_KEY` is already in `.env`. If the send fails,
 Claude says so instead of skipping silently.
 
@@ -226,18 +237,19 @@ keys and the full model are all here, and a cloud routine has none of them.
 
 | Task | When (Shanghai) | What | Default |
 |---|---|---|---|
-| ChinaWebFoundry Editorial Draft | Tue, Thu, Fri 07:00 | `run-daily.ps1 -Mode draft`: steps 0 to 3, stops at `image_ready` | enabled |
-| ChinaWebFoundry Editorial Publish | every day 10:00 | `run-daily.ps1 -Mode publish`: publishes every due `image_ready` row, builds, commits, pushes, emails | enabled |
+| ChinaWebFoundry Editorial Draft | Tue, Thu, Fri 01:30 | `run-daily.ps1 -Mode draft`: steps 0 to 3, stops at `image_ready` | enabled |
+| ChinaWebFoundry Editorial Publish | every day 05:30 | `run-daily.ps1 -Mode publish`: publishes every due `image_ready` row, builds, commits, pushes, emails | enabled |
 
 The hours are chosen around the three pipelines already registered on this
 machine:
 
 | Pipeline | Draft | Publish |
 |---|---|---|
-| ChinaWebFoundry (this one) | Tue, Thu, Fri 07:00 | daily 10:00 |
-| BBChien | daily 09:00 | daily 13:00 |
-| TheRedScroll | Mon, Tue, Thu, Fri 11:00 | daily 13:00 |
-| TheChinaPath | weekly 15:00 | daily 17:30 |
+| ChinaWebFoundry (this one) | Tue, Thu, Fri 01:30 | daily 05:30 |
+| BBChien | daily 00:00 | daily 05:00 |
+| TheRedScroll | Mon, Tue, Thu, Fri 00:30 | daily 04:00 |
+| TheChinaPath | Mon, Tue, Wed, Thu 01:00 | daily 04:30 |
+| VisitMoganshan | daily 22:00 (rows due tomorrow) | daily 03:30 |
 
 Scripts live in `editorial/scripts/`. `register-tasks.ps1` creates or updates
 both tasks. Each run writes its console output to `logs/runs/<date>-<mode>.txt`
@@ -245,22 +257,22 @@ next to the piece's run log. The machine has to be on, or asleep with wake
 allowed, at the run time. A missed run fires as soon as the machine is back.
 
 **Sleep kills a run in progress.** A T1 publish with three deep translations
-can take well over an hour. The machine must stay awake from 07:00 until the
+can take well over an hour. The machine must stay awake from 01:30 until the
 publish finishes. Set the power plan to never sleep on AC, or keep the laptop
 plugged in and the lid open on run days. The runner retries transient API
 errors (overloaded, rate limit, 5xx) up to three times, five minutes apart,
 on the same model.
 
-Publishing is unattended: a draft made at 07:00 is published at 10:00 the
+Publishing is unattended: a draft made at 01:30 is published at 05:30 the
 same day unless someone sets its row to `blocked` before then. That
-three-hour window is the review. To pause publishing:
+four-hour window is the review. To pause publishing:
 
 ```
 Disable-ScheduledTask -TaskName 'ChinaWebFoundry Editorial Publish'
 ```
 
 Four pipelines share this machine. If two collide on API rate limits, move
-this one with `register-tasks.ps1 -DraftTime 06:00 -PublishTime 08:30`.
+this one with `register-tasks.ps1 -DraftTime 02:00 -PublishTime 05:45`.
 
 Runs use `--dangerously-skip-permissions` so nothing pauses for approval, and
 pin the most capable model. Never lower the model to speed a run up.

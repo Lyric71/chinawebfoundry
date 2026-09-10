@@ -12,6 +12,8 @@ const guides = (await getCollection('guides'))
   });
 
 const categories = ['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search'] as const;
+
+const PAGE_SIZE = 12;
 ---
 
 <PageLayout
@@ -50,7 +52,7 @@ const categories = ['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Sear
     <div class="mx-auto max-w-[1400px] section-padding">
 
       <!-- Filter buttons -->
-      <div class="flex flex-wrap gap-2 mb-12" id="guide-filters">
+      <div class="flex flex-wrap gap-2 mb-12 scroll-mt-32" id="guide-filters">
         <button
           type="button"
           class="filter-btn is-active px-4 py-2 rounded-full text-sm font-medium font-[var(--font-button)] border transition-all duration-200 cursor-pointer bg-[var(--color-text-dark)] text-white border-[var(--color-text-dark)]"
@@ -69,13 +71,14 @@ const categories = ['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Sear
         ))}
       </div>
 
-      <!-- Articles grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="guide-grid">
-        {guides.map((guide) => (
+      <!-- Articles grid (cards past the first page are hidden until the script pages through them) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="guide-grid" data-page-size={PAGE_SIZE}>
+        {guides.map((guide, index) => (
           <a
             href={`/resources/china-web-guide/${guide.id}/`}
             class="guide-card group flex flex-col bg-white border border-[var(--color-surface-border)] rounded-2xl overflow-hidden no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
             data-category={guide.data.category}
+            hidden={index >= PAGE_SIZE}
           >
             <div class="aspect-[16/9] bg-[var(--color-surface-light)] overflow-hidden">
               <img
@@ -109,6 +112,18 @@ const categories = ['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Sear
           </a>
         ))}
       </div>
+
+      <!-- Without JavaScript, show every article -->
+      <noscript><style is:inline>.guide-card[hidden] { display: flex !important; }</style></noscript>
+
+      <!-- Pagination (built by the script) -->
+      <nav
+        id="guide-pagination"
+        aria-label="Guide pages"
+        class="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-2"
+        hidden
+      ></nav>
+      <p id="guide-page-status" class="sr-only" aria-live="polite"></p>
     </div>
   </section>
 
@@ -127,35 +142,117 @@ const categories = ['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Sear
 </PageLayout>
 
 <script>
+  const grid = document.getElementById('guide-grid');
+  const filters = document.getElementById('guide-filters');
+  const pagination = document.getElementById('guide-pagination');
+  const status = document.getElementById('guide-page-status');
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const cards = document.querySelectorAll<HTMLElement>('.guide-card');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.guide-card'));
+
+  const pageSize = Number(grid?.dataset.pageSize) || 12;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const filterActive = ['is-active', 'bg-[var(--color-text-dark)]', 'text-white', 'border-[var(--color-text-dark)]'];
+  const filterIdle = ['bg-white', 'text-[var(--color-text-body)]', 'border-[var(--color-surface-border)]'];
+
+  const pageBase = 'inline-flex items-center justify-center gap-2 h-10 min-w-10 px-3 rounded-full text-sm font-medium font-[var(--font-button)] border transition-all duration-200';
+  const pageIdle = 'cursor-pointer bg-white text-[var(--color-text-body)] border-[var(--color-surface-border)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)]';
+  const pageCurrent = 'bg-[var(--color-text-dark)] text-white border-[var(--color-text-dark)]';
+  const pageDisabled = 'cursor-not-allowed opacity-40 bg-white text-[var(--color-text-body)] border-[var(--color-surface-border)]';
+
+  const arrowLeft = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>';
+  const arrowRight = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>';
+
+  let filter = 'all';
+  let page = 1;
+
+  function pageButton(html: string, target: number, opts: { current?: boolean; disabled?: boolean; label?: string } = {}) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `${pageBase} ${opts.current ? pageCurrent : opts.disabled ? pageDisabled : pageIdle}`;
+    btn.innerHTML = html;
+    if (opts.label) btn.setAttribute('aria-label', opts.label);
+    if (opts.current) btn.setAttribute('aria-current', 'page');
+    if (opts.disabled) btn.disabled = true;
+    if (!opts.current && !opts.disabled) {
+      btn.addEventListener('click', () => {
+        page = target;
+        render(true);
+        // Scroll back up to the filters so the new cards start at the top.
+        filters?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+    }
+    return btn;
+  }
+
+  function renderPagination(totalPages: number) {
+    if (!pagination) return;
+    pagination.hidden = totalPages <= 1;
+    if (totalPages <= 1) {
+      pagination.replaceChildren();
+      return;
+    }
+
+    const items = [
+      pageButton(`${arrowLeft}<span class="hidden sm:inline">Previous</span>`, page - 1, { disabled: page === 1, label: 'Previous page' }),
+    ];
+    for (let n = 1; n <= totalPages; n++) {
+      items.push(pageButton(String(n), n, { current: n === page, label: `Page ${n}` }));
+    }
+    items.push(pageButton(`<span class="hidden sm:inline">Next</span>${arrowRight}`, page + 1, { disabled: page === totalPages, label: 'Next page' }));
+    pagination.replaceChildren(...items);
+  }
+
+  function syncUrl() {
+    const url = new URL(window.location.href);
+    if (filter === 'all') url.searchParams.delete('topic');
+    else url.searchParams.set('topic', filter);
+    if (page > 1) url.searchParams.set('page', String(page));
+    else url.searchParams.delete('page');
+    history.replaceState(history.state, '', url);
+  }
+
+  function render(fromUser = false) {
+    const matching = cards.filter((card) => filter === 'all' || card.dataset.category === filter);
+    const totalPages = Math.max(1, Math.ceil(matching.length / pageSize));
+    page = Math.min(Math.max(1, page), totalPages);
+
+    const start = (page - 1) * pageSize;
+    const visible = new Set(matching.slice(start, start + pageSize));
+    cards.forEach((card) => {
+      card.hidden = !visible.has(card);
+    });
+
+    renderPagination(totalPages);
+    syncUrl();
+
+    if (fromUser) {
+      if (status) status.textContent = totalPages > 1 ? `Page ${page} of ${totalPages}` : '';
+    }
+  }
+
+  function setActiveFilter() {
+    buttons.forEach((b) => {
+      const isActive = b.dataset.filter === filter;
+      b.classList.remove(...(isActive ? filterIdle : filterActive));
+      b.classList.add(...(isActive ? filterActive : filterIdle));
+    });
+  }
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-
-      // Update active button styles
-      buttons.forEach((b) => {
-        b.classList.remove('is-active', 'bg-[var(--color-text-dark)]', 'text-white', 'border-[var(--color-text-dark)]');
-        b.classList.add('bg-white', 'text-[var(--color-text-body)]', 'border-[var(--color-surface-border)]');
-      });
-      btn.classList.add('is-active', 'bg-[var(--color-text-dark)]', 'text-white', 'border-[var(--color-text-dark)]');
-      btn.classList.remove('bg-white', 'text-[var(--color-text-body)]', 'border-[var(--color-surface-border)]');
-
-      // Filter cards
-      cards.forEach((card) => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      filter = btn.dataset.filter ?? 'all';
+      page = 1;
+      setActiveFilter();
+      render(true);
     });
   });
-  // Preselect a topic passed in the URL, e.g. ?topic=Search (used by the service pages).
-  const topic = new URLSearchParams(window.location.search).get('topic');
-  if (topic) {
-    const match = Array.from(buttons).find((b) => b.dataset.filter === topic);
-    if (match) match.click();
-  }
+
+  // Preselect a topic and page passed in the URL, e.g. ?topic=Search (used by the service pages) or ?page=2.
+  const params = new URLSearchParams(window.location.search);
+  const topic = params.get('topic');
+  if (topic && Array.from(buttons).some((b) => b.dataset.filter === topic)) filter = topic;
+  page = Number.parseInt(params.get('page') ?? '1', 10) || 1;
+  setActiveFilter();
+  render();
 </script>

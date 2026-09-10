@@ -56,7 +56,7 @@ Fact bank and ledger first, live research with every source validated twice,
 `/createarticle` (house version, cadence pass in iteration 7),
 `/content-quality-us` on every piece with British spelling,
 `/generate-image-openai` for the hero, then the publish step on request or on
-the 10:00 task, then an email to Cyril when the publish is done. `CLAUDE.md`
+the 05:30 task, then an email to Cyril when the publish is done. `CLAUDE.md`
 has the table.
 
 ## The two rules people get wrong

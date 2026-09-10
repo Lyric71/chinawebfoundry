@@ -32,7 +32,7 @@ Every piece goes through these steps. None is optional.
 | 5. Notify | `editorial/scripts/notify-publish.mjs` (Resend) | Emails a publish summary to Cyril | (noted in the run log) |
 
 "Draft today's piece." runs steps 0 to 3 and stops. Step 4 runs only when a
-person says "Publish <slug>" or when the 10:00 scheduled publish task finds a due
+person says "Publish <slug>" or when the 05:30 scheduled publish task finds a due
 `image_ready` row. Step 5 follows step 4 automatically. Nothing publishes
 itself outside those two paths.
 
@@ -56,8 +56,8 @@ a rewritten paragraph in an upgrade: all of it. The tracker for all 18 passes
 goes in the run log. A row that jumps from `drafted` to `image_ready` with
 no `quality_passed_on` date is a failed run and gets sent back.
 
-Step 3 uses the `generate-image-openai` skill only, never
-`scripts/generate-image.mjs` (Wavespeed) in this repo.
+Step 3 uses the `generate-image-openai` skill only. `scripts/generate-image.mjs`
+is the same OpenAI path, kept for batch runs.
 
 ## Every translation goes through /deep-translate. Interactive. No sub agent.
 
@@ -291,8 +291,13 @@ whole differentiator. It is not optional.
 When step 4 finishes, run from the repo root:
 
 ```
-node editorial/scripts/notify-publish.mjs --slug <slug> --title "<title>" --type guide --build passed --log editorial/logs/YYYY-MM-DD.md --note "<commit hash>" --todo "<any open item>"
+node editorial/scripts/notify-publish.mjs --slug <slug> --title "<title>" --type guide --status published --build passed --check "passed (22 errors, HEAD 22)" --log editorial/logs/YYYY-MM-DD.md --note "<commit hash>" --todo "<any open item>"
 ```
+
+A piece the build or the check stopped gets `--status held`: the subject reads
+`Held: <title>` and the URLs are labelled as not live. `npx astro check` passes
+when it reports no more errors than a clean worktree at HEAD, same count and
+same files (Cyril, 10 September 2026; see RUNBOOK).
 
 `--type` is the `content_type` from the schedule row (guide, guide-en,
 guide-en-first, report, casestudy, money-page, upgrade, translation). It

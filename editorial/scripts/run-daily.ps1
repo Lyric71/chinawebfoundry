@@ -58,7 +58,7 @@ if ($Mode -eq 'draft' -and -not $Force) {
 }
 
 # Always pull the best available model. Never a faster or smaller mode.
-$Model = 'claude-fable-5-1'
+$Model = 'claude-opus-5'
 
 if ($Mode -eq 'draft') {
   $Prompt = @'
@@ -101,20 +101,28 @@ The same applies to M1 locale pages, T6 upgrade passages in every locale and
 T7 batches. Follow TRANSLATION-RULES.md. For a T6 upgrade, apply the change list to every locale
 the page has and confirm the sitemap entry count is unchanged. For M1, remove
 noindex and the sitemap exclusion in the same commit.
-Then run npm run build and npx astro check. When both pass: set the row to
-published with published_on, then git add everything the piece touched (the
-content files in every locale, the image, src/i18n/routes.ts if changed,
-editorial/output, editorial/logs, editorial/schedule.csv, editorial/sources)
-and commit on main with a conventional commit message (feat(guide): publish
-<slug>, feat(work): for case studies, feat(page): for the money page,
+Then run npm run build and npx astro check. The build must exit 0. The check
+passes when it reports no more errors than a clean checkout of HEAD, same
+count and same files: run npx astro check in a temporary git worktree at HEAD
+with node_modules junctioned to the repo's, record both results in the run
+log, then delete the junction with DirectoryInfo.Delete() before git worktree
+remove (never Remove-Item -Recurse on the junction). When both pass: set the
+row to published with published_on, then git add everything the piece touched
+(the content files in every locale, the image, src/i18n/routes.ts if changed,
+editorial/output, editorial/logs, editorial/schedule.csv, editorial/sources).
+Read git status first and stage nothing that belongs to another session or
+another piece. Commit on main with a conventional commit message (feat(guide):
+publish <slug>, feat(work): for case studies, feat(page): for the money page,
 fix(guide): for upgrades, feat(i18n): for translations), then git push origin
 main. Only after the push succeeds, run
-node editorial/scripts/notify-publish.mjs with the slug, title, type, build
-result, log path and the commit hash in --note.
-This run is unattended: never ask a question. If the build or the check
-fails, do not commit, do not push, leave the row at image_ready, put the
-error in the run log and send the email with --build failed and the error in
---note.
+node editorial/scripts/notify-publish.mjs with the slug, title, type,
+--status published, --build passed, --check with the error count for the piece
+and for HEAD, the log path and the commit hash in --note.
+This run is unattended: never ask a question. If the build fails, or the check
+reports errors beyond the HEAD baseline, do not commit, do not push, leave the
+row at image_ready, put the error in the run log and send the email with
+--status held, --build and --check set to what actually happened, and the
+error in --note.
 '@
 }
 

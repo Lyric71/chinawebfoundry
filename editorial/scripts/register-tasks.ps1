@@ -3,8 +3,8 @@
   Registers (or re-registers) the two Windows scheduled tasks that run the
   ChinaWebFoundry editorial pipeline on this machine.
 
-  ChinaWebFoundry Editorial Draft    Tue, Thu, Fri at 07:00 local (Shanghai)
-  ChinaWebFoundry Editorial Publish  every day at 10:00 local
+  ChinaWebFoundry Editorial Draft    Tue, Thu, Fri at 01:30 local (Shanghai, night)
+  ChinaWebFoundry Editorial Publish  every day at 05:30 local
 
   Run from any PowerShell prompt:
     powershell -ExecutionPolicy Bypass -File editorial\scripts\register-tasks.ps1
@@ -12,14 +12,14 @@
   To pause unattended publishing:
     Disable-ScheduledTask -TaskName 'ChinaWebFoundry Editorial Publish'
 
-  Three other editorial pipelines run on this machine (BBChien 09:00 and
-  13:00, TheRedScroll 11:00 and 13:00, TheChinaPath 15:00 and 17:30), which
-  is why this one defaults to 07:00 and 10:00. To move it:
-    register-tasks.ps1 -DraftTime 06:00 -PublishTime 08:30
+  Three other editorial pipelines run on this machine (BBChien 00:00 and
+  05:00, TheRedScroll 00:30 and 04:00, TheChinaPath 01:00 and 04:30), which
+  is why this one defaults to 01:30 and 05:30. To move it:
+    register-tasks.ps1 -DraftTime 02:00 -PublishTime 05:45
 #>
 param(
-  [string]$DraftTime = '07:00',
-  [string]$PublishTime = '10:00'
+  [string]$DraftTime = '01:30',
+  [string]$PublishTime = '05:30'
 )
 
 $ErrorActionPreference = 'Stop'

@@ -237,6 +237,89 @@ primary source, record the URL and the check 2 date, and move the entry to
 - Used in: upgrade-guide-title-suffix
 - Notes: Raw HTML counts run longer than character counts where Astro escapes an apostrophe to `&#39;` (the French ICP title reads 124 raw against 120 as a reader sees it). Decode entities before counting. Figures go stale the moment the 47 rewrites land: recount after the T6-01 publish.
 
+### Google Fonts from a mainland datacentre (fonts.googleapis.com, fonts.gstatic.com)
+- Fact ID: F6
+- Value: 72 of 72 completions each. fonts.googleapis.com 111ms median TTFB, 137ms p95. fonts.gstatic.com 102ms median, 121ms p95
+- Vantage point: Alibaba Cloud (阿里云) instance, cn-zhangjiakou. Sampled every 10 minutes for 12 hours, 30-second timeout, 72 samples per resource
+- As of: 28 August 2026
+- Source: 21YunBox, *A Day of Third-Party Requests From Inside China*
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-09-06 (fact bank, entry marked CORRECTED 6 September)
+- Verified 2: 2026-09-10, page fetched twice, method section and both result tables read
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Notes: **The fact bank says 29 August and 73 of 73. The source says 28 August and 72 of 72.** Source wins, same precedent as F19. PLAN.md section 4 needs correcting. Never cite this figure without the paired consumer row below: alone it is the flat correction the Do Not Assert list forbids.
+
+### Google Fonts from a Beijing consumer line (fonts.googleapis.com, fonts.gstatic.com)
+- Fact ID: F6
+- Value: fonts.googleapis.com requested 54 times, 0 answered. fonts.gstatic.com requested 6 times, 0 answered
+- Vantage point: Beijing China Mobile (中国移动) residential broadband line, 88 real websites, 264 page loads
+- As of: 30 August 2026
+- Source: 21YunBox, *A Day of Third-Party Requests From Inside China*
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-09-06 (fact bank)
+- Verified 2: 2026-09-10
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Notes: **The fact bank dates this 28 August and says only "Beijing residential broadband". The source says 30 August and names China Mobile.** Source wins. The counts, 0 of 54 and 0 of 6, match the fact bank exactly. Always cite paired with the datacentre row above.
+
+### Google Tag Manager, both vantage points
+- Fact ID: F3 (sharpened)
+- Value: 72 of 72 at 118ms median, 143ms p95 from the datacentre. 112 requests, 0 answered, from the consumer line
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 28 August 2026; Beijing China Mobile (中国移动) residential, 30 August 2026
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, *A Day of Third-Party Requests From Inside China*
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-09-10 (first logging, this run)
+- Verified 2: 2026-09-10 (same page, second fetch with a different query)
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Notes: F3 calls GTM "intermittent". Each vantage point gave the same answer on every attempt, so the shape is a split, not intermittency. F34 and the T6-05 upgrade of google-analytics-china should use this wording. The separate F3 point stands: the beacon to google-analytics.com fails either way.
+
+### reCAPTCHA, both vantage points
+- Fact ID: F2
+- Value: 0 of 72 from the datacentre, 0 of 18 from the consumer line
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 28 August 2026; Beijing China Mobile (中国移动) residential, 30 August 2026
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, *A Day of Third-Party Requests From Inside China*
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-10
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Notes: Confirms F2's blocked verdict from two independent vantage points, which most circulating verdicts do not have. Says nothing about the `www.recaptcha.net` workaround; F2's own warning to retest that before publishing it still stands. Useful for T2-03.
+
+### cdn.jsdelivr.net, both vantage points
+- Fact ID: F7 (corrected)
+- Value: 72 of 72 at 660ms median, 1,757ms p95 from the datacentre. 36 of 36 from the consumer line
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 28 August 2026; Beijing China Mobile (中国移动) residential, 30 August 2026
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, *A Day of Third-Party Requests From Inside China*
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: 2026-09-10
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Notes: **F7 says "493ms quiet hour to 1,086ms peak, p95 1,780ms". The p95 matches within 23ms; the central figure does not.** Source wins. jsDelivr is the one host in this set that completes from a home line, which is worth keeping separate from cdnjs and unpkg in copy.
+
+## Checks attempted and not completed
+
+Logged so the next run does not spend the time again, and so no piece cites
+these as verified twice.
+
+### ajax.googleapis.com, no first byte before a 60-second abandon
+- Fact ID: F1
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: **not completed, 2026-09-10.** The 21YunBox page does not test this host, and `harness/latest.json` is empty, so the ChinaWebFoundry probe record the fact bank refers to is not in the repo to re-read.
+- Effect: kept out of the T6-02 measurement table. The live article's existing paragraph was left byte-identical rather than restated. Probe this host before T2-01 (week 2) and log the run_id here.
+
+### wordpress.org rate limits mainland IPs, HTTP 429
+- Fact ID: F8
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: **not completed, 2026-09-10.** Primary source is WordPress meta trac ticket #5106, *About 429 Problems in China. We want to solve it by ourselves.* Two independent searches return its official replies ("Several Chinese network sources are rate-limited on certain services due to a high level of abuse"; WordPress.org "won't be providing any form of whitelisting or an official way to replicate WordPress.org through a Chinese proxy"). `meta.trac.wordpress.org` returns HTTP 403 to the fetcher on `/ticket/5106` and on `?format=tab`, so the ticket date is unconfirmed and "documented since October 2019" cannot be stood up.
+- Effect: no citation added to the live article, and its wordpress.org section was left out of scope. Retry from a client that trac will serve, or find the same statement in a dated make.wordpress.org post.
+
+### cdnjs.cloudflare.com and unpkg.com timings
+- Fact ID: F7
+- Verified 1: 2026-08-29 (fact bank), 478ms and 824ms, no vantage point on record
+- Verified 2: **not completed, 2026-09-10.** The 21YunBox page tests neither host.
+- Effect: the figures were **cut** from the live article's dependency table rather than republished, because a latency figure with no named vantage point is not a figure. The row now reads "Both complete. Untested from a consumer line". Restore the numbers only with a vantage point and a date attached.
+
 ## Retired
 
 (Stale entries, kept for traceability.)

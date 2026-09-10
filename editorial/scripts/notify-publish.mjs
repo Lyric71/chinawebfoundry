@@ -9,8 +9,14 @@
  *   node editorial/scripts/notify-publish.mjs --slug <slug> --title "<title>"
  *        [--type guide|guide-en|guide-en-first|report|casestudy|money-page|upgrade|translation]
  *        [--to <email>] [--image /images/guides/<slug>.webp]
- *        [--build passed|failed] [--log editorial/logs/YYYY-MM-DD.md]
+ *        [--status published|held] [--build passed|failed] [--check "<result>"]
+ *        [--log editorial/logs/YYYY-MM-DD.md]
  *        [--todo "<text>"]... [--note "<text>"] [--dry-run]
+ *
+ * --status held is for a piece the build or the check stopped: the subject and
+ * heading read "Held:" instead of "Published:", and the URLs are labelled as
+ * not live. --build and --check are reported on separate lines, so a green
+ * build with a failed check does not read as a failed build.
  *
  * Locale URLs are derived from which content files exist for the slug and
  * from the localized slug maps in src/i18n/routes.ts:
@@ -129,6 +135,9 @@ async function main() {
     process.exit(2);
   }
   const type = args.type || 'guide';
+  const held = args.status === 'held';
+  const verb = held ? 'Held' : 'Published';
+  const urlLabel = held ? 'Pages (not live)' : 'Live URLs';
   const to = args.to || DEFAULT_TO;
   const urls = localeUrls(args.slug, type, args.url);
   const when = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Shanghai', hour12: false });
@@ -137,17 +146,18 @@ async function main() {
   const warnings = urls.filter((u) => u.unlocalized).map((u) => `${u.lang} page is live under an English slug: guideSlugs entry missing in src/i18n/routes.ts`);
 
   const lines = [
-    `Published: ${args.title}`,
+    `${verb}: ${args.title}`,
     '',
     `Slug: ${args.slug}`,
     `Type: ${type}`,
     `Time (Shanghai): ${when}`,
     '',
-    'Live URLs:',
+    `${urlLabel}:`,
     ...(urls.length ? urls.map((u) => `  ${u.lang}  ${u.url}`) : ['  none found in src/content for this slug']),
     '',
     `Image: ${image}`,
     `Build: ${args.build || 'not reported'}`,
+    `Check: ${args.check || 'not reported'}`,
     `Run log: ${args.log || 'not reported'}`,
   ];
   if (warnings.length) lines.push('', 'Warnings:', ...warnings.map((w) => `  - ${w}`));
@@ -159,14 +169,15 @@ async function main() {
   const html = `
 <div style="font-family:Inter,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#FFFFFF;color:#212121;">
   <p style="font-size:11px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#F25F29;margin:0 0 8px;">Editorial system</p>
-  <h1 style="font-size:22px;font-weight:500;line-height:1.25;margin:0 0 24px;font-family:Poppins,Inter,sans-serif;">Published: ${esc(args.title)}</h1>
+  <h1 style="font-size:22px;font-weight:500;line-height:1.25;margin:0 0 24px;font-family:Poppins,Inter,sans-serif;">${verb}: ${esc(args.title)}</h1>
   <table style="width:100%;border-collapse:collapse;font-size:14px;">
     ${row('Slug', esc(args.slug))}
     ${row('Type', esc(type))}
     ${row('Time (Shanghai)', esc(when))}
-    ${row('Live URLs', urls.length ? urls.map((u) => `<span style="color:#5C5C5C;">${u.lang}</span> <a href="${u.url}" style="color:#F25F29;text-decoration:none;">${u.url}</a>`).join('<br/>') : 'none found in src/content for this slug')}
+    ${row(urlLabel, urls.length ? urls.map((u) => `<span style="color:#5C5C5C;">${u.lang}</span> <a href="${u.url}" style="color:#F25F29;text-decoration:none;">${u.url}</a>`).join('<br/>') : 'none found in src/content for this slug')}
     ${row('Image', esc(image))}
     ${row('Build', esc(args.build || 'not reported'))}
+    ${row('Check', esc(args.check || 'not reported'))}
     ${row('Run log', esc(args.log || 'not reported'))}
   </table>
   ${warnings.length ? `<p style="font-size:14px;margin:24px 0 8px;color:#B91C1C;">Warnings</p><ul style="font-size:14px;line-height:1.6;margin:0;padding-left:20px;">${warnings.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>` : ''}
@@ -174,7 +185,7 @@ async function main() {
   ${args.note ? `<p style="font-size:14px;line-height:1.6;margin:24px 0 0;">${esc(args.note)}</p>` : ''}
 </div>`;
 
-  const payload = { from: FROM, to: [to], subject: `Published: ${args.title}`, text, html };
+  const payload = { from: FROM, to: [to], subject: `${verb}: ${args.title}`, text, html };
 
   if (args.dryRun) {
     console.log(text);

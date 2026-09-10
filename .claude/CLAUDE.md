@@ -94,10 +94,10 @@ with structured frontmatter (title, slug, description, icon, order).
 ## Image Generation
 - When a page or component needs a new image asset, generate it directly with `scripts/generate-image.mjs` rather than asking the user to supply one or leaving a placeholder.
 - Usage: `node scripts/generate-image.mjs --name <descriptive-kebab-case-name> "<detailed prompt>"`
-- The script calls Wavespeed AI (nano-banana-2), downloads the result, optimises it to WebP, and saves it to `public/images/<name>.webp` automatically. WEBP_QUALITY=80, max width 1600px.
+- The script calls the OpenAI Images API (gpt-image-2) directly, decodes the result, optimises it to WebP, and saves it to `public/images/<name>.webp` automatically. WEBP_QUALITY=80, max width 1600px.
 - Always pass `--name` with a descriptive kebab-case filename (e.g. `hero-baidu-seo-shanghai`), never let it fall back to the `generated-<timestamp>.webp` default.
 - Write detailed, specific prompts: subject, setting, style, lighting, mood, framing. Photorealistic and grounded in China where relevant.
-- Requires `WAVESPEED_API_KEY` in `.env` (already configured locally).
+- Requires `OPENAI_API_KEY` in `.env` (already configured locally).
 
 ## Testing
 - CRITICAL: Never run `npm run build` on your own initiative. Build only when the user explicitly asks for it, including before a commit (ask first).
@@ -133,7 +133,7 @@ without a `quality_passed_on` date),
 `/deep-translate` run interactively in the main conversation (never a
 subagent, all three passes step by step, FR then ES then DE, none skipped),
 then the publish step only when
-a person asks or the 10:00 scheduled task finds a due `image_ready` row, then
+a person asks or the 05:30 scheduled task finds a due `image_ready` row, then
 one email via `editorial/scripts/notify-publish.mjs` (Resend) when the
 publish is done. House SEO ceilings are title 52, meta 152, excerpt 25 words.
 Guide heroes go to `public/images/guides/<slug>.webp`, max 1050px, under
