@@ -1,12 +1,12 @@
 ---
 title: "Is WordPress blocked in China?"
-subtitle: "The software runs fine on a Shanghai server. What breaks is the twenty-odd calls a default install makes to the outside world before a visitor sees anything."
+subtitle: "The software runs fine on a mainland server. Its outside calls are the problem. Measured from two vantage points, 28 and 30 August 2026."
 summary: "WordPress isn't blocked in mainland China. Here's the 2026 list of which dependencies really fail, which are only slow, and which ones guides get wrong."
 visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-08-29
+updatedAt: 2026-09-11
 category: Technology
 ---
 
@@ -16,7 +16,32 @@ The software downloads, installs and runs normally on a server in Shanghai or Be
 
 So why does the myth survive? Because a default install reaches out to somewhere between 8 and 20 external hosts before a visitor sees anything. Some of those hosts are blocked. One of them can hold the whole page hostage. The site loads, technically. It just bleeds time on every request, and your team back in Europe never sees it happen.
 
-Last checked from mainland vantage points on 29 August 2026.
+Last measured from an Alibaba Cloud region on 28 August 2026, and from a Beijing consumer line on 30 August 2026.
+
+## Measured from a datacentre and from a home line
+
+Two probes, two days apart, over the same list of hosts. One ran on a commercial cloud inside China. The other ran on somebody's home broadband in Beijing. They disagree, and the disagreement is the useful part.
+
+| Host | Vantage point | Result | Verdict | Tested |
+|---|---|---|---|---|
+| fonts.googleapis.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 of 72, 111ms median, 137ms p95 | Reachable | 28 Aug 2026 |
+| fonts.googleapis.com | Beijing China Mobile (中国移动) home line | 0 of 54 | Blocked | 30 Aug 2026 |
+| fonts.gstatic.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 of 72, 102ms median, 121ms p95 | Reachable | 28 Aug 2026 |
+| fonts.gstatic.com | Beijing China Mobile (中国移动) home line | 0 of 6 | Blocked | 30 Aug 2026 |
+| www.googletagmanager.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 of 72, 118ms median, 143ms p95 | Reachable | 28 Aug 2026 |
+| www.googletagmanager.com | Beijing China Mobile (中国移动) home line | 0 of 112 | Blocked | 30 Aug 2026 |
+| www.google.com/recaptcha | Alibaba Cloud (阿里云) cn-zhangjiakou | 0 of 72 | Blocked | 28 Aug 2026 |
+| www.google.com/recaptcha | Beijing China Mobile (中国移动) home line | 0 of 18 | Blocked | 30 Aug 2026 |
+| cdn.jsdelivr.net | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 of 72, 660ms median, 1,757ms p95 | Slow | 28 Aug 2026 |
+| cdn.jsdelivr.net | Beijing China Mobile (中国移动) home line | 36 of 36 | Reachable | 30 Aug 2026 |
+
+> From an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026, sampled every ten minutes for twelve hours with a 30-second timeout, fonts.googleapis.com answered 72 of 72 requests at a median 111ms time to first byte. From a Beijing China Mobile (中国移动) residential line on 30 August 2026, across 264 page loads on 88 real websites, the same host was requested 54 times and answered none of them.
+>
+> Source: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 August 2026, updated 30 August 2026
+
+Read the two rows for a host together or the number will mislead you. A commercial cloud in China buys better international transit than a flat in Chaoyang does, so the datacentre figure is a ceiling. Your visitor sits somewhere underneath it. On three of the five hosts here, the visitor gets nothing at all.
+
+That is five hosts out of the full list. The rest of the dependencies sit in the table below, with verdicts rather than timings.
 
 ## What WordPress pulls in from outside
 
@@ -42,10 +67,11 @@ Most of the lists circulating on the English web were written between 2019 and 2
 | Google Maps JS API | Fully blocked | Map area stays empty |
 | YouTube and Vimeo embeds | Fully blocked | Player and oEmbed call both fail |
 | Gravatar | Blocked | Slows comments and the whole admin |
-| Google Fonts (fonts.googleapis.com) | Reachable and fast | Loads normally, roughly 110ms |
-| Google Tag Manager | Intermittent | Container may load, collection still fails |
+| Google Fonts (fonts.googleapis.com, fonts.gstatic.com) | Depends on where you measure | Answers from a mainland datacentre, silent on a Beijing home line |
+| Google Tag Manager | Depends on where you measure | Same split as the fonts. The beacon to google-analytics.com fails either way |
 | wordpress.org and update servers | Reachable, rate limited | HTTP 429 on plugin and core updates |
-| cdnjs, unpkg, jsDelivr | Reachable, slow | Roughly 480ms to 820ms first byte |
+| cdnjs, unpkg | Reachable, slow | Both complete. Untested from a consumer line |
+| cdn.jsdelivr.net | Reachable, slow | 660ms median from a datacentre, completes on a home line |
 | Stripe and PayPal scripts | Reachable | Licensing, not the firewall, is the blocker |
 
 For the wider picture beyond WordPress, our guide on [what the Great Firewall blocks](/resources/china-web-guide/great-firewall-what-it-blocks/) covers the DNS and packet-level machinery underneath all of this.
@@ -64,15 +90,21 @@ Fixing that one tag is genuinely a ten-minute job. Bundle jQuery locally, or deq
 
 This one earns its own section, because the received wisdom has gone stale and a lot of agency marketing copy is still repeating it.
 
-> Tested 29 August 2026 from a mainland instance: fonts.googleapis.com completed 73 of 73 requests at a median 111ms time to first byte. fonts.gstatic.com completed 73 of 73 at a median 102ms. Both domains resolve to Google IP ranges hosted inside China when a domestic resolver is used.
+Two sentences get repeated about Google Fonts in China: that it's blocked, and that it isn't. The same pair of measurements kills both. The font CDN answered every request from a mainland datacentre and answered none at all from a Beijing home line, two days apart.
+
+> From an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026, fonts.googleapis.com answered 72 of 72 requests at a median 111ms time to first byte and fonts.gstatic.com answered 72 of 72 at 102ms. From a Beijing China Mobile (中国移动) residential line on 30 August 2026, fonts.googleapis.com was requested 54 times and answered none, and fonts.gstatic.com was requested 6 times and answered none.
 >
-> ChinaWebFoundry internal probe, August 2026
+> Source: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 August 2026, updated 30 August 2026
 
-The font files reach the visitor. What's blocked is fonts.google.com, the browsing interface, which inconveniences your designers and leaves your users alone.
+The honest version is conditional. Google Fonts resolves from mainland datacentres and often doesn't resolve on consumer connections. Which of those your visitor gets depends on the network they are on.
 
-There's still a good argument for self-hosting, and it's better than the one usually given. That mainland resolution path depends on the visitor's DNS. A domestic resolver hands back a China-hosted Google IP. An overseas resolver hands back a blocked one, and the request hangs. Self-hosting takes the visitor's DNS out of the equation. Say that instead of repeating a block that expired, and you'll be right in both directions.
+We don't know the mechanism. The probe that produced these numbers doesn't explain it either, so we're not going to invent one here. What's measurable is the shape: same host, two days apart, opposite outcomes, depending on which side of the mainland network you're sitting on.
 
-We self-host fonts on every build anyway. Partly for the reason above, mostly because it's one fewer thing to re-test every time somebody's resolver changes.
+That's the argument for self-hosting. A font file you serve yourself removes a dependency whose answer changes with the network the visitor is on, and you stop needing to work out which answer applies to which visitor.
+
+fonts.google.com, the browsing interface your designers pick typefaces in, doesn't load from either vantage point. That one is a designer problem and your visitors never touch it.
+
+We self-host fonts on every build anyway. Partly for the reason above, mostly because it's one fewer thing to re-test.
 
 ## wordpress.org is reachable. It's also rate limited
 

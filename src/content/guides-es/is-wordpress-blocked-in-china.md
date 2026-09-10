@@ -1,12 +1,12 @@
 ---
 title: "¿Está WordPress bloqueado en China?"
-subtitle: "El software funciona sin problemas en un servidor de Shanghái. Lo que se rompe son las veinte y pico llamadas que una instalación por defecto envía al exterior antes de que el visitante vea nada."
+subtitle: "En un servidor continental el software no falla. Fallan las llamadas que lanza hacia fuera. Mediciones del 28 y el 30 de agosto de 2026."
 summary: "WordPress no está bloqueado en China continental. Estado de las dependencias en 2026: cuáles caen, cuáles se arrastran y en cuáles se equivocan las guías."
 visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-08-29
+updatedAt: 2026-09-11
 category: Technology
 ---
 
@@ -16,7 +16,32 @@ El software se descarga, se instala y funciona con normalidad en un servidor de 
 
 Entonces, ¿por qué sobrevive el mito? Porque una instalación por defecto interroga a entre 8 y 20 servidores externos antes de que el visitante vea un solo píxel. Algunos de esos servidores están bloqueados, y basta con uno para dejar la página en suspenso. El sitio carga, técnicamente hablando. Lo que ocurre es que pierde tiempo en cada petición, y el equipo que lo administra desde Europa nunca llega a verlo.
 
-Última comprobación desde puntos de medición continentales el 29 de agosto de 2026.
+Últimas mediciones: el 28 de agosto de 2026 desde una región de Alibaba Cloud; el 30 de agosto de 2026 desde una línea residencial de Pekín.
+
+## Medido desde un centro de datos y desde una línea doméstica
+
+Dos campañas de medición separadas por dos días, sobre la misma lista de servidores. La primera partió de una nube comercial alojada en China; la segunda, de la conexión doméstica de un particular en Pekín. Los resultados se contradicen, y la contradicción es justo lo que hay que leer.
+
+| Servidor | Punto de medición | Resultado | Veredicto | Fecha de la prueba |
+|---|---|---|---|---|
+| fonts.googleapis.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 de 72, mediana 111 ms, p95 137 ms | Accesible | 28 ago 2026 |
+| fonts.googleapis.com | Línea doméstica de China Mobile (中国移动) en Pekín | 0 de 54 | Bloqueado | 30 ago 2026 |
+| fonts.gstatic.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 de 72, mediana 102 ms, p95 121 ms | Accesible | 28 ago 2026 |
+| fonts.gstatic.com | Línea doméstica de China Mobile (中国移动) en Pekín | 0 de 6 | Bloqueado | 30 ago 2026 |
+| www.googletagmanager.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 de 72, mediana 118 ms, p95 143 ms | Accesible | 28 ago 2026 |
+| www.googletagmanager.com | Línea doméstica de China Mobile (中国移动) en Pekín | 0 de 112 | Bloqueado | 30 ago 2026 |
+| www.google.com/recaptcha | Alibaba Cloud (阿里云) cn-zhangjiakou | 0 de 72 | Bloqueado | 28 ago 2026 |
+| www.google.com/recaptcha | Línea doméstica de China Mobile (中国移动) en Pekín | 0 de 18 | Bloqueado | 30 ago 2026 |
+| cdn.jsdelivr.net | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 de 72, mediana 660 ms, p95 1.757 ms | Lento | 28 ago 2026 |
+| cdn.jsdelivr.net | Línea doméstica de China Mobile (中国移动) en Pekín | 36 de 36 | Accesible | 30 ago 2026 |
+
+> El 28 de agosto de 2026, desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, con muestreo cada diez minutos durante doce horas y un tiempo de espera de 30 segundos, fonts.googleapis.com respondió a 72 peticiones de 72, con un primer byte mediano de 111 ms. El 30 de agosto de 2026, desde una línea residencial de China Mobile (中国移动) en Pekín, en 264 cargas de página repartidas por 88 sitios reales, ese mismo servidor recibió 54 peticiones y no respondió a ninguna.
+>
+> Fuente: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 de agosto de 2026, actualizado el 30 de agosto de 2026
+
+Lea juntas las dos filas de un mismo servidor: por separado, la cifra engaña. Una nube comercial china se paga un tránsito internacional que un piso de Chaoyang no tendrá nunca, de modo que la medición del centro de datos marca un techo y nada más. Su visitante se queda en algún punto por debajo. En tres de los cinco servidores de la tabla no recibe nada.
+
+Cinco servidores de una lista bastante más larga. Las demás dependencias van en la tabla siguiente, con veredicto y sin tiempos.
 
 ## Lo que WordPress va a buscar fuera
 
@@ -42,10 +67,11 @@ Las listas que circulan por la web anglosajona se redactaron en su mayoría entr
 | API JavaScript de Google Maps | Bloqueado por completo | La zona del mapa se queda vacía |
 | Contenidos incrustados de YouTube y Vimeo | Bloqueado por completo | Fallan tanto el reproductor como la llamada oEmbed |
 | Gravatar | Bloqueado | Ralentiza los comentarios y toda la administración |
-| Google Fonts (fonts.googleapis.com) | Accesible y rápido | Carga con normalidad, unos 110 ms |
-| Google Tag Manager | Intermitente | El contenedor a veces carga, pero la recogida falla igualmente |
+| Google Fonts (fonts.googleapis.com, fonts.gstatic.com) | Depende de dónde se mida | Responde desde un centro de datos continental y enmudece en una línea doméstica de Pekín |
+| Google Tag Manager | Depende de dónde se mida | El mismo corte que las tipografías. La baliza hacia google-analytics.com falla en los dos casos |
 | wordpress.org y servidores de actualización | Accesible, con límite de peticiones | HTTP 429 en las actualizaciones del núcleo y de los plugins |
-| cdnjs, unpkg, jsDelivr | Accesible, lento | Primer byte entre 480 y 820 ms |
+| cdnjs, unpkg | Accesible, lento | Ambos completan. Sin probar desde una línea residencial |
+| cdn.jsdelivr.net | Accesible, lento | Mediana de 660 ms desde un centro de datos; completa en una línea doméstica |
 | Scripts de Stripe y PayPal | Accesible | El obstáculo son las licencias, no el cortafuegos |
 
 Para el panorama completo, más allá de WordPress, nuestra guía sobre [lo que bloquea el Gran Cortafuegos](/es/recursos/guia-web-china/gran-cortafuegos-china/) detalla el envenenamiento de DNS y el filtrado de paquetes que sostienen todo lo anterior.
@@ -64,15 +90,21 @@ Corregir esa etiqueta concreta lleva efectivamente diez minutos: se incorpora jQ
 
 Esta merece sección propia, porque el saber recibido ha envejecido y buena parte de los argumentarios de agencia lo sigue repitiendo.
 
-> Medición del 29 de agosto de 2026 desde una instancia continental: fonts.googleapis.com sirvió 73 peticiones de 73, con un primer byte mediano de 111 ms. fonts.gstatic.com sirvió 73 de 73, con un primer byte mediano de 102 ms. Ambos dominios apuntan a direcciones de Google alojadas dentro de China siempre que se emplee un resolutor doméstico.
+Sobre Google Fonts en China circulan dos frases: que está bloqueado y que no lo está. El mismo par de mediciones desmonta las dos. Con dos días de diferencia, el CDN de tipografías sirvió todas las peticiones desde un centro de datos continental y ni una sola desde una línea doméstica de Pekín.
+
+> El 28 de agosto de 2026, desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, fonts.googleapis.com respondió a 72 peticiones de 72, con un primer byte mediano de 111 ms, y fonts.gstatic.com a 72 de 72, con 102 ms. El 30 de agosto de 2026, desde una línea residencial de China Mobile (中国移动) en Pekín, fonts.googleapis.com recibió 54 peticiones y no respondió a ninguna, y fonts.gstatic.com recibió 6, sin una sola respuesta.
 >
-> Sonda interna de ChinaWebFoundry, agosto de 2026
+> Fuente: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 de agosto de 2026, actualizado el 30 de agosto de 2026
 
-Los archivos de tipografía llegan hasta el visitante. Lo que está bloqueado es fonts.google.com, la interfaz de consulta, de modo que el problema recae sobre sus diseñadores y deja tranquilos a sus usuarios.
+La formulación honesta es condicional. Google Fonts se resuelve desde los centros de datos continentales y a menudo enmudece en las conexiones residenciales. Lo que reciba su visitante depende de la red desde la que navegue.
 
-Sigue existiendo un buen argumento para alojar las tipografías uno mismo, y además es mejor que el que suele esgrimirse. Esa vía de resolución continental depende del DNS del visitante: un resolutor doméstico devuelve una dirección de Google alojada en China, mientras que un resolutor extranjero devuelve una bloqueada y la petición se queda colgada. Alojarlas en el propio servidor retira el DNS del visitante de la ecuación. Diga eso en lugar de repetir un bloqueo caducado y acertará en ambas direcciones.
+Desconocemos el mecanismo. La sonda de la que salen estas cifras tampoco lo explica, y no lo vamos a inventar aquí. Lo que sí se mide es la forma: mismo servidor, dos días de diferencia, resultados opuestos según el lado de la red continental en el que uno se sitúe.
 
-Nosotros alojamos las tipografías en local en todos los proyectos, en cualquier caso. En parte por el motivo anterior, y sobre todo porque supone una cosa menos que volver a comprobar cada vez que alguien cambia de resolutor.
+Ahí está el argumento a favor del alojamiento propio. Una tipografía que usted mismo sirve elimina una dependencia cuya respuesta varía con la red del visitante y le ahorra averiguar cuál le toca a quién.
+
+fonts.google.com, la interfaz donde sus diseñadores eligen los tipos, no carga desde ninguno de los dos puntos de medición. Un problema de diseñadores, por tanto: sus visitantes no entran ahí jamás.
+
+Nosotros alojamos las tipografías en local en todos los proyectos, en cualquier caso. En parte por el motivo anterior, y sobre todo porque supone una cosa menos que volver a comprobar.
 
 ## wordpress.org responde, pero con límite de peticiones
 
