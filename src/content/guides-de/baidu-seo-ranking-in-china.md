@@ -1,5 +1,5 @@
 ---
-title: "Baidu-SEO: Spitzenplätze auf Chinas größter Suchmaschine"
+title: "Baidu-SEO: wie Sie in China sichtbar werden"
 subtitle: "Die meisten ausländischen Unternehmen optimieren für Google. In China ist das, als plakatiere man eine Straße, an der niemand vorbeifährt."
 summary: "Baidu beherrscht die chinesische Suche mit 724 Millionen Nutzern im Monat. Dieser Leitfaden erklärt Rankingfaktoren, On-Page-Optimierung, Ökosystem-Strategie und typische Fehler ausländischer Unternehmen."
 visual: "/images/guides/baidu-seo-ranking-in-china.webp"

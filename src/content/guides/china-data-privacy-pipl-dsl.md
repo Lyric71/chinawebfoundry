@@ -1,5 +1,5 @@
 ---
-title: "China Data Privacy Laws: PIPL, DSL, and the Cybersecurity Law"
+title: "China Data Privacy: PIPL, DSL and Cybersecurity"
 subtitle: "If your website collects any personal information from Chinese users, three separate laws apply to you. Even if your company is based in New York, London, or Berlin."
 summary: "China's data privacy framework includes PIPL, DSL and the Cybersecurity Law. PIPL applies globally to any company processing Chinese residents' personal data."
 visual: "/images/guides/china-data-privacy-pipl-dsl.webp"

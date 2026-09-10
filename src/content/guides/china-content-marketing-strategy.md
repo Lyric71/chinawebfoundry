@@ -1,5 +1,5 @@
 ---
-title: "Content Marketing Strategy for China: Planting Grass Before You Sell"
+title: "Content Marketing in China: Planting Grass"
 subtitle: "Effective content marketing in China runs on 种草 - planting seeds of desire long before anyone is ready to buy."
 summary: "China's content marketing revolves around 种草 (zhongcao): planting desire before purchase. This guide covers platforms, formats, and key shopping events for foreign brands."
 visual: "/images/guides/china-content-marketing-strategy.webp"

@@ -1,5 +1,5 @@
 ---
-title: "SEO Baidu : exister sur le premier moteur de recherche chinois"
+title: "SEO Baidu : les règles du jeu en Chine"
 subtitle: "La plupart des entreprises étrangères peaufinent leur site pour Google. En Chine, autant coller une affiche au bord d'une route déserte."
 summary: "Baidu domine la recherche en Chine avec 724 millions d'utilisateurs mensuels. Critères de classement, optimisation on-page, jeu d'écosystème et erreurs récurrentes des entreprises étrangères."
 visual: "/images/guides/baidu-seo-ranking-in-china.webp"

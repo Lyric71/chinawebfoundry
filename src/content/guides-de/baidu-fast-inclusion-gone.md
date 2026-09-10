@@ -1,5 +1,5 @@
 ---
-title: "Baidus Schnellindexierung ist weg. Was an ihre Stelle trat"
+title: "Baidu ohne Schnellindexierung: was bleibt"
 subtitle: "Die Schnellindexierung war das einzige Einreichungswerkzeug von Baidu, für das sich überhaupt jemand begeisterte. Baidu nahm es im April 2024 vom Netz und setzte ein deutlich engeres Versprechen an seine Stelle, reserviert für Websites, die ohnehin schon Traffic haben."
 summary: "Baidu nahm die Schnellindexierung im April 2024 vom Netz. Was der Schnell-Crawl tatsächlich verspricht, wer ihn bekommt und was einer neu gestarteten ausländischen Website bleibt."
 visual: "/images/guides/baidu-fast-inclusion-gone.webp"

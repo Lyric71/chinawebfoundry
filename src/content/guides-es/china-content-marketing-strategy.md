@@ -1,5 +1,5 @@
 ---
-title: "Marketing de contenidos en China: sembrar antes de cosechar"
+title: "En China hay que sembrar el deseo antes de vender"
 subtitle: "El marketing de contenidos que funciona en China se construye sobre el 种草: despertar el deseo mucho antes de que llegue la decisión de compra."
 summary: "El marketing de contenidos en China gira en torno al 种草 (zhongcao): despertar el deseo antes de la compra. Repasamos las plataformas, los formatos y las citas comerciales que las marcas extranjeras no pueden pasar por alto."
 visual: "/images/guides/china-content-marketing-strategy.webp"

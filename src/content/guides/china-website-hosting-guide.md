@@ -1,5 +1,5 @@
 ---
-title: "Website Hosting in China: Where You Host Decides Whether You Load"
+title: "Website Hosting in China: Where the Server Sits"
 subtitle: "For Chinese users, the difference between a site hosted in Shanghai and one hosted in Frankfurt comes down to whether your page loads at all."
 summary: "Where you host your China website affects speed, Baidu rankings and compliance. Compare mainland, Hong Kong and overseas hosting plus top cloud providers."
 visual: "/images/guides/china-website-hosting-guide.webp"

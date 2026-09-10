@@ -1,5 +1,5 @@
 ---
-title: "Eine Website in China hosten: der vollständige Leitfaden"
+title: "Website in China hosten: von ICP bis Livegang"
 subtitle: "Wo Ihr Server physisch steht, entscheidet alles Weitere: Ihre Startseite erscheint für einen chinesischen Besucher in unter einer Sekunde, oder er gibt vor dem drehenden Ladekreis auf."
 summary: "Warum Hosting im Ausland in China scheitert, die Regeln zu ICP und Geschäftseinheit, Alibaba Cloud gegen Tencent Cloud und gegen das Ausland, und eine Schritt-für-Schritt-Checkliste für den Livegang."
 visual: "/images/guides/host-website-in-china.webp"

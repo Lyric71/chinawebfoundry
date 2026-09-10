@@ -1,5 +1,5 @@
 ---
-title: "Alojamiento web en China: todo depende del servidor que elija"
+title: "Alojamiento en China: el servidor lo decide todo"
 subtitle: "Para un usuario chino, la distancia entre Shanghái y Fráncfort se resume en una sola cosa: la página aparece o no aparece."
 summary: "El lugar donde se aloja un sitio determina su velocidad, su posicionamiento en Baidu y su cumplimiento normativo. Comparamos el continente, Hong Kong y el extranjero, y repasamos los proveedores de la nube."
 visual: "/images/guides/china-website-hosting-guide.webp"

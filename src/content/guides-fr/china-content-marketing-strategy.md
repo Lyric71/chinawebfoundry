@@ -1,5 +1,5 @@
 ---
-title: "Marketing de contenu en Chine : semer avant de récolter"
+title: "En Chine, le contenu sème l'envie bien avant l'achat"
 subtitle: "En Chine, le marketing de contenu qui fonctionne pratique le 种草 : faire germer l'envie longtemps avant la décision d'achat."
 summary: "Le marketing de contenu en Chine vit au rythme du 种草 (zhongcao) : faire naître l'envie en amont de l'achat. Plateformes, formats et rendez-vous commerciaux à ne pas manquer pour les marques étrangères."
 visual: "/images/guides/china-content-marketing-strategy.webp"

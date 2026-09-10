@@ -1,5 +1,5 @@
 ---
-title: "Licencia ICP y registro Bei'an: la guía para empresas extranjeras"
+title: "Licencia ICP o registro Bei'an: no son lo mismo"
 subtitle: "Alojar un sitio en China continental obliga a tener un ICP, sin excepciones. El problema es que existen dos tipos, y confundirlos puede costar meses."
 summary: "Todo sitio alojado en China exige un ICP. El registro Bei'an se tramita sin dificultad, pero la licencia comercial impone una restricción de accionariado que cierra la puerta a la mayoría de las empresas extranjeras."
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"

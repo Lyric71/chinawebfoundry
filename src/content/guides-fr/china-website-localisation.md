@@ -1,5 +1,5 @@
 ---
-title: "Localiser un site pour la Chine : une refonte complète"
+title: "Localiser un site pour la Chine : tout est à refaire"
 subtitle: "Traduire votre site en chinois représente environ 10 % du travail réel. Les 90 % restants concernent les paiements, les signaux de confiance, les codes culturels et les standards de service client auxquels la plupart des entreprises occidentales n'ont même pas songé."
 summary: "Localiser un site pour la Chine couvre le chinois simplifié, Alipay et WeChat Pay, les signaux de confiance, l'adaptation culturelle, le registre éditorial et les exigences du service client."
 visual: "/images/guides/china-website-localisation.webp"

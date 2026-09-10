@@ -1,5 +1,5 @@
 ---
-title: "Baidu DPA: adónde van de verdad los datos del feed de producto"
+title: "Baidu DPA: el feed de producto siempre es de pago"
 subtitle: "En algún punto de la conversación comercial, un feed de producto se convirtió en visibilidad gratuita. Cargue el catálogo en Baidu Merchant Center y sus productos empezarán a aparecer en la búsqueda de Baidu. Ese argumento sobrevive porque el propio vocabulario de Baidu invita a él y los artículos en inglés llevan años repitiéndolo. Nada de lo que sigue afirma que el feed no sirva para nada. Afirma adónde documenta Baidu que van los datos."
 summary: "Baidu documenta tres destinos para los datos del feed de producto, todos de pago: DPA en búsqueda, DPA en feed y Aladdin de pago. No existe ninguna vía orgánica documentada."
 visual: "/images/guides/baidu-product-data-destinations.webp"

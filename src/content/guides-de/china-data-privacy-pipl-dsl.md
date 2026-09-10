@@ -1,5 +1,5 @@
 ---
-title: "Datenschutzrecht in China: PIPL, DSL und das Cybersicherheitsgesetz"
+title: "PIPL und DSL: Chinas Datenrecht reicht ins Ausland"
 subtitle: "Sobald Ihre Website personenbezogene Daten chinesischer Nutzer erhebt, gelten drei eigenständige Gesetze für Sie. Auch wenn Ihr Unternehmen in New York, London oder Berlin sitzt."
 summary: "Chinas Datenschutzrahmen umfasst PIPL, DSL und das Cybersicherheitsgesetz. Das PIPL gilt weltweit für jedes Unternehmen, das personenbezogene Daten chinesischer Einwohner verarbeitet."
 visual: "/images/guides/china-data-privacy-pipl-dsl.webp"

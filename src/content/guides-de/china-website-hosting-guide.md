@@ -1,5 +1,5 @@
 ---
-title: "Website-Hosting in China: Der Serverstandort entscheidet, ob Ihre Seite lädt"
+title: "Hosting in China: der Serverstandort entscheidet"
 subtitle: "Für chinesische Nutzer liegt zwischen einem Server in Shanghai und einem in Frankfurt nicht eine Frage von Millisekunden, sondern die Frage, ob die Seite überhaupt erscheint."
 summary: "Wo Sie Ihre China-Website hosten, bestimmt Geschwindigkeit, Baidu-Ranking und Rechtskonformität. Vergleich von Festland, Hongkong und Ausland samt Überblick über die führenden Cloud-Anbieter."
 visual: "/images/guides/china-website-hosting-guide.webp"

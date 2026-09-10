@@ -1,5 +1,5 @@
 ---
-title: "El Gran Cortafuegos: qué bloquea y cómo convivir con él"
+title: "El Gran Cortafuegos: qué bloquea y cómo sortearlo"
 subtitle: "Si su sitio carga tipografías de Google Fonts, ejecuta una etiqueta de Google Analytics o incrusta un vídeo de YouTube, deja de funcionar para los 900 millones de internautas que hay en China."
 summary: "El Gran Cortafuegos chino bloquea Google, Facebook, Slack y decenas de servicios más. Repasamos sus mecanismos técnicos y las soluciones al alcance de las empresas extranjeras."
 visual: "/images/guides/great-firewall-what-it-blocks.webp"

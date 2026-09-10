@@ -1,5 +1,5 @@
 ---
-title: "Mobile-First-Design für China: genauer gesagt, Mobile-only"
+title: "In China heißt Mobile-First längst Mobile-only"
 subtitle: 'In China ist „Mobile First“ schon überholt. Über 95 % der Internetnutzer gehen vom Smartphone aus ins Netz. Ist Ihre Seite nicht für mobil gebaut, existiert sie nicht.'
 summary: "Chinas Internet ist Mobile-only. Dieser Leitfaden behandelt Designprinzipien, die Kompatibilität mit dem WeChat-Browser, das Super-App-Ökosystem und die Mini-Programm-Strategie für ausländische Marken."
 visual: "/images/guides/mobile-first-design-china.webp"

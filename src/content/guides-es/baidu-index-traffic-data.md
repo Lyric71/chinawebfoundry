@@ -1,5 +1,5 @@
 ---
-title: "Leer el volumen de índice y los datos de tráfico de Baidu"
+title: "Cómo leer los datos de índice y tráfico en Baidu"
 subtitle: "Dos semanas después del lanzamiento, alguien de marketing entra por fin en la Baidu Search Resource Platform. Volumen de índice: cero. Tráfico y palabras clave: vacío. Frecuencia de rastreo: una línea plana. La lectura evidente sería que el sitio está roto. Normalmente no lo está."
 summary: "Qué miden realmente los informes de volumen de índice, tráfico y palabras clave de Baidu, cuánto conviene fiarse de cada uno y cuándo debe esperar datos un sitio nuevo."
 visual: "/images/guides/baidu-index-traffic-data.webp"

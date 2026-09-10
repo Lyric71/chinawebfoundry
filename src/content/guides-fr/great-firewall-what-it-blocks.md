@@ -1,5 +1,5 @@
 ---
-title: "Grand Pare-feu : ce qu'il bloque et comment faire avec"
+title: "Ce que bloque le Grand Pare-feu, et les parades"
 subtitle: "Si votre site charge des polices Google Fonts, déclenche une balise Google Analytics ou embarque une vidéo YouTube, il est déjà hors service pour 900 millions d'internautes chinois."
 summary: "Le Grand Pare-feu chinois bloque Google, Facebook, Slack et des dizaines d'autres services. Mécanismes techniques et parades pour les entreprises étrangères."
 visual: "/images/guides/great-firewall-what-it-blocks.webp"

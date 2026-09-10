@@ -1,5 +1,5 @@
 ---
-title: "The Great Firewall: What It Blocks and How to Work Around It"
+title: "The Great Firewall: What It Blocks and How to Cope"
 subtitle: "If your website loads Google Fonts, fires a Google Analytics tag, or embeds a YouTube video, it's already broken for 900 million Chinese internet users."
 summary: "China's Great Firewall blocks Google, Facebook, Slack and dozens more. Learn how it works technically and how foreign businesses can build around it."
 visual: "/images/guides/great-firewall-what-it-blocks.webp"

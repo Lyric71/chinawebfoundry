@@ -1,5 +1,5 @@
 ---
-title: "Baidu DPA : où vont vraiment les données de flux produit"
+title: "Baidu DPA : le flux produit passe par la publicité"
 subtitle: "Quelque part dans la conversation commerciale, un flux produit est devenu de la visibilité gratuite. Chargez le catalogue dans Baidu Merchant Center et vos produits apparaîtront dans la recherche Baidu. L'argument survit parce que le vocabulaire de Baidu y invite et que les articles anglophones le répètent depuis des années. Rien de ce qui suit ne dit que le flux ne sert à rien. Il dit où la documentation situe les données."
 summary: "Baidu documente trois destinations pour les données de flux produit, toutes payantes : DPA recherche, DPA fil et Aladdin payant. Aucune voie organique documentée n'existe."
 visual: "/images/guides/baidu-product-data-destinations.webp"

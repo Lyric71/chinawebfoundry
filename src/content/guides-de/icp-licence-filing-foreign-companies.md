@@ -1,5 +1,5 @@
 ---
-title: "ICP-Lizenz und ICP-Registrierung: was ausländische Unternehmen wissen müssen"
+title: "ICP-Lizenz oder Bei'an: das ist nicht dasselbe"
 subtitle: "Wer eine Website in Festlandchina hosten will, braucht ausnahmslos eine ICP. Es gibt sie jedoch in zwei Varianten, und wer sie verwechselt, verliert leicht Monate."
 summary: "Jede in China gehostete Website braucht eine ICP. Die Bei'an-Registrierung ist einfach. Die kommerzielle Lizenz hat Eigentumsauflagen, die den meisten ausländischen Unternehmen den Weg versperren."
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"

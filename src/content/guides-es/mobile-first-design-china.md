@@ -1,5 +1,5 @@
 ---
-title: "Diseño para móvil en China: cuando el mobile-first ya no es suficiente"
+title: "En China, el mobile-first se ha quedado corto"
 subtitle: "En China, el diseño centrado en el móvil ya ha quedado atrás. Más del 95 % de los usuarios se conecta desde el teléfono, y un sitio que no esté pensado para el móvil sencillamente no existe."
 summary: "Internet en China es un entorno exclusivamente móvil. Repasamos los principios de diseño, la compatibilidad con el navegador de WeChat, el ecosistema de las superaplicaciones y la estrategia de miniprogramas para las marcas extranjeras."
 visual: "/images/guides/mobile-first-design-china.webp"

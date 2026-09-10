@@ -1,5 +1,5 @@
 ---
-title: "La verificación en Baidu ha fallado: las causas habituales"
+title: "Por qué falla la verificación en Baidu"
 subtitle: "Baidu le devuelve una línea de texto en rojo y nada más. El archivo que dice no encontrar se abre sin problemas en su navegador, en su mesa, en Fráncfort. Ambos hechos conviven, y la distancia entre uno y otro es todo el problema."
 summary: "¿Le ha fallado la verificación en Baidu? Todas las causas frecuentes, cómo se manifiesta cada una desde fuera y la solución: redirecciones, robots.txt, WAF, DNS y cuentas."
 visual: "/images/guides/baidu-verification-failed.webp"

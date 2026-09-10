@@ -1,5 +1,5 @@
 ---
-title: "Baidu-Verifizierung fehlgeschlagen: die üblichen Ursachen"
+title: "Warum die Baidu-Verifizierung scheitert"
 subtitle: "Baidu liefert eine rote Zeile und sonst nichts. Die Datei, die angeblich fehlt, lädt in Ihrem Browser einwandfrei, an Ihrem Schreibtisch, in Frankfurt. Beides stimmt gleichzeitig, und die Lücke dazwischen ist das ganze Problem."
 summary: "Baidu-Verifizierung fehlgeschlagen? Alle häufigen Ursachen, wie sich jede von außen zeigt, und die Lösung: Weiterleitungen, robots.txt, WAF, DNS, Konten."
 visual: "/images/guides/baidu-verification-failed.webp"

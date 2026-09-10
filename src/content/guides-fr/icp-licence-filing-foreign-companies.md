@@ -1,5 +1,5 @@
 ---
-title: "Licence ICP et enregistrement Bei'an : le guide pour les entreprises étrangères"
+title: "Licence ICP ou Bei'an : ne pas les confondre"
 subtitle: "Héberger un site en Chine continentale impose un ICP. Sans exception. Sauf qu'il en existe deux, et confondre les deux peut coûter des mois."
 summary: "Tout site hébergé en Chine exige un ICP. L'enregistrement Bei'an reste simple. La licence commerciale, elle, comporte une restriction d'actionnariat qui bloque la plupart des entreprises étrangères."
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"

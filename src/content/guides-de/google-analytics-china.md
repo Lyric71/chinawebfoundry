@@ -1,5 +1,5 @@
 ---
-title: "Google Analytics in China, ohne die Website auszubremsen"
+title: "Google Analytics in China serverseitig filtern"
 subtitle: "GA4 ist hinter der Great Firewall gesperrt. Für den Rest der Welt können Sie es trotzdem behalten, solange die Entscheidung über das Laden auf dem Server fällt und nicht im Browser."
 summary: "Wie Sie Google Analytics an der Edge nach Land filtern: GA4 läuft außerhalb Chinas weiter, und Besucher auf dem Festland schicken kein einziges Byte an Google."
 visual: "/images/guides/google-analytics-china.webp"

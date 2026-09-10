@@ -1,5 +1,5 @@
 ---
-title: "Données personnelles en Chine : PIPL, DSL et loi sur la cybersécurité"
+title: "PIPL, DSL : la loi chinoise vous suit à l'étranger"
 subtitle: "Si votre site récolte la moindre donnée personnelle auprès d'utilisateurs chinois, trois lois s'imposent à vous. Que votre société siège à New York, à Londres ou à Berlin."
 summary: "Le cadre chinois de protection des données s'articule autour du PIPL, du DSL et de la loi sur la cybersécurité. Le PIPL s'applique dans le monde entier à toute entreprise qui traite les données personnelles de résidents chinois."
 visual: "/images/guides/china-data-privacy-pipl-dsl.webp"

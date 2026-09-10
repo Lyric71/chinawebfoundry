@@ -1,5 +1,5 @@
 ---
-title: "Content-Marketing in China: Gras säen, bevor Sie verkaufen"
+title: "Content in China: erst das Begehren, dann der Kauf"
 subtitle: "Wirksames Content-Marketing in China lebt von 种草, dem Säen von Begehren, lange bevor jemand zum Kauf bereit ist."
 summary: "Chinas Content-Marketing dreht sich um 种草 (zhongcao): Begehren wecken, bevor gekauft wird. Dieser Leitfaden behandelt Plattformen, Formate und die wichtigsten Shopping-Events für ausländische Marken."
 visual: "/images/guides/china-content-marketing-strategy.webp"

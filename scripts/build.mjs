@@ -53,6 +53,18 @@ try {
   const res = spawnSync('astro', ['build'], { stdio: 'inherit', shell: true });
   if (res.error) throw res.error;
   exitCode = res.status ?? 1;
+
+  // Guide title ceiling, checked over the built output. The guide layout also
+  // asserts at render time; this catches a guide page rendered by a different
+  // layout, and counts the decoded characters a reader actually sees.
+  if (exitCode === 0) {
+    const titles = spawnSync(process.execPath, ['scripts/check-titles.mjs'], {
+      stdio: 'inherit',
+      cwd: fileURLToPath(root),
+    });
+    if (titles.error) throw titles.error;
+    exitCode = titles.status ?? 1;
+  }
 } finally {
   rmSync(LOCK, { force: true });
 }

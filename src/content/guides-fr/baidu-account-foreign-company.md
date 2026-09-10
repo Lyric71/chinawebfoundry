@@ -1,5 +1,5 @@
 ---
-title: "Ouvrir un compte Baidu quand on est une entreprise étrangère"
+title: "Compte Baidu : la pièce d'identité fait barrage"
 subtitle: "Tout le monde vous prévient au sujet du numéro de téléphone chinois. Presque personne ne mentionne la pièce d'identité, qui est l'exigence sur laquelle butent les entreprises étrangères."
 summary: "Le numéro de mobile chinois est l'obstacle dont tout le monde parle. La pièce d'identité est celle qui bloque vraiment les marques étrangères."
 visual: "/images/guides/baidu-account-foreign-company.webp"

@@ -1,5 +1,5 @@
 ---
-title: "Baiduspider bloqueado por Cloudflare y por reglas WAF"
+title: "Cloudflare y el WAF bloquean a Baiduspider sin aviso"
 subtitle: "El sitio está en pie. El panel del CDN parece sano, el equipo de Shanghái lleva seis semanas publicando contenido en chino y el volumen de índice en la Baidu Search Resource Platform no se ha movido de cero."
 summary: "Cloudflare, los ajustes por defecto del WAF y las reglas geográficas bloquean a Baiduspider en silencio. Cómo detectarlo, autenticar un rastreador real por DNS inverso y corregirlo en orden."
 visual: "/images/guides/baiduspider-firewall.webp"

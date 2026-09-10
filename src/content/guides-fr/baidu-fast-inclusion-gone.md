@@ -1,5 +1,5 @@
 ---
-title: "L'indexation rapide de Baidu a disparu. Ce qui l'a remplacée"
+title: "Indexation rapide de Baidu : que reste-t-il ?"
 subtitle: "L'indexation rapide était le seul outil de soumission de Baidu qui enthousiasmait quelqu'un. Baidu l'a retirée en avril 2024 et lui a substitué une promesse nettement plus étroite, réservée aux sites qui ont déjà du trafic."
 summary: "Baidu a retiré l'indexation rapide en avril 2024. Ce que promet réellement l'exploration rapide, qui y a droit, et ce qui reste à un site étranger neuf."
 visual: "/images/guides/baidu-fast-inclusion-gone.webp"

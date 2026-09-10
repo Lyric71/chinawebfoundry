@@ -1,5 +1,5 @@
 ---
-title: "Lire le volume d'index et les données de trafic de Baidu"
+title: "Index et trafic Baidu : à quoi se fier"
 subtitle: "Deux semaines après le lancement, quelqu'un au marketing se connecte enfin à la Baidu Search Resource Platform. Volume d'index : zéro. Trafic et mots-clés : vide. Fréquence d'exploration : une ligne plate. La lecture évidente serait que le site est cassé. Il ne l'est généralement pas."
 summary: "Ce que mesurent réellement les rapports de volume d'index, de trafic et de mots-clés de Baidu, la confiance à accorder à chacun, et quand un site neuf peut espérer des données."
 visual: "/images/guides/baidu-index-traffic-data.webp"

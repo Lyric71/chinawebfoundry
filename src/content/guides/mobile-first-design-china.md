@@ -1,5 +1,5 @@
 ---
-title: "Mobile-First Design for China: Actually, Make That Mobile-Only"
+title: "Mobile-First Design in China Means Mobile-Only"
 subtitle: "In China, 'mobile-first' is already outdated. Over 95% of internet users access the web from their phones. If your site isn't built for mobile, it doesn't exist."
 summary: "China's internet is mobile-only. This guide covers design principles, WeChat browser compatibility, the super-app ecosystem and mini-program strategy for foreign brands."
 visual: "/images/guides/mobile-first-design-china.webp"

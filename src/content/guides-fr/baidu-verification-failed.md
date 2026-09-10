@@ -1,5 +1,5 @@
 ---
-title: "Échec de la vérification Baidu : les causes habituelles"
+title: "Vérification Baidu en échec : d'où vient le blocage"
 subtitle: "Baidu vous donne une ligne rouge, et rien d'autre. Le fichier qu'il dit introuvable s'ouvre parfaitement dans votre navigateur, à votre bureau, à Francfort. Ces deux faits coexistent, et l'écart entre eux constitue tout le problème."
 summary: "Vérification Baidu en échec ? Toutes les causes fréquentes, la façon dont chacune se manifeste vue de l'extérieur, et le correctif : redirections, robots.txt, WAF, DNS, comptes."
 visual: "/images/guides/baidu-verification-failed.webp"

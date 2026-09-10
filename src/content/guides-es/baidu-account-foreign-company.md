@@ -1,5 +1,5 @@
 ---
-title: "Abrir una cuenta de Baidu siendo una empresa extranjera"
+title: "Baidu: la cuenta depende del documento de identidad"
 subtitle: "Todo el mundo le avisa del número de teléfono chino. Casi nadie menciona el documento de identidad, que es el requisito que de verdad detiene a las empresas extranjeras en la puerta."
 summary: "El número de móvil es el obstáculo que todos mencionan. El documento de identidad es el que le frena, y además decide quién es el propietario de la cuenta."
 visual: "/images/guides/baidu-account-foreign-company.webp"

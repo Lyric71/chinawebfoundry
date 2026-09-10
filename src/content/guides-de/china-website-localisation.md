@@ -1,5 +1,5 @@
 ---
-title: "Website-Lokalisierung für China: ein kompletter Neubau"
+title: "China-Lokalisierung: 90 Prozent sind kein Text"
 subtitle: "Die Übersetzung Ihrer Website ins Chinesische deckt etwa 10 % dessen ab, was Lokalisierung wirklich bedeutet. Die übrigen 90 % sind Zahlungsmethoden, Vertrauenssignale, kulturelle Codes und Erwartungen an den Kundenservice, an die die meisten westlichen Unternehmen gar nicht erst denken."
 summary: "Die Lokalisierung einer China-Website umfasst vereinfachtes Chinesisch, die Anbindung von Alipay und WeChat Pay, Vertrauenssignale, kulturelle Anpassung, Tonfall der Inhalte und Servicestandards."
 visual: "/images/guides/china-website-localisation.webp"

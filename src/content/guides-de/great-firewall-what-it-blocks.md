@@ -1,5 +1,5 @@
 ---
-title: "Die Große Firewall: was sie sperrt und wie man darum herum baut"
+title: "Was die Große Firewall sperrt und was dann hilft"
 subtitle: "Lädt Ihre Website Schriften von Google, feuert sie ein Google-Analytics-Tag ab oder bindet sie ein YouTube-Video ein, ist sie für 900 Millionen chinesische Internetnutzer schon kaputt."
 summary: "Chinas Große Firewall sperrt Google, Facebook, Slack und Dutzende weiterer Dienste. So funktioniert sie technisch, und so bauen ausländische Unternehmen sinnvoll darum herum."
 visual: "/images/guides/great-firewall-what-it-blocks.webp"

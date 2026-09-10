@@ -1,5 +1,5 @@
 ---
-title: "Palabras clave en Baidu: las herramientas y el método que funcionan"
+title: "Palabras clave en Baidu: qué herramientas usar"
 subtitle: "Traducir su lista de Google al chino aporta muy poco. El SEO en Baidu se rige por una lógica de búsqueda completamente distinta."
 summary: "Investigar palabras clave para Baidu exige herramientas propias y entender una gramática específica. Analizamos Baidu Index, el Keyword Planner, 5118 y los códigos de la búsqueda china."
 visual: "/images/guides/baidu-keyword-research-tools.webp"

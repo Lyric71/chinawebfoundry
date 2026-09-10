@@ -59,6 +59,20 @@ const authorPersonLd = author
     }
   : { '@type': 'Organization', '@id': `${siteOrigin}/#organization`, name: 'ChinaWebFoundry' };
 
+// House ceiling: a guide article renders exactly the frontmatter title, with
+// no site suffix. Google prints the site name next to the result already, so
+// spending 36 to 41 characters repeating it truncates the half of the title
+// that tells two guides apart. See editorial/briefs/2026-09-10-upgrade-guide-title-suffix.md.
+const TITLE_CEILING = 52;
+const pageTitle = title;
+if (pageTitle.length > TITLE_CEILING) {
+  throw new Error(
+    `Guide title over the ${TITLE_CEILING}-character ceiling: ` +
+      `${pageTitle.length} characters at ${Astro.url.pathname}. ` +
+      `Shorten "title" in the guide's frontmatter.`,
+  );
+}
+
 const articleLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -88,7 +102,7 @@ const jsonLd = [articleLd, breadcrumbLd];
 ---
 
 <PageLayout
-  title={`${title} | ${t('guide.backLink')} | ChinaWebFoundry`}
+  title={pageTitle}
   description={summary}
   lang={currentLang}
   jsonLd={jsonLd}

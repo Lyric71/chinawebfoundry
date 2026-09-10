@@ -197,6 +197,46 @@ primary source, record the URL and the check 2 date, and move the entry to
 - Used in: website-in-china, is-wordpress-blocked-in-china
 - Notes: Vendor benchmark with a stated method. Cite with attribution and its own framing. Never cite Chinafy's 2023 marketing figures (Do Not Assert).
 
+## Search engine documentation
+
+### Google generates the title link itself, and truncates it to the device width
+- Fact ID: none (researched outside the fact bank)
+- Value: Title link generation is "completely automated and takes into account both the content of a page and references to it that appear on the web"; where an issue is detected Google "may try to generate an improved title link from anchors, on-page text, or other sources"; there is no limit on `<title>` length, but "the title link is truncated in Google Search results as needed, typically to fit the device width"; each page needs "distinct text that describes the content of the page in the `<title>` element"
+- Vantage point: n/a, not a measurement
+- As of: page last updated 10 December 2025
+- Source: Google Search Central, Control your title links in Google Search results
+- URL: https://developers.google.com/search/docs/appearance/title-link
+- Verified 1: 2026-09-10, page fetched, all four statements confirmed on the page with the last-updated date
+- Verified 2: 2026-09-10, re-fetched in iteration 8, unchanged
+- Used in: upgrade-guide-title-suffix
+- Notes: Google documents no character or pixel limit. Any specific number in circulation comes from third-party testing, not from Google. The 52-character house ceiling is ours and must be described as ours.
+
+### Google shows the site name next to a search result
+- Fact ID: none (researched outside the fact bank)
+- Value: "When Google lists a page in search results, it shows the name of the site the page comes from. This is called the site name." Site names are supported at domain and subdomain level, not at subdirectory level.
+- Vantage point: n/a, not a measurement
+- As of: page last updated 10 December 2025
+- Source: Google Search Central, Site names in Google Search results
+- URL: https://developers.google.com/search/docs/appearance/site-names
+- Verified 1: 2026-09-10, page fetched, wording confirmed
+- Verified 2: 2026-09-10, re-fetched in iteration 8, unchanged
+- Used in: upgrade-guide-title-suffix
+- Notes: This is the argument for not spending title characters on the brand. It does not say the brand is ignored, only that the site name is shown separately.
+
+## Our own data
+
+### Guide title audit: 132 pages, 132 over the 52-character ceiling
+- Fact ID: none (original measurement, not a harness run)
+- Value: 33 guide articles per locale across en, fr, es and de, 132 pages. Every one renders a `<title>` over 52 characters. Rendered suffix length 36 (en), 41 (fr), 41 (es), 40 (de). Rendered title shortest/median/longest: 62/81/104 (en), 71/93/120 (fr), 71/93/111 (es), 66/91/116 (de). With the suffix removed, 47 titles are still over 52: 6 en, 14 fr, 15 es, 12 de.
+- Vantage point: n/a, not a network measurement. Repository at working-tree state, last commit `28bf5de`.
+- As of: 2026-09-10
+- Source: ChinaWebFoundry title audit
+- URL: none, internal
+- Verified 1: 2026-09-10, source pass over the 132 markdown files plus the locale suffix from `src/i18n/ui.ts` and `src/layouts/GuideLayout.astro`
+- Verified 2: 2026-09-10, built-output pass over `<title>` in `.vercel/output/static/`, 132 pages found, 132 over. Agrees with the source pass.
+- Used in: upgrade-guide-title-suffix
+- Notes: Raw HTML counts run longer than character counts where Astro escapes an apostrophe to `&#39;` (the French ICP title reads 124 raw against 120 as a reader sees it). Decode entities before counting. Figures go stale the moment the 47 rewrites land: recount after the T6-01 publish.
+
 ## Retired
 
 (Stale entries, kept for traceability.)

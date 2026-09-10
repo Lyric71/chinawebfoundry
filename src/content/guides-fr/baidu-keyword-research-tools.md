@@ -1,5 +1,5 @@
 ---
-title: "Mots-clés Baidu : les outils et la méthode qui fonctionnent"
+title: "Mots-clés Baidu : quels outils tiennent la route"
 subtitle: "Traduire sa liste Google vers le chinois ne donne quasiment rien. Le SEO Baidu repose sur une logique de recherche entièrement différente."
 summary: "Travailler ses mots-clés pour Baidu réclame des outils dédiés et une grammaire propre. Tour d'horizon de Baidu Index, du Keyword Planner, de 5118 et des codes de la recherche chinoise."
 visual: "/images/guides/baidu-keyword-research-tools.webp"

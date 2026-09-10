@@ -1,5 +1,5 @@
 ---
-title: "Hébergement web en Chine : tout se joue au choix du serveur"
+title: "Hébergement en Chine : le serveur décide de tout"
 subtitle: "Pour un internaute chinois, l'écart entre Shanghai et Francfort ne se mesure pas en millisecondes. Il se résume à ceci : la page s'affiche, ou elle ne s'affiche pas."
 summary: "Le lieu d'hébergement d'un site chinois commande la vitesse, le référencement sur Baidu et la conformité réglementaire. Comparatif entre continent, Hong Kong et étranger, avec panorama des acteurs du cloud."
 visual: "/images/guides/china-website-hosting-guide.webp"

@@ -1,5 +1,5 @@
 ---
-title: "La inclusión rápida de Baidu ya no existe. Qué la sustituyó"
+title: "Baidu retiró la inclusión rápida: qué la sustituye"
 subtitle: "La inclusión rápida era la única herramienta de envío de Baidu que entusiasmaba a alguien. Baidu la retiró en abril de 2024 y la sustituyó por una promesa bastante más estrecha, reservada a los sitios que ya tienen tráfico."
 summary: "Baidu retiró la inclusión rápida en abril de 2024. Qué promete realmente el rastreo rápido, quién tiene derecho a él y qué le queda a un sitio extranjero recién lanzado."
 visual: "/images/guides/baidu-fast-inclusion-gone.webp"

@@ -1,5 +1,5 @@
 ---
-title: "Enviar un sitio a Baidu: push, sitemap y envío manual"
+title: "Enviar a Baidu: la API de push o el envío manual"
 subtitle: "El desarrollador termina el sitemap, entra en Baidu, busca la casilla donde pegarlo y no la encuentra. No hay nada roto. La mayoría de las veces la herramienta falta porque la cuenta no se la ha ganado."
 summary: "Cómo enviar un sitio a Baidu cuando la herramienta de sitemap no aparece: el endpoint de la API de push, el comportamiento real de las cuotas y el envío manual."
 visual: "/images/guides/submitting-urls-to-baidu.webp"
