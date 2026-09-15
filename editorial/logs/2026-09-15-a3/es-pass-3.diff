@@ -1,0 +1,70 @@
+--- es-pass-2.md
++++ es-pass-3.md
+@@ -1,7 +1,7 @@
+ ---
+ title: "Plugins de WordPress: fallos en China"
+ subtitle: "Qué servidores externos utilizan sus plugins de WordPress, cuáles fallan en China y cómo comprobar cada dependencia."
+-summary: "Audite las dependencias de WordPress en China con pruebas fechadas y revise las fuentes, los scripts, los formularios y los servicios externos."
++summary: "Pruebas fechadas para auditar WordPress en China y corregir dependencias de fuentes, scripts, formularios y servicios externos."
+ visual: "/images/guides/wordpress-plugins-china.webp"
+ order: 35
+ published: true
+@@ -13,7 +13,7 @@
+ 
+ La auditoría de plugins de WordPress en China empieza por identificar los servidores que utiliza cada uno. Si falla la petición de un script, la página puede retrasarse. Un captcha averiado también puede impedir el envío de consultas en una página que carga normalmente. Aloje los archivos esenciales en su servidor y pruebe los formularios y el editor desde las conexiones continentales que usan sus visitantes y su equipo.
+ 
+-Estas pruebas publicadas muestran por qué importa la conexión. La columna de resultados describe únicamente la línea residencial de la muestra. No permite anticipar qué ocurrirá en otras redes.
++Las pruebas publicadas muestran el peso de la conexión utilizada. La última columna se refiere solo a la línea residencial de la muestra. Sus resultados no se pueden extender a otras redes.
+ 
+ | Servidor | Alibaba Cloud (阿里云), Zhangjiakou, 28 ago. 2026 | Línea residencial de China Mobile (中国移动), Pekín, 30 ago. 2026 | Resultado en la línea residencial |
+ |---|---|---|---|
+@@ -42,7 +42,7 @@
+ 
+ Sustituya la copia externa por el jQuery incluido en WordPress cuando sea compatible. Revise los scripts del tema que dependen de él antes de cambiar el orden de carga. Eliminar una biblioteca que aún necesita un menú o un formulario provoca otro fallo.
+ 
+-La fila de reCAPTCHA exige una prueba funcional. Envíe una consulta real de prueba y confirme que llega. Una página puede mostrarse normalmente aunque falle el reto obligatorio. Mantenga la protección contra el spam mientras prueba una alternativa.
++Complete los datos de reCAPTCHA con una prueba funcional: envíe una consulta y confirme su recepción. La página puede mostrarse aunque falle la verificación obligatoria. Mantenga la protección contra el spam durante la prueba de una alternativa.
+ 
+ ## Evaluar cada CDN por separado
+ 
+@@ -67,7 +67,7 @@
+ 
+ ## Las llamadas externas del núcleo de WordPress
+ 
+-Un tema puede solicitar una fuente cuyo registro conserva WordPress por compatibilidad. Compruebe qué código inicia la petición.
++Un tema puede utilizar una declaración de fuente que WordPress conserva por compatibilidad. Localice el código que desencadena la petición.
+ 
+ > El archivo `script-loader.php` de WordPress mantiene registros de Google Fonts para Open Sans y Noto Serif. Sus comentarios indican que el núcleo ya no los utiliza, aunque pueden necesitarlos los temas o plugins.
+ > Fuente: código fuente de WordPress, consultado el 15 de septiembre de 2026. https://raw.githubusercontent.com/WordPress/WordPress/master/wp-includes/script-loader.php
+@@ -91,7 +91,7 @@
+ > QUIC.cloud recibe lotes de imágenes de la biblioteca multimedia y los procesa en los nodos de su servicio.
+ > Fuente: QUIC.cloud, Image Optimization, 6 de abril de 2026. https://docs.quic.cloud/services/imageopt/
+ 
+-La documentación describe un procesamiento externo. No determina si el servicio es accesible desde China continental ni dónde se procesa cada tarea. También puede comprimir las imágenes antes de subirlas. Nuestra [guía de alojamiento WordPress en China](/es/recursos/guia-web-china/alojamiento-wordpress-china/) aborda la elección del servidor de origen, que conviene estudiar junto con estos ajustes.
++La documentación confirma que las imágenes se procesan en un servicio externo. No indica si puede accederse a él desde China continental ni dónde se ejecuta su tarea. Otra opción es comprimir las imágenes antes de subirlas. Nuestra [guía de alojamiento WordPress en China](/es/recursos/guia-web-china/alojamiento-wordpress-china/) trata la elección del servidor de origen, vinculada a estos ajustes.
+ 
+ ## Cómo auditar los plugins de WordPress en China
+ 
+@@ -110,7 +110,7 @@
+ | Google Hosted Libraries | Bloqueado, GreatFire, 22 ago. 2026 | Script inicial que retrasa el análisis | jQuery local compatible |
+ | Google Fonts | Accesible desde el centro de datos; bloqueado en la línea residencial probada, 28/30 ago. 2026 | Origen de las fuentes | Alojar los archivos localmente |
+ | Gravatar | Bloqueado, GreatFire, 31 ago. 2026 | Peticiones de avatares | Desactivar los avatares innecesarios |
+-| Google reCAPTCHA | Fallo en ambas muestras, 28/30 ago. 2026 | Enviar una consulta | Probar otro reto del formulario |
++| Google reCAPTCHA | Fallo en ambas muestras, 28/30 ago. 2026 | Enviar una consulta | Probar otra verificación del formulario |
+ | Google Tag Manager | Accesible desde el centro de datos; bloqueado en la línea residencial probada, 28/30 ago. 2026 | Carga del contenedor y recepción de eventos | Revisar cada etiqueta |
+ | jsDelivr | Peticiones completadas en ambas muestras, 28/30 ago. 2026 | Biblioteca esencial | Incorporar los archivos localmente |
+ | cdnjs, unpkg | Sin verificar aquí | Cada URL solicitada | Probar o alojar localmente |
+@@ -125,11 +125,11 @@
+ 
+ **¿Puedo hacer la prueba con una VPN?**
+ 
+-Una prueba describe la red por la que sale el tráfico. Una salida VPN en el extranjero no representa a un visitante continental. Anote la ubicación de salida y el resolvedor antes de interpretar el resultado. Para validar el sitio, utilice una conexión continental conocida y complete las mismas tareas que un visitante, incluido el envío del formulario o la compra.
++El resultado depende de la red por la que sale el tráfico. Una salida VPN en el extranjero no reproduce la conexión de un visitante continental. Anote la ubicación de salida y el resolvedor DNS antes de interpretar la prueba. Para validar el sitio, use una conexión continental conocida y complete las tareas del visitante, incluido el envío del formulario o la compra.
+ 
+ **¿Hay que renunciar a Elementor?**
+ 
+-Audite por separado las páginas públicas y el editor antes de decidir. El ajuste de fuentes locales resuelve una dependencia. Pruebe las demás peticiones y confirme que su editor puede realizar el trabajo habitual. Los servidores de Elementor aún no probados impiden dar aquí un veredicto completo de compatibilidad continental para su instalación.
++Revise las páginas públicas y el editor por separado antes de decidir. El ajuste de fuentes locales resuelve una dependencia. Pruebe las demás peticiones y confirme que el equipo puede completar su trabajo habitual. Mientras queden servidores de Elementor sin probar, esta guía no puede certificar la compatibilidad de toda su instalación con las conexiones continentales.
+ 
+ **¿A cuántos servidores externos debería llamar un sitio para China?**
+ 

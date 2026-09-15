@@ -145,6 +145,102 @@ primary source, record the URL and the check 2 date, and move the entry to
 - Used in: website-in-china
 - Notes: Planning number stays 3 to 6 weeks. Commercial licence 60 to 90 working days is from the fact bank, not re-fetched today.
 
+### ajax.googleapis.com blocked verdict, mainland China
+- Fact ID: F1 (verdict half only; the CWF timing half is still unverified, see "Checks attempted and not completed")
+- Value: blocked. GreatFire's last conclusive test failed. Across the wider googleapis.com domain, 265 of 573 tested URLs blocked, 120 disrupted, 184 accessible
+- Vantage point: GreatFire's mainland test network (GreatFire does not publish the carrier or the city)
+- As of: last tested 2026-08-22
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/ajax.googleapis.com
+- Verified 1: 2026-09-11, fetched twice with different prompts, same verdict and same 2026-08-22 date both times
+- Verified 2: 2026-09-11, re-fetched in iteration 8, unchanged
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: This carries the **verdict** only. It is not a latency measurement and must never be presented as one. The fact bank's "no first byte before a 60-second abandon from Alibaba Cloud Zhangjiakou" is a separate claim and is still owed check 2. GreatFire's sample here is one conclusive test, which is why A3 says so in the blockquote rather than implying a large sample.
+
+### secure.gravatar.com blocked in mainland China
+- Fact ID: F4 (verdict half only)
+- Value: blocked. All 28 tested gravatar.com URLs blocked. Interference on record since 12 May 2014
+- Vantage point: GreatFire's mainland test network
+- As of: last tested 2026-08-31
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/secure.gravatar.com
+- Verified 1: 2026-09-11
+- Verified 2: 2026-09-11, re-fetched in iteration 8, verdict, 28 of 28 count and date all unchanged
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: Replaces the fact bank's unsourced Gravatar verdict for citation purposes. The mirror timings in F4 (Cravatar 284ms, cdn.sep.cc 33ms, WeAvatar 50ms) are **not** covered here and stay out of copy until they carry a vantage point and a date.
+
+### WordPress core registers Google Fonts only for back-compatibility
+- Fact ID: F11
+- Value: two `fonts.googleapis.com` registrations in `wp-includes/script-loader.php`, for Open Sans and Noto Serif. Both carry the comment "<name> is no longer used by core, but may be relied upon by themes and plugins"
+- Vantage point: n/a, not a measurement
+- As of: current master at the time of reading, 2026-09-11
+- Source: WordPress core source
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/master/wp-includes/script-loader.php
+- Verified 1: 2026-09-11, file fetched, both occurrences and both comments read
+- Verified 2: 2026-09-11, re-fetched in iteration 8, comment wording confirmed verbatim for both fonts
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: **The fact bank says one registration is marked "No longer used in core as of 5.7". That wording is not in the file.** The file says "is no longer used by core, but may be relied upon by themes and plugins", for both fonts. Source wins, same precedent as F19 and F6. PLAN.md section 4 needs correcting. The fact bank's separate claim that the Font Library fetches its catalogue from `s.w.org` was **not** checked; A3 says "WordPress.org" instead and names no host.
+
+### Elementor ships with local Google Fonts hosting turned off
+- Fact ID: F10
+- Value: the Load Google Fonts Locally feature "has been updated with a setting that allows you to choose if you want to Enable or Disable it. From now on, this setting is disabled by default on all sites." Re-enabled at Elementor > Settings > Performance
+- Vantage point: n/a, not a measurement
+- As of: 18 September 2025
+- Source: Elementor, official statement in the plugin's public issue tracker (elementor/elementor #32838)
+- URL: https://github.com/elementor/elementor/issues/32838
+- Verified 1: 2026-09-11, issue fetched, both quoted sentences and the menu path confirmed
+- Verified 2: 2026-09-11, re-fetched in iteration 8, both sentences still present verbatim
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: This is the citable half of F10, and it is stronger than a source read because it is the vendor's own statement carrying a date. The separate Google Fonts control under Elementor > Settings > Advanced is named in A3 from the vendor's help documentation and is **not** carried by this entry. The option keys `elementor_google_font` and `elementor_local_google_fonts`, the editor's ungated Roboto registration, and the `api-eu.mixpanel.com` opt-in are all **unverified** and stay out of copy. Reachability of `my.elementor.com` and `assets.elementor.com` remains on the Do Not Assert list.
+
+### WP Rocket's Remove Unused CSS is processed on WP Rocket's servers
+- Fact ID: F17
+- Value: "Those optimizations are performed on our servers upon requests from the WP Rocket plugin."
+- Vantage point: n/a, not a measurement
+- As of: 12 September 2024
+- Source: WP Rocket, *WP Rocket SaaS: Behind the Scene*
+- URL: https://wp-rocket.me/blog/saas-behind-the-scene/
+- Verified 1: 2026-09-11
+- Verified 2: 2026-09-11, re-fetched in iteration 8, sentence present verbatim, post date confirmed
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: Pairs with the documentation entry below. Together they establish the direction of travel (their servers fetch your site) without asserting any verdict on whether the round trip succeeds from a mainland origin, which nobody has measured.
+
+### WP Rocket's Used CSS requires the site to be publicly reachable
+- Fact ID: F17
+- Value: "The URL of each page is sent to our API which will visit the URL and will create the used CSS for that", and among the basic requirements, "Your site must be publicly accessible for the tool to work"
+- Vantage point: n/a, not a measurement
+- As of: page last updated 1 June 2026
+- Source: WP Rocket knowledge base, *Remove Unused CSS*
+- URL: https://docs.wp-rocket.me/article/1529-remove-unused-css
+- Verified 1: 2026-09-11
+- Verified 2: 2026-09-11, re-fetched in iteration 8, both sentences confirmed and the last-updated date unchanged
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: Check 2 corrected the first quote: it continues "and will create the used CSS for that". A3 quotes the full clause rather than truncating it.
+
+### QUIC.cloud image optimisation sends the media library out of the country
+- Fact ID: none (researched outside the fact bank; adjacent to F18)
+- Value: "Images from your WordPress Media Library are sent to QUIC.cloud in batches. QUIC.cloud performs the optimization using QUIC.cloud's own service nodes so there is no impact on your server performance."
+- Vantage point: n/a, not a measurement
+- As of: page dated 6 April 2026
+- Source: QUIC.cloud documentation, *Image Optimization*
+- URL: https://docs.quic.cloud/services/imageopt/
+- Verified 1: 2026-09-11 (reached via a 301 from www.quic.cloud/docs/online-services/image-optimization/)
+- Verified 2: 2026-09-11, re-fetched in iteration 8, sentence and page date unchanged
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: The mirror image of the WP Rocket case, and the reason A3 can make the "calls the other way" point without any of the F18 details it could not verify. **QUIC.cloud endpoint reachability from mainland China stays on the Do Not Assert list.** This entry describes architecture, not reachability.
+
+### LiteSpeed Cache and W3 Total Cache, current versions
+- Fact ID: F18 (versions only)
+- Value: LiteSpeed Cache stable 7.9.1, last updated 1 September 2026, tested to WordPress 7.1. W3 Total Cache stable 2.10.6, last updated 4 September 2026, tested to WordPress 7.1
+- Vantage point: n/a, not a measurement
+- As of: 1 and 4 September 2026
+- Source: WordPress.org plugin API
+- URL: https://api.wordpress.org/plugins/info/1.0/litespeed-cache.json and https://api.wordpress.org/plugins/info/1.0/w3-total-cache.json
+- Verified 1: 2026-09-11
+- Verified 2: 2026-09-11, both endpoints re-read in iteration 8
+- Used in: wordpress-plugins-china (A3 draft)
+- Notes: Both version numbers match the fact bank exactly. Everything else in F18 failed check 2 and is logged below.
+
 ## Measurements (ours)
 
 ### ajax.googleapis.com returns no first byte from a mainland datacenter
@@ -246,7 +342,7 @@ primary source, record the URL and the check 2 date, and move the entry to
 - URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 - Verified 1: 2026-09-06 (fact bank, entry marked CORRECTED 6 September)
 - Verified 2: 2026-09-10, page fetched twice, method section and both result tables read
-- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft), wordpress-plugins-china (A3 draft)
 - Notes: **The fact bank says 29 August and 73 of 73. The source says 28 August and 72 of 72.** Source wins, same precedent as F19. PLAN.md section 4 needs correcting. Never cite this figure without the paired consumer row below: alone it is the flat correction the Do Not Assert list forbids.
 
 ### Google Fonts from a Beijing consumer line (fonts.googleapis.com, fonts.gstatic.com)
@@ -258,7 +354,7 @@ primary source, record the URL and the check 2 date, and move the entry to
 - URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 - Verified 1: 2026-09-06 (fact bank)
 - Verified 2: 2026-09-10
-- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft), wordpress-plugins-china (A3 draft)
 - Notes: **The fact bank dates this 28 August and says only "Beijing residential broadband". The source says 30 August and names China Mobile.** Source wins. The counts, 0 of 54 and 0 of 6, match the fact bank exactly. Always cite paired with the datacentre row above.
 
 ### Google Tag Manager, both vantage points
@@ -270,7 +366,7 @@ primary source, record the URL and the check 2 date, and move the entry to
 - URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 - Verified 1: 2026-09-10 (first logging, this run)
 - Verified 2: 2026-09-10 (same page, second fetch with a different query)
-- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft), wordpress-plugins-china (A3 draft)
 - Notes: F3 calls GTM "intermittent". Each vantage point gave the same answer on every attempt, so the shape is a split, not intermittency. F34 and the T6-05 upgrade of google-analytics-china should use this wording. The separate F3 point stands: the beacon to google-analytics.com fails either way.
 
 ### reCAPTCHA, both vantage points
@@ -282,7 +378,7 @@ primary source, record the URL and the check 2 date, and move the entry to
 - URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 - Verified 1: 2026-08-29 (fact bank)
 - Verified 2: 2026-09-10
-- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft), wordpress-plugins-china (A3 draft)
 - Notes: Confirms F2's blocked verdict from two independent vantage points, which most circulating verdicts do not have. Says nothing about the `www.recaptcha.net` workaround; F2's own warning to retest that before publishing it still stands. Useful for T2-03.
 
 ### cdn.jsdelivr.net, both vantage points
@@ -294,7 +390,7 @@ primary source, record the URL and the check 2 date, and move the entry to
 - URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 - Verified 1: 2026-08-29 (fact bank)
 - Verified 2: 2026-09-10
-- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft)
+- Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft), wordpress-plugins-china (A3 draft)
 - Notes: **F7 says "493ms quiet hour to 1,086ms peak, p95 1,780ms". The p95 matches within 23ms; the central figure does not.** Source wins. jsDelivr is the one host in this set that completes from a home line, which is worth keeping separate from cdnjs and unpkg in copy.
 
 ## Checks attempted and not completed
@@ -320,6 +416,69 @@ these as verified twice.
 - Verified 2: **not completed, 2026-09-10.** The 21YunBox page tests neither host.
 - Effect: the figures were **cut** from the live article's dependency table rather than republished, because a latency figure with no named vantage point is not a figure. The row now reads "Both complete. Untested from a consumer line". Restore the numbers only with a vantage point and a date attached.
 
-## Retired
+### ajax.googleapis.com, no first byte before a 60-second abandon (second failure)
+- Fact ID: F1
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: **not completed, 2026-09-11.** Same two reasons as on 2026-09-10. `harness/latest.json` still reads an empty `rows` array, so the ChinaWebFoundry probe record is not in the repo to re-read, and a fresh fetch of the 21YunBox study confirmed again that it tests five hosts only (fonts.googleapis.com, fonts.gstatic.com, cdn.jsdelivr.net, www.googletagmanager.com, www.google.com/recaptcha) and not this one.
+- Effect: the timing was **cut** from `wordpress-plugins-china`. The article carries GreatFire's dated blocked verdict instead and argues the render-blocking mechanism, which needs no measurement of its own. Two consecutive drafts have now been written around this gap. Probe `ajax.googleapis.com` in the first harness run and log the run_id here.
+
+### cdnjs.cloudflare.com and unpkg.com timings (second failure)
+- Fact ID: F7
+- Verified 1: 2026-08-29 (fact bank), 478ms and 824ms, no vantage point on record
+- Verified 2: **not completed, 2026-09-11.** The 21YunBox study still tests neither host.
+- Effect: same decision as the T6-02 run, kept deliberately consistent so one figure does not appear two ways. `wordpress-plugins-china` names both hosts, states in prose that we have no timing carrying a named test location and a date, and its replacement table reads "Reachable, no dated measurement we can stand behind". Restore the numbers only with a vantage point attached.
+
+### jsDelivr lost its China ICP filing in December 2021
+- Fact ID: F7
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: **not completed, 2026-09-11.** The primary source is jsDelivr's own post on X (status 1472870623051456522), and x.com is not fetchable by this environment. The two jsDelivr GitHub issues that surface (#18176, opened 11 September 2019; #18407, opened 21 May 2022) carry no dated maintainer statement confirming the revocation.
+- Effect: the ICP history was **cut** from `wordpress-plugins-china`. The CDN section reports the measured behaviour and its consequence and asserts no cause. Retry from a client that can read x.com, or find the statement in a dated trade publication.
+
+### LiteSpeed Cache preconnect to fonts.gstatic.com, and the empty user-agent exclusion lists in LiteSpeed Cache and W3 Total Cache
+- Fact ID: F18
+- Verified 1: 2026-09-04 (fact bank, from a source read)
+- Verified 2: **not completed, 2026-09-11.** `plugins.trac.wordpress.org` returns HTTP 403 to the fetcher on `/browser/litespeed-cache/trunk/src/gui.cls.php`. The plugin's public GitHub master (`litespeedtech/lscache_wp`, `src/gui.cls.php`) contains no match for "gstatic", "preconnect" or "dns-prefetch", so the preconnect claim is not merely unconfirmed, it is absent from where the fact bank implies it lives.
+- Effect: both claims **cut**. Only the two version numbers reached `wordpress-plugins-china`, and the caching section rests on WP Rocket and QUIC.cloud instead. Re-read both plugin sources from a local install before F18 is cited again, and correct PLAN.md if the preconnect is genuinely absent.
+
+### The www.recaptcha.net workaround
+- Fact ID: F2
+- Verified 1: 2026-08-29 (fact bank), last confirmed February 2026
+- Verified 2: **not attempted, 2026-09-11.** F2 itself says the datapoint should be retested before it is published as a fix. It was not retested this run.
+- Effect: `wordpress-plugins-china` publishes reCAPTCHA's blocked verdict from both vantage points and offers domestic captcha replacements. It does not mention the host swap. Retest before any piece prints it, T2-03 included.
+
+## A3 recovery checks, 15 September 2026
+
+The entries above retain their original verification history. These checks
+apply to the repaired wordpress-plugins-china draft. Direct HTTP fetches
+returned 200 in two separate rounds on 15 September 2026. Raw responses are
+saved under editorial/logs/runs/2026-09-15-a3-quality/source-<id>-<round>.txt.
+
+| Fact | Source URL | Date and claim confirmed | Verified 1 | Verified 2 |
+|---|---|---|---|---|
+| F2, F3, F6, F7 | https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html | 28 August 2026 Alibaba Cloud cn-zhangjiakou and 30 August 2026 Beijing China Mobile residential results; five paired host rows, counts, median TTFB and jsDelivr p95 unchanged | 2026-09-15 | 2026-09-15 |
+| F1 verdict only | https://en.greatfire.org/https/ajax.googleapis.com | One conclusive failed mainland test, 22 August 2026; no CWF latency retained | 2026-09-15 | 2026-09-15 |
+| F4 verdict only | https://en.greatfire.org/https/secure.gravatar.com | Blocked verdict, last tested 31 August 2026 in direct live HTML; older web-cache snapshot rejected | 2026-09-15 | 2026-09-15 |
+| F10 | https://github.com/elementor/elementor/issues/32838 | 18 September 2025 announcement: local Google Fonts disabled by default, Performance menu control | 2026-09-15 | 2026-09-15 |
+| F11 | https://raw.githubusercontent.com/WordPress/WordPress/master/wp-includes/script-loader.php | Source read 15 September 2026; Open Sans and Noto Serif compatibility registrations, no longer used by core | 2026-09-15 | 2026-09-15 |
+| F17 | https://docs.wp-rocket.me/article/1529-remove-unused-css | Updated 1 June 2026; API visits submitted URLs and requires public accessibility | 2026-09-15 | 2026-09-15 |
+| Adjacent to F18 | https://docs.quic.cloud/services/imageopt/ | 6 April 2026; image batches processed on service nodes. Does not establish processing geography or mainland reachability | 2026-09-15 | 2026-09-15 |
+| Script mechanism | https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script | Updated 9 May 2026; classic scripts without async/defer/module behaviour block parsing by default; rendering is distinct | 2026-09-15 | 2026-09-15 |
+
+Corrections to reuse guidance:
+
+- The earlier QUIC.cloud entry title says "out of the country". The cited
+  documentation proves service processing, not the country where a job runs.
+  Do not reuse the geography claim without separate evidence.
+- cdnjs and unpkg have no complete dated, named-vantage record in this ledger.
+  The repaired A3 labels them unverified and removes the reachable verdict.
+- jsDelivr residential completions establish reachable, without a residential
+  latency figure. A3 no longer labels that residential sample slow.
+- Removed optional F18 version trivia and the unchecked Font Library, Divi
+  controls and mirror compatibility details from A3. The existing F18 source
+  limitations remain unresolved. No new measurement or harness row was made.
+- Omitted the older WP Rocket blog citation because the June 2026 primary
+  documentation supports the retained mechanism directly.
+
+## Retired entries
 
 (Stale entries, kept for traceability.)

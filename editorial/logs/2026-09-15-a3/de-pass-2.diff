@@ -1,0 +1,90 @@
+--- de-pass-1.md
++++ de-pass-2.md
+@@ -1,7 +1,7 @@
+ ---
+-title: "WordPress-Plugins: Ausfälle in China"
+-subtitle: "Welche externen Hosts Ihre WordPress-Plugins aufrufen und welche davon hinter der Great Firewall ausfallen."
+-summary: "WordPress-Abhängigkeiten in China prüfen: datierte Netzwerktests, lokale Schriften und Korrekturen für Skripte, Formulare und Cloud-Dienste."
++title: "WordPress-Plugins in China prüfen"
++subtitle: "Welche externen Hosts Ihre WordPress-Plugins benötigen, wo Aufrufe scheitern und wie Sie die Abhängigkeiten prüfen."
++summary: "WordPress in China: Abhängigkeiten mit datierten Netzwerktests prüfen und Fehler bei Schriften, Skripten, Formularen und Cloud-Diensten beheben."
+ visual: "/images/guides/wordpress-plugins-china.webp"
+ order: 35
+ published: true
+@@ -11,7 +11,7 @@
+ author: cyril-drouin
+ ---
+ 
+-Wer WordPress-Plugins in China prüft, sollte zuerst die aufgerufenen Hosts erfassen. Eine fehlgeschlagene Skriptanfrage kann die Seite verzögern. Ein ausgefallenes Captcha kann Anfragen verhindern, obwohl die Seite geladen wird. Hosten Sie notwendige Dateien selbst und testen Sie Formulare und Editor anschließend über die Festlandanschlüsse, die Ihre Besucher und Mitarbeiter nutzen.
++Die Prüfung von WordPress-Plugins in China beginnt mit den Hosts, die sie aufrufen. Scheitert eine Skriptanfrage, kann sich die Seite verzögern. Auch auf einer geladenen Seite kann ein defektes Captcha den Versand von Kontaktanfragen verhindern. Hosten Sie notwendige Dateien selbst. Testen Sie Formulare und Editor anschließend über jene Festlandanschlüsse, die Ihre Besucher und Mitarbeiter nutzen.
+ 
+ Die veröffentlichten Tests zeigen, wie stark das Ergebnis vom Anschluss abhängt. Die letzte Spalte beschreibt ausschließlich den untersuchten Privatanschluss. Sie erlaubt keine Aussage über andere Netze.
+ 
+@@ -26,7 +26,7 @@
+ > Die Zahlen abgeschlossener Anfragen und die Laufzeiten stammen von 21YunBox: Alibaba Cloud (阿里云), Zhangjiakou, 28. August 2026, eine Messung alle 10 Minuten über 12 Stunden mit einem Timeout von 30 Sekunden; außerdem ein China-Mobile-Privatanschluss (中国移动) in Peking am 30. August 2026 mit 88 Websites und 264 Seitenaufrufen.
+ > Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+ 
+-TTFB bezeichnet die Zeit bis zum ersten Byte; p95 steht für das 95. Perzentil. Die Cloud-Sonde und der Browsertest am Privatanschluss verwenden unterschiedliche Methoden. Ob die Seite bedienbar ist, muss gesondert geprüft werden. Die Quellen wurden am 15. September 2026 überprüft; die ursprünglichen Testdaten bleiben bestehen.
++Die TTFB misst die Zeit bis zum ersten empfangenen Byte; p95 ist das 95. Perzentil. Cloud-Sonde und Browser am Privatanschluss arbeiten mit unterschiedlichen Messverfahren. Ob sich die Seite tatsächlich bedienen lässt, erfordert einen eigenen Test. Die Quellen wurden am 15. September 2026 überprüft. Die Messungen behalten ihre ursprünglichen Datumsangaben.
+ 
+ ## Das Skript-Tag, das eine Seite aufhalten kann
+ 
+@@ -42,19 +42,19 @@
+ 
+ Ersetzen Sie die externe Kopie durch das mit WordPress gelieferte jQuery, sofern es kompatibel ist. Prüfen Sie die davon abhängigen Theme-Skripte, bevor Sie die Ladereihenfolge ändern. Wer eine weiterhin für Menüs oder Formulare benötigte Bibliothek entfernt, verursacht einen neuen Fehler.
+ 
+-Die reCAPTCHA-Zeile in der Tabelle erfordert einen Funktionstest. Senden Sie eine echte Testanfrage und prüfen Sie den Eingang. Eine Seite kann normal erscheinen, obwohl die vorgeschriebene Captcha-Prüfung scheitert. Lassen Sie den Spamschutz bestehen, während Sie einen Ersatz testen.
++Ergänzen Sie die reCAPTCHA-Zahlen um einen Funktionstest: Senden Sie eine Testanfrage und kontrollieren Sie ihren Eingang. Die Seite kann normal erscheinen, obwohl die erforderliche Captcha-Prüfung scheitert. Behalten Sie den Spamschutz bei, wenn Sie eine Alternative erproben.
+ 
+ ## Jedes CDN braucht eine eigene Prüfung
+ 
+ jsDelivr schloss die Anfragen von beiden untersuchten Anschlüssen ab. Die Latenz aus dem Rechenzentrum steht in der Tabelle. Der Privatanschlusstest belegt abgeschlossene Anfragen, liefert aber keine vergleichbare Latenzangabe.
+ 
+-Wird eine Bibliothek für die Funktion der Seite benötigt, kommt das Bereitstellen über den eigenen Ursprungsserver infrage. Testen Sie nach der Einbindung und dokumentieren Sie die Version. Spätere Updates sollten nicht davon abhängen, ob sich jemand an die Herkunft der Datei erinnert.
++Benötigt die Seite eine Bibliothek zwingend, können Sie diese über den eigenen Ursprungsserver ausliefern. Prüfen Sie die Funktion nach der Einbindung und halten Sie die verwendete Version fest. Wer später das Update übernimmt, weiß dann, welche Datei ersetzt werden muss.
+ 
+ Für cdnjs und unpkg liegt hier kein vollständig datierter Test mit benanntem Standort vor. Ihr Status bleibt ungeprüft. Nehmen Sie Anfragen an `cdnjs.cloudflare.com` oder `unpkg.com` in Ihre eigene Prüfung auf.
+ 
+ ## Google Fonts hängt vom Anschluss ab
+ 
+-Lesen Sie die beiden Schriftzeilen gemeinsam: Beide Hosts beantworteten sämtliche Anfragen aus dem Rechenzentrum und keine vom untersuchten Privatanschluss. Wer die Schriften selbst hostet, entfernt diesen externen Aufruf aus den Browsern seiner Besucher.
++Die beiden Tabellenzeilen zu Schriften gehören zusammen: Beide Hosts beantworteten jede Anfrage aus dem Rechenzentrum und keine vom untersuchten Privatanschluss. Lokal gehostete Schriften ersparen den Browsern Ihrer Besucher diesen externen Aufruf.
+ 
+ Prüfen Sie in Elementor ausdrücklich die Einstellung für lokal gehostete Schriften.
+ 
+@@ -67,7 +67,7 @@
+ 
+ ## Welche externen Hosts WordPress selbst aufruft
+ 
+-Ein Theme kann eine Schriftregistrierung anfordern, die WordPress aus Kompatibilitätsgründen beibehält. Prüfen Sie, welcher Code die Anfrage auslöst.
++Ein Theme kann auf eine Schriftregistrierung zurückgreifen, die WordPress aus Kompatibilitätsgründen beibehält. Suchen Sie den Code, der den Abruf tatsächlich auslöst.
+ 
+ > WordPress behält in `script-loader.php` Google-Fonts-Registrierungen für Open Sans und Noto Serif. Die Kommentare erklären, dass der Kern sie nicht mehr nutzt, Themes oder Plugins aber darauf angewiesen sein können.
+ > Quelle: WordPress-Quellcode, gelesen am 15. September 2026. https://raw.githubusercontent.com/WordPress/WordPress/master/wp-includes/script-loader.php
+@@ -86,7 +86,7 @@
+ > WP Rocket sendet Seiten-URLs an seine API. Diese ruft die Seiten ab und erzeugt daraus das verwendete CSS. Die Website muss für den Dienst öffentlich erreichbar sein.
+ > Quelle: WP Rocket, Wissensdatenbank, Remove Unused CSS, aktualisiert am 1. Juni 2026. https://docs.wp-rocket.me/article/1529-remove-unused-css
+ 
+-Bei einem Ursprungsserver auf dem Festland müssen Sie diesen Abruf praktisch testen. Prüfen Sie den Auftragsstatus und die Firewall-Protokolle, bevor Sie Zugriffsregeln ändern. Ein fehlgeschlagener Dienstauftrag braucht eine eigene Diagnose; die Network-Ansicht des Browsers zeigt nicht den gesamten Weg.
++Steht der Ursprungsserver auf dem Festland, prüfen Sie, ob der Dienst ihn tatsächlich erreicht. Sehen Sie sich den Auftragsstatus und die Firewall-Protokolle an, bevor Sie Zugriffsregeln ändern. Die Network-Ansicht im Browser erfasst nicht den gesamten Weg. Schlägt die Verarbeitung beim Dienst fehl, muss die Ursache gesondert untersucht werden.
+ 
+ > QUIC.cloud empfängt Bilder aus der Mediathek in Stapeln und verarbeitet sie auf seinen Dienstknoten.
+ > Quelle: QUIC.cloud, Image Optimization, 6. April 2026. https://docs.quic.cloud/services/imageopt/
+@@ -103,7 +103,7 @@
+ 
+ ## Was sich ersetzen lässt, Host für Host
+ 
+-Der auslösende Bestandteil zeigt, wo Sie eingreifen müssen. Die Netzwerkurteile beziehen sich ausschließlich auf die oben datierten Nachweise. Bei Datumpaaren steht zuerst der Rechenzentrumstest, danach der Test am Privatanschluss.
++Ermitteln Sie, welcher Bestandteil die Anfrage auslöst. Dort setzen Sie die Änderung an. Die Aussagen zur Erreichbarkeit gelten nur für die oben genannten Tests. Bei zwei Datumsangaben steht zuerst der Rechenzentrumstest, danach die Messung am Privatanschluss.
+ 
+ | Abhängigkeit | Dokumentierter Status | Was zu prüfen ist | Ersatz oder Maßnahme |
+ |---|---|---|---|
+@@ -125,7 +125,7 @@
+ 
+ **Kann ich das mit einem VPN testen?**
+ 
+-Ein Test beschreibt das Netz, über das der Verkehr austritt. Ein VPN-Ausgang im Ausland entspricht keinem Festlandbesucher. Notieren Sie Ausgangsstandort und Resolver, bevor Sie das Ergebnis deuten. Verwenden Sie für die Abnahme einen bekannten Festlandanschluss und erledigen Sie dieselben Aufgaben wie ein Besucher, einschließlich Formularversand oder Kaufabschluss.
++Das Testergebnis hängt vom Netz am VPN-Ausgang ab. Liegt dieser im Ausland, bildet er den Anschluss eines Festlandbesuchers nicht ab. Notieren Sie den Ausgangsstandort und den Resolver, bevor Sie das Ergebnis bewerten. Nutzen Sie für die Abnahme einen bekannten Festlandanschluss und führen Sie die Aufgaben eines Besuchers durch, einschließlich Formularversand oder Kaufabschluss.
+ 
+ **Müssen wir auf Elementor verzichten?**
+ 

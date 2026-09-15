@@ -1,0 +1,76 @@
+--- es-pass-1.md
++++ es-pass-2.md
+@@ -1,7 +1,7 @@
+ ---
+-title: "Plugins de WordPress que fallan en China"
+-subtitle: "Los servidores externos a los que recurren sus plugins de WordPress y cuáles fallan tras el Great Firewall."
+-summary: "Cómo auditar las dependencias de WordPress en China con pruebas fechadas y corregir fuentes, scripts, formularios y servicios externos."
++title: "Plugins de WordPress: fallos en China"
++subtitle: "Qué servidores externos utilizan sus plugins de WordPress, cuáles fallan en China y cómo comprobar cada dependencia."
++summary: "Audite las dependencias de WordPress en China con pruebas fechadas y revise las fuentes, los scripts, los formularios y los servicios externos."
+ visual: "/images/guides/wordpress-plugins-china.webp"
+ order: 35
+ published: true
+@@ -11,7 +11,7 @@
+ author: cyril-drouin
+ ---
+ 
+-Para auditar los plugins de WordPress en China, empiece por los servidores a los que llama cada uno. Una petición de script fallida puede retrasar la página; un captcha que falla puede impedir el envío de consultas aunque la página cargue. Aloje los archivos esenciales en su servidor y pruebe después los formularios y el editor desde las conexiones de China continental que utilizan sus visitantes y su equipo.
++La auditoría de plugins de WordPress en China empieza por identificar los servidores que utiliza cada uno. Si falla la petición de un script, la página puede retrasarse. Un captcha averiado también puede impedir el envío de consultas en una página que carga normalmente. Aloje los archivos esenciales en su servidor y pruebe los formularios y el editor desde las conexiones continentales que usan sus visitantes y su equipo.
+ 
+ Estas pruebas publicadas muestran por qué importa la conexión. La columna de resultados describe únicamente la línea residencial de la muestra. No permite anticipar qué ocurrirá en otras redes.
+ 
+@@ -26,7 +26,7 @@
+ > Los recuentos de peticiones completadas y los tiempos proceden de 21YunBox: Alibaba Cloud (阿里云), Zhangjiakou, 28 de agosto de 2026, con una muestra cada 10 minutos durante 12 horas y un tiempo de espera máximo de 30 segundos; y una línea residencial de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, con 88 sitios y 264 cargas de página.
+ > Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+ 
+-TTFB es el tiempo hasta recibir el primer byte; p95 corresponde al percentil 95. La sonda en la nube y la prueba con navegador en la línea residencial emplean métodos distintos. Hay que comprobar por separado si la página se puede utilizar. Fuentes revisadas el 15 de septiembre de 2026; las pruebas conservan sus fechas originales.
++El TTFB mide cuánto tarda en llegar el primer byte; p95 es el percentil 95. La sonda en la nube y el navegador conectado a la línea residencial siguen métodos distintos. El funcionamiento de la página requiere otra comprobación. Las fuentes se revisaron el 15 de septiembre de 2026, sin modificar las fechas originales de las pruebas.
+ 
+ ## La etiqueta script que puede retrasar una página
+ 
+@@ -48,7 +48,7 @@
+ 
+ jsDelivr completó las peticiones desde las dos conexiones de la muestra. Su latencia en el centro de datos figura en la tabla. El resultado residencial confirma que las peticiones terminaron, pero no aporta una cifra de latencia comparable.
+ 
+-Si una biblioteca es necesaria para que funcione la página, valore servirla desde su propio servidor de origen. Pruebe el resultado tras incorporarla al proyecto y registre la versión. Las futuras actualizaciones no deberían depender de que alguien recuerde de dónde salió el archivo.
++Cuando una biblioteca sea indispensable para la página, considere alojarla en su servidor de origen. Compruebe que funciona al incorporarla al proyecto y deje constancia de la versión. Así, quien se ocupe de actualizarla sabrá qué archivo debe sustituir.
+ 
+ No disponemos de una prueba completa, fechada y con ubicación identificada para cdnjs y unpkg. Su estado queda sin verificar aquí. Incluya en su auditoría las peticiones a `cdnjs.cloudflare.com` o `unpkg.com`.
+ 
+@@ -61,7 +61,7 @@
+ > El anuncio de Elementor del 18 de septiembre de 2025 indica que Load Google Fonts Locally está desactivado de forma predeterminada. Sitúa el control en Elementor > Settings > Performance.
+ > Fuente: Elementor, incidencia 32838, 18 de septiembre de 2025. https://github.com/elementor/elementor/issues/32838
+ 
+-Una vez activado el alojamiento local, vacíe la caché de las páginas. Examine después las peticiones de fuentes en la página pública y confirme que los archivos proceden de su dominio. Los ajustes y los archivos guardados pueden variar entre instalaciones. Revise el resultado también después de una actualización.
++Active el alojamiento local y vacíe la caché. En la página pública, examine las peticiones de fuentes para confirmar que los archivos llegan desde su dominio. Cada instalación puede tener ajustes y archivos distintos, por lo que conviene repetir la comprobación después de actualizar.
+ 
+ Abra después el editor. Sigue sin verificarse el acceso desde China continental a `my.elementor.com` y `assets.elementor.com`. Que funcione la página pública no demuestra que el equipo pueda trabajar en el editor.
+ 
+@@ -86,7 +86,7 @@
+ > WP Rocket envía las URL de las páginas a su API, que las visita para generar el CSS utilizado. El sitio debe ser accesible públicamente para ese servicio.
+ > Fuente: documentación de WP Rocket, Remove Unused CSS, actualizada el 1 de junio de 2026. https://docs.wp-rocket.me/article/1529-remove-unused-css
+ 
+-Si el servidor de origen está en China continental, pruebe ese acceso. Revise el estado de la tarea y los registros del cortafuegos antes de cambiar las reglas de acceso. Un fallo del servicio necesita su propio diagnóstico: la pestaña Network del navegador no muestra el recorrido completo.
++Si aloja el sitio en China continental, compruebe que el servicio puede acceder a él. Consulte el estado de la tarea y los registros del cortafuegos antes de modificar las reglas de acceso. La pestaña Network del navegador no recoge todo el recorrido; un fallo del servicio exige un diagnóstico aparte.
+ 
+ > QUIC.cloud recibe lotes de imágenes de la biblioteca multimedia y los procesa en los nodos de su servicio.
+ > Fuente: QUIC.cloud, Image Optimization, 6 de abril de 2026. https://docs.quic.cloud/services/imageopt/
+@@ -99,7 +99,7 @@
+ 
+ Nuestro [China Site Scanner gratuito](/es/china-site-scanner/) detecta patrones conocidos de dependencias en el código fuente del sitio. No certifica el acceso a la red. Complete ese inventario con una prueba de navegador desde una conexión continental. Registre la ciudad, el operador, la fecha y la acción que intentó realizar. Guarde tanto los fallos como los envíos correctos para que el desarrollador pueda reproducir el problema.
+ 
+-Anote las versiones de los plugins y los ajustes modificados junto a los resultados. Corrija una dependencia que impide recibir consultas antes que una imagen opcional. Tras cada cambio, vacíe la caché, recargue y repita la acción afectada. Vuelva a comprobarlo después de actualizar el tema o el constructor de páginas, ya que pueden recuperar llamadas externas.
++Guarde con los resultados las versiones de los plugins y los ajustes modificados. Atienda primero las dependencias que impiden recibir consultas; una imagen opcional puede esperar. Después de cada cambio, repita la acción afectada con la página recargada y la caché vacía. Las actualizaciones del tema o del constructor pueden reintroducir llamadas externas y requieren otra revisión.
+ 
+ ## Qué sustituir, servidor por servidor
+ 
+@@ -121,7 +121,7 @@
+ 
+ **¿Hay un plugin que lo resuelva todo?**
+ 
+-Localice el componente que inicia la petición. Puede que deba cambiar un ajuste del tema o del constructor. Las etiquetas de marketing necesitan su propia revisión. Elija una herramienta cuando sepa qué llamada debe sustituir y pruebe la página modificada desde una conexión continental. Incorpore esa comprobación a sus actualizaciones.
++Identifique primero qué componente inicia la petición. Quizá baste con modificar un ajuste del tema o del constructor; las etiquetas de marketing requieren una revisión aparte. Una vez localizada la llamada que debe sustituir, elija la herramienta. Pruebe después la página desde una conexión continental y repita el control al actualizar.
+ 
+ **¿Puedo hacer la prueba con una VPN?**
+ 

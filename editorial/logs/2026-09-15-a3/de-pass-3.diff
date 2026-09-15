@@ -1,0 +1,62 @@
+--- de-pass-2.md
++++ de-pass-3.md
+@@ -1,7 +1,7 @@
+ ---
+ title: "WordPress-Plugins in China prüfen"
+ subtitle: "Welche externen Hosts Ihre WordPress-Plugins benötigen, wo Aufrufe scheitern und wie Sie die Abhängigkeiten prüfen."
+-summary: "WordPress in China: Abhängigkeiten mit datierten Netzwerktests prüfen und Fehler bei Schriften, Skripten, Formularen und Cloud-Diensten beheben."
++summary: "Datierte Tests für WordPress in China: externe Abhängigkeiten prüfen und Fehler bei Schriften, Skripten, Formularen und Cloud-Diensten beheben."
+ visual: "/images/guides/wordpress-plugins-china.webp"
+ order: 35
+ published: true
+@@ -13,7 +13,7 @@
+ 
+ Die Prüfung von WordPress-Plugins in China beginnt mit den Hosts, die sie aufrufen. Scheitert eine Skriptanfrage, kann sich die Seite verzögern. Auch auf einer geladenen Seite kann ein defektes Captcha den Versand von Kontaktanfragen verhindern. Hosten Sie notwendige Dateien selbst. Testen Sie Formulare und Editor anschließend über jene Festlandanschlüsse, die Ihre Besucher und Mitarbeiter nutzen.
+ 
+-Die veröffentlichten Tests zeigen, wie stark das Ergebnis vom Anschluss abhängt. Die letzte Spalte beschreibt ausschließlich den untersuchten Privatanschluss. Sie erlaubt keine Aussage über andere Netze.
++Die veröffentlichten Tests belegen, wie stark das Ergebnis vom Anschluss abhängt. Die letzte Spalte gilt ausschließlich für den untersuchten Privatanschluss. Auf andere Netze lassen sich diese Ergebnisse nicht übertragen.
+ 
+ | Host | Alibaba Cloud (阿里云), Zhangjiakou, 28. August 2026 | China-Mobile-Privatanschluss (中国移动), Peking, 30. August 2026 | Ergebnis am Privatanschluss |
+ |---|---|---|---|
+@@ -63,7 +63,7 @@
+ 
+ Leeren Sie nach dem Aktivieren des lokalen Hostings den Seitencache. Prüfen Sie dann die Schriftanfragen auf der öffentlichen Seite und stellen Sie sicher, dass die Dateien von Ihrer Domain kommen. Einstellungen und gespeicherte Dateien können je nach Installation abweichen. Kontrollieren Sie das Ergebnis auch nach einem Update.
+ 
+-Öffnen Sie anschließend den Editor. Die Erreichbarkeit von `my.elementor.com` und `assets.elementor.com` vom chinesischen Festland ist weiterhin ungeprüft. Eine funktionierende öffentliche Seite belegt noch keinen funktionierenden Redaktionsablauf.
++Öffnen Sie anschließend den Editor. Ob `my.elementor.com` und `assets.elementor.com` vom chinesischen Festland erreichbar sind, ist weiterhin ungeprüft. Auch bei funktionierender öffentlicher Seite muss die Redaktion ihre Arbeitsabläufe separat testen.
+ 
+ ## Welche externen Hosts WordPress selbst aufruft
+ 
+@@ -91,7 +91,7 @@
+ > QUIC.cloud empfängt Bilder aus der Mediathek in Stapeln und verarbeitet sie auf seinen Dienstknoten.
+ > Quelle: QUIC.cloud, Image Optimization, 6. April 2026. https://docs.quic.cloud/services/imageopt/
+ 
+-Die Dokumentation belegt eine externe Verarbeitung. Sie liefert weder ein Urteil zur Erreichbarkeit vom Festland noch einen Verarbeitungsort für Ihren Auftrag. Sie können Bilder auch vor dem Hochladen komprimieren. Unser [Leitfaden zum WordPress-Hosting in China](/de/ressourcen/china-web-leitfaden/wordpress-hosting-china/) behandelt die Wahl des Ursprungsservers, die mit diesen Plugin-Einstellungen zusammenhängt.
++Die Dokumentation belegt die Verarbeitung durch einen externen Dienst. Ob dieser vom Festland erreichbar ist und wo Ihr Auftrag ausgeführt wird, geht daraus nicht hervor. Sie können die Bilder auch vor dem Hochladen komprimieren. Unser [Leitfaden zum WordPress-Hosting in China](/de/ressourcen/china-web-leitfaden/wordpress-hosting-china/) behandelt die Wahl des Ursprungsservers im Zusammenhang mit diesen Einstellungen.
+ 
+ ## So prüfen Sie WordPress-Plugins in China
+ 
+@@ -99,7 +99,7 @@
+ 
+ Unser [kostenloser China Site Scanner](/de/china-site-scanner/) erkennt bekannte Abhängigkeitsmuster im Quelltext der Website. Er kann die Erreichbarkeit im Netz nicht bestätigen. Ergänzen Sie diese Bestandsaufnahme durch einen Browsertest an einem Festlandanschluss. Notieren Sie Stadt, Netzbetreiber, Datum und die versuchte Aktion. Speichern Sie Fehler ebenso wie erfolgreich gesendete Anfragen, damit der Entwickler das Problem nachvollziehen kann.
+ 
+-Dokumentieren Sie mit den Ergebnissen auch Plugin-Versionen und geänderte Einstellungen. Beheben Sie eine Abhängigkeit, die Anfragen verhindert, vor einem optionalen Bild. Laden Sie nach jeder Änderung mit geleertem Cache neu und wiederholen Sie die betroffene Aktion. Kontrollieren Sie nach Theme- oder Builder-Updates erneut, denn diese können externe Aufrufe wiederherstellen.
++Halten Sie neben den Ergebnissen die Plugin-Versionen und geänderten Einstellungen fest. Abhängigkeiten, die Kontaktanfragen verhindern, haben Vorrang vor optionalen Bildern. Laden Sie nach jeder Änderung mit geleertem Cache neu und wiederholen Sie die betroffene Aktion. Prüfen Sie auch nach Theme- oder Builder-Updates, ob externe Aufrufe zurückgekehrt sind.
+ 
+ ## Was sich ersetzen lässt, Host für Host
+ 
+@@ -121,7 +121,7 @@
+ 
+ **Gibt es ein Plugin, das alles behebt?**
+ 
+-Verfolgen Sie die Anfrage bis zum auslösenden Bestandteil. Möglicherweise muss eine Theme- oder Builder-Einstellung geändert werden. Marketing-Tags brauchen eine eigene Prüfung. Wählen Sie ein Werkzeug, sobald feststeht, welcher Aufruf ersetzt werden muss. Testen Sie danach die geänderte Seite von einem Festlandanschluss und nehmen Sie diese Prüfung in Ihre Update-Routine auf.
++Finden Sie heraus, welcher Bestandteil die Anfrage auslöst. Eventuell genügt eine Änderung am Theme oder am Builder; Marketing-Tags müssen separat geprüft werden. Wählen Sie erst dann ein Werkzeug, wenn der zu ersetzende Aufruf feststeht. Testen Sie die geänderte Seite von einem Festlandanschluss und wiederholen Sie die Prüfung bei Updates.
+ 
+ **Kann ich das mit einem VPN testen?**
+ 
+@@ -133,4 +133,4 @@
+ 
+ **Wie viele externe Hosts sollte eine Website für China aufrufen?**
+ 
+-Halten Sie wesentliche Seiteninhalte unabhängig von ungeprüften ausländischen Hosts. Bewerten Sie jeden übrigen Dienst anhand seiner Aufgabe: Ein Kontaktformular braucht erfolgreiche Übermittlungen, die Analyse braucht eingegangene Ereignisse. Unsere Seite [WordPress in China](/de/wordpress-in-china/) behandelt die weiteren Entscheidungen beim Aufbau. Auch eine kurze Hostliste erfordert einen Funktionstest.
++Wesentliche Seiteninhalte sollten ohne ungeprüfte ausländische Hosts auskommen. Prüfen Sie die übrigen Dienste anhand ihrer Aufgabe: Kontaktanfragen müssen ankommen, Analyseereignisse müssen erfasst werden. Unsere Seite [WordPress in China](/de/wordpress-in-china/) erläutert die weiteren Entscheidungen beim Aufbau. Auch bei wenigen externen Hosts bleibt ein Funktionstest erforderlich.

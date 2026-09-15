@@ -1,0 +1,46 @@
+--- fr-pass-5.md
++++ fr-pass-6.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "Plugins WordPress : les blocages en Chine"
+-subtitle: "Les serveurs externes sollicités par vos plugins WordPress et ceux qui échouent derrière le Great Firewall."
++subtitle: "Les hôtes externes appelés par vos plugins WordPress, leurs défaillances en Chine et les vérifications à effectuer."
+ summary: "WordPress en Chine : auditer les dépendances avec des tests datés et corriger les appels des scripts, polices, formulaires et services distants."
+ visual: "/images/guides/wordpress-plugins-china.webp"
+ order: 35
+@@ -13,7 +13,7 @@
+ 
+ L’audit des plugins WordPress en Chine commence par les hôtes qu’ils sollicitent. Une requête de script en échec peut retarder la page. Un captcha défaillant peut aussi empêcher l’envoi d’une demande sur une page qui s’affiche normalement. Hébergez les fichiers indispensables sur votre serveur, puis testez formulaires et éditeur sur les connexions continentales qu’utilisent vos visiteurs et votre équipe.
+ 
+-Ces tests publiés montrent combien la connexion compte. Le verdict décrit uniquement la ligne résidentielle testée. Il ne préjuge pas du résultat sur d’autres réseaux.
++Les tests publiés ci-dessous montrent l’effet du réseau utilisé. La dernière colonne décrit uniquement la ligne résidentielle testée. Son verdict ne s’étend pas aux autres connexions.
+ 
+ | Hôte | Alibaba Cloud (阿里云), Zhangjiakou, 28 août 2026 | Ligne résidentielle China Mobile (中国移动), Pékin, 30 août 2026 | Verdict sur la ligne résidentielle |
+ |---|---|---|---|
+@@ -42,7 +42,7 @@
+ 
+ Remplacez la copie externe par le jQuery fourni avec WordPress si les versions sont compatibles. Vérifiez les scripts du thème qui en dépendent avant de modifier l’ordre de chargement. Supprimer une bibliothèque encore nécessaire à un menu ou à un formulaire provoque une autre panne.
+ 
+-La ligne reCAPTCHA du tableau appelle un test fonctionnel. Envoyez une vraie demande de test et vérifiez sa réception. Une page peut s’afficher normalement alors que son captcha obligatoire échoue. Maintenez une protection contre le spam lorsque vous testez un remplacement.
++Pour reCAPTCHA, complétez les chiffres du tableau par un test fonctionnel. Envoyez une demande de test et vérifiez sa réception. La page peut s’afficher alors que le captcha obligatoire échoue. Conservez une protection contre le spam pendant l’essai d’un autre dispositif.
+ 
+ ## Examiner chaque CDN séparément
+ 
+@@ -67,7 +67,7 @@
+ 
+ ## Les appels externes du cœur de WordPress
+ 
+-Un thème peut demander une police dont WordPress conserve l’enregistrement pour des raisons de compatibilité. Identifiez le code à l’origine de la requête.
++Un thème peut utiliser une déclaration de police que WordPress conserve par compatibilité. Recherchez le code qui déclenche effectivement la requête.
+ 
+ > Le fichier `script-loader.php` de WordPress conserve des enregistrements Google Fonts pour Open Sans et Noto Serif. Ses commentaires précisent que le cœur ne les utilise plus, mais que des thèmes ou plugins peuvent encore en dépendre.
+ > Source : code source de WordPress, consulté le 15 septembre 2026. https://raw.githubusercontent.com/WordPress/WordPress/master/wp-includes/script-loader.php
+@@ -121,7 +121,7 @@
+ 
+ **Un plugin peut-il tout corriger ?**
+ 
+-Remontez jusqu’au composant qui lance la requête. Un réglage du thème ou du constructeur peut devoir changer. Les balises marketing demandent leur propre examen. Choisissez un outil une fois l’appel à remplacer identifié, puis testez la page modifiée depuis une connexion continentale. Conservez ce contrôle dans votre procédure de mise à jour.
++Identifiez d’abord le composant qui lance la requête. Il faudra peut-être modifier un réglage du thème ou du constructeur, tandis que les balises marketing demandent un examen séparé. Choisissez un outil une fois l’appel à remplacer identifié. Testez ensuite la page sur une connexion continentale et intégrez ce contrôle aux mises à jour.
+ 
+ **Peut-on effectuer le test avec un VPN ?**
+ 

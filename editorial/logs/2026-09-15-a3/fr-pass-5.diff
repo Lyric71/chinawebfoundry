@@ -1,0 +1,70 @@
+--- fr-pass-4.md
++++ fr-pass-5.md
+@@ -1,7 +1,7 @@
+ ---
+ title: "Plugins WordPress : les blocages en Chine"
+ subtitle: "Les serveurs externes sollicités par vos plugins WordPress et ceux qui échouent derrière le Great Firewall."
+-summary: "Auditer les dépendances WordPress en Chine : tests réseau datés, polices locales et corrections des scripts, formulaires et services distants."
++summary: "WordPress en Chine : auditer les dépendances avec des tests datés et corriger les appels des scripts, polices, formulaires et services distants."
+ visual: "/images/guides/wordpress-plugins-china.webp"
+ order: 35
+ published: true
+@@ -11,7 +11,7 @@
+ author: cyril-drouin
+ ---
+ 
+-Pour auditer les plugins WordPress en Chine, commencez par les hôtes que chacun appelle. Un script inaccessible peut retarder la page ; un captcha défaillant peut empêcher l’envoi de demandes alors que la page s’affiche. Hébergez les fichiers indispensables sur votre serveur, puis testez les formulaires et l’éditeur depuis les connexions continentales de vos visiteurs et de votre équipe.
++L’audit des plugins WordPress en Chine commence par les hôtes qu’ils sollicitent. Une requête de script en échec peut retarder la page. Un captcha défaillant peut aussi empêcher l’envoi d’une demande sur une page qui s’affiche normalement. Hébergez les fichiers indispensables sur votre serveur, puis testez formulaires et éditeur sur les connexions continentales qu’utilisent vos visiteurs et votre équipe.
+ 
+ Ces tests publiés montrent combien la connexion compte. Le verdict décrit uniquement la ligne résidentielle testée. Il ne préjuge pas du résultat sur d’autres réseaux.
+ 
+@@ -26,7 +26,7 @@
+ > Ces nombres de requêtes abouties et ces délais proviennent de 21YunBox : Alibaba Cloud (阿里云), Zhangjiakou, le 28 août 2026, avec un échantillon toutes les 10 minutes pendant 12 heures et un délai d’expiration de 30 secondes ; puis une ligne résidentielle China Mobile (中国移动) à Pékin, le 30 août 2026, sur 88 sites et 264 chargements de page.
+ > Source : 21YunBox, A Day of Third-Party Requests From Inside China, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+ 
+-Le TTFB mesure le délai avant réception du premier octet ; p95 désigne le 95e percentile. La sonde cloud et le test par navigateur résidentiel utilisent des méthodes différentes. Il faut vérifier séparément que la page est utilisable. Sources revues le 15 septembre 2026 ; les tests conservent leur date d’origine.
++Le TTFB est le délai avant réception du premier octet ; p95 désigne le 95e percentile. La sonde cloud et le navigateur sur la ligne résidentielle ne suivent pas le même protocole. L’utilisation réelle de la page exige donc un contrôle distinct. Les sources ont été revues le 15 septembre 2026, sans modifier les dates des tests.
+ 
+ ## La balise script qui peut retarder une page
+ 
+@@ -48,7 +48,7 @@
+ 
+ jsDelivr a terminé ses requêtes depuis les deux connexions testées. Le tableau donne sa latence au centre de données. Le test résidentiel établit que les requêtes aboutissent, sans fournir de mesure de latence comparable.
+ 
+-Si une bibliothèque est indispensable au fonctionnement de la page, envisagez de la servir depuis votre origine. Testez après son intégration au projet et consignez sa version : les prochaines mises à jour ne doivent pas dépendre du souvenir de la personne qui a ajouté le fichier.
++Pour une bibliothèque indispensable à la page, envisagez un hébergement sur votre serveur d’origine. Testez son intégration et consignez la version utilisée. La personne chargée des prochaines mises à jour saura ainsi quel fichier remplacer.
+ 
+ Nous ne disposons pas de test complet, daté et associé à un lieu précis pour cdnjs et unpkg. Leur état reste donc non vérifié ici. Incluez dans votre audit les requêtes vers `cdnjs.cloudflare.com` ou `unpkg.com`.
+ 
+@@ -63,7 +63,7 @@
+ 
+ Après activation de l’hébergement local, videz le cache des pages. Examinez ensuite les requêtes de polices sur la page publique et vérifiez que les fichiers proviennent de votre domaine. Réglages et fichiers enregistrés peuvent varier d’une installation à l’autre ; contrôlez aussi le résultat après une mise à jour.
+ 
+-Ouvrez ensuite l’éditeur. L’accès à `my.elementor.com` et `assets.elementor.com` depuis la Chine continentale reste non vérifié. Une page publique fonctionnelle ne prouve pas que le travail d’édition peut se dérouler normalement.
++Ouvrez ensuite l’éditeur. L’accès à `my.elementor.com` et `assets.elementor.com` depuis la Chine continentale reste non vérifié. Même si la page publique fonctionne, il faut encore vérifier que les rédacteurs peuvent travailler normalement.
+ 
+ ## Les appels externes du cœur de WordPress
+ 
+@@ -79,14 +79,14 @@
+ 
+ Si les avatars n’apportent rien au site, envisagez de les désactiver. Vérifiez le résultat sur les pages de commentaires et les écrans courants de l’éditeur. Notre [guide sur le blocage de WordPress en Chine](/fr/ressources/guide-web-chine/wordpress-bloque-en-chine/) examine les autres dépendances.
+ 
+-## Les plugins qui font revenir un serveur distant
++## Quand un service distant doit accéder au site
+ 
+ Avant d’activer un réglage de performance, cherchez quelle machine effectue le traitement.
+ 
+ > WP Rocket envoie les URL des pages à son API, qui les visite pour produire le CSS utilisé. Le site doit être accessible publiquement à ce service.
+ > Source : base de connaissances WP Rocket, Remove Unused CSS, mise à jour le 1er juin 2026. https://docs.wp-rocket.me/article/1529-remove-unused-css
+ 
+-Pour un serveur d’origine continental, testez cet accès en pratique. Examinez l’état du traitement et les journaux du pare-feu avant de changer les règles d’accès. Un traitement distant qui échoue demande son propre diagnostic ; l’onglet Network du navigateur ne montre pas l’ensemble du trajet.
++Si votre serveur d’origine se trouve en Chine continentale, vérifiez que le service parvient à le joindre. Consultez l’état du traitement et les journaux du pare-feu avant de modifier les règles d’accès. L’onglet Network du navigateur ne montre pas tout le trajet : un échec du traitement distant demande un diagnostic séparé.
+ 
+ > QUIC.cloud reçoit des lots d’images de la médiathèque et les traite sur les nœuds de son service.
+ > Source : QUIC.cloud, Image Optimization, 6 avril 2026. https://docs.quic.cloud/services/imageopt/
+@@ -133,4 +133,4 @@
+ 
+ **Combien d’hôtes tiers un site destiné à la Chine devrait-il solliciter ?**
+ 
+-Gardez le contenu indispensable indépendant des hôtes étrangers non testés. Évaluez chaque service restant selon sa fonction : un formulaire doit transmettre les demandes, les statistiques doivent recevoir les événements. Notre page [WordPress en Chine](/fr/wordpress-en-chine/) traite des autres décisions de réalisation. Même une courte liste d’hôtes exige un test fonctionnel.
++Le contenu indispensable doit pouvoir s’afficher sans dépendre d’hôtes étrangers non testés. Vérifiez ensuite chaque service selon sa fonction : réception des demandes pour un formulaire, réception des événements pour les statistiques. Notre page [WordPress en Chine](/fr/wordpress-en-chine/) aborde les autres choix de réalisation. Une liste d’hôtes courte exige, elle aussi, un test fonctionnel.
