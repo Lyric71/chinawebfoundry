@@ -1,0 +1,1 @@
+Widgets de chat, mapas incrustados, reproductores de YouTube, reCAPTCHA, hojas de estilo de fuentes alojadas. Cualquiera de ellos puede dejar un socket colgado a un visitante chino, y cualquiera de ellos se neutraliza con un endpoint pequeño. Cuáles lo hacen en su sitio solo lo dicen sus propias pruebas, en la fecha en que las realiza.

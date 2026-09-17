@@ -1,0 +1,1 @@
+Chat widgets, Maps embeds, YouTube players, reCAPTCHA, hosted font stylesheets. Any of those can leave a socket hanging for a visitor in China, and any of them is one small endpoint away from being harmless. Which ones do it on your site is a question your own testing answers, on the date you test.

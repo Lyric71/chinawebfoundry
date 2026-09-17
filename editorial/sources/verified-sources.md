@@ -393,6 +393,221 @@ primary source, record the URL and the check 2 date, and move the entry to
 - Used in: upgrade-is-wordpress-blocked-in-china (T6-02 draft), wordpress-plugins-china (A3 draft)
 - Notes: **F7 says "493ms quiet hour to 1,086ms peak, p95 1,780ms". The p95 matches within 23ms; the central figure does not.** Source wins. jsDelivr is the one host in this set that completes from a home line, which is worth keeping separate from cdnjs and unpkg in copy.
 
+## T6-05 entries, 17 September 2026
+
+Ten entries logged for `upgrade-google-analytics-china`. Every one was fetched
+twice on 17 September 2026: check 1 during research, check 2 in iteration 8
+with a differently worded query against the same URL, before the draft was
+finished. All thirteen source fetches passed check 2 with no change.
+
+**Read this before citing F34 again.** The fact bank credits five timings to
+"21YB", and the source key defines 21YB as the 21YunBox study *A Day of
+Third-Party Requests From Inside China*. That study does not test any of the
+five tools. It tests five hosts only: fonts.googleapis.com, fonts.gstatic.com,
+cdn.jsdelivr.net, www.googletagmanager.com and www.google.com/recaptcha, and
+that was re-confirmed by fetch on 17 September 2026. The F34 figures are real
+but they live on 21YunBox's per-tool support pages under
+`https://www.21cloudbox.com/support/<tool>-china.html`, each with its own
+"Reviewed" date. The URLs are below so no future run has to find them again.
+
+### Google Analytics collection endpoint blocked from mainland China
+- Fact ID: F3 (verdict half)
+- Value: 100% blocked, 1 of 1 conclusive test failed in the last 90 days
+- Vantage point: n/a, GreatFire reachability verdict, not a latency figure
+- As of: 24 July 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/www.google-analytics.com
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17 (re-fetched in iteration 8)
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: Pairs with the entry below. Together they are an independent
+  confirmation of F3's mechanism: the container host answers and the
+  collection host does not, so the data is lost either way.
+
+### Tag manager host NOT blocked from mainland China
+- Fact ID: F3 (sharpened, verdict half)
+- Value: Not blocked. All 1 recent conclusive test connected normally, 0 of 1
+  disrupted in the last 90 days
+- Vantage point: n/a, GreatFire reachability verdict
+- As of: 24 July 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/www.googletagmanager.com
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: F3 calls GTM "intermittent". GreatFire says not blocked and the
+  21YunBox study says 72 of 72 from a datacentre and 0 of 112 from a consumer
+  line. Three sources, one shape: a split, not intermittency. Never cite this
+  without the collection-endpoint entry above, or it reads as "GTM works".
+
+### Hotjar, disrupted on GreatFire and completing from a datacentre
+- Fact ID: F34
+- Value: GreatFire, static.hotjar.com 100% disrupted, 1 of 1 conclusive test,
+  last tested 2026-08-18. 21YunBox, 3 of 3 page loads completed, median 487ms
+  time to first byte, largest contentful paint 1,660ms, measured 2026-08-30
+- Vantage point: 21YunBox figure from a probe inside mainland China, Alibaba
+  Cloud (阿里云) cn-zhangjiakou. GreatFire's own vantage point is not stated
+  on its page and must not be asserted
+- As of: 18 August 2026 (GreatFire) and 30 August 2026 (21YunBox)
+- Source: GreatFire; 21YunBox
+- URL: https://en.greatfire.org/https/static.hotjar.com
+- URL: https://www.21cloudbox.com/support/hotjar-china.html
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: **F34 dates the GreatFire verdict 2026-08-20. The source says
+  2026-08-18. Source wins**, same precedent as F19 and F6. F34 also omits the
+  21YunBox completion entirely, which makes Hotjar look like a flat block. It
+  is a vantage-point split and must be published as one. The 21YunBox page
+  also states Hotjar hosts primarily on Google Cloud Platform, which is where
+  F34's "hosted on Google Cloud" comes from.
+
+### Meta Pixel blocked from mainland China
+- Fact ID: F34
+- Value: connect.facebook.net blocked
+- Vantage point: n/a, GreatFire reachability verdict
+- As of: 27 May 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/connect.facebook.net
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: **F34 dates this 2026-07-27. The source says 2026-05-27. Source
+  wins.** Now older than 90 days, so the copy carries the date visibly and
+  claims nothing about the current state.
+
+### Amplitude: both hostnames answer, and the April split no longer reproduces
+- Fact ID: F34 (**CORRECTED, the bank's claim has expired**)
+- Value: cdn.amplitude.com not blocked, all 1 recent conclusive test connected
+  normally, last tested 2026-09-14. api.amplitude.com not blocked, all 1
+  recent conclusive test connected normally, 0 of 1 disrupted in the last 90
+  days, last tested 2026-09-10. Domain-wide across 13 tested amplitude.com
+  URLs: 1 blocked, 3 disrupted, 9 accessible
+- Vantage point: n/a, GreatFire reachability verdicts
+- As of: 10 and 14 September 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/cdn.amplitude.com
+- URL: https://en.greatfire.org/https/api.amplitude.com
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: **F34 says cdn.amplitude.com reachable with api.amplitude.com blocked
+  (GF 2026-04-22), and the T6-05 brief calls that "the most useful single fact
+  on the page". It did not reproduce.** Both hosts read not blocked five
+  months later. Do not publish the split as a current verdict in any piece.
+  The split-host FAILURE MODE is still worth teaching and is not time
+  sensitive: a script host and an event host can get different answers, and
+  when they do the dashboard reads as healthy while nothing arrives. Both
+  readings rest on one conclusive test each, which is thin, and the
+  domain-wide spread says the domain is genuinely mixed. PLAN.md section 4
+  needs F34 corrected.
+
+### Microsoft Clarity answers then stalls
+- Fact ID: F34
+- Value: 21YunBox, first byte in a median 541ms, none of the 3 runs finished
+  within 60 seconds. GreatFire, www.clarity.ms not blocked, 1 recent
+  conclusive test, last tested 2026-09-15
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 3 runs, 60-second
+  abandon
+- As of: 28 August 2026 (21YunBox), 15 September 2026 (GreatFire)
+- Source: 21YunBox; GreatFire
+- URL: https://www.21cloudbox.com/support/microsoft-clarity-china.html
+- URL: https://en.greatfire.org/https/www.clarity.ms
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: **Clarity is not blocked.** The host answers and the load never
+  finishes, which is F33's "answers then hangs". Calling it blocked would be
+  wrong in the exact direction this plan exists to correct.
+
+### Mixpanel answers then stalls
+- Fact ID: F34
+- Value: 21YunBox, zero of three runs finished within 60 seconds, first byte
+  in a median 391ms. GreatFire, api.mixpanel.com not blocked, last tested
+  2026-04-17, page states "No recent tests"
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 3 runs, 60-second
+  abandon
+- As of: 28 August 2026 (21YunBox), 17 April 2026 (GreatFire)
+- Source: 21YunBox; GreatFire
+- URL: https://www.21cloudbox.com/support/mixpanel-china.html
+- URL: https://en.greatfire.org/https/api.mixpanel.com
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: Same shape as Clarity. The GreatFire verdict is five months old and
+  the page says so itself, so it is usable only for "not on a block list",
+  never as a current verdict.
+
+### Segment completes slowly from a mainland datacentre
+- Fact ID: F34
+- Value: three of three runs completed, first byte 900ms on one run and
+  1,084ms on another
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou
+- As of: 28 and 30 August 2026 (page reviewed 2026-08-29)
+- Source: 21YunBox
+- URL: https://www.21cloudbox.com/support/segment-china.html
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: F34 renders this as a range, "completes at 900 to 1,084ms". The page
+  gives two separate runs on two dates, not a range across a sample. Cite it
+  as two runs. The "Reviewed" date (29 Aug) is not the measurement date.
+
+### Plausible completes from a mainland datacentre
+- Fact ID: F34, F41
+- Value: three of three runs completed, first byte in a median 550ms, largest
+  contentful paint 1,208ms
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou
+- As of: 28 August 2026
+- Source: 21YunBox
+- URL: https://www.21cloudbox.com/support/plausible-china.html
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: Datacentre only. No consumer-line figure exists for Plausible in any
+  source read so far, so never present 550ms as a visitor experience.
+
+### Matomo cloud completes from a mainland datacentre, and is self-hostable
+- Fact ID: F34, F41
+- Value: three of three runs completed, first byte in a median 516ms, largest
+  contentful paint 1,532ms
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou
+- As of: page reviewed 29 August 2026. The measurement date is not separately
+  stated on the page, so cite the review date and say so
+- Source: 21YunBox
+- URL: https://www.21cloudbox.com/support/matomo-china.html
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: The page also states Matomo can be self-hosted on an endpoint inside
+  the mainland, which removes the reachability question and much of the
+  cross-border question together. That is the F41 argument in the vendor's
+  own words.
+
+### PIPL Article 39: separate consent for a cross-border transfer
+- Fact ID: F3 (the second, independent reason)
+- Value: a handler providing personal information outside the PRC must inform
+  the individual of the overseas recipient's name and contact details, the
+  purpose and method of handling, the categories of personal information and
+  how to exercise rights against that recipient, and must obtain the
+  individual's separate consent (并取得个人的单独同意)
+- Vantage point: n/a, statute
+- As of: adopted 20 August 2021, in force 1 November 2021
+- Source: Cyberspace Administration of China (中央网络安全和信息化委员会办公室),
+  中华人民共和国个人信息保护法
+- URL: https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+- Verified 1: 2026-09-17
+- Verified 2: 2026-09-17 (effective date re-confirmed against Article 74)
+- Used in: upgrade-google-analytics-china (T6-05 draft)
+- Notes: The regulator's own copy of the text, chosen over law-firm and trade
+  write-ups per the source hierarchy in CLAUDE.md. npc.gov.cn failed TLS to
+  this environment's fetcher and two gov.cn URLs returned 403 and 404; the CAC
+  copy is primary and is the better cite regardless. Article 38's four
+  transfer conditions are on the same page if a later piece needs them. The
+  March 2024 CAC Provisions relaxing the thresholds were NOT verified this run
+  (loc.gov and ansi.org both returned 403); any piece wanting the 100,000 or
+  1,000,000 individual exemption thresholds must source them first.
+
 ## Checks attempted and not completed
 
 Logged so the next run does not spend the time again, and so no piece cites
@@ -478,6 +693,269 @@ Corrections to reuse guidance:
   limitations remain unresolved. No new measurement or harness row was made.
 - Omitted the older WP Rocket blog citation because the June 2026 primary
   documentation supports the retained mechanism directly.
+
+## A9 entries, 18 September 2026
+
+Nine entries logged for `wordpress-speed-china` (A9, T1). Every one was
+fetched twice on 18 September 2026: check 1 during research, check 2 in
+createarticle iteration 8 with a differently worded query against the same
+URL, before the draft was finished. All eleven URLs cited by the piece passed
+check 2 with no claim cut or reworded, the second clean run in a row.
+
+### Cloudflare China Network: Enterprise, JD Cloud, ICP per apex, content vetting
+- Fact ID: F30 (seeded 2026-09-06, never fetched until now)
+- Value: "The Cloudflare China Network is available as a separate subscription
+  for customers on an Enterprise plan." Mainland data centres are operated by
+  "Cloudflare's partner JD Cloud". "You must have a valid ICP (Internet
+  Content Provider) filing or license for each apex domain you wish to onboard
+  to Cloudflare." And "JD Cloud, our partner, is required to review and vet the
+  content of all domains on their network before China Network is enabled."
+  Vetting needs the customer and company name, the domain, the ICP number, a
+  description of the domain's content and a signed self attestation letter;
+  enablement then takes roughly 24 to 48 hours.
+- Vantage point: n/a, not a measurement
+- As of: 30 April 2026 (overview page) and 17 April 2026 (get-started page)
+- Source: Cloudflare developer documentation
+- URL: https://developers.cloudflare.com/china-network/ and
+  https://developers.cloudflare.com/china-network/get-started/
+- Verified 1: 2026-09-18, both pages fetched, all four claims confirmed
+- Verified 2: 2026-09-18, both pages re-fetched in iteration 8 with different
+  queries, all four sentences verbatim and both last-updated dates unchanged
+- Used in: wordpress-speed-china (A9 draft)
+- Notes: This stands up **all four parts of F30** from the vendor's own dated
+  pages, which the seeded entry never had. The fact bank's wording "requires
+  JD Cloud content review before onboarding" is confirmed almost verbatim. The
+  separate F30 claim about what the free and standard plans do (nearest
+  overseas edge, typically Hong Kong, Japan or the US west coast) is **not**
+  covered by these two pages and rests on the fact bank; A9 states it in prose
+  without a blockquote for that reason.
+
+### TCP handshake and request count as latency multipliers
+- Fact ID: none (researched outside the fact bank; supports the A9 brief's
+  "handshake count" and "payload" causes)
+- Value: "Connecting is the time it takes for a TCP handshake to complete.
+  Like DNS, the greater the number of server connections needed, the more time
+  is spent creating server connections." And "The greater the number and size
+  of these requests, the greater the impact of high latency on user
+  experience."
+- Vantage point: n/a, mechanism not measurement
+- As of: page last modified 25 February 2025
+- Source: MDN Web Docs, *Understanding latency*
+- URL: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Understanding_latency
+- Verified 1: 2026-09-18
+- Verified 2: 2026-09-18, re-fetched in iteration 8, both sentences verbatim,
+  last-modified date unchanged
+- Used in: wordpress-speed-china (A9 draft)
+- Notes: This is the citable spine of causes three and four. It says nothing
+  about TLS handshake cost, so **no TLS round-trip claim may rest on it.** The
+  adjacent MDN page below was checked for that and does not carry it either.
+
+### Opening a TCP connection is itself expensive
+- Fact ID: none (researched outside the fact bank)
+- Value: "opening each TCP connection is a resource-consuming operation.
+  Several messages must be exchanged between the client and the server.
+  Network latency and bandwidth affect performance when a request needs
+  sending."
+- Vantage point: n/a
+- As of: page last modified 11 September 2026
+- Source: MDN Web Docs, *Connection management in HTTP/1.x*
+- URL: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x
+- Verified 1: 2026-09-18
+- Verified 2: not needed, the claim was **not used** in A9
+- Used in: none
+- Notes: Logged so the next run does not research it again. Checked
+  specifically for a TLS handshake round-trip statement and **it is not on
+  this page.** Any piece wanting to say "TLS costs another round trip" must
+  source it somewhere else first.
+
+### The delivery-layer mechanism, in the vendor's own words
+- Fact ID: none (researched outside the fact bank; the A9 brief's fairness
+  requirement)
+- Value: Chinafy "first creates a 'China-specific' version of your site"; the
+  mirrored version "is the one that is then managed & modified"; blocked or
+  slow resources are replaced "with China equivalents or removing those that
+  are blocked"; delivery runs over "near-China content delivery networks
+  (CDNs)"; "Geo-IP based routing is then implemented on the DNS or CDN level
+  of your site to ensure that only China visitors will be sent to the Chinafy
+  version"; and "Dynamic requests (e.g. transactions) also return to your
+  original site's origin to ensure that real-time information is provided to
+  visitors in China."
+- Vantage point: n/a, a product description
+- As of: **no publication or updated date on the page.** Copyright line reads
+  2025. Read 18 September 2026.
+- Source: Chinafy product documentation
+- URL: https://www.chinafy.com/how-chinafy-works
+- Verified 1: 2026-09-18
+- Verified 2: 2026-09-18, re-fetched, the dynamic-requests sentence verbatim
+  and all four mechanism elements still present, still undated
+- Used in: wordpress-speed-china (A9 draft)
+- Notes: **SPEC says a source with no date is not a source.** The decision
+  taken and logged in the A9 run: this is a product description and not a
+  figure, so it is used for the mechanism only, cited with the read date
+  rather than a publication date, and the copy says in the source line that
+  the page is undated. **No figure from this page is published.** Their "~75%
+  of the most blocked or slow resources" and "1200+ resources" are vendor
+  marketing numbers with no method, adjacent to the 2023 figures on the Do Not
+  Assert list, and must stay out. This entry describes a product, never
+  reachability, and never a motive or outcome (F43 rule).
+
+### Chinafy 2026 benchmark, rechecked and one figure added
+- Fact ID: F31
+- Value: as already logged (614 sites, 11 verticals, WebPageTest by
+  Catchpoint from Beijing, Virginia and London, Chrome on cable; 66.4% failed
+  in Beijing; median visually complete 17.2s; 44% of the Beijing tests timed
+  out; TTFB 1.4s against 0.35s and 0.31s), **plus a figure not previously in
+  this ledger: 61.9% of sites take 10 or more seconds to load completely in
+  Beijing.**
+- Vantage point: Beijing, Virginia and London WebPageTest nodes
+- As of: April 2026
+- Source: Chinafy, State of Global Website Performance in China
+- URL: https://insights.chinafy.com/ (the figures) and
+  https://www.chinafy.com/blog/china-website-performance-benchmarks-2026
+  (the post, dated 14 April 2026)
+- Verified 1: 2026-09-18, all nine method and figure elements confirmed
+- Verified 2: 2026-09-18, re-fetched with a per-figure confirmation query, all
+  nine confirmed again
+- Used in: website-in-china, is-wordpress-blocked-in-china,
+  wordpress-speed-china (A9 draft)
+- Notes: **Cite insights.chinafy.com, not the blog post.** The blog post
+  carries the 614 sites, the three locations, a "2 in 3 failed" restatement
+  and the 4 to 4.5x TTFB line, but **not** the 66.4%, the 17.2s or the 44%,
+  which live only on the insights page. A9 cites the insights URL for that
+  reason. The 61.9% figure was found this run and is not used in A9; it is
+  logged for T4 and B-cluster pieces. Vendor benchmark with a stated method:
+  always attributed and always framed as the vendor's. **Never cite Chinafy's
+  2023 marketing figures** (Do Not Assert).
+
+### ajax.googleapis.com blocked verdict, rechecked
+- Fact ID: F1 (verdict half only)
+- Value: blocked. "100% of the last 1 conclusive test failed in mainland
+  China", last tested 22 August 2026
+- Vantage point: GreatFire's mainland test network
+- As of: last tested 2026-08-22, unchanged since the 2026-09-11 and
+  2026-09-15 checks
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/ajax.googleapis.com
+- Verified 1: 2026-09-18
+- Verified 2: 2026-09-18, re-fetched, verdict and test date both unchanged
+- Used in: wordpress-plugins-china, wordpress-speed-china (A9 draft)
+- Notes: **The domain-wide googleapis.com counts drift.** On 2026-09-11 they
+  read 265 blocked, 120 disrupted, 184 accessible of 573 tested; on 2026-09-18
+  they read 267, 119, 186 of 576. That is GreatFire's rolling window, not a
+  change in the verdict. **Do not publish the domain-wide counts**; A9 uses
+  the host verdict and its test date only. The CWF timing half of F1 remains
+  unverifiable and stays out (see the failed-checks section).
+
+### ChinaWebFoundry migration and uptime figures, rechecked with a live URL
+- Fact ID: F32
+- Value: median page load 23.4s on a European origin to 1.2s on a mainland
+  origin, and "roughly half of that came from deleting external calls rather
+  than from moving the server". Separately: 99.98% uptime over a 90-day
+  window, with median response times of 48ms from Beijing, 36ms from Shanghai
+  and 61ms from Guangzhou.
+- Vantage point: origins named (European, mainland) but the **measurement
+  vantage is not published**; the three cities are named but the **carriers
+  and the window are not published**
+- As of: published 29 August 2026; the guide page updated 11 September 2026
+- Source: ChinaWebFoundry
+- URL: https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/
+  (the migration pair) and https://www.chinawebfoundry.com/website-in-china/
+  (the uptime and response-time figures)
+- Verified 1: 2026-09-18, both live pages fetched, both sentences verbatim
+- Verified 2: 2026-09-18, both re-fetched in iteration 8, unchanged
+- Used in: website-in-china, wordpress-speed-china (A9 draft)
+- Notes: **/website-in-china/ is now live and indexable**, M1 having shipped,
+  so the uptime figure finally has a public URL. The earlier ledger entry had
+  none and cited the services page instead. The missing conditions are still
+  missing and A9 says so in the body copy, following the precedent M1 set on
+  2026-09-06: the figures are published as ours, with the caveat stated, so
+  the same number never appears two ways. **The carrier, city and test date
+  behind the 23.4s/1.2s pair are owed by T3-01, and the window behind the
+  99.98% by T3-02.**
+- **The third F32 figure, the 51-point bounce rate reduction, was deliberately
+  NOT used in A9.** It is a behaviour figure rather than a speed figure, and
+  PLAN.md section 7 owes it two windows, two dates and a named traffic source,
+  which T3-08 will supply. Do not publish it before then.
+
+### 21YunBox paired-vantage study, rechecked for A9
+- Fact ID: F6, F7, F3
+- Value: unchanged from the entries above. fonts.googleapis.com 72 of 72 at
+  111ms median from the datacentre and 0 of 54 from the home line;
+  www.googletagmanager.com 72 of 72 at 118ms and 0 of 112;
+  cdn.jsdelivr.net 72 of 72 at 660ms and 36 of 36
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 28 August 2026;
+  Beijing China Mobile (中国移动) residential line, 30 August 2026
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, *A Day of Third-Party Requests From Inside China*
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-09-18
+- Verified 2: 2026-09-18, re-fetched, every count and median unchanged, and
+  the method confirmed again: 72 samples per cell every ten minutes over
+  twelve hours with a 30-second timeout, timeouts counted rather than
+  discarded; 88 real websites and 264 page loads on the consumer side
+- Used in: upgrade-is-wordpress-blocked-in-china, wordpress-plugins-china,
+  wordpress-speed-china (A9 draft)
+- Notes: The page now reports the datacentre results as "100%" rather than
+  "72 of 72". With 72 samples per cell those are the same statement, and A9
+  publishes "72 of 72" so the completions read as n of m and never as a
+  percentage of three attempts. Confirmed for the fourth time that the study
+  tests **five hosts only** and does not test cdnjs.cloudflare.com,
+  unpkg.com or ajax.googleapis.com.
+
+### MDN script element, rechecked for A9
+- Fact ID: none (mechanism; supports cause one)
+- Value: "Scripts without async, defer or type=\"module\" attributes, as well
+  as inline scripts without the type=\"module\" attribute, are fetched and
+  executed immediately before the browser continues to parse the page."
+- Vantage point: n/a
+- As of: page last modified 9 May 2026
+- Source: MDN Web Docs, the script element
+- URL: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script
+- Verified 1: 2026-09-18
+- Verified 2: 2026-09-18, re-fetched, sentence verbatim, date unchanged
+- Used in: wordpress-plugins-china, wordpress-speed-china (A9 draft)
+- Notes: A9 quotes the clause rather than the full sentence, because the
+  attribute list reads badly in prose, and keeps "are fetched and executed
+  immediately before the browser continues to parse the page" verbatim inside
+  the quotation marks. Pairs with the GreatFire verdict to carry cause one
+  without needing a measurement of our own.
+
+### A9 checks attempted and not completed
+
+#### Median page weight, for cause four
+- Fact ID: none
+- Verified 1: **not completed, 2026-09-18.** httparchive.org/reports/page-weight
+  returns the report scaffolding only. The "Median Desktop" and "Median
+  Mobile" headings are in the HTML; the values are rendered client side and
+  are not in the document.
+- Effect: **no page-weight figure appears in A9.** Cause four is argued from
+  mechanism (the MDN latency page) and from Chinafy's own dated median
+  instead. Nothing was estimated. Retry from a client that executes
+  JavaScript, or use the HTTP Archive BigQuery export, before any piece
+  prints a page-weight number.
+
+#### ajax.googleapis.com, no first byte before a 60-second abandon (third failure)
+- Fact ID: F1
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: **not completed, 2026-09-18.** Third consecutive failure, same
+  two reasons as 2026-09-10 and 2026-09-11: harness/latest.json still reads
+  generated null with an empty rows array, so the ChinaWebFoundry probe record
+  the fact bank refers to is not in the repo to re-read, and the 21YunBox
+  study still does not test this host.
+- Effect: the timing was cut from A9, as it was from
+  upgrade-is-wordpress-blocked-in-china and wordpress-plugins-china. Three
+  drafts have now been written around this gap. **Probe ajax.googleapis.com in
+  the first harness run and log the run_id here.**
+
+#### cdnjs.cloudflare.com and unpkg.com timings (third failure)
+- Fact ID: F7
+- Verified 2: **not completed, 2026-09-18.** The 21YunBox study still tests
+  neither host.
+- Effect: A9 does not name either host. Its CDN point rests on jsDelivr, which
+  is measured from both vantage points, and on the contrast with Google Hosted
+  Libraries. Kept deliberately consistent with the two published pieces so one
+  figure never appears two ways.
+
 
 ## Retired entries
 

@@ -1,0 +1,1 @@
+Chat-Widgets, eingebettete Karten, YouTube-Player, reCAPTCHA, gehostete Font-Stylesheets. Jedes davon kann für einen Besucher in China einen Socket hängen lassen, und jedes davon ist einen kleinen Endpoint von der Harmlosigkeit entfernt. Welche es auf Ihrer Seite tun, beantworten nur Ihre eigenen Tests, an dem Tag, an dem Sie testen.

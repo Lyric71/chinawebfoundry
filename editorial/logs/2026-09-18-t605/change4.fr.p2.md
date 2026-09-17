@@ -1,0 +1,1 @@
+Widgets de chat, cartes intégrées, lecteurs YouTube, reCAPTCHA, feuilles de style de polices hébergées. Chacun peut laisser une socket suspendue chez un visiteur chinois, et chacun se neutralise avec un petit endpoint. Lesquels le font sur votre site, vos propres tests seuls y répondent, à la date où vous les menez.
