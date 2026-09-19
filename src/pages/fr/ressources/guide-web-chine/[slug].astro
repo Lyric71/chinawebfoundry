@@ -18,7 +18,7 @@ const { Content, headings } = await render(guide);
 const tocItems = headings.filter((h) => h.depth === 2);
 
 // Author lookup: prefer FR team entry, fall back to EN team if no FR mirror.
-const teamFrEntry = await getEntry('team-fr', guide.data.author).catch(() => undefined);
+const teamFrEntry = await Promise.resolve(getEntry('team-fr', guide.data.author)).catch(() => undefined);
 const teamEntry = teamFrEntry ?? await getEntry('team', guide.data.author);
 const author = teamEntry
   ? {

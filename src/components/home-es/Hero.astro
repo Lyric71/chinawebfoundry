@@ -416,7 +416,7 @@ const trustBadges = [
     }
 
     function onMove(e: MouseEvent) {
-      const rect = hero.getBoundingClientRect();
+      const rect = hero!.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
       targetX = (x - 0.5) * 2;
