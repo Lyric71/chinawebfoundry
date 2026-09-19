@@ -1,0 +1,181 @@
+---
+/**
+ * CEO's Opinion: signed columns by Cyril Drouin, i.e. guides flagged
+ * `column: true`. Columns stay in the China Web Guide too; this page is a
+ * second way in. English only for now: the route is listed in
+ * englishOnlyRoutes (src/i18n/routes.ts), so FR, ES and DE get no hreflang
+ * alternate and the language switcher sends them to their guide index.
+ */
+import { getCollection, getEntry } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const columns = (await getCollection('guides', ({ data }) => data.published && data.column)).sort(
+  (a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0),
+);
+
+const ceo = await getEntry('team', 'cyril-drouin');
+
+const dateFormatter = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' });
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
+
+const collectionLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${siteOrigin}/resources/ceo-opinion/#collectionpage`,
+  name: "CEO's Opinion",
+  url: `${siteOrigin}/resources/ceo-opinion/`,
+  inLanguage: 'en-GB',
+  isPartOf: { '@id': `${siteOrigin}/#website` },
+  publisher: { '@id': `${siteOrigin}/#organization` },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: columns.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${siteOrigin}/resources/china-web-guide/${c.id}/`,
+      name: c.data.title,
+    })),
+  },
+};
+---
+
+<PageLayout
+  title="CEO's Opinion | Signed columns on the web in China"
+  description="Signed columns from Cyril Drouin, founder of ChinaWebFoundry, on running a website in China and what international brands get wrong about it."
+  heroPage={true}
+  breadcrumbName="CEO's Opinion"
+  jsonLd={[collectionLd]}
+>
+  <!-- Hero -->
+  <section class="relative bg-[var(--color-surface-dark)] overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f12] via-[#1a1a2e] to-[#0f0f12]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] section-padding pt-32 lg:pt-40 pb-24 md:pb-32">
+      <div class="io-grid items-start gap-y-10">
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-5">
+            CEO's Opinion
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-white leading-[1.08]">
+            The web in China,<br />as our founder sees it
+          </h1>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9 lg:pt-10">
+          <p class="text-lg text-white/60 leading-relaxed">
+            Signed columns from Cyril Drouin, who moved to mainland China over twenty years ago. The guides explain how things work. Here he says what he thinks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Columns -->
+  <section class="py-20 md:py-28 lg:py-36">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      {columns.length === 0 ? (
+        <div class="max-w-2xl rounded-2xl border border-[var(--color-surface-border)] bg-[var(--color-surface-light)] p-8 lg:p-10">
+          <h2 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+            The first column is on its way
+          </h2>
+          <p class="text-[var(--color-text-body)] leading-relaxed mb-6">
+            Until it lands, the China Web Guide covers hosting, ICP filing, Baidu and the rest of what it takes to run a site behind the Great Firewall.
+          </p>
+          <Button href="/resources/china-web-guide/" variant="secondary">Read the China Web Guide</Button>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {columns.map((column) => (
+            <a
+              href={`/resources/china-web-guide/${column.id}/`}
+              class="group flex flex-col bg-white border border-[var(--color-surface-border)] rounded-2xl overflow-hidden no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-[var(--color-brand-orange)]/30"
+            >
+              <div class="aspect-[16/9] bg-[var(--color-surface-light)] overflow-hidden">
+                <img
+                  src={column.data.visual}
+                  alt=""
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="flex flex-col flex-1 p-6 lg:p-7">
+                <span class="inline-block self-start px-2.5 py-0.5 rounded-md text-xs font-medium bg-[var(--color-surface-light)] text-[var(--color-text-muted)] mb-3">
+                  {column.data.category}
+                  {column.data.publishedAt && <> · {dateFormatter.format(column.data.publishedAt)}</>}
+                </span>
+                <h2 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-2">
+                  {column.data.title}
+                </h2>
+                <p class="text-sm text-[var(--color-brand-orange-text)] font-medium mb-3 line-clamp-2">
+                  {column.data.subtitle}
+                </p>
+                <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-6 flex-1">
+                  {column.data.summary}
+                </p>
+                <span class="inline-flex items-center gap-2 text-sm font-medium font-[var(--font-button)] text-[var(--color-brand-orange-text)] group-hover:gap-3 transition-all duration-200">
+                  Read the column
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- The columnist -->
+  {ceo && (
+    <section class="pb-20 md:pb-28">
+      <div class="mx-auto max-w-[1400px] section-padding">
+        <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 lg:gap-12 items-center max-w-4xl rounded-2xl bg-[var(--color-surface-light)] p-6 lg:p-10">
+          <img
+            src={ceo.data.photo}
+            alt={`${ceo.data.name}, ${ceo.data.role} of ChinaWebFoundry`}
+            width="1050"
+            height="788"
+            class="w-full max-w-[280px] aspect-[4/3] object-cover rounded-xl"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-3">
+              The columnist
+            </p>
+            <h2 class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+              {ceo.data.name}
+            </h2>
+            <p class="text-sm text-[var(--color-text-muted)] mt-1 mb-4">{ceo.data.role}</p>
+            <p class="text-[var(--color-text-body)] leading-relaxed mb-5">{ceo.data.bio}</p>
+            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium font-[var(--font-button)]">
+              {ceo.data.linkedin && (
+                <a href={ceo.data.linkedin} target="_blank" rel="noopener" class="text-[var(--color-brand-orange-text)] no-underline hover:underline">LinkedIn</a>
+              )}
+              {ceo.data.substack && (
+                <a href={ceo.data.substack} target="_blank" rel="noopener" class="text-[var(--color-brand-orange-text)] no-underline hover:underline">Substack</a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32 border-t border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Want his view on your site?
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
+        Tell us what you're running in China and where it's going wrong. You'll get a straight answer.
+      </p>
+      <Button href="/contact/" variant="primary" size="lg">Talk to us</Button>
+    </div>
+  </section>
+</PageLayout>

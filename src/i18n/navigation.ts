@@ -106,6 +106,16 @@ export function getMainNav(lang: Locale): NavItem[] {
           href: lp('/resources/faq/'),
           description: t('nav.desc.faq'),
         },
+        // English only until the page is translated (see englishOnlyRoutes).
+        ...(lang === 'en'
+          ? [
+              {
+                label: "CEO's Opinion",
+                href: '/resources/ceo-opinion/',
+                description: 'Signed columns from our founder',
+              },
+            ]
+          : []),
       ],
     },
   ];
@@ -148,6 +158,7 @@ export function getFooterNav(lang: Locale) {
       { label: t('nav.chinaSiteScanner'), href: lp('/china-site-scanner/') },
       { label: t('nav.chinaWebGuide'), href: lp('/resources/china-web-guide/') },
       { label: t('nav.faqShort'), href: lp('/resources/faq/') },
+      ...(lang === 'en' ? [{ label: "CEO's Opinion", href: '/resources/ceo-opinion/' }] : []),
     ],
   };
 }

@@ -203,16 +203,29 @@ export function parsePath(pathname: string): { locale: Locale; canonical: string
 /** All three absolute hreflang URLs for any pathname. */
 export function hreflangFor(pathname: string, siteOrigin: string) {
   const { canonical } = parsePath(pathname);
+  // An English-only page has no alternate to announce in the other locales.
+  const other = (locale: Locale) =>
+    canonical in englishOnlyRoutes ? null : siteOrigin + localizePath(canonical, locale);
   return {
     en: siteOrigin + localizePath(canonical, 'en'),
-    fr: siteOrigin + localizePath(canonical, 'fr'),
-    es: siteOrigin + localizePath(canonical, 'es'),
-    de: siteOrigin + localizePath(canonical, 'de'),
+    fr: other('fr'),
+    es: other('es'),
+    de: other('de'),
   };
 }
+
+/**
+ * Pages that exist in English only, keyed by canonical path. The value is
+ * where the language switcher sends FR, ES and DE readers instead of a 404.
+ * Remove an entry once the page ships in every locale.
+ */
+export const englishOnlyRoutes: Record<string, string> = {
+  '/resources/ceo-opinion/': '/resources/china-web-guide/',
+};
 
 /** The equivalent of `pathname` in another locale. */
 export function switchLocale(pathname: string, target: Locale): string {
   const { canonical } = parsePath(pathname);
-  return localizePath(canonical, target);
+  const fallback = target === 'en' ? undefined : englishOnlyRoutes[canonical];
+  return localizePath(fallback ?? canonical, target);
 }

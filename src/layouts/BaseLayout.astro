@@ -132,9 +132,9 @@ const sitewideLd = [organizationLd, websiteLd, ...breadcrumbLd, ...jsonLd];
     <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={hreflang.en} />
-    <link rel="alternate" hreflang="fr" href={hreflang.fr} />
-    <link rel="alternate" hreflang="es" href={hreflang.es} />
-    <link rel="alternate" hreflang="de" href={hreflang.de} />
+    {hreflang.fr && <link rel="alternate" hreflang="fr" href={hreflang.fr} />}
+    {hreflang.es && <link rel="alternate" hreflang="es" href={hreflang.es} />}
+    {hreflang.de && <link rel="alternate" hreflang="de" href={hreflang.de} />}
     <link rel="alternate" hreflang="x-default" href={hreflang.en} />
 
     <!-- Open Graph -->

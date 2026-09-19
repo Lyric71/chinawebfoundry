@@ -52,6 +52,8 @@ const guides = defineCollection({
     published: z.boolean().default(true),
     category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
     author: z.string().default('cyril-drouin'),
+    /** A signed CEO opinion column. Lists on /resources/ceo-opinion/ as well as the guide index. */
+    column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
   }),
@@ -124,6 +126,8 @@ const guidesFr = defineCollection({
     published: z.boolean().default(true),
     category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
     author: z.string().default('cyril-drouin'),
+    /** A signed CEO opinion column. Lists on /resources/ceo-opinion/ as well as the guide index. */
+    column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
   }),
@@ -205,6 +209,8 @@ const guidesEs = defineCollection({
     published: z.boolean().default(true),
     category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
     author: z.string().default('cyril-drouin'),
+    /** A signed CEO opinion column. Lists on /resources/ceo-opinion/ as well as the guide index. */
+    column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
   }),
@@ -277,6 +283,8 @@ const guidesDe = defineCollection({
     published: z.boolean().default(true),
     category: z.enum(['Technology', 'Hosting', 'Content', 'Design', 'Legal', 'Search']),
     author: z.string().default('cyril-drouin'),
+    /** A signed CEO opinion column. Lists on /resources/ceo-opinion/ as well as the guide index. */
+    column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
   }),

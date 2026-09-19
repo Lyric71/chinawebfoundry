@@ -27,9 +27,11 @@ interface Props {
   author?: AuthorInfo;
   publishedAt?: Date;
   updatedAt?: Date;
+  /** A signed CEO column: shows the byline, linked to /resources/ceo-opinion/. */
+  column?: boolean;
 }
 
-const { title, subtitle, summary, visual, tocItems, lang, author, publishedAt, updatedAt } = Astro.props;
+const { title, subtitle, summary, visual, tocItems, lang, author, publishedAt, updatedAt, column = false } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 
@@ -40,8 +42,8 @@ const homeUrl = `${siteOrigin}${localePath('/', currentLang)}`;
 const guideIndexLabel = t('guide.backLink');
 const homeLabel = t('service.home');
 
-const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES' } as const;
-const updatedLabelMap = { en: 'updated', fr: 'mis à jour le', es: 'actualizado el' } as const;
+const inLanguageMap = { en: 'en-GB', fr: 'fr-FR', es: 'es-ES', de: 'de-DE' } as const;
+const updatedLabelMap = { en: 'updated', fr: 'mis à jour le', es: 'actualizado el', de: 'aktualisiert am' } as const;
 
 const dateFormatter = new Intl.DateTimeFormat(inLanguageMap[currentLang], {
   year: 'numeric',
@@ -127,8 +129,14 @@ const jsonLd = [articleLd, breadcrumbLd];
         <p class="text-lg lg:text-xl text-[var(--color-brand-orange)] font-medium leading-relaxed">
           {subtitle}
         </p>
-        {(publishedAt || updatedAt) && (
+        {(publishedAt || updatedAt || (column && author)) && (
           <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/55">
+            {column && author && (
+              <span>
+                By <a href="/resources/ceo-opinion/" class="text-white font-medium no-underline hover:underline">{author.name}</a>
+                {author.role && <>, {author.role}</>}
+              </span>
+            )}
             {publishedAt && (
               <span class="text-white/40">
                 <time datetime={publishedAt.toISOString()}>{dateFormatter.format(publishedAt)}</time>

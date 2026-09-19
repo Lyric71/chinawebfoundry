@@ -68,6 +68,7 @@ The `guides` collection schema (`src/content.config.ts`):
 | `author` | `author` | `team` collection id. Default `cyril-drouin` |
 | today | `publishedAt`, `updatedAt` | `YYYY-MM-DD`. The guide index sorts newest first on `publishedAt` |
 | | `published: true` | |
+| | `column` | `true` only for a signed CEO opinion piece that Cyril wrote or approved. Lists it on `/resources/ceo-opinion/` as well as the guide index. Default `false` |
 
 Body: the draft's sections verbatim, minus the HTML comments, the H1 and the
 standfirst, with plain-text internal references converted to locale-relative

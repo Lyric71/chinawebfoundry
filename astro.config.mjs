@@ -4,12 +4,16 @@ import { existsSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
-import sitemap from '@astrojs/sitemap';
-import { splitLocale, canonicalizePath, localizePath } from './src/i18n/routes.ts';
+import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
+import { splitLocale, canonicalizePath, localizePath, englishOnlyRoutes } from './src/i18n/routes.ts';
 
 // Map a sitemap URL's canonical English path + locale to the most likely
 // on-disk source file. Returns the first existing candidate, used for lastmod.
 // Content collection files keep English ids; static pages use native slugs.
+/**
+ * @param {string} canonical
+ * @param {import('./src/i18n/ui').Locale} locale
+ */
 function sourceFileForPath(canonical, locale) {
   const contentSuffix = locale === 'en' ? '' : `-${locale}`;
   const pageDir = locale === 'en' ? '' : `/${locale}`;
@@ -56,6 +60,7 @@ function sourceFileForPath(canonical, locale) {
 // commit date is the actual last-modified date. Falls back to mtime when git
 // history is unavailable (e.g. a shallow clone with no commit for the file).
 const gitDateCache = new Map();
+/** @param {string} src */
 function lastModFor(src) {
   if (gitDateCache.has(src)) return gitDateCache.get(src);
   let date;
@@ -113,25 +118,25 @@ export default defineConfig({
         // (Google ignores priority/changefreq, but Bing and others read them.)
         if (canonical === '/') {
           item.priority = 1.0;
-          item.changefreq = 'weekly';
+          item.changefreq = ChangeFreqEnum.WEEKLY;
         } else if (/^\/services\/?$/.test(canonical)) {
           item.priority = 0.9;
-          item.changefreq = 'monthly';
+          item.changefreq = ChangeFreqEnum.MONTHLY;
         } else if (/^\/services\/[^/]+\/?$/.test(canonical)) {
           item.priority = 0.9;
-          item.changefreq = 'monthly';
+          item.changefreq = ChangeFreqEnum.MONTHLY;
         } else if (/^\/work(\/|$)/.test(canonical)) {
           item.priority = 0.8;
-          item.changefreq = 'monthly';
+          item.changefreq = ChangeFreqEnum.MONTHLY;
         } else if (/^\/resources\/china-web-guide\/[^/]+\/?$/.test(canonical)) {
           item.priority = 0.8;
-          item.changefreq = 'monthly';
+          item.changefreq = ChangeFreqEnum.MONTHLY;
         } else if (/^\/(who-we-are|wordpress-in-china|astro|wechat|china-site-scanner|contact|web-agency-china|wordpress-agency-china)\/?$/.test(canonical)) {
           item.priority = 0.8;
-          item.changefreq = 'monthly';
+          item.changefreq = ChangeFreqEnum.MONTHLY;
         } else if (/^\/(privacy-policy|terms-of-service|cookie-policy)\/?$/.test(canonical)) {
           item.priority = 0.3;
-          item.changefreq = 'yearly';
+          item.changefreq = ChangeFreqEnum.YEARLY;
         }
 
         // Per-file lastmod: use source file mtime when we can locate it.
@@ -144,12 +149,12 @@ export default defineConfig({
 
         // Rebuild the hreflang cluster from the canonical path. Native-language
         // slugs differ per locale, so the plugin cannot pair the URLs itself.
+        // English-only pages (englishOnlyRoutes) announce no FR/ES/DE twin.
         const enUrl = `${url.origin}${localizePath(canonical, 'en')}`;
+        const others = canonical in englishOnlyRoutes ? [] : /** @type {const} */ (['fr', 'es', 'de']);
         item.links = [
           { lang: 'en', url: enUrl },
-          { lang: 'fr', url: `${url.origin}${localizePath(canonical, 'fr')}` },
-          { lang: 'es', url: `${url.origin}${localizePath(canonical, 'es')}` },
-          { lang: 'de', url: `${url.origin}${localizePath(canonical, 'de')}` },
+          ...others.map((lang) => ({ lang, url: `${url.origin}${localizePath(canonical, lang)}` })),
           { lang: 'x-default', url: enUrl },
         ];
 
