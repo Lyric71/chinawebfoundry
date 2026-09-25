@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
+import DependencyTable from '../../components/pages/DependencyTable.astro';
 
 const metaTitle = 'WordPress en China: qué aguanta y qué hay que rehacer | ChinaWebFoundry';
 const metaDescription = 'WordPress aguanta en la China continental si se construye pensando en ella. Cuándo conviene, qué obliga a rehacer el Cortafuegos y hasta dónde llegan las alternativas.';
@@ -401,6 +402,11 @@ const faqLd = {
             <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
           </figure>
         </div>
+      </div>
+
+      <!-- Measured dependencies: analytics and infrastructure rows from the shared dataset -->
+      <div class="mt-16 lg:mt-20">
+        <DependencyTable categories={['analytics', 'infrastructure']} lang="es" />
       </div>
     </div>
   </section>

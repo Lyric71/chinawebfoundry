@@ -957,6 +957,255 @@ check 2 with no claim cut or reworded, the second clean run in a row.
   figure never appears two ways.
 
 
+## 2026-09-22 entries (T2-05 partial draft and T6-06)
+
+Thirty-eight sources fetched twice on 22 September 2026, check 1 during
+research and check 2 in iteration 8 with a differently worded question against
+the same URL. All passed check 2.
+
+### READ THIS FIRST: the 21YunBox per-host pages cover more than the study does
+
+Three previous runs logged failed check 2 records for F1 and F7 on the grounds
+that the 21YunBox study *A Day of Third-Party Requests From Inside China*
+"tests five hosts only". That is true of the study and false of 21YunBox. The
+T6-05 run found the per-tool support pages at
+`https://www.21cloudbox.com/support/<tool>-china.html` on 17 September 2026 and
+logged ten of them, but nobody carried the discovery back to the CDN hosts.
+
+All four CDN hosts have a per-host page, and have had since late August 2026.
+Before logging any host as unverifiable, check for `/support/<tool>-china.html`
+and for `/support/<tool>.html`. Google Hosted Libraries uses the second form.
+
+Three published pieces, `wordpress-plugins-china`,
+`upgrade-is-wordpress-blocked-in-china` and `wordpress-speed-china`, were
+written around a gap that was not there. They were NOT reopened on 22
+September; the next piece in the cluster should pick these citations up.
+
+### Google Hosted Libraries returns no first byte from a mainland datacentre
+- Fact ID: F1 (the timing half, unverifiable until now)
+- Value: no first byte in any of three runs, each abandoned at the 60-second
+  limit. Separately, of twelve Google-owned properties probed the same way,
+  eleven produced no response at all
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, three runs
+- As of: 28 August 2026. Page reviewed 30 August 2026
+- Source: 21YunBox, Google Hosted Libraries in China
+- URL: https://www.21cloudbox.com/support/google-hosted-libraries.html
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22, five separate assertions re-confirmed verbatim
+- Used in: javascript-cdn-china (T2-05 partial draft)
+- Notes: **This supersedes the three failed check 2 records below.** F1's
+  timing half is now sourced. The figure is a page load of the vendor target
+  from a named probe, not an isolated probe of the script endpoint; cite it
+  that way. It still does NOT clear the harness gate, which requires an
+  original ChinaWebFoundry measurement.
+
+### cdnjs.cloudflare.com from a mainland datacentre
+- Fact ID: F7
+- Value: 3 of 3 runs completed, median 478ms time to first byte, median
+  largest contentful paint 1,524ms
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, three runs
+- As of: 28 August 2026. Page reviewed 28 August 2026
+- Source: 21YunBox, cdnjs in China
+- URL: https://www.21cloudbox.com/support/cdnjs-china.html
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22
+- Used in: javascript-cdn-china (T2-05 partial draft)
+- Notes: F7's 478ms matches the source exactly. **NO CONSUMER-LINE FIGURE
+  EXISTS FOR THIS HOST FROM ANY SOURCE**, confirmed by a second question
+  against the same page. Never give cdnjs a consumer-line verdict. This is the
+  highest-value probe in the whole harness backlog, because the T2 cluster will
+  recommend cdnjs more often than any other host. The page also states that
+  Google Hosted Libraries, BootstrapCDN and Font Awesome failed to complete on
+  the same probe; BootstrapCDN and Font Awesome are F42 hosts, so that is
+  logged here for the harness and is NOT publishable.
+
+### unpkg.com from both vantage points
+- Fact ID: F7
+- Value: datacentre 3 of 3 completed, median 824ms first byte, LCP 1.2s.
+  Consumer line 0 of 3 page loads completed, median 1,026ms first byte
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou 28 August 2026; Beijing
+  China Mobile (中国移动) residential broadband 30 August 2026
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, unpkg in China
+- URL: https://www.21cloudbox.com/support/unpkg-china.html
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22, both vantage points re-confirmed verbatim
+- Used in: javascript-cdn-china (T2-05 partial draft)
+- Notes: F7's 824ms matches exactly. The consumer-line row is new to this
+  programme and it is the interesting one: unpkg and jsDelivr are 55ms apart
+  from a datacentre and land on opposite sides of the line from a home
+  connection. "Answers then stalls" on the consumer line.
+
+### cdn.jsdelivr.net, per-host page (supplements the paired-study entry above)
+- Fact ID: F7
+- Value: 3 of 3 completed, median 769ms first byte, LCP 2.6s. Separately, over
+  a 12-hour sample, direct time to first byte swung from a median 493ms in the
+  quietest hour to 1,086ms at the evening peak, 95th percentile 1,780ms
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou
+- As of: 28 August 2026
+- Source: 21YunBox, jsDelivr in China
+- URL: https://www.21cloudbox.com/support/jsdelivr-china.html
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22
+- Used in: javascript-cdn-china (T2-05 partial draft)
+- Notes: F7's "493ms quiet hour to 1,086ms peak, p95 1,780ms" is confirmed
+  verbatim here, which resolves the discrepancy the 2026-09-10 entry flagged
+  against the paired study's 660ms. They are different measurements on the same
+  host: 660ms is the paired study's 72-sample median, 769ms is this page's
+  three-run median, and 493 to 1,086 is the 12-hour swing. No consumer-line
+  figure on this page; the paired study's 36 of 36 is the consumer row.
+
+### GreatFire verdicts on the four CDN hosts
+- Fact ID: F1, F7 (verdict halves)
+- Value: ajax.googleapis.com blocked, "100% of the last 1 conclusive tests
+  failed", last tested 2026-08-22. cdnjs.cloudflare.com not blocked, last
+  tested 2026-05-25, the page itself adding "We haven't tested it since, so
+  this may have changed". unpkg.com not blocked, "All 2 recent conclusive tests
+  connected normally", last tested 2026-08-14. cdn.jsdelivr.net not blocked,
+  same wording, last tested 2026-08-20
+- Vantage point: n/a, reachability verdicts
+- As of: as dated per host above
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/ajax.googleapis.com and the three
+  sibling host pages
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22
+- Used in: javascript-cdn-china (T2-05 partial draft)
+- Notes: **The cdnjs verdict is four months old and the page says so.** Publish
+  it only with its date visible. Domain-wide googleapis.com counts continue to
+  drift on GreatFire's rolling window (576 tested on 2026-09-22 against 573 on
+  2026-09-11); do not publish them.
+
+### jsDelivr lost its China ICP filing, December 2021 (FOURTH FAILED CHECK)
+- Fact ID: F7 (the cause half)
+- Verified 1: 2026-08-29 (fact bank)
+- Verified 2: **not completed, 2026-09-22.** Fourth consecutive failure. The
+  primary source is jsDelivr's own post on X, status 1472870623051456522, and
+  x.com is not fetchable by this environment. Wikipedia's JSDelivr article says
+  only "In China, Quantil is used as the content delivery network, as other
+  providers are affected by the Great Firewall", with no date and a bare repo
+  reference. GitHub issue jsdelivr/jsdelivr#18176 is dated 11 September 2019
+  and carries no maintainer statement, confirming the 2026-09-11 finding.
+- Effect: the ICP sentence stays out of T2-05, as it has stayed out of every
+  piece. The measurements carry the argument without a cause story. **Stop
+  retrying this URL.** If the claim is ever needed, find a dated archive of the
+  X post or a dated jsDelivr status-page entry.
+
+### T6-06: forms and chat
+- Fact ID: F35 (**CORRECTED IN FOUR PLACES**)
+- Value: api2.hcaptcha.com not blocked, "All 1 recent conclusive tests
+  connected normally", 2026-09-14. calendly.com not blocked, 2026-06-10.
+  widget.intercom.io not blocked, 2026-06-16. static.zdassets.com not blocked,
+  2026-04-29. js.driftt.com NOT TESTED, "This URL has not been tested yet".
+  embed.typeform.com NOT TESTED. cdn-images.mailchimp.com disrupted, "100% of
+  the last 2 conclusive tests showed interference", 2026-09-10
+- Vantage point: n/a, reachability verdicts
+- As of: as dated per host
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/api2.hcaptcha.com and siblings
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22
+- Used in: upgrade-great-firewall-what-it-blocks (T6-06 draft)
+- Notes: **F35 is wrong in four places.** (1) It calls api2.hcaptcha.com
+  intermittent and says that matters because it is the endpoint a challenge
+  needs; the intermittency does not reproduce. (2) It dates Calendly 18 August;
+  the source says 10 June. (3) It says "Drift not blocked"; the WIDGET host,
+  js.driftt.com, has never been tested, and the widget host is the one that
+  runs in a visitor's browser. A verdict on drift.com is a verdict on the
+  marketing site. (4) It lists Intercom and Zendesk as unverified; both now
+  have dated verdicts on their real script hosts. Neither is on the F42 eleven,
+  so no Do Not Assert bar applies.
+
+### T6-06: the F33 "answers then hangs" measurements
+- Fact ID: F33, F34, F35, F38, F39
+- Value: Typeform 0 of 3 inside 60s, median 907ms first byte, 2026-08-28.
+  Mailchimp 0 of 3 inside 60s, median 812ms, paint 2.0s, 2026-08-28. Wix 0 of 3
+  inside 60s, median 532ms, 2026-08-30. Algolia 0 of 3 inside 60s, median
+  1,027ms, paint 3.4s, 2026-08-28. Shopify 3 of 3, first byte 575ms, median
+  load 3.6s, LCP 1.5s, 2026-08-28. Sentry 3 of 3, 252ms, 2026-08-28. AWS
+  CloudFront 3 of 3 at 665ms from the datacentre and 0 of 3 at 743ms from the
+  consumer line, 2026-08-28 and 2026-08-30
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou; Beijing China Mobile
+  (中国移动) residential for the CloudFront consumer row
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, per-host China support pages
+- URL: https://www.21cloudbox.com/support/typeform-china.html and siblings for
+  mailchimp, wix, algolia, shopify, sentry and aws-cloudfront
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22
+- Used in: upgrade-great-firewall-what-it-blocks (T6-06 draft)
+- Notes: **METHOD CORRECTION THAT AFFECTS EVERY 21YunBox CITATION.** Asked
+  directly, six of these pages name no hostname at all. They time a page load
+  of the vendor's own website from the named probe. Wix names wix.com in a
+  "WEBSITE" field. So these are not measurements of the script endpoint a
+  visitor's browser calls; they are a proxy for it. F33 to F39 present them as
+  though they were the endpoint. Cite them as timed vendor-site loads, which is
+  what T6-06 does. Also: the Matomo measurement date IS stated on its page as
+  2026-08-29, which the 2026-09-17 entry recorded as unavailable.
+
+### T6-06: embeds, maps, platforms, infrastructure and payments
+- Fact ID: F36, F37, F38, F39, F40 (**CORRECTED IN SEVEN PLACES**)
+- Value: disqus.com blocked 2026-09-13, 41 of 43 URLs blocked and 2 disrupted.
+  w.soundcloud.com blocked 2026-06-24. open.spotify.com blocked 2026-09-12.
+  www.instagram.com blocked 2026-08-30. platform.twitter.com blocked
+  2026-07-07. fast.wistia.com not blocked 2026-03-17. events.mapbox.com blocked
+  2026-03-12. api.mapbox.com NOT BLOCKED 2026-08-31. tile.openstreetmap.org
+  blocked 2026-09-07, all 71 tested openstreetmap.org URLs blocked.
+  webflow.com disrupted 2026-08-23. www.squarespace.com NOT BLOCKED 2026-09-12.
+  firebase.google.com DISRUPTED 2026-09-14. www.paypal.com not blocked
+  2026-05-18, domain-wide 1 blocked, 9 disrupted, 17 accessible of 27
+- Vantage point: n/a, reachability verdicts
+- As of: as dated per host
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/disqus.com and siblings
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22
+- Used in: upgrade-great-firewall-what-it-blocks (T6-06 draft)
+- Notes: **Seven corrections.** (1) F36 dates Disqus 3 September; source says
+  13 September, and the split is 41 blocked plus 2 disrupted, not "41 of 43".
+  (2) F36 dates X/Twitter 25 April; source says 7 July. (3) F36 dates Wistia 26
+  June; fast.wistia.com says 17 March, six months old. (4) **F37 calls
+  api.mapbox.com intermittent; it reads not blocked on 31 August.** The
+  half-working-map framing no longer holds on current data, though the
+  telemetry host is still blocked, so the split survives in a different shape.
+  (5) **F38's HTTP/HTTPS split does not reproduce for Squarespace**, which
+  reads not blocked on two recent conclusive tests. Webflow still reads
+  disrupted. (6) **F39 calls Firebase blocked; GreatFire calls it disrupted.**
+  Disrupted is not blocked. F39's "100% packet loss from Shanghai" has no
+  fetchable source and was cut. (7) F40 dates PayPal 27 August; source says 18
+  May. The 9 disrupted count is right.
+
+### Stripe does not support mainland China
+- Fact ID: F40
+- Value: mainland China does not appear in Stripe's list of countries where a
+  Stripe account can be opened. Hong Kong does
+- Vantage point: n/a, vendor documentation
+- As of: read 22 September 2026. The page carries no "last updated" date
+- Source: Stripe, Global availability
+- URL: https://stripe.com/global
+- Verified 1: 2026-09-22
+- Verified 2: 2026-09-22, with an explicit instruction to ignore the footer
+  locale selector
+- Used in: upgrade-great-firewall-what-it-blocks (T6-06 draft)
+- Notes: **TRAP, and a fetcher fell into it on check 1.** The page's footer
+  locale selector lists "Mainland China" and "Hong Kong SAR, China" as language
+  options, and a naive read returns "yes, China is supported". The availability
+  list is a separate element and does not contain it. Always ask the fetcher to
+  ignore the locale selector. `docs.stripe.com/global` is a 404.
+
+### F42 hosts: still no verdict, and one new third-party datapoint
+- Fact ID: F42
+- Verified 1: n/a
+- Verified 2: n/a
+- Effect: all thirteen F42 entries appear in T6-06's table as explicitly
+  untested, which the work order asks for and the Do Not Assert list permits.
+  None carries a verdict. The 21YunBox cdnjs page states that BootstrapCDN and
+  Font Awesome both failed to complete on its 28 August 2026 probe, which is
+  the first third-party datapoint either host has had in this programme. It is
+  logged here for the harness to confirm and is deliberately absent from both
+  pieces drafted on 22 September.
+
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)

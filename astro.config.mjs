@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
+import rehypeTableWrapper from './src/lib/rehypeTableWrapper.mjs';
 import { splitLocale, canonicalizePath, localizePath, englishOnlyRoutes } from './src/i18n/routes.ts';
 
 // Map a sitemap URL's canonical English path + locale to the most likely
@@ -86,6 +87,11 @@ export default defineConfig({
   adapter: vercel({ imageService: false }),
   build: {
     inlineStylesheets: 'always',
+  },
+  markdown: {
+    // Guide tables get their scroll wrapper in the HTML source, not from a
+    // client-side script. See src/lib/rehypeTableWrapper.mjs.
+    rehypePlugins: [rehypeTableWrapper],
   },
   i18n: {
     defaultLocale: 'en',

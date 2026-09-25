@@ -1,0 +1,155 @@
+---
+/**
+ * The China dependency table, rendered from src/data/chinaDependencies.ts.
+ * Server-rendered, no client JavaScript: every row is in the HTML source.
+ * Each category gets its own table inside a horizontal scroll container, so a
+ * narrow screen scrolls the table and never the page body.
+ *
+ * The four great-firewall-what-it-blocks guide files carry the same data as
+ * markdown, written by editorial/scripts/build-dependency-table.mjs.
+ */
+import {
+  categoryOrder,
+  copy,
+  dependencies,
+  rowCells,
+  type Category,
+  type Vantage,
+} from '../../data/chinaDependencies';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  /** Categories to show, in display order. Defaults to all of them. */
+  categories?: Category[];
+  lang?: Locale;
+}
+
+const { categories = categoryOrder, lang = 'en' } = Astro.props;
+
+const c = copy[lang];
+const seen = new Set<Vantage>();
+const groups = categories
+  .map((category) => ({
+    category,
+    rows: dependencies.filter((r) => r.category === category).map((r) => rowCells(r, lang, seen)),
+  }))
+  .filter((g) => g.rows.length > 0);
+---
+
+<div class="dependency-table">
+  {groups.map((g) => (
+    <div class="dependency-group">
+      <h3 class="dependency-heading">{c.categories[g.category]}</h3>
+      <div class="dependency-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{c.columns.service}</th>
+              <th scope="col">{c.columns.host}</th>
+              <th scope="col">{c.columns.verdict}</th>
+              <th scope="col">{c.columns.measured}</th>
+              <th scope="col">{c.columns.vantage}</th>
+              <th scope="col">{c.columns.source}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.rows.map((r) => (
+              <tr>
+                <th scope="row">{r.service}</th>
+                <td>{r.host ? <code>{r.host}</code> : r.hostNote}</td>
+                <td>{r.verdict}</td>
+                <td>{r.measured}</td>
+                <td>{r.vantage}</td>
+                <td>{r.source}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .dependency-group + .dependency-group {
+    margin-top: 2rem;
+  }
+
+  .dependency-heading {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .dependency-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.8rem;
+    background: #fff;
+    border: 1px solid var(--color-surface-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  thead {
+    background: var(--color-surface-light);
+  }
+
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem 0.75rem;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--color-surface-border);
+  }
+
+  thead th {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-dark);
+  }
+
+  tbody th {
+    font-weight: 500;
+    color: var(--color-text-dark);
+  }
+
+  td {
+    color: var(--color-text-body);
+  }
+
+  tbody tr:last-child th,
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  code {
+    font-size: 0.75rem;
+    word-break: break-all;
+  }
+
+  @media (min-width: 640px) {
+    table {
+      font-size: 0.875rem;
+    }
+
+    th,
+    td {
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>

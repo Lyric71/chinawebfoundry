@@ -31,6 +31,8 @@ function normalise(text) {
     }
     // Inside the YAML frontmatter, change nothing.
     if (delimiters === 1) return line;
+    // A one-line HTML comment is a marker for tooling, never read by anyone.
+    if (/^\s*<!--.*-->\s*$/.test(line)) return line;
 
     let l = line;
     l = l.replace(new RegExp(SPACES + '([:;?!])(?=\\s|$)', 'g'), (m, p) => NB + p);

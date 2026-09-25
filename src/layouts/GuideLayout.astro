@@ -478,14 +478,8 @@ const jsonLd = [articleLd, breadcrumbLd];
 </style>
 
 <script>
-  // Wrap tables in scrollable container for mobile
-  document.querySelectorAll('.guide-content table').forEach((table) => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'table-wrapper';
-    table.parentNode!.insertBefore(wrapper, table);
-    wrapper.appendChild(table);
-  });
-
+  // Tables arrive already wrapped in .table-wrapper from the build
+  // (src/lib/rehypeTableWrapper.mjs), so they scroll without JavaScript.
   const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
   if (links.length > 0) {
     const ids = Array.from(links).map((l) => l.getAttribute('href')!.slice(1));

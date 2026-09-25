@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
+import DependencyTable from '../../components/pages/DependencyTable.astro';
 
 const metaTitle = 'WordPress in China | Was trägt, was sich ändern muss | ChinaWebFoundry';
 const metaDescription = 'WordPress läuft in Festlandchina zuverlässig, sobald es dafür gebaut ist. Welche Umbauten die Große Firewall verlangt, worin es überzeugt und wo Alternativen zu kurz greifen.';
@@ -401,6 +402,11 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             <div class="absolute -inset-4 bg-[var(--color-brand-orange)]/5 rounded-3xl blur-2xl -z-10"></div>
           </figure>
         </div>
+      </div>
+
+      <!-- Measured dependencies: analytics and infrastructure rows from the shared dataset -->
+      <div class="mt-16 lg:mt-20">
+        <DependencyTable categories={['analytics', 'infrastructure']} lang="de" />
       </div>
     </div>
   </section>
