@@ -69,6 +69,8 @@ export function initScanner(): void {
   const locale = root.dataset.locale ?? 'en';
   const copy = JSON.parse($('scanner-copy').textContent ?? '{}') as ScannerClientCopy;
   const intlLocale = locale === 'en' ? 'en-GB' : locale;
+  // Label separator: French wants a non-breaking space before the colon
+  const sep = copy.ui.colon ?? ': ';
 
   const regionNames = (() => {
     try {
@@ -258,7 +260,7 @@ export function initScanner(): void {
   }
 
   function evidenceLine(source: string, date: string): string {
-    return `<p class="mt-3 text-xs text-[var(--color-text-muted)]">${escapeHtml(copy.ui.sourceLabel)}: ${escapeHtml(source)}, ${escapeHtml(formatDate(date))}</p>`;
+    return `<p class="mt-3 text-xs text-[var(--color-text-muted)]">${escapeHtml(copy.ui.sourceLabel + sep)}${escapeHtml(source)}, ${escapeHtml(formatDate(date))}</p>`;
   }
 
   function occurrenceHtml(o: FindingOccurrence, homePath: string): string {
@@ -291,7 +293,7 @@ export function initScanner(): void {
         </div>
         ${why ? `<p class="mt-2 text-sm text-[var(--color-text-body)] leading-relaxed">${why}</p>` : ''}
         ${f.referencedOnly ? `<p class="mt-2 text-xs italic text-[var(--color-text-muted)]">${escapeHtml(copy.ui.referencedNote)}</p>` : ''}
-        ${fix ? `<div class="mt-3 flex items-start gap-2 text-sm text-green-800 bg-green-50 border border-green-100 px-3 py-2.5 rounded-lg"><svg class="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg><span><strong>${escapeHtml(copy.ui.fixLabel)}:</strong> ${fix}</span></div>` : ''}
+        ${fix ? `<div class="mt-3 flex items-start gap-2 text-sm text-green-800 bg-green-50 border border-green-100 px-3 py-2.5 rounded-lg"><svg class="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg><span><strong>${escapeHtml(copy.ui.fixLabel + sep.trimEnd())}</strong> ${fix}</span></div>` : ''}
         ${
           occ.length
             ? `<details class="mt-3"${f.severity === 'critical' ? ' open' : ''}><summary class="cursor-pointer text-xs font-medium text-[var(--color-text-dark)]">${escapeHtml(copy.ui.foundLabel)} (${occ.length})</summary><ul class="mt-2 space-y-2">${occ.map((o) => occurrenceHtml(o, homePath)).join('')}</ul></details>`
@@ -328,7 +330,7 @@ export function initScanner(): void {
         </div>
         <p class="text-sm text-[var(--color-text-body)] leading-relaxed">${text}</p>
         <dl class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
-          ${rows.map(([k, v]) => `<div class="flex gap-2 min-w-0"><dt class="text-[var(--color-text-muted)] shrink-0">${escapeHtml(k)}:</dt><dd class="text-[var(--color-text-dark)] break-all">${escapeHtml(v)}</dd></div>`).join('')}
+          ${rows.map(([k, v]) => `<div class="flex gap-2 min-w-0"><dt class="text-[var(--color-text-muted)] shrink-0">${escapeHtml(k + sep.trimEnd())}</dt><dd class="text-[var(--color-text-dark)] break-all">${escapeHtml(v)}</dd></div>`).join('')}
         </dl>
         ${h.zone === 'mainland' ? `<p class="mt-3 text-xs text-[var(--color-text-muted)]">${escapeHtml(copy.ui.chinaView)}</p>` : ''}
         ${h.evidence ? evidenceLine(h.evidence.source, h.evidence.date) : ''}
@@ -375,7 +377,7 @@ export function initScanner(): void {
     const scoreEl = $('score-number');
     scoreEl.style.color = color;
     animateNumber(scoreEl, report.score, 800);
-    $('score-figure').setAttribute('aria-label', `${copy.ui.scoreLabel}: ${report.score} / 100`);
+    $('score-figure').setAttribute('aria-label', `${copy.ui.scoreLabel}${sep}${report.score} / 100`);
 
     $('grade-title').textContent = grade.title;
     $('grade-summary').textContent = grade.summary;
@@ -415,7 +417,7 @@ export function initScanner(): void {
 
     // Details
     const lines = [
-      `${escapeHtml(copy.ui.pagesScanned)}: ${report.pages.map((p) => `${escapeHtml(p.url)}${p.status === 'failed' ? ` (${escapeHtml(copy.ui.failed)})` : ''}`).join(', ')}`,
+      `${escapeHtml(copy.ui.pagesScanned + sep)}${report.pages.map((p) => `${escapeHtml(p.url)}${p.status === 'failed' ? ` (${escapeHtml(copy.ui.failed)})` : ''}`).join(', ')}`,
       fmt(copy.ui.filesScanned, { scripts: report.stats.scriptsScanned, styles: report.stats.stylesScanned }),
       fmt(copy.ui.responseTime, { ms: numberFmt.format(report.stats.responseMs) }),
       fmt(copy.ui.htmlSize, { kb: numberFmt.format(Math.round(report.stats.htmlBytes / 1024)) }),
@@ -434,11 +436,11 @@ export function initScanner(): void {
   /* ── Copy report as plain text ── */
   function reportText(r: ScanReport): string {
     const out: string[] = [];
-    out.push(`China Site Scanner: ${r.finalUrl}`);
-    out.push(`${copy.ui.score}: ${r.score}/100 (${copy.grades[r.grade].title})`);
+    out.push(`China Site Scanner${sep}${r.finalUrl}`);
+    out.push(`${copy.ui.score}${sep}${r.score}/100 (${copy.grades[r.grade].title})`);
     out.push(new Intl.DateTimeFormat(intlLocale, { dateStyle: 'long' }).format(new Date(r.timestamp)));
     out.push('');
-    out.push(`${copy.ui.hostingTitle}:`);
+    out.push(`${copy.ui.hostingTitle}${sep.trimEnd()}`);
     out.push(
       fmtText(copy.hosting[r.hosting.copy], {
         country: countryName(r.hosting.country),
@@ -448,19 +450,19 @@ export function initScanner(): void {
     );
     out.push('');
     for (const f of r.findings) {
-      out.push(`[${copy.severity[f.severity].tag}] ${f.service}: ${copy.verdicts[f.verdict] ?? f.verdict}`);
+      out.push(`[${copy.severity[f.severity].tag}] ${f.service}${sep}${copy.verdicts[f.verdict] ?? f.verdict}`);
       const why = fmtText(copy.why[f.copy], { service: f.service });
       if (why) out.push(`  ${why}`);
       const fix = copy.fixes[f.fix];
-      if (fix) out.push(`  ${copy.ui.fixLabel}: ${fix}`);
+      if (fix) out.push(`  ${copy.ui.fixLabel}${sep}${fix}`);
       for (const o of f.occurrences.slice(0, 3)) out.push(`  - ${o.url || o.page}`);
-      out.push(`  ${copy.ui.sourceLabel}: ${f.evidence.source}, ${formatDate(f.evidence.date)}`);
+      out.push(`  ${copy.ui.sourceLabel}${sep}${f.evidence.source}, ${formatDate(f.evidence.date)}`);
       out.push('');
     }
-    out.push(`${copy.ui.checklistTitle}:`);
+    out.push(`${copy.ui.checklistTitle}${sep.trimEnd()}`);
     for (const item of r.readiness) {
       const entry = copy.readiness[item.key];
-      if (entry) out.push(`  - ${entry.title}: ${fmtText(entry[item.status], { value: item.value ?? '' })}`);
+      if (entry) out.push(`  - ${entry.title}${sep}${fmtText(entry[item.status], { value: item.value ?? '' })}`);
     }
     out.push('');
     out.push('https://www.chinawebfoundry.com');
