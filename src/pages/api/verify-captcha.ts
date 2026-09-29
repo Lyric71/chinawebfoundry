@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { verifyChallenge } from '../../lib/captcha';
+import { createScanToken, verifyChallenge } from '../../lib/captcha';
 
 export const prerender = false;
 
@@ -16,6 +16,10 @@ const MESSAGES = {
     invalidBody: 'Solicitud no válida.',
     captchaFailed: 'La comprobación de seguridad no es correcta. Inténtelo de nuevo.',
   },
+  de: {
+    invalidBody: 'Ungültige Anfrage.',
+    captchaFailed: 'Die Sicherheitsabfrage ist fehlgeschlagen. Bitte versuchen Sie es erneut.',
+  },
 } as const;
 
 export const POST: APIRoute = async ({ request }) => {
@@ -28,12 +32,15 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: MESSAGES.en.invalidBody }), { status: 400, headers });
   }
 
-  const { captchaAnswer, captchaToken, locale } = body;
-  const t = locale === 'fr' ? MESSAGES.fr : locale === 'es' ? MESSAGES.es : MESSAGES.en;
+  const { captchaAnswer, captchaToken, locale, url } = body;
+  const t = MESSAGES[locale as keyof typeof MESSAGES] ?? MESSAGES.en;
 
   if (!verifyChallenge(captchaAnswer, captchaToken)) {
     return new Response(JSON.stringify({ error: t.captchaFailed }), { status: 403, headers });
   }
 
-  return new Response(JSON.stringify({ success: true }), { status: 200, headers });
+  // The scanner page sends the URL it is about to scan and gets a token bound to it
+  const scanToken = typeof url === 'string' ? createScanToken(url) : null;
+
+  return new Response(JSON.stringify({ success: true, scanToken }), { status: 200, headers });
 };

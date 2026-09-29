@@ -1,0 +1,301 @@
+---
+/**
+ * The China Site Scanner, shared by every locale. Static copy comes from
+ * src/data/scannerCopy.ts; the report itself is written client-side by
+ * src/scripts/siteScanner.ts from the same file, passed in as JSON.
+ */
+import type { Locale } from '../../i18n/ui';
+import { scannerCopy } from '../../data/scannerCopy';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { page, client } = scannerCopy[locale];
+
+const inputClass =
+  'w-full px-4 py-3.5 text-sm text-white bg-white/[0.07] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)] focus:border-transparent placeholder:text-white/50 transition-all duration-200 hover:bg-white/[0.1] hover:border-white/20';
+---
+
+<div id="scanner-root" data-locale={locale}>
+  <script is:inline type="application/json" id="scanner-copy" set:html={JSON.stringify(client).replace(/</g, '\\u003c')} />
+
+  <!-- Hero + gate form -->
+  <section class="relative overflow-hidden bg-[var(--color-surface-dark)] text-white section-padding pt-20 pb-28 md:pt-28 md:pb-36">
+    <div class="absolute inset-0">
+      <img src="/images/china-site-scanner-hero.webp" alt="" class="w-full h-full object-cover object-center" loading="eager" />
+      <div class="absolute inset-0 bg-[var(--color-surface-dark)]/92"></div>
+    </div>
+    <div class="absolute inset-0 opacity-[0.04]">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[var(--color-brand-orange)] opacity-[0.06] blur-[120px] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-3xl text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-[var(--color-brand-orange)] mb-6 scanner-fade-in">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+        {page.badge}
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-6xl font-semibold font-[var(--font-heading)] leading-tight mb-5 text-white scanner-fade-in scanner-fade-in-delay-1">{page.h1}</h1>
+      <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 scanner-fade-in scanner-fade-in-delay-2">{page.lead}</p>
+
+      <div id="gate-form-wrapper" class="scanner-fade-in scanner-fade-in-delay-3">
+        <form id="gate-form" class="relative max-w-md mx-auto text-left" novalidate>
+          <div class="space-y-3">
+            <input type="text" id="gate-name" name="name" placeholder={page.namePh} aria-label={page.namePh} required autocomplete="name" class={inputClass} />
+            <input type="text" id="gate-company" name="company" placeholder={page.companyPh} aria-label={page.companyPh} required autocomplete="organization" class={inputClass} />
+            <input type="text" id="gate-website" name="website" placeholder={page.websitePh} aria-label={page.websitePh} required autocomplete="url" inputmode="url" class={inputClass} />
+            <input type="email" id="gate-email" name="email" placeholder={page.emailPh} aria-label={page.emailPh} required autocomplete="email" class={inputClass} />
+          </div>
+          <div class="mt-4">
+            <label for="gate-captcha-answer" class="block text-xs font-medium text-white/70 mb-2">
+              {page.captchaLabel} <span id="gate-captcha-question" class="font-semibold text-white">...</span>{page.captchaEnd}
+            </label>
+            <div class="flex items-center gap-2">
+              <input type="text" id="gate-captcha-answer" name="captchaAnswer" inputmode="numeric" autocomplete="off" required placeholder={page.captchaPh} class:list={[inputClass, 'flex-1']} />
+              <button type="button" id="gate-captcha-refresh" aria-label={page.captchaRefresh} class="px-3 py-3.5 text-white/70 bg-white/[0.07] border border-white/10 rounded-xl hover:bg-white/[0.1] hover:text-white transition-all duration-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button
+            type="submit"
+            id="gate-btn"
+            class="w-full mt-4 group inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-medium font-[var(--font-button)] text-white bg-[var(--color-brand-orange)] rounded-xl hover:bg-[var(--color-cta-bg-hover)] active:bg-[var(--color-brand-orange-active)] transition-all duration-200 hover:shadow-[0_8px_30px_rgba(242,95,41,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <span>{page.submit}</span>
+          </button>
+          <div id="gate-error" role="alert" class="hidden mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-300 text-sm"></div>
+        </form>
+        <p class="text-white/50 text-xs mt-5 max-w-md mx-auto">{page.formNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  <div id="loading-state" class="hidden">
+    <section class="section-padding py-16 md:py-24">
+      <div class="mx-auto max-w-3xl text-center" aria-live="polite">
+        <div class="relative inline-flex items-center justify-center w-16 h-16 mb-6">
+          <div class="absolute inset-0 rounded-full border-2 border-[var(--color-surface-border)] opacity-30"></div>
+          <div class="absolute inset-0 rounded-full border-2 border-t-[var(--color-brand-orange)] animate-spin"></div>
+          <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">{page.loadingTitle}</h2>
+        <p class="text-[var(--color-text-muted)] mb-8">{page.loadingBody}</p>
+        <div class="max-w-md mx-auto">
+          <div class="h-1.5 bg-[var(--color-surface-border)] rounded-full overflow-hidden">
+            <div id="progress-bar" class="h-full bg-[var(--color-brand-orange)] rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+          </div>
+          <div class="flex justify-between mt-3 text-xs text-[var(--color-text-muted)]">
+            <span id="progress-step"></span>
+            <span id="progress-pct">0%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Results: filled by siteScanner.ts -->
+  <div id="results" class="hidden scroll-mt-20">
+    <section class="section-padding py-10 md:py-14 border-b border-[var(--color-surface-border)]">
+      <div class="mx-auto max-w-[var(--container-page)]">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div class="relative shrink-0" role="img" id="score-figure">
+            <svg class="w-36 h-36 -rotate-90" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="52" stroke-width="8" fill="none" class="stroke-[var(--color-surface-border)]" />
+              <circle id="score-ring" cx="60" cy="60" r="52" stroke-width="8" fill="none" stroke-linecap="round" class="transition-all duration-1000 ease-out" style="stroke-dasharray: 326.73; stroke-dashoffset: 326.73;" />
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span id="score-number" class="text-4xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">0</span>
+              <span class="text-xs text-[var(--color-text-muted)] -mt-0.5">/ 100</span>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0 text-center md:text-left">
+            <p class="text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)] mb-1">{client.ui.resultsTitle}</p>
+            <h2 id="grade-title" class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2"></h2>
+            <p id="grade-summary" class="text-[var(--color-text-body)] mb-3 max-w-2xl"></p>
+            <p id="results-url" class="text-sm text-[var(--color-text-muted)] mb-4 break-all"></p>
+            <div id="severity-counts" class="flex flex-wrap justify-center md:justify-start gap-2 mb-5"></div>
+            <div class="flex flex-wrap justify-center md:justify-start gap-3">
+              <button type="button" id="copy-report" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-[var(--color-surface-border)] text-[var(--color-text-dark)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors duration-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                <span id="copy-report-label">{client.ui.copy}</span>
+              </button>
+              <button type="button" id="scan-again" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-[var(--color-surface-border)] text-[var(--color-text-dark)] hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-colors duration-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                {client.ui.again}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding py-10 md:py-14">
+      <div class="mx-auto max-w-[var(--container-page)] space-y-12">
+        <div id="hosting-card"></div>
+
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6">{client.ui.findingsTitle}</h3>
+          <div id="findings" class="space-y-10"></div>
+        </div>
+
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-1">{client.ui.checklistTitle}</h3>
+          <p class="text-sm text-[var(--color-text-muted)] mb-5">{client.ui.checklistIntro}</p>
+          <ul id="checklist" class="grid md:grid-cols-2 gap-3"></ul>
+        </div>
+
+        <details id="hosts-panel" class="group rounded-xl border border-[var(--color-surface-border)]">
+          <summary class="flex items-center justify-between gap-3 cursor-pointer p-5 font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)]">
+            <span id="hosts-title"></span>
+            <svg class="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-5 pb-5">
+            <p class="text-sm text-[var(--color-text-muted)] mb-4">{client.ui.hostsIntro}</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <tbody id="hosts-table"></tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <div id="scan-details" class="text-xs text-[var(--color-text-muted)] space-y-1"></div>
+
+        <div class="relative overflow-hidden rounded-2xl bg-[var(--color-surface-dark)] p-6 md:p-14 text-center">
+          <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-[var(--color-brand-orange)] opacity-[0.08] blur-[100px] pointer-events-none"></div>
+          <div class="relative">
+            <h3 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-white mb-3">{page.ctaTitle}</h3>
+            <p class="text-white/60 mb-8 max-w-lg mx-auto">{page.ctaBody}</p>
+            <a
+              href={page.ctaHref}
+              class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-medium font-[var(--font-button)] text-white bg-[var(--color-brand-orange)] rounded-[var(--radius-pill)] hover:bg-[var(--color-cta-bg-hover)] hover:shadow-[0_8px_30px_rgba(242,95,41,0.4)] hover:-translate-y-0.5 active:translate-y-0 no-underline transition-all duration-200"
+            >
+              {page.ctaButton}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="section-padding py-14 md:py-20 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-[var(--container-page)]">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{page.howTitle}</h2>
+        <p class="text-[var(--color-text-muted)] max-w-lg mx-auto">{page.howSub}</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+        {page.steps.map((step, i) => (
+          <div class="relative text-center group" data-animate>
+            <div class="w-14 h-14 rounded-2xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center mb-5 mx-auto transition-transform duration-300 group-hover:scale-110">
+              <svg class="w-6 h-6 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                {i === 0 && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />}
+                {i === 1 && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />}
+                {i === 2 && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />}
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-2">{step.title}</h3>
+            <p class="text-[var(--color-text-body)] text-sm leading-relaxed">{step.body}</p>
+            {i < page.steps.length - 1 && (
+              <div class="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] border-t border-dashed border-[var(--color-surface-border)]"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What we check -->
+  <section id="what-we-check" class="section-padding py-14 md:py-20">
+    <div class="mx-auto max-w-[var(--container-page)]">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-3">{page.whatTitle}</h2>
+        <p class="text-[var(--color-text-muted)] max-w-xl mx-auto">{page.whatSub}</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {page.categories.map((cat) => (
+          <div class="p-5 rounded-xl border border-[var(--color-surface-border)] transition-all duration-200 hover:border-[var(--color-brand-orange)]/30 hover:shadow-sm" data-animate>
+            <h3 class="text-base font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-1.5">{cat.name}</h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">{cat.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section id="method" class="section-padding py-14 md:py-20 bg-[var(--color-surface-light)]">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-semibold font-[var(--font-heading)] text-[var(--color-text-dark)] mb-6 text-center">{page.methodTitle}</h2>
+      <div class="space-y-4 text-[var(--color-text-body)] leading-relaxed">
+        {page.method.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .scanner-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: scannerFadeIn 0.6s ease-out forwards;
+  }
+  .scanner-fade-in-delay-1 { animation-delay: 0.1s; }
+  .scanner-fade-in-delay-2 { animation-delay: 0.2s; }
+  .scanner-fade-in-delay-3 { animation-delay: 0.35s; }
+
+  @keyframes scannerFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #findings :global(.result-card) {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  #findings :global(.result-card.is-visible) {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  }
+
+  #hosts-panel summary::-webkit-details-marker { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scanner-fade-in, [data-animate], #findings :global(.result-card) {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { initScanner } from '../../scripts/siteScanner';
+  initScanner();
+</script>
