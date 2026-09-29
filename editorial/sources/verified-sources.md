@@ -1206,6 +1206,124 @@ September; the next piece in the cluster should pick these citations up.
   pieces drafted on 22 September.
 
 
+## A5 entries, 24 September 2026 (migrate-wordpress-to-china)
+
+Eight new entries and two re-checks for `migrate-wordpress-to-china` (A5, T1).
+Every page fetched twice on 24 September 2026: check 1 at research time,
+check 2 in createarticle iteration 8 with a different client or a differently
+worded query. Ten of ten URLs passed check 2. Alibaba Cloud help-centre pages
+show no date in the rendered text; the date below is the page's own
+`lastModifiedTime` field, read from the raw HTML.
+
+### A domain on a mainland server cannot open website access until its filing is complete (Alibaba Cloud)
+- Fact ID: F25
+- Value: "根据工信部要求，域名解析至中国内地服务器必须先完成网站备案，才能正常开通网站访问。" The same page lists a filing held with another provider as a cause of an unreachable site, fixed by 接入备案 (filing transfer).
+- Vantage point: n/a, not a measurement
+- As of: 4 September 2026 (page lastModifiedTime)
+- Source: Alibaba Cloud (阿里云) help centre, 域名/网站无法访问的可能原因及处理方法
+- URL: https://help.aliyun.com/zh/dws/support/how-do-i-troubleshoot-the-failures-to-access-a-website-by-using-its-domain-name
+- Verified 1: 2026-09-24, WebFetch plus raw HTML, sentence and date confirmed
+- Verified 2: 2026-09-24, curl re-fetch, both phrases present, date unchanged
+- Used in: migrate-wordpress-to-china
+- Notes: Official replacement for the 2022 community article (developer.aliyun.com/article/877910) the F25 entry above relied on. **Neither official page names ports 80 and 443.** The port detail stays attributed to our own projects in copy.
+
+### Unfiled domains on Tencent Cloud mainland resources are intercepted
+- Fact ID: F25
+- Value: "若域名解析到腾讯云中国境内云资源，都必须先完成 ICP 备案才能操作解析，否则会被腾讯云未备案监测拦截。"
+- Vantage point: n/a
+- As of: 3 September 2026 16:01:30 (page's last updated time)
+- Source: Tencent Cloud (腾讯云) documentation, ICP 备案 是否需要备案
+- URL: https://cloud.tencent.com/document/product/243/19630
+- Verified 1: 2026-09-24, WebFetch, sentence and date confirmed
+- Verified 2: 2026-09-24, WebFetch with a different prompt (the page is client-rendered, curl gets no text), sentence verbatim, date unchanged
+- Used in: migrate-wordpress-to-china
+
+### ICP filing review windows and the 30-day public security filing deadline (Alibaba Cloud)
+- Fact ID: F26
+- Value: Alibaba Cloud initial review "1～2个工作日"; provincial Communications Administration (省级通信管理局) review "一般为1～20个工作日"; "网站/App开通后30天内必须完成公安备案"
+- Vantage point: n/a
+- As of: 26 August 2026 (page lastModifiedTime)
+- Source: Alibaba Cloud (阿里云) help centre, 阿里云ICP备案流程概述
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
+- Verified 1: 2026-09-24, WebFetch plus raw HTML, all three confirmed
+- Verified 2: 2026-09-24, curl re-fetch, all three phrases present in stripped text
+- Used in: website-in-china (review windows, earlier), migrate-wordpress-to-china
+- Notes: This supersedes the "page undated" note in the F26 entry above; the page carries a machine-readable date. Planning figure stays 3 to 6 weeks.
+
+### Alibaba Cloud international accounts cannot apply for ICP filing
+- Fact ID: F27
+- Value: "Alibaba Cloud international site (alibabacloud.com) accounts do not support ICP filing applications (including website ICP filing and app ICP filing)." "To apply for ICP filing, you must register an Alibaba Cloud China site (aliyun.com) account, and ensure that the filing entity is an enterprise registered in the Chinese mainland or a Chinese mainland resident."
+- Vantage point: n/a
+- As of: 20 August 2026 (page lastModifiedTime)
+- Source: Alibaba Cloud help centre (English), ICP filing for enterprises outside the Chinese mainland
+- URL: https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland
+- Verified 1: 2026-09-24, curl, both sentences confirmed
+- Verified 2: 2026-09-24, curl re-fetch, both present twice on the page
+- Used in: migrate-wordpress-to-china
+- Notes: **F27 correction.** The fact bank also says alibabacloud.com "cannot deploy to mainland regions" and that the filing workflow is "Chinese-language only". Neither is on this page or the server page below; the alibabacloud.com copies of these pages serve a bot challenge to both clients. Both claims kept OUT of A5. Do not cite them until a dated Alibaba page states them.
+
+### The filing is made against a mainland Alibaba Cloud server on a subscription of more than 3 months
+- Fact ID: F27 (and the "server comes first" step behind F25)
+- Value: "you must associate or purchase an Alibaba Cloud server located in the Chinese mainland"; ECS "must be a subscription instance with a total subscription duration of more than 3 months"; Simple Application Server "3 months or longer"
+- Vantage point: n/a
+- As of: 2 September 2026 (page lastModifiedTime)
+- Source: Alibaba Cloud help centre (English), Server and access information check before ICP filing
+- URL: https://help.aliyun.com/en/icp-filing/basic-icp-service/user-guide/icp-filing-server-access-information-check
+- Verified 1: 2026-09-24, curl, confirmed
+- Verified 2: 2026-09-24, curl re-fetch, phrases present
+- Used in: migrate-wordpress-to-china
+
+### Simple Application Server builds WordPress from a preset application image
+- Fact ID: F28
+- Value: "使用预置的WordPress应用镜像，快速搭建WordPress个人博客网站。"
+- Vantage point: n/a
+- As of: 19 August 2026 (page lastModifiedTime)
+- Source: Alibaba Cloud (阿里云) help centre, 快速搭建WordPress个人博客 (轻量应用服务器)
+- URL: https://help.aliyun.com/zh/simple-application-server/getting-started/use-application-images-to-quickly-build-websites
+- Verified 1: 2026-09-24, curl, confirmed
+- Verified 2: 2026-09-24, curl re-fetch, confirmed in stripped text
+- Used in: migrate-wordpress-to-china (cited in prose, no blockquote)
+- Notes: Supports the positive half of F28 only. "No managed WordPress exists in China" is a negative no vendor page can prove; A5 states it as our own finding ("We haven't found...").
+
+### WordPress.org rate-limits Chinese network sources (meta trac #5106)
+- Fact ID: F8
+- Value: reporter: "had 429 problems when visiting all subdomains of WordPress"; WordPress.org staff reply the same day: "Several Chinese network sources are rate-limited on certain services due to a high level of abuse and non-legitimate traffic coming from those sources. We won't be providing any form of whitelisting or an official way to replicate WordPress.org through a chinese proxy."
+- Vantage point: n/a
+- As of: 21 March 2020 (ticket opened and closed that day)
+- Source: WordPress.org Meta Trac, ticket #5106, read from the Internet Archive capture of 16 January 2026
+- URL: https://web.archive.org/web/20260116133057/https://meta.trac.wordpress.org/ticket/5106 (live https://meta.trac.wordpress.org/ticket/5106 returns HTTP 403 to this machine)
+- Verified 1: 2026-09-24, archive capture fetched, both quotes and the timeline dates confirmed
+- Verified 2: 2026-09-24, archive capture re-fetched, quotes present
+- Used in: migrate-wordpress-to-china
+- Notes: **Closes the open item logged on 2026-09-10** ("wordpress.org rate limits mainland IPs, HTTP 429", check 2 not completed). **F8 correction: the date is 21 March 2020, not "October 2019".** Do not print "since October 2019". Substitution: the archive copy of the same page, because trac blocks the fetcher.
+
+### The ICP number must be displayed in the footer, linked to beian.miit.gov.cn
+- Fact ID: none
+- Value: "ICP 备案成功后，您需要在 ICP 备案成功的网站底部悬挂工信部下发的 ICP 备案号，并生成链接指向 工信部网站：beian.miit.gov.cn"; omission: "由住所所在地省通信管理局责令改正，并处五千元以上一万元以下罚款。"
+- Vantage point: n/a
+- As of: 12 August 2026 (page lastModifiedTime)
+- Source: Alibaba Cloud (阿里云) help centre, ICP备案后为网站App添加备案号
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/the-icp-record-post-processing-1
+- Verified 1: 2026-09-24, curl, both sentences confirmed
+- Verified 2: 2026-09-24, curl re-fetch, both phrases present
+- Used in: migrate-wordpress-to-china
+
+### Value-added telecoms licence: 60 days of review from acceptance (found, not used)
+- Fact ID: F26 (licence half)
+- Value: "自受理之日起60日内完成审查工作，作出予以批准或者不予批准的决定。"
+- Vantage point: n/a
+- As of: published 1 June 2015
+- Source: Shanghai Communications Administration (上海市通信管理局), 增值电信业务办事指南
+- URL: https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
+- Verified 1: 2026-09-24, WebFetch, confirmed
+- Verified 2: not run; the figure was cut from A5 at createarticle iteration 3, so no second check was owed. Run check 2 before any piece cites it.
+- Used in: none
+- Notes: The fact bank's "60 to 90 working days, plan 12 to 18 weeks" is not what this page says (60 days, statutory, from acceptance). Reconcile before the licence figure is printed again.
+
+### Re-checks of existing entries, 24 September 2026
+- F30 Cloudflare China Network (https://developers.cloudflare.com/china-network/): re-fetched 2026-09-24, "Last updated Apr 30, 2026", Enterprise subscription sentence and the ICP-per-apex sentence present. Third check. Used in: migrate-wordpress-to-china.
+- F32 migration pair (https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/): re-fetched 2026-09-24, "23.4", "1.2 seconds" and "deleting external calls" present. Used in: migrate-wordpress-to-china, with the missing carrier and test date stated in copy. The uptime figures and the 51-point bounce figure were not used.
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)
