@@ -104,8 +104,77 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: t.sendFailed }), { status: 500, headers });
   }
 
+  // Follow-up to the lead. A failure here is logged but never blocks the scan.
+  const followUp = buildFollowUp(name, website);
+  const { error: followUpError } = await resend.emails.send({
+    from: FOLLOW_UP_FROM,
+    to: email,
+    bcc: FOLLOW_UP_BCC,
+    replyTo: FOLLOW_UP_REPLY_TO,
+    subject: followUp.subject,
+    html: followUp.html,
+    text: followUp.text,
+  });
+
+  if (followUpError) {
+    console.error('Resend follow-up error:', followUpError);
+  }
+
   return new Response(JSON.stringify({ success: true }), { status: 200, headers });
 };
+
+// thechinapath.com is verified in Resend.
+const FOLLOW_UP_FROM = 'Cyril Drouin <cyril.drouin@thechinapath.com>';
+const FOLLOW_UP_REPLY_TO = 'cyril.drouin@outlook.com';
+const FOLLOW_UP_BCC = 'cyril.drouin@outlook.com';
+
+function buildFollowUp(name: string, website: string) {
+  const site = website.replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+  const firstName = name.split(/\s+/)[0];
+
+  const subject = `Your China Site Scanner check of ${site}`;
+
+  const text = `Dear ${firstName},
+
+Thanks for running ${site} through the China Site Scanner.
+
+If your results raised questions, or you're weighing what to do next, I can help. We're a Shanghai team that has spent more than 20 years helping international companies launch and run websites for the mainland China market.
+
+We can support you at any stage:
+
+- Plan: a strategy and audit of your China readiness, or a full migration of your site to China.
+- Build: native Chinese content, UX/UI design for Chinese users, and ICP-licensed hosting.
+- Grow and run: Baidu SEO, visibility in Chinese AI search engines, and ongoing maintenance and support.
+
+Some clients come to us for a single piece, others hand us the whole thing.
+
+Would a 20-minute call be useful?
+
+Best,
+Cyril Drouin
+ChinaWebFoundry
+chinawebfoundry.com`;
+
+  const p = 'margin: 0 0 16px;';
+  const html = `
+    <div style="font-family: Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #333333; max-width: 600px;">
+      <p style="${p}">Dear ${escapeHtml(firstName)},</p>
+      <p style="${p}">Thanks for running ${escapeHtml(site)} through the China Site Scanner.</p>
+      <p style="${p}">If your results raised questions, or you're weighing what to do next, I can help. We're a Shanghai team that has spent more than 20 years helping international companies launch and run websites for the mainland China market.</p>
+      <p style="${p}">We can support you at any stage:</p>
+      <ul style="margin: 0 0 16px; padding-left: 20px;">
+        <li style="margin-bottom: 6px;"><strong>Plan:</strong> a strategy and audit of your China readiness, or a full migration of your site to China.</li>
+        <li style="margin-bottom: 6px;"><strong>Build:</strong> native Chinese content, UX/UI design for Chinese users, and ICP-licensed hosting.</li>
+        <li style="margin-bottom: 6px;"><strong>Grow and run:</strong> Baidu SEO, visibility in Chinese AI search engines, and ongoing maintenance and support.</li>
+      </ul>
+      <p style="${p}">Some clients come to us for a single piece, others hand us the whole thing.</p>
+      <p style="${p}">Would a 20-minute call be useful?</p>
+      <p style="margin: 0;">Best,<br>Cyril Drouin<br>ChinaWebFoundry<br><a href="https://chinawebfoundry.com" style="color: #F25F29;">chinawebfoundry.com</a></p>
+    </div>
+  `;
+
+  return { subject, html, text };
+}
 
 function escapeHtml(str: string): string {
   return str

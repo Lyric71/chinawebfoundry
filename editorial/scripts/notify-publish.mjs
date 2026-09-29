@@ -84,8 +84,34 @@ function slugMap(exportName) {
   return map;
 }
 
+/**
+ * Git Bash (MSYS) rewrites any argument that starts with "/" into a Windows
+ * path under its install root, so "/resources/x/" arrives here as
+ * "C:/Program Files/Git/resources/x/". Undo that by finding the MSYS root (the
+ * prefix that holds usr/bin) and keeping what follows it. A path given
+ * without its leading slash gets one. Anything else stops the send, so a
+ * mangled URL never reaches the inbox.
+ */
+function sitePath(value) {
+  const v = String(value).replace(/\\/g, '/');
+  if (v.startsWith('http') || v.startsWith('/')) return v;
+  if (!/^[A-Za-z]:\//.test(v)) return `/${v}`;
+  const parts = v.split('/');
+  for (let i = 1; i < parts.length; i++) {
+    if (existsSync(`${parts.slice(0, i).join('/')}/usr/bin`)) return `/${parts.slice(i).join('/')}`;
+  }
+  console.error(`Cannot turn "${value}" into a site path. Pass it without the leading slash, or set MSYS_NO_PATHCONV=1.`);
+  process.exit(2);
+}
+
 function localeUrls(slug, type, explicit) {
-  if (explicit.length) return explicit.map((u) => ({ lang: '-', url: u.startsWith('http') ? u : `${SITE}${u}` }));
+  if (explicit.length) {
+    return explicit.map((u) => {
+      const p = sitePath(u);
+      const lang = p.match(/^(?:https?:\/\/[^/]+)?\/(fr|es|de)\//)?.[1] || 'en';
+      return { lang, url: p.startsWith('http') ? p : `${SITE}${p}` };
+    });
+  }
 
   if (type === 'money-page') {
     const routes = slugMap('staticRoutes')[`/${slug}/`] || {};
@@ -142,7 +168,7 @@ async function main() {
   const urls = localeUrls(args.slug, type, args.url);
   const when = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Shanghai', hour12: false });
   const imageDir = type === 'casestudy' ? 'casestudies' : 'guides';
-  const image = args.image || (type === 'upgrade' || type === 'translation' ? 'none' : `/images/${imageDir}/${args.slug}.webp`);
+  const image = args.image ? sitePath(args.image) : (type === 'upgrade' || type === 'translation' ? 'none' : `/images/${imageDir}/${args.slug}.webp`);
   const warnings = urls.filter((u) => u.unlocalized).map((u) => `${u.lang} page is live under an English slug: guideSlugs entry missing in src/i18n/routes.ts`);
 
   const lines = [

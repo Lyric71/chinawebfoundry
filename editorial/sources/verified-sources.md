@@ -1324,6 +1324,138 @@ show no date in the rendered text; the date below is the page's own
 - F30 Cloudflare China Network (https://developers.cloudflare.com/china-network/): re-fetched 2026-09-24, "Last updated Apr 30, 2026", Enterprise subscription sentence and the ICP-per-apex sentence present. Third check. Used in: migrate-wordpress-to-china.
 - F32 migration pair (https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/): re-fetched 2026-09-24, "23.4", "1.2 seconds" and "deleting external calls" present. Used in: migrate-wordpress-to-china, with the missing carrier and test date stated in copy. The uptime figures and the 51-point bounce figure were not used.
 
+## T6-03 entries, 29 September 2026 (upgrade-wordpress-hosting-china)
+
+Ten new entries and five re-checks for `upgrade-wordpress-hosting-china`
+(T6-03). Every page was fetched twice on 29 September 2026: check 1 at research
+time, check 2 in createarticle iteration 8 with a different client (curl
+against WebFetch) or a differently worded prompt. Two pages had moved between
+24 and 29 September; both are recorded below. One check-1 reading was wrong
+and was caught by check 2 (Tencent's WordPress template does not name PHP).
+
+### Vercel has no mainland servers and cannot guarantee availability in mainland China
+- Fact ID: F29
+- Value: "Vercel has no servers or CDN nodes in mainland China." "China's network controls can block or throttle traffic to foreign domains, including Vercel's .vercel.app subdomains." "... Vercel can't guarantee availability or performance within mainland China." Mitigations: custom domain; self-host fonts and analytics; static mirror on better-routed infrastructure; separate in-country deployment with an ICP licence.
+- Vantage point: n/a, not a measurement
+- As of: published 3 November 2025, updated 11 September 2026 (datePublished and dateModified in the page's raw HTML)
+- Source: Vercel Knowledge Base, "Accessing Vercel-hosted sites from mainland China"
+- URL: https://vercel.com/kb/guide/accessing-vercel-hosted-sites-from-mainland-china
+- Verified 1: 2026-09-29, WebFetch and curl, all three sentences and both dates confirmed
+- Verified 2: 2026-09-29, curl re-fetch, all three sentences present
+- Used in: upgrade-wordpress-hosting-china
+- Notes: Confirms F29's "November 2025". Print both dates.
+
+### vercel.app blocked in mainland China (GreatFire)
+- Fact ID: F29
+- Value: https://vercel.app blocked, "100% of the last 4 conclusive tests failed in mainland China", 4/4 in the last 90 days, last test 14 September 2026. Domain summary: "Mostly blocked", 157 tested URLs, 154 blocked, 1 disrupted, 2 no verdict. Interference recorded since 16 October 2021.
+- Vantage point: n/a, GreatFire reachability verdict
+- As of: 14 September 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/vercel.app
+- Verified 1: 2026-09-29, WebFetch and curl
+- Verified 2: 2026-09-29, curl re-fetch, "4 conclusive tests", "2026-09-14", "154 blocked", "157 tested URLs" present
+- Used in: upgrade-wordpress-hosting-china
+- Notes: F29's "mostly blocked" is the domain summary; the apex itself reads blocked. Recheck after 13 December 2026 (90 days).
+
+### Tencent Cloud Lighthouse WordPress template contents
+- Fact ID: F28
+- Value: the WordPress application image integrates the Baota (宝塔) Linux panel; the page names Nginx and MariaDB (config path and database password). It does NOT name PHP. "域名指向中国境内服务器的网站，必须进行 ICP 备案".
+- Vantage point: n/a
+- As of: 22 September 2026 14:39:31 (最近更新时间)
+- Source: Tencent Cloud (腾讯云) documentation, 轻量应用服务器 使用 WordPress 应用模板搭建网站
+- URL: https://cloud.tencent.com/document/product/1207/45117
+- Verified 1: 2026-09-29, WebFetch (its summary added PHP, which is not on the page)
+- Verified 2: 2026-09-29, WebFetch with a strict string search: Nginx, MariaDB, 宝塔 present; PHP absent
+- Used in: upgrade-wordpress-hosting-china (table cell, no blockquote)
+- Notes: The page is client-rendered; curl returns no body text. Do not print PHP as a Tencent claim.
+
+### Huawei Cloud FlexusL WordPress image contents
+- Fact ID: F28
+- Value: "Ubuntu 24.04操作系统，采用Docker部署，已预置Nginx、MySQL、phpMyAdmin、Docker软件"; "要想通过域名成功访问服务器，必须备案域名"
+- Vantage point: n/a
+- As of: 21 September 2026 (更新时间)
+- Source: Huawei Cloud (华为云) documentation, 使用WordPress快速搭建网站 (Flexus应用服务器L实例)
+- URL: https://support.huaweicloud.com/bestpractice-flexusl/practice_application_0001.html
+- Verified 1: 2026-09-29, WebFetch
+- Verified 2: 2026-09-29, curl, "Ubuntu 24.04", "phpMyAdmin", "2026-09-21" present
+- Used in: upgrade-wordpress-hosting-china (table cell)
+
+### Huawei Cloud international accounts cannot apply for ICP filing
+- Fact ID: none (the Huawei equivalent of F27)
+- Value: "Huawei Cloud international website accounts do not support ICP filing." A Huawei Cloud Chinese mainland website account is required.
+- Vantage point: n/a
+- As of: 17 July 2024
+- Source: Huawei Cloud Help Center (English), Registering an Account and Completing Real-Name Authentication
+- URL: https://support.huaweicloud.com/intl/en-us/prepare-icp/icp_02_0047.html
+- Verified 1: 2026-09-29, WebFetch
+- Verified 2: 2026-09-29, curl, sentence and date present
+- Used in: upgrade-wordpress-hosting-china
+
+### Huawei Cloud filing server: mainland, at least three months
+- Fact ID: none
+- Value: must "purchase a Huawei Cloud server (referred to as filing server) deployed in the Chinese mainland"; ECS (including Flexus X) and Flexus L "subscription term must be at least three months, including the accumulative duration of renewals"
+- Vantage point: n/a
+- As of: 20 August 2024
+- Source: Huawei Cloud Help Center (English), Filing Servers
+- URL: https://support.huaweicloud.com/intl/en-us/prepare-icp/icp_02_0003.html
+- Verified 1: 2026-09-29, WebFetch
+- Verified 2: 2026-09-29, curl, phrases and date present
+- Used in: upgrade-wordpress-hosting-china
+
+### Tencent Cloud Lighthouse filing eligibility: 90 days, 30 days remaining
+- Fact ID: none
+- Value: mainland Lighthouse qualifies; "云资源与带宽计费模式需为包年包月，购买时长须超过（含）90天"; "备案期间服务器实例剩余时长（到期时间-当前时间）超过（含）30天"
+- Vantage point: n/a
+- As of: 23 September 2026 14:41:01
+- Source: Tencent Cloud (腾讯云) documentation, 轻量应用服务器 ICP 备案
+- URL: https://cloud.tencent.com/document/product/1207/45756
+- Verified 1: 2026-09-29, WebFetch
+- Verified 2: 2026-09-29, WebFetch with a differently worded prompt, both sentences verbatim, date unchanged
+- Used in: upgrade-wordpress-hosting-china
+
+### Tencent Cloud: one account per filing entity; 3-month subscription
+- Fact ID: none
+- Value: "一个腾讯云账号对应一个备案主体"; 包年包月, 3 months or more, at least 1 month remaining during filing
+- Vantage point: n/a
+- As of: 30 January 2026 17:00:21
+- Source: Tencent Cloud (腾讯云) documentation, ICP 备案 能否进行备案
+- URL: https://cloud.tencent.com/document/product/243/19631
+- Verified 1: 2026-09-29, WebFetch
+- Verified 2: 2026-09-29, WebFetch, differently worded prompt, sentence verbatim
+- Used in: upgrade-wordpress-hosting-china (table cell)
+- Notes: Tencent's undated tencentcloud.com "ICP Registration Support" page says mainland filings go through the Chinese website; no date, so not logged as a source. No dated Tencent page found on international accounts.
+
+### MIIT pilot lifting the foreign-ownership cap in four areas
+- Fact ID: F26 (foreign-ownership half)
+- Value: notice 工信部通信函〔2024〕107号, 8 April 2024. Pilot in Beijing's services-opening demonstration zone, the Shanghai FTZ Lingang New Area and the Pudong leading zone, Hainan Free Trade Port and the Shenzhen demonstration zone. Lifts the foreign-ownership cap for IDC, CDN, ISP, online data processing and transaction processing, information publishing platforms and delivery services (internet news, online publishing, online audiovisual and internet culture excluded), and information protection and processing services.
+- Vantage point: n/a
+- As of: 8 April 2024
+- Source: Ministry of Industry and Information Technology (工业和信息化部), published on gov.cn
+- URL: https://www.gov.cn/zhengce/zhengceku/202404/content_6944441.htm
+- Verified 1: 2026-09-29, WebFetch
+- Verified 2: 2026-09-29, curl, document number, 海南自由贸易港, 外资股比限制 and 互联网文化经营除外 present
+- Used in: upgrade-wordpress-hosting-china
+- Notes: F26 says foreign ownership "remains restricted outside the pilot areas". The pilot covers named categories, not the ICP licence as a whole; say which.
+
+### Value-added telecoms licence: 60 days of review from acceptance (check 2 now done)
+- Fact ID: F26 (licence half)
+- Value: "自受理之日起60日内完成审查工作，作出予以批准或者不予批准的决定"
+- Vantage point: n/a
+- As of: published 1 June 2015
+- Source: Shanghai Communications Administration (上海市通信管理局), 增值电信业务办事指南
+- URL: https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
+- Verified 1: 2026-09-24 (A5, WebFetch); again 2026-09-29, WebFetch
+- Verified 2: 2026-09-29, curl, sentence and date present
+- Used in: upgrade-wordpress-hosting-china
+- Notes: Supersedes the "found, not used" entry of 24 September. The fact bank's "60 to 90 working days" is not supported; print 60 days from acceptance.
+
+### Re-checks of existing entries, 29 September 2026
+- F27 Alibaba server page (https://help.aliyun.com/en/icp-filing/basic-icp-service/user-guide/icp-filing-server-access-information-check): **lastModifiedTime is now 24 September 2026** (was 2 September). The method list now reads "an ECS instance (subscription for 3 months or longer ...) or Simple Application Server (subscription for 3 months or longer)", while the requirements table still says ECS "more than 3 months". Copy now says "3 months or longer" for both. Used in: upgrade-wordpress-hosting-china.
+- F25 Tencent 是否需要备案 (https://cloud.tencent.com/document/product/243/19630): sentence verbatim, **last updated now 28 September 2026** (was 3 September). Used in: upgrade-wordpress-hosting-china.
+- F25 Alibaba 域名/网站无法访问 (4 Sept 2026), F26 Alibaba 备案流程概述 (26 Aug 2026; phrases split by span markup, present once stripped), F27 Alibaba international accounts (20 Aug 2026), F28 Alibaba SAS image (19 Aug 2026): re-fetched twice 2026-09-29, unchanged. Used in: upgrade-wordpress-hosting-china.
+- F30 Cloudflare China Network (/china-network/ "Apr 30, 2026"; /get-started/ "review and vet the content"): re-fetched 2026-09-29, unchanged. Used in: upgrade-wordpress-hosting-china.
+- F32 migration pair and uptime figures: both live URLs re-fetched twice 2026-09-29, sentences present. Carrier, city and window dates still unpublished (T3-01, T3-02). Used in: upgrade-wordpress-hosting-china, with the missing conditions shown in a table on the page.
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)
