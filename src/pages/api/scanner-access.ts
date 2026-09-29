@@ -104,7 +104,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: t.sendFailed }), { status: 500, headers });
   }
 
-  // Follow-up to the lead. A failure here is logged but never blocks the scan.
+  // Follow-up to the lead, scheduled 1 hour out. A failure here is logged but never blocks the scan.
   const followUp = buildFollowUp(name, website);
   const { error: followUpError } = await resend.emails.send({
     from: FOLLOW_UP_FROM,
@@ -114,6 +114,7 @@ export const POST: APIRoute = async ({ request }) => {
     subject: followUp.subject,
     html: followUp.html,
     text: followUp.text,
+    scheduledAt: new Date(Date.now() + FOLLOW_UP_DELAY_MS).toISOString(),
   });
 
   if (followUpError) {
@@ -127,6 +128,7 @@ export const POST: APIRoute = async ({ request }) => {
 const FOLLOW_UP_FROM = 'Cyril Drouin <cyril.drouin@thechinapath.com>';
 const FOLLOW_UP_REPLY_TO = 'cyril.drouin@outlook.com';
 const FOLLOW_UP_BCC = 'cyril.drouin@outlook.com';
+const FOLLOW_UP_DELAY_MS = 60 * 60 * 1000;
 
 function buildFollowUp(name: string, website: string) {
   const site = website.replace(/^https?:\/\//i, '').replace(/\/+$/, '');
