@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import rehypeTableWrapper from './src/lib/rehypeTableWrapper.mjs';
 import { splitLocale, canonicalizePath, localizePath, englishOnlyRoutes } from './src/i18n/routes.ts';
 
@@ -88,10 +89,17 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
+  // Astro 7 defaults to compressHTML: 'jsx', which strips whitespace between
+  // inline elements the way JSX does. The pages were written against the
+  // earlier HTML-aware compression, so keep it to leave the rendered text as is.
+  compressHTML: true,
   markdown: {
+    // Astro 7 renders Markdown with Satteri by default. The remark/rehype
+    // pipeline is kept (via @astrojs/markdown-remark) so the rehype plugin
+    // below keeps running and the guide HTML stays unchanged.
     // Guide tables get their scroll wrapper in the HTML source, not from a
     // client-side script. See src/lib/rehypeTableWrapper.mjs.
-    rehypePlugins: [rehypeTableWrapper],
+    processor: unified({ rehypePlugins: [rehypeTableWrapper] }),
   },
   i18n: {
     defaultLocale: 'en',
