@@ -36,10 +36,12 @@ Publish wordpress-plugins-china
    profile is more than a month old.
 5. Reads `sources/verified-sources.md` and reuses any figure already logged
    and verified twice.
-6. For T2 and T4, reads `harness/latest.json` for the hosts the piece
-   covers. No row means the piece is `blocked` with note "harness", and
-   Claude moves to the next clear row. No partial draft and no marker is
-   left in `output/`; any research already done goes into the ledger.
+6. For T2 and T4, applies the GFW rule (`CLAUDE.md`): every statement of
+   what the Great Firewall does to a host comes from dated GreatFire verdicts
+   and 21YunBox's published probes, labelled as theirs, and a host with no
+   dated test is listed as untested. There is no harness gate and no mainland
+   probe (Cyril, 2 October 2026), so a T2 or T4 row is never blocked for want
+   of one.
 7. Researches anything still missing. Validates each source (check 1: fetch
    the page, confirm figure, unit, period, date). Writes the research note
    into the run log. No body copy before this.
@@ -167,11 +169,11 @@ and 2 only and accept a slower build.
 | When | What | What to do |
 |---|---|---|
 | Week 1, 8 to 11 Sept | M1 ships first, ahead of every article. T6-01 (title suffix) and T6-02 (Google Fonts correction) follow. | M1 is a page, not a guide. T6-01 is a template change and needs the build-time title assertion. T6-02 is the correction of a live claim on the highest-traffic guide. |
-| Before week 2 | The harness. T2-01 is week 2 slot 2. | Nothing in T2 or T4 ships without it. See `harness/README.md`. If it is not up, T2-01 goes `blocked` and the slot's reserve absorbs it later. |
+| Before week 2 | T2-01 is week 2 slot 2. | T2 and T4 pieces follow the GFW rule in `CLAUDE.md`: dated third-party verdicts, labelled as theirs. No harness and no mainland probe, ever (Cyril, 2 October 2026). |
 | 1 to 7 Oct | National Day Golden Week | Week 4 slot 2 (T3-01, Thu 1 Oct) and slot 3 (T6-03, Fri 2 Oct) fall inside it. Draft both during week 3 and let the publish task release them on their dates. |
-| Week 6, Fri 16 Oct | T4-01, China Dependency Index edition 1 | Needs a full harness run from both vantage points in the first half of October. Method page must exist first. |
+| Week 6, Fri 16 Oct | T4-01, China Dependency Index edition 1 | Built under the GFW rule from GreatFire and 21YunBox data refreshed in the first half of October, every row dated and attributed. Method page must exist first. |
 | Week 8 | Structure audit | Diff the headings of every published T2 page against each other. No shared structure above H2 (PLAN.md section 13, item 3). |
-| Week 10, Fri 13 Nov | T4-02, the vantage point study | 44 hosts, both vantage points, same day. Schedule the run the week before. |
+| Week 10, Fri 13 Nov | T4-02, the vantage point study | Built under the GFW rule from 21YunBox's paired datacentre and home line data and GreatFire verdicts, every figure attributed and dated. No run of our own. |
 | Week 12 onward | T7 slots begin | Day 90 for the first T1 pieces lands in mid December. The first two T7 slots (weeks 12 and 14) will probably be unspent. Log that. |
 | Week 13 | Cluster share check | Cluster-shaped content under 20% of indexed English pages (PLAN.md section 13, item 5). |
 | 120 days after T2-05 publishes | The kill switch | If the first five T2 pages have not produced a qualified inquiry or a measurable ranking, stop the cluster. T2-11 to T2-14 do not get written; their slots move to T3 and T4. |
@@ -194,10 +196,9 @@ and 2 only and accept a slower build.
 2. `sources/verified-sources.md` is seeded from the fact bank. Every seeded
    entry carries the plan's verification date as check 1 and still owes
    check 2 against its primary source at first use.
-3. Stand up the harness. `harness/README.md` has the build spec and the
-   acceptance list. Tier one (a mainland instance running `probe.mjs` on a
-   schedule) is a morning's work. Tier two (Tencent Cloud CAT or boce.com) is
-   a subscription decision.
+3. No harness. Cyril decided on 2 October 2026 that no mainland probe
+   instance and no Tencent Cloud CAT or boce.com subscription is ever bought.
+   T2 and T4 pieces follow the GFW rule in `CLAUDE.md`.
 4. Get Bassetti sign-off started (T3-01, week 4).
 5. `OPENAI_API_KEY`, `OPENAI_IMAGE_MODEL` and `RESEND_API_KEY` are in `.env`
    at the repo root. Nothing else to configure for images or email.
@@ -237,7 +238,7 @@ setting, the article's subject on a screen.
 | The research proves the fact bank or a brief wrong | Claude corrects `PLAN.md` (section 4 for facts) and reruns `node editorial/scripts/build-briefs.mjs`, which rewrites the fact bank and every brief. Later briefs repeating the error are corrected in the same edit. |
 | A page has passed its `reviewBy` date | `review-due.mjs` lists it; the publish run rechecks it the same day (see "Publishing a reviewed draft"). |
 | A source fails check 2 (page changed or gone) | Claude fixes the blockquote or cuts the claim. Never ship a citation that failed re-fetch. |
-| A T2 or T4 piece has no harness row | Row goes `blocked`, note "harness". No partial draft. Run the probe, then `Draft brief T2-0x`. |
+| A host in a T2 or T4 piece has no dated third-party test | List it as untested with no verdict (GFW rule). The piece still drafts and publishes. Never block a row for a mainland measurement. |
 | A TODO, FIXME or TBD reaches `src/content/` | The build fails on `scripts/check-content.mjs`. Close the item (source it or cut it), never delete the marker alone. |
 | A client number or name is missing | Cyril's decision, so the row goes to `blocked` with note "client sign-off" and nothing of it is published. Claude leaves no marker and no partial draft. Once the sign-off is on record in `editorial/`, say `Draft brief T3-0x`. |
 | Claude planted a typo | It ignored `CLAUDE.md` and the house skill. Point at the conflict section and rerun iteration 7. |

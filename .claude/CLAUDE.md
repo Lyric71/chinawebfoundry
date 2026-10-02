@@ -137,8 +137,10 @@ a person asks or the 05:30 scheduled task finds a due `image_ready` row, then
 one email via `editorial/scripts/notify-publish.mjs` (Resend) when the
 publish is done. House SEO ceilings are title 52, meta 152, excerpt 25 words.
 Guide heroes go to `public/images/guides/<slug>.webp`, max 1050px, under
-350KB. No T2 or T4 piece publishes without an original measurement from
-`editorial/harness/`. Nothing on the Do Not Assert list in
+350KB. No mainland probe is ever bought (Cyril, 2 October 2026): T2, T4 and every
+other piece state what the Great Firewall does under the GFW rule in
+`editorial/CLAUDE.md`, from dated GreatFire and 21YunBox evidence labelled as
+theirs. Nothing on the Do Not Assert list in
 `editorial/sources/fact-bank.md` gets published, ever.
 
 No publishing job leaves a TODO behind (Cyril, 2 October 2026): no marker in

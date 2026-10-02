@@ -15,7 +15,7 @@ Everything needed to execute is in this file. Nothing here depends on another do
 **Order of execution.**
 
 1. Read section 0. It explains why the plan has this shape, and two of its findings override instructions you may have seen elsewhere.
-2. Build the harness in section 3. It blocks every T2 and T4 piece and it is the reason this volume is defensible rather than reckless.
+2. Section 3 (the harness) is superseded: no mainland probe is ever bought (Cyril, 2 October 2026). T2 and T4 pieces follow the GFW rule in `editorial/CLAUDE.md`.
 3. Work the calendar in section 12, one week at a time, three slots a week.
 4. For each piece, open its brief, read the fact IDs it cites in section 4, then invoke the `createarticle` skill with the brief as the content brief, the site as chinawebfoundry.com, and the audience as "people out of China". Run `contentquality` on the output. Verify metadata against the ceilings before delivering.
 5. Check the acceptance list in section 13 before marking anything done.
@@ -24,7 +24,9 @@ Everything needed to execute is in this file. Nothing here depends on another do
 
 Nothing on the Do Not Assert list in section 4 gets published, in any tier, at any time, however convenient it would be.
 
-No T2 or T4 piece publishes without an original measurement carrying a named vantage point and a date. If the harness has not produced one, the piece waits.
+No T2 or T4 piece publishes a Great Firewall verdict without a named vantage point and a date, from dated third-party evidence under the GFW rule.
+
+**Decided 2 October 2026 (Cyril): no mainland probe, ever.** No harness instance, no Tencent Cloud CAT, no boce.com subscription is bought. "We won't, that's why we have the rule GFW." Every statement of what the Great Firewall does follows the GFW rule in `editorial/CLAUDE.md`: dated GreatFire verdicts and 21YunBox's published probes, labelled as theirs, with vantage point and date, and a host with no dated test listed as untested. Wherever this plan asks for an original measurement, the harness or our own probe, read the GFW rule. No T2 or T4 row is ever gated or blocked on a measurement of our own.
 
 **Standing editorial rules, from the project instructions.** American English, US newspaper journalist style. No em dashes anywhere. No summary or conclusion sections. All statistics and citations in blockquote format. Chinese terms as English term (Chinese characters), no pinyin. Zero HTML in body copy. CTAs as plain text labels, no links. YAML frontmatter with title, slug, description, excerpt, template. Filename matches slug. Title 52 characters or fewer, meta description 152 or fewer, excerpt 25 words or fewer.
 
@@ -39,7 +41,7 @@ No T2 or T4 piece publishes without an original measurement carrying a named van
 | 0 | Why this plan has this shape, and what changed |
 | 1 | The cadence model: 78 pieces, 54 new URLs, and why those differ |
 | 2 | The measurement engine, in strategy terms |
-| 3 | The measurement harness build spec. **Blocking.** |
+| 3 | The measurement harness build spec. **Superseded 2 October 2026: no mainland probe, the GFW rule applies.** |
 | 4 | Fact Bank: 46 verified facts, and the Do Not Assert list |
 | 5 | T1, 16 flagship briefs and the money page |
 | 6 | T2, 14 compatibility briefs |
@@ -161,7 +163,7 @@ Two requirements that are easy to get wrong. Do not run the probe on the same cl
 
 ### Publication rule this creates
 
-**Every T2 page carries at least one original measurement: a test date, a named Chinese network or cloud region, and either a latency figure or a specific failure mode. If a page cannot carry a number, it does not publish.**
+**Every T2 page carries at least one dated measurement or verdict on its subject: a test date, a named Chinese network or cloud region, and either a latency figure or a specific failure mode, from GreatFire or 21YunBox under the GFW rule and labelled as theirs.** (Amended 2 October 2026: no measurement of our own is required, or ever bought.)
 
 That rule is the load-bearing element of the entire volume plan. Without it, 78 pieces in six months on a young domain is the pattern that gets classified. With it, the cluster is original research.
 
@@ -171,7 +173,7 @@ That rule is the load-bearing element of the entire volume plan. Without it, 78 
 
 ## 3. The measurement harness build spec
 
-**Blocking for T2 and T4.** Build it before week 2. Nothing in either tier can publish without it.
+**Decided 2 October 2026 (Cyril): no mainland probe, ever.** No harness instance, no Tencent Cloud CAT, no boce.com subscription is bought. "We won't, that's why we have the rule GFW." Every statement of what the Great Firewall does follows the GFW rule in `editorial/CLAUDE.md`: dated GreatFire verdicts and 21YunBox's published probes, labelled as theirs, with vantage point and date, and a host with no dated test listed as untested. Wherever this plan asks for an original measurement, the harness or our own probe, read the GFW rule. No T2 or T4 row is ever gated or blocked on a measurement of our own. This section is kept as the record of what was planned; it is not built and it gates nothing.
 
 ### 3.1 Why this exists
 
@@ -439,7 +441,7 @@ Every figure below carries a vantage point, and the vantage point changes the an
 
 ### Third-party web dependencies, verified 6 September 2026
 
-Source key: GF = GreatFire, with last-tested date. 21YB = 21YunBox, from a probe on an Alibaba Cloud mainland instance (cn-zhangjiakou), 28 August 2026 unless stated. **Method note (2 October 2026):** most 21YB figures in F33 to F39 come from 21YunBox's per-tool support pages (`https://www.21cloudbox.com/support/<tool>-china.html`), not from its study *A Day of Third-Party Requests From Inside China*, and they time a page load of the vendor's own website from the named probe. They are a proxy for the script endpoint a visitor's browser calls, not a measurement of it; cite them as timed vendor-site loads. Anything marked unverified must be probed before it appears in copy. Dates below are the dates the source states; where an earlier copy of this section carried a different date, the source won and the entry was corrected.
+Source key: GF = GreatFire, with last-tested date. 21YB = 21YunBox, from a probe on an Alibaba Cloud mainland instance (cn-zhangjiakou), 28 August 2026 unless stated. **Method note (2 October 2026):** most 21YB figures in F33 to F39 come from 21YunBox's per-tool support pages (`https://www.21cloudbox.com/support/<tool>-china.html`), not from its study *A Day of Third-Party Requests From Inside China*, and they time a page load of the vendor's own website from the named probe. They are a proxy for the script endpoint a visitor's browser calls, not a measurement of it; cite them as timed vendor-site loads. Anything marked unverified gets no verdict in copy until a dated third-party test of it exists (GFW rule). Dates below are the dates the source states; where an earlier copy of this section carried a different date, the source won and the entry was corrected.
 
 - **F33. The worst failure mode is not "blocked", it is "answers then hangs."** Clarity, Mixpanel, Typeform, Mailchimp, Wix and Algolia all return a first byte and then fail to complete inside 60 seconds. The page around them looks fine, the widget stays empty, no error surfaces, and the site owner never learns. A hard block is easier to diagnose than this.
 - **F34. Analytics.** Hotjar splits by vantage point: `static.hotjar.com` 100% disrupted (GF 2026-08-18), yet 3 of 3 page loads completed at a 487ms median from the datacenter (21YB, 30 August 2026); hosted on Google Cloud. Meta Pixel `connect.facebook.net` blocked (GF 2026-05-27, now older than 90 days, so print the date). **Amplitude: the April split no longer reproduces.** `cdn.amplitude.com` not blocked (GF 2026-09-14) and `api.amplitude.com` not blocked (GF 2026-09-10), one conclusive test each; 13 tested amplitude.com URLs read 1 blocked, 3 disrupted, 9 accessible. Teach the failure mode (a script host and an event host can get different answers, and the dashboard then reads as healthy while nothing arrives) and never print the split as a current verdict. Clarity 541ms then 0 of 3 completions (21YB), and `www.clarity.ms` is not blocked (GF 2026-09-15). Mixpanel 391ms then 0 of 3 (21YB), `api.mixpanel.com` not blocked (GF 2026-04-17). Neither is blocked: both are F33's "answers then hangs". Segment completes at 900 to 1,084ms (21YB). Plausible completes at 550ms, Matomo cloud at 516ms, and both are self-hostable, which removes the border question and the PIPL question together.
@@ -450,7 +452,7 @@ Source key: GF = GreatFire, with last-tested date. 21YB = 21YunBox, from a probe
 - **F39. Infrastructure.** Algolia 1,027ms then 0 of 3 completions (21YB), the slowest host measured, hosted on Google Cloud. Firebase `firebase.google.com` reads **disrupted, not blocked** (GF 2026-09-14). The earlier "100% packet loss from Shanghai" has no fetchable source and is not printed. AWS CloudFront completes from a datacenter at 665ms TTFB but 0 of 3 from a Beijing consumer line (21YB): the global distribution does not serve mainland China, and AWS China (Ningxia and Beijing, operated by Sinnet and NWCD) is a separate partition requiring a China account and ICP filing. Sentry is the fastest foreign host measured at 252ms, with the caveat that gaps in China error data are not evidence of stability, since an SDK post from a failing network is the least likely to arrive.
 - **F40. Stripe is the wrong question.** It is not a compatibility problem, it is a licensing one: mainland China is not a supported Stripe country, so domestic acquiring does not exist regardless of whether `js.stripe.com` loads. The real article is how to accept Alipay (支付宝), WeChat Pay (微信支付) and UnionPay (银联). PayPal `www.paypal.com` not blocked (GF 2026-05-18) but, domain wide, 1 of 27 tested URLs blocked and 9 disrupted, and the disrupted ones are checkout redirect paths.
 - **F41. Replacements, the practical set.** Analytics: Baidu Tongji (百度统计), Sensors Data (神策), GrowingIO, or self-hosted Plausible or Matomo on Aliyun. Video: Youku (优酷), Bilibili (哔哩哔哩), Tencent Video (腾讯视频), or Aliyun VOD. Maps: AMap, Baidu Maps, Tencent Maps. Captcha: Aliyun Captcha (阿里云验证码), Tencent Captcha (天御), GeeTest (极验). Chat: Meiqia (美洽), Zhichi (智齿客服), Netease Qiyu (网易七鱼). Forms: Jinshuju (金数据), Wenjuanxing (问卷星), Tencent Survey (腾讯问卷). Comments: Changyan (畅言), LiveRe (来必力), self-hosted Waline. Email: Aliyun DirectMail (邮件推送), Tencent Cloud SES, Sendcloud. Search: Aliyun OpenSearch (开放搜索), self-hosted Meilisearch. Icons: Alibaba Iconfont (iconfont.cn). Auth: WeChat OAuth (微信开放平台), Aliyun SMS, Aliyun IDaaS.
-- **F42. Eleven dependencies have no test record at all** and must be probed before they appear in any published table: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, plus Turnstile, Adobe Fonts, Font Awesome, Marketo and the HubSpot script, which all rest on verdicts older than 90 days.
+- **F42. Eleven dependencies have no test record at all** and get no verdict in any published table until a dated third-party test exists; until then they appear as untested: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, plus Turnstile, Adobe Fonts, Font Awesome, Marketo and the HubSpot script, which all rest on verdicts older than 90 days.
 
 ### Competitive intelligence on the cluster itself
 
@@ -471,7 +473,7 @@ Facts that are commonly repeated and that we cannot stand behind. Every one of t
 - **"Baidu reads your Yoast schema."** No current Baidu documentation confirms schema.org JSON-LD support.
 - Reachability from mainland China of `my.elementor.com`, `assets.elementor.com`, `s.w.org`, `mtapi.translatepress.com`, `ate.wpml.org`, or the QUIC.cloud endpoints. Untested. Say "unverified" or leave it out.
 - Divi's runtime host list. Closed source, not inspected. Only the setting names are confirmed.
-- Any of the eleven untested dependencies in F42, until the harness has probed them.
+- A verdict on any of the eleven untested dependencies in F42, until a dated third-party test of it exists. List them as untested.
 - That a competitor's cluster "failed" or "was penalized." Chinafy's directory is decaying and AppInChina's is surviving. Describe what is observable, not motive or outcome.
 - Any claim that WPML automatic translation does not work from China. Unverified in both directions.
 - **"Baidu favours sites hosted in the mainland" or "Baidu prefers .cn"** as a ranking claim. No Baidu documentation states either, and the only sources found are SEO forum analyses. Cut from `wordpress-hosting-china` on 2 October 2026. Argue from what is documented instead: crawl reachability, the filing, and page speed from mainland networks.
@@ -1162,7 +1164,7 @@ excerpt: "The web agency in China for international brands, from strategy and IC
 
 ## 6. T2: the compatibility cluster
 
-Fourteen pieces. **English only.** Every one carries an original measurement or it does not publish.
+Fourteen pieces. **English only.** Every one carries a dated measurement or verdict on its subject under the GFW rule (see the evidence rule below), never a measurement of our own.
 
 ### The selection rule that produced this list
 
@@ -1184,6 +1186,10 @@ Every page: a named human byline with a China-based author bio, a test date, a n
 
 Length 700 to 1,000 words. These are answers, not essays.
 
+### Evidence rule (the GFW rule, 2 October 2026)
+
+Every T2 page states what the Great Firewall does to its subject from dated third-party evidence: GreatFire reachability verdicts with their last-tested date, and 21YunBox's published probes (an Alibaba Cloud cn-zhangjiakou instance and a Beijing China Mobile home line) with the vantage point and the date, both labelled as theirs and never as ours. Six verdicts (reachable, slow, answers then stalls, intermittent, blocked, splits by vantage point), datacenter and home line in separate columns, untested hosts listed as untested with no verdict, any verdict older than 90 days printed with its date. There is no harness gate and no mainland probe (Cyril, 2 October 2026). A T2 page that can carry no dated third-party figure on its subject says so and argues from documentation; it is never held for a measurement of our own.
+
 ### Batch 1, write first
 
 #### T2-01 `google-fonts-china`
@@ -1192,7 +1198,7 @@ Length 700 to 1,000 words. These are answers, not essays.
 The purest site-owner query in the set, and the SERP is GitHub issues and forum threads with no authoritative page anywhere. Lead with the vantage-point split, because that is the finding and nobody else has it. Ties directly to CWF's own self-hosted-fonts practice, which is first-hand experience Google's guidance explicitly rewards.
 ```yaml
 title: "Google Fonts in China: It Depends Where You Are"
-description: "Measured 111ms from a mainland datacenter and zero of 54 requests from a Beijing home line. Same host, same week. Why both numbers are real."
+description: "111ms from a mainland datacenter and zero of 54 requests from a Beijing home line, both from 21YunBox's probes. Why both numbers are real."
 excerpt: "The Google Fonts answer changes with the vantage point, which is why every published version of it is wrong."
 ```
 
@@ -1209,7 +1215,7 @@ excerpt: "Which parts of a HubSpot stack reach Chinese visitors, which quietly d
 #### T2-03 `recaptcha-china`
 
 **Target:** recaptcha china · **Facts:** F2, F35, F41
-High panic value and a direct migration trigger. reCAPTCHA gates submission, so the form does not degrade, it dies, and the site owner sees nothing. Cover the `www.recaptcha.net` swap honestly, including that the datapoint needs retesting.
+High panic value and a direct migration trigger. reCAPTCHA gates submission, so the form does not degrade, it dies, and the site owner sees nothing. Cover the `www.recaptcha.net` swap honestly under the GFW rule: print GreatFire's dated verdict on `www.recaptcha.net` if one exists; if none does, say that Google documents the swap and that no current third-party test of it was found, and recommend a domestic captcha instead.
 ```yaml
 title: "reCAPTCHA in China: Your Forms Are Dead"
 description: "reCAPTCHA gates submission, so a blocked challenge does not slow the form down. It kills it silently. The alternatives that work on the mainland."
@@ -1232,7 +1238,7 @@ excerpt: "What Cloudflare does and does not do for Chinese visitors, and the fil
 The single most valuable correction available. Everyone writes "CDNs are blocked," which gets the priority exactly backwards. Google Hosted Libraries returns nothing at all and halts the render; cdnjs, unpkg and jsDelivr all complete and merely cost seconds. One line of code accounts for most of the damage in this whole category.
 ```yaml
 title: "Which JavaScript CDNs Work in China"
-description: "One CDN returns nothing and stops the page. Three others complete in under a second. The category answer everyone gets backwards, with measurements."
+description: "One CDN returns nothing and stops the page. Three others answer, and the home line test splits them. The category answer everyone gets backwards."
 excerpt: "Google Hosted Libraries halts the render. cdnjs, unpkg and jsDelivr do not. The difference matters more than the category."
 ```
 
@@ -1318,7 +1324,7 @@ Full briefs below. Gated on the kill switch in section 13: if the first five T2 
 6. Migration paths, honestly scoped: Webflow to Astro, Webflow to WordPress, and the case for staying put with an overseas audience
 7. Frequently asked
 
-**Publication gate.** The measurement table is the article. If the harness has not produced a fresh Webflow probe with a Beijing consumer vantage point and a mainland datacenter vantage point on the same day, this page does not publish, it waits. A dated GreatFire citation alone repeats what four competitors already have and adds nothing retrievable.
+**Publication rule (GFW rule).** The measurement table is the article, built from the freshest dated GreatFire verdicts and any 21YunBox probe of Webflow, each with its vantage point and date. No probe of our own is run or awaited. Superseded text follows for the record: if the harness has not produced a fresh Webflow probe with a Beijing consumer vantage point and a mainland datacenter vantage point on the same day, this page does not publish, it waits. A dated GreatFire citation alone repeats what four competitors already have and adds nothing retrievable.
 
 **Links.** Up to `/wordpress-in-china/` and `/web-agency-china/`. Sideways to `squarespace-wix-china` and `china-website-hosting-guide`. Down to the ICP filing article for the filing mechanics, without restating them.
 
@@ -1396,7 +1402,7 @@ excerpt: "Two builders, two failure modes, one filing problem neither can solve.
 6. The Chinese replacements, and what changes operationally when support moves to them (F41)
 7. Frequently asked
 
-**Do not publish without.** Crisp and Tawk.to are unverified (F42), Drift's widget host has never been tested (F35), and Intercom's and Zendesk's GreatFire verdicts will both be older than 90 days by the publish date. This page cannot ship on inference. Either the harness probes all four from a named mainland vantage point and the table carries real numbers, or the page ships with those rows marked "not tested by us, no current third-party verdict" and says so in the body. Printing an unverified verdict here would put CWF in the same bucket as the pages this cluster exists to beat. An honest "we have not measured this yet" row is itself differentiating, because F45 says nobody in the set publishes measurement at all.
+**Do not publish without.** Crisp and Tawk.to are unverified (F42), Drift's widget host has never been tested (F35), and Intercom's and Zendesk's GreatFire verdicts will both be older than 90 days by the publish date. This page cannot ship on inference. Under the GFW rule the table carries each tool's dated third-party verdict with its vantage point, and the page ships with those rows marked "not tested by us, no current third-party verdict" and says so in the body. Printing an unverified verdict here would put CWF in the same bucket as the pages this cluster exists to beat. An honest "we have not measured this yet" row is itself differentiating, because F45 says nobody in the set publishes measurement at all.
 
 **Links.** Up to `/wordpress-in-china/`. Sideways to `cookie-consent-china` and the forms article. Down to the maintenance service page.
 
@@ -1404,7 +1410,7 @@ excerpt: "Two builders, two failure modes, one filing problem neither can solve.
 ```yaml
 title: "Chat Widgets in China: Intercom to Crisp"         # 40 / 52
 description: "Intercom, Zendesk, Drift and Crisp from a mainland connection. What a widget does when it half loads, and the Chinese tools that replace it."  # 140 / 152
-excerpt: "Four Western chat widgets, one mainland probe, and the failure mode where the bubble renders and no message ever arrives."  # 20 / 25 words
+excerpt: "Four Western chat widgets, their dated verdicts from inside China, and the failure mode where the bubble renders and nothing arrives."  # 20 / 25 words
 ```
 
 **CTA.** Have us audit every third-party script on your site
@@ -1822,6 +1828,8 @@ excerpt: "What routine maintenance looks like on a mainland-hosted site, with th
 ---
 
 ## 8. T4: measurement reports
+
+**Decided 2 October 2026 (Cyril): no mainland probe, ever.** No harness instance, no Tencent Cloud CAT, no boce.com subscription is bought. "We won't, that's why we have the rule GFW." Every statement of what the Great Firewall does follows the GFW rule in `editorial/CLAUDE.md`: dated GreatFire verdicts and 21YunBox's published probes, labelled as theirs, with vantage point and date, and a host with no dated test listed as untested. Wherever this plan asks for an original measurement, the harness or our own probe, read the GFW rule. No T2 or T4 row is ever gated or blocked on a measurement of our own. Each report below is built from GreatFire and 21YunBox data under that rule; where a brief names our own instance or line, it means the third-party vantage point that supplies the figure, named and attributed.
 
 Six pieces. This is the moat, and it is the reason the rest of the plan is safe.
 
@@ -2763,9 +2771,9 @@ Check every box before marking any piece done. A reviewer should be able to veri
 
 **T2 only**
 - [ ] English only. No de, es or fr version exists
-- [ ] At least one original measurement with a named vantage point and a date
+- [ ] At least one dated measurement or verdict with a named vantage point, from GreatFire or 21YunBox, attributed (GFW rule)
 - [ ] No shared structure above the H2 level with any other T2 page, verified by diffing headings
-- [ ] No verdict published for any host in F42 that the harness has not probed
+- [ ] No verdict published for any host in F42 without a dated third-party test
 
 **T3 only**
 - [ ] All six template sections present, in order
@@ -2790,9 +2798,9 @@ Check every box before marking any piece done. A reviewer should be able to veri
 ## 14. Open items
 
 1. **The title suffix.** Still unresolved, still breaching the ceiling on every guide article. Week 1, slot 2.
-2. **The measurement harness.** Nothing in T2 or T4 can ship without it. Decide between Tencent Cloud CAT and boce.com and stand up the mainland instance before week 2.
+2. **The measurement harness.** Decided 2 October 2026 (Cyril): never built, no mainland probe, no Tencent Cloud CAT or boce.com. T2 and T4 follow the GFW rule.
 3. **The pricing decision** gates B2 in week 19.
 4. **The 308 versus 301 question** on the Move 1 redirects.
 5. **Qwen on the GEO page.** One line, still open.
-6. **Probe the eleven untested dependencies in F42** before they appear in any published table.
+6. **The eleven untested dependencies in F42** appear in tables as untested until a dated third-party test exists (GFW rule).
 7. **Buy one month of a rank tool.** Every demand judgment in this plan is inferred from SERP composition rather than volume data. That inference is directionally reliable and numerically unreliable, and it is cheap to fix before committing six months of production.

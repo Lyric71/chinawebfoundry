@@ -70,7 +70,7 @@ export interface DependencyRow {
   vantage: Vantage[];
   /** Empty for an untested row, which carries `sourceNote` instead. */
   citations: Citation[];
-  sourceNote?: 'neverTestedByGreatFire' | 'owedByHarness';
+  sourceNote?: 'neverTestedByGreatFire' | 'noDatedSource';
 }
 
 export const lastCheckedOn = '2026-09-22';
@@ -108,7 +108,7 @@ const untested = (
   id: string,
   category: Category,
   host: string | null,
-  sourceNote: DependencyRow['sourceNote'] = 'owedByHarness',
+  sourceNote: DependencyRow['sourceNote'] = 'noDatedSource',
 ): DependencyRow => ({
   id,
   category,
@@ -310,7 +310,7 @@ export const copy: Record<Locale, DependencyCopy> = {
     },
     sourceNotes: {
       neverTestedByGreatFire: 'GreatFire has never tested this host',
-      owedByHarness: 'Owed by our own harness',
+      noDatedSource: 'n/a',
     },
     reachabilityOnly: 'Reachability verdict only',
     noTest: 'No test on record',
@@ -392,7 +392,7 @@ export const copy: Record<Locale, DependencyCopy> = {
     },
     sourceNotes: {
       neverTestedByGreatFire: "GreatFire n'a jamais testé cet hôte",
-      owedByHarness: 'À mesurer par notre propre sonde',
+      noDatedSource: 'sans objet',
     },
     reachabilityOnly: "Verdict d'accessibilité seul",
     noTest: 'Aucun test enregistré',
@@ -474,7 +474,7 @@ export const copy: Record<Locale, DependencyCopy> = {
     },
     sourceNotes: {
       neverTestedByGreatFire: 'GreatFire nunca ha probado este servidor',
-      owedByHarness: 'Pendiente de nuestra propia sonda',
+      noDatedSource: 'no aplica',
     },
     reachabilityOnly: 'Solo veredicto de accesibilidad',
     noTest: 'Ninguna prueba registrada',
@@ -556,7 +556,7 @@ export const copy: Record<Locale, DependencyCopy> = {
     },
     sourceNotes: {
       neverTestedByGreatFire: 'Von GreatFire nie getestet',
-      owedByHarness: 'Messung durch unsere Sonde steht aus',
+      noDatedSource: 'entfällt',
     },
     reachabilityOnly: 'Nur Erreichbarkeitsbefund',
     noTest: 'Kein Test verzeichnet',
@@ -640,7 +640,7 @@ export function rowCells(row: DependencyRow, locale: Locale, seen: Set<Vantage>)
     : c.noVantage;
 
   let source: string;
-  if (row.citations.length === 0) source = c.sourceNotes[row.sourceNote ?? 'owedByHarness'];
+  if (row.citations.length === 0) source = c.sourceNotes[row.sourceNote ?? 'noDatedSource'];
   else if (row.citations.length === 1) {
     const [cit] = row.citations;
     source = `${cit.source}, ${c.formatDates(cit.testedOn)}`;

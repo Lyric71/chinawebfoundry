@@ -78,8 +78,16 @@ forward". Every item a run finds is closed inside that run:
 - **The notification email has no TODO or open items section.**
   `notify-publish.mjs` refuses to send if one is passed.
 
+**No mainland probe, ever (Cyril, 2 October 2026).** ChinaWebFoundry does
+not buy, rent or stand up a mainland probe instance, a Tencent Cloud CAT or
+boce.com subscription, or any other measurement harness of its own, and no run
+proposes one. "We won't, that's why we have the rule GFW." Every statement of
+what the Great Firewall does follows "The GFW rule" below, always, for T2,
+T4 and every other tier. A missing mainland measurement is therefore never a
+gate, never a blocked row and never an open item.
+
 If something cannot be closed without Cyril's own decision (a client's
-sign-off, money, a pricing call), the run stops **before publishing** that
+sign-off, a pricing call), the run stops **before publishing** that
 piece: the row goes to `blocked` with the reason in `notes`, nothing of it is
 published, and no partial draft with markers is left in `output/`. A run never
 publishes with a TODO attached. `scripts/check-content.mjs` fails the build,
@@ -178,20 +186,39 @@ published, in any tier, at any time. Two entries people get wrong:
   China" are both banned as flat claims. Say it resolves from mainland
   datacenters and frequently does not resolve on consumer connections, with
   both measurements and both dates (F6).
-- Any verdict on the eleven untested dependencies in F42 before the harness
-  has probed them. Say "unverified" or leave it out.
+- Any verdict on the eleven untested dependencies in F42 before a dated
+  third-party test of them exists. Say "untested" or leave it out.
 
-## The harness gate
+## The GFW rule (how we state what the Great Firewall does)
 
-No T2 compatibility page and no T4 report publishes without an original
-measurement carrying a named vantage point and a date. If
-`harness/latest.json` has no row for the host the piece is about, the piece
-waits at `blocked` with the note "harness", and the run moves to the next
-clear row. It writes no partial draft and no `TODO: harness measurement`
-marker: the research it did goes into the ledger, where the full draft picks
-it up once the probe has run. Do not write around the gap with a
-GreatFire verdict or a 21YunBox number alone; those are corroboration, not the
-original measurement the plan requires. See `harness/README.md`.
+**What the Great Firewall does to a host is stated from dated third-party
+evidence, never from a mainland probe of our own.** This is the method the
+site already publishes on `great-firewall-what-it-blocks`: "Every row below
+comes from GreatFire or from 21YunBox, cited and dated." In full:
+
+1. **Sources.** GreatFire (greatfire.org) reachability verdicts, with the
+   last-tested date the page states, and 21YunBox's published probes (an
+   Alibaba Cloud (阿里云) cn-zhangjiakou instance and a Beijing China Mobile
+   (中国移动) home line), with the vantage point and the date. Vendor
+   documentation and regulators as usual. Every figure goes through the two
+   checks and into the ledger.
+2. **Labelled as theirs.** A GreatFire or 21YunBox figure is never called a
+   ChinaWebFoundry measurement. A 21YunBox per-tool figure is a timed load of
+   the vendor's site from their probe and is described that way.
+3. **Six verdicts, two columns.** Reachable, slow, answers then stalls,
+   intermittent, blocked, splits by vantage point. A datacentre figure and a
+   home line figure stay in separate columns, never averaged.
+4. **No dated test, no verdict.** A host with no dated third-party test is
+   listed as untested and given no verdict (F42). A GreatFire verdict older
+   than 90 days is printed with its date.
+5. **Our own figures** are only those we already hold and publish as ours
+   (F32, from client projects), with their conditions stated.
+
+The T2 compatibility pages, the T4 reports and every other piece apply this
+rule. Where `PLAN.md`, a brief, `harness/README.md` or an older log asks for
+"an original measurement", "the harness" or "our own probe", read it as this
+rule. There is no harness gate: a T2 or T4 row is never blocked for want of a
+mainland measurement.
 
 ## The one conflict you must resolve
 
@@ -338,8 +365,9 @@ home line on 28 August, and "ChinaWebFoundry measurement". The ledger's twice
 verified pair is the one above, and it is 21YunBox's measurement, not ours.
 A third party figure is never labelled as ours.)
 
-Nobody in the competitive set publishes a measurement (F45). Doing it is the
-whole differentiator. It is not optional.
+Nobody in the competitive set publishes a dated, sourced measurement (F45).
+Publishing them under the GFW rule is the whole differentiator. It is not
+optional.
 
 ## Publish notification
 
@@ -384,7 +412,7 @@ silently.
 | Fact bank | `sources/fact-bank.md` (extracted from PLAN.md section 4) |
 | Source ledger | `sources/verified-sources.md` |
 | Site profile cache | `sources/site-profile.md` |
-| Harness data | `harness/latest.json`, `harness/runs/`, `harness/hosts.yml` |
+| Harness data (superseded 2 October 2026, kept for the record) | `harness/latest.json`, `harness/runs/`, `harness/hosts.yml` |
 | Run log | `logs/YYYY-MM-DD.md` |
 | Schedule and status | `schedule.csv` |
 

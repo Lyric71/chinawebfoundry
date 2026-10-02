@@ -71,10 +71,12 @@ the ledger, research anything else with every source validated twice,
 /createarticle (house version), then /content-quality-us on the finished draft
 with British spelling (all 18 passes, mandatory for every piece whatever its
 tier or length, tracker in the run log), then /generate-image-openai for the
-hero image where the content type takes one. For a T2 or T4 piece, read editorial/harness/latest.json first;
-if it has no row for the piece's subject, set the row to blocked with the note
-"harness", write no partial draft, and move to the next row whose gate is
-clear. Update editorial/schedule.csv and write the run log.
+hero image where the content type takes one. For a T2 or T4 piece, apply the
+GFW rule in editorial/CLAUDE.md: what the Great Firewall does to a host comes
+from dated GreatFire verdicts and 21YunBox's published probes, labelled as
+theirs, and a host with no dated test is listed as untested. There is no
+harness and no mainland probe, ever (Cyril, 2 October 2026); never block a row
+for want of one. Update editorial/schedule.csv and write the run log.
 Leave no TODO behind (editorial/CLAUDE.md, "No run leaves a TODO behind"):
 no TODO, FIXME or TBD marker in any file, no "open items", "flags for a
 person" or "for PLAN.md" section in the log. A claim you cannot source is

@@ -10,7 +10,6 @@ slug: recaptcha-china
 title: "reCAPTCHA in China: Your Forms Are Dead"
 suggested_category: Technology
 locales_at_publish: en
-gate: "harness"
 facts: [F2, F35, F41]
 status: not_started
 ---
@@ -28,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/recaptcha-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GATED ON THE HARNESS: it does not publish without an original measurement carrying a named vantage point and a date. No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -45,7 +44,7 @@ tier-specific boxes for T2.
 #### T2-03 `recaptcha-china`
 
 **Target:** recaptcha china · **Facts:** F2, F35, F41
-High panic value and a direct migration trigger. reCAPTCHA gates submission, so the form does not degrade, it dies, and the site owner sees nothing. Cover the `www.recaptcha.net` swap honestly, including that the datapoint needs retesting.
+High panic value and a direct migration trigger. reCAPTCHA gates submission, so the form does not degrade, it dies, and the site owner sees nothing. Cover the `www.recaptcha.net` swap honestly under the GFW rule: print GreatFire's dated verdict on `www.recaptcha.net` if one exists; if none does, say that Google documents the swap and that no current third-party test of it was found, and recommend a domestic captcha instead.
 ```yaml
 title: "reCAPTCHA in China: Your Forms Are Dead"
 description: "reCAPTCHA gates submission, so a blocked challenge does not slow the form down. It kills it silently. The alternatives that work on the mainland."
@@ -74,6 +73,10 @@ Every page: a named human byline with a China-based author bio, a test date, a n
 
 Length 700 to 1,000 words. These are answers, not essays.
 
+### Evidence rule (the GFW rule, 2 October 2026)
+
+Every T2 page states what the Great Firewall does to its subject from dated third-party evidence: GreatFire reachability verdicts with their last-tested date, and 21YunBox's published probes (an Alibaba Cloud cn-zhangjiakou instance and a Beijing China Mobile home line) with the vantage point and the date, both labelled as theirs and never as ours. Six verdicts (reachable, slow, answers then stalls, intermittent, blocked, splits by vantage point), datacenter and home line in separate columns, untested hosts listed as untested with no verdict, any verdict older than 90 days printed with its date. There is no harness gate and no mainland probe (Cyril, 2 October 2026). A T2 page that can carry no dated third-party figure on its subject says so and argues from documentation; it is never held for a measurement of our own.
+
 ### Structure rule
 
 **No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a resolver problem, Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
@@ -81,3 +84,7 @@ Length 700 to 1,000 words. These are answers, not essays.
 Every page: a named human byline with a China-based author bio, a test date, a named network or region, and the answer in the **first paragraph**, because roughly 44% of AI citations come from the first 30% of a page (F46).
 
 Length 700 to 1,000 words. These are answers, not essays.
+
+### Evidence rule (the GFW rule, 2 October 2026)
+
+Every T2 page states what the Great Firewall does to its subject from dated third-party evidence: GreatFire reachability verdicts with their last-tested date, and 21YunBox's published probes (an Alibaba Cloud cn-zhangjiakou instance and a Beijing China Mobile home line) with the vantage point and the date, both labelled as theirs and never as ours. Six verdicts (reachable, slow, answers then stalls, intermittent, blocked, splits by vantage point), datacenter and home line in separate columns, untested hosts listed as untested with no verdict, any verdict older than 90 days printed with its date. There is no harness gate and no mainland probe (Cyril, 2 October 2026). A T2 page that can carry no dated third-party figure on its subject says so and argues from documentation; it is never held for a measurement of our own.

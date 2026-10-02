@@ -71,14 +71,13 @@ Do not write a sentence of body copy until this step is logged.
 2. **Read the ledger**, `editorial/sources/verified-sources.md`. Any figure
    logged, dated within 12 months (90 days for a measurement) and verified
    twice is reused with its exact citation. Do not research it again.
-3. **For T2 and T4, read `editorial/harness/latest.json`.** The piece's
-   original measurement comes from there: host, run_id, vantage, attempts,
-   successes, TTFB, outcome. If the subject host has no row, the piece is
-   gated: do not draft it, put any research already done into the ledger,
-   set the schedule row to `blocked` with note "harness", and stop. No
-   partial draft and no `TODO` marker is ever written.
-   Never substitute a GreatFire verdict or a 21YunBox number for the
-   original measurement; those corroborate, they do not satisfy the gate.
+3. **For T2 and T4, apply the GFW rule** (`editorial/CLAUDE.md`). What the
+   Great Firewall does to a host comes from dated GreatFire verdicts and
+   21YunBox's published probes (Alibaba Cloud cn-zhangjiakou, Beijing China
+   Mobile home line), each labelled as theirs, with vantage point and date. A
+   host with no dated third-party test is listed as untested, with no
+   verdict. There is no harness and no mainland probe of our own (Cyril, 2
+   October 2026), so a piece is never gated or blocked for want of one.
 4. **Research anything else live.** Vendor and platform documentation first,
    then regulators, GreatFire, 21YunBox's published probes, dated trade
    publications. Chinese-language sources first for anything about Chinese
@@ -203,7 +202,7 @@ moving on, not just a silently updated checklist.
 [ ] Iteration 5  : AI-detection removal pass
 [ ] Iteration 6  : em dash cleanup + blockquote citation formatting + vantage point check
 [ ] Iteration 7  : cadence pass (house variant, no planted errors)
-[ ] Iteration 8  : paragraph and citation structure check + source check 2 + harness row re-read
+[ ] Iteration 8  : paragraph and citation structure check + source check 2
 [ ] Iteration 9  : SEO metadata generation (within hard limits, stack-neutral)
 [ ] Iteration 10 : second AI-detection pass + anti-ai-writing-style grep
 [ ] Iteration 11 : final human touch pass
@@ -213,7 +212,7 @@ moving on, not just a silently updated checklist.
 
 Iteration 2 writes the full 10-weakness list. Iteration 6 confirms every
 latency figure names its vantage point and date. Iteration 8 runs the second
-source validation (re-fetch every cited URL, re-read every harness row).
+source validation (re-fetch every cited URL, GreatFire and 21YunBox pages included).
 Iteration 9 verifies SEO counts. Iteration 13 proposes five visual concepts,
 then one ultra-detailed photorealistic feature-image prompt.
 
@@ -320,7 +319,7 @@ site wins if the brief differs.
 - Site profile read, voice and positioning reflected, stack neutrality kept
 - Fact IDs read and used as written; Do Not Assert grep clean
 - Research note written, every live source passed check 1 and check 2
-- For T2 and T4: harness rows cited with run_id and vantage, or the row set to `blocked`
+- For T2 and T4: every Great Firewall statement follows the GFW rule, third-party source, vantage point and test date on each, untested hosts listed as untested
 - Framing matches the reader the brief names
 - Title <= 52, meta <= 152, excerpt <= 25 words (counted, not estimated)
 - Zero em dashes, zero exclamation marks, no summary or conclusion section

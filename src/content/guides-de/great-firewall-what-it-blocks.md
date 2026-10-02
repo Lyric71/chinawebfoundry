@@ -79,7 +79,7 @@ Was die meisten Unternehmen kalt erwischt, reicht über die gesperrten Dienste s
 
 Die Seiten, die bei diesen Fragen oben stehen, liefern keinerlei Belege. Auf keiner der Kompatibilitätsseiten, die wir bei Chinafy, AppInChina und kleineren Agenturen gelesen haben, findet sich eine Tabelle, ein Testdatum, ein benannter Testort oder eine Latenzzahl. Dabei veröffentlichen die Messanbieter durchaus Zahlen, nur zitieren die Seiten, die Ihnen erklären, was nicht funktioniert, sie nicht. Die Tabelle unten holt das nach, Zeile für Zeile.
 
-Damit kein Missverständnis entsteht, woher diese Zahlen stammen: Jede Zeile geht auf GreatFire oder 21YunBox zurück, mit Quelle und Datum. Eigene Messungen sind noch nicht darunter. Unsere Sonde entsteht gerade, in einem Rechenzentrum auf dem Festland und an einem privaten Anschluss in Peking. Sobald sie läuft, erscheinen ihre Ergebnisse neben denen Dritter, als unsere gekennzeichnet und ohne diese stillschweigend zu ersetzen.
+Damit kein Missverständnis entsteht, woher diese Zahlen stammen: Jede Zeile geht auf GreatFire oder 21YunBox zurück, mit Quelle und Datum.
 
 Die Tabelle vereint zwei Arten von Belegen, die unterschiedliche Fragen beantworten. Ein Erreichbarkeitsbefund sagt, ob sich zu einem Host überhaupt eine Verbindung aufbauen lässt. Ein zeitlich gemessener Seitenaufruf zeigt, wie lange die Website des Anbieters selbst brauchte, um von einer benannten Sonde in Festlandchina aus vollständig zu laden. Dieser Wert nähert sich dem Skript-Endpunkt an, den der Browser Ihres Besuchers aufruft, misst ihn aber nicht direkt. Weichen beide voneinander ab, stehen beide in der Tabelle, ohne dass ein Mittelwert gebildet wird.
 
@@ -123,8 +123,8 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Intercom | `widget.intercom.io` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 16. Juni 2026 |
 | Zendesk | `static.zdassets.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 29. April 2026 |
 | Drift | `js.driftt.com` | Nicht getestet | Kein Test verzeichnet | entfällt | Von GreatFire nie getestet |
-| Crisp | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | Messung durch unsere Sonde steht aus |
-| Tawk.to | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | Messung durch unsere Sonde steht aus |
+| Crisp | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
+| Tawk.to | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
 ### Eingebettete Inhalte
 
@@ -136,7 +136,7 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Instagram | `www.instagram.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 30. August 2026 |
 | X, Timeline-Widget | `platform.twitter.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 7. Juli 2026 |
 | Wistia | `fast.wistia.com` | Erreichbar | Nur Erreichbarkeitsbefund, Stand vor sechs Monaten | entfällt | GreatFire, 17. März 2026 |
-| Loom | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | Messung durch unsere Sonde steht aus |
+| Loom | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
 ### Karten
 
@@ -154,8 +154,8 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Shopify | `shopify.com` | Langsam | 3 von 3, erstes Byte nach 575 ms, Median-Ladezeit 3,6 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
 | Webflow | `webflow.com` | Sporadisch gestört | Störungen bei 100 % der jüngsten aussagekräftigen Tests (1 Test) | entfällt | GreatFire, 23. August 2026 |
 | Squarespace | `www.squarespace.com` | Erreichbar | Normale Verbindung bei den 2 jüngsten aussagekräftigen Tests | entfällt | GreatFire, 12. September 2026 |
-| Netlify | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | Messung durch unsere Sonde steht aus |
-| Sanity | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | Messung durch unsere Sonde steht aus |
+| Netlify | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
+| Sanity | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
 ### Infrastruktur
 
@@ -165,14 +165,14 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Firebase | `firebase.google.com` | Sporadisch gestört | Störungen bei 100 % der letzten 2 aussagekräftigen Tests | entfällt | GreatFire, 14. September 2026 |
 | AWS CloudFront | Website des Anbieters, Host von der Quelle nicht genannt | Je nach Messpunkt verschieden | 3 von 3 (erstes Byte nach 665 ms) und 0 von 3 (743 ms) | Alibaba Cloud cn-zhangjiakou und China Mobile in Peking | 21YunBox, 28. und 30. August 2026 |
 | Sentry | Website des Anbieters, Host von der Quelle nicht genannt | Erreichbar | 3 von 3, erstes Byte nach 252 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
-| Bootstrap CDN | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | Messung durch unsere Sonde steht aus |
+| Bootstrap CDN | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
 ### Zahlungen
 
 | Dienst | Host oder Testziel | Befund | Messwert | Messpunkt | Quelle und Datum |
 |---|---|---|---|---|---|
 | PayPal | `www.paypal.com` | Erreichbar | 9 von 27 getesteten URLs gestört, allesamt Checkout-Weiterleitungen | entfällt | GreatFire, 18. Mai 2026 |
-| Stripe | `js.stripe.com` | Nicht getestet | Kein Test verzeichnet. Siehe Hinweis unten: Die Erreichbarkeit ist hier nicht die entscheidende Frage | entfällt | Messung durch unsere Sonde steht aus |
+| Stripe | `js.stripe.com` | Nicht getestet | Kein Test verzeichnet. Siehe Hinweis unten: Die Erreichbarkeit ist hier nicht die entscheidende Frage | entfällt | entfällt |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 

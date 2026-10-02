@@ -10,7 +10,6 @@ slug: china-latency-vantage-point-study
 title: "Why China Latency Tests Disagree"
 suggested_category: Technology
 locales_at_publish: en
-gate: "harness"
 facts: [F6, F46]
 status: not_started
 ---
@@ -28,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/china-latency-vantage-point-study.md` |
 
-**Tier rule.** T4 measurement report. English only, dated slug, never overwritten. GATED ON THE HARNESS. Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
+**Tier rule.** T4 measurement report. English only, dated slug, never overwritten. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -84,6 +83,8 @@ excerpt: "The measurement gap behind most bad China advice, quantified across 44
 ## T4 rules (from PLAN.md section 8)
 
 ## 8. T4: measurement reports
+
+**Decided 2 October 2026 (Cyril): no mainland probe, ever.** No harness instance, no Tencent Cloud CAT, no boce.com subscription is bought. "We won't, that's why we have the rule GFW." Every statement of what the Great Firewall does follows the GFW rule in `editorial/CLAUDE.md`: dated GreatFire verdicts and 21YunBox's published probes, labelled as theirs, with vantage point and date, and a host with no dated test listed as untested. Wherever this plan asks for an original measurement, the harness or our own probe, read the GFW rule. No T2 or T4 row is ever gated or blocked on a measurement of our own. Each report below is built from GreatFire and 21YunBox data under that rule; where a brief names our own instance or line, it means the third-party vantage point that supplies the figure, named and attributed.
 
 Six pieces. This is the moat, and it is the reason the rest of the plan is safe.
 

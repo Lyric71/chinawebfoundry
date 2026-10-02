@@ -1,5 +1,12 @@
 # Measurement harness
 
+**Superseded, 2 October 2026 (Cyril): no mainland probe, ever.** No
+instance, no Tencent Cloud CAT, no boce.com subscription is bought, and
+nothing below gates any piece. T2 and T4 pieces state what the Great
+Firewall does under the GFW rule in `editorial/CLAUDE.md`: dated GreatFire
+verdicts and 21YunBox's published probes, labelled as theirs. This file and
+`probe.mjs` are kept as the record of what was planned.
+
 **Blocking for T2 and T4.** Nothing in either tier publishes without an
 original measurement from here, carrying a named vantage point and a date.
 The full build spec is PLAN.md section 3. This file is the repo-side scaffold

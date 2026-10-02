@@ -79,7 +79,7 @@ Ce qui surprend le plus les entreprises se joue au-delà des services bloqués e
 
 Les pages les mieux classées sur ces questions ne fournissent aucune preuve. Dans toutes les pages de compatibilité que nous avons lues chez Chinafy, chez AppInChina ou dans les petites agences, on ne trouve ni tableau, ni date de test, ni lieu de mesure, ni chiffre de latence. Les spécialistes de la mesure publient pourtant leurs chiffres. Les pages censées vous dire ce qui casse ne les citent pas. Le tableau ci-dessous comble ce manque, ligne par ligne.
 
-Précisons l'origine de ces chiffres. Chaque ligne vient de GreatFire ou de 21YunBox, sourcée et datée. Aucune n'est encore issue de nos propres mesures. Notre sonde est en cours de déploiement, dans un centre de données du continent et sur une ligne grand public à Pékin. Une fois en service, ses résultats s'afficheront à côté de ceux des tiers, clairement identifiés comme les nôtres, sans se substituer à eux en catimini.
+Précisons l'origine de ces chiffres. Chaque ligne vient de GreatFire ou de 21YunBox, sourcée et datée.
 
 Le tableau réunit deux types de preuves, qui ne répondent pas à la même question. Un verdict d'accessibilité indique si l'on parvient tout simplement à se connecter à un hôte. Un chargement chronométré mesure le temps qu'a mis le site du fournisseur à se charger depuis une sonde identifiée en Chine continentale. Ce second chiffre donne une idée du comportement du point d'accès qu'appelle le navigateur de votre visiteur, sans le mesurer directement. Quand les deux sources divergent, nous publions les deux, sans en faire la moyenne.
 
@@ -123,8 +123,8 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Intercom | `widget.intercom.io` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 16 juin 2026 |
 | Zendesk | `static.zdassets.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 29 avril 2026 |
 | Drift | `js.driftt.com` | Non testé | Aucun test enregistré | sans objet | GreatFire n'a jamais testé cet hôte |
-| Crisp | Non sondé | Non testé | Aucun test enregistré | sans objet | À mesurer par notre propre sonde |
-| Tawk.to | Non sondé | Non testé | Aucun test enregistré | sans objet | À mesurer par notre propre sonde |
+| Crisp | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
+| Tawk.to | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
 ### Contenus intégrés
 
@@ -136,7 +136,7 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Instagram | `www.instagram.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 30 août 2026 |
 | X, widget de fil d'actualité | `platform.twitter.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 7 juillet 2026 |
 | Wistia | `fast.wistia.com` | Accessible | Verdict d'accessibilité seul, relevé vieux de six mois | sans objet | GreatFire, 17 mars 2026 |
-| Loom | Non sondé | Non testé | Aucun test enregistré | sans objet | À mesurer par notre propre sonde |
+| Loom | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
 ### Cartes
 
@@ -154,8 +154,8 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Shopify | `shopify.com` | Lent | 3 sur 3, premier octet à 575 ms, chargement médian 3,6 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
 | Webflow | `webflow.com` | Intermittent | Interférences sur 100 % des tests concluants récents (1 test) | sans objet | GreatFire, 23 août 2026 |
 | Squarespace | `www.squarespace.com` | Accessible | Connexion normale sur les 2 tests concluants récents | sans objet | GreatFire, 12 septembre 2026 |
-| Netlify | Non sondé | Non testé | Aucun test enregistré | sans objet | À mesurer par notre propre sonde |
-| Sanity | Non sondé | Non testé | Aucun test enregistré | sans objet | À mesurer par notre propre sonde |
+| Netlify | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
+| Sanity | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
 ### Infrastructure
 
@@ -165,14 +165,14 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Firebase | `firebase.google.com` | Intermittent | Interférences sur 100 % des 2 derniers tests concluants | sans objet | GreatFire, 14 septembre 2026 |
 | AWS CloudFront | Site du fournisseur, hôte non précisé par la source | Diverge selon le point de mesure | 3 sur 3 (premier octet à 665 ms) et 0 sur 3 (743 ms) | Alibaba Cloud cn-zhangjiakou et China Mobile à Pékin | 21YunBox, 28 et 30 août 2026 |
 | Sentry | Site du fournisseur, hôte non précisé par la source | Accessible | 3 sur 3, premier octet à 252 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
-| Bootstrap CDN | Non sondé | Non testé | Aucun test enregistré | sans objet | À mesurer par notre propre sonde |
+| Bootstrap CDN | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
 ### Paiements
 
 | Service | Hôte ou cible du test | Verdict | Mesure | Point de mesure | Source et date |
 |---|---|---|---|---|---|
 | PayPal | `www.paypal.com` | Accessible | 9 URL testées sur 27 perturbées, toutes des redirections de paiement | sans objet | GreatFire, 18 mai 2026 |
-| Stripe | `js.stripe.com` | Non testé | Aucun test enregistré. Voir plus bas : l'accessibilité n'est pas ici la question déterminante | sans objet | À mesurer par notre propre sonde |
+| Stripe | `js.stripe.com` | Non testé | Aucun test enregistré. Voir plus bas : l'accessibilité n'est pas ici la question déterminante | sans objet | sans objet |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 

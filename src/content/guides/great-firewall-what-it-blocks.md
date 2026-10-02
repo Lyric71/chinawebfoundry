@@ -79,7 +79,7 @@ The part that catches most companies off guard goes past the blocked services th
 
 The pages that rank for these questions carry no evidence at all. Across every compatibility page we have read at Chinafy, AppInChina and the smaller agencies: no table, no test date, no named test location, no latency figure. The measurement vendors publish figures. The pages telling you what breaks don't cite them. The table below is that citation, row by row.
 
-Be clear about whose numbers these are. Every row below comes from GreatFire or from 21YunBox, cited and dated. None of them is ours yet. Our own probe is being stood up now, from a mainland datacentre and a Beijing consumer line. When it runs, our rows will sit next to the third-party ones and be labelled as ours. They will not quietly replace them.
+Be clear about whose numbers these are. Every row below comes from GreatFire or from 21YunBox, cited and dated.
 
 There are two kinds of evidence in it, and they answer different questions. A reachability verdict says whether a host can be connected to at all. A timed page load says how long the vendor's own site took to finish from a named probe inside mainland China. The second is a proxy for the script endpoint your visitor's browser calls; it is not that endpoint. Where the two disagree, both are printed and neither is averaged.
 
@@ -123,8 +123,8 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Intercom | `widget.intercom.io` | Reachable | Reachability verdict only | n/a | GreatFire, 16 Jun 2026 |
 | Zendesk | `static.zdassets.com` | Reachable | Reachability verdict only | n/a | GreatFire, 29 Apr 2026 |
 | Drift | `js.driftt.com` | Untested | No test on record | n/a | GreatFire has never tested this host |
-| Crisp | Not probed | Untested | No test on record | n/a | Owed by our own harness |
-| Tawk.to | Not probed | Untested | No test on record | n/a | Owed by our own harness |
+| Crisp | Not probed | Untested | No test on record | n/a | n/a |
+| Tawk.to | Not probed | Untested | No test on record | n/a | n/a |
 
 ### Embeds
 
@@ -136,7 +136,7 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Instagram | `www.instagram.com` | Blocked | Reachability verdict only | n/a | GreatFire, 30 Aug 2026 |
 | X, the timeline widget | `platform.twitter.com` | Blocked | Reachability verdict only | n/a | GreatFire, 7 Jul 2026 |
 | Wistia | `fast.wistia.com` | Reachable | Reachability verdict only, six months old | n/a | GreatFire, 17 Mar 2026 |
-| Loom | Not probed | Untested | No test on record | n/a | Owed by our own harness |
+| Loom | Not probed | Untested | No test on record | n/a | n/a |
 
 ### Maps
 
@@ -154,8 +154,8 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Shopify | `shopify.com` | Slow | 3 of 3, first byte 575ms, median load 3.6s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 Aug 2026 |
 | Webflow | `webflow.com` | Intermittent | Interference on 100% of the last 1 conclusive test | n/a | GreatFire, 23 Aug 2026 |
 | Squarespace | `www.squarespace.com` | Reachable | 2 recent conclusive tests connected normally | n/a | GreatFire, 12 Sep 2026 |
-| Netlify | Not probed | Untested | No test on record | n/a | Owed by our own harness |
-| Sanity | Not probed | Untested | No test on record | n/a | Owed by our own harness |
+| Netlify | Not probed | Untested | No test on record | n/a | n/a |
+| Sanity | Not probed | Untested | No test on record | n/a | n/a |
 
 ### Infrastructure
 
@@ -165,14 +165,14 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Firebase | `firebase.google.com` | Intermittent | Interference on 100% of the last 2 conclusive tests | n/a | GreatFire, 14 Sep 2026 |
 | AWS CloudFront | Vendor site, host not named by the source | Splits by vantage point | 3 of 3 at 665ms first byte, and 0 of 3 at 743ms | Alibaba Cloud cn-zhangjiakou, and Beijing China Mobile | 21YunBox, 28 and 30 Aug 2026 |
 | Sentry | Vendor site, host not named by the source | Reachable | 3 of 3, first byte 252ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 Aug 2026 |
-| Bootstrap CDN | Not probed | Untested | No test on record | n/a | Owed by our own harness |
+| Bootstrap CDN | Not probed | Untested | No test on record | n/a | n/a |
 
 ### Payments
 
 | Service | Host or target tested | Verdict | Measured | Vantage point | Source and date |
 |---|---|---|---|---|---|
 | PayPal | `www.paypal.com` | Reachable | 9 of 27 tested URLs disrupted, and the disrupted ones are checkout redirect paths | n/a | GreatFire, 18 May 2026 |
-| Stripe | `js.stripe.com` | Untested | No test on record. See the note below: reachability is not the binding question here | n/a | Owed by our own harness |
+| Stripe | `js.stripe.com` | Untested | No test on record. See the note below: reachability is not the binding question here | n/a | n/a |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 

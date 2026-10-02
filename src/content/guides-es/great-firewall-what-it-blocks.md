@@ -79,7 +79,7 @@ Lo que más sorprende llega después. Cualquier script, tipografía, widget o ll
 
 Las páginas mejor posicionadas para estas consultas no aportan ningún dato que lo respalde. En todas las páginas de compatibilidad que hemos leído de Chinafy, de AppInChina y de las agencias más pequeñas no hay tabla, ni fecha de prueba, ni lugar de medición identificado, ni cifra de latencia. Las empresas especializadas en medición publican sus datos, pero las páginas que le explican qué falla no los citan. La tabla que sigue cubre ese hueco, fila por fila.
 
-Conviene dejar claro de quién son estas cifras. Cada fila procede de GreatFire o de 21YunBox, con su fuente y su fecha. Todavía no hay ninguna nuestra. Estamos poniendo en marcha una sonda propia, en un centro de datos del continente y en una línea doméstica de Pekín. Cuando esté operativa, nuestras filas aparecerán junto a las de terceros, identificadas como propias y sin sustituirlas a escondidas.
+Conviene dejar claro de quién son estas cifras. Cada fila procede de GreatFire o de 21YunBox, con su fuente y su fecha.
 
 La tabla combina dos tipos de datos que responden a preguntas distintas. Un veredicto de accesibilidad indica si es posible conectarse a un servidor. Una carga de página cronometrada mide cuánto tardó en completarse el sitio del propio proveedor desde una sonda identificada en China continental, lo que ofrece una aproximación al punto de acceso del script al que llama el navegador de su visitante, sin medirlo directamente. Cuando ambas fuentes discrepan, publicamos las dos, sin promediarlas.
 
@@ -123,8 +123,8 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Intercom | `widget.intercom.io` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 16 de junio de 2026 |
 | Zendesk | `static.zdassets.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 29 de abril de 2026 |
 | Drift | `js.driftt.com` | Sin probar | Ninguna prueba registrada | no aplica | GreatFire nunca ha probado este servidor |
-| Crisp | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | Pendiente de nuestra propia sonda |
-| Tawk.to | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | Pendiente de nuestra propia sonda |
+| Crisp | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
+| Tawk.to | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
 ### Contenidos incrustados
 
@@ -136,7 +136,7 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Instagram | `www.instagram.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 30 de agosto de 2026 |
 | X, widget de la cronología | `platform.twitter.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 7 de julio de 2026 |
 | Wistia | `fast.wistia.com` | Accesible | Solo veredicto de accesibilidad, medición de hace seis meses | no aplica | GreatFire, 17 de marzo de 2026 |
-| Loom | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | Pendiente de nuestra propia sonda |
+| Loom | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
 ### Mapas
 
@@ -154,8 +154,8 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Shopify | `shopify.com` | Lento | 3 de 3, primer byte en 575 ms, carga mediana de 3,6 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
 | Webflow | `webflow.com` | Intermitente | Interferencias en el 100 % de las pruebas concluyentes recientes (1 prueba) | no aplica | GreatFire, 23 de agosto de 2026 |
 | Squarespace | `www.squarespace.com` | Accesible | Conexión normal en las 2 pruebas concluyentes recientes | no aplica | GreatFire, 12 de septiembre de 2026 |
-| Netlify | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | Pendiente de nuestra propia sonda |
-| Sanity | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | Pendiente de nuestra propia sonda |
+| Netlify | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
+| Sanity | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
 ### Infraestructura
 
@@ -165,14 +165,14 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Firebase | `firebase.google.com` | Intermitente | Interferencias en el 100 % de las 2 últimas pruebas concluyentes | no aplica | GreatFire, 14 de septiembre de 2026 |
 | AWS CloudFront | Sitio del proveedor, servidor no indicado por la fuente | Diverge según el punto de medición | 3 de 3 (primer byte en 665 ms) y 0 de 3 (743 ms) | Alibaba Cloud cn-zhangjiakou y China Mobile en Pekín | 21YunBox, 28 y 30 de agosto de 2026 |
 | Sentry | Sitio del proveedor, servidor no indicado por la fuente | Accesible | 3 de 3, primer byte en 252 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
-| Bootstrap CDN | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | Pendiente de nuestra propia sonda |
+| Bootstrap CDN | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
 ### Pagos
 
 | Servicio | Servidor o destino probado | Veredicto | Medición | Punto de medición | Fuente y fecha |
 |---|---|---|---|---|---|
 | PayPal | `www.paypal.com` | Accesible | 9 de 27 URL probadas alteradas, todas ellas redirecciones de pago | no aplica | GreatFire, 18 de mayo de 2026 |
-| Stripe | `js.stripe.com` | Sin probar | Ninguna prueba registrada. Véase la nota más abajo: la accesibilidad no es aquí la cuestión decisiva | no aplica | Pendiente de nuestra propia sonda |
+| Stripe | `js.stripe.com` | Sin probar | Ninguna prueba registrada. Véase la nota más abajo: la accesibilidad no es aquí la cuestión decisiva | no aplica | no aplica |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 

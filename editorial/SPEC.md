@@ -249,7 +249,7 @@ FAQPage: yes, <n> questions | no
 Breadcrumb: Home > China Web Guide > <title>
 Author: <team member name>
 datePublished: YYYY-MM-DD
-Measurement: <for T2 and T4: the run_id(s) from harness/ that the figures come from>
+Measurement: <for T2 and T4: the third-party sources and test dates the figures come from (GFW rule)>
 -->
 ```
 
@@ -260,7 +260,7 @@ by the publish step where the brief asks for it. Do not invent new types.
 
 ```
 <!-- ASSET BRIEF
-TABLES: <list, with the data each needs and the harness run it comes from>
+TABLES: <list, with the data each needs and the dated source it comes from>
 CHARTS: <type, axes, data source, what it must show>
 SCREENSHOTS: <what to capture, what to blur>
 DOWNLOADS: <file, format, gate or no gate>
@@ -268,7 +268,7 @@ INTERNAL LINKS: <anchor text> -> <canonical English path>, one per line
 LOCALIZED SLUGS: fr <slug> · es <slug> · de <slug> (from the brief, or "none" for en-only tiers)
 CLIENT SIGN-OFF ON RECORD: <where in editorial/ the sign-off for each client figure or name is recorded, or "none needed">
 LINK SUBSTITUTIONS: <wanted slug> -> <slug used>, and the brief that now carries the "On publish" line, or "none"
-HARNESS ROWS CITED: <host, run_id, vantage> one per line, or "none"
+THIRD-PARTY MEASUREMENTS CITED (GFW rule): <host, source, vantage, test date> one per line, or "none"
 -->
 ```
 
@@ -305,7 +305,7 @@ to a single line. No planted errors. Say in your log that you ran the
 cadence variant.
 
 **Iteration 8** includes the second source validation: re-fetch every cited
-URL, and for T2 and T4, re-read the harness rows cited.
+URL, including every GreatFire and 21YunBox page behind a T2 or T4 table.
 
 **Iteration 13** produces five visual concepts, then one photorealistic
 feature image prompt.
@@ -325,7 +325,7 @@ translation.** Print the full 18-pass tracker in the run log. No
 | `quality_passed` | content-quality-us finished on the file |
 | `image_ready` | hero image checked and saved (or "no image" noted for upgrades and translations, which move straight here after `quality_passed`) |
 | `published` | publish step finished, build passed, pushed, Resend email sent |
-| `blocked` | stopped on one of the flag conditions, see `notes` (the harness gate writes `blocked` with note "harness") |
+| `blocked` | stopped on a decision only Cyril can take, see `notes` (client sign-off, pricing). Never for want of a mainland measurement |
 | `reserve` | a reserve slot, unspent |
 | `unspent` | a T7 or reserve slot reviewed on its date and deliberately left empty |
 
@@ -369,9 +369,9 @@ Verify each by counting or checking, not by assuming.
 - [ ] Localized slugs for fr, es, de present in the asset brief, taken from the brief.
 
 **T2 only**
-- [ ] At least one original measurement with a named vantage point and a date, traceable to a `harness/` run.
+- [ ] At least one dated measurement or verdict with a named vantage point, from GreatFire or 21YunBox, attributed to them (GFW rule).
 - [ ] No structure above the H2 level shared with any published T2 page (diff the headings).
-- [ ] No verdict on any F42 host the harness has not probed.
+- [ ] No verdict on any F42 host without a dated third-party test; such hosts listed as untested.
 
 **T3 only**
 - [ ] All six template sections present, in order.
@@ -398,9 +398,11 @@ cases that used to leave markers are settled as follows.
 
 1. **A required figure cannot be sourced.** Cut the claim and log the cut. If
    the section no longer stands, rewrite or drop it in the same run.
-2. **A T2 or T4 piece has no harness row for its subject.** Do not draft it.
-   Set the row to `blocked` with note "harness", put any research done into
-   the ledger, and move to the next clear row. Do not publish.
+2. **A T2 or T4 piece needs a measurement of its subject.** Apply the GFW
+   rule (`CLAUDE.md`): dated GreatFire verdicts and 21YunBox's published
+   probes, labelled as theirs; a host with no dated test is listed as
+   untested. Draft and publish as normal. No mainland probe is ever bought
+   (Cyril, 2 October 2026), so this never blocks a row.
 3. **A client figure or name is needed and not cleared.** That is Cyril's
    decision. Set the row to `blocked` with note "client sign-off" and the
    figures it waits on, leave no partial draft, and do not publish. Never
@@ -425,5 +427,6 @@ them and do not raise them again.
 | A work order's acceptance criterion names a page that does not exist | Meet it with the closest live page, inside an existing sentence where one fits (a link on existing words needs no translation pass). Record the substitution; the criterion counts as met by substitution. |
 | A work order asks for a calendar reminder or a later recheck | A `reviewBy` date in frontmatter (guides) or the `reviewBy` constant in `src/data/chinaDependencies.ts`. `editorial/scripts/review-due.mjs` surfaces it in every publish run. |
 | A row of `src/data/chinaDependencies.ts` moves into or out of `untested` | The "Not yet probed" paragraph in `great-firewall-what-it-blocks` is hand written in four locales; the same run edits it in all four, through `/deep-translate`. |
-| Whose figure it is | A third party's unless it came out of `editorial/harness/`. Never label a 21YunBox or GreatFire figure as a ChinaWebFoundry measurement. |
+| Whose figure it is | A third party's, unless it is one of our own published client figures (F32). Never label a 21YunBox or GreatFire figure as a ChinaWebFoundry measurement. |
+| A brief, the plan or `harness/README.md` asks for our own mainland measurement, a harness run or a run_id | The GFW rule applies instead (Cyril, 2 October 2026: no mainland probe, ever). Never a blocked row, never an open item. |
 | A published page promises a figure "in a case study this autumn" | The case study's brief carries an "On publish" line that fills the figure in on every page that promises it. |

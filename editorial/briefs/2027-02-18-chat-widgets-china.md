@@ -10,7 +10,6 @@ slug: chat-widgets-china
 title: "Chat Widgets in China: Intercom to Crisp"
 suggested_category: Technology
 locales_at_publish: en
-gate: "harness"
 facts: [F33, F35, F41, F42, F45]
 status: not_started
 ---
@@ -28,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/chat-widgets-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GATED ON THE HARNESS: it does not publish without an original measurement carrying a named vantage point and a date. No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -66,7 +65,7 @@ tier-specific boxes for T2.
 6. The Chinese replacements, and what changes operationally when support moves to them (F41)
 7. Frequently asked
 
-**Do not publish without.** Crisp and Tawk.to are unverified (F42), Drift's widget host has never been tested (F35), and Intercom's and Zendesk's GreatFire verdicts will both be older than 90 days by the publish date. This page cannot ship on inference. Either the harness probes all four from a named mainland vantage point and the table carries real numbers, or the page ships with those rows marked "not tested by us, no current third-party verdict" and says so in the body. Printing an unverified verdict here would put CWF in the same bucket as the pages this cluster exists to beat. An honest "we have not measured this yet" row is itself differentiating, because F45 says nobody in the set publishes measurement at all.
+**Do not publish without.** Crisp and Tawk.to are unverified (F42), Drift's widget host has never been tested (F35), and Intercom's and Zendesk's GreatFire verdicts will both be older than 90 days by the publish date. This page cannot ship on inference. Under the GFW rule the table carries each tool's dated third-party verdict with its vantage point, and the page ships with those rows marked "not tested by us, no current third-party verdict" and says so in the body. Printing an unverified verdict here would put CWF in the same bucket as the pages this cluster exists to beat. An honest "we have not measured this yet" row is itself differentiating, because F45 says nobody in the set publishes measurement at all.
 
 **Links.** Up to `/wordpress-in-china/`. Sideways to `cookie-consent-china` and the forms article. Down to the maintenance service page.
 
@@ -74,7 +73,7 @@ tier-specific boxes for T2.
 ```yaml
 title: "Chat Widgets in China: Intercom to Crisp"         # 40 / 52
 description: "Intercom, Zendesk, Drift and Crisp from a mainland connection. What a widget does when it half loads, and the Chinese tools that replace it."  # 140 / 152
-excerpt: "Four Western chat widgets, one mainland probe, and the failure mode where the bubble renders and no message ever arrives."  # 20 / 25 words
+excerpt: "Four Western chat widgets, their dated verdicts from inside China, and the failure mode where the bubble renders and nothing arrives."  # 20 / 25 words
 ```
 
 **CTA.** Have us audit every third-party script on your site
@@ -101,6 +100,10 @@ Every page: a named human byline with a China-based author bio, a test date, a n
 
 Length 700 to 1,000 words. These are answers, not essays.
 
+### Evidence rule (the GFW rule, 2 October 2026)
+
+Every T2 page states what the Great Firewall does to its subject from dated third-party evidence: GreatFire reachability verdicts with their last-tested date, and 21YunBox's published probes (an Alibaba Cloud cn-zhangjiakou instance and a Beijing China Mobile home line) with the vantage point and the date, both labelled as theirs and never as ours. Six verdicts (reachable, slow, answers then stalls, intermittent, blocked, splits by vantage point), datacenter and home line in separate columns, untested hosts listed as untested with no verdict, any verdict older than 90 days printed with its date. There is no harness gate and no mainland probe (Cyril, 2 October 2026). A T2 page that can carry no dated third-party figure on its subject says so and argues from documentation; it is never held for a measurement of our own.
+
 ### Structure rule
 
 **No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a resolver problem, Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
@@ -108,3 +111,7 @@ Length 700 to 1,000 words. These are answers, not essays.
 Every page: a named human byline with a China-based author bio, a test date, a named network or region, and the answer in the **first paragraph**, because roughly 44% of AI citations come from the first 30% of a page (F46).
 
 Length 700 to 1,000 words. These are answers, not essays.
+
+### Evidence rule (the GFW rule, 2 October 2026)
+
+Every T2 page states what the Great Firewall does to its subject from dated third-party evidence: GreatFire reachability verdicts with their last-tested date, and 21YunBox's published probes (an Alibaba Cloud cn-zhangjiakou instance and a Beijing China Mobile home line) with the vantage point and the date, both labelled as theirs and never as ours. Six verdicts (reachable, slow, answers then stalls, intermittent, blocked, splits by vantage point), datacenter and home line in separate columns, untested hosts listed as untested with no verdict, any verdict older than 90 days printed with its date. There is no harness gate and no mainland probe (Cyril, 2 October 2026). A T2 page that can carry no dated third-party figure on its subject says so and argues from documentation; it is never held for a measurement of our own.
