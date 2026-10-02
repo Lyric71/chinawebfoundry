@@ -1,62 +1,127 @@
 ---
 title: "WordPress Hosting in China"
 subtitle: "All three major Chinese clouds ship a one-click WordPress image. None of them ships managed WordPress, and that gap is where foreign projects stall."
-summary: "What Alibaba, Tencent and Huawei actually sell, the ICP filing that gates every mainland server, the Hong Kong shortcut, and the update problem that never makes it into a budget."
+summary: "Alibaba, Tencent, Huawei, Vercel and Cloudflare compared for WordPress in mainland China, with the ICP filing rule first and our own measured figures."
 visual: "/images/guides/wordpress-hosting-china.webp"
 order: 32
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-08-29
+updatedAt: 2026-10-02
+reviewBy: 2026-12-29
 category: Hosting
 ---
 
-There is no WP Engine in China. No Kinsta, no Flywheel, no managed WordPress tier from any mainland provider.
+A mainland Chinese server won't show your WordPress site to anyone until its ICP filing (ICP备案) clears. On every project we've run, ports 80 and 443 stay closed on the server's public address until the day it does. There is no soft launch.
 
-What you can buy is a one-click WordPress image on all three major Chinese clouds, running on a small virtual server you administer yourself. That is a different product from managed hosting, and the distance between the two is where most foreign WordPress projects in China run aground.
+That rule decides the rest. It settles which cloud and which account you open, and whether you need a Chinese company before a single file moves.
 
-This guide covers what the mainland clouds actually sell, the filing that has to clear before any of it serves traffic, and the costs that surface four months after launch when nobody has budgeted for them. For the wider picture on servers and latency, read our guide on [hosting a website in China](/resources/china-web-guide/host-website-in-china/) first. For how we handle builds on this stack, see [WordPress in China](/wordpress-in-china/).
+Everything below assumes it. Our guide on [hosting a website in China](/resources/china-web-guide/host-website-in-china/) covers the wider picture on servers and latency, and [WordPress in China](/wordpress-in-china/) explains how we handle builds on this stack.
 
-## What the three mainland clouds actually offer
+## What we measured on mainland hosting
 
-Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) and Huawei Cloud (华为云) each ship a prebuilt WordPress application image on their entry-level product.
+These are ChinaWebFoundry's own figures, from client sites we've moved into China or host there. No third party measured them, and you should know that before you weigh them.
 
-| Provider | Product | What you get |
-| --- | --- | --- |
-| Alibaba Cloud | Simple Application Server (轻量应用服务器) | WordPress image on Alibaba Cloud Linux 3, PHP 8.1, MySQL 5.7, Nginx 1.22 |
-| Tencent Cloud | Lighthouse (轻量应用服务器) | WordPress application template |
-| Huawei Cloud | FlexusL (云耀云服务器 L实例) | WordPress application image, plus marketplace images for ECS |
+> Median page load on a WordPress site we migrated went from 23.4 seconds on a European origin to 1.2 seconds on a mainland origin. Roughly half of that improvement came from deleting external calls.
+> Source: ChinaWebFoundry, published 29 August 2026. https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/
 
-Read the right-hand column slowly. Every one of those is an operating system with WordPress preinstalled on it. Managed updates, managed backups, staging environments, support staff who can read a plugin conflict: none of that is in the box.
+> Over a 90-day window, a mainland-hosted client site returned 99.98% uptime, with median response times of 48ms from Beijing, 36ms from Shanghai and 61ms from Guangzhou.
+> Source: ChinaWebFoundry, published 29 August 2026. https://www.chinawebfoundry.com/website-in-china/
 
-Somebody on your side ends up doing server administration, in Chinese, on a console with no English mode. That is a standing monthly cost. Put it in the budget at kickoff, because it turns up either way.
+Each of those numbers is still missing a condition we'd ask of anyone else's benchmark. The table shows which, figure by figure.
+
+| Figure | What it measures | Measured from | Window | Still to publish |
+| --- | --- | --- | --- | --- |
+| 23.4s to 1.2s | Median page load, before and after the move | Mainland China | Before and after the migration | City, carrier, test dates |
+| 99.98% | Uptime of one mainland-hosted site | Not published | 90 days | Monitoring location, start and end dates |
+| 48ms | Median response time | Beijing | The same 90 days | Carrier |
+| 36ms | Median response time | Shanghai | The same 90 days | Carrier |
+| 61ms | Median response time | Guangzhou | The same 90 days | Carrier |
+
+The missing conditions are going into case studies we're writing now.
+
+## Six hosting options, side by side
+
+These are the options foreign teams ask us about most. Each row names the constraint that decides it, and each one rests on the vendor's own page. We checked every row on 29 September 2026 and we'll check them again each quarter.
+
+| Option | Mainland servers | ICP filing | Account and entity | Vendor page dated |
+| --- | --- | --- | --- | --- |
+| Alibaba Cloud (阿里云), China site, aliyun.com | Yes | Filed through Alibaba against a mainland server on a subscription of 3 months or longer | aliyun.com account; an enterprise registered in the mainland, or a mainland resident | Help centre, 20 August and 24 September 2026 |
+| Alibaba Cloud, international site, alibabacloud.com | Can't carry a filed site | Not supported on this account type | Open an aliyun.com account instead | Help centre, 20 August 2026 |
+| Tencent Cloud (腾讯云) | Yes | Filed through Tencent against a mainland server; Lighthouse on a subscription of 90 days or more | One filing entity per account | Documentation, 30 January and 23 September 2026 |
+| Huawei Cloud (华为云) | Yes | Filed through Huawei against a mainland "filing server" on a subscription of at least 3 months | A Chinese mainland website account; international accounts can't file | Help Center, July and August 2024 |
+| Vercel | None | Not offered. An in-country copy needs mainland hosting and its own filing | Nothing on Vercel's side | Knowledge base, 11 September 2026 |
+| Cloudflare | Only on the China Network, run by JD Cloud | A valid filing or licence for each apex domain | Enterprise plan; JD Cloud reviews the content first | Developer docs, April 2026 |
+
+For a WordPress site that has to live on the mainland, the real choice is between the first, third and fourth rows.
+
+## No managed WordPress exists in mainland China
+
+There is no WP Engine, Kinsta or Flywheel on the mainland. We've been through the product line-ups of Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) and Huawei Cloud (华为云). None of them sells a WordPress product that patches the site for you or answers a ticket about a plugin.
+
+What all three sell is a one-click WordPress image on an entry-level virtual server.
+
+| Provider | Product | What the image installs | Vendor page updated |
+| --- | --- | --- | --- |
+| Alibaba Cloud | Simple Application Server (轻量应用服务器) | A preset WordPress application image | 19 August 2026 |
+| Tencent Cloud | Lighthouse (轻量应用服务器) | WordPress with Nginx, MariaDB and the Baota (宝塔) Linux panel | 22 September 2026 |
+| Huawei Cloud | FlexusL (Flexus应用服务器L实例) | Ubuntu 24.04 running Docker, with Nginx, MySQL and phpMyAdmin | 21 September 2026 |
+
+Look at the third column again. Each one is an operating system with WordPress preinstalled. Updates and backups are yours, along with staging and finding someone who can read a plugin conflict.
+
+So somebody on your side ends up doing server administration every month, for as long as the site lives. That's a standing cost. Put it in the budget at kickoff.
 
 ## Nothing serves until the filing clears
 
-This is the constraint that reorders every China web project, so it is worth stating flatly.
+Alibaba Cloud and Tencent Cloud both write the rule into their own documentation.
 
-Ports 80 and 443 are unusable on a mainland IP address until the ICP filing (ICP备案) is complete. The provider keeps them shut at the network edge from the day you rent the server. You can't soft launch, you can't show a client a staging link on the production box, and you can't run a quiet beta while the paperwork moves.
+> Under Ministry of Industry and Information Technology (工信部) rules, a domain resolved to a server in the Chinese mainland must complete its website filing before website access can be opened.
+> Source: Alibaba Cloud (阿里云) help centre, last updated 4 September 2026. https://help.aliyun.com/zh/dws/support/how-do-i-troubleshoot-the-failures-to-access-a-website-by-using-its-domain-name
 
-> An ICP filing costs nothing to submit. It is reviewed by the provincial Communications Administration (省级通信管理局), with the Ministry of Industry and Information Technology running spot checks. Published timelines run 10 to 30 working days depending on province and season.
-> Source: MIIT filing rules and mainland provider filing documentation, 2026.
+> A domain resolved to Tencent Cloud resources in mainland China must complete ICP filing first, or it is intercepted by Tencent Cloud's monitoring for unfiled domains.
+> Source: Tencent Cloud (腾讯云) documentation, last updated 28 September 2026. https://cloud.tencent.com/document/product/243/19630
 
-Plan for three to six weeks, and that assumes the mainland entity already exists. Our [ICP filing guide](/resources/china-web-guide/icp-licence-filing-foreign-companies/) walks through the documents and the order they go in.
+The ports detail is ours: on our projects, that interception closes ports 80 and 443. You can't show a client a staging link on the production box, and you can't run a quiet beta while the paperwork moves.
 
-A commercial ICP licence (ICP许可证) is a different instrument. You need it when the site itself earns money: e-commerce, paid content, paid software, advertising. Review happens nationally rather than provincially, and it takes far longer.
+> Alibaba Cloud's own check takes 1 to 2 working days. The provincial Communications Administration (省级通信管理局) review that follows generally takes 1 to 20 working days, and the site must complete its public security filing (公安备案) within 30 days of going live.
+> Source: Alibaba Cloud (阿里云) help centre, ICP filing process overview, last updated 26 August 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-> MIIT-level review for a commercial ICP licence runs 60 to 90 working days. Foreign ownership above 50% was historically prohibited and remains restricted outside the pilot areas of Beijing, Shanghai Pudong, Hainan Free Trade Port and Shenzhen.
-> Source: MIIT licensing rules and pilot-area regulations, 2026.
+That's up to 22 working days on paper. Documents take time to gather and applications come back for corrections, so we plan three to six weeks, and that assumes the mainland entity already exists. Our [ICP filing guide](/resources/china-web-guide/icp-licence-filing-foreign-companies/) walks through the documents and the order they go in.
 
-Budget twelve to eighteen weeks for that one. Both instruments require a mainland-registered legal entity. A foreign company cannot file directly, and no amount of hosting spend substitutes for the entity.
+A commercial ICP licence (ICP许可证) is a different instrument. You need it when the site itself earns money: e-commerce, paid content, paid software, advertising.
 
-## The Alibaba Cloud account that can't host your site
+> The Shanghai Communications Administration (上海市通信管理局) commits to deciding on a value-added telecoms licence within 60 days of accepting the application.
+> Source: Shanghai Communications Administration, service guide, June 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
 
-Alibaba runs two platforms with near-identical branding. alibabacloud.com is the international platform. aliyun.com is the China platform.
+The clock starts at acceptance, and acceptance needs a complete file. We plan twelve to eighteen weeks for this one.
 
-The two are disjoint. No native cross-platform resource replication, no mainland regions available on the international side, and no ICP filing there either.
+Foreign ownership is the other question a licence raises.
 
-So the sequence that feels natural, signing up on the English site because that's the one search hands you, produces an account that structurally cannot host the thing you're building. Opening the correct account needs a Chinese business licence and local identity verification, and the filing workflow inside it is Chinese-language only.
+> A 2024 pilot lifts the foreign-ownership cap on named licence categories, among them online data processing and information publishing platforms, in parts of Beijing, Shanghai, Hainan and Shenzhen. News, publishing, audiovisual and internet culture services are excluded.
+> Source: Ministry of Industry and Information Technology (工业和信息化部), notice of 8 April 2024. https://www.gov.cn/zhengce/zhengceku/202404/content_6944441.htm
 
-Every team that has done this once knows it cold. Every team doing it for the first time loses two weeks to it.
+An ICP filing is made in the name of an enterprise registered in the mainland, or a mainland resident for a personal site. A company registered abroad can't file directly, and no hosting spend substitutes for the entity.
+
+## The cloud account that can't host your site
+
+Alibaba runs two sites with near-identical branding. alibabacloud.com is the international one, aliyun.com is the China one, and only the second can file.
+
+> Alibaba Cloud international site (alibabacloud.com) accounts do not support ICP filing applications, for websites or apps. A filing needs a China site (aliyun.com) account, and the filing entity must be an enterprise registered in the Chinese mainland or a mainland resident.
+> Source: Alibaba Cloud (阿里云) help centre, last updated 20 August 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland
+
+> The filing is made against an Alibaba Cloud server in the Chinese mainland: an ECS instance or a Simple Application Server, on a subscription of 3 months or longer.
+> Source: Alibaba Cloud (阿里云) help centre, last updated 24 September 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/user-guide/icp-filing-server-access-information-check
+
+So the sign-up that feels natural, on the English site that search hands you first, produces an account that can't file the site you're building. Anyone who has done this once knows it cold. First-timers lose weeks to it, and they usually find out when someone goes looking for the filing screen and the account has none, by which point the server is paid for and the launch date is already set.
+
+Huawei Cloud (华为云) runs the same split, in almost the same words.
+
+> Huawei Cloud international website accounts do not support ICP filing. A Huawei Cloud Chinese mainland account is needed, with a filing server in the Chinese mainland on a subscription of at least three months.
+> Source: Huawei Cloud (华为云) Help Center, last updated 17 July 2024 and 20 August 2024. https://support.huaweicloud.com/intl/en-us/prepare-icp/icp_02_0047.html and https://support.huaweicloud.com/intl/en-us/prepare-icp/icp_02_0003.html
+
+At Tencent Cloud (腾讯云), the documented rule is about the server. The Tencent pages we checked say nothing either way about international accounts, so we don't either.
+
+> A Lighthouse instance in a mainland region qualifies for ICP filing on a subscription of 90 days or more, with at least 30 days left while the filing is under review.
+> Source: Tencent Cloud (腾讯云) documentation, last updated 23 September 2026. https://cloud.tencent.com/document/product/1207/45756
 
 ## Hong Kong, and what the shortcut costs
 
@@ -68,13 +133,26 @@ Latency is materially worse from northern and western China than from a mainland
 
 Treat Hong Kong as a bridge. If China matters commercially, budget for the entity and the filing, run Hong Kong while you wait, and put a date on the cutover before somebody discovers it for you.
 
-## The CDN question
+## Vercel, Cloudflare and the overseas edge
 
-A global CDN moves your origin closer to Hong Kong or Tokyo, which helps. It does nothing about blocked hosts inside the page itself.
+A global CDN puts copies of your pages closer, in Hong Kong or Tokyo, which helps. It does nothing about blocked hosts that the page itself calls.
 
-Cloudflare is the case most teams ask about. Standard and free plans serve mainland visitors from the nearest overseas edge. The in-country network is a separate Enterprise subscription operated with JD Cloud, it requires a valid ICP filing or licence per apex domain, and JD Cloud reviews the content before onboarding.
+Vercel comes up too, since plenty of Astro and Next.js sites live there. Its own knowledge base gives a clear answer.
 
-For a mainland-hosted site, the simpler answer is usually the domestic CDN attached to whichever cloud you already sit on. It's filed, it's fast, and it keeps the whole stack under one vendor.
+> "Vercel has no servers or CDN nodes in mainland China," and "Vercel can't guarantee availability or performance within mainland China." China's network controls can block or throttle its .vercel.app subdomains.
+> Source: Vercel Knowledge Base, published 3 November 2025, updated 11 September 2026. https://vercel.com/kb/guide/accessing-vercel-hosted-sites-from-mainland-china
+
+> GreatFire reads https://vercel.app as blocked in mainland China on 4 of its last 4 conclusive tests, the latest on 14 September 2026. Of 157 URLs it has tested on the domain, 154 read blocked.
+> Source: GreatFire, September 2026. https://en.greatfire.org/https/vercel.app
+
+Vercel's own suggestions are a custom domain in place of .vercel.app, self-hosted fonts and analytics, and, for a site that has to perform in China, a separate copy on mainland infrastructure with its own ICP filing or licence. That last option means running a second site, on one of the three mainland clouds above or another mainland host.
+
+Cloudflare's standard and free plans serve mainland visitors from edges outside the mainland. The in-country network is a separate product.
+
+> The Cloudflare China Network is a separate subscription for Enterprise customers, run in mainland data centres by Cloudflare's partner JD Cloud. Each apex domain needs a valid ICP filing or licence, and JD Cloud reviews every domain's content before the network is switched on.
+> Source: Cloudflare developer documentation, last updated 30 April 2026. https://developers.cloudflare.com/china-network/
+
+For a mainland-hosted site, the simpler answer is usually the domestic CDN attached to the cloud you already sit on. It works under the filing you already hold, and it keeps the stack with one vendor.
 
 ## Patching WordPress from a mainland server
 
@@ -86,9 +164,9 @@ Three workarounds hold up in practice: domestic mirrors, an update process that 
 
 ## What it costs
 
-The server is the cheap part. A corporate WordPress site on Simple Application Server or Lighthouse usually runs under 100 USD a month, and promotional first-year pricing on the smallest instances goes well below that.
+The server is the cheap part. The one-click images run on each cloud's entry-level server line.
 
-The filing itself is free to submit. The real spend sits in three places: standing up or maintaining the mainland entity, the working hours that go into preparing documents and passing verification, and whoever logs into a Chinese-language console every month to keep the thing patched and backed up.
+The real spend sits elsewhere. The mainland entity has to be set up or kept up, and preparing documents and passing verification eats working hours. After launch, a named person logs into the cloud console month after month to keep the site patched and backed up.
 
 Teams that price only the server line are the ones renegotiating scope in month four.
 
@@ -109,7 +187,7 @@ That last row gets skipped most often, and it's frequently the right answer. If 
 Only if the CDN provider has mainland points of presence, and that requires your domain to hold a filing. Without the filing you are buying an overseas edge with a Chinese name on it.
 
 **How much does mainland WordPress hosting cost?**
-The server is often under 100 USD a month for a corporate site. The costs that matter are the entity, the filing work, and whoever administers a Chinese-language console every month.
+The server is the smallest line. The costs that matter are the entity and the filing work, and after launch, the person who looks after the server.
 
 **Does the domain have to be a .cn?**
 No. A .com can be filed. Baidu shows some preference for .cn, but a filed .com on a mainland server is the common and workable setup.

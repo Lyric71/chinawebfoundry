@@ -57,6 +57,8 @@ const guides = defineCollection({
     column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
+    /** Date the page's vendor-specific claims are due for review. Not rendered. */
+    reviewBy: z.coerce.date().optional(),
   }),
 });
 
@@ -131,6 +133,8 @@ const guidesFr = defineCollection({
     column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
+    /** Date the page's vendor-specific claims are due for review. Not rendered. */
+    reviewBy: z.coerce.date().optional(),
   }),
 });
 
@@ -214,6 +218,8 @@ const guidesEs = defineCollection({
     column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
+    /** Date the page's vendor-specific claims are due for review. Not rendered. */
+    reviewBy: z.coerce.date().optional(),
   }),
 });
 
@@ -288,6 +294,8 @@ const guidesDe = defineCollection({
     column: z.boolean().default(false),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
+    /** Date the page's vendor-specific claims are due for review. Not rendered. */
+    reviewBy: z.coerce.date().optional(),
   }),
 });
 
