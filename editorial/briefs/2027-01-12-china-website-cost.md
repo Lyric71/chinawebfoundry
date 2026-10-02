@@ -10,7 +10,7 @@ slug: china-website-cost
 title: "What a China Website Actually Costs"
 suggested_category: Technology
 locales_at_publish: en fr es de
-gate: "pricing decision (open item 3)"
+gate: "CWF from figures per tier, supplied by Cyril"
 facts: [F25, F26]
 status: not_started
 ---
@@ -52,7 +52,7 @@ tier-specific boxes for T1.
 | **Intent** | Commercial, very high. |
 | **Incumbent** | Nobody publishes real figures. Four of the top ten competitors publish nothing at all. |
 | **Length** | 1,400 words |
-| **Decision required before drafting** | Whether CWF publishes its own numbers or only the market bands. See below. |
+| **Decided** | 2 October 2026 (Cyril): CWF publishes its own "from" figures per tier alongside the market bands. |
 
 **Angle.** The market is barbelled and a shortlist that mixes tiers produces quotes that differ by an order of magnitude for what sounds like the same brief. It is not the same brief. This article makes the tiers legible and shows what moves the number.
 
@@ -66,7 +66,7 @@ tier-specific boxes for T1.
 5. Ongoing cost, which is the line most budgets miss
 6. Frequently asked
 
-**Open decision.** Cyril decides whether this article carries CWF's own price bands or only the market's. Publishing a "from" figure would be close to unique in this market and it converts the price shopper who currently self-selects toward whoever published a number. It also anchors. **Do not publish CWF figures without explicit sign-off.**
+**Decision (Cyril, 2 October 2026).** The article carries ChinaWebFoundry's own "from" figures, one per tier, alongside the market bands. Publishing a "from" figure is close to unique in this market and converts the price shopper who otherwise self-selects toward whoever published a number. **Source of the figures:** on 2 October 2026 the site published no CWF price on any page, services page, data file or FAQ in any of the four locales (the money pages and FAQ say fixed-price proposals after a scoping call; the contact form's budget brackets are the visitor's ranges, not prices). The figures are therefore supplied by Cyril in `editorial/sources/cwf-pricing.md`, one "from" figure per tier with his name and the date, and printed exactly as supplied, labelled as ours. The row's gate, "CWF from figures per tier, supplied by Cyril", clears when that file exists. Never estimate or derive a CWF figure.
 
 **Links.** Up to `/web-agency-china/`. Sideways to `choosing-web-agency-china` and `china-website-timeline`.
 

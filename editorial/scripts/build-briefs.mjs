@@ -239,7 +239,7 @@ for (let w = 0; w < CALENDAR.length; w++) {
     // follow the GFW rule in editorial/CLAUDE.md and are never gated on a
     // measurement of our own.
     const gate = p.type === 'translation' ? 'evidence, day 90'
-      : id === 'B2' ? 'pricing decision (open item 3)'
+      : id === 'B2' ? 'CWF from figures per tier, supplied by Cyril'
       : id === 'T3-01' || id === 'T3-02' || id === 'T3-03' ? 'client sign-off'
       : '';
     const locales = p.type === 'guide' || p.type === 'money-page' ? 'en fr es de'

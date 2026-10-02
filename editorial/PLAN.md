@@ -925,7 +925,7 @@ Five articles. This term resolves in an answer engine, so these are written to b
 | **Intent** | Commercial, very high. |
 | **Incumbent** | Nobody publishes real figures. Four of the top ten competitors publish nothing at all. |
 | **Length** | 1,400 words |
-| **Decision required before drafting** | Whether CWF publishes its own numbers or only the market bands. See below. |
+| **Decided** | 2 October 2026 (Cyril): CWF publishes its own "from" figures per tier alongside the market bands. |
 
 **Angle.** The market is barbelled and a shortlist that mixes tiers produces quotes that differ by an order of magnitude for what sounds like the same brief. It is not the same brief. This article makes the tiers legible and shows what moves the number.
 
@@ -939,7 +939,7 @@ Five articles. This term resolves in an answer engine, so these are written to b
 5. Ongoing cost, which is the line most budgets miss
 6. Frequently asked
 
-**Open decision.** Cyril decides whether this article carries CWF's own price bands or only the market's. Publishing a "from" figure would be close to unique in this market and it converts the price shopper who currently self-selects toward whoever published a number. It also anchors. **Do not publish CWF figures without explicit sign-off.**
+**Decision (Cyril, 2 October 2026).** The article carries ChinaWebFoundry's own "from" figures, one per tier, alongside the market bands. Publishing a "from" figure is close to unique in this market and converts the price shopper who otherwise self-selects toward whoever published a number. **Source of the figures:** on 2 October 2026 the site published no CWF price on any page, services page, data file or FAQ in any of the four locales (the money pages and FAQ say fixed-price proposals after a scoping call; the contact form's budget brackets are the visitor's ranges, not prices). The figures are therefore supplied by Cyril in `editorial/sources/cwf-pricing.md`, one "from" figure per tier with his name and the date, and printed exactly as supplied, labelled as ours. The row's gate, "CWF from figures per tier, supplied by Cyril", clears when that file exists. Never estimate or derive a CWF figure.
 
 **Links.** Up to `/web-agency-china/`. Sideways to `choosing-web-agency-china` and `china-website-timeline`.
 
@@ -2799,7 +2799,7 @@ Check every box before marking any piece done. A reviewer should be able to veri
 
 1. **The title suffix.** Still unresolved, still breaching the ceiling on every guide article. Week 1, slot 2.
 2. **The measurement harness.** Decided 2 October 2026 (Cyril): never built, no mainland probe, no Tencent Cloud CAT or boce.com. T2 and T4 follow the GFW rule.
-3. **The pricing decision** gates B2 in week 19.
+3. **The pricing decision.** Decided 2 October 2026 (Cyril): B2 carries CWF's own "from" figures per tier alongside the market bands. The figures themselves are supplied by Cyril in `editorial/sources/cwf-pricing.md` before 12 January 2027.
 4. **The 308 versus 301 question** on the Move 1 redirects.
 5. **Qwen on the GEO page.** One line, still open.
 6. **The eleven untested dependencies in F42** appear in tables as untested until a dated third-party test exists (GFW rule).

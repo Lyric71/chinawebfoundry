@@ -343,7 +343,7 @@ Verify each by counting or checking, not by assuming.
 - [ ] No "why work with us" framing.
 - [ ] No banned words or structures from `.claude/anti-ai-writing-style.md`.
 - [ ] Nothing from the Do Not Assert list. Grep for "93%", "44% of", "cannot read JavaScript", "Google Fonts is blocked", "Google Fonts is not blocked".
-- [ ] No price, package or tier name.
+- [ ] No price, package or tier name (B2 excepted: CWF's own "from" figures, exactly as supplied in `sources/cwf-pricing.md`).
 - [ ] Every statistic in a blockquote with a named source and a date. Every latency figure with a vantage point.
 - [ ] Chinese terms as English (中文) on first reference per section.
 - [ ] British spelling throughout.

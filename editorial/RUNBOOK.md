@@ -177,7 +177,7 @@ and 2 only and accept a slower build.
 | Week 12 onward | T7 slots begin | Day 90 for the first T1 pieces lands in mid December. The first two T7 slots (weeks 12 and 14) will probably be unspent. Log that. |
 | Week 13 | Cluster share check | Cluster-shaped content under 20% of indexed English pages (PLAN.md section 13, item 5). |
 | 120 days after T2-05 publishes | The kill switch | If the first five T2 pages have not produced a qualified inquiry or a measurable ranking, stop the cluster. T2-11 to T2-14 do not get written; their slots move to T3 and T4. |
-| Week 19 | B2, the cost article | Gated on the pricing decision (PLAN.md open item 3). Decide before week 19 or B2 answers with third-party market ranges only. |
+| Week 19 | B2, the cost article | Decided 2 October 2026: B2 carries CWF's own "from" figures per tier. Gate: "CWF from figures per tier, supplied by Cyril", cleared by `editorial/sources/cwf-pricing.md`. Needed before 12 January 2027. |
 | 15 to 21 Feb 2027 | Chinese New Year (Spring Festival 17 Feb) | Week 24 falls inside it. Draft week 24 during week 23. |
 
 ## Three pieces that need an early start

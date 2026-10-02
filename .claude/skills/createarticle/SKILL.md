@@ -147,7 +147,8 @@ mention: ICP filing (ICP备案), Alibaba Cloud (阿里云), Baidu (百度).
   or "Astro agency". The positioning word is "web agency".
 - Honour `.claude/anti-ai-writing-style.md`: its banned words, phrases and
   structures (section 3F especially) are hard rules.
-- No price, package or tier name.
+- No price, package or tier name (B2 excepted: CWF's own "from" figures, exactly
+  as supplied in `editorial/sources/cwf-pricing.md`).
 
 ## SEO metadata (hard ceilings, verify with a counter before delivery)
 

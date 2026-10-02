@@ -86,6 +86,30 @@ what the Great Firewall does follows "The GFW rule" below, always, for T2,
 T4 and every other tier. A missing mainland measurement is therefore never a
 gate, never a blocked row and never an open item.
 
+**Settled decisions (Cyril, 2 October 2026).** These are decided. No run
+redrafts around them, lists them in a log's open items or a "for a person"
+section, or mentions them in an email.
+
+- **T3-01 (Bassetti) and T3-02 (SNF) stay blocked at the client sign-off
+  gate.** Runs skip both rows silently: no redraft, no partial draft, no log
+  entry beyond "skipped, settled". A row is picked up only when a written
+  client sign-off and the project records behind its figures are filed in
+  `editorial/` (for example `editorial/sources/signoff-<slug>.md`); the run
+  that finds that file drafts the piece in full.
+- **B2 (`china-website-cost`, 12 January 2027) publishes ChinaWebFoundry's
+  own "from" figures**, per tier, alongside the sourced market bands. On
+  2 October 2026 the site published no CWF price anywhere, so the figures
+  come from Cyril: B2's gate is "CWF from figures per tier, supplied by
+  Cyril", and it clears when `editorial/sources/cwf-pricing.md` exists with a
+  figure per tier and Cyril's name and date on it. The figures are printed
+  as ours, exactly as supplied, and never estimated. Until then the row
+  waits at its gate without being drafted, raised or emailed.
+- **The China Site Scanner** (`src/data/scannerCopy.ts`,
+  `src/lib/scanner/rules.ts`) is Cyril's product decision: its severities and
+  copy stay exactly as they are. It is outside the reach of the GFW rule and
+  the fact bank corrections, which govern articles. Runs never check the
+  scanner against the fact bank, never flag it and never edit it.
+
 If something cannot be closed without Cyril's own decision (a client's
 sign-off, a pricing call), the run stops **before publishing** that
 piece: the row goes to `blocked` with the reason in `notes`, nothing of it is
@@ -262,9 +286,10 @@ log that iteration 7 ran as the cadence variant.
    positioning word is "web agency" and the site's own phrase is "websites in
    China". This applies even inside the "wordpress china" cluster: the
    articles are about WordPress, the agency is not.
-6. **Pricing.** No figures. B2 (`china-website-cost`) is gated on the pricing
-   decision (PLAN.md open item 3); until it is taken, B2 answers with market
-   ranges from sourced third parties and never with CWF's own numbers.
+6. **Pricing.** No figures, anywhere, with one exception decided by Cyril on
+   2 October 2026: B2 (`china-website-cost`) carries CWF's own "from" figures
+   per tier alongside the sourced market bands, exactly as Cyril supplies them
+   in `editorial/sources/cwf-pricing.md` (see "Settled decisions").
 7. **Build.** `.claude/CLAUDE.md` forbids running `npm run build` unasked. The
    scheduled publish task and a spoken "Publish <slug>" are the user's
    standing authorization for the build inside step 4. Nowhere else.
@@ -323,7 +348,8 @@ Plugins and Extensions, UX and UI Design, Chinese Content, Baidu SEO, GEO
 Scanner at `/china-site-scanner/` is the free tool every T2 page can send a
 reader to.
 
-Do not invent a service. Do not name a package tier or a price.
+Do not invent a service. Do not name a package tier or a price, except
+CWF's own "from" figures in B2, as Cyril supplies them.
 
 ## Audience
 

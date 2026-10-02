@@ -11,7 +11,7 @@ title: "Moving a French Software Site Into China"
 locales_at_publish: en
 gate: "client sign-off"
 facts: [F6, F8, F25, F26, F32]
-status: not_started
+status: blocked
 ---
 
 ## How to run this brief

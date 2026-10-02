@@ -11,7 +11,7 @@ title: "Hosting a Chemicals Group in Mainland China"
 locales_at_publish: en
 gate: "client sign-off"
 facts: [F32]
-status: not_started
+status: blocked
 ---
 
 ## How to run this brief
