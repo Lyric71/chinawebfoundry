@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: "2026-09-22"
-updatedAt: "2026-09-22"
+updatedAt: "2026-10-02"
 category: "Technology"
 author: "cyril-drouin"
 ---
@@ -90,8 +90,7 @@ the distance, and brings paperwork with it, which the last section covers.
 > Source: ChinaWebFoundry, published 29 August 2026.
 > https://www.chinawebfoundry.com/website-in-china/
 
-Those are our own figures. The carrier and the exact window are not published
-yet; they are going into the case studies this autumn. A figure
+Those are our own figures. The carrier and the exact window are not published. A figure
 without its conditions deserves suspicion, including when we publish it.
 
 ### Three: the number of hosts you call

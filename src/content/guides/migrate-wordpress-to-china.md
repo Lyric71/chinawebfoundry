@@ -6,7 +6,7 @@ visual: "/images/guides/migrate-wordpress-to-china.webp"
 order: 37
 published: true
 publishedAt: "2026-09-29"
-updatedAt: "2026-09-29"
+updatedAt: "2026-10-02"
 category: "Hosting"
 author: "echo-peng"
 ---
@@ -179,8 +179,7 @@ the usual suspects host by host, with dated verdicts.
 > Source: ChinaWebFoundry, published 29 August 2026.
 > https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/
 
-That was one of our migrations. The carrier and test date behind it aren’t
-published yet; they go into a case study this autumn.
+That was one of our migrations. The carrier and test date behind it aren’t published.
 
 So remediation belongs in the filing weeks, done on a copy of the site: a local
 build, or a Hong Kong server running the same PHP and database versions as the

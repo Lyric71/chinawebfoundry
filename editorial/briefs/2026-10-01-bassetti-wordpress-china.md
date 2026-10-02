@@ -65,7 +65,7 @@ tier-specific boxes for T3.
 
 **Links.** Money page: `/services/china-migration/`. Sideways to `wordpress-hosting-china` and `icp-licence-filing-foreign-companies` (the brief once named `icp-filing-explained`, which does not exist).
 
-**On publish, carry the conditions back.** This study publishes the carrier, city and dates behind the 23.4 second to 1.2 second figure (F32). Four live pages say those conditions are still to come: the conditions table in `wordpress-hosting-china`, and the sentences in `wordpress-speed-china`, `migrate-wordpress-to-china` and `/website-in-china/`, each in every locale it has. The publish step of this piece fills them in on all of those pages in the same run, through `/deep-translate` for the changed passages, and moves each page's `updatedAt`. A figure this study does not cover stays described as unpublished, without a promised date.
+**On publish, carry the conditions back.** This study publishes the carrier, city and dates behind the 23.4 second to 1.2 second figure (F32). Four live pages describe those conditions as unpublished, with no promised date (the dated "this autumn" promise was cut on 2 October 2026): the conditions table in `wordpress-hosting-china`, and the sentences in `wordpress-speed-china`, `migrate-wordpress-to-china` and `/website-in-china/`, each in every locale it has. The publish step of this piece fills them in on all of those pages in the same run, through `/deep-translate` for the changed passages, and moves each page's `updatedAt`. A figure this study does not cover stays described as unpublished, without a promised date.
 
 **Metadata.**
 ```yaml

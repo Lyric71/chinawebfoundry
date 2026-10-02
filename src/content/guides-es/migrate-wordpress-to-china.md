@@ -6,7 +6,7 @@ visual: "/images/guides/migrate-wordpress-to-china.webp"
 order: 37
 published: true
 publishedAt: 2026-09-29
-updatedAt: 2026-09-29
+updatedAt: 2026-10-02
 category: Hosting
 author: echo-peng
 ---
@@ -99,7 +99,7 @@ En esto se va la mayor parte de las catorce semanas. Cargue el sitio actual desd
 > La carga mediana de la página pasó de 23,4 segundos con un origen en Europa a 1,2 segundos con un origen en China continental, y cerca de la mitad de la mejora vino de eliminar llamadas externas, no de trasladar el servidor.
 > Fuente: ChinaWebFoundry, publicado el 29 de agosto de 2026. https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/
 
-Los datos proceden de una de nuestras migraciones. El operador y la fecha de la prueba aún no se han publicado; irán en un caso de estudio este otoño.
+Los datos proceden de una de nuestras migraciones. El operador y la fecha de la prueba no se han publicado.
 
 Por eso las dependencias se corrigen durante las semanas de revisión, sobre una copia del sitio: una instalación local o un servidor en Hong Kong con las mismas versiones de PHP y de base de datos que el del continente.
 

@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: 2026-10-02
 category: Technology
 author: cyril-drouin
 ---
@@ -58,7 +58,7 @@ Ihr Server steht in Frankfurt. Jede Anfrage aus Chengdu durchquert Eurasien zwei
 > Über ein Fenster von 90 Tagen erreichte eine auf dem Festland gehostete Kundenwebsite 99,98 Prozent Verfügbarkeit, bei medianen Antwortzeiten von 48 ms aus Peking, 36 ms aus Shanghai und 61 ms aus Guangzhou.
 > Quelle: ChinaWebFoundry, veröffentlicht am 29. August 2026. https://www.chinawebfoundry.com/website-in-china/
 
-Das sind unsere eigenen Zahlen. Der Anbieter und das genaue Fenster sind noch nicht veröffentlicht; sie gehen in diesem Herbst in unsere Fallstudien ein. Eine Zahl ohne ihre Bedingungen verdient Misstrauen, auch dann, wenn wir sie selbst veröffentlichen.
+Das sind unsere eigenen Zahlen. Der Anbieter und das genaue Fenster sind nicht veröffentlicht. Eine Zahl ohne ihre Bedingungen verdient Misstrauen, auch dann, wenn wir sie selbst veröffentlichen.
 
 ### Drittens: die Zahl der aufgerufenen Hosts
 

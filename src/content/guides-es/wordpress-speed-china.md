@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: 2026-10-02
 category: Technology
 author: cyril-drouin
 ---
@@ -58,7 +58,7 @@ Su servidor está en Fráncfort. Cada petición que sale de Chengdú cruza Euras
 > A lo largo de una ventana de 90 días, un sitio de cliente alojado en el continente registró un 99,98 % de disponibilidad, con tiempos de respuesta medianos de 48 ms desde Pekín, 36 ms desde Shanghái y 61 ms desde Cantón.
 > Fuente: ChinaWebFoundry, publicado el 29 de agosto de 2026. https://www.chinawebfoundry.com/website-in-china/
 
-Estas cifras son nuestras. Ni el operador ni la ventana exacta están publicados todavía; se incorporarán a nuestros casos de estudio este otoño. Una cifra entregada sin sus condiciones merece desconfianza, también cuando somos nosotros quienes la publicamos.
+Estas cifras son nuestras. Ni el operador ni la ventana exacta están publicados. Una cifra entregada sin sus condiciones merece desconfianza, también cuando somos nosotros quienes la publicamos.
 
 ### Tres: el número de servidores a los que llama
 
