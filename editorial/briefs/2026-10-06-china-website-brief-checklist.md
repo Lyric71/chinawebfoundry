@@ -11,7 +11,7 @@ title: "The China Website Brief: A Checklist"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F1, F19, F21, F25, F26, F27, F28]
-status: not_started
+status: image_ready
 ---
 
 ## How to run this brief

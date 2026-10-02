@@ -6,8 +6,9 @@ site on every run.
 **Refresh on the first working day of each month.** Ask Claude:
 `Refresh sources/site-profile.md from the repo and the live site.`
 
-Last refreshed: 2026-09-06 (from the repo; the repo is the ground truth)
-Next refresh due: 2026-10-01
+Last refreshed: 2026-10-01 (from the repo at f0361f4, plus a live check of
+five URLs, all HTTP 200; the repo is the ground truth)
+Next refresh due: 2026-11-02 (first working day of November)
 
 ## Positioning
 
@@ -46,11 +47,10 @@ quotes a CWF figure.
 `/services/chinese-content/` `/services/baidu-seo/` `/services/geo/`
 `/services/maintenance-support/`
 
-**Money pages (3)**
+**Money pages (4)**
 `/web-agency-china/` `/wordpress-agency-china/` `/wordpress-in-china/`
-`/website-in-china/` is reserved by Move 1: live in four locales, `noindex,
-follow`, excluded from the sitemap. M1 in week 1 ships the real copy and
-removes both.
+`/website-in-china/` (M1, published 6 September 2026 in four locales; live
+check 1 October 2026: `index, follow`, back in the sitemap).
 
 **Case studies (18)**, `src/content/casestudies/`, route `/work/{slug}/`
 bassetti-wordpress-china, bbchien-dog-media-platform,
@@ -65,7 +65,7 @@ visitmoganshan-china-travel-guide, zeinley-bilingual-wordpress
 T3-01 to T3-05 upgrade five of these (bassetti, snf, imhof, zeinley, compass).
 T3-06 to T3-10 add five new ones.
 
-**Guides (33)**, `src/content/guides/`, route `/resources/china-web-guide/{slug}/`
+**Guides (36)**, `src/content/guides/`, route `/resources/china-web-guide/{slug}/`
 baidu-account-foreign-company, baidu-account-ownership,
 baidu-ads-account-foreign, baidu-aicaigou-b2b, baidu-fast-inclusion-gone,
 baidu-index-traffic-data, baidu-keyword-research-tools, baidu-merchant-center,
@@ -80,16 +80,25 @@ great-firewall-what-it-blocks, host-website-in-china,
 icp-licence-filing-foreign-companies, is-wordpress-blocked-in-china,
 mobile-first-design-china, submitting-urls-to-baidu,
 vetting-a-wordpress-agency-china, woocommerce-china-store-guide,
-wordpress-hosting-china
+wordpress-hosting-china, plus three published from this plan:
+wordpress-plugins-china (A3, 15 September), wordpress-speed-china (A9,
+22 September), migrate-wordpress-to-china (A5, 29 September)
 
-All 33 exist in `guides-fr`, `guides-es` and `guides-de` too, with localized
+All 36 exist in `guides-fr`, `guides-es` and `guides-de` too, with localized
 slugs registered in `src/i18n/routes.ts` (`guideSlugs`). Highest `order`
-value on 2026-09-06: 34 (`is-wordpress-blocked-in-china`). New guides take
+value on 2026-10-01: 37 (`migrate-wordpress-to-china`). New guides take
 the next number; the home page teaser shows the three highest.
 
 **Already shipped from this plan, do not redo:** `is-wordpress-blocked-in-china`,
-`wordpress-hosting-china`, `choosing-web-agency-china`. T6-02, T6-03 and
-T6-04 upgrade them.
+`wordpress-hosting-china`, `choosing-web-agency-china`. T6-02 (published
+11 September) upgraded the first; T6-03 is at `image_ready` for 2 October;
+T6-04 is due 23 October. T6-05 (google-analytics-china) and T6-06
+(great-firewall-what-it-blocks) are published.
+
+**Not yet live, do not link as if they were:** `china-website-cost` (B2,
+week 19), `icp-filing-explained` (named in some briefs; the live ICP guide
+is `icp-licence-filing-foreign-companies`), and every T2 page (T2-01 and
+T2-05 are blocked at the harness gate).
 
 ## Existing article shapes worth matching
 
@@ -108,23 +117,20 @@ PLAN.md section 7 replaces its heading structure.
 
 - Renders `title` as H1, `subtitle` in brand orange under it, `summary` as the
   meta description and `og:description`.
-- Appends ` | China Web Guide | ChinaWebFoundry` to the `<title>`. T6-01
-  removes this at the template level and adds a build-time 52-character
-  assertion.
+- Renders the `<title>` with no site suffix since T6-01 (published
+  10 September 2026), with a build-time 52-character assertion.
 - Builds the sticky TOC from `##` headings only.
 - Emits Article and BreadcrumbList JSON-LD, with the author from the `team`
   collection as a Person. FAQPage is not emitted by the layout; where a brief
   asks for it, the publish step adds it.
 - Shows `publishedAt` and, if different, `updatedAt`.
-- The `inLanguage` map covers en, fr and es only; `de` falls through to
-  undefined. Worth fixing inside T6-01 since that work order already touches
-  the layout. Flag it in the T6-01 change list.
+- The `inLanguage` map covers en-GB, fr-FR, es-ES and de-DE (fixed).
 - Blockquotes render with an orange left border. Tables get rounded borders
   and a light header row. Lists get orange dot bullets.
 
 ## Technical setup already in place
 
-Static Astro on Vercel. `passthroughImageService()`, Vercel Image
+Static Astro on Vercel (Astro 7 since commit f0361f4, 30 September 2026). `passthroughImageService()`, Vercel Image
 Optimization off: every image is served byte-for-byte as committed, so the
 pre-commit hook (`scripts/check-images.mjs`) rejects non-WebP, anything over
 1050px wide, anything over 350KB under `public/images/`.

@@ -1467,6 +1467,44 @@ and was caught by check 2 (Tencent's WordPress template does not name PHP).
 - F30 Cloudflare China Network (/china-network/ "Apr 30, 2026"; /get-started/ "review and vet the content"): re-fetched 2026-09-29, unchanged. Used in: upgrade-wordpress-hosting-china.
 - F32 migration pair and uptime figures: both live URLs re-fetched twice 2026-09-29, sentences present. Carrier, city and window dates still unpublished (T3-01, T3-02). Used in: upgrade-wordpress-hosting-china, with the missing conditions shown in a table on the page.
 
+## B5 entries, 1 October 2026 (china-website-brief-checklist)
+
+Two new entries and eleven re-checks for `china-website-brief-checklist` (B5,
+T1). Check 1 by curl with a desktop Chrome user agent at research time, check
+2 by curl with a Safari user agent in createarticle iteration 8, both on
+1 October 2026. 12 of 12 URLs passed check 2.
+
+### Yoast SEO stores a Baidu Webmaster Tools verification code
+- Fact ID: F21 (the positive half)
+- Value: Yoast SEO Settings > Site connections > "Baidu Webmaster Tools": paste the verification code from Baidu's HTML tag method (HTML标签验证)
+- Vantage point: n/a, vendor documentation
+- As of: 29 April 2026 (dateModified in the page's JSON-LD; first published 19 April 2018)
+- Source: Yoast help centre, How to add your website to Baidu Webmaster Tools
+- URL: https://yoast.com/help/add-website-baidu-webmaster-tools/
+- Verified 1: 2026-10-01, curl, "Site connections" and "Baidu Webmaster Tools" present
+- Verified 2: 2026-10-01, curl re-fetch, both phrases and the 2026-04-29 date present
+- Used in: china-website-brief-checklist
+- Notes: Confirms only that the field exists. The negative half of F21 (no Baidu push, no Tongji, no Baidu structured data, no Baiduspider robots handling) rests on the fact bank's source reading of 29 August 2026 and is printed as "when we read both plugins' code in August 2026".
+
+### Rank Math verifies a site with Baidu Webmaster Tools
+- Fact ID: F21 (the positive half)
+- Value: knowledge-base guide to verifying a site on Baidu Webmaster Tools with Rank Math
+- Vantage point: n/a, vendor documentation
+- As of: 16 March 2023 (dateModified; first published 22 February 2021)
+- Source: Rank Math knowledge base, How to Add Your Website to Baidu Webmaster Tools
+- URL: https://rankmath.com/kb/baidu-webmaster-tools-verification/
+- Verified 1: 2026-10-01, curl
+- Verified 2: 2026-10-01, curl re-fetch
+- Used in: china-website-brief-checklist (supporting, not quoted)
+
+### Re-checks of existing entries, 1 October 2026
+- F25 Alibaba 域名/网站无法访问 (lastModified 4 Sept 2026, unchanged), F26 Alibaba 备案流程概述 (26 Aug 2026, three phrases), F27 Alibaba international accounts EN (20 Aug 2026), F27 server and access check EN (24 Sept 2026, "3 months or longer"), F28 Alibaba SAS image (19 Aug 2026), Alibaba ICP number in footer incl. the 5,000 to 10,000 yuan fine (12 Aug 2026): all re-fetched twice 2026-10-01, phrases present. Used in: china-website-brief-checklist.
+- F19 Baidu wiki/990 (2017-03-24, 渲染抓取UA): fetched twice by curl 2026-10-01 (earlier checks were via search). Used in prose, no blockquote.
+- F1 21YunBox Google Hosted Libraries (cn-zhangjiakou, 2026-08-28, reviewed 2026-08-30): re-fetched twice, sentence verbatim. Cited as Google Hosted Libraries probed, per the 22 September note. Used in: china-website-brief-checklist.
+- F8 Meta Trac #5106 archive capture: check 1 first returned HTTP 429 from web.archive.org, retry 200; check 2 200. Used in: china-website-brief-checklist.
+- PIPL Article 39 (CAC copy): re-fetched twice, 第三十九条 and 单独同意 present. Used in: china-website-brief-checklist.
+- MIIT pilot 2024 No. 107 (gov.cn) and Shanghai CA licence guide (60日内): re-fetched once each at check 1 and NOT used; B5 mentions the ICP licence without a review figure.
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)
