@@ -11,7 +11,7 @@ title: "Websites in China for Global Brands"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F1, F19, F25, F26, F31, F32]
-status: not_started
+status: published
 ---
 
 ## How to run this brief

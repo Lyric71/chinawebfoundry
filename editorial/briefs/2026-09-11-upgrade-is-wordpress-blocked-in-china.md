@@ -10,7 +10,7 @@ slug: upgrade-is-wordpress-blocked-in-china
 title: "Correct the Google Fonts claim in is-wordpress-blocked-in-china"
 locales_at_publish: as the page exists
 facts: [F1, F6, F8, F45]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -51,7 +51,7 @@ tier-specific boxes for T6.
 
 **Why.** This live article currently asserts the flat claim that F6 retracts, so the highest-traffic page in the guide is carrying a statement the fact bank now says we cannot stand behind. F6 is also not a simple reversal: replacing "Google Fonts is blocked in China" with "Google Fonts is not blocked in China" would be equally wrong and would put a worse claim on a bigger page. Alongside that, the article has no original measurement, which is the one thing F45 says nobody in the competitive set publishes.
 
-**What to change.** Rewrite the Google Fonts paragraph to state both vantage points from F6: 73 of 73 requests completing at a 111ms median from an Alibaba Cloud mainland instance on 29 August 2026, and 0 of 54 from a Beijing residential broadband line on 28 August 2026. State that both are real, that the datacenter number is not the visitor experience, and that this is precisely why self-hosting is the correct answer. Note separately that `fonts.google.com`, the browsing interface, is blocked either way. Then add a measurement table above the fold with one row per dependency, each carrying host, verdict, latency, vantage point and test date, drawn from F1 through F8. Add a visible "last measured" date near the byline.
+**What to change.** Rewrite the Google Fonts paragraph to state both vantage points from F6: 72 of 72 requests completing at a 111ms median from an Alibaba Cloud mainland instance on 28 August 2026, and 0 of 54 from a Beijing China Mobile residential broadband line on 30 August 2026 (both 21YunBox). State that both are real, that the datacenter number is not the visitor experience, and that this is precisely why self-hosting is the correct answer. Note separately that `fonts.google.com`, the browsing interface, is blocked either way. Then add a measurement table above the fold with one row per dependency, each carrying host, verdict, latency, vantage point and test date, drawn from F1 through F8. Add a visible "last measured" date near the byline.
 
 **Acceptance criteria.**
 - [ ] The string "Google Fonts is blocked in China" does not appear anywhere in the English article, and its translated equivalents do not appear in de, es or fr.

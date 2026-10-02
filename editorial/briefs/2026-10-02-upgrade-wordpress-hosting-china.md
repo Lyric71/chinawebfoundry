@@ -10,7 +10,7 @@ slug: upgrade-wordpress-hosting-china
 title: "Add harness numbers to wordpress-hosting-china"
 locales_at_publish: as the page exists
 facts: [F25, F27, F28, F29, F30, F32, F45]
-status: not_started
+status: published
 ---
 
 ## How to run this brief

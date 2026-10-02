@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-09-11
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -110,7 +110,7 @@ We self-host fonts on every build anyway. Partly for the reason above, mostly be
 
 The plugin repository, the theme repository and the core update servers all respond from mainland China. They also return HTTP 429 against mainland IP ranges often enough that a site can sit for weeks without a security patch.
 
-This has been true since at least October 2019, and it's why a domestic mirror ecosystem grew up around it. The most visible piece is the WP-China-Yes project, which redirects update, plugin install and theme install calls to mainland mirrors.
+This has been true since at least March 2020, and it's why a domestic mirror ecosystem grew up around it. The most visible piece is the WP-China-Yes project, which redirects update, plugin install and theme install calls to mainland mirrors.
 
 A site on default settings won't tell you it has stopped updating. It slips behind and says nothing, which on WordPress is a security problem rather than an inconvenience. Somebody has to open the update screen and look.
 

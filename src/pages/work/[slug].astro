@@ -260,6 +260,11 @@ const breadcrumbLd = buildBreadcrumbLd([
     margin-bottom: 0;
   }
 
+  .case-content :global(.table-wrapper) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .case-content :global(table) {
     width: 100%;
     margin: 1.5rem 0 2rem;
@@ -331,14 +336,8 @@ const breadcrumbLd = buildBreadcrumbLd([
 </style>
 
 <script>
-  // Wrap tables for mobile scroll
-  document.querySelectorAll('.case-content table').forEach((table) => {
-    const wrapper = document.createElement('div');
-    wrapper.style.overflowX = 'auto';
-    wrapper.style.setProperty('-webkit-overflow-scrolling', 'touch');
-    table.parentNode!.insertBefore(wrapper, table);
-    wrapper.appendChild(table);
-  });
+  // Tables arrive already wrapped in .table-wrapper from the build
+  // (src/lib/rehypeTableWrapper.mjs), so they scroll without JavaScript.
 
   // TOC scroll spy
   const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');

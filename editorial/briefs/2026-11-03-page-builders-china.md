@@ -70,6 +70,8 @@ tier-specific boxes for T1.
 
 **Links.** Up to `/wordpress-in-china/`. Sideways to `wordpress-plugins-china` and `wordpress-speed-china`.
 
+**On publish, add the link an earlier piece could not.** `wordpress-speed-china` (A9, published 22 September 2026) wanted a sideways link to this guide and used `wordpress-plugins-china` instead. The publish step of this piece links the words "a page builder" that A9 already carries (and their equivalents in the fr, es and de files) to this guide on its localized slugs, and moves `updatedAt` on the four A9 files. If no existing phrase fits in a locale, the added sentence goes through `/deep-translate` in the same run.
+
 **Metadata.**
 ```yaml
 title: "Elementor, Divi and Gutenberg in China"

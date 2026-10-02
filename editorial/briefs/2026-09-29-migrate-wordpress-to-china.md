@@ -11,7 +11,7 @@ title: "Migrating a WordPress Site Into China"
 suggested_category: Hosting
 locales_at_publish: en fr es de
 facts: [F8, F25, F26, F27, F28, F30, F32]
-status: not_started
+status: published
 ---
 
 ## How to run this brief

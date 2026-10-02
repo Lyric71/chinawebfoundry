@@ -129,7 +129,7 @@ Un hébergement à Hong Kong n'exige aucun dépôt ICP. C'est tout son intérêt
 
 Reste à nommer précisément ce que vous abandonnez.
 
-La latence se dégrade nettement depuis le nord et l'ouest de la Chine par rapport à une origine continentale, parce que le trafic traverse toujours la frontière. Les performances varient selon l'heure et selon l'opérateur, si bien que la mesure prise un mardi matin ne dit pas grand-chose du vendredi soir. Enfin, Baidu privilégie les sites hébergés sur le continent sous un nom de domaine déposé, ce qui laisse un site hongkongais grimper à contre-pente dans le seul moteur qui vous intéresse.
+La latence se dégrade nettement depuis le nord et l'ouest de la Chine par rapport à une origine continentale, parce que le trafic traverse toujours la frontière. Les performances varient selon l'heure et selon l'opérateur, si bien que la mesure prise un mardi matin ne dit pas grand-chose du vendredi soir.
 
 Traitez Hong Kong comme une passerelle. Si la Chine compte commercialement, budgétez l'entité et le dépôt, faites tourner Hong Kong en attendant, et fixez une date de bascule avant que quelqu'un ne vous la fixe à votre place.
 
@@ -190,7 +190,7 @@ Seulement si le fournisseur dispose de points de présence sur le continent, ce 
 Le serveur est le poste le plus modeste. Ce qui pèse, c'est l'entité et le travail de dépôt, puis, une fois le site lancé, la personne qui s'occupe du serveur.
 
 **Le domaine doit-il obligatoirement être en .cn ?**
-Non. Un .com peut être déposé. Baidu marque une certaine préférence pour le .cn, mais un .com déposé sur un serveur continental est le montage courant et il fonctionne.
+Non. Un .com peut être déposé. Un .com déposé sur un serveur continental est le montage courant et il fonctionne.
 
 **Que se passe-t-il si l'on héberge en Chine sans dépôt ?**
 Les ports restent fermés et le site ne sort pas. L'hébergeur applique la règle au niveau réseau. Aucun régulateur n'a besoin de vous découvrir.

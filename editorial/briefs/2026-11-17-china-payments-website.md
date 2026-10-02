@@ -10,7 +10,7 @@ slug: china-payments-website
 title: "Accepting Payments on a China Website"
 suggested_category: Technology
 locales_at_publish: en
-facts: [F26, F27, F38, F40, F41, F42]
+facts: [F6, F26, F27, F38, F40, F41, F42]
 status: not_started
 ---
 
@@ -69,6 +69,8 @@ tier-specific boxes for T5.
 **Do not.** Do not publish a reachability verdict on `js.stripe.com`. It sits in the untested set in F42, and the article does not need it. The argument is licensing, and a probe result would only invite a reader to conclude the block is the problem. PayPal is the one adjacent datapoint worth citing, with the detail from F40 that the disrupted URLs are the checkout redirect paths.
 
 **Links.** Up to `/website-in-china/`. Sideways to `woocommerce-china-store-guide` and `icp-licence-filing-foreign-companies`.
+
+**On publish, correct the sideways target.** `woocommerce-china-store-guide` asserts, in its "at a glance" table and in its "blocked scripts" paragraph, that Google Fonts and Stripe's JavaScript are blocked. Google Fonts is a vantage-point split (F6) and `js.stripe.com` is untested (F42), so both are Do Not Assert as written. The publish step of this piece corrects both passages in en, fr, es and de, changed passages through `/deep-translate`, and moves that guide's `updatedAt`.
 
 **Metadata.**
 ```yaml

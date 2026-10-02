@@ -48,7 +48,7 @@ tier-specific boxes for T2.
 Chinafy covers Mapbox three ways and misses the regulatory layer entirely. The differentiation here is that maps are a licensing question before they are a firewall question: surveying and mapping qualification, the GCJ-02 coordinate offset, and why AMap or Baidu Maps is the answer rather than a faster mirror.
 ```yaml
 title: "Maps in China: Licensing Before Firewall"
-description: "Mapbox telemetry is blocked while its API is intermittent, so the map half loads. But the real constraint is that map data requires a licensed provider."
+description: "Mapbox's API answers and its telemetry host is blocked. The real constraint is older: publishing map data in China needs a licensed provider."
 excerpt: "Why your store locator breaks in China, and why a faster mirror is not the fix."
 ```
 

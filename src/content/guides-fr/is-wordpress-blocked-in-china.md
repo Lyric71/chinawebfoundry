@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-09-11
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -110,7 +110,7 @@ Nous hébergeons les polices en local sur tous nos projets, de toute façon. En 
 
 Le dépôt d'extensions, le dépôt de thèmes et les serveurs de mise à jour du cœur répondent tous depuis la Chine continentale. Ils renvoient aussi un HTTP 429 aux plages d'adresses continentales assez souvent pour qu'un site reste des semaines sans correctif de sécurité.
 
-C'est vrai depuis octobre 2019 au moins, et c'est ce qui a fait naître tout un écosystème de miroirs domestiques. La pièce la plus visible s'appelle WP-China-Yes : le projet redirige les appels de mise à jour et d'installation d'extensions ou de thèmes vers des miroirs continentaux.
+C'est vrai depuis mars 2020 au moins, et c'est ce qui a fait naître tout un écosystème de miroirs domestiques. La pièce la plus visible s'appelle WP-China-Yes : le projet redirige les appels de mise à jour et d'installation d'extensions ou de thèmes vers des miroirs continentaux.
 
 Un site laissé en configuration d'origine ne vous préviendra pas qu'il a cessé de se mettre à jour. Il décroche en silence, ce qui sur WordPress relève de la sécurité plus que du désagrément. Quelqu'un doit ouvrir l'écran des mises à jour et regarder.
 

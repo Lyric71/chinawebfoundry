@@ -48,7 +48,7 @@ tier-specific boxes for T2.
 One article, not four. YouTube, Vimeo, Wistia and Loom in a single piece, because the reader's question is "my video does not play" and not "tell me about Wistia."
 ```yaml
 title: "Video Embeds That Work in China"
-description: "YouTube and Vimeo are blocked, Wistia is slow, Loom is untested. What each does to your page and which Chinese platforms replace them."
+description: "YouTube and Vimeo are blocked, Wistia's last test dates from March, Loom is untested. What each does to a page and what replaces it."
 excerpt: "Why the video on your China page shows an empty box, and the platforms that play instead."
 ```
 

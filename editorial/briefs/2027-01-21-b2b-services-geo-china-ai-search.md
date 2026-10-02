@@ -60,7 +60,7 @@ tier-specific boxes for T3.
 
 **Service line it sells.** GEO China.
 
-**Links.** Money page: `/services/geo-china/`. Sideways to `chinese-ai-search-assistants` and `static-html-and-ai-crawlers`.
+**Links.** Money page: `/services/geo/`. Sideways to `chinese-ai-search-assistants` and `static-html-and-ai-crawlers`.
 
 **Metadata.**
 ```yaml

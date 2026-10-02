@@ -129,7 +129,7 @@ Hong Kong hosting needs no ICP filing. That's the whole appeal, and it's a legit
 
 What you give up is worth naming precisely.
 
-Latency is materially worse from northern and western China than from a mainland origin, because traffic still crosses the border. Performance swings by hour and by carrier, so the number you measure on a Tuesday morning tells you little about Friday night. And Baidu favours sites hosted inside the mainland on a filed domain, which leaves a Hong Kong site climbing uphill in the one search engine you need.
+Latency is materially worse from northern and western China than from a mainland origin, because traffic still crosses the border. Performance swings by hour and by carrier, so the number you measure on a Tuesday morning tells you little about Friday night.
 
 Treat Hong Kong as a bridge. If China matters commercially, budget for the entity and the filing, run Hong Kong while you wait, and put a date on the cutover before somebody discovers it for you.
 
@@ -190,7 +190,7 @@ Only if the CDN provider has mainland points of presence, and that requires your
 The server is the smallest line. The costs that matter are the entity and the filing work, and after launch, the person who looks after the server.
 
 **Does the domain have to be a .cn?**
-No. A .com can be filed. Baidu shows some preference for .cn, but a filed .com on a mainland server is the common and workable setup.
+No. A .com can be filed. A filed .com on a mainland server is the common and workable setup.
 
 **What happens if we host in China without a filing?**
 The ports stay closed and the site doesn't serve. The provider enforces this at the network level. No regulator has to find you first.

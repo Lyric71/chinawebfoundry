@@ -42,6 +42,50 @@ Upgrades (T6) and the money page (M1) still go through steps 1 and 2 (the
 copy is drafted and quality-checked in `output/`), skip step 3 unless the
 work order asks for an image, and their step 4 is an edit to an existing file.
 
+## No run leaves a TODO behind (standing rule, Cyril, 2 October 2026)
+
+A publishing job never leaves a TODO behind: not the research, the draft,
+the quality pass, the image step, the publish run, a catch-up run or the
+notification email. No TODO, FIXME or TBD marker, no "open items", no "for a
+person" or "flags for a person" list, no "Phase 2" deferral, no "carried
+forward". Every item a run finds is closed inside that run:
+
+- **A missing or unverified fact** is researched to the source standard below
+  (two checks, logged in the ledger) or the claim is cut. Never a TODO marker
+  in a body, a table, a caption or frontmatter. The cut is recorded in the run
+  log as a decision taken, not as a question.
+- **An existing page the new piece contradicts** is fixed in the same run, in
+  every locale the page has (changed passages through `/deep-translate`), and
+  its `updatedAt` moves. A flat Do Not Assert claim found on a live page is
+  always fixed in the run that finds it.
+- **A brief, the plan or this spec, proved wrong by the research,** is amended
+  at the source (`PLAN.md`, then `node editorial/scripts/build-briefs.mjs`,
+  which regenerates the briefs and `sources/fact-bank.md`), including every
+  later brief that repeats the error. "For PLAN.md" notes are not written; the
+  correction is made.
+- **A missing link, slug or asset** is created when the destination can be
+  verified. Otherwise the settled fallback applies (SPEC, "Settled fallbacks")
+  and, when the destination is a piece still on the schedule, the run adds an
+  "On publish" instruction to that piece's brief in `PLAN.md` so its own
+  publish step adds the link. A fallback that is not yet in the SPEC is written
+  into it in the same run, so it is never raised again.
+- **A future watch item** (a review date, a recheck, a piece that must carry
+  something back) goes into the repo's own mechanisms: a `reviewBy` date in
+  frontmatter (picked up by `editorial/scripts/review-due.mjs` in every
+  publish run), the `reviewBy` constant in `src/data/chinaDependencies.ts`,
+  or an "On publish" line in the brief of the piece that will act on it. Never
+  into the email and never into a list for a person.
+- **The notification email has no TODO or open items section.**
+  `notify-publish.mjs` refuses to send if one is passed.
+
+If something cannot be closed without Cyril's own decision (a client's
+sign-off, money, a pricing call), the run stops **before publishing** that
+piece: the row goes to `blocked` with the reason in `notes`, nothing of it is
+published, and no partial draft with markers is left in `output/`. A run never
+publishes with a TODO attached. `scripts/check-content.mjs` fails the build,
+and therefore the publish and the push, on any TODO, FIXME, TBD or TKTK marker
+in published content.
+
 ## Every piece goes through /content-quality-us. No exceptions.
 
 Every piece of copy this pipeline produces runs the full 18-pass
@@ -142,7 +186,10 @@ published, in any tier, at any time. Two entries people get wrong:
 No T2 compatibility page and no T4 report publishes without an original
 measurement carrying a named vantage point and a date. If
 `harness/latest.json` has no row for the host the piece is about, the piece
-waits at `blocked` with the note "harness". Do not write around the gap with a
+waits at `blocked` with the note "harness", and the run moves to the next
+clear row. It writes no partial draft and no `TODO: harness measurement`
+marker: the research it did goes into the ledger, where the full draft picks
+it up once the probe has run. Do not write around the gap with a
 GreatFire verdict or a 21YunBox number alone; those are corroboration, not the
 original measurement the plan requires. See `harness/README.md`.
 
@@ -213,6 +260,8 @@ parallelism and reframe constructions in section 3F) are hard rules.
 - **No summary or conclusion section.** End on the CTA.
 - **No "why work with us" paragraph.** No agency self-promotion framing.
 - **No fabricated figures.** If it cannot be sourced, cut the claim.
+- **No TODO left behind.** No marker in any file, no open items in any log or
+  email. See "No run leaves a TODO behind".
 - **No latency figure without a vantage point and a date.**
 - **No competitor motive or outcome.** Describe what is observable about
   Chinafy's directory or AppInChina's pages; never say a cluster "failed" or
@@ -277,11 +326,17 @@ GeeTest (极验), Meiqia (美洽), Jinshuju (金数据), Cravatar (cravatar.cn).
 Every figure gets a blockquote citation with a source name and a date, and
 every latency figure adds its vantage point.
 
-> From an Alibaba Cloud instance in Zhangjiakou on 29 August 2026,
-> fonts.googleapis.com completed 73 of 73 requests at a median 111ms time to
-> first byte. From a Beijing residential line on 28 August 2026 it answered
-> 0 of 54.
-> Source: ChinaWebFoundry measurement, 28 to 29 August 2026
+> From an Alibaba Cloud instance in Zhangjiakou on 28 August 2026,
+> fonts.googleapis.com completed 72 of 72 requests at a median 111ms time to
+> first byte. From a Beijing China Mobile residential line on 30 August 2026
+> it answered 0 of 54.
+> Source: 21YunBox, A Day of Third-Party Requests From Inside China, 28 to 30
+> August 2026
+
+(Corrected 2 October 2026. The example used to say 73 of 73 on 29 August, a
+home line on 28 August, and "ChinaWebFoundry measurement". The ledger's twice
+verified pair is the one above, and it is 21YunBox's measurement, not ours.
+A third party figure is never labelled as ours.)
 
 Nobody in the competitive set publishes a measurement (F45). Doing it is the
 whole differentiator. It is not optional.
@@ -291,8 +346,12 @@ whole differentiator. It is not optional.
 When step 4 finishes, run from the repo root:
 
 ```
-node editorial/scripts/notify-publish.mjs --slug <slug> --title "<title>" --type guide --status published --build passed --check "passed (22 errors, HEAD 22)" --log editorial/logs/YYYY-MM-DD.md --note "<commit hash>" --todo "<any open item>"
+node editorial/scripts/notify-publish.mjs --slug <slug> --title "<title>" --type guide --status published --build passed --check "passed (0 errors, HEAD 0)" --log editorial/logs/YYYY-MM-DD.md --note "<commit hash>"
 ```
+
+There is no `--todo` option. The script refuses to send if one is passed, or
+if `--note` reads as a TODO or open items list: everything was closed before
+the publish, or the piece did not publish.
 
 A piece the build or the check stopped gets `--status held`: the subject reads
 `Held: <title>` and the URLs are labelled as not live. `npx astro check` passes
@@ -305,7 +364,7 @@ sends one email through Resend (key in `.env`) to cyril.drouin@outlook.com
 (the only address Resend's testing mode can deliver to; switch `DEFAULT_TO`
 in the script to gmail once a sending domain is verified at
 resend.com/domains) with the live URL per locale, the hero image path, build
-status, open TODOs and the run log path. Add `--dry-run` to preview. If the
+status and the run log path. Add `--dry-run` to preview. If the
 send fails, say so in the run log and the final message instead of skipping
 silently.
 

@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-09-11
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -110,7 +110,7 @@ Nosotros alojamos las tipografías en local en todos los proyectos, en cualquier
 
 El repositorio de plugins, el de temas y los servidores de actualización del núcleo responden todos desde China continental. También devuelven un HTTP 429 a los rangos de direcciones continentales con la frecuencia suficiente para que un sitio pase semanas sin recibir un parche de seguridad.
 
-Así ocurre desde octubre de 2019 como mínimo, y de ahí que haya crecido todo un ecosistema de réplicas domésticas. La pieza más visible es el proyecto WP-China-Yes, que redirige las llamadas de actualización y de instalación de plugins y temas hacia servidores espejo situados en el continente.
+Así ocurre desde marzo de 2020 como mínimo, y de ahí que haya crecido todo un ecosistema de réplicas domésticas. La pieza más visible es el proyecto WP-China-Yes, que redirige las llamadas de actualización y de instalación de plugins y temas hacia servidores espejo situados en el continente.
 
 Un sitio dejado en su configuración de origen no le avisará de que ha dejado de actualizarse. Se va quedando atrás en silencio, lo que en WordPress es un asunto de seguridad más que una molestia. Alguien tiene que abrir la pantalla de actualizaciones y mirar.
 

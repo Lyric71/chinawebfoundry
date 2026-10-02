@@ -2,6 +2,13 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
+// The content layer caches rendered markdown and clears that cache only when
+// this file or the serialisable part of astro.config.mjs changes. A change to
+// what a remark or rehype plugin emits (src/lib/rehypeTableWrapper.mjs) is
+// invisible to it, so record such a change here to force a full re-render on
+// every machine and on Vercel. Last plugin change: 2026-10-02, case study
+// tables wrapped at build time.
+
 const services = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
   schema: z.object({

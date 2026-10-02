@@ -114,6 +114,13 @@ body-with-tables counts at the end, then land on target.
 
 Being 10% under is fine. Being 25% under means a section was skipped.
 
+**The target counts narrative prose.** Blockquote citations and table cells
+are reported separately and do not count against the target, because the
+house citation format and the measurement tables are mandatory apparatus, not
+padding (settled 2 October 2026, after A9 and A5 each ran about 45% over on
+the body total while their narrative sat on target, and T2-05 did the same).
+A piece is over length only when its narrative is more than 10% over.
+
 T2 pages are 700 to 1,000 words. They are answers, not essays.
 
 ## Tables
@@ -124,13 +131,17 @@ Minimum two per article, except T2 pages, which need one.
 2. A topical table inside the densest section.
 
 Markdown tables only. Keep columns aligned in the source. No nested tables, no
-merged cells, no more than five columns in an article. T4 report tables are
+merged cells, no more than five columns in a prose table and six in a
+measurement table (the measurement row below needs six fields). T4 report tables are
 the exception and carry the columns the brief specifies.
 
 **Measurement tables** carry, per row: the host or site, the datacenter figure,
 the consumer figure, completions as "n of m" (never a percentage from three
-attempts), the verdict from the five-value set (reachable, slow, answers then
-stalls, intermittent, blocked), and the test date. The two vantage points are
+attempts), the verdict from the six-value set (reachable, slow, answers then
+stalls, intermittent, blocked, splits by vantage point), and the test date.
+"Splits by vantage point" is for a host that gives opposite answers from a
+datacentre and from a home line on the same days (Google Tag Manager, AWS
+CloudFront, unpkg, Google Fonts); it is not "intermittent". The two vantage points are
 separate columns, never averaged.
 
 ## Citations
@@ -255,7 +266,8 @@ SCREENSHOTS: <what to capture, what to blur>
 DOWNLOADS: <file, format, gate or no gate>
 INTERNAL LINKS: <anchor text> -> <canonical English path>, one per line
 LOCALIZED SLUGS: fr <slug> · es <slug> · de <slug> (from the brief, or "none" for en-only tiers)
-CLIENT SIGN-OFF NEEDED: <any client figure or name used>
+CLIENT SIGN-OFF ON RECORD: <where in editorial/ the sign-off for each client figure or name is recorded, or "none needed">
+LINK SUBSTITUTIONS: <wanted slug> -> <slug used>, and the brief that now carries the "On publish" line, or "none"
 HARNESS ROWS CITED: <host, run_id, vantage> one per line, or "none"
 -->
 ```
@@ -344,7 +356,9 @@ Verify each by counting or checking, not by assuming.
 - [ ] content-quality-us run, all 18 passes shown.
 - [ ] Hero image generated, checked visually, converted, saved under 1050px and 350KB.
 - [ ] `schedule.csv` row updated with status and the dates.
-- [ ] `logs/YYYY-MM-DD.md` written.
+- [ ] `logs/YYYY-MM-DD.md` written, with no open items, flags for a person or "for PLAN.md" section.
+- [ ] Zero TODO, FIXME, TBD or TKTK markers: `node scripts/check-content.mjs editorial/output/<slug>.md` passes, run from the repo root.
+- [ ] Every correction the research found is made at its source in the same run: live pages fixed, `PLAN.md` corrected and `build-briefs.mjs` rerun.
 
 **Articles, T1 T2 T5**
 - [ ] One link up to a money or service page, two sideways to siblings, all inside existing sentences.
@@ -363,7 +377,7 @@ Verify each by counting or checking, not by assuming.
 - [ ] All six template sections present, in order.
 - [ ] At least one before and one after figure, each with a named Chinese network or cloud region and a date.
 - [ ] A named friction item.
-- [ ] Client named, or anonymized with the reason stated. `TODO: client sign-off` left where sign-off is missing.
+- [ ] Client named, or anonymized with the reason stated. Every client figure and name has its sign-off on record in `editorial/`. Without it the row is `blocked`, not drafted with markers.
 
 **T4 only**
 - [ ] Method stated before any finding.
@@ -376,21 +390,40 @@ Verify each by counting or checking, not by assuming.
 - [ ] Zero new URLs. Sitemap entry count identical before and after the build.
 - [ ] The work order's own acceptance criteria all pass.
 
-## When to stop and ask
+## When to stop, and what is never left behind
 
-Draft without pausing, with five exceptions. In each case, write the draft up
-to that point, leave a clear marker, and flag it in the log.
+Draft without pausing. Nothing a run finds is left as a marker, a flag or an
+open item; `CLAUDE.md` ("No run leaves a TODO behind") is the rule. The
+cases that used to leave markers are settled as follows.
 
-1. **A required figure cannot be sourced.** Cut the claim, mark
-   `TODO: unsourced claim removed`, and say which section is now thinner.
-2. **A T2 or T4 piece has no harness row for its subject.** Draft everything
-   that does not depend on the measurement, leave `TODO: harness measurement`
-   where the figure goes, set the row to `blocked` with note "harness". Do
-   not publish.
-3. **A client figure or name is needed and not cleared.** Mark
-   `TODO: client sign-off` and leave the sentence incomplete rather than
-   estimating.
-4. **The brief conflicts with what the site actually says.** The site wins.
-   Note the conflict so the brief and PLAN.md can be corrected.
-5. **A T6 work order would create a URL.** Stop. It was written wrong. Flag it
-   and do not build it.
+1. **A required figure cannot be sourced.** Cut the claim and log the cut. If
+   the section no longer stands, rewrite or drop it in the same run.
+2. **A T2 or T4 piece has no harness row for its subject.** Do not draft it.
+   Set the row to `blocked` with note "harness", put any research done into
+   the ledger, and move to the next clear row. Do not publish.
+3. **A client figure or name is needed and not cleared.** That is Cyril's
+   decision. Set the row to `blocked` with note "client sign-off" and the
+   figures it waits on, leave no partial draft, and do not publish. Never
+   estimate a client figure.
+4. **The brief conflicts with what the site actually says.** The site wins,
+   unless the site is the one that is wrong: then the site is fixed in the
+   same run. Either way the brief is corrected at the source, in `PLAN.md`,
+   and `build-briefs.mjs` is rerun.
+5. **A T6 work order would create a URL.** Stop that work order, set the row
+   to `blocked` with the reason, and correct the work order in `PLAN.md` so
+   it creates no URL. Do not build the URL.
+
+## Settled fallbacks
+
+Each of these was raised by a run at least once. They are decided; apply
+them and do not raise them again.
+
+| Situation | Fallback |
+|---|---|
+| A brief's link target does not exist and is not on the schedule | Link the closest live page on the same subject. Record it under LINK SUBSTITUTIONS in the asset brief. |
+| A brief's link target is a piece still on the schedule | As above, and add an "On publish" line to that piece's brief in `PLAN.md` (then rerun `build-briefs.mjs`) so its publish step adds or repoints the link in every locale. |
+| A work order's acceptance criterion names a page that does not exist | Meet it with the closest live page, inside an existing sentence where one fits (a link on existing words needs no translation pass). Record the substitution; the criterion counts as met by substitution. |
+| A work order asks for a calendar reminder or a later recheck | A `reviewBy` date in frontmatter (guides) or the `reviewBy` constant in `src/data/chinaDependencies.ts`. `editorial/scripts/review-due.mjs` surfaces it in every publish run. |
+| A row of `src/data/chinaDependencies.ts` moves into or out of `untested` | The "Not yet probed" paragraph in `great-firewall-what-it-blocks` is hand written in four locales; the same run edits it in all four, through `/deep-translate`. |
+| Whose figure it is | A third party's unless it came out of `editorial/harness/`. Never label a 21YunBox or GreatFire figure as a ChinaWebFoundry measurement. |
+| A published page promises a figure "in a case study this autumn" | The case study's brief carries an "On publish" line that fills the figure in on every page that promises it. |

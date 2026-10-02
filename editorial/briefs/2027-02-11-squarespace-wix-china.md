@@ -53,14 +53,14 @@ tier-specific boxes for T2.
 | **Incumbent** | Chinafy blog and AppInChina on both halves. Thin, undated numbers, no method. |
 | **Length** | 950 words |
 
-**Angle.** Same migration framing as T2-11, but the two platforms fail differently and the article earns its length by saying so instead of averaging them. Wix is the stronger half of the measurement: 532ms to first byte and then 0 of 3 completions, and frequently no response at all (F38). Squarespace shows the same HTTP versus HTTPS split as Webflow, GreatFire 2026-08-21. Wix is therefore the cleaner story and belongs first, which also inverts the query order and gives the page a structure no competitor has. Underneath both sits the same wall as T2-11: neither platform lets you control the origin, so neither can be filed.
+**Angle.** Same migration framing as T2-11, but the two platforms fail differently and the article earns its length by saying so instead of averaging them. Wix is the stronger half of the measurement: 532ms to first byte and then 0 of 3 completions, and frequently no response at all (F38). Squarespace does not fail the same way: `www.squarespace.com` read not blocked on GreatFire's two recent conclusive tests, 12 September 2026, so the HTTP versus HTTPS split that still describes Webflow is not the Squarespace story (F38). Wix is therefore the cleaner story and belongs first, which also inverts the query order and gives the page a structure no competitor has. Underneath both sits the same wall as T2-11: neither platform lets you control the origin, so neither can be filed.
 
 **Facts.** F38 (lead, both halves), F33 (the answers-then-hangs failure mode, which is what a 532ms first byte with no completion actually is), F9, F25, F26, F32, F45.
 
 **Outline.**
 1. Two platforms, two verdicts, stated up front and not blended
 2. Wix: what 532ms then nothing looks like to a visitor in Shanghai (F38, F33)
-3. Squarespace: the protocol split, and why the HTTP number reassures nobody who reads it correctly (F38)
+3. Squarespace: reachable on GreatFire's latest tests, and why reachable is not the same as fileable (F38, F9)
 4. The measurement table, dated, with vantage points named per row
 5. Why neither can be fixed with a CDN or a plugin: the filing constraint (F9, F25, F26)
 6. What migration looks like from each, and what carries over (content, design system, forms, redirects)
@@ -73,7 +73,7 @@ tier-specific boxes for T2.
 **Metadata.**
 ```yaml
 title: "Squarespace and Wix in China, Measured"           # 38 / 52
-description: "Wix answers in 532ms and never finishes. Squarespace splits HTTP from HTTPS. Both fail the ICP filing test, and that failure is the fatal one."  # 142 / 152
+description: "Wix answers in 532ms and never finishes. Squarespace is reachable. Both fail the ICP filing test, and that failure is the fatal one."  # 132 / 152
 excerpt: "Two builders, two failure modes, one filing problem neither can solve. What we measured from Beijing, and where migration goes."  # 20 / 25 words
 ```
 

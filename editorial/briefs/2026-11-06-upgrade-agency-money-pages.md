@@ -9,7 +9,7 @@ slot_job: upgrade or report
 slug: upgrade-agency-money-pages
 title: "FAQ schema and hard numbers on the two agency money pages"
 locales_at_publish: as the page exists
-facts: [F25, F26, F31, F32, F46]
+facts: [F6, F25, F26, F31, F32, F46]
 status: not_started
 ---
 
@@ -51,13 +51,14 @@ tier-specific boxes for T6.
 
 **Why.** These are the two pages that carry the commercial intent for the primary keyword set, and both currently argue without evidence. One specific, sourced figure per section is the cheapest available upgrade to both conversion and retrievability, since F46 notes a preference for entity density and specific figures. FAQ schema on a commercial page also captures the procurement questions buyers type verbatim.
 
-**What to change.** For each H2 section on both pages, add exactly one figure with a source and a date. Draw from F26 for filing timelines including the 10 to 30 working day published range against the realistic three to six weeks, F25 for the ports constraint, F32 for delivery outcomes, and F31 for the market context, cited with attribution as a vendor benchmark. Add FAQ schema to each page covering five to six procurement questions. Make sure the two pages do not use the same figures in the same order, because near-identical commercial pages under the same brand invite the same passage-level dedupe the T2 tier is designed to avoid.
+**What to change.** For each H2 section on both pages, add exactly one figure with a source and a date. Draw from F26 for filing timelines including the provider's published review windows (1 to 2 working days, then generally 1 to 20) against the realistic three to six weeks, F25 for the ports constraint, F32 for delivery outcomes, and F31 for the market context, cited with attribution as a vendor benchmark. Add FAQ schema to each page covering five to six procurement questions. Make sure the two pages do not use the same figures in the same order, because near-identical commercial pages under the same brand invite the same passage-level dedupe the T2 tier is designed to avoid.
 
 **Acceptance criteria.**
 - [ ] Every H2 section on both pages contains at least one figure with a named source and date.
 - [ ] No figure appears on both pages in the same section position.
 - [ ] The F31 citation names Chinafy as the source and identifies it as a vendor benchmark.
 - [ ] No figure from the Do Not Assert list appears, verified by grep for "93%" and "44% of resources".
+- [ ] No flat Google Fonts verdict remains on `/wordpress-agency-china/` in any locale. On 2 October 2026 the page said Google Fonts is blocked in three places: the resource table entry, the FAQ answer listing "Google Fonts, reCAPTCHA, Gravatar and other blocked services", and the opening passage ending "The Great Firewall blocks all 3". Restate each per F6 (resolves from mainland datacenters, frequently fails on consumer lines, so self-host) or cut Google Fonts from the list, in en, fr, es and de, changed passages through `/deep-translate`.
 - [ ] FAQ JSON-LD validates with zero errors on both pages in all four locales.
 - [ ] Every schema answer appears verbatim in visible copy.
 - [ ] No URL, canonical or hreflang change in the deploy diff.

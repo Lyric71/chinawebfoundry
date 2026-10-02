@@ -11,7 +11,7 @@ title: "WordPress Plugins That Break in China"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F1, F2, F3, F4, F6, F7, F10, F11, F17, F18]
-status: not_started
+status: published
 ---
 
 ## How to run this brief

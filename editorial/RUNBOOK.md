@@ -38,8 +38,8 @@ Publish wordpress-plugins-china
    and verified twice.
 6. For T2 and T4, reads `harness/latest.json` for the hosts the piece
    covers. No row means the piece is `blocked` with note "harness", and
-   Claude drafts everything that does not depend on the measurement, leaves
-   `TODO: harness measurement` markers, and moves to the next clear row.
+   Claude moves to the next clear row. No partial draft and no marker is
+   left in `output/`; any research already done goes into the ledger.
 7. Researches anything still missing. Validates each source (check 1: fetch
    the page, confirm figure, unit, period, date). Writes the research note
    into the run log. No body copy before this.
@@ -60,7 +60,11 @@ Publish wordpress-plugins-china
     dates.
 12. Updates the `schedule.csv` row: status `image_ready`, with `drafted_on`,
     `quality_passed_on` and `image_generated_on` filled.
-13. Writes `logs/YYYY-MM-DD.md`.
+13. Writes `logs/YYYY-MM-DD.md`. The log records what was done and every
+    decision taken. It has no "open items", "flags for a person" or "for
+    PLAN.md" section: each of those is closed in the run, as `CLAUDE.md`
+    ("No run leaves a TODO behind") sets out, or the row is `blocked` with
+    the reason in `notes`.
 
 Then it stops. A person reviews the draft (see below), or the 05:30 publish
 task picks it up.
@@ -90,6 +94,15 @@ mapping is in `SPEC.md`. In short:
   registering slugs. Same rule: main conversation, no subagent, three passes
   per locale, step by step.
 
+Every publish run also runs `node editorial/scripts/review-due.mjs`. Any page
+it lists has passed its `reviewBy` date (or the dependency dataset has), and
+the run rechecks it before it finishes: every dated figure on the page is
+re-fetched against its source, updated or cut, the changed passages go
+through `/deep-translate` in every locale, and `updatedAt` and `reviewBy`
+move (`reviewBy` to the oldest cited test date plus 90 days). The recheck
+ships in the same commit as the piece, or in its own `fix(guide): recheck
+<slug>` commit when no piece is due.
+
 Then, in this order, and only when each step passes: `npm run build`,
 `npx astro check`, `git add` of everything the piece touched (content in
 every locale, image, `src/i18n/routes.ts` if changed, `editorial/output`,
@@ -112,16 +125,24 @@ commit, no push, the row stays at `image_ready`, and the email goes out with
 `--status held`. Vercel deploys from main,
 so the push is what puts the piece live.
 
+`npm run build` runs `scripts/check-content.mjs` first: a TODO, FIXME, TBD
+or TKTK marker anywhere in `src/content/` fails the build, so it fails the
+publish and the pre-push hook too. Run it on the draft as well before
+publishing: `node scripts/check-content.mjs editorial/output/<slug>.md`.
+
 After a successful push, run `npm run indexnow` once the deploy is live so
-Bing and the IndexNow engines pick the URL up.
+Bing and the IndexNow engines pick the URL up. The script reads the sitemap
+from `.vercel/output/static/` or `dist/client/`, where the Astro 7 build
+writes it.
 
 When the publish finishes, Claude runs `editorial/scripts/notify-publish.mjs`
 from the repo root. It sends one email through Resend to
 cyril.drouin@outlook.com (Resend testing mode delivers only to the account
 owner; verify a domain at resend.com/domains, then change `FROM` and
 `DEFAULT_TO` in the script to use gmail): subject `Published: <title>` (`Held: <title>` with `--status held`), body
-with the live URL per locale, the image path, build and check status, open TODOs and
-the run log path. `RESEND_API_KEY` is already in `.env`. If the send fails,
+with the live URL per locale, the image path, build and check status and
+the run log path. The email carries no TODO or open items section; the script
+refuses `--todo`. `RESEND_API_KEY` is already in `.env`. If the send fails,
 Claude says so instead of skipping silently.
 
 Nothing publishes itself outside the two paths (a spoken "Publish" or the
@@ -210,10 +231,15 @@ setting, the article's subject on a screen.
 
 | Problem | What to do |
 |---|---|
-| A figure cannot be sourced | Claude cuts the claim and marks it. Decide whether the section still stands. |
+| A figure cannot be sourced | Claude cuts the claim and logs the cut. If the section no longer stands without it, Claude rewrites or drops the section in the same run. No marker is left in the file. |
+| A brief names a link target that does not exist | Settled fallback in SPEC: link the closest live page on the same subject. If the target is on the schedule, Claude adds an "On publish" line to that piece's brief in `PLAN.md` and reruns `build-briefs.mjs`, so the later publish adds the link. |
+| The research contradicts a live page | Claude fixes the live page in the same run, every locale, `updatedAt` moved. A Do Not Assert claim on a live page is always fixed when found. |
+| The research proves the fact bank or a brief wrong | Claude corrects `PLAN.md` (section 4 for facts) and reruns `node editorial/scripts/build-briefs.mjs`, which rewrites the fact bank and every brief. Later briefs repeating the error are corrected in the same edit. |
+| A page has passed its `reviewBy` date | `review-due.mjs` lists it; the publish run rechecks it the same day (see "Publishing a reviewed draft"). |
 | A source fails check 2 (page changed or gone) | Claude fixes the blockquote or cuts the claim. Never ship a citation that failed re-fetch. |
-| A T2 or T4 piece has no harness row | Row goes `blocked`, note "harness". Run the probe, then `Draft brief T2-0x` again. |
-| A client number or name is missing | Claude leaves `TODO: client sign-off`. Chase it, do not guess. |
+| A T2 or T4 piece has no harness row | Row goes `blocked`, note "harness". No partial draft. Run the probe, then `Draft brief T2-0x`. |
+| A TODO, FIXME or TBD reaches `src/content/` | The build fails on `scripts/check-content.mjs`. Close the item (source it or cut it), never delete the marker alone. |
+| A client number or name is missing | Cyril's decision, so the row goes to `blocked` with note "client sign-off" and nothing of it is published. Claude leaves no marker and no partial draft. Once the sign-off is on record in `editorial/`, say `Draft brief T3-0x`. |
 | Claude planted a typo | It ignored `CLAUDE.md` and the house skill. Point at the conflict section and rerun iteration 7. |
 | The draft reads generic | The angle field was skipped. Rerun with `Reread the angle in the brief and rewrite.` |
 | The draft says "WordPress agency" in a title or H1 | Stack neutrality rule. Rewrite the field; the positioning word is "web agency". |
@@ -228,6 +254,7 @@ setting, the article's subject on a screen.
 | A T1 locale page publishes with an English slug | `guideSlugs` in `src/i18n/routes.ts` was not updated. Add the entry, rebuild, recommit. |
 | A T6 upgrade added a URL | The work order was built wrong. Revert the URL. Zero new URLs is the rule. |
 | No publish email arrived | Run the notify script again with `--dry-run` to see the payload, then without it. Check `RESEND_API_KEY` in `.env`. |
+| The notify script refuses to send ("TODO") | A run tried to email an open item. Close the item in the repo, then send without it. |
 
 ## Automating it
 

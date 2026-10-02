@@ -6,7 +6,7 @@ visual: "/images/guides/choosing-web-agency-china.webp"
 order: 33
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-08-29
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -73,7 +73,7 @@ Dos de ellas bastan para descartar a un candidato.
 
 **Una página de casos sin casos.** Más frecuente de lo que uno esperaría. Varias agencias de este mercado publican decenas de URL de casos de éxito que los buscadores ven y los visitantes no pueden abrir.
 
-El resto son señales más tenues y se acumulan. Un logotipo en la pared no prueba nada mientras no haya un proyecto detrás, así que pregunte qué sitio y cuándo. Si el reparto de servicios que la propia agencia publica sitúa el diseño y el desarrollo web en un cinco o un diez por ciento de su actividad, el sitio no es lo que vende, y usted lo notará en el segundo mes. Y si sus textos siguen afirmando que Google Fonts está bloqueado en China, tome nota: no lo está, y hace tiempo que no lo está. Una empresa que escribe sobre hechos técnicos actuales debería manejar hechos técnicos actuales.
+El resto son señales más tenues y se acumulan. Un logotipo en la pared no prueba nada mientras no haya un proyecto detrás, así que pregunte qué sitio y cuándo. Si el reparto de servicios que la propia agencia publica sitúa el diseño y el desarrollo web en un cinco o un diez por ciento de su actividad, el sitio no es lo que vende, y usted lo notará en el segundo mes.
 
 ## Cómo se fija el precio de estos encargos
 

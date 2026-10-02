@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-09-25
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -56,7 +56,7 @@ Les entreprises étrangères fixent leur attention sur la dimension politique du
 | Presse | New York Times, Wall Street Journal, BBC |
 | Encyclopédie | Wikipédia (édition chinoise) |
 
-Depuis une connexion en Chine continentale, la recherche Google, Gmail, Maps, YouTube et Google Ads sont inutilisables. Pour un site web, c'est Google Analytics qui compte ; il figure dans le tableau plus bas avec sa date de test, comme tout ce qui figure sur cette page. Le dernier test GreatFire en échec sur `www.google-analytics.com` date du 24 juillet 2026. Une balise déclenchée depuis une page en Chine envoie une requête de mesure qui n'arrive jamais : les données sont perdues, que le script du conteneur se soit chargé ou non.
+Depuis une connexion en Chine continentale, la recherche Google, Gmail, Maps, YouTube et Google Ads sont inutilisables. Pour un site web, c'est [Google Analytics](/fr/ressources/guide-web-chine/google-analytics-chine/) qui compte ; il figure dans le tableau plus bas avec sa date de test, comme tout ce qui figure sur cette page. Le dernier test GreatFire en échec sur `www.google-analytics.com` date du 24 juillet 2026. Une balise déclenchée depuis une page en Chine envoie une requête de mesure qui n'arrive jamais : les données sont perdues, que le script du conteneur se soit chargé ou non.
 
 Google Fonts fait figure d'exception, et les erreurs à son sujet vont dans les deux sens. Il mérite donc quelques lignes de plus.
 

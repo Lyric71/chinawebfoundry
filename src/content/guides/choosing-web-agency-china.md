@@ -6,7 +6,7 @@ visual: "/images/guides/choosing-web-agency-china.webp"
 order: 33
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-08-29
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -73,7 +73,7 @@ Two of these are disqualifying on their own.
 
 **A case study page with no case studies.** More common than you'd expect. Several agencies in this market publish dozens of case study URLs that search engines can see and visitors can't open.
 
-The rest are softer, and they accumulate. Logos on a wall prove nothing without a project behind them, so ask which site and when. If the agency's own published service mix puts web design and development at five or ten percent of what it does, the website isn't the thing it sells, and you'll feel that in month two. And if the copy still says Google Fonts is blocked in China, take note: it isn't, and hasn't been for a while. A company writing about current technical facts should have current technical facts.
+The rest are softer, and they accumulate. Logos on a wall prove nothing without a project behind them, so ask which site and when. If the agency's own published service mix puts web design and development at five or ten percent of what it does, the website isn't the thing it sells, and you'll feel that in month two.
 
 ## How these engagements get priced
 

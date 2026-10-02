@@ -61,7 +61,9 @@ tier-specific boxes for T3.
 
 **Service line it sells.** China Hosting.
 
-**Links.** Money page: `/services/china-hosting/`. Sideways to `china-hosting-comparison` and `no-managed-wordpress-in-china`.
+**Links.** Money page: `/services/china-hosting/`. Sideways to `host-website-in-china` and `wordpress-hosting-china` (the brief once named `china-hosting-comparison` and `no-managed-wordpress-in-china`, which do not exist; `wordpress-hosting-china` carries the no managed WordPress section).
+
+**On publish, carry the conditions back.** This study publishes the carriers, monitoring interval and window behind 99.98% over 90 days and the 48ms, 36ms and 61ms figures (F32). The same four pages named in T3-01's brief say those conditions are still to come. The publish step of this piece fills them in on every page and locale in the same run, through `/deep-translate` for the changed passages, and moves each page's `updatedAt`.
 
 **Metadata.**
 ```yaml

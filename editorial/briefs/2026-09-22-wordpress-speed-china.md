@@ -11,7 +11,7 @@ title: "Why Your WordPress Site Is Slow in China"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F1, F7, F25, F30, F31, F32]
-status: not_started
+status: published
 ---
 
 ## How to run this brief

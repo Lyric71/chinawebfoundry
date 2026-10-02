@@ -129,7 +129,7 @@ El alojamiento en Hong Kong no requiere registro ICP. Ese es todo su atractivo, 
 
 Conviene nombrar con precisión aquello a lo que renuncia.
 
-La latencia empeora de forma apreciable desde el norte y el oeste de China frente a un origen continental, porque el tráfico sigue cruzando la frontera. El rendimiento oscila según la hora y según el operador, de manera que la medición de un martes por la mañana dice poco sobre un viernes por la noche. Y Baidu favorece a los sitios alojados en el continente bajo un dominio registrado, lo que deja a un sitio hongkonés subiendo cuesta arriba en el único buscador que le interesa.
+La latencia empeora de forma apreciable desde el norte y el oeste de China frente a un origen continental, porque el tráfico sigue cruzando la frontera. El rendimiento oscila según la hora y según el operador, de manera que la medición de un martes por la mañana dice poco sobre un viernes por la noche.
 
 Trate Hong Kong como un puente. Si China cuenta comercialmente, presupueste la entidad y el registro, mantenga Hong Kong mientras tanto y fije una fecha de migración antes de que se la fije la realidad.
 
@@ -190,7 +190,7 @@ Solo si el proveedor dispone de puntos de presencia en el continente, y eso exig
 El servidor es la partida más pequeña. Los costes que importan son la entidad y el trabajo de registro y, después del lanzamiento, la persona que se ocupa del servidor.
 
 **¿El dominio tiene que ser un .cn?**
-No. Un .com puede registrarse. Baidu muestra cierta preferencia por el .cn, pero un .com registrado sobre un servidor continental es el montaje habitual y funciona.
+No. Un .com puede registrarse. Un .com registrado sobre un servidor continental es el montaje habitual y funciona.
 
 **¿Qué ocurre si alojamos en China sin registro?**
 Los puertos siguen cerrados y el sitio no se sirve. El proveedor aplica la norma a nivel de red. Ningún regulador necesita descubrirle.

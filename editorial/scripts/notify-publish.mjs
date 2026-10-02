@@ -11,7 +11,13 @@
  *        [--to <email>] [--image /images/guides/<slug>.webp]
  *        [--status published|held] [--build passed|failed] [--check "<result>"]
  *        [--log editorial/logs/YYYY-MM-DD.md]
- *        [--todo "<text>"]... [--note "<text>"] [--dry-run]
+ *        [--note "<text>"] [--dry-run]
+ *
+ * There is no --todo option, by rule (editorial/CLAUDE.md, "No run leaves a
+ * TODO behind"). A publish email never carries open items: everything a run
+ * finds is closed before the publish, or the piece does not publish. Passing
+ * --todo (or --open, --followup), or a --note that reads as a TODO or open
+ * items list, makes the script refuse to send and exit 2.
  *
  * --status held is for a piece the build or the check stopped: the subject and
  * heading read "Held:" instead of "Published:", and the URLs are labelled as
@@ -53,16 +59,28 @@ function loadEnv() {
   }
 }
 
+// Flags that would carry an open item into the email. Refused outright.
+const REFUSED_FLAGS = new Set(['todo', 'todos', 'open', 'open-item', 'open-items', 'followup', 'follow-up']);
+// A note that smuggles the same list in. Matched on the note text only.
+const OPEN_ITEM_MARKER = /(?<![A-Za-z0-9])(TODO|FIXME|TBD|TKTK)(?![A-Za-z0-9])/;
+const OPEN_ITEM_PHRASE = /\bopen items?\b|\bfollow[- ]?ups?\b|\bfor a person\b|\bstill open\b|\bcarried (forward|over)\b|\bphase 2\b/i;
+const readsAsOpenItem = (s) => OPEN_ITEM_MARKER.test(s) || OPEN_ITEM_PHRASE.test(s);
+
 function parseArgs(argv) {
-  const out = { todo: [], url: [] };
+  const out = { url: [], refused: [] };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (!a.startsWith('--')) continue;
     const key = a.slice(2);
     if (key === 'dry-run') { out.dryRun = true; continue; }
     const val = argv[i + 1];
-    if (val === undefined || val.startsWith('--')) { out[key] = true; continue; }
-    if (key === 'todo' || key === 'url') out[key].push(val); else out[key] = val;
+    if (val === undefined || val.startsWith('--')) {
+      if (REFUSED_FLAGS.has(key)) out.refused.push(`--${key}`); else out[key] = true;
+      continue;
+    }
+    if (REFUSED_FLAGS.has(key)) out.refused.push(`--${key} "${val}"`);
+    else if (key === 'url') out.url.push(val);
+    else out[key] = val;
     i++;
   }
   return out;
@@ -160,6 +178,13 @@ async function main() {
     console.error('Usage: node editorial/scripts/notify-publish.mjs --slug <slug> --title "<title>" [options]');
     process.exit(2);
   }
+  if (args.refused.length || (args.note && readsAsOpenItem(String(args.note)))) {
+    console.error('Refused: a publish email carries no TODO or open items (editorial/CLAUDE.md, "No run leaves a TODO behind").');
+    for (const r of args.refused) console.error(`  ${r}`);
+    if (args.note && readsAsOpenItem(String(args.note))) console.error(`  --note "${args.note}"`);
+    console.error('Close each item in the repo (source it or cut it, fix the live page, correct PLAN.md, set a reviewBy date), or hold the piece, then send without it.');
+    process.exit(2);
+  }
   const type = args.type || 'guide';
   const held = args.status === 'held';
   const verb = held ? 'Held' : 'Published';
@@ -187,7 +212,6 @@ async function main() {
     `Run log: ${args.log || 'not reported'}`,
   ];
   if (warnings.length) lines.push('', 'Warnings:', ...warnings.map((w) => `  - ${w}`));
-  if (args.todo.length) lines.push('', 'Open TODOs:', ...args.todo.map((t) => `  - ${t}`));
   if (args.note) lines.push('', `Note: ${args.note}`);
   const text = lines.join('\n');
 
@@ -207,7 +231,6 @@ async function main() {
     ${row('Run log', esc(args.log || 'not reported'))}
   </table>
   ${warnings.length ? `<p style="font-size:14px;margin:24px 0 8px;color:#B91C1C;">Warnings</p><ul style="font-size:14px;line-height:1.6;margin:0;padding-left:20px;">${warnings.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>` : ''}
-  ${args.todo.length ? `<p style="font-size:14px;margin:24px 0 8px;color:#5C5C5C;">Open TODOs</p><ul style="font-size:14px;line-height:1.6;margin:0;padding-left:20px;">${args.todo.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
   ${args.note ? `<p style="font-size:14px;line-height:1.6;margin:24px 0 0;">${esc(args.note)}</p>` : ''}
 </div>`;
 

@@ -141,6 +141,13 @@ Guide heroes go to `public/images/guides/<slug>.webp`, max 1050px, under
 `editorial/harness/`. Nothing on the Do Not Assert list in
 `editorial/sources/fact-bank.md` gets published, ever.
 
+No publishing job leaves a TODO behind (Cyril, 2 October 2026): no marker in
+any file, no "open items" or "for a person" list in a log, nothing deferred
+to a later phase, no TODO section in the email. Every finding is closed in
+the run that finds it, or the piece stops before publishing. The full rule is
+"No run leaves a TODO behind" in `editorial/CLAUDE.md`;
+`scripts/check-content.mjs` fails the build on a marker in published content.
+
 Three standing rules from Cyril, carried over from TheRedScroll: when the
 runbook asks for something the repo cannot do, use what the repo has and log
 the substitution. Every pipeline step runs on the most capable model

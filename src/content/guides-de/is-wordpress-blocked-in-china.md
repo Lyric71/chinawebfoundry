@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-09-11
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -110,7 +110,7 @@ Wir hosten Schriften ohnehin bei jedem Projekt lokal. Teils aus dem eben genannt
 
 Das Plugin-Verzeichnis, das Theme-Verzeichnis und die Update-Server für den Core antworten alle aus Festlandchina. Sie geben aber gegenüber Festland-IP-Bereichen so oft ein HTTP 429 zurück, dass eine Website wochenlang ohne Sicherheitspatch dastehen kann.
 
-Das gilt mindestens seit Oktober 2019, und deshalb ist ein ganzes Ökosystem inländischer Spiegelserver entstanden. Das sichtbarste Stück ist das Projekt WP-China-Yes, das Aufrufe für Updates sowie für Plugin- und Theme-Installationen auf Festland-Spiegel umleitet.
+Das gilt mindestens seit März 2020, und deshalb ist ein ganzes Ökosystem inländischer Spiegelserver entstanden. Das sichtbarste Stück ist das Projekt WP-China-Yes, das Aufrufe für Updates sowie für Plugin- und Theme-Installationen auf Festland-Spiegel umleitet.
 
 Eine Website in Werkseinstellung sagt Ihnen nicht, dass sie sich nicht mehr aktualisiert. Sie fällt still zurück, und das ist bei WordPress ein Sicherheitsproblem und keine Unannehmlichkeit. Jemand muss die Update-Seite öffnen und nachsehen.
 

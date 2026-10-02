@@ -11,7 +11,8 @@
  * build is detected as stale (its PID is no longer alive) and cleared.
  *
  * Also clears stale .vercel/output before the adapter writes a fresh copy
- * (previously the package.json `prebuild` script).
+ * (previously the package.json `prebuild` script), and refuses to build at
+ * all when published content carries a TODO marker (scripts/check-content.mjs).
  */
 import { existsSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -47,12 +48,24 @@ writeFileSync(LOCK, String(process.pid));
 
 let exitCode = 0;
 try {
-  // Clear stale Vercel output before the adapter writes a fresh copy.
-  rmSync(VERCEL_OUTPUT, { recursive: true, force: true });
+  // No TODO is ever published (editorial/CLAUDE.md, "No run leaves a TODO
+  // behind"). Checked before anything is built, so a marker in src/content
+  // stops the publish step and the pre-push hook alike.
+  const content = spawnSync(process.execPath, ['scripts/check-content.mjs'], {
+    stdio: 'inherit',
+    cwd: fileURLToPath(root),
+  });
+  if (content.error) throw content.error;
+  exitCode = content.status ?? 1;
 
-  const res = spawnSync('astro', ['build'], { stdio: 'inherit', shell: true });
-  if (res.error) throw res.error;
-  exitCode = res.status ?? 1;
+  // Clear stale Vercel output before the adapter writes a fresh copy.
+  if (exitCode === 0) {
+    rmSync(VERCEL_OUTPUT, { recursive: true, force: true });
+
+    const res = spawnSync('astro', ['build'], { stdio: 'inherit', shell: true });
+    if (res.error) throw res.error;
+    exitCode = res.status ?? 1;
+  }
 
   // Guide title ceiling, checked over the built output. The guide layout also
   // asserts at render time; this catches a guide page rendered by a different

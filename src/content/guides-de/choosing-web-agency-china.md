@@ -6,7 +6,7 @@ visual: "/images/guides/choosing-web-agency-china.webp"
 order: 33
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-08-29
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -73,7 +73,7 @@ Zwei davon reichen für sich genommen zum Ausschluss.
 
 **Eine Referenzseite ohne Referenzen.** Häufiger, als man erwartet. Mehrere Agenturen in diesem Markt veröffentlichen dutzende Fallstudien-URLs, die Suchmaschinen sehen und Besucher nicht öffnen können.
 
-Die übrigen Signale sind leiser und summieren sich. Ein Logo an der Wand beweist nichts, solange kein Projekt dahintersteht, also fragen Sie nach: welche Website, und wann. Wenn der veröffentlichte Leistungsmix der Agentur Webdesign und Entwicklung bei fünf oder zehn Prozent ihres Geschäfts verortet, ist die Website nicht das, was sie verkauft, und im zweiten Monat merken Sie das. Und wenn ihre Texte noch behaupten, Google Fonts sei in China blockiert, notieren Sie es: Das stimmt seit geraumer Zeit nicht mehr. Wer über aktuelle technische Sachverhalte schreibt, sollte aktuelle technische Sachverhalte kennen.
+Die übrigen Signale sind leiser und summieren sich. Ein Logo an der Wand beweist nichts, solange kein Projekt dahintersteht, also fragen Sie nach: welche Website, und wann. Wenn der veröffentlichte Leistungsmix der Agentur Webdesign und Entwicklung bei fünf oder zehn Prozent ihres Geschäfts verortet, ist die Website nicht das, was sie verkauft, und im zweiten Monat merken Sie das.
 
 ## Wie diese Projekte bepreist werden
 

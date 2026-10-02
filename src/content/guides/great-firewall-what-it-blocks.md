@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-09-25
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -56,7 +56,7 @@ Foreign companies tend to focus on the political side of the Great Firewall. Wha
 | News | New York Times, Wall Street Journal, BBC |
 | Reference | Wikipedia (Chinese edition) |
 
-Google search, Gmail, Maps, YouTube and Google Ads do not work from a mainland connection. Google Analytics is the one that matters for a website, and it is in the table below with its test date, like everything else on this page. `www.google-analytics.com` last failed a GreatFire test on 24 July 2026. Fire the tag from a page in China and the beacon never arrives, so the data is lost whether or not the container script loaded.
+Google search, Gmail, Maps, YouTube and Google Ads do not work from a mainland connection. [Google Analytics](/resources/china-web-guide/google-analytics-china/) is the one that matters for a website, and it is in the table below with its test date, like everything else on this page. `www.google-analytics.com` last failed a GreatFire test on 24 July 2026. Fire the tag from a page in China and the beacon never arrives, so the data is lost whether or not the container script loaded.
 
 Google Fonts is the exception, and people get it wrong in both directions, so it gets an extra paragraph.
 

@@ -66,7 +66,7 @@ tier-specific boxes for T5.
 7. What to instrument in the first two weeks
 8. Frequently asked
 
-**Required table.** Host, verdict, where it was measured, and the date. Populate it from F34 only, including the Amplitude split where the CDN answers and the API does not, and the Plausible and Matomo completion times. Every row carries a vantage point. This table is the reason the page outranks the listicles, because per F45 nobody in the competitive set publishes a measurement at all.
+**Required table.** Host, verdict, where it was measured, and the date. Populate it from F34 only, with Amplitude taught as a failure mode rather than printed as a current verdict (both hosts read not blocked in September 2026), and the Plausible and Matomo completion times. Every row carries a vantage point. This table is the reason the page outranks the listicles, because per F45 nobody in the competitive set publishes a measurement at all.
 
 **Links.** Up to `/website-in-china/`. Sideways to `google-analytics-china` and `china-data-privacy-pipl-dsl`.
 

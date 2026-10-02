@@ -129,7 +129,7 @@ Hosting in Hongkong braucht keine ICP-Registrierung. Das ist der ganze Reiz, und
 
 Was Sie dafür aufgeben, gehört präzise benannt.
 
-Die Latenz fällt aus Nord- und Westchina spürbar schlechter aus als bei einem Ursprung auf dem Festland, weil der Verkehr weiterhin die Grenze passiert. Die Leistung schwankt nach Tageszeit und nach Netzbetreiber, weshalb die Messung an einem Dienstagmorgen wenig über den Freitagabend aussagt. Und Baidu bevorzugt Websites, die auf dem Festland unter einer registrierten Domain liegen, was einen Hongkonger Auftritt in genau der Suchmaschine bergauf laufen lässt, auf die es Ihnen ankommt.
+Die Latenz fällt aus Nord- und Westchina spürbar schlechter aus als bei einem Ursprung auf dem Festland, weil der Verkehr weiterhin die Grenze passiert. Die Leistung schwankt nach Tageszeit und nach Netzbetreiber, weshalb die Messung an einem Dienstagmorgen wenig über den Freitagabend aussagt.
 
 Behandeln Sie Hongkong als Brücke. Wenn China geschäftlich zählt, budgetieren Sie Gesellschaft und Registrierung, lassen Sie Hongkong in der Zwischenzeit laufen und setzen Sie ein Datum für den Umzug, bevor die Umstände es für Sie setzen.
 
@@ -190,7 +190,7 @@ Nur wenn der Anbieter Standorte auf dem Festland hat, und das setzt eine registr
 Der Server ist der kleinste Posten. Ins Gewicht fallen die Gesellschaft, die Registrierungsarbeit und, nach dem Start, die Person, die sich um den Server kümmert.
 
 **Muss die Domain eine .cn sein?**
-Nein. Eine .com lässt sich registrieren. Baidu zeigt eine gewisse Vorliebe für .cn, aber eine registrierte .com auf einem Festland-Server ist der übliche und funktionierende Aufbau.
+Nein. Eine .com lässt sich registrieren. Eine registrierte .com auf einem Festland-Server ist der übliche und funktionierende Aufbau.
 
 **Was passiert, wenn wir ohne Registrierung in China hosten?**
 Die Ports bleiben zu, die Website liefert nichts aus. Der Anbieter setzt das auf Netzebene durch. Es muss Sie keine Behörde erst finden.

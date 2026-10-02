@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-09-25
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -56,7 +56,7 @@ Las empresas extranjeras suelen fijarse en la dimensión política del Gran Cort
 | Prensa | New York Times, Wall Street Journal, BBC |
 | Referencia | Wikipedia (edición china) |
 
-El buscador de Google, Gmail, Maps, YouTube y Google Ads no funcionan desde una conexión en China continental. Para un sitio web, el que cuenta es Google Analytics, que figura en la tabla inferior con la fecha de su prueba, como todo lo que recoge esta página. La última prueba fallida de GreatFire sobre `www.google-analytics.com` data del 24 de julio de 2026. Cuando la etiqueta se dispara desde una página en China, la baliza de medición no llega nunca, de modo que los datos se pierden tanto si el script del contenedor se cargó como si no.
+El buscador de Google, Gmail, Maps, YouTube y Google Ads no funcionan desde una conexión en China continental. Para un sitio web, el que cuenta es [Google Analytics](/es/recursos/guia-web-china/google-analytics-china/), que figura en la tabla inferior con la fecha de su prueba, como todo lo que recoge esta página. La última prueba fallida de GreatFire sobre `www.google-analytics.com` data del 24 de julio de 2026. Cuando la etiqueta se dispara desde una página en China, la baliza de medición no llega nunca, de modo que los datos se pierden tanto si el script del contenedor se cargó como si no.
 
 Google Fonts es la excepción, y quien opina sobre ella suele equivocarse en uno u otro sentido, así que merece un párrafo aparte.
 

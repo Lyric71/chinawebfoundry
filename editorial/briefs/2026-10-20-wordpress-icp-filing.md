@@ -69,6 +69,8 @@ tier-specific boxes for T1.
 
 **Links.** Up to `/wordpress-in-china/` and the China Hosting service page. Sideways to the existing `icp-licence-filing-foreign-companies` and to `migrate-wordpress-to-china`.
 
+**On publish, repoint an earlier substitution.** `migrate-wordpress-to-china` (A5, published 29 September 2026) wanted a sideways link to this guide and, because it did not exist yet, points its ICP reference at `icp-licence-filing-foreign-companies` in all four locales. The publish step of this piece repoints that link to this guide in en, fr, es and de, using this brief's localized slugs, and moves `updatedAt` on the four A5 files. If the anchor text has to change, the changed sentence goes through `/deep-translate` in the same run.
+
 **Metadata.**
 ```yaml
 title: "ICP Filing for a WordPress Site"

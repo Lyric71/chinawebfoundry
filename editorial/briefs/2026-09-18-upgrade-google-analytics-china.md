@@ -10,7 +10,7 @@ slug: upgrade-google-analytics-china
 title: "Upgrade google-analytics-china with F34"
 locales_at_publish: as the page exists
 facts: [F3, F34, F41]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -51,11 +51,11 @@ tier-specific boxes for T6.
 
 **Why.** This URL already exists and already ranks, and F34 contains the strongest analytics material in the bank, none of which is on the page. Publishing a second GA article to carry F34 would recreate exactly the cannibalization the Move 1 consolidation was done to remove, so the new material goes here and nowhere else.
 
-**What to change.** Add a measured alternatives table built from F34: Hotjar 100% disrupted per GreatFire 2026-08-20 and hosted on Google Cloud, Meta Pixel 100% blocked per GreatFire 2026-07-27, Clarity 541ms then 0 of 3 completions, Mixpanel 391ms then 0 of 3, Segment completing at 900 to 1,084ms, Plausible completing at 550ms and Matomo cloud at 516ms. Give the Amplitude split its own paragraph, because `cdn.amplitude.com` reachable with `api.amplitude.com` blocked means the script loads, the events never post, and the dashboard reads as working. That is the most useful single fact on the page. Keep the PIPL cross-border reasoning from F3 as an independent argument, stated separately from reachability, since it holds even if a host starts answering. Close on the replacement set from F41, leading with Baidu Tongji (百度统计) and the self-hostable options.
+**What to change.** Add a measured alternatives table built from F34: Hotjar 100% disrupted per GreatFire 2026-08-18 yet completing from a datacenter, hosted on Google Cloud, Meta Pixel blocked per GreatFire 2026-05-27, Clarity 541ms then 0 of 3 completions, Mixpanel 391ms then 0 of 3, Segment completing at 900 to 1,084ms, Plausible completing at 550ms and Matomo cloud at 516ms. Give Amplitude its own paragraph as a failure mode: when a script host answers and an event host does not, the script loads, the events never post, and the dashboard reads as working. The April 2026 split behind that lesson no longer reproduced in September 2026 (F34), so it is taught, not printed as a verdict. Keep the PIPL cross-border reasoning from F3 as an independent argument, stated separately from reachability, since it holds even if a host starts answering. Close on the replacement set from F41, leading with Baidu Tongji (百度统计) and the self-hostable options.
 
 **Acceptance criteria.**
 - [ ] No new URL is created anywhere in the repo during this work order.
-- [ ] The Amplitude split has its own subsection with both hostnames named.
+- [ ] Amplitude has its own subsection with both hostnames named and their current dated verdicts.
 - [ ] Every verdict in the table carries a source key and a date.
 - [ ] The PIPL argument is presented as independent of reachability, in its own section.
 - [ ] Internal links from `cookie-consent-china` and the analytics service page resolve to this URL and return 200.

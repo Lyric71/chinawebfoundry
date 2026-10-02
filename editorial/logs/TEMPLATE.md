@@ -42,10 +42,16 @@ British. Note any SEO field trimmed back to the house ceiling afterward.
 ## Sources
 - New figures added to the ledger:
 
-## Flags
-- TODO: harness measurement markers:
-- TODO: client sign-off items:
-- Conflicts between the brief and the live site:
+## Closed in this run
+Nothing is left open (editorial/CLAUDE.md, "No run leaves a TODO behind").
+Record what each finding became, never a question for a person.
+- Claims cut, and the section they left:
+- Live pages corrected (file, every locale, updatedAt moved):
+- PLAN.md corrections made and build-briefs.mjs rerun (fact IDs, briefs):
+- Link substitutions (wanted, used, brief now carrying the "On publish" line):
+- Watch items placed (reviewBy date, dataset constant, "On publish" line):
+- Gates that stopped a row before publishing (row, reason in notes):
+- check-content.mjs on the output file: pass
 - Do Not Assert grep result:
 
 ## SEO counts (after the quality pass)

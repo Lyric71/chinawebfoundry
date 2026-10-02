@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-09-25
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -56,7 +56,7 @@ Ausländische Unternehmen richten den Blick gern auf die politische Seite der Gr
 | Nachrichten | New York Times, Wall Street Journal, BBC |
 | Nachschlagewerke | Wikipedia (chinesische Ausgabe) |
 
-Über einen Anschluss in Festlandchina sind die Google-Suche, Gmail, Maps, YouTube und Google Ads nicht nutzbar. Für eine Website kommt es vor allem auf Google Analytics an. Der Dienst steht, wie alles auf dieser Seite, mit Testdatum in der Tabelle weiter unten. Zuletzt scheiterte `www.google-analytics.com` am 24. Juli 2026 an einem GreatFire-Test. Wird das Tag auf einer Seite in China ausgelöst, kommt der Messaufruf nie an: Die Daten gehen verloren, ob das Container-Skript nun geladen wurde oder nicht.
+Über einen Anschluss in Festlandchina sind die Google-Suche, Gmail, Maps, YouTube und Google Ads nicht nutzbar. Für eine Website kommt es vor allem auf [Google Analytics](/de/ressourcen/china-web-leitfaden/google-analytics-china/) an. Der Dienst steht, wie alles auf dieser Seite, mit Testdatum in der Tabelle weiter unten. Zuletzt scheiterte `www.google-analytics.com` am 24. Juli 2026 an einem GreatFire-Test. Wird das Tag auf einer Seite in China ausgelöst, kommt der Messaufruf nie an: Die Daten gehen verloren, ob das Container-Skript nun geladen wurde oder nicht.
 
 Google Fonts ist die Ausnahme, und gerade hier liegen viele in beide Richtungen daneben. Deshalb ein eigener Absatz.
 

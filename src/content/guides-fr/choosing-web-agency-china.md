@@ -6,7 +6,7 @@ visual: "/images/guides/choosing-web-agency-china.webp"
 order: 33
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-08-29
+updatedAt: 2026-10-02
 category: Technology
 ---
 
@@ -73,7 +73,7 @@ Deux d'entre eux suffisent à écarter un candidat.
 
 **Une page de références sans références.** Plus fréquent qu'on ne l'imagine. Plusieurs agences de ce marché publient des dizaines d'URL de cas clients que les moteurs voient et que les visiteurs n'ouvrent pas.
 
-Les autres signaux sont plus discrets et s'additionnent. Un logo sur un mur ne prouve rien tant qu'aucun projet ne se trouve derrière : demandez quel site, et quand. Si la répartition de services publiée par l'agence place la conception et le développement web à cinq ou dix pour cent de son activité, le site n'est pas ce qu'elle vend, et vous le sentirez dès le deuxième mois. Et si ses contenus affirment encore que Google Fonts est bloqué en Chine, notez-le : c'est faux depuis un moment déjà. Une société qui écrit sur des faits techniques actuels devrait disposer de faits techniques actuels.
+Les autres signaux sont plus discrets et s'additionnent. Un logo sur un mur ne prouve rien tant qu'aucun projet ne se trouve derrière : demandez quel site, et quand. Si la répartition de services publiée par l'agence place la conception et le développement web à cinq ou dix pour cent de son activité, le site n'est pas ce qu'elle vend, et vous le sentirez dès le deuxième mois.
 
 ## Comment ces missions sont facturées
 

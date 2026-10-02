@@ -10,7 +10,7 @@ slug: bassetti-wordpress-china
 title: "Moving a French Software Site Into China"
 locales_at_publish: en
 gate: "client sign-off"
-facts: [F8, F25, F26, F32]
+facts: [F6, F8, F25, F26, F32]
 status: not_started
 ---
 
@@ -55,13 +55,17 @@ tier-specific boxes for T3.
 
 **Required measurements.** This is the study that carries the 23.4 second to 1.2 second median (F32), so it has to carry it properly. Before: median document complete on the European origin, taken from a Beijing consumer broadband line on a stated pre-migration date, plus the same measurement from an Alibaba Cloud mainland instance so the gap between the two vantage points is visible. After: median document complete from the same Beijing line on a stated post-migration date, plus server response from the Alibaba Cloud Shanghai region. Request counts before and after, since the reason the number moved is topology and not magic. If project records do not pin the original test to a network and a date, re-run both legs before publishing and say the figures were re-measured.
 
-**What to include about friction.** The ICP filing (ICP备案) ran past the published 10 to 30 working day window (F26), and ports 80 and 443 stayed closed on the mainland IP for the whole of it, so there was no staging URL anyone could look at (F25). Name the number of weeks. Also name what the update servers did after cutover: the dashboard quietly stopped offering plugin updates on a mainland IP (F8), which took a mirror to fix and was not in the original scope.
+**What to include about friction.** The ICP filing (ICP备案) ran past the provider's published review windows (Alibaba Cloud: 1 to 2 working days for its own check, then generally 1 to 20 working days at the provincial authority, F26), and ports 80 and 443 stayed closed on the mainland IP for the whole of it, so there was no staging URL anyone could look at (F25). Name the number of weeks. Also name what the update servers did after cutover: the dashboard quietly stopped offering plugin updates on a mainland IP (F8), which took a mirror to fix and was not in the original scope.
+
+**Correct the live page too.** The live findings table says "Google Fonts blocked in China" in all four locales, a flat claim F6 bars. Restate it as what Bassetti's own audit saw, with its test line if the project records name one, or as "Google Fonts loaded from Google's servers"; changed cells through `/deep-translate`.
 
 **Client naming.** Named, with written sign-off from the client's marketing lead on the figures as well as the name. If sign-off on figures is refused, publish the figures and anonymize the client as "a French engineering software vendor," stating that the client declined attribution.
 
 **Service line it sells.** Migration.
 
-**Links.** Money page: `/services/migration/`. Sideways to `wordpress-hosting-china` and `icp-filing-explained`.
+**Links.** Money page: `/services/china-migration/`. Sideways to `wordpress-hosting-china` and `icp-licence-filing-foreign-companies` (the brief once named `icp-filing-explained`, which does not exist).
+
+**On publish, carry the conditions back.** This study publishes the carrier, city and dates behind the 23.4 second to 1.2 second figure (F32). Four live pages say those conditions are still to come: the conditions table in `wordpress-hosting-china`, and the sentences in `wordpress-speed-china`, `migrate-wordpress-to-china` and `/website-in-china/`, each in every locale it has. The publish step of this piece fills them in on all of those pages in the same run, through `/deep-translate` for the changed passages, and moves each page's `updatedAt`. A figure this study does not cover stays described as unpublished, without a promised date.
 
 **Metadata.**
 ```yaml

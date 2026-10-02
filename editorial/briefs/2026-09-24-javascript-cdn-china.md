@@ -12,7 +12,7 @@ suggested_category: Technology
 locales_at_publish: en
 gate: "harness"
 facts: [F1, F7, F42]
-status: not_started
+status: blocked
 ---
 
 ## How to run this brief

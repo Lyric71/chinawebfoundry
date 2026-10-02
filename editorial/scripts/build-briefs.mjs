@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Generates editorial/briefs/*.md and editorial/schedule.csv from
- * editorial/PLAN.md (the China content program, v3.0).
+ * Generates editorial/briefs/*.md, editorial/schedule.csv and
+ * editorial/sources/fact-bank.md from editorial/PLAN.md (the China content
+ * program, v3.0).
  *
  * The plan already contains every brief. This script slices each one out
  * verbatim, prepends a machine-readable header, and lays the 78 pieces onto
@@ -361,10 +362,28 @@ if (check) {
   process.exit(0);
 }
 
+// The fact bank is section 4 of the plan, verbatim. It is regenerated here so
+// that a correction made at the source reaches the fact bank and every brief
+// in the same run, never by hand in one place and not the other.
+const FACT_BANK = path.join(root, 'sources', 'fact-bank.md');
+const factStart = plan.findIndex((l) => /^## 4\. Fact Bank/.test(l));
+const factEnd = plan.findIndex((l, i) => i > factStart && /^## 5\./.test(l));
+if (factStart === -1 || factEnd === -1) throw new Error('Section 4 (Fact Bank) not found in PLAN.md');
+const factHeader = [
+  '# Fact Bank (extracted verbatim from PLAN.md section 4 by scripts/build-briefs.mjs)',
+  '',
+  'Briefs cite these by ID (F1 to F46). Read the entry before using the fact, and read "Do Not Assert" before drafting anything. Never edit facts here by hand: correct PLAN.md section 4 and rerun `node editorial/scripts/build-briefs.mjs`, which rewrites this file and every brief in the same run.',
+  '',
+  '---',
+  '',
+].join('\n');
+const factBank = factHeader + plan.slice(factStart, factEnd).join('\n').replace(/\s+$/, '') + '\n';
+
 mkdirSync(BRIEFS, { recursive: true });
+writeFileSync(FACT_BANK, factBank, 'utf8');
 // Remove generated briefs that no longer map to a calendar slot (renamed slug or date).
 const keep = new Set(briefFiles.map((b) => path.basename(b.file)));
 for (const f of readdirSync(BRIEFS)) if (f.endsWith('.md') && !keep.has(f)) unlinkSync(path.join(BRIEFS, f));
 for (const b of briefFiles) writeFileSync(b.file, b.content, 'utf8');
 writeFileSync(SCHEDULE, csv, 'utf8');
-console.log(`Wrote ${briefFiles.length} briefs to editorial/briefs/ and ${rows.length} rows to editorial/schedule.csv`);
+console.log(`Wrote ${briefFiles.length} briefs to editorial/briefs/, ${rows.length} rows to editorial/schedule.csv and the fact bank to editorial/sources/fact-bank.md`);

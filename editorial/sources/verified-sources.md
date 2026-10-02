@@ -661,6 +661,17 @@ these as verified twice.
 - Verified 2: **not attempted, 2026-09-11.** F2 itself says the datapoint should be retested before it is published as a fix. It was not retested this run.
 - Effect: `wordpress-plugins-china` publishes reCAPTCHA's blocked verdict from both vantage points and offers domestic captcha replacements. It does not mention the host swap. Retest before any piece prints it, T2-03 included.
 
+### Baidu favours mainland-hosted sites, and prefers .cn
+- Fact ID: none (unsourced lines on `wordpress-hosting-china`, flagged by the T6-03 draft run on 29 September 2026)
+- Verified 1: **no source found, 2026-10-02.** A Chinese-language search for an official Baidu statement (百度搜索资源平台, 服务器 境外, 备案, 排名, .cn) returned only SEO forum and blog analyses, one of them a 2017 sample of ranking drops. No Baidu documentation states either claim.
+- Verified 2: not applicable, nothing to re-fetch.
+- Effect: both claims **cut** from `wordpress-hosting-china` in en, fr, es and de on 2 October 2026 (the Hong Kong paragraph and the .cn FAQ answer). Added to the Do Not Assert list in PLAN.md section 4. Argue from what is documented instead: crawl reachability, the filing, and speed from mainland networks.
+
+### Commercial ICP licence "60 to 90 working days at national level"
+- Fact ID: F26
+- Verified 1: **superseded, 2026-10-02.** The twice verified entry "Value-added telecoms licence: 60 days of review from acceptance" (Shanghai Communications Administration, 1 June 2015) is the only regulator page found. The 60 to 90 working day figure has no source.
+- Effect: the figure **cut** from `/website-in-china/` and its fr, es and de pages on 2 October 2026; the twelve to eighteen week planning figure stays, as ours. F26 corrected in PLAN.md section 4.
+
 ## A3 recovery checks, 15 September 2026
 
 The entries above retain their original verification history. These checks

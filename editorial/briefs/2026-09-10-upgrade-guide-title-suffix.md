@@ -9,7 +9,7 @@ slot_job: fast
 slug: upgrade-guide-title-suffix
 title: "Strip the guide title suffix at the template level"
 locales_at_publish: as the page exists
-status: not_started
+status: published
 ---
 
 ## How to run this brief

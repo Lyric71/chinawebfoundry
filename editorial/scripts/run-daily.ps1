@@ -73,8 +73,22 @@ with British spelling (all 18 passes, mandatory for every piece whatever its
 tier or length, tracker in the run log), then /generate-image-openai for the
 hero image where the content type takes one. For a T2 or T4 piece, read editorial/harness/latest.json first;
 if it has no row for the piece's subject, set the row to blocked with the note
-"harness", draft what does not depend on the measurement, and move to the next
-row whose gate is clear. Update editorial/schedule.csv and write the run log.
+"harness", write no partial draft, and move to the next row whose gate is
+clear. Update editorial/schedule.csv and write the run log.
+Leave no TODO behind (editorial/CLAUDE.md, "No run leaves a TODO behind"):
+no TODO, FIXME or TBD marker in any file, no "open items", "flags for a
+person" or "for PLAN.md" section in the log. A claim you cannot source is
+cut. A live page the research contradicts is fixed in this run, every locale
+(changed passages through /deep-translate), updatedAt moved, and the files are
+listed in the row's notes under "corrected live pages" so the piece's publish
+step ships them in the same commit. A brief or
+fact the research proves wrong is corrected in editorial/PLAN.md and
+node editorial/scripts/build-briefs.mjs is rerun. A missing link target takes
+the settled fallback in editorial/SPEC.md. A future recheck goes into a
+reviewBy date. A client sign-off or any other decision only Cyril can take
+blocks the row, with the reason in notes; nothing of it is drafted with
+markers. Run node scripts/check-content.mjs on the output file before you
+stop; it must pass.
 Stop at image_ready. Do not publish. Do not commit. Do not run npm run build.
 This run is unattended: never ask a question, decide from the specs and note
 the decision in the run log.
@@ -109,7 +123,9 @@ log, then delete the junction with DirectoryInfo.Delete() before git worktree
 remove (never Remove-Item -Recurse on the junction). When both pass: set the
 row to published with published_on, then git add everything the piece touched
 (the content files in every locale, the image, src/i18n/routes.ts if changed,
-editorial/output, editorial/logs, editorial/schedule.csv, editorial/sources).
+editorial/output, editorial/logs, editorial/schedule.csv, editorial/sources,
+editorial/PLAN.md and editorial/briefs if its draft corrected them, and every
+live page listed under "corrected live pages" in the row's notes).
 Read git status first and stage nothing that belongs to another session or
 another piece. Commit on main with a conventional commit message (feat(guide):
 publish <slug>, feat(work): for case studies, feat(page): for the money page,
@@ -117,7 +133,23 @@ fix(guide): for upgrades, feat(i18n): for translations), then git push origin
 main. Only after the push succeeds, run
 node editorial/scripts/notify-publish.mjs with the slug, title, type,
 --status published, --build passed, --check with the error count for the piece
-and for HEAD, the log path and the commit hash in --note.
+and for HEAD, the log path and the commit hash in --note. There is no --todo
+option and the email carries no open items: the script refuses to send one.
+Leave no TODO behind (editorial/CLAUDE.md, "No run leaves a TODO behind").
+Before the build, run node scripts/check-content.mjs on the output file (the
+build runs it again over src/content and fails on any marker). Run node
+editorial/scripts/review-due.mjs: every page or dataset it lists is past its
+reviewBy date and is rechecked in this run as RUNBOOK.md describes, then
+shipped in the same commit or in its own fix(guide): recheck commit. Anything
+the run finds is closed in the run: a claim that cannot be sourced is cut, a
+live page the piece contradicts is fixed in every locale with updatedAt moved,
+a brief or fact proved wrong is corrected in editorial/PLAN.md and
+node editorial/scripts/build-briefs.mjs is rerun, a missing link takes the
+settled fallback in editorial/SPEC.md, a future recheck becomes a reviewBy
+date, and npm run indexnow runs once the deploy is live. The run log has no
+"open items" or "for a person" section. If a piece cannot be closed without
+Cyril's own decision, it does not publish: leave its row at image_ready with
+the reason in notes and send the email with --status held.
 This run is unattended: never ask a question. If the build fails, or the check
 reports errors beyond the HEAD baseline, do not commit, do not push, leave the
 row at image_ready, put the error in the run log and send the email with

@@ -74,8 +74,9 @@ Do not write a sentence of body copy until this step is logged.
 3. **For T2 and T4, read `editorial/harness/latest.json`.** The piece's
    original measurement comes from there: host, run_id, vantage, attempts,
    successes, TTFB, outcome. If the subject host has no row, the piece is
-   gated. Draft everything else, leave `TODO: harness measurement` where the
-   figure goes, and set the schedule row to `blocked` with note "harness".
+   gated: do not draft it, put any research already done into the ledger,
+   set the schedule row to `blocked` with note "harness", and stop. No
+   partial draft and no `TODO` marker is ever written.
    Never substitute a GreatFire verdict or a 21YunBox number for the
    original measurement; those corroborate, they do not satisfy the gate.
 4. **Research anything else live.** Vendor and platform documentation first,
@@ -97,6 +98,14 @@ Do not write a sentence of body copy until this step is logged.
 
 Never fabricate figures or attributions. A missing number is better than an
 unsourced one. A latency number without a vantage point is a missing number.
+
+**Nothing is left open.** A claim that cannot be sourced is cut, never marked
+TODO. A live page the research contradicts is fixed in the same run. A brief
+or fact bank entry the research proves wrong is corrected in
+`editorial/PLAN.md` and `node editorial/scripts/build-briefs.mjs` is rerun,
+never noted "for PLAN.md". A link target that does not exist takes the
+settled fallback in `editorial/SPEC.md`. See "No run leaves a TODO behind" in
+`editorial/CLAUDE.md`.
 
 ## Audience adaptation
 
@@ -324,6 +333,9 @@ site wins if the brief differs.
 - Feature-image, schema and asset brief blocks present with the correct paths
   and the localized slugs from the brief
 - Ledger appended with both verification dates
+- Zero TODO, FIXME, TBD or TKTK markers anywhere in the file
+  (`node scripts/check-content.mjs editorial/output/<slug>.md`), and every
+  correction the research found already made at its source
 - Present the file path and a one-line summary
 
 ## Relationship to content-quality-us

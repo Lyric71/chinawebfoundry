@@ -10,7 +10,7 @@ slug: upgrade-great-firewall-what-it-blocks
 title: "Attach the dependency table to great-firewall-what-it-blocks"
 locales_at_publish: as the page exists
 facts: [F33, F39, F40, F42, F45, F46]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
