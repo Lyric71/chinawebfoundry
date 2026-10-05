@@ -133,9 +133,11 @@ publish and the pre-push hook too. Run it on the draft as well before
 publishing: `node scripts/check-content.mjs editorial/output/<slug>.md`.
 
 IndexNow is automatic (since 5 October 2026). After every successful Vercel
-production deploy, `.github/workflows/indexnow.yml` reads the live sitemap and
-submits only the URLs that are new or carry a newer `lastmod`, so Bing and the
-IndexNow engines pick a published piece up without a manual step. A run does
+production deploy, `.github/workflows/indexnow.yml` runs
+`scripts/indexnow-deploy.mjs`, which compares the live site with the previous
+run's snapshot and submits only the pages that are new or whose content
+changed, so Bing and the IndexNow engines pick a published piece up without a
+manual step. A run does
 not call `npm run indexnow` after the push. To resubmit specific URLs by hand:
 `node scripts/submit-indexnow.mjs <url> [<url> ...]`. IndexNow does not reach
 Google; Search Console's "Request indexing" is manual.
