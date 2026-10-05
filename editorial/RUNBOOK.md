@@ -132,10 +132,13 @@ or TKTK marker anywhere in `src/content/` fails the build, so it fails the
 publish and the pre-push hook too. Run it on the draft as well before
 publishing: `node scripts/check-content.mjs editorial/output/<slug>.md`.
 
-After a successful push, run `npm run indexnow` once the deploy is live so
-Bing and the IndexNow engines pick the URL up. The script reads the sitemap
-from `.vercel/output/static/` or `dist/client/`, where the Astro 7 build
-writes it.
+IndexNow is automatic (since 5 October 2026). After every successful Vercel
+production deploy, `.github/workflows/indexnow.yml` reads the live sitemap and
+submits only the URLs that are new or carry a newer `lastmod`, so Bing and the
+IndexNow engines pick a published piece up without a manual step. A run does
+not call `npm run indexnow` after the push. To resubmit specific URLs by hand:
+`node scripts/submit-indexnow.mjs <url> [<url> ...]`. IndexNow does not reach
+Google; Search Console's "Request indexing" is manual.
 
 When the publish finishes, Claude runs `editorial/scripts/notify-publish.mjs`
 from the repo root. It sends one email through Resend to
