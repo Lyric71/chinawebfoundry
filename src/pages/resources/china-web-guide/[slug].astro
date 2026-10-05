@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import GuideLayout from '../../../layouts/GuideLayout.astro';
+import { faqsFromMarkdown } from '../../../lib/schema';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -37,6 +38,7 @@ const author = teamEntry
   author={author}
   publishedAt={guide.data.publishedAt}
   updatedAt={guide.data.updatedAt}
+  faqs={guide.data.faqSchema ? faqsFromMarkdown(guide.body ?? '') : undefined}
   column={guide.data.column}
 >
   <Content />

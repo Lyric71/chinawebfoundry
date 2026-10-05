@@ -1,18 +1,16 @@
 ---
 title: "The China Website Brief: A Checklist"
-slug: china-website-brief-checklist
-description: "A brief written for a Western build misses the six things that decide a China project. The checklist to send any vendor, including ours."
-excerpt: "What to specify before you brief a China web agency, and the answers that separate a specialist from a generalist."
-template: guide
-author: cyril-drouin
-category: Technology
+subtitle: "What to specify before you brief a China web agency, and the answers that separate a specialist from a generalist."
+summary: "A brief written for a Western build misses the six things that decide a China project. The checklist to send any vendor, including ours."
+visual: "/images/guides/china-website-brief-checklist.webp"
+order: 39
+published: true
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
+category: "Technology"
+author: "cyril-drouin"
+faqSchema: true
 ---
-
-<!-- HERO SECTION -->
-
-The China website brief: a checklist
-
-<!-- INTRODUCTION -->
 
 A China website RFP needs six sections a Western brief seldom asks for:
 entity and filing status, the hosting decision, technology and ownership,
@@ -33,8 +31,6 @@ source on 1 October 2026.
 | Search and AI visibility | Baidu work beyond verification            | A sitemap submitted and nothing else     |
 | Maintenance and keys     | How updates reach a mainland server       | Updates quietly stop after launch        |
 
-<!-- SECTION: What a standard brief leaves out -->
-
 ## What a standard brief leaves out
 
 On the mainland a finished site can sit dark for weeks, because the server
@@ -49,8 +45,6 @@ That one rule reorders the project, and nobody can quote a timeline until
 the brief names the filing entity. A Western brief also takes the site’s
 third-party scripts and the agency’s favourite host on trust, files Chinese
 copy under translation and leaves Baidu to a plugin.
-
-<!-- SECTION: Section by section -->
 
 ## Section by section: what a China website RFP must cover
 
@@ -77,7 +71,7 @@ Each vendor’s plan should show the filing as a dependency with its own weeks.
 > https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
 If the site will sell paid online services, say so. That can bring in an
-ICP licence (ICP许可证), a separate application on a longer clock. Our guide to ICP filing for foreign companies sets out the documents.
+ICP licence (ICP许可证), a separate application on a longer clock. Our guide to [ICP filing for foreign companies](/resources/china-web-guide/icp-licence-filing-foreign-companies/) sets out the documents.
 
 ### Hosting decision
 
@@ -170,11 +164,9 @@ Last comes the exit. A vendor holding the server login and the domain can
 stall any change of vendor. List what comes back on the last
 day of the contract.
 
-<!-- SECTION: Questions in writing -->
-
 ## The questions vendors should answer in writing
 
-Our guide to choosing a web agency in China has eight questions for the
+Our guide to [choosing a web agency in China](/resources/china-web-guide/choosing-web-agency-china/) has eight questions for the
 first call. These seven go in the written response, because the answers
 become contract terms.
 
@@ -188,8 +180,6 @@ become contract terms.
 6. Where do form submissions go, and under what consent?
 7. At contract end, do we get the files and the database with full admin
    credentials?
-
-<!-- SECTION: Red flags -->
 
 ## Red flags in the responses
 
@@ -209,8 +199,6 @@ The footer check takes ten seconds, and a filed site has to pass it.
 > to 10,000 yuan from the provincial Communications Administration.
 > Source: Alibaba Cloud (阿里云) help centre, 12 August 2026.
 > https://help.aliyun.com/zh/icp-filing/basic-icp-service/the-icp-record-post-processing-1
-
-<!-- SECTION: The checklist -->
 
 ## The checklist
 
@@ -241,8 +229,6 @@ Copy it as it stands, then change the wording to sound like your company.
   Baidu work shown as separate lines.
 - Proof: a live site the vendor runs, with an ICP number in the footer.
 
-<!-- SECTION: Frequently asked -->
-
 ## Frequently asked
 
 **Can one RFP go to vendors inside and outside China?**
@@ -260,7 +246,7 @@ stands and when you expect the licence, so vendors plan from the same date.
 **Should the RFP specify WordPress?**
 Only if your team already runs WordPress and wants to keep it. Otherwise
 let each vendor propose a platform and justify it against your editing
-habits and your integrations. A web agency that files and hosts in China
+habits and your integrations. [A web agency that files and hosts in China](/web-agency-china/)
 should be able to argue either way.
 
 **What should the RFP say about budget?**
@@ -275,87 +261,3 @@ Two to three weeks for a scoped response with a project plan. Ask for a
 dated sequence with the filing as its own line, and the server purchase
 shown before it. If the plan has the site live before the filing clears,
 send it back.
-
-<!-- CTA -->
-
-CTA: Talk to our team about a strategy and audit engagement
-
-<!-- =====================================================================
-FEATURE IMAGE: INSTRUCTION FOR CLAUDE CODE
-
-Generate the hero image from the prompt below with the generate-image-openai
-skill, convert to WebP with sharp (max width 1050, quality about 78, no
-enlargement, under 350KB), then wire it in as the guide's visual.
-
-- Save to:    public/images/guides/china-website-brief-checklist.webp
-- Reference:  /images/guides/china-website-brief-checklist.webp
-- Format:     .webp, landscape 3:2 generated, cropped by the layout to 21:9
-- Style rule: candid normal-life photo with real-life defects, China
-              setting, only Chinese people, the article's subject visible
-              on a screen. No AI polish, no diagrams, no text overlays, no
-              watermark, no logos except what is on screen.
-
-Five concepts considered (iteration 13):
-1. A small meeting room in a Wuhan office: two colleagues comparing vendor
-   proposals, a laptop open on a Chinese-language requirements document,
-   the aliyun.com ICP filing console on a second monitor. CHOSEN.
-2. A Nanjing co-working desk: printed RFP pages with highlighter marks next
-   to a laptop spreadsheet of vendor answers.
-3. A hand holding a phone over a cluttered desk, the phone showing the
-   bottom of a Chinese company website with the ICP filing number.
-4. A Xi'an tea house: laptop on a WordPress dashboard, a paper notebook
-   with ticked boxes, a glass of green tea.
-5. A procurement office in a second-tier city: a printer spitting out a
-   proposal while someone reads the same document on a laptop.
-
-IMAGE PROMPT (use verbatim):
-
-Candid handheld photograph inside a small, slightly cramped meeting room of a mid-sized company office in Wuhan, China, on an overcast afternoon, flat grey daylight from a window on the left mixing with cool overhead fluorescent tubes. Two Chinese colleagues in their thirties sit side by side at a laminated wooden table: a woman in a navy cardigan leans in and points at a laptop screen with a capped pen, mid-gesture and a little motion-blurred, while a man in a plain grey shirt with rolled sleeves frowns at it with one hand on the trackpad. The laptop shows a long Chinese-language requirements document with a numbered checklist and table rows, partly scrolled, readable only as dense Chinese text. Behind it a second monitor, slightly out of focus, shows the Alibaba Cloud aliyun.com ICP filing console in Chinese with a form half filled in. On the table: a stack of printed proposals held with a black binder clip, a yellow highlighter with its cap off, two paper cups of tea, a phone face down, a tangle of a laptop charger and an HDMI cable, a whiteboard marker. Smudges and fingerprints on the laptop screen, a faint reflection of the window on the monitor, the table edge cropped at the bottom of the frame, a chair back intruding on the right. Ordinary office colours, mild noise from the indoor light, slightly tilted framing as if taken quickly on a phone by a third colleague. Photorealistic documentary style, no studio lighting, no cinematic colour grade, no text overlays, no captions, no watermark, no logos other than what appears on the screens.
-===================================================================== -->
-
-<!-- SCHEMA
-Type: Article + FAQPage
-FAQPage: yes, 5 questions
-Breadcrumb: Home > China Web Guide > The China Website Brief: A Checklist
-Author: Cyril Drouin
-datePublished: 2026-10-06
-Measurement: none (T1; no harness run cited; the one latency figure is
-21YunBox's, attributed as third party)
--->
-
-<!-- ASSET BRIEF
-TABLES:
-  1. Answer table in the introduction: six brief sections, what each must
-     state, what goes wrong without it. Editorial, derived from the sources
-     cited in the body. No harness run.
-  2. Red flags table: six vendor responses and what each tells you.
-     Editorial. No harness run.
-CHARTS: none.
-SCREENSHOTS: none required. Optional: an aliyun.com ICP filing console with
-  every entity name, ID and phone number blurred.
-DOWNLOADS: none, by brief rule. The checklist stays a plain, ungated list
-  on the page so answer engines can quote it. Do not turn it into a PDF.
-INTERNAL LINKS:
-  our guide to ICP filing for foreign companies -> /resources/china-web-guide/icp-licence-filing-foreign-companies/
-  our guide to choosing a web agency in China -> /resources/china-web-guide/choosing-web-agency-china/
-  a web agency that files and hosts in China -> /web-agency-china/
-  (CTA, rendered by the layout) strategy and audit engagement -> /services/strategy-audit/
-LOCALIZED SLUGS: fr checklist-brief-site-chine · es checklist-brief-sitio-china · de china-website-briefing-checkliste
-CLIENT SIGN-OFF NEEDED: none. No client named, no client figure.
-HARNESS ROWS CITED: none. harness/latest.json read 2026-10-01: generated
-  null, vantages [], rows []. B5 is T1 and not gated on the harness.
-LINK SUBSTITUTIONS: china-website-cost -> icp-licence-filing-foreign-companies
-  (B2, 12 January 2027, not yet live). B2's brief in PLAN.md carries the
-  "On publish" line that adds the link from this guide in every locale.
-BRIEF DEVIATIONS (all settled, recorded in B5's brief in PLAN.md on
-  6 October 2026):
-  1. Title kept as approved. The target query "china website rfp" sits in
-     the first 100 words and in one H2, not in the H1.
-  2. The brief lists no FAQ questions. Five written from the buyer's
-     questions the brief's angle implies (budget added in the quality pass,
-     without any figure).
-FACT BANK: F21 and F26 in PLAN.md section 4 already match what this piece
-  prints (F26 corrected to 60 days from acceptance on 2 October 2026).
-SITE CONFLICTS: none open. choosing-web-agency-china lost its flat Google
-  Fonts claim in all four locales on 2 October 2026 (5feb212).
--->

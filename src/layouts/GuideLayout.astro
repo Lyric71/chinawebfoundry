@@ -3,6 +3,7 @@ import PageLayout from './PageLayout.astro';
 import Button from '../components/ui/Button.astro';
 import { getLangFromUrl, localePath, useTranslations } from '../i18n/utils';
 import type { Locale } from '../i18n/ui';
+import { faqSchema } from '../lib/schema';
 
 interface TocItem {
   slug: string;
@@ -29,9 +30,11 @@ interface Props {
   updatedAt?: Date;
   /** A signed CEO column: shows the byline, linked to /resources/ceo-opinion/. */
   column?: boolean;
+  /** Question and answer pairs for FAQPage JSON-LD (guides with `faqSchema: true`). */
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
-const { title, subtitle, summary, visual, tocItems, lang, author, publishedAt, updatedAt, column = false } = Astro.props;
+const { title, subtitle, summary, visual, tocItems, lang, author, publishedAt, updatedAt, column = false, faqs = [] } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 
@@ -100,7 +103,7 @@ const breadcrumbLd = {
   ],
 };
 
-const jsonLd = [articleLd, breadcrumbLd];
+const jsonLd = faqs.length ? [articleLd, breadcrumbLd, faqSchema(faqs, currentLang)] : [articleLd, breadcrumbLd];
 ---
 
 <PageLayout

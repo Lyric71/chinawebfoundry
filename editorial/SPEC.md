@@ -264,6 +264,12 @@ Measurement: <for T2 and T4: the third-party sources and test dates the figures 
 
 The guide layout already emits Article and BreadcrumbList. FAQPage is added
 by the publish step where the brief asks for it. Do not invent new types.
+For a guide, the publish step sets `faqSchema: true` in the frontmatter of
+every locale file: the route then builds FAQPage from the body's last `##`
+section, one pair per bold question line ending in a question mark
+(`faqsFromMarkdown` in `src/lib/schema.ts`, added 6 October 2026 with B5). The
+translated questions and answers come from the translated body, so the
+schema needs no second translation.
 
 ### 3. Asset brief
 

@@ -1060,7 +1060,9 @@ excerpt: "Where a global agency stops being able to help on a China build, and h
 
 **Format requirement.** The checklist must be a plain list the reader can copy. Do not gate it. Do not make it a PDF download. A gated asset does not get cited by a model.
 
-**Links.** Up to `/web-agency-china/`. Sideways to `choosing-web-agency-china` and `china-website-cost`.
+**Links.** Up to `/web-agency-china/`. Sideways to `choosing-web-agency-china` and `china-website-cost`. Published 6 October 2026 with `icp-licence-filing-foreign-companies` in place of `china-website-cost`, which is B2 (12 January 2027); B2's brief carries the "On publish" line that adds the link back from this guide.
+
+**Title and target query (settled 6 October 2026).** The approved title stays. It does not carry "china website rfp", so the target query sits in the first 100 words and in one H2 instead of the H1.
 
 **Metadata.**
 ```yaml

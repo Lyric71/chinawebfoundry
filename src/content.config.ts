@@ -66,6 +66,8 @@ const guides = defineCollection({
     updatedAt: z.coerce.date().optional(),
     /** Date the page's vendor-specific claims are due for review. Not rendered. */
     reviewBy: z.coerce.date().optional(),
+    /** Emit FAQPage JSON-LD from the body's closing section of bold questions. */
+    faqSchema: z.boolean().default(false),
   }),
 });
 
@@ -142,6 +144,8 @@ const guidesFr = defineCollection({
     updatedAt: z.coerce.date().optional(),
     /** Date the page's vendor-specific claims are due for review. Not rendered. */
     reviewBy: z.coerce.date().optional(),
+    /** Emit FAQPage JSON-LD from the body's closing section of bold questions. */
+    faqSchema: z.boolean().default(false),
   }),
 });
 
@@ -227,6 +231,8 @@ const guidesEs = defineCollection({
     updatedAt: z.coerce.date().optional(),
     /** Date the page's vendor-specific claims are due for review. Not rendered. */
     reviewBy: z.coerce.date().optional(),
+    /** Emit FAQPage JSON-LD from the body's closing section of bold questions. */
+    faqSchema: z.boolean().default(false),
   }),
 });
 
@@ -303,6 +309,8 @@ const guidesDe = defineCollection({
     updatedAt: z.coerce.date().optional(),
     /** Date the page's vendor-specific claims are due for review. Not rendered. */
     reviewBy: z.coerce.date().optional(),
+    /** Emit FAQPage JSON-LD from the body's closing section of bold questions. */
+    faqSchema: z.boolean().default(false),
   }),
 });
 
