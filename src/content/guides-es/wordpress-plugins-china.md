@@ -35,7 +35,7 @@ Busque las cargas de jQuery desde Google Hosted Libraries, en `ajax.googleapis.c
 > GreatFire clasifica `ajax.googleapis.com` como bloqueado a partir de su última prueba concluyente en China continental, realizada el 22 de agosto de 2026.
 > Fuente: GreatFire, agosto de 2026. https://en.greatfire.org/https/ajax.googleapis.com
 
-Si un tema carga un script clásico sin `async` ni `defer`, el navegador detiene el análisis del HTML mientras lo descarga y ejecuta. Si la petición aparece al principio del documento, una conexión que no responde puede retrasar el contenido posterior. El efecto depende de la etiqueta y de dónde se encuentre.
+Si un tema carga un script clásico sin `async` ni `defer`, el navegador detiene el análisis del HTML mientras lo descarga y ejecuta. Si la petición aparece al principio del documento, [una conexión que no responde puede retrasar el contenido posterior](/es/recursos/guia-web-china/velocidad-wordpress-china/). El efecto depende de la etiqueta y de dónde se encuentre.
 
 > Los scripts clásicos sin `async`, `defer` o comportamiento de módulo bloquean el análisis del HTML de forma predeterminada. El renderizado es un mecanismo distinto.
 > Fuente: MDN, referencia del elemento script, actualizada el 9 de mayo de 2026. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script

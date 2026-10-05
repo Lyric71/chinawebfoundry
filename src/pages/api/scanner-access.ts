@@ -171,7 +171,7 @@ chinawebfoundry.com`;
       </ul>
       <p style="${p}">Some clients come to us for a single piece, others hand us the whole thing.</p>
       <p style="${p}">Would a 20-minute call be useful?</p>
-      <p style="margin: 0;">Best,<br>Cyril Drouin<br>ChinaWebFoundry<br><a href="https://chinawebfoundry.com" style="color: #F25F29;">chinawebfoundry.com</a></p>
+      <p style="margin: 0;">Best,<br>Cyril Drouin<br>ChinaWebFoundry<br><a href="https://www.chinawebfoundry.com/" style="color: #F25F29;">chinawebfoundry.com</a></p>
     </div>
   `;
 

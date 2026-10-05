@@ -179,7 +179,7 @@ Teams that price only the server line are the ones renegotiating scope in month 
 | Mainland entity, revenue on the site | Mainland, plus domestic payment rails | Commercial ICP licence, 12 to 18 weeks |
 | Global site, small China audience, no entity | Keep the origin abroad, fix dependencies first | None |
 
-That last row gets skipped most often, and it's frequently the right answer. If China is 3% of your traffic and there's no entity in sight, stripping the blocked dependencies out of the site you already have recovers most of the available speed for a fraction of what a mainland deployment costs.
+That last row gets skipped most often, and it's frequently the right answer. If China is 3% of your traffic and there's no entity in sight, stripping the blocked dependencies out of the site you already have [recovers most of the available speed](/resources/china-web-guide/wordpress-speed-china/) for a fraction of what a mainland deployment costs.
 
 ## Frequently asked
 

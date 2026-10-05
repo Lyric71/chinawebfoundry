@@ -179,7 +179,7 @@ Los equipos que solo cifran la línea del servidor son los que renegocian el alc
 | Entidad continental, ingresos en el sitio | Continente, más medios de pago domésticos | Licencia ICP comercial, de 12 a 18 semanas |
 | Sitio global, audiencia china pequeña, sin entidad | Mantener el origen fuera y arreglar antes las dependencias | Ninguno |
 
-Esa última fila es la que más se salta, y con frecuencia es la respuesta correcta. Si China representa el 3 % de su tráfico y no hay ninguna entidad a la vista, retirar las dependencias bloqueadas del sitio que ya tiene recupera la mayor parte de la velocidad disponible por una fracción de lo que cuesta un despliegue continental.
+Esa última fila es la que más se salta, y con frecuencia es la respuesta correcta. Si China representa el 3 % de su tráfico y no hay ninguna entidad a la vista, retirar las dependencias bloqueadas del sitio que ya tiene [recupera la mayor parte de la velocidad disponible](/es/recursos/guia-web-china/velocidad-wordpress-china/) por una fracción de lo que cuesta un despliegue continental.
 
 ## Preguntas frecuentes
 

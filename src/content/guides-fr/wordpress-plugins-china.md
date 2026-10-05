@@ -35,7 +35,7 @@ Recherchez les appels à jQuery hébergé par Google Hosted Libraries, sur `ajax
 > GreatFire classe `ajax.googleapis.com` comme bloqué, selon son dernier test concluant depuis la Chine continentale, le 22 août 2026.
 > Source : GreatFire, août 2026. https://en.greatfire.org/https/ajax.googleapis.com
 
-Lorsqu’un thème charge un script classique sans `async` ni `defer`, le navigateur suspend l’analyse du HTML pendant le téléchargement et l’exécution. Si la balise se trouve tôt dans le document, une connexion qui reste en attente peut retarder le contenu placé après elle. L’effet dépend de la balise et de son emplacement.
+Lorsqu’un thème charge un script classique sans `async` ni `defer`, le navigateur suspend l’analyse du HTML pendant le téléchargement et l’exécution. Si la balise se trouve tôt dans le document, [une connexion qui reste en attente peut retarder le contenu placé après elle](/fr/ressources/guide-web-chine/vitesse-wordpress-chine/). L’effet dépend de la balise et de son emplacement.
 
 > Par défaut, les scripts classiques dépourvus d’`async`, de `defer` ou du comportement de module bloquent l’analyse du HTML. Le rendu relève d’un mécanisme distinct.
 > Source : MDN, référence de l’élément script, mise à jour le 9 mai 2026. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script

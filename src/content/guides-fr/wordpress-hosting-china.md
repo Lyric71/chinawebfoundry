@@ -179,7 +179,7 @@ Les équipes qui ne chiffrent que la ligne « serveur » sont celles qui rené
 | Entité continentale, revenus sur le site | Continent, plus des moyens de paiement domestiques | Licence ICP commerciale, 12 à 18 semaines |
 | Site mondial, audience chinoise réduite, pas d'entité | Garder l'origine à l'étranger, corriger d'abord les dépendances | Aucune |
 
-C'est la dernière ligne qu'on saute le plus souvent, et c'est fréquemment la bonne réponse. Si la Chine pèse 3 % de votre trafic et qu'aucune entité n'est en vue, retirer les dépendances bloquées du site que vous avez déjà récupère l'essentiel de la vitesse disponible pour une fraction du coût d'un déploiement continental.
+C'est la dernière ligne qu'on saute le plus souvent, et c'est fréquemment la bonne réponse. Si la Chine pèse 3 % de votre trafic et qu'aucune entité n'est en vue, retirer les dépendances bloquées du site que vous avez déjà [récupère l'essentiel de la vitesse disponible](/fr/ressources/guide-web-chine/vitesse-wordpress-chine/) pour une fraction du coût d'un déploiement continental.
 
 ## Questions fréquentes
 

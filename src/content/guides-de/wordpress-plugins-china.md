@@ -35,7 +35,7 @@ Suchen Sie nach jQuery, das von Google Hosted Libraries unter `ajax.googleapis.c
 > GreatFire führt `ajax.googleapis.com` als blockiert. Grundlage ist der letzte aussagekräftige Test vom chinesischen Festland am 22. August 2026.
 > Quelle: GreatFire, August 2026. https://en.greatfire.org/https/ajax.googleapis.com
 
-Lädt ein Theme ein klassisches Skript ohne `async` oder `defer`, unterbricht der Browser das Einlesen des HTML, während er das Skript abruft und ausführt. Steht die Anfrage früh im Dokument, kann eine stockende Verbindung den nachfolgenden Inhalt verzögern. Die Wirkung hängt vom Tag und seiner Position ab.
+Lädt ein Theme ein klassisches Skript ohne `async` oder `defer`, unterbricht der Browser das Einlesen des HTML, während er das Skript abruft und ausführt. Steht die Anfrage früh im Dokument, kann [eine stockende Verbindung den nachfolgenden Inhalt verzögern](/de/ressourcen/china-web-leitfaden/wordpress-geschwindigkeit-china/). Die Wirkung hängt vom Tag und seiner Position ab.
 
 > Klassische Skripte ohne `async`, `defer` oder Modulverhalten blockieren standardmäßig das Einlesen des HTML. Das Rendering ist ein eigener Mechanismus.
 > Quelle: MDN, Referenz zum script-Element, aktualisiert am 9. Mai 2026. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script

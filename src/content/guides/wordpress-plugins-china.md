@@ -52,8 +52,8 @@ Check for jQuery loaded from Google Hosted Libraries, `ajax.googleapis.com`.
 
 If a theme loads it as a classic script without `async` or `defer`, the
 browser pauses HTML parsing while it fetches and executes the script. Put
-that request early in the document and a stalled connection can delay the
-content below it. The impact depends on the tag and its position.
+that request early in the document and [a stalled connection can delay the
+content below it](/resources/china-web-guide/wordpress-speed-china/). The impact depends on the tag and its position.
 
 > Classic scripts without `async`, `defer` or module behaviour block HTML
 > parsing by default. Rendering is a separate mechanism.

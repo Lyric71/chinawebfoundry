@@ -179,7 +179,7 @@ Teams, die nur die Serverzeile kalkulieren, verhandeln im vierten Monat über de
 | Gesellschaft vorhanden, Umsatz auf der Website | Festland, dazu inländische Zahlungswege | Kommerzielle ICP-Lizenz, 12 bis 18 Wochen |
 | Globale Website, kleines China-Publikum, keine Gesellschaft | Ursprung im Ausland lassen, zuerst die Abhängigkeiten bereinigen | Keine |
 
-Die letzte Zeile wird am häufigsten übersprungen und ist oft die richtige Antwort. Wenn China 3 % Ihres Verkehrs ausmacht und keine Gesellschaft in Sicht ist, holt das Entfernen der blockierten Abhängigkeiten aus der bestehenden Website den größten Teil des möglichen Tempos heraus, zu einem Bruchteil der Kosten eines Festland-Deployments.
+Die letzte Zeile wird am häufigsten übersprungen und ist oft die richtige Antwort. Wenn China 3 % Ihres Verkehrs ausmacht und keine Gesellschaft in Sicht ist, holt das Entfernen der blockierten Abhängigkeiten aus der bestehenden Website [den größten Teil des möglichen Tempos](/de/ressourcen/china-web-leitfaden/wordpress-geschwindigkeit-china/) heraus, zu einem Bruchteil der Kosten eines Festland-Deployments.
 
 ## Häufige Fragen
 

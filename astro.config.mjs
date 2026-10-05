@@ -1,16 +1,16 @@
 // @ts-check
 import { defineConfig, passthroughImageService } from 'astro/config';
-import { existsSync, statSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeTableWrapper from './src/lib/rehypeTableWrapper.mjs';
+import { lastModFor } from './src/lib/gitLastmod.mjs';
 import { splitLocale, canonicalizePath, localizePath, englishOnlyRoutes } from './src/i18n/routes.ts';
 
-// Map a sitemap URL's canonical English path + locale to the most likely
-// on-disk source file. Returns the first existing candidate, used for lastmod.
+// Map a sitemap URL's canonical English path + locale to its on-disk source
+// files. Returns every existing candidate; lastmod is the latest of them.
 // Content collection files keep English ids; static pages use native slugs.
 /**
  * @param {string} canonical
@@ -52,31 +52,13 @@ function sourceFileForPath(canonical, locale) {
     candidates.push(`./src/pages${pageDir}/${slug}.astro`);
   }
   candidates.push(`./src/pages${pageDir}${localized.endsWith('/') ? localized : localized + '/'}index.astro`);
-
-  return candidates.find(existsSync);
-}
-
-// Real content date for a source file from its last git commit. On a fresh CI
-// checkout every file's mtime is the build time, which makes all sitemap
-// lastmod values identical and signals nothing useful to crawlers. The git
-// commit date is the actual last-modified date. Falls back to mtime when git
-// history is unavailable (e.g. a shallow clone with no commit for the file).
-const gitDateCache = new Map();
-/** @param {string} src */
-function lastModFor(src) {
-  if (gitDateCache.has(src)) return gitDateCache.get(src);
-  let date;
-  try {
-    const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', src], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    }).trim();
-    date = iso ? new Date(iso) : statSync(src).mtime;
-  } catch {
-    date = statSync(src).mtime;
+  // Nested static pages (service detail pages keep their body here, the
+  // collection entry above only holds the metadata).
+  if (slug.includes('/')) {
+    candidates.push(`./src/pages${pageDir}/${slug}.astro`);
   }
-  gitDateCache.set(src, date);
-  return date;
+
+  return candidates.filter(existsSync);
 }
 
 export default defineConfig({
@@ -86,8 +68,12 @@ export default defineConfig({
   // It is the adapter default, set explicitly so a future upgrade cannot flip it
   // on and start billing image transforms. See the `image` block below.
   adapter: vercel({ imageService: false }),
+  // The site-wide Tailwind bundle is about 240KB. Inlined, it rode inside every
+  // page's HTML and was downloaded again on each page view. 'auto' ships it as
+  // one hashed file under /_astro/, which the Vercel adapter serves with a
+  // one-year immutable cache, and still inlines stylesheets under 4KB.
   build: {
-    inlineStylesheets: 'always',
+    inlineStylesheets: 'auto',
   },
   // Astro 7 defaults to compressHTML: 'jsx', which strips whitespace between
   // inline elements the way JSX does. The pages were written against the
@@ -153,10 +139,10 @@ export default defineConfig({
           item.changefreq = ChangeFreqEnum.YEARLY;
         }
 
-        // Per-file lastmod: use source file mtime when we can locate it.
-        const src = sourceFileForPath(canonical, locale);
-        if (src) {
-          item.lastmod = lastModFor(src);
+        // Per-URL lastmod from git history (see src/lib/gitLastmod.mjs).
+        const lastmod = lastModFor(sourceFileForPath(canonical, locale));
+        if (lastmod) {
+          item.lastmod = lastmod.toISOString();
         } else {
           delete item.lastmod;
         }
