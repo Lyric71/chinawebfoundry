@@ -1,0 +1,36 @@
+{
+"src/content/guides-de/host-website-in-china.md": [
+ ["updatedAt: 2026-07-03", "updatedAt: 2026-10-06"],
+ ["und jedes Skript und jede Schrift von einem gesperrten ausländischen Dienst (Google Fonts ist der Klassiker) bleibt schlicht hängen.",
+  "und jedes Skript und jede Schrift von einem ausländischen Host, den das Netz des Besuchers nicht erreicht, bleibt schlicht hängen. Google Fonts ist der Klassiker: Aus einem Rechenzentrum auf dem Festland ist der Dienst erreichbar, über einen Pekinger Privatanschluss bleibt er stumm."],
+ ["\n\n> Aus Shanghai auf Auslands-Hosting gemessen, laden Websites regelmäßig in 8 bis 15 Sekunden. Auf Festlandserver verlegt, kommen dieselben Seiten unter eine Sekunde.\n> Quelle: ChinaWebFoundry-Startmessungen, Shanghai.",
+  "\n\n> Laut den Messungen von 21YunBox beantwortete `fonts.googleapis.com` am 28. August 2026 alle 72 Anfragen einer Alibaba-Cloud-Instanz (阿里云) in der Region cn-zhangjiakou, am 30. August 2026 dagegen keine der 54 Anfragen über einen privaten Breitbandanschluss von China Mobile (中国移动) in Peking.\n> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html"],
+ ["Dann die Suche. Baidu (百度) ist die Suchmaschine, auf die es hier ankommt, und sie hält eine auf dem Festland gehostete, im ICP registrierte Website für glaubwürdiger als eine aus dem Ausland ausgelieferte. Ohne lokalen Host und Registrierung nimmt Baidu Sie nicht sauber in den Index, so gründlich Ihre Onpage-Arbeit auch sein mag.",
+  "Dann die Suche. Baidu (百度) ist die Suchmaschine, auf die es hier ankommt, und sie kann nur Seiten ranken, die sie vom Festland aus crawlen und laden kann. Eine veröffentlichte Regel, nach der Baidu einen Festland-Host oder eine ICP-Registrierung an sich belohnt, gibt es nicht: Für lokales Hosting sprechen der Zugang des Crawlers und die Ladezeit in Festlandnetzen, und beides lässt sich überprüfen."]
+],
+"src/content/guides-de/vetting-a-wordpress-agency-china.md": [
+ ["updatedAt: 2026-08-29", "updatedAt: 2026-10-06"],
+ ["Eine WordPress-Standardinstallation lädt klammheimlich Google Fonts, Google Maps, reCAPTCHA und oft auch Analyse- oder Zahlungsskripte, die allesamt hinter der Großen Firewall liegen. Gesperrt oder ausgebremst, jedes davon. Einen Fehler zeigt die Seite dabei nicht an.",
+  "Eine typische WordPress-Installation lädt samt Theme und Plugins klammheimlich Google Fonts, Google Maps, reCAPTCHA und oft auch Analyse- oder Zahlungsskripte von Servern außerhalb Chinas. Manche davon sind rundweg gesperrt. Google Fonts antwortet oder schweigt, je nachdem, in welchem Netz der Besucher sitzt. Bleibt eine Anfrage unbeantwortet, zeigt die Seite keinen Fehler an."],
+ ["Welche gesperrten Skripte müssen Sie", "Welche im Ausland gehosteten Skripte müssen Sie"]
+],
+"src/content/guides-de/woocommerce-china-store-guide.md": [
+ ["publishedAt: 2026-07-01\n", "publishedAt: 2026-07-01\nupdatedAt: 2026-10-06\n"],
+ ["| Skripte | Google Fonts, reCAPTCHA, Stripe-JS blockiert |", "| Skripte | Google Fonts am Privatanschluss, reCAPTCHA |"],
+ ["Erstens die blockierten Skripte. Ein Standardshop lädt klammheimlich Google Fonts, reCAPTCHA und oft das JavaScript von Stripe. Jedes davon liegt hinter der Great Firewall, blockiert oder gedrosselt. Die Seite hängt und wartet auf eine Antwort, die nie kommt.",
+  "Erstens die im Ausland gehosteten Skripte. Ein Standardshop lädt klammheimlich Google Fonts und reCAPTCHA. In den Messungen, die 21YunBox im August 2026 veröffentlicht hat, blieb reCAPTCHA jede Antwort schuldig, im Rechenzentrum auf dem Festland ebenso wie am Pekinger Privatanschluss; Google Fonts antwortete dem Rechenzentrum, dem Privatanschluss nie. So oder so hängt die Seite und wartet auf eine Antwort, die nie kommt.\n\n> Laut den Messungen von 21YunBox beantwortete `www.google.com/recaptcha` am 28. August 2026 keine der 72 Anfragen einer Alibaba-Cloud-Instanz (阿里云) in der Region cn-zhangjiakou und am 30. August 2026 keine der 18 Anfragen über einen privaten Breitbandanschluss von China Mobile (中国移动) in Peking. `fonts.googleapis.com` beantwortete im ersten Fall alle 72, im zweiten keine der 54.\n> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html"]
+],
+"src/content/guides-de/great-firewall-what-it-blocks.md": [
+ ["updatedAt: 2026-10-02", "updatedAt: 2026-10-06"],
+ ["`fonts.google.com`, die Oberfläche zum Durchsuchen der Schriften, ist ohnehin nicht erreichbar.", "`fonts.google.com`, die Oberfläche zum Durchsuchen der Schriften, läuft über einen eigenen Host: GreatFire verzeichnete bei den letzten beiden aussagekräftigen Tests jeweils Störungen, zuletzt am 30. September 2026."],
+ ["Ein einziger vergessener Google-Fonts-Verweis, tief in Ihrem CSS verborgen, kann für jeden einzelnen Nutzer in China Sekunden zur Ladezeit hinzufügen.", "Ein einziger vergessener Google-Fonts-Verweis, tief in Ihrem CSS verborgen, kann die Seite für jeden Besucher leer lassen, dessen Netz keine Antwort bekommt."],
+ ["> Ein einziger vergessener Google-Fonts-Verweis in Ihrem CSS kann für jeden Nutzer in China Sekunden zur Ladezeit hinzufügen.", "> Ein einziger vergessener Google-Fonts-Verweis in Ihrem CSS kann die Seite für jeden Besucher leer lassen, dessen Netz keine Antwort bekommt."],
+ ["| gesperrte Abhängigkeiten ersetzen |", "| ausländische Abhängigkeiten ersetzen |"],
+ ["**Ersetzen Sie jede gesperrte Abhängigkeit.**", "**Ersetzen Sie jede ausländische Abhängigkeit.**"],
+ ["Trifft auch nur einer davon eine gesperrte Domain,", "Trifft auch nur einer davon eine Domain, die das Netz Ihrer Besucher nicht erreicht,"]
+],
+"src/content/guides-de/is-wordpress-blocked-in-china.md": [
+ ["updatedAt: 2026-10-02", "updatedAt: 2026-10-06"],
+ ["fonts.google.com, die Oberfläche, in der Ihre Gestalter Schriften aussuchen, lädt von keinem der beiden Messpunkte.", "fonts.google.com, die Oberfläche, in der Ihre Gestalter Schriften aussuchen, läuft über einen eigenen Host, den 21YunBox nicht gemessen hat. GreatFire verzeichnete bei den letzten beiden aussagekräftigen Tests jeweils Störungen, zuletzt am 30. September 2026."]
+]
+}

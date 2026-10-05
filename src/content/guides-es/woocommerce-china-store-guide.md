@@ -6,6 +6,7 @@ visual: "/images/guides/woocommerce-china-store-guide.webp"
 order: 12
 published: true
 publishedAt: 2026-07-01
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -19,7 +20,7 @@ Esta guía da por hecho que ya ha leído nuestra guía de referencia, Localizar 
 
 | Ámbito | Qué falla por defecto | La solución |
 | ---------- | ------------------------------------------ | ------------------------------ |
-| Scripts | Google Fonts, reCAPTCHA y el JS de Stripe bloqueados | Autoalojar o sustituir |
+| Scripts | Google Fonts en conexiones domésticas, reCAPTCHA | Autoalojar o sustituir |
 | Pagos | Solo Visa y Mastercard | Alipay + WeChat Pay + UnionPay |
 | Velocidad | Alojamiento en el extranjero, sin CDN | Alojamiento continental, CDN de imágenes en China |
 | Direcciones | Orden de campos occidental rechazado | De la provincia al distrito |
@@ -29,7 +30,10 @@ Esta guía da por hecho que ya ha leído nuestra guía de referencia, Localizar 
 
 Fallan tres cosas, y casi siempre a la vez.
 
-Primero, los scripts bloqueados. Una tienda por defecto carga sin avisar Google Fonts, reCAPTCHA y, muchas veces, el JavaScript de Stripe. Todos quedan al otro lado del Gran Cortafuegos, bloqueados o ralentizados. La página se queda colgada, a la espera de una respuesta que no llega.
+Primero, los scripts alojados fuera de China. Una tienda por defecto carga sin avisar Google Fonts y reCAPTCHA. En las mediciones que 21YunBox publicó en agosto de 2026, reCAPTCHA no atendió ninguna petición, ni desde un centro de datos del continente ni desde una línea doméstica de Pekín, mientras que Google Fonts respondía al centro de datos y nunca a la línea doméstica. En uno y otro caso, la página se queda colgada, a la espera de una respuesta que no llega.
+
+> Según las mediciones de 21YunBox, `www.google.com/recaptcha` no atendió ninguna de las 72 peticiones enviadas desde una instancia de Alibaba Cloud (阿里云) en la región cn-zhangjiakou el 28 de agosto de 2026, ni una sola de las 18 lanzadas desde una línea residencial de China Mobile (中国移动) en Pekín el 30 de agosto de 2026. `fonts.googleapis.com` atendió las 72 en el primer caso y ninguna de las 54 en el segundo.
+> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Segundo, la lentitud del pago. Aloje la tienda en Europa o Estados Unidos y cada acción del carrito hace un viaje de ida y vuelta lento a través del Cortafuegos. El comprador chino no se queda esperando a que gire el icono de carga.
 

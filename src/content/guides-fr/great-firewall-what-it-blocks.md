@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -63,7 +63,7 @@ Google Fonts fait figure d'exception, et les erreurs à son sujet vont dans les 
 > Depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou, le 28 août 2026, avec un relevé toutes les dix minutes pendant douze heures, `fonts.googleapis.com` a mené à terme 72 requêtes sur 72, avec un premier octet médian à 111 ms. Depuis une ligne résidentielle China Mobile (中国移动) à Pékin, le 30 août 2026, sur 264 chargements de page, le même hôte a répondu 0 fois sur 54.
 > Source : 21YunBox, A Day of Third-Party Requests From Inside China, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
-Face à ces deux mesures, aucune affirmation catégorique ne tient. Google Fonts se résout depuis les centres de données du continent, mais bien souvent pas sur les connexions grand public. C'est tout l'intérêt d'héberger ses polices soi-même : on élimine une variable qui change selon le réseau, le résolveur et l'heure. `fonts.google.com`, l'interface de consultation, reste inaccessible dans tous les cas.
+Face à ces deux mesures, aucune affirmation catégorique ne tient. Google Fonts se résout depuis les centres de données du continent, mais bien souvent pas sur les connexions grand public. C'est tout l'intérêt d'héberger ses polices soi-même : on élimine une variable qui change selon le réseau, le résolveur et l'heure. `fonts.google.com`, l'interface de consultation, est un hôte à part : GreatFire l'a trouvé perturbé à 100 % lors de ses deux derniers tests concluants, dont le plus récent date du 30 septembre 2026.
 
 Facebook, Instagram, WhatsApp, Messenger. Bloqués. Twitter/X, Reddit, Pinterest. Bloqués. L'édition chinoise de Wikipédia. Bloquée.
 
@@ -71,9 +71,9 @@ Les outils professionnels dont vivent les entreprises occidentales : Dropbox, S
 
 Netflix, Spotify, Twitch. Bloqués. La plupart des grands titres de presse occidentaux, dont le New York Times, le Wall Street Journal et la BBC. Bloqués.
 
-Ce qui surprend le plus les entreprises se joue au-delà des services bloqués eux-mêmes. Chaque script, police, widget ou appel API qui sollicite en arrière-plan un domaine bloqué casse également. Un simple lien Google Fonts oublié dans le CSS peut ajouter des secondes au chargement pour chaque visiteur en Chine. Une seule balise analytique peut geler le rendu de la page.
+Ce qui surprend le plus les entreprises se joue au-delà des services bloqués eux-mêmes. Chaque script, police, widget ou appel API qui sollicite en arrière-plan un domaine bloqué casse également. Un simple lien Google Fonts oublié dans le CSS peut laisser la page blanche chez tout visiteur dont le réseau ne lui répond jamais. Une seule balise analytique peut geler le rendu de la page.
 
-> Un simple lien Google Fonts oublié dans votre CSS peut ajouter des secondes au temps de chargement pour chaque utilisateur en Chine. Le mal se cache dans votre code, dans les dépendances dont vous aviez oublié l'existence.
+> Un simple lien Google Fonts oublié dans votre CSS peut laisser la page blanche chez tout visiteur dont le réseau ne lui répond jamais. Le mal se cache dans votre code, dans les dépendances dont vous aviez oublié l'existence.
 
 ## Chaque dépendance recensée, avec la date de son dernier test
 
@@ -205,7 +205,7 @@ Le pare-feu ne se perce pas. On peut bâtir un site qui n'a pas besoin de le tra
 |---|---|
 | Hébergement continental avec ICP | Vitesse, classement, conformité |
 | CDN chinois | Mise en cache sur des noeuds en Chine continentale |
-| Remplacement des dépendances bloquées | Google Fonts vers polices locales, GA vers Baidu Tongji, Maps vers Baidu Maps |
+| Remplacement des dépendances étrangères | Google Fonts vers polices locales, GA vers Baidu Tongji, Maps vers Baidu Maps |
 | Hébergement à Hong Kong | Solution intermédiaire, sans ICP |
 | Lucidité sur les VPN | Zone grise juridique, distinction entre usage professionnel et personnel |
 
@@ -213,7 +213,7 @@ Le pare-feu ne se perce pas. On peut bâtir un site qui n'a pas besoin de le tra
 
 **Passer par un CDN chinois** pour mettre le contenu en cache sur des noeuds implantés en Chine continentale. Même avec un serveur d'origine hors du pays, un CDN doté de PoP continentaux sert les pages aux internautes chinois sans que chaque requête doive traverser le pare-feu.
 
-**Remplacer chaque dépendance bloquée.** L'étape la plus souvent sautée. Google Fonts doit céder la place à des polices hébergées localement. Google Maps à Baidu Maps. Google Analytics à Baidu Tongji. Il faut passer au crible chaque appel externe du site. Chaque balise de script, chaque import de police, chaque point d'accès API. Si l'un d'eux tape dans un domaine bloqué, vos utilisateurs chinois subissent une expérience dégradée, sans que vous le sachiez.
+**Remplacer chaque dépendance étrangère.** L'étape la plus souvent sautée. Google Fonts doit céder la place à des polices hébergées localement. Google Maps à Baidu Maps. Google Analytics à Baidu Tongji. Il faut passer au crible chaque appel externe du site. Chaque balise de script, chaque import de police, chaque point d'accès API. Si l'un d'eux vise un domaine hors de portée du réseau de vos visiteurs, vos utilisateurs chinois subissent une expérience dégradée, sans que vous le sachiez.
 
 > Google Fonts, Google Analytics, Google Maps. À remplacer par des polices hébergées localement, Baidu Tongji et Baidu Maps. Chaque appel externe du site doit être audité.
 

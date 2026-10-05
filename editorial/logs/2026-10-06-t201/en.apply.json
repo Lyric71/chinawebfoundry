@@ -1,0 +1,33 @@
+{
+"guides/host-website-in-china.md": [
+ ["updatedAt: 2026-07-03", "updatedAt: 2026-10-06"],
+ ["and any script or font pulled from a blocked overseas service (Google Fonts is the classic one) simply hangs. The page does not fail loudly. It just sits there, half-drawn, until the visitor leaves.",
+  "and any script or font pulled from an overseas host the visitor's network can't reach simply hangs. Google Fonts is the classic case: it answers from a mainland datacentre and goes silent on a Beijing home line. The page does not fail loudly. It just sits there, half-drawn, until the visitor leaves.\n\n> In 21YunBox's tests, `fonts.googleapis.com` answered 72 of 72 requests from an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026 and 0 of 54 from a Beijing China Mobile (中国移动) residential line on 30 August 2026.\n> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html"]
+],
+"guides/vetting-a-wordpress-agency-china.md": [
+ ["updatedAt: 2026-08-29", "updatedAt: 2026-10-06"],
+ ["A default WordPress build quietly loads Google Fonts, Google Maps, reCAPTCHA, and often analytics or payment scripts, all of which sit behind the Great Firewall. Blocked or throttled, every one. The page doesn't error out.",
+  "A typical WordPress build, once the theme and plugins are in, quietly loads Google Fonts, Google Maps, reCAPTCHA, and often analytics or payment scripts from servers outside China. Some of those are blocked outright. Google Fonts answers or goes silent depending on the visitor's network. When a request goes unanswered, the page doesn't error out."],
+ ["Which blocked scripts will you have to replace on our current build?", "Which overseas scripts will you have to replace on our current build?"]
+],
+"guides/woocommerce-china-store-guide.md": [
+ ["publishedAt: 2026-07-01\n", "publishedAt: 2026-07-01\nupdatedAt: 2026-10-06\n"],
+ ["| Scripts    | Google Fonts, reCAPTCHA, Stripe JS blocked |", "| Scripts    | Google Fonts on home lines, reCAPTCHA      |"],
+ ["First, blocked scripts. A default store quietly pulls Google Fonts,\nreCAPTCHA, and often Stripe's JavaScript. Every one of those sits behind the\nGreat Firewall, blocked or throttled. The page hangs there waiting on a\nresponse that never arrives.",
+  "First, overseas scripts. A default store quietly pulls Google Fonts and\nreCAPTCHA. In 21YunBox's August 2026 tests, reCAPTCHA failed every request\nfrom both a mainland datacentre and a Beijing home line, and Google Fonts\nanswered from the datacentre but never from the home line. Either way the\npage hangs there waiting on a response that never arrives.\n\n> In 21YunBox's tests, `www.google.com/recaptcha` answered 0 of 72 requests\n> from an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026\n> and 0 of 18 from a Beijing China Mobile (中国移动) residential line on\n> 30 August 2026. `fonts.googleapis.com` answered 72 of 72 and 0 of 54.\n> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August\n> 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html"]
+],
+"guides/great-firewall-what-it-blocks.md": [
+ ["updatedAt: 2026-10-02", "updatedAt: 2026-10-06"],
+ ["`fonts.google.com`, the browsing interface, is unreachable either way.", "`fonts.google.com`, the browsing interface, is a separate host: GreatFire read it 100% disrupted on its last two conclusive tests, the latest on 30 September 2026."],
+ ["One forgotten Google Fonts link buried in your CSS can add seconds to your load time for every single user in China.", "One forgotten Google Fonts link buried in your CSS can leave the page blank for every visitor whose network never answers it."],
+ ["> One forgotten Google Fonts link in your CSS can add seconds to load time for every user in China.", "> One forgotten Google Fonts link in your CSS can leave the page blank for every visitor whose network never answers it."],
+ ["| Replace blocked dependencies |", "| Replace overseas dependencies |"],
+ ["**Replace every blocked dependency.**", "**Replace every overseas dependency.**"],
+ ["If any of them hit a blocked domain, your Chinese users", "If any of them hit a domain your visitors' networks can't reach, your Chinese users"]
+],
+"guides/is-wordpress-blocked-in-china.md": [
+ ["updatedAt: 2026-10-02", "updatedAt: 2026-10-06"],
+ ["fonts.google.com, the browsing interface your designers pick typefaces in, doesn't load from either vantage point. That one is a designer problem and your visitors never touch it.",
+  "fonts.google.com, the browsing interface your designers pick typefaces in, is a separate host, and 21YunBox didn't test it. GreatFire read it 100% disrupted on its last two conclusive tests, the latest on 30 September 2026. That one is a designer problem and your visitors never touch it."]
+]
+}

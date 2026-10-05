@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -102,7 +102,7 @@ We don't know the mechanism. The probe that produced these numbers doesn't expla
 
 That's the argument for self-hosting. A font file you serve yourself removes a dependency whose answer changes with the network the visitor is on, and you stop needing to work out which answer applies to which visitor.
 
-fonts.google.com, the browsing interface your designers pick typefaces in, doesn't load from either vantage point. That one is a designer problem and your visitors never touch it.
+fonts.google.com, the browsing interface your designers pick typefaces in, is a separate host, and 21YunBox didn't test it. GreatFire read it 100% disrupted on its last two conclusive tests, the latest on 30 September 2026. That one is a designer problem and your visitors never touch it.
 
 We self-host fonts on every build anyway. Partly for the reason above, mostly because it's one fewer thing to re-test.
 

@@ -6,6 +6,7 @@ visual: "/images/guides/woocommerce-china-store-guide.webp"
 order: 12
 published: true
 publishedAt: 2026-07-01
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -26,7 +27,7 @@ first if you haven't.
 
 | Area       | What breaks by default                     | The fix                        |
 | ---------- | ------------------------------------------ | ------------------------------ |
-| Scripts    | Google Fonts, reCAPTCHA, Stripe JS blocked | Self-host or swap out          |
+| Scripts    | Google Fonts on home lines, reCAPTCHA      | Self-host or swap out          |
 | Payments   | Visa and Mastercard only                   | Alipay + WeChat Pay + UnionPay |
 | Speed      | Overseas host, no CDN                       | Mainland host, China image CDN |
 | Addresses  | Western field order rejected               | Province to district ordering  |
@@ -36,10 +37,18 @@ first if you haven't.
 
 Three things break, and usually all at once.
 
-First, blocked scripts. A default store quietly pulls Google Fonts,
-reCAPTCHA, and often Stripe's JavaScript. Every one of those sits behind the
-Great Firewall, blocked or throttled. The page hangs there waiting on a
-response that never arrives.
+First, overseas scripts. A default store quietly pulls Google Fonts and
+reCAPTCHA. In 21YunBox's August 2026 tests, reCAPTCHA failed every request
+from both a mainland datacentre and a Beijing home line, and Google Fonts
+answered from the datacentre but never from the home line. Either way the
+page hangs there waiting on a response that never arrives.
+
+> In 21YunBox's tests, `www.google.com/recaptcha` answered 0 of 72 requests
+> from an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026
+> and 0 of 18 from a Beijing China Mobile (中国移动) residential line on
+> 30 August 2026. `fonts.googleapis.com` answered 72 of 72 and 0 of 54.
+> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August
+> 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Second, slow checkout. Host the store in Europe or the US and every cart
 action makes a slow round trip across the Firewall. Chinese shoppers do not

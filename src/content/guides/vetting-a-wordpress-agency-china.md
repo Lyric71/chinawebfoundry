@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-08-29
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -38,7 +38,7 @@ First, the filing. Any mainland-hosted site needs an ICP filing, known as Bei'an
 > China's ICP filing (Bei'an) for a non-commercial site is reviewed by the provincial communications authority within 20 working days by regulation, and often clears faster.
 > Source: Measures for the Administration of Internet Information Services, MIIT.
 
-Second, the firewall. A default WordPress build quietly loads Google Fonts, Google Maps, reCAPTCHA, and often analytics or payment scripts, all of which sit behind the Great Firewall. Blocked or throttled, every one. The page doesn't error out. It just hangs, waiting on a response that never comes, while your visitor decides you look broken. A firewall-aware agency self-hosts the fonts, swaps reCAPTCHA for a compliant alternative, replaces the map, and strips every overseas dependency before launch.
+Second, the firewall. A typical WordPress build, once the theme and plugins are in, quietly loads Google Fonts, Google Maps, reCAPTCHA, and often analytics or payment scripts from servers outside China. Some of those are blocked outright. Google Fonts answers or goes silent depending on the visitor's network. When a request goes unanswered, the page doesn't error out. It just hangs, waiting on a response that never comes, while your visitor decides you look broken. A firewall-aware agency self-hosts the fonts, swaps reCAPTCHA for a compliant alternative, replaces the map, and strips every overseas dependency before launch.
 
 Third, discovery. Baidu (百度) runs its own ranking rules, its own webmaster tools, and stricter technical requirements than Google. A site tuned for Google does not transfer. And Google barely factors into the market anyway.
 
@@ -80,7 +80,7 @@ Where will the site be hosted, physically? The answer you want names a mainland 
 
 How do you test performance inside China? You want a real method, a tool, a location. Silence here means they have never done it.
 
-Which blocked scripts will you have to replace on our current build? A specialist will rattle off Google Fonts, Maps, reCAPTCHA without pausing. Hesitation means they have not thought about the Firewall at all.
+Which overseas scripts will you have to replace on our current build? A specialist will rattle off Google Fonts, Maps, reCAPTCHA without pausing. Hesitation means they have not thought about the Firewall at all.
 
 Have you launched a WordPress site in China for a foreign company before? Ask to see it. Ask if it loads for a user in China today.
 

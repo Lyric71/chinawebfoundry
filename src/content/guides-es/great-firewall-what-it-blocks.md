@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -63,7 +63,7 @@ Google Fonts es la excepción, y quien opina sobre ella suele equivocarse en uno
 > Desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, el 28 de agosto de 2026, con una muestra cada diez minutos durante doce horas, `fonts.googleapis.com` completó 72 de 72 peticiones con una mediana de 111 ms hasta el primer byte. Desde una línea residencial de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, a lo largo de 264 cargas de página, el mismo servidor respondió a 0 de 54 peticiones.
 > Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
-Frente a estos dos datos, ninguna afirmación tajante se sostiene. Google Fonts se resuelve desde los centros de datos del continente y, con frecuencia, no lo hace en las conexiones domésticas. Ahí reside todo el argumento para alojar las fuentes en el propio servidor: se elimina una variable que cambia según la red, el resolvedor y la hora. `fonts.google.com`, la interfaz de consulta, resulta inaccesible en cualquier caso.
+Frente a estos dos datos, ninguna afirmación tajante se sostiene. Google Fonts se resuelve desde los centros de datos del continente y, con frecuencia, no lo hace en las conexiones domésticas. Ahí reside todo el argumento para alojar las fuentes en el propio servidor: se elimina una variable que cambia según la red, el resolvedor y la hora. `fonts.google.com`, la interfaz de consulta, depende de otro servidor: GreatFire registró interferencias en sus dos últimas pruebas concluyentes, la más reciente del 30 de septiembre de 2026, y lo da por perturbado al 100 %.
 
 La lista sigue con las redes sociales. Facebook, Instagram, WhatsApp y Messenger están bloqueados. Lo mismo vale para Twitter/X, Reddit y Pinterest. La edición china de Wikipedia tampoco se abre.
 
@@ -71,9 +71,9 @@ Las herramientas de trabajo occidentales corren la misma suerte. Dropbox, Slack,
 
 Lo mismo ocurre con el entretenimiento, como Netflix, Spotify o Twitch, y con buena parte de la gran prensa occidental: el New York Times, el Wall Street Journal o la BBC.
 
-Lo que más sorprende llega después. Cualquier script, tipografía, widget o llamada a una API que dependa de un dominio bloqueado deja de funcionar. Un enlace a Google Fonts olvidado en la hoja de estilos añade varios segundos de carga a cada visitante chino. Una sola etiqueta de analítica puede congelar la página entera.
+Lo que más sorprende llega después. Cualquier script, tipografía, widget o llamada a una API que dependa de un dominio bloqueado deja de funcionar. Un enlace a Google Fonts olvidado en la hoja de estilos puede dejar la página en blanco para cualquier visitante cuya red no obtenga respuesta. Una sola etiqueta de analítica puede congelar la página entera.
 
-> Un enlace a Google Fonts olvidado en la hoja de estilos añade varios segundos de carga a cada usuario chino. El problema está en el propio código, en dependencias que el equipo ya ni recordaba.
+> Un enlace a Google Fonts olvidado en la hoja de estilos puede dejar la página en blanco para cualquier usuario cuya red no obtenga respuesta. El problema está en el propio código, en dependencias que el equipo ya ni recordaba.
 
 ## Cada dependencia registrada, con la fecha de su última prueba
 
@@ -205,7 +205,7 @@ Nadie va a perforar el Gran Cortafuegos. Lo sensato es construir un sitio que no
 |---|---|
 | Alojamiento continental con ICP | Velocidad, posicionamiento y cumplimiento normativo |
 | CDN chino | Almacenamiento en caché en nodos de China continental |
-| Sustitución de las dependencias bloqueadas | Google Fonts por tipografías locales, Analytics por Baidu Tongji, Maps por Baidu Maps |
+| Sustitución de las dependencias extranjeras | Google Fonts por tipografías locales, Analytics por Baidu Tongji, Maps por Baidu Maps |
 | Alojamiento en Hong Kong | Solución intermedia, sin ICP |
 | Claridad sobre las VPN | Zona gris jurídica, con distinción entre uso profesional y personal |
 
@@ -213,7 +213,7 @@ Nadie va a perforar el Gran Cortafuegos. Lo sensato es construir un sitio que no
 
 **Recurrir a un CDN chino** permite guardar el contenido en caché en nodos de China continental. El servidor de origen puede estar fuera del país. Un CDN con nodos en el continente entrega igualmente las páginas, sin que cada petición cruce el cortafuegos.
 
-**Sustituir cada dependencia bloqueada** es el paso que más se olvida. Google Fonts pasa a tipografías alojadas en servidores locales, Google Maps a Baidu Maps y Google Analytics a Baidu Tongji. Hay que revisar todas las llamadas externas del sitio, una por una: cada script, cada tipografía, cada punto de acceso a una API. Si una apunta a un dominio bloqueado, los usuarios chinos sufren una mala experiencia y la empresa ni se entera.
+**Sustituir cada dependencia extranjera** es el paso que más se olvida. Google Fonts pasa a tipografías alojadas en servidores locales, Google Maps a Baidu Maps y Google Analytics a Baidu Tongji. Hay que revisar todas las llamadas externas del sitio, una por una: cada script, cada tipografía, cada punto de acceso a una API. Si una apunta a un dominio fuera del alcance de la red de sus visitantes, los usuarios chinos sufren una mala experiencia y la empresa ni se entera.
 
 > Google Fonts, Google Analytics y Google Maps tienen que dar paso a tipografías locales, a Baidu Tongji y a Baidu Maps. Cada llamada externa del sitio necesita una revisión.
 

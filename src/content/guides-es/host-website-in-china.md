@@ -6,7 +6,7 @@ visual: "/images/guides/host-website-in-china.webp"
 order: 14
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-07-03
+updatedAt: 2026-10-06
 category: Hosting
 ---
 
@@ -20,12 +20,12 @@ Buena parte de lo que sigue amplía nuestra guía de referencia, Localización d
 
 Hay tres razones, y se acumulan una sobre otra.
 
-La velocidad, para empezar. Cuando su servidor vive en Virginia o en Fráncfort, cada petición de un usuario chino tiene que cruzar el Gran Cortafuegos (防火长城). Ese cruce no es un salto limpio. El tráfico se estrangula, la negociación SSL expira a mitad de conexión y cualquier script o tipografía que venga de un servicio extranjero bloqueado (el ejemplo de manual es Google Fonts) se queda colgado sin más. La página no falla con estrépito. Se queda ahí, dibujada a medias, hasta que el visitante se marcha.
+La velocidad, para empezar. Cuando su servidor vive en Virginia o en Fráncfort, cada petición de un usuario chino tiene que cruzar el Gran Cortafuegos (防火长城). Ese cruce no es un salto limpio. El tráfico se estrangula, la negociación SSL expira a mitad de conexión y cualquier script o tipografía alojados en un servidor extranjero fuera del alcance de la red del visitante se quedan colgados sin más. Google Fonts es el ejemplo de manual: responde desde un centro de datos del continente y enmudece en una línea doméstica de Pekín. La página no falla con estrépito. Se queda ahí, dibujada a medias, hasta que el visitante se marcha.
 
-> Medidos desde Shanghái sobre alojamiento extranjero, los sitios cargan por lo común en 8 a 15 segundos. Trasladados a servidores del continente, esos mismos sitios bajan del segundo.
-> Fuente: mediciones de lanzamiento de ChinaWebFoundry, Shanghái.
+> Según las mediciones de 21YunBox, `fonts.googleapis.com` atendió las 72 peticiones enviadas desde una instancia de Alibaba Cloud (阿里云) en la región cn-zhangjiakou el 28 de agosto de 2026, y ninguna de las 54 lanzadas desde una línea residencial de China Mobile (中国移动) en Pekín el 30 de agosto de 2026.
+> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
-El SEO, a continuación. Baidu (百度) es el buscador que importa aquí, y tiene por más legítimo un sitio alojado en el continente y registrado en el ICP que uno servido desde el extranjero. Sin un alojamiento local y un registro, Baidu no lo indexará como es debido, por muy pulcro que sea su trabajo on-page.
+El SEO, a continuación. Baidu (百度) es el buscador que importa aquí, y solo puede posicionar las páginas que consigue rastrear y cargar desde el continente. Baidu no ha publicado ninguna norma que premie, por sí solos, el alojamiento en el continente o el registro ICP: lo que juega a favor del alojamiento local es el acceso de su rastreador y la velocidad de las páginas en las redes del continente, dos aspectos que pueden comprobarse.
 
 > Baidu concentra alrededor de la mitad del mercado chino de búsqueda. Google se queda por debajo del 3 %.
 > Fuente: Statcounter Global Stats, China, 2024.

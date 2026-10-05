@@ -67,7 +67,7 @@ The SERP confirms it every time: **if VPN affiliate sites or travel blogs rank, 
 
 ### Structure rule
 
-**No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a resolver problem, Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
+**No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a vantage-point problem (the mechanism behind the home-line failure is unpublished, so no page names one), Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
 
 Every page: a named human byline with a China-based author bio, a test date, a named network or region, and the answer in the **first paragraph**, because roughly 44% of AI citations come from the first 30% of a page (F46).
 
@@ -79,7 +79,7 @@ Every T2 page states what the Great Firewall does to its subject from dated thir
 
 ### Structure rule
 
-**No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a resolver problem, Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
+**No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a vantage-point problem (the mechanism behind the home-line failure is unpublished, so no page names one), Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
 
 Every page: a named human byline with a China-based author bio, a test date, a named network or region, and the answer in the **first paragraph**, because roughly 44% of AI citations come from the first 30% of a page (F46).
 

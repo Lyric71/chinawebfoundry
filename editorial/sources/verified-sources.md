@@ -1505,6 +1505,84 @@ T1). Check 1 by curl with a desktop Chrome user agent at research time, check
 - PIPL Article 39 (CAC copy): re-fetched twice, 第三十九条 and 单独同意 present. Used in: china-website-brief-checklist.
 - MIIT pilot 2024 No. 107 (gov.cn) and Shanghai CA licence guide (60日内): re-fetched once each at check 1 and NOT used; B5 mentions the ICP licence without a review figure.
 
+## T2-01 entries, 6 October 2026
+
+Logged for `google-fonts-china`. Every URL fetched twice on 6 October 2026:
+check 1 during research, check 2 in createarticle iteration 8 with a
+differently worded query against the same URL. All passed check 2. The F6
+pair above was re-fetched too and is unchanged.
+
+### Google Fonts serving hosts, GreatFire HTTPS verdicts
+- Fact ID: F6 (added 6 October 2026)
+- Value: https://fonts.googleapis.com not blocked, 0 of 3 conclusive tests disrupted in the last 90 days, last test 7 September 2026. https://fonts.gstatic.com not blocked, 0 of 4 disrupted, last test 21 September 2026
+- Vantage point: n/a, GreatFire reachability verdicts from mainland China, no latency
+- As of: 7 and 21 September 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/fonts.googleapis.com and https://en.greatfire.org/https/fonts.gstatic.com
+- Verified 1: 2026-10-06
+- Verified 2: 2026-10-06
+- Used in: google-fonts-china
+- Notes: Use the HTTPS pages. The plain-host pages (`/fonts.googleapis.com`, `/fonts.gstatic.com`) carry older or HTTP-only tests (18 August and 21 March 2026). These verdicts agree with the 21YunBox datacentre figure and say nothing about a home line, so never quote them alone: alone they are the flat "not blocked" claim on the Do Not Assert list. Recheck by 2026-12-06 (oldest test plus 90 days).
+
+### fonts.google.com, GreatFire HTTPS verdict
+- Fact ID: F6 (corrects the old "blocked either way")
+- Value: 100% disrupted, 2 of 2 conclusive tests in the last 90 days, last test 30 September 2026; interference recorded since 15 October 2016. Headline verdict "Sometimes"
+- Vantage point: n/a, GreatFire reachability verdict
+- As of: 30 September 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/fonts.google.com
+- Verified 1: 2026-10-06
+- Verified 2: 2026-10-06
+- Used in: google-fonts-china; great-firewall-what-it-blocks and is-wordpress-blocked-in-china (corrected 6 October 2026, four locales each)
+- Notes: The 21YunBox study does not test this host, so "from either vantage point" and "blocked either way" had no source. GreatFire's word is disrupted, not blocked; print it as theirs.
+
+### reCAPTCHA, both vantage points, rechecked
+- Fact ID: F2
+- Value: 0 of 72 from the datacentre ("0% success"), 18 requests, 18 never answered, from the consumer line
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 28 August 2026; Beijing China Mobile (中国移动) residential, 30 August 2026
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, *A Day of Third-Party Requests From Inside China*
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-09-10 (entry above)
+- Verified 2: 2026-10-06, re-fetched, unchanged
+- Used in: woocommerce-china-store-guide (corrected 6 October 2026, four locales)
+
+### A stylesheet link in the head blocks rendering
+- Fact ID: none
+- Value: "By default, a link element with rel="stylesheet" in the head blocks rendering when the browser discovers it during parsing."
+- Vantage point: n/a
+- As of: page last modified 20 May 2026
+- Source: MDN Web Docs, the link element
+- URL: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link
+- Verified 1: 2026-10-06
+- Verified 2: 2026-10-06
+- Used in: google-fonts-china
+- Notes: The verbatim sentence carries code markup (`link`, `rel="stylesheet"`, `<head>`); google-fonts-china cites it as an attributed paraphrase so the body carries no HTML.
+
+### preconnect opens the connection early
+- Fact ID: none
+- Value: preconnect performs "part or all of the handshake (DNS+TCP for HTTP, and DNS+TCP+TLS for HTTPS origins)" ahead of use
+- Vantage point: n/a
+- As of: page last modified 22 April 2026
+- Source: MDN Web Docs, rel=preconnect
+- URL: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preconnect
+- Verified 1: 2026-10-06
+- Verified 2: 2026-10-06
+- Used in: google-fonts-china
+- Notes: Supports "a leftover preconnect still sends the browser to the host". Does not support "a preconnect makes it worse"; nothing measures that, so it is not printed.
+
+### Google Fonts may be self-hosted
+- Fact ID: none
+- Value: "Since all the fonts available here are licensed with permission to redistribute, subject to the license terms, you can self-host using a variety of third-party projects." Most fonts SIL Open Font License 1.1, some Apache 2, Ubuntu fonts Ubuntu Font License 1.0
+- Vantage point: n/a
+- As of: README last changed 8 March 2024 (GitHub commit date, read through the GitHub API)
+- Source: Google Fonts repository README, google/fonts on GitHub
+- URL: https://github.com/google/fonts
+- Verified 1: 2026-10-06
+- Verified 2: 2026-10-06
+- Used in: google-fonts-china
+- Notes: fonts.google.com/faq is rendered client-side and returned no text to the fetcher; the repository README is the dated primary statement. Some OFL fonts carry a Reserved Font Name; the README says so.
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)

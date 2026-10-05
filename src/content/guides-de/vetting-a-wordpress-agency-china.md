@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-08-29
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -38,7 +38,7 @@ Erstens die Anmeldung. Jede Seite, die auf dem Festland liegt, braucht eine ICP-
 > Die chinesische ICP-Anmeldung (Bei'an) für eine nichtkommerzielle Seite prüft die zuständige Kommunikationsbehörde der Provinz laut Vorschrift binnen 20 Arbeitstagen, häufig geht es schneller.
 > Quelle: Verwaltungsmaßnahmen für Internet-Informationsdienste, MIIT.
 
-Zweitens die Firewall. Eine WordPress-Standardinstallation lädt klammheimlich Google Fonts, Google Maps, reCAPTCHA und oft auch Analyse- oder Zahlungsskripte, die allesamt hinter der Großen Firewall liegen. Gesperrt oder ausgebremst, jedes davon. Einen Fehler zeigt die Seite dabei nicht an. Sie hängt einfach und wartet auf eine Antwort, die nie eintrifft, und der Besucher schließt daraus, bei Ihnen sei etwas kaputt. Eine Firewall-taugliche Agentur hostet die Schriften selbst, ersetzt reCAPTCHA durch eine zulässige Alternative, tauscht die Karte aus und räumt vor dem Start jede Abhängigkeit von Übersee-Diensten aus.
+Zweitens die Firewall. Eine typische WordPress-Installation lädt samt Theme und Plugins klammheimlich Google Fonts, Google Maps, reCAPTCHA und oft auch Analyse- oder Zahlungsskripte von Servern außerhalb Chinas. Manche davon sind rundweg gesperrt. Google Fonts antwortet oder schweigt, je nachdem, in welchem Netz der Besucher sitzt. Bleibt eine Anfrage unbeantwortet, zeigt die Seite keinen Fehler an. Sie hängt einfach und wartet auf eine Antwort, die nie eintrifft, und der Besucher schließt daraus, bei Ihnen sei etwas kaputt. Eine Firewall-taugliche Agentur hostet die Schriften selbst, ersetzt reCAPTCHA durch eine zulässige Alternative, tauscht die Karte aus und räumt vor dem Start jede Abhängigkeit von Übersee-Diensten aus.
 
 Drittens die Auffindbarkeit. Baidu (百度) folgt eigenen Ranking-Regeln, betreibt eigene Webmaster-Werkzeuge und stellt strengere technische Anforderungen als Google. Was für Google optimiert ist, lässt sich nicht übertragen. Und Google fällt in diesem Markt ohnehin kaum ins Gewicht.
 
@@ -80,7 +80,7 @@ Wo steht der Server physisch? Die Antwort, die Sie hören wollen, nennt einen An
 
 Wie prüfen Sie die Leistung innerhalb Chinas? Sie wollen eine konkrete Methode hören, ein Werkzeug, einen Standort. Schweigt die Agentur hier, hat sie es nie getan.
 
-Welche gesperrten Skripte müssen Sie in unserer bestehenden Seite ersetzen? Ein Spezialist zählt Google Fonts, Maps und reCAPTCHA ohne Zögern auf. Wer zögert, hat über die Firewall nie nachgedacht.
+Welche im Ausland gehosteten Skripte müssen Sie in unserer bestehenden Seite ersetzen? Ein Spezialist zählt Google Fonts, Maps und reCAPTCHA ohne Zögern auf. Wer zögert, hat über die Firewall nie nachgedacht.
 
 Haben Sie in China schon einmal eine WordPress-Seite für ein ausländisches Unternehmen aufgesetzt? Bitten Sie darum, sie zu sehen. Fragen Sie, ob sie heute für einen Nutzer in China lädt.
 

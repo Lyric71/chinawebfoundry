@@ -6,17 +6,17 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-08-29
+updatedAt: 2026-10-06
 category: Technology
 ---
 
 La plupart des agences vous construisent un beau site WordPress. Rares sont celles qui en livrent un qui s'affiche vraiment pour un client à Shenzhen, se hisse dans les résultats de Baidu (百度) et franchit une formalité administrative avant même sa mise en ligne. Deux métiers séparent ces promesses, et c'est dans cet écart que les marques étrangères perdent des mois.
 
-Votre agence internationale livre un site impeccable. Il tourne à Londres, il tourne à Chicago. Un collègue l'ouvre depuis Shanghai : l'image d'accueil ne se charge jamais, le formulaire de contact reste figé sur un script prisonnier du Grand Pare-feu, et Baidu ignore jusqu'à son existence. Au sens strict, rien n'est en panne. Le site refuse juste de fonctionner là où vous en avez besoin.
+Votre agence internationale livre un site impeccable. Il tourne à Londres, il tourne à Chicago. Un collègue l'ouvre depuis Shanghai : l'image d'accueil ne se charge jamais, le formulaire de contact reste figé sur un script prisonnier du Grand Pare-feu, et Baidu ignore jusqu'à son existence. Au sens strict, rien n'est en panne. Le site refuse juste de fonctionner là où vous en avez besoin.
 
-Recruter une agence WordPress pour la Chine n'a rien de commun avec le même exercice ailleurs. La technique ne compte que pour moitié. Le reste tient à des barrières réglementaires et à une infrastructure qu'un studio installé hors de Chine n'a, le plus souvent, jamais affrontées. Ce guide démonte ce qui sépare [une agence WordPress spécialisée sur la Chine](/fr/agence-wordpress-chine/) d'une agence quelconque : les compétences à vérifier, les questions qui trahissent un amateur et la manière dont se chiffrent ces missions.
+Recruter une agence WordPress pour la Chine n'a rien de commun avec le même exercice ailleurs. La technique ne compte que pour moitié. Le reste tient à des barrières réglementaires et à une infrastructure qu'un studio installé hors de Chine n'a, le plus souvent, jamais affrontées. Ce guide démonte ce qui sépare [une agence WordPress spécialisée sur la Chine](/fr/agence-wordpress-chine/) d'une agence quelconque : les compétences à vérifier, les questions qui trahissent un amateur et la manière dont se chiffrent ces missions.
 
-Nous partons ici du principe que vous avez lu notre guide de référence, La localisation d'un site web pour la Chine. Sinon, commencez par lui : tout ce qui suit en découle.
+Nous partons ici du principe que vous avez lu notre guide de référence, La localisation d'un site web pour la Chine. Sinon, commencez par lui : tout ce qui suit en découle.
 
 ## Agence générique ou spécialiste WordPress Chine, en un coup d'oeil
 
@@ -33,28 +33,28 @@ Nous partons ici du principe que vous avez lu notre guide de référence, La loc
 
 Trois raisons à cela, et chacune suffit à couler un lancement.
 
-D'abord, le dépôt. Tout site hébergé sur le continent exige un dépôt ICP, le Bei'an (备案), délivré par une antenne provinciale du ministère de l'Industrie et des Technologies de l'information (MIIT). Sans lui, pas d'hébergement continental légal, et Baidu boude l'indexation du site. Une agence générique n'y peut rien pour vous : la démarche réclame une entité enregistrée en Chine pour garantir le dossier et un hôte continental pour déposer les pièces. C'est une procédure administrative à part entière, rythmée par son propre calendrier.
+D'abord, le dépôt. Tout site hébergé sur le continent exige un dépôt ICP, le Bei'an (备案), délivré par une antenne provinciale du ministère de l'Industrie et des Technologies de l'information (MIIT). Sans lui, pas d'hébergement continental légal, et Baidu boude l'indexation du site. Une agence générique n'y peut rien pour vous : la démarche réclame une entité enregistrée en Chine pour garantir le dossier et un hôte continental pour déposer les pièces. C'est une procédure administrative à part entière, rythmée par son propre calendrier.
 
 > En Chine, le dépôt ICP (Bei'an) d'un site non commercial est instruit par l'autorité provinciale des communications dans un délai réglementaire de 20 jours ouvrés, et aboutit souvent plus vite.
-> Source : Mesures relatives à l'administration des services d'information sur Internet, MIIT.
+> Source : Mesures relatives à l'administration des services d'information sur Internet, MIIT.
 
-Ensuite, le pare-feu. Une installation WordPress par défaut appelle en silence Google Fonts, Google Maps, reCAPTCHA, et souvent des scripts d'analyse ou de paiement, tous logés derrière le Grand Pare-feu. Tous bloqués ou étranglés. La page n'affiche aucune erreur. Elle reste en suspens, à guetter une réponse qui ne viendra pas, le temps que votre visiteur vous range parmi les sites en panne. Une agence qui connaît le pare-feu héberge les polices en local, troque reCAPTCHA contre une solution conforme, remplace la carte et coupe la moindre dépendance étrangère avant la mise en ligne.
+Ensuite, le pare-feu. Une installation WordPress ordinaire, thème et extensions compris, appelle en silence Google Fonts, Google Maps, reCAPTCHA et souvent des scripts d'analyse ou de paiement hébergés hors de Chine. Certains sont purement et simplement bloqués. Google Fonts, lui, répond ou se tait selon le réseau du visiteur. Lorsqu'un appel reste lettre morte, la page n'affiche aucune erreur. Elle reste en suspens, à guetter une réponse qui ne viendra pas, le temps que votre visiteur vous range parmi les sites en panne. Une agence qui connaît le pare-feu héberge les polices en local, troque reCAPTCHA contre une solution conforme, remplace la carte et coupe la moindre dépendance étrangère avant la mise en ligne.
 
 Enfin, la découverte. Baidu (百度) applique ses propres règles de classement, ses propres outils pour webmasters et des exigences techniques plus strictes que Google. Un site réglé pour Google ne se transpose pas. Et Google ne pèse presque rien sur ce marché de toute façon.
 
-> Sur mobile, où se déroule la quasi-totalité de la navigation chinoise, Baidu détient environ 65 % du marché de la recherche. Google reste sous les 3 %.
-> Source : Statcounter Global Stats, Chine, 2025.
+> Sur mobile, où se déroule la quasi-totalité de la navigation chinoise, Baidu détient environ 65 % du marché de la recherche. Google reste sous les 3 %.
+> Source : Statcounter Global Stats, Chine, 2025.
 
-> La Chine comptait 1,108 milliard d'internautes fin 2024, et 99,7 % d'entre eux se connectent depuis un téléphone.
-> Source : CNNIC, 55e Rapport statistique sur le développement d'Internet en Chine.
+> La Chine comptait 1,108 milliard d'internautes fin 2024, et 99,7 % d'entre eux se connectent depuis un téléphone.
+> Source : CNNIC, 55e Rapport statistique sur le développement d'Internet en Chine.
 
 ## Les compétences indispensables à évaluer
 
 Prenez cette liste pour une grille de contrôle. Un partenaire digne d'être recruté répond à chaque ligne sans hésiter.
 
-**La gestion de l'ICP.** L'agence porte le dépôt, elle ne vous renvoie pas vers un portail gouvernemental en vous souhaitant bonne chance. Demandez-lui si elle dépose comme garant ou via une entité partenaire, et si elle s'y est déjà pliée pour une entreprise étrangère. Il existe par ailleurs une licence ICP commerciale, distincte du Bei'an de base, réservée aux boutiques qui vendent en direct. Ses règles de propriété et son instruction plus longue changent la donne : un projet marchand appelle donc une agence qui sait quel dépôt s'applique à votre cas.
+**La gestion de l'ICP.** L'agence porte le dépôt, elle ne vous renvoie pas vers un portail gouvernemental en vous souhaitant bonne chance. Demandez-lui si elle dépose comme garant ou via une entité partenaire, et si elle s'y est déjà pliée pour une entreprise étrangère. Il existe par ailleurs une licence ICP commerciale, distincte du Bei'an de base, réservée aux boutiques qui vendent en direct. Ses règles de propriété et son instruction plus longue changent la donne : un projet marchand appelle donc une agence qui sait quel dépôt s'applique à votre cas.
 
-**L'hébergement sur le continent.** Livrer vite en Chine, cela suppose des serveurs en Chine, chez Alibaba Cloud (Aliyun, 阿里云), Tencent Cloud (腾讯云) ou Huawei Cloud (华为云), doublés d'un CDN chinois pour les images et les ressources. Le partenaire qui compte vous laisser sur un hôte américain ou européen « avec un CDN devant » est passé à côté du problème.
+**L'hébergement sur le continent.** Livrer vite en Chine, cela suppose des serveurs en Chine, chez Alibaba Cloud (Aliyun, 阿里云), Tencent Cloud (腾讯云) ou Huawei Cloud (华为云), doublés d'un CDN chinois pour les images et les ressources. Le partenaire qui compte vous laisser sur un hôte américain ou européen « avec un CDN devant » est passé à côté du problème.
 
 **L'intégration des paiements.** Pour une boutique, Visa et Mastercard n'atteignent presque personne. WeChat Pay (微信支付) et Alipay (支付宝) forment le socle, UnionPay (银联) venant en renfort auprès des acheteurs plus âgés et des entreprises. Vérifiez que l'agence a déjà branché ces moyens sur WooCommerce, et pas seulement parcouru la documentation.
 
@@ -74,15 +74,15 @@ Prenez cette liste pour une grille de contrôle. Un partenaire digne d'être rec
 
 Des questions courtes et directes font vite remonter la vérité. Posez celles-ci.
 
-Qui garantit notre dépôt ICP, et combien de temps prendra-t-il ? Un spécialiste vous trace un parcours de dépôt et un calendrier approximatif. Un amateur reste vague, ou insinue que vous pouvez vous en passer. C'est faux.
+Qui garantit notre dépôt ICP, et combien de temps prendra-t-il ? Un spécialiste vous trace un parcours de dépôt et un calendrier approximatif. Un amateur reste vague, ou insinue que vous pouvez vous en passer. C'est faux.
 
-Où le site sera-t-il hébergé, physiquement ? La réponse attendue nomme un fournisseur continental. « On mettra un CDN devant notre hôte habituel » est celle qu'il faut fuir.
+Où le site sera-t-il hébergé, physiquement ? La réponse attendue nomme un fournisseur continental. « On mettra un CDN devant notre hôte habituel » est celle qu'il faut fuir.
 
-Comment testez-vous la performance depuis la Chine ? Vous voulez une vraie méthode, un outil, un lieu précis. Un silence sur ce point signifie qu'ils ne l'ont jamais fait.
+Comment testez-vous la performance depuis la Chine ? Vous voulez une vraie méthode, un outil, un lieu précis. Un silence sur ce point signifie qu'ils ne l'ont jamais fait.
 
-Quels scripts bloqués faudra-t-il remplacer sur notre site actuel ? Un spécialiste égrène Google Fonts, Maps, reCAPTCHA sans marquer de pause. L'hésitation trahit une agence qui n'a pas consacré une minute au pare-feu.
+Quels scripts hébergés à l'étranger faudra-t-il remplacer sur notre site actuel ? Un spécialiste égrène Google Fonts, Maps, reCAPTCHA sans marquer de pause. L'hésitation trahit une agence qui n'a pas consacré une minute au pare-feu.
 
-Avez-vous déjà lancé un site WordPress en Chine pour une entreprise étrangère ? Demandez à le voir. Demandez s'il charge aujourd'hui pour un utilisateur en Chine.
+Avez-vous déjà lancé un site WordPress en Chine pour une entreprise étrangère ? Demandez à le voir. Demandez s'il charge aujourd'hui pour un utilisateur en Chine.
 
 Les signaux d'alerte se rassemblent en quelques endroits. Un hébergement seulement offshore, présenté comme suffisant. Aucun plan de test depuis la Chine. Des réponses vagues et fuyantes sur l'ICP, la pièce la plus difficile à feindre. Et un portfolio garni de sites splendides vus d'où vous êtes assis, jamais vérifiés d'où se trouvent vos clients.
 
@@ -90,14 +90,14 @@ Les signaux d'alerte se rassemblent en quelques endroits. Un hébergement seulem
 
 Un projet chinois coûte plus cher que le site équivalent réalisé chez vous, et mieux vaut comprendre où part le supplément avant de comparer les devis.
 
-La plupart des missions épousent l'une de deux formes. Un projet à périmètre fixe couvre une construction, une migration ou un lancement définis : stratégie, dépôt ICP, mise en place de l'hébergement, conception pensée pour le pare-feu et mise en ligne. Un forfait mensuel prend en charge la part continue, qui en Chine n'a rien de facultatif, quoi qu'on en pense. Une mise à jour casse une extension derrière le pare-feu, l'hébergement demande une surveillance, le SEO Baidu se gagne lentement et sans répit, et les moteurs de recherche IA bougent sans cesse. Il y a de quoi entretenir, mois après mois.
+La plupart des missions épousent l'une de deux formes. Un projet à périmètre fixe couvre une construction, une migration ou un lancement définis : stratégie, dépôt ICP, mise en place de l'hébergement, conception pensée pour le pare-feu et mise en ligne. Un forfait mensuel prend en charge la part continue, qui en Chine n'a rien de facultatif, quoi qu'on en pense. Une mise à jour casse une extension derrière le pare-feu, l'hébergement demande une surveillance, le SEO Baidu se gagne lentement et sans répit, et les moteurs de recherche IA bougent sans cesse. Il y a de quoi entretenir, mois après mois.
 
 | Modèle              | Ce qu'il couvre                          | Idéal quand                     |
 | ------------------- | ---------------------------------------- | ------------------------------- |
 | Projet à prix fixe  | Build, migration, ICP, hébergement, lancement | Vous voulez être en ligne en Chine |
 | Forfait mensuel     | Maintenance, SEO, surveillance, mises à jour | Vous voulez rester en vie et visible |
 
-Qu'ajoute la conformité chinoise à la facture ? Quelques postes concrets. Le dépôt ICP est un vrai chantier, avec de vrais allers-retours. Le contenu en chinois natif est un métier de spécialiste ; le ramener à une ligne « traduction » sur un devis, c'est se tromper de poste. L'ingénierie pensée pour le pare-feu, remplacer chaque dépendance bloquée et tester depuis la Chine, prend un temps qu'un site domestique n'y passe jamais. Et l'hébergement continental doublé d'un CDN chinois forme un poste à lui seul. Rien là-dedans ne sert de remplissage. Voilà le prix réel d'un site qui fonctionne de l'autre côté du mur.
+Qu'ajoute la conformité chinoise à la facture ? Quelques postes concrets. Le dépôt ICP est un vrai chantier, avec de vrais allers-retours. Le contenu en chinois natif est un métier de spécialiste ; le ramener à une ligne « traduction » sur un devis, c'est se tromper de poste. L'ingénierie pensée pour le pare-feu, remplacer chaque dépendance bloquée et tester depuis la Chine, prend un temps qu'un site domestique n'y passe jamais. Et l'hébergement continental doublé d'un CDN chinois forme un poste à lui seul. Rien là-dedans ne sert de remplissage. Voilà le prix réel d'un site qui fonctionne de l'autre côté du mur.
 
 ## Pourquoi ChinaWebFoundry
 

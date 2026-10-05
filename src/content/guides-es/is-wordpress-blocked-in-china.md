@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -102,7 +102,7 @@ Desconocemos el mecanismo. La sonda de la que salen estas cifras tampoco lo expl
 
 Ahí está el argumento a favor del alojamiento propio. Una tipografía que usted mismo sirve elimina una dependencia cuya respuesta varía con la red del visitante y le ahorra averiguar cuál le toca a quién.
 
-fonts.google.com, la interfaz donde sus diseñadores eligen los tipos, no carga desde ninguno de los dos puntos de medición. Un problema de diseñadores, por tanto: sus visitantes no entran ahí jamás.
+fonts.google.com, la interfaz donde sus diseñadores eligen los tipos, depende de otro servidor, que 21YunBox no midió. GreatFire registró interferencias en sus dos últimas pruebas concluyentes, la más reciente del 30 de septiembre de 2026, y lo da por perturbado al 100 %. Un problema de diseñadores, por tanto: sus visitantes no entran ahí jamás.
 
 Nosotros alojamos las tipografías en local en todos los proyectos, en cualquier caso. En parte por el motivo anterior, y sobre todo porque supone una cosa menos que volver a comprobar.
 

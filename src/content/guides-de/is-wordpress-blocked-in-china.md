@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -102,7 +102,7 @@ Den Mechanismus kennen wir nicht. Die Sonde, aus der diese Zahlen stammen, erkl�
 
 Darin liegt das Argument für eigenes Hosting. Eine Schriftdatei, die Sie selbst ausliefern, streicht eine Abhängigkeit, deren Antwort mit dem Netz des Besuchers wechselt; welche Antwort für wen gilt, müssen Sie dann nicht mehr herausfinden.
 
-fonts.google.com, die Oberfläche, in der Ihre Gestalter Schriften aussuchen, lädt von keinem der beiden Messpunkte. Ein Problem der Gestalter also; Ihre Nutzer kommen dort nie hin.
+fonts.google.com, die Oberfläche, in der Ihre Gestalter Schriften aussuchen, läuft über einen eigenen Host, den 21YunBox nicht gemessen hat. GreatFire verzeichnete bei den letzten beiden aussagekräftigen Tests jeweils Störungen, zuletzt am 30. September 2026. Ein Problem der Gestalter also; Ihre Nutzer kommen dort nie hin.
 
 Wir hosten Schriften ohnehin bei jedem Projekt lokal. Teils aus dem eben genannten Grund, vor allem aber, weil es eine Sache weniger ist, die man nachtesten muss.
 

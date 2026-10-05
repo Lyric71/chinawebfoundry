@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -63,7 +63,7 @@ Google Fonts is the exception, and people get it wrong in both directions, so it
 > From an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026, sampled every ten minutes for twelve hours, `fonts.googleapis.com` completed 72 of 72 requests at a median 111ms to first byte. From a Beijing China Mobile (中国移动) residential line on 30 August 2026, across 264 page loads, the same host answered 0 of 54.
 > Source: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
-Neither flat version of that claim survives the pair. Google Fonts resolves from mainland datacentres and frequently does not resolve on consumer connections, which is the whole argument for self-hosting: you remove a variable that changes by network, by resolver and by hour. `fonts.google.com`, the browsing interface, is unreachable either way.
+Neither flat version of that claim survives the pair. Google Fonts resolves from mainland datacentres and frequently does not resolve on consumer connections, which is the whole argument for self-hosting: you remove a variable that changes by network, by resolver and by hour. `fonts.google.com`, the browsing interface, is a separate host: GreatFire read it 100% disrupted on its last two conclusive tests, the latest on 30 September 2026.
 
 Facebook, Instagram, WhatsApp, Messenger. All blocked. Twitter/X, Reddit, Pinterest. Blocked. Wikipedia's Chinese edition. Blocked.
 
@@ -71,9 +71,9 @@ Workplace tools that Western companies depend on: Dropbox, Slack, Notion, Trello
 
 Netflix, Spotify, Twitch. All blocked. Most major Western news sites including the New York Times, Wall Street Journal, and BBC. Blocked.
 
-The part that catches most companies off guard goes past the blocked services themselves. Every script, font, widget, and API call that touches a blocked domain breaks too. One forgotten Google Fonts link buried in your CSS can add seconds to your load time for every single user in China. One analytics tag can hold up your entire page render.
+The part that catches most companies off guard goes past the blocked services themselves. Every script, font, widget, and API call that touches a blocked domain breaks too. One forgotten Google Fonts link buried in your CSS can leave the page blank for every visitor whose network never answers it. One analytics tag can hold up your entire page render.
 
-> One forgotten Google Fonts link in your CSS can add seconds to load time for every user in China. The damage hides in your code, in the dependencies you forgot were even there.
+> One forgotten Google Fonts link in your CSS can leave the page blank for every visitor whose network never answers it. The damage hides in your code, in the dependencies you forgot were even there.
 
 ## Every dependency in the dataset, and when it was last tested
 
@@ -205,7 +205,7 @@ You can't punch through the firewall. But you can build so your site doesn't nee
 |---|---|
 | Mainland hosting + ICP | Speed, rankings, compliance |
 | China CDN | Caching at mainland edge nodes |
-| Replace blocked dependencies | Google Fonts to local, GA to Baidu Tongji, Maps to Baidu Maps |
+| Replace overseas dependencies | Google Fonts to local, GA to Baidu Tongji, Maps to Baidu Maps |
 | Hong Kong hosting | Middle ground, no ICP needed |
 | VPN awareness | Legal grey area, corporate vs. consumer distinction |
 
@@ -213,7 +213,7 @@ You can't punch through the firewall. But you can build so your site doesn't nee
 
 **Use a China CDN** to cache content at edge nodes inside mainland China. Even with an origin server sitting outside the country, a CDN with mainland PoPs serves cached pages to Chinese users without every request having to fight through the firewall.
 
-**Replace every blocked dependency.** This is the step companies miss the most. Google Fonts needs to swap to locally hosted fonts. Google Maps becomes Baidu Maps. Google Analytics becomes Baidu Tongji. Go through every external call your site makes. Every script tag, every font import, every API endpoint. If any of them hit a blocked domain, your Chinese users are getting a broken or degraded experience and you probably don't even know it.
+**Replace every overseas dependency.** This is the step companies miss the most. Google Fonts needs to swap to locally hosted fonts. Google Maps becomes Baidu Maps. Google Analytics becomes Baidu Tongji. Go through every external call your site makes. Every script tag, every font import, every API endpoint. If any of them hit a domain your visitors' networks can't reach, your Chinese users are getting a broken or degraded experience and you probably don't even know it.
 
 > Google Fonts, Google Analytics, Google Maps. Swap them for locally hosted fonts, Baidu Tongji, and Baidu Maps. Audit every external call your site makes.
 

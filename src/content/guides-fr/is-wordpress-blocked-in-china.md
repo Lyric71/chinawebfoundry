@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -14,9 +14,9 @@ Non. WordPress n'est pas bloqué en Chine continentale, et ne l'a jamais été.
 
 Le logiciel se télécharge, s'installe et tourne normalement sur un serveur à Shanghai ou à Pékin. Aucun CMS chinois ne le devance sur les sites d'entreprises étrangères déposés en Chine, et le parc d'installations en langue chinoise dépasse largement le million.
 
-Alors pourquoi la légende tient-elle ? Parce qu'une installation par défaut sollicite entre 8 et 20 serveurs extérieurs avant que le visiteur ne voie le moindre pixel. Certains sont bloqués. Un seul suffit à prendre la page en otage. Le site s'affiche, techniquement. Il perd simplement du temps à chaque requête, et votre équipe européenne ne s'en aperçoit jamais.
+Alors pourquoi la légende tient-elle ? Parce qu'une installation par défaut sollicite entre 8 et 20 serveurs extérieurs avant que le visiteur ne voie le moindre pixel. Certains sont bloqués. Un seul suffit à prendre la page en otage. Le site s'affiche, techniquement. Il perd simplement du temps à chaque requête, et votre équipe européenne ne s'en aperçoit jamais.
 
-Dernières mesures : le 28 août 2026 depuis une région Alibaba Cloud, le 30 août 2026 depuis une ligne grand public à Pékin.
+Dernières mesures : le 28 août 2026 depuis une région Alibaba Cloud, le 30 août 2026 depuis une ligne grand public à Pékin.
 
 ## Mesuré d'un centre de données, puis d'une ligne domestique
 
@@ -35,11 +35,11 @@ Deux campagnes de mesure, à deux jours d'écart, sur la même liste d'hôtes. L
 | cdn.jsdelivr.net | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 sur 72, médiane 660 ms, p95 1 757 ms | Lent | 28 août 2026 |
 | cdn.jsdelivr.net | Ligne domestique China Mobile (中国移动) à Pékin | 36 sur 36 | Accessible | 30 août 2026 |
 
-> Le 28 août 2026, depuis une instance Alibaba Cloud (阿里云) à cn-zhangjiakou, relevé toutes les dix minutes pendant douze heures avec un délai d'attente de 30 secondes : fonts.googleapis.com a répondu à 72 requêtes sur 72, premier octet médian à 111 ms. Le 30 août 2026, depuis une ligne résidentielle China Mobile (中国移动) à Pékin, sur 264 chargements de pages répartis sur 88 sites réels, le même hôte a été sollicité 54 fois sans répondre une seule fois.
+> Le 28 août 2026, depuis une instance Alibaba Cloud (阿里云) à cn-zhangjiakou, relevé toutes les dix minutes pendant douze heures avec un délai d'attente de 30 secondes : fonts.googleapis.com a répondu à 72 requêtes sur 72, premier octet médian à 111 ms. Le 30 août 2026, depuis une ligne résidentielle China Mobile (中国移动) à Pékin, sur 264 chargements de pages répartis sur 88 sites réels, le même hôte a été sollicité 54 fois sans répondre une seule fois.
 >
-> Source : 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 août 2026, mis à jour le 30 août 2026
+> Source : 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 août 2026, mis à jour le 30 août 2026
 
-Lisez ensemble les deux lignes d'un même hôte, sans quoi le chiffre vous égare. Un cloud commercial chinois s'achète un transit international qu'un appartement de Chaoyang n'aura jamais : la mesure du centre de données fixe un plafond, rien de plus. Votre visiteur se tient quelque part en dessous. Sur trois des cinq hôtes retenus ici, il ne reçoit rien.
+Lisez ensemble les deux lignes d'un même hôte, sans quoi le chiffre vous égare. Un cloud commercial chinois s'achète un transit international qu'un appartement de Chaoyang n'aura jamais : la mesure du centre de données fixe un plafond, rien de plus. Votre visiteur se tient quelque part en dessous. Sur trois des cinq hôtes retenus ici, il ne reçoit rien.
 
 Cinq hôtes seulement, sur une liste autrement plus longue. Les autres dépendances figurent dans le tableau ci-dessous, avec un verdict et non un chrono.
 
@@ -49,7 +49,7 @@ Installez WordPress sur un serveur continental avec un thème commercial et un j
 
 Depuis Francfort ou Singapour, ces appels se résolvent en quelques millisecondes et personne ne remarque rien. Depuis Shanghai, les résultats se répartissent en trois familles. Certains passent sans problème. D'autres traînent assez pour faire mal. Les derniers ne reviennent jamais, et le navigateur attend jusqu'à renoncer.
 
-> Le comparatif 2026 de Chinafy a testé 614 sites répartis sur onze secteurs, avec WebPageTest depuis Pékin, la Virginie et Londres. 66,4 % d'entre eux n'ont pas réussi à s'afficher correctement depuis Pékin. Le temps d'affichage médian atteint 17,2 secondes, et 44 % des tests pékinois se sont soldés par un délai dépassé.
+> Le comparatif 2026 de Chinafy a testé 614 sites répartis sur onze secteurs, avec WebPageTest depuis Pékin, la Virginie et Londres. 66,4 % d'entre eux n'ont pas réussi à s'afficher correctement depuis Pékin. Le temps d'affichage médian atteint 17,2 secondes, et 44 % des tests pékinois se sont soldés par un délai dépassé.
 >
 > Chinafy, *State of Global Website Performance in China*, avril 2026
 
@@ -82,7 +82,7 @@ Si un thème charge jQuery depuis Google Hosted Libraries, ce que font encore de
 
 Cette balise bloque le rendu. Le navigateur refuse de peindre tant qu'elle n'est pas résolue, et depuis la Chine continentale elle ne se résout jamais. Lors de sondages répétés depuis une instance Alibaba Cloud à Zhangjiakou, les requêtes vers ajax.googleapis.com n'ont renvoyé aucun octet, sur aucun essai, avant l'abandon du test à soixante secondes.
 
-Le visiteur voit du blanc, patiente quatre ou cinq secondes, et s'en va. La mesure d'audience n'enregistrerait rien, à supposer qu'elle fonctionne. C'est la raison la plus fréquente pour laquelle un site étranger se retrouve catalogué « bloqué en Chine » alors qu'il n'en est rien.
+Le visiteur voit du blanc, patiente quatre ou cinq secondes, et s'en va. La mesure d'audience n'enregistrerait rien, à supposer qu'elle fonctionne. C'est la raison la plus fréquente pour laquelle un site étranger se retrouve catalogué « bloqué en Chine » alors qu'il n'en est rien.
 
 Corriger cette balise-là prend effectivement dix minutes. Vous embarquez jQuery en local, ou vous le retirez de la file d'attente si le thème s'en passe. Nettoyer l'ensemble des dépendances externes d'un site vitrine ordinaire demande plutôt un à deux jours de développement. Sur un thème à constructeur de pages hérité, avec quatre-vingt-dix extensions, comptez une semaine et préparez-vous à supprimer plutôt qu'à remplacer.
 
@@ -90,19 +90,19 @@ Corriger cette balise-là prend effectivement dix minutes. Vous embarquez jQuery
 
 Celle-ci mérite sa propre section, parce que le savoir commun a vieilli et qu'une bonne partie des argumentaires d'agence le répète encore.
 
-Deux phrases circulent sur Google Fonts en Chine : le service serait bloqué ; il ne le serait pas. Le même couple de mesures les renvoie dos à dos. À deux jours d'écart, le CDN de polices a servi toutes les requêtes depuis un centre de données continental et pas une seule depuis une ligne domestique pékinoise.
+Deux phrases circulent sur Google Fonts en Chine : le service serait bloqué ; il ne le serait pas. Le même couple de mesures les renvoie dos à dos. À deux jours d'écart, le CDN de polices a servi toutes les requêtes depuis un centre de données continental et pas une seule depuis une ligne domestique pékinoise.
 
-> Le 28 août 2026, depuis une instance Alibaba Cloud (阿里云) à cn-zhangjiakou : fonts.googleapis.com a répondu à 72 requêtes sur 72, premier octet médian à 111 ms, et fonts.gstatic.com à 72 sur 72, à 102 ms. Le 30 août 2026, depuis une ligne résidentielle China Mobile (中国移动) à Pékin : fonts.googleapis.com sollicité 54 fois, aucune réponse ; fonts.gstatic.com sollicité 6 fois, aucune réponse.
+> Le 28 août 2026, depuis une instance Alibaba Cloud (阿里云) à cn-zhangjiakou : fonts.googleapis.com a répondu à 72 requêtes sur 72, premier octet médian à 111 ms, et fonts.gstatic.com à 72 sur 72, à 102 ms. Le 30 août 2026, depuis une ligne résidentielle China Mobile (中国移动) à Pékin : fonts.googleapis.com sollicité 54 fois, aucune réponse ; fonts.gstatic.com sollicité 6 fois, aucune réponse.
 >
-> Source : 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 août 2026, mis à jour le 30 août 2026
+> Source : 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 août 2026, mis à jour le 30 août 2026
 
 La formulation honnête est conditionnelle. Google Fonts se résout depuis les centres de données continentaux et reste souvent muet sur les connexions grand public. Ce que reçoit votre visiteur dépend du réseau où il se trouve.
 
-Le mécanisme, nous l'ignorons. La sonde d'où sortent ces chiffres ne l'explique pas davantage, et nous n'en inventerons pas ici. Ce qui se mesure, c'est la forme : même hôte, deux jours d'écart, résultats inverses, selon le côté du réseau continental où l'on se tient.
+Le mécanisme, nous l'ignorons. La sonde d'où sortent ces chiffres ne l'explique pas davantage, et nous n'en inventerons pas ici. Ce qui se mesure, c'est la forme : même hôte, deux jours d'écart, résultats inverses, selon le côté du réseau continental où l'on se tient.
 
 L'argument en faveur de l'auto-hébergement tient tout entier là. Une police que vous servez vous-même supprime une dépendance dont la réponse varie avec le réseau du visiteur, et vous dispense de chercher laquelle s'applique à qui.
 
-fonts.google.com, l'interface où vos graphistes choisissent leurs caractères, ne se charge depuis aucun des deux points de mesure. Un ennui de graphiste, donc : vos visiteurs n'y passent jamais.
+fonts.google.com, l'interface où vos graphistes choisissent leurs caractères, est un hôte à part, que 21YunBox n'a pas mesuré. GreatFire l'a trouvé perturbé à 100 % lors de ses deux derniers tests concluants, dont le plus récent date du 30 septembre 2026. Un ennui de graphiste, donc : vos visiteurs n'y passent jamais.
 
 Nous hébergeons les polices en local sur tous nos projets, de toute façon. En partie pour la raison ci-dessus, surtout parce que cela fait une chose de moins à retester.
 
@@ -110,7 +110,7 @@ Nous hébergeons les polices en local sur tous nos projets, de toute façon. En 
 
 Le dépôt d'extensions, le dépôt de thèmes et les serveurs de mise à jour du cœur répondent tous depuis la Chine continentale. Ils renvoient aussi un HTTP 429 aux plages d'adresses continentales assez souvent pour qu'un site reste des semaines sans correctif de sécurité.
 
-C'est vrai depuis mars 2020 au moins, et c'est ce qui a fait naître tout un écosystème de miroirs domestiques. La pièce la plus visible s'appelle WP-China-Yes : le projet redirige les appels de mise à jour et d'installation d'extensions ou de thèmes vers des miroirs continentaux.
+C'est vrai depuis mars 2020 au moins, et c'est ce qui a fait naître tout un écosystème de miroirs domestiques. La pièce la plus visible s'appelle WP-China-Yes : le projet redirige les appels de mise à jour et d'installation d'extensions ou de thèmes vers des miroirs continentaux.
 
 Un site laissé en configuration d'origine ne vous préviendra pas qu'il a cessé de se mettre à jour. Il décroche en silence, ce qui sur WordPress relève de la sécurité plus que du désagrément. Quelqu'un doit ouvrir l'écran des mises à jour et regarder.
 
@@ -126,7 +126,7 @@ Pour une entreprise, la nuance reste théorique, car une contrainte plus dure at
 
 La conclusion pratique manque de panache. Changer de plateforme pour fuir un problème que vous n'avez pas diagnostiqué revient à le payer cher pour le garder, puisque les dépendances font le voyage avec vous.
 
-Un site WordPress fonctionne en Chine quand quatre conditions sont réunies :
+Un site WordPress fonctionne en Chine quand quatre conditions sont réunies :
 
 - Les dépendances externes sont supprimées ou remplacées
 - Le site est servi depuis la Chine continentale, ou depuis Hong Kong le temps que le dépôt aboutisse
@@ -139,11 +139,11 @@ Rien d'exotique là-dedans. Tout cela reste du travail que quelqu'un doit s'asse
 
 **Puis-je tester avec un VPN si mon site fonctionne en Chine ?**
 
-Pas utilement. Un VPN depuis l'étranger vous fait toujours passer par votre propre réseau et votre propre résolveur : vous testez votre VPN, pas le pare-feu. Mesurez depuis un point continental, ou servez-vous d'un outil qui le fait. C'est la première raison pour laquelle une équipe croit son site en bon état alors qu'il ne l'est pas.
+Pas utilement. Un VPN depuis l'étranger vous fait toujours passer par votre propre réseau et votre propre résolveur : vous testez votre VPN, pas le pare-feu. Mesurez depuis un point continental, ou servez-vous d'un outil qui le fait. C'est la première raison pour laquelle une équipe croit son site en bon état alors qu'il ne l'est pas.
 
 **Un CDN mondial règle-t-il le problème ?**
 
-Il aide sur la distance et ne change rien aux hôtes bloqués. Le réseau standard de Cloudflare sert les visiteurs continentaux depuis Hong Kong, le Japon ou la côte ouest américaine : vous franchissez toujours la frontière à chaque requête. Son réseau intérieur relève d'une offre Enterprise opérée avec JD Cloud, et il exige un dépôt ICP valide par domaine, ce qui vous ramène à la paperasse.
+Il aide sur la distance et ne change rien aux hôtes bloqués. Le réseau standard de Cloudflare sert les visiteurs continentaux depuis Hong Kong, le Japon ou la côte ouest américaine : vous franchissez toujours la frontière à chaque requête. Son réseau intérieur relève d'une offre Enterprise opérée avec JD Cloud, et il exige un dépôt ICP valide par domaine, ce qui vous ramène à la paperasse.
 
 **Me faut-il un dépôt ICP ou une licence ICP ?**
 

@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-08-29
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -38,7 +38,7 @@ El primero es el trámite. Todo sitio alojado en el continente necesita un regis
 > El registro ICP (Bei'an) de un sitio sin fines comerciales lo revisa la autoridad provincial de comunicaciones en un plazo de 20 días hábiles, según la normativa, y a menudo se aprueba antes.
 > Fuente: Medidas para la Administración de los Servicios de Información en Internet, MIIT.
 
-El segundo es el cortafuegos. Un WordPress con la configuración de fábrica carga sin avisar Google Fonts, Google Maps, reCAPTCHA y, a menudo, scripts de analítica o de pago, todos ellos atrapados tras el Gran Cortafuegos, ya sea bloqueados o ralentizados. La página no devuelve un error: sencillamente se queda colgada, esperando una respuesta que no llega, mientras el visitante decide que su empresa parece rota. Una agencia que conoce el cortafuegos autoaloja las tipografías, cambia reCAPTCHA por una alternativa que sí funciona en China, reemplaza el mapa y elimina cualquier dependencia extranjera antes de publicar.
+El segundo es el cortafuegos. Un WordPress corriente, con su tema y sus plugins, carga sin avisar Google Fonts, Google Maps, reCAPTCHA y, a menudo, scripts de analítica o de pago alojados fuera de China. Algunos están bloqueados sin paliativos. Google Fonts, por su parte, responde o calla según la red del visitante. Cuando una petición no obtiene respuesta, la página no devuelve un error: sencillamente se queda colgada, esperando una respuesta que no llega, mientras el visitante decide que su empresa parece rota. Una agencia que conoce el cortafuegos autoaloja las tipografías, cambia reCAPTCHA por una alternativa que sí funciona en China, reemplaza el mapa y elimina cualquier dependencia extranjera antes de publicar.
 
 El tercero es el descubrimiento. Baidu (百度) se rige por sus propias reglas de posicionamiento, ofrece sus propias herramientas para webmasters y exige requisitos técnicos más severos que Google. Lo que funciona en Google no se traslada tal cual. Y, en todo caso, Google apenas pinta nada en este mercado.
 
@@ -80,7 +80,7 @@ Las preguntas cortas y directas sacan pronto la verdad. Plantee estas.
 
 ¿Cómo prueban el rendimiento dentro de China? Quiere un método concreto, una herramienta, una ubicación. El silencio en este punto delata que nunca lo han hecho.
 
-¿Qué scripts bloqueados tendrán que reemplazar en nuestro desarrollo actual? Un especialista enumerará Google Fonts, Maps y reCAPTCHA sin pararse a pensar. Titubear significa que ni se han planteado el cortafuegos.
+¿Qué scripts alojados fuera de China tendrán que reemplazar en nuestro desarrollo actual? Un especialista enumerará Google Fonts, Maps y reCAPTCHA sin pararse a pensar. Titubear significa que ni se han planteado el cortafuegos.
 
 ¿Han lanzado antes un sitio WordPress en China para una empresa extranjera? Pida verlo. Pregunte si hoy carga para un usuario dentro de China.
 

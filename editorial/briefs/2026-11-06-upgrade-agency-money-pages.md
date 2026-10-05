@@ -9,7 +9,7 @@ slot_job: upgrade or report
 slug: upgrade-agency-money-pages
 title: "FAQ schema and hard numbers on the two agency money pages"
 locales_at_publish: as the page exists
-facts: [F6, F25, F26, F31, F32, F46]
+facts: [F1, F6, F25, F26, F31, F32, F46]
 status: not_started
 ---
 
@@ -58,7 +58,8 @@ tier-specific boxes for T6.
 - [ ] No figure appears on both pages in the same section position.
 - [ ] The F31 citation names Chinafy as the source and identifies it as a vendor benchmark.
 - [ ] No figure from the Do Not Assert list appears, verified by grep for "93%" and "44% of resources".
-- [ ] No flat Google Fonts verdict remains on `/wordpress-agency-china/` in any locale. On 2 October 2026 the page said Google Fonts is blocked in three places: the resource table entry, the FAQ answer listing "Google Fonts, reCAPTCHA, Gravatar and other blocked services", and the opening passage ending "The Great Firewall blocks all 3". Restate each per F6 (resolves from mainland datacenters, frequently fails on consumer lines, so self-host) or cut Google Fonts from the list, in en, fr, es and de, changed passages through `/deep-translate`.
+- [ ] No flat Google Fonts verdict remains on `/wordpress-agency-china/` in any locale. On 2 October 2026 the page said Google Fonts is blocked in three places: the resource table entry, the FAQ answer listing "Google Fonts, reCAPTCHA, Gravatar and other blocked services", and the opening passage ending "The Great Firewall blocks all 3". Restate each per F6 (resolves from mainland datacenters, frequently fails on consumer lines, so self-host) or cut Google Fonts from the list, in en, fr, es and de, changed passages through `/deep-translate`. Already done on 6 October 2026 by the T2-01 run, outside this list: the hero network simulation (the `fonts.googleapis.com` tag in the Shanghai mock view and the two Google Fonts rows now read "No answer", the `ajax.googleapis.com` row reads "Blocked" per F1 instead of "8.4s", and the summary reads "7 of 8 requests fail"), in all four locales. Leave it as it is.
+- [ ] The opening passage's "loads in 20 to 40 seconds" (and its locale equivalents) carries no vantage point or date: source it per the house citation rule or cut it.
 - [ ] FAQ JSON-LD validates with zero errors on both pages in all four locales.
 - [ ] Every schema answer appears verbatim in visible copy.
 - [ ] No URL, canonical or hreflang change in the deploy diff.

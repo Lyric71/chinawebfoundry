@@ -6,6 +6,7 @@ visual: "/images/guides/woocommerce-china-store-guide.webp"
 order: 12
 published: true
 publishedAt: 2026-07-01
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -19,7 +20,7 @@ Dieser Leitfaden setzt voraus, dass Sie unseren Grundlagentext Website-Lokalisie
 
 | Bereich | Was standardmäßig bricht | Die Lösung |
 | ---------- | ------------------------------------------ | ------------------------------ |
-| Skripte | Google Fonts, reCAPTCHA, Stripe-JS blockiert | Selbst hosten oder ersetzen |
+| Skripte | Google Fonts am Privatanschluss, reCAPTCHA | Selbst hosten oder ersetzen |
 | Zahlungen | Nur Visa und Mastercard | Alipay + WeChat Pay + UnionPay |
 | Tempo | Hosting im Ausland, kein CDN | Hosting auf dem Festland, Bild-CDN in China |
 | Adressen | Westliche Feldreihenfolge abgelehnt | Von der Provinz zum Bezirk |
@@ -29,7 +30,10 @@ Dieser Leitfaden setzt voraus, dass Sie unseren Grundlagentext Website-Lokalisie
 
 Drei Dinge brechen weg, meist alle zugleich.
 
-Erstens die blockierten Skripte. Ein Standardshop lädt klammheimlich Google Fonts, reCAPTCHA und oft das JavaScript von Stripe. Jedes davon liegt hinter der Great Firewall, blockiert oder gedrosselt. Die Seite hängt und wartet auf eine Antwort, die nie kommt.
+Erstens die im Ausland gehosteten Skripte. Ein Standardshop lädt klammheimlich Google Fonts und reCAPTCHA. In den Messungen, die 21YunBox im August 2026 veröffentlicht hat, blieb reCAPTCHA jede Antwort schuldig, im Rechenzentrum auf dem Festland ebenso wie am Pekinger Privatanschluss; Google Fonts antwortete dem Rechenzentrum, dem Privatanschluss nie. So oder so hängt die Seite und wartet auf eine Antwort, die nie kommt.
+
+> Laut den Messungen von 21YunBox beantwortete `www.google.com/recaptcha` am 28. August 2026 keine der 72 Anfragen einer Alibaba-Cloud-Instanz (阿里云) in der Region cn-zhangjiakou und am 30. August 2026 keine der 18 Anfragen über einen privaten Breitbandanschluss von China Mobile (中国移动) in Peking. `fonts.googleapis.com` beantwortete im ersten Fall alle 72, im zweiten keine der 54.
+> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Zweitens die langsame Kasse. Hosten Sie den Shop in Europa oder den USA, dann läuft jede Aktion im Warenkorb zäh durch die Firewall hin und zurück. Chinesische Käufer warten nicht, bis sich das Ladesymbol fertig gedreht hat.
 

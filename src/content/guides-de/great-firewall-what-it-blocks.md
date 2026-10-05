@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-02
+updatedAt: 2026-10-06
 category: Technology
 ---
 
@@ -63,7 +63,7 @@ Google Fonts ist die Ausnahme, und gerade hier liegen viele in beide Richtungen 
 > Am 28. August 2026 schloss `fonts.googleapis.com`, gemessen von einer Instanz bei Alibaba Cloud (阿里云) in der Region cn-zhangjiakou, 72 von 72 Anfragen ab, bei Stichproben im Zehn-Minuten-Takt über zwölf Stunden und mit einem Median von 111 ms bis zum ersten Byte. Über einen privaten Anschluss von China Mobile (中国移动) in Peking beantwortete derselbe Host am 30. August 2026, verteilt auf 264 Seitenaufrufe, 0 von 54 Anfragen.
 > Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
-Keine der beiden Pauschalaussagen hält diesen zwei Messungen stand. Von Rechenzentren auf dem Festland aus wird Google Fonts aufgelöst, über private Anschlüsse häufig nicht. Genau das spricht dafür, die Schriften selbst zu hosten: So fällt eine Variable weg, die sich je nach Netz, Resolver und Uhrzeit ändert. `fonts.google.com`, die Oberfläche zum Durchsuchen der Schriften, ist ohnehin nicht erreichbar.
+Keine der beiden Pauschalaussagen hält diesen zwei Messungen stand. Von Rechenzentren auf dem Festland aus wird Google Fonts aufgelöst, über private Anschlüsse häufig nicht. Genau das spricht dafür, die Schriften selbst zu hosten: So fällt eine Variable weg, die sich je nach Netz, Resolver und Uhrzeit ändert. `fonts.google.com`, die Oberfläche zum Durchsuchen der Schriften, läuft über einen eigenen Host: GreatFire verzeichnete bei den letzten beiden aussagekräftigen Tests jeweils Störungen, zuletzt am 30. September 2026.
 
 Gesperrt sind außerdem Facebook, Instagram, WhatsApp und Messenger, ebenso Twitter/X, Reddit und Pinterest sowie die chinesische Ausgabe von Wikipedia.
 
@@ -71,9 +71,9 @@ Auch die Arbeitswerkzeuge, auf die sich westliche Unternehmen verlassen, sind ge
 
 Netflix, Spotify und Twitch sind ebenfalls gesperrt, dazu die meisten großen westlichen Nachrichtenseiten, darunter die New York Times, das Wall Street Journal und die BBC.
 
-Was die meisten Unternehmen kalt erwischt, reicht über die gesperrten Dienste selbst hinaus. Jedes Skript, jede Schrift, jedes Widget und jeder API-Aufruf, der eine gesperrte Domain berührt, geht ebenfalls kaputt. Ein einziger vergessener Google-Fonts-Verweis, tief in Ihrem CSS verborgen, kann für jeden einzelnen Nutzer in China Sekunden zur Ladezeit hinzufügen. Ein einziges Analytics-Tag kann den gesamten Seitenaufbau aufhalten.
+Was die meisten Unternehmen kalt erwischt, reicht über die gesperrten Dienste selbst hinaus. Jedes Skript, jede Schrift, jedes Widget und jeder API-Aufruf, der eine gesperrte Domain berührt, geht ebenfalls kaputt. Ein einziger vergessener Google-Fonts-Verweis, tief in Ihrem CSS verborgen, kann die Seite für jeden Besucher leer lassen, dessen Netz keine Antwort bekommt. Ein einziges Analytics-Tag kann den gesamten Seitenaufbau aufhalten.
 
-> Ein einziger vergessener Google-Fonts-Verweis in Ihrem CSS kann für jeden Nutzer in China Sekunden zur Ladezeit hinzufügen. Der Schaden versteckt sich in Ihrem Code, in den Abhängigkeiten, von denen Sie gar nicht mehr wussten, dass es sie gibt.
+> Ein einziger vergessener Google-Fonts-Verweis in Ihrem CSS kann die Seite für jeden Besucher leer lassen, dessen Netz keine Antwort bekommt. Der Schaden versteckt sich in Ihrem Code, in den Abhängigkeiten, von denen Sie gar nicht mehr wussten, dass es sie gibt.
 
 ## Alle erfassten Abhängigkeiten und ihr letzter Testtermin
 
@@ -205,7 +205,7 @@ Durch die Firewall durchschlagen können Sie nicht, doch Sie können so bauen, d
 |---|---|
 | Hosting auf dem Festland plus ICP | Geschwindigkeit, Rankings, Konformität |
 | China-CDN | Zwischenspeicherung an Edge-Knoten auf dem Festland |
-| gesperrte Abhängigkeiten ersetzen | Google Fonts zu lokal, GA zu Baidu Tongji, Maps zu Baidu Maps |
+| ausländische Abhängigkeiten ersetzen | Google Fonts zu lokal, GA zu Baidu Tongji, Maps zu Baidu Maps |
 | Hosting in Hongkong | Mittelweg, keine ICP nötig |
 | VPN-Bewusstsein | rechtliche Grauzone, Unterschied zwischen Firmen- und Verbrauchernutzung |
 
@@ -213,7 +213,7 @@ Durch die Firewall durchschlagen können Sie nicht, doch Sie können so bauen, d
 
 **Setzen Sie ein China-CDN ein,** um Inhalte an Edge-Knoten innerhalb von Festlandchina zwischenzuspeichern. Selbst wenn Ihr Ursprungsserver außerhalb des Landes steht, liefert ein CDN mit PoPs auf dem Festland zwischengespeicherte Seiten an chinesische Nutzer aus, ohne dass jede Anfrage sich durch die Firewall kämpfen muss.
 
-**Ersetzen Sie jede gesperrte Abhängigkeit.** Diesen Schritt übergehen Unternehmen am häufigsten. Google Fonts muss zu lokal gehosteten Schriften wechseln. Aus Google Maps wird Baidu Maps. Aus Google Analytics wird Baidu Tongji. Gehen Sie jeden externen Aufruf durch, den Ihre Seite macht. Jedes Skript-Tag, jeden Schrift-Import, jeden API-Endpunkt. Trifft auch nur einer davon eine gesperrte Domain, bekommen Ihre chinesischen Nutzer ein kaputtes oder verschlechtertes Erlebnis, und wahrscheinlich wissen Sie es nicht einmal.
+**Ersetzen Sie jede ausländische Abhängigkeit.** Diesen Schritt übergehen Unternehmen am häufigsten. Google Fonts muss zu lokal gehosteten Schriften wechseln. Aus Google Maps wird Baidu Maps. Aus Google Analytics wird Baidu Tongji. Gehen Sie jeden externen Aufruf durch, den Ihre Seite macht. Jedes Skript-Tag, jeden Schrift-Import, jeden API-Endpunkt. Trifft auch nur einer davon eine Domain, die das Netz Ihrer Besucher nicht erreicht, bekommen Ihre chinesischen Nutzer ein kaputtes oder verschlechtertes Erlebnis, und wahrscheinlich wissen Sie es nicht einmal.
 
 > Google Fonts, Google Analytics, Google Maps. Tauschen Sie sie gegen lokal gehostete Schriften, Baidu Tongji und Baidu Maps. Prüfen Sie jeden externen Aufruf, den Ihre Seite macht.
 

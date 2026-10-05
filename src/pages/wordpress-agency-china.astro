@@ -516,7 +516,7 @@ const breadcrumbLd = {
                   <div class="h-5 w-3/4 rounded bg-[var(--color-text-dark)]"></div>
                   <div class="h-5 w-1/2 rounded bg-[var(--color-text-dark)]"></div>
                 </div>
-                <span class="mock-font-tag absolute -top-1 right-0 inline-flex items-center px-2 py-0.5 rounded bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono text-[#DC2626] opacity-0 transition-opacity duration-500">fonts.googleapis.com · blocked</span>
+                <span class="mock-font-tag absolute -top-1 right-0 inline-flex items-center px-2 py-0.5 rounded bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono text-[#DC2626] opacity-0 transition-opacity duration-500">fonts.googleapis.com · no answer</span>
                 <div class="h-2.5 w-full rounded-full bg-[var(--color-surface-border)] mt-4"></div>
                 <div class="h-2.5 w-5/6 rounded-full bg-[var(--color-surface-border)] mt-2"></div>
               </div>
@@ -1368,9 +1368,9 @@ const breadcrumbLd = {
   /* ============ 1. Hero network simulation ============ */
   const BROKEN_REQUESTS = [
     { url: 'yourbrand.com', status: 'ok', label: '200 · 1.9s', t: 1.9 },
-    { url: 'fonts.googleapis.com/css2?family=...', status: 'blocked', label: 'Blocked', t: 5.2 },
-    { url: 'fonts.gstatic.com/s/opensans.woff2', status: 'blocked', label: 'Blocked', t: 7.8 },
-    { url: 'ajax.googleapis.com/jquery.min.js', status: 'slow', label: '8.4s', t: 10.6 },
+    { url: 'fonts.googleapis.com/css2?family=...', status: 'blocked', label: 'No answer', t: 5.2 },
+    { url: 'fonts.gstatic.com/s/opensans.woff2', status: 'blocked', label: 'No answer', t: 7.8 },
+    { url: 'ajax.googleapis.com/jquery.min.js', status: 'blocked', label: 'Blocked', t: 10.6 },
     { url: 'maps.googleapis.com/maps/api/js', status: 'blocked', label: 'Blocked', t: 14.1 },
     { url: 'www.google.com/recaptcha/api.js', status: 'blocked', label: 'Blocked', t: 17.9 },
     { url: 'youtube.com/embed/product-tour', status: 'blocked', label: 'Blocked', t: 20.7 },
@@ -1409,7 +1409,7 @@ const breadcrumbLd = {
       BROKEN_REQUESTS.forEach(renderRow);
       timerEl!.textContent = '23.4';
       progress!.style.width = '38%';
-      verdict!.textContent = '6 of 8 requests blocked · unusable in China';
+      verdict!.textContent = '7 of 8 requests fail · unusable in China';
       verdict!.className = verdict!.className.replace(/text-white\/45/, 'text-[#F87171]');
     }
 
@@ -1470,7 +1470,7 @@ const breadcrumbLd = {
       runPhase(BROKEN_REQUESTS, {
         name: 'Standard WordPress install',
         dot: '#EF4444',
-        done: '6 of 8 requests blocked · your visitors are long gone',
+        done: '7 of 8 requests fail · your visitors are long gone',
         doneClass: '#F87171',
         nextDelay: 3200,
         next: () =>

@@ -86,6 +86,15 @@ route files resolve `guideSlugs[guide.id]?.<locale> ?? guide.id`, so a
 missing entry silently publishes an English slug under a French path. That
 is a failed publish.
 
+**English-only pieces.** A guide that ships in English only (`guide-en`,
+`guide-en-first`, `report`) is added to `englishOnlyRoutes` in
+`src/i18n/routes.ts`, keyed by its canonical path
+(`/resources/china-web-guide/<slug>/`) and pointing at
+`/resources/china-web-guide/`. Without the entry the page announces fr, es
+and de hreflang twins and sitemap alternates that 404, and the language
+switcher sends readers to them (settled 6 October 2026, first T2 publish).
+The entry is removed when a T7 slot ships the page in every locale.
+
 Per content type:
 
 | `content_type` | Writes | Locales at publish | Translation |
