@@ -48,6 +48,6 @@ No page is named in advance. On this date, review the translation queue and spen
 
 Fourteen slots across 26 weeks. Not a schedule, a budget.
 
-**Rules.** Nothing is translated before day 90. Nothing in T2 is translated at all. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
+**Rules.** Nothing is translated before day 90. Nothing in T2 is translated at all, with one exception: T2-01 `google-fonts-china` ships in fr, es and de since 6 October 2026, on Cyril's instruction the day it published, outside this budget (it uses no T7 slot). Every other T2 page stays English only unless Cyril names it. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
 
 Expect roughly half the slots to go to T1 and the money page, which ship four-locale on day one anyway and therefore do not consume budget. The real allocation is T3 and T5.

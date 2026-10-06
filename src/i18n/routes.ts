@@ -73,6 +73,7 @@ export const guideSlugs: Record<string, Trans> = {
   'wordpress-hosting-china': { fr: 'hebergement-wordpress-chine', es: 'alojamiento-wordpress-china', de: 'wordpress-hosting-china' },
   'choosing-web-agency-china': { fr: 'choisir-agence-web-chine', es: 'elegir-agencia-web-china', de: 'webagentur-china-auswaehlen' },
   'china-website-brief-checklist': { fr: 'checklist-brief-site-chine', es: 'checklist-brief-sitio-china', de: 'china-website-briefing-checkliste' },
+  'google-fonts-china': { fr: 'google-fonts-chine', es: 'google-fonts-china', de: 'google-fonts-china' },
   'wordpress-speed-china': { fr: 'vitesse-wordpress-chine', es: 'velocidad-wordpress-china', de: 'wordpress-geschwindigkeit-china' },
   'migrate-wordpress-to-china': { fr: 'migrer-wordpress-vers-chine', es: 'migrar-wordpress-a-china', de: 'wordpress-nach-china-migrieren' },
   // Baidu series. Product names (Merchant Center, Aicaigou, Baiduspider) keep their English slug.
@@ -224,7 +225,6 @@ export function hreflangFor(pathname: string, siteOrigin: string) {
  */
 export const englishOnlyRoutes: Record<string, string> = {
   '/resources/ceo-opinion/': '/resources/china-web-guide/',
-  '/resources/china-web-guide/google-fonts-china/': '/resources/china-web-guide/',
 };
 
 /** The equivalent of `pathname` in another locale. */

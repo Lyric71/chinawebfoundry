@@ -44,6 +44,8 @@ tier-specific boxes for T2.
 #### T2-01 `google-fonts-china`
 
 **Target:** google fonts china · **Facts:** F6, F42
+
+**Locales.** Published in English on 6 October 2026, then localised the same day on Cyril's instruction: fr `google-fonts-chine`, es `google-fonts-china`, de `google-fonts-china`, each through `/deep-translate`. The only T2 page outside the English-only rule (section 11).
 The purest site-owner query in the set, and the SERP is GitHub issues and forum threads with no authoritative page anywhere. Lead with the vantage-point split, because that is the finding and nobody else has it. Ties directly to CWF's own self-hosted-fonts practice, which is first-hand experience Google's guidance explicitly rewards.
 ```yaml
 title: "Google Fonts in China: It Depends Where You Are"

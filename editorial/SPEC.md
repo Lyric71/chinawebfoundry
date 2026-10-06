@@ -93,14 +93,14 @@ is a failed publish.
 `/resources/china-web-guide/`. Without the entry the page announces fr, es
 and de hreflang twins and sitemap alternates that 404, and the language
 switcher sends readers to them (settled 6 October 2026, first T2 publish).
-The entry is removed when a T7 slot ships the page in every locale.
+The entry is removed when a T7 slot, or a named exception from Cyril, ships the page in every locale (T2-01, 6 October 2026: entry removed, `guideSlugs` entry added).
 
 Per content type:
 
 | `content_type` | Writes | Locales at publish | Translation |
 |---|---|---|---|
 | `guide` (T1) | `src/content/guides/<slug>.md` + `guides-fr`, `guides-es`, `guides-de` | all four, one commit | `/deep-translate` three passes each, FR then ES then DE |
-| `guide-en` (T2) | `src/content/guides/<slug>.md` only | en | never |
+| `guide-en` (T2) | `src/content/guides/<slug>.md` only | en | never, except where Cyril names a page (T2-01 `google-fonts-china`, 6 October 2026: fr es de, `/deep-translate` three passes each) |
 | `guide-en-first` (T5) | `src/content/guides/<slug>.md` | en | via a T7 slot after day 90, on evidence |
 | `report` (T4) | `src/content/guides/<slug>.md`, dated slug | en | never overwritten; a new edition is a new file |
 | `casestudy` (T3) | `src/content/casestudies/<slug>.md` (existing file for upgrades T3-01 to T3-05) | en | via a T7 slot, on evidence |
