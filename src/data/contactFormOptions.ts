@@ -69,3 +69,51 @@ export const budgetOptions: LocalisedOption[] = [
     de: 'Über 50.000 €',
   },
 ];
+
+/**
+ * "How did you hear about us?" answers. The value is a stable slug that the
+ * API whitelists; the enquiry email shows the English label.
+ */
+export const sourceOptions: LocalisedOption[] = [
+  {
+    value: 'google',
+    en: 'Google or another search engine',
+    fr: 'Par Google ou un autre moteur de recherche',
+    es: 'Por Google u otro buscador',
+    de: 'Über Google oder eine andere Suchmaschine',
+  },
+  {
+    value: 'ai',
+    en: 'An AI assistant (ChatGPT, Gemini, Claude, Perplexity…)',
+    fr: 'Par un assistant IA (ChatGPT, Gemini, Claude, Perplexity…)',
+    es: 'Por un asistente de IA (ChatGPT, Gemini, Claude, Perplexity…)',
+    de: 'Über einen KI-Assistenten (ChatGPT, Gemini, Claude, Perplexity …)',
+  },
+  {
+    value: 'exhibition',
+    en: 'An exhibition or a trade show',
+    fr: 'Sur un salon professionnel ou une exposition',
+    es: 'En una feria o exposición profesional',
+    de: 'Auf einer Messe oder Ausstellung',
+  },
+  {
+    value: 'referral',
+    en: 'A referral, someone recommended us',
+    fr: 'Par le bouche-à-oreille, on vous a parlé de nous',
+    es: 'Por recomendación de alguien',
+    de: 'Durch eine persönliche Empfehlung',
+  },
+  {
+    value: 'other',
+    en: 'Somewhere else',
+    fr: 'Par un autre biais',
+    es: 'Por otra vía',
+    de: 'Auf anderem Weg',
+  },
+];
+
+/** Answers that reveal the optional "Which one?" text field. */
+export const sourceDetailValues = ['referral', 'exhibition', 'other'];
+
+/** Longest "Which one?" answer the form and the API accept. */
+export const SOURCE_DETAIL_MAX = 120;

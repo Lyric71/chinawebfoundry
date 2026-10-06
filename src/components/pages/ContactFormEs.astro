@@ -3,7 +3,12 @@ import Button from '../ui/Button.astro';
 import { useTranslations } from '../../i18n/utils';
 import type { Locale, TranslationKey } from '../../i18n/ui';
 import { countryCodes } from '../../data/countries';
-import { youAreOptions, budgetOptions } from '../../data/contactFormOptions';
+import {
+  youAreOptions,
+  budgetOptions,
+  sourceOptions,
+  SOURCE_DETAIL_MAX,
+} from '../../data/contactFormOptions';
 
 const lang: Locale = 'es';
 const t = useTranslations(lang);
@@ -187,6 +192,27 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       </div>
     </div>
 
+    <!-- Cómo nos ha conocido -->
+    <div>
+      <span class={labelClass}>
+        ¿Cómo nos ha conocido? <span class="text-[var(--color-brand-orange)]">*</span>
+      </span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {sourceOptions.map((o) => (
+          <label class={cardClass}>
+            <input type="radio" name="source" value={o.value} required class={choiceClass} />
+            <span class="text-sm text-[var(--color-text-body)]">{o[lang]}</span>
+          </label>
+        ))}
+      </div>
+      <div id="source-detail-field" class="hidden mt-4">
+        <label for="sourceDetail" class={labelClass}>
+          ¿Puede concretar? <span class="text-[var(--color-text-muted)] font-normal normal-case">(opcional)</span>
+        </label>
+        <input type="text" id="sourceDetail" name="sourceDetail" maxlength={SOURCE_DETAIL_MAX} placeholder="El nombre, para poder darle las gracias" class={inputClass} />
+      </div>
+    </div>
+
     <!-- Descripción del proyecto -->
     <div>
       <label for="project" class={labelClass}>
@@ -215,12 +241,16 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
 </div>
 
 <script>
+  import { sourceDetailValues } from '../../data/contactFormOptions';
+
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const statusEl = document.getElementById('form-status') as HTMLDivElement;
   const websiteField = document.getElementById('website-field') as HTMLDivElement;
   const websiteInput = document.getElementById('website') as HTMLInputElement;
   const chinaDetailField = document.getElementById('china-detail-field') as HTMLDivElement;
   const chinaDetailInput = document.getElementById('chinaPresenceDetail') as HTMLInputElement;
+  const sourceDetailField = document.getElementById('source-detail-field') as HTMLDivElement;
+  const sourceDetailInput = document.getElementById('sourceDetail') as HTMLInputElement;
 
   const errorClass = 'rounded-lg px-4 py-3 text-sm font-medium bg-red-50 text-red-800 border border-red-200';
   const successClass = 'rounded-lg px-4 py-3 text-sm font-medium bg-green-50 text-green-800 border border-green-200';
@@ -241,11 +271,20 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
     if (!show) chinaDetailInput.value = '';
   }
 
+  function syncSource() {
+    const show = sourceDetailValues.includes(getChecked('source')?.value ?? '');
+    sourceDetailField.classList.toggle('hidden', !show);
+    if (!show) sourceDetailInput.value = '';
+  }
+
   form.querySelectorAll('input[name="hasWebsite"]').forEach((el) =>
     el.addEventListener('change', syncWebsite)
   );
   form.querySelectorAll('input[name="chinaPresence"]').forEach((el) =>
     el.addEventListener('change', syncChinaPresence)
+  );
+  form.querySelectorAll('input[name="source"]').forEach((el) =>
+    el.addEventListener('change', syncSource)
   );
 
   form.addEventListener('submit', async (e) => {
@@ -284,6 +323,8 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
       website: websiteInput.value,
       chinaPresence: getChecked('chinaPresence')?.value ?? '',
       chinaPresenceDetail: chinaDetailInput.value,
+      source: getChecked('source')?.value ?? '',
+      sourceDetail: sourceDetailInput.value,
       project: (form.querySelector('#project') as HTMLTextAreaElement).value,
     };
 
@@ -302,6 +343,7 @@ const choiceClass = 'w-4 h-4 accent-[var(--color-brand-orange)] flex-shrink-0';
         form.reset();
         syncWebsite();
         syncChinaPresence();
+        syncSource();
       } else {
         statusEl.textContent = result.error || 'No hemos podido enviar su mensaje. Vuelva a intentarlo.';
         statusEl.className = errorClass;

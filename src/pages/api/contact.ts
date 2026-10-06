@@ -1,5 +1,10 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import {
+  sourceOptions,
+  sourceDetailValues,
+  SOURCE_DETAIL_MAX,
+} from '../../data/contactFormOptions';
 
 export const prerender = false;
 
@@ -34,12 +39,22 @@ export const POST: APIRoute = async ({ request }) => {
   const chinaPresence = str(body.chinaPresence);
   const chinaPresenceDetail = str(body.chinaPresenceDetail);
   const project = str(body.project);
+  const source = str(body.source);
+  const sourceOption = sourceOptions.find((o) => o.value === source);
+  // Kept only for the answers that reveal the field, capped like the input.
+  const sourceDetail = sourceDetailValues.includes(source)
+    ? str(body.sourceDetail).slice(0, SOURCE_DETAIL_MAX)
+    : '';
   const services = Array.isArray(body.services)
     ? body.services.filter((s): s is string => typeof s === 'string')
     : [];
 
   if (!name || !email || !company || !project || !youAre || !budget || services.length === 0) {
     return json({ error: 'Missing required fields.' }, 400);
+  }
+
+  if (!sourceOption) {
+    return json({ error: 'Please tell us how you heard about us.' }, 400);
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -69,6 +84,8 @@ export const POST: APIRoute = async ({ request }) => {
       : []),
     row('Presence in China', escapeHtml(chinaPresence || '-')),
     ...(chinaPresenceDetail ? [row('China presence details', escapeHtml(chinaPresenceDetail))] : []),
+    row('Heard about us via', escapeHtml(sourceOption.en)),
+    ...(sourceDetail ? [row('Source details', escapeHtml(sourceDetail))] : []),
     row('Project', escapeHtml(project).replace(/\n/g, '<br/>')),
   ].join('');
 
@@ -99,6 +116,8 @@ export const POST: APIRoute = async ({ request }) => {
     ...(website ? [`Website: ${website}`] : []),
     `Presence in China: ${chinaPresence || '-'}`,
     ...(chinaPresenceDetail ? [`China presence details: ${chinaPresenceDetail}`] : []),
+    `Heard about us via: ${sourceOption.en}`,
+    ...(sourceDetail ? [`Source details: ${sourceDetail}`] : []),
     `Project: ${project}`,
   ].join('\n');
 
