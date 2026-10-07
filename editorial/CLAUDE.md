@@ -210,7 +210,7 @@ published, in any tier, at any time. Two entries people get wrong:
   China" are both banned as flat claims. Say it resolves from mainland
   datacenters and frequently does not resolve on consumer connections, with
   both measurements and both dates (F6).
-- Any verdict on the eleven untested dependencies in F42 before a dated
+- Any verdict on the ten untested dependencies in F42 before a dated
   third-party test of them exists. Say "untested" or leave it out.
 
 ## The GFW rule (how we state what the Great Firewall does)

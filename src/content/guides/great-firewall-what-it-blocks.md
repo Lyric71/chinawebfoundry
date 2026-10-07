@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-06
+updatedAt: 2026-10-08
 category: Technology
 ---
 
@@ -119,6 +119,7 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Typeform | Vendor site, host not named by the source | Answers then stalls | 0 of 3 inside 60s, first byte 907ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 Aug 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Answers then stalls | 0 of 3 inside 60s, first byte 812ms, paint 2.0s | Alibaba Cloud cn-zhangjiakou | 21YunBox 28 Aug 2026, GreatFire 10 Sep 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Reachable | Reachability verdict only | n/a | GreatFire, 14 Sep 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Reachable | Reachability verdict only | n/a | GreatFire, 23 Sep 2026 |
 | Calendly | `calendly.com` | Reachable | Reachability verdict only | n/a | GreatFire, 10 Jun 2026 |
 | Intercom | `widget.intercom.io` | Reachable | Reachability verdict only | n/a | GreatFire, 16 Jun 2026 |
 | Zendesk | `static.zdassets.com` | Reachable | Reachability verdict only | n/a | GreatFire, 29 Apr 2026 |
@@ -178,9 +179,9 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 
 ### Not yet probed
 
-Thirteen dependencies have no test record we will stand behind, either because nobody has probed them or because the only verdict available is more than ninety days old. They are listed rather than dropped, because the gap is itself information: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, Cloudflare Turnstile, Adobe Fonts, Font Awesome, Marketo and the HubSpot tracking script.
+Twelve dependencies have no test record we will stand behind, either because nobody has probed them or because the only verdict available is more than ninety days old. They are listed rather than dropped, because the gap is itself information: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo and the HubSpot tracking script. Cloudflare Turnstile was on this list until 8 October 2026. GreatFire tested its script on 23 September, and it now has a row in the table above.
 
-Drift makes fourteen, and it shows how this goes wrong. Drift is commonly reported as reachable, but that verdict is about the marketing site. `js.driftt.com`, the host that actually runs in a visitor's browser, has never been tested. A verdict on the wrong hostname is how most of this category gets written.
+Drift makes thirteen, and it shows how this goes wrong. Drift is commonly reported as reachable, but that verdict is about the marketing site. `js.driftt.com`, the host that actually runs in a visitor's browser, has never been tested. A verdict on the wrong hostname is how most of this category gets written.
 
 The dates matter as much as the verdicts. A verdict from March tells you about March. Two rows above are six months old, Wistia and the Mapbox telemetry host, and both say so in their own cells. Wistia is a video embed a marketing team might add this afternoon, on the strength of a reading taken in the spring.
 

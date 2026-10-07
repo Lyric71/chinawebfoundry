@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-06
+updatedAt: 2026-10-08
 category: Technology
 ---
 
@@ -119,6 +119,7 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Typeform | Website des Anbieters, Host von der Quelle nicht genannt | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 907 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 812 ms, erstes Rendering nach 2,0 s | Alibaba Cloud cn-zhangjiakou | 21YunBox 28. August 2026, GreatFire 10. September 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 14. September 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 23. September 2026 |
 | Calendly | `calendly.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 10. Juni 2026 |
 | Intercom | `widget.intercom.io` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 16. Juni 2026 |
 | Zendesk | `static.zdassets.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 29. April 2026 |
@@ -178,9 +179,9 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 
 ### Noch nicht gemessen
 
-Für dreizehn Abhängigkeiten gibt es kein Testergebnis, für das wir geradestehen würden, entweder weil niemand sie geprüft hat oder weil der einzige verfügbare Befund älter als neunzig Tage ist. Wir listen sie trotzdem auf, denn auch die Lücke sagt etwas aus: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, das LinkedIn Insight Tag, Cloudflare Turnstile, Adobe Fonts, Font Awesome, Marketo und das Tracking-Skript von HubSpot.
+Für zwölf Abhängigkeiten fehlt ein Testergebnis, für das wir einstehen würden. Entweder hat sie niemand gemessen, oder der einzige verfügbare Befund ist älter als neunzig Tage. Aufgeführt werden sie trotzdem, denn schon die Lücke ist aufschlussreich: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, das LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo und das Tracking-Skript von HubSpot. Cloudflare Turnstile stand bis zum 8. Oktober 2026 auf dieser Liste. GreatFire hat das Skript des Dienstes am 23. September geprüft; inzwischen hat Turnstile eine eigene Zeile in der obigen Tabelle.
 
-Drift ist die vierzehnte, und an diesem Fall lässt sich zeigen, wie Fehler entstehen. Drift gilt gemeinhin als erreichbar, doch dieser Befund bezieht sich auf die Marketing-Website. `js.driftt.com`, der Host, den der Browser des Besuchers tatsächlich aufruft, wurde nie getestet. Ein Befund zum falschen Hostnamen: So entsteht das meiste, was zu diesem Thema geschrieben wird.
+Mit Drift sind es dreizehn, und an diesem Fall lässt sich ablesen, wie Fehlbefunde zustande kommen. Der Dienst gilt gemeinhin als erreichbar, doch das Urteil bezieht sich auf die Marketing-Website. `js.driftt.com`, den Host, den der Browser des Besuchers tatsächlich aufruft, hat nie jemand getestet. Ein Befund zum falschen Hostnamen: Auf diese Weise entsteht das meiste, was über das Thema geschrieben wird.
 
 Das Testdatum zählt so viel wie der Befund. Ein Befund vom März sagt etwas über den März. Zwei Zeilen der Tabelle sind sechs Monate alt, Wistia und der Telemetrie-Host von Mapbox, und beide weisen in ihren Zellen darauf hin. Wistia ist ein Videoplayer, den ein Marketingteam noch heute Nachmittag einbinden könnte, im Vertrauen auf eine Messung aus dem Frühjahr.
 

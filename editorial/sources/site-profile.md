@@ -136,7 +136,11 @@ pre-commit hook (`scripts/check-images.mjs`) rejects non-WebP, anything over
 1050px wide, anything over 350KB under `public/images/`.
 
 Google Analytics 4 runs through the first-party `/ga.js` endpoint that serves
-an inert stub to mainland visitors. hCaptcha on the contact form. Resend for
+an inert stub to mainland visitors. No third-party captcha anywhere
+(corrected 8 October 2026; an earlier copy said hCaptcha): the contact form
+uses a hidden honeypot field (`src/components/pages/ContactForm*.astro`), and
+the scanner's access check is a small sum signed with an HMAC and verified on
+our own server (`src/lib/captcha.ts`). Resend for
 transactional email. IndexNow key file deployed; `npm run indexnow` submits
 the sitemap after a deploy. The pre-push hook runs `npm run build`.
 

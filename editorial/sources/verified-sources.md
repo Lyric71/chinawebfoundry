@@ -1583,6 +1583,119 @@ pair above was re-fetched too and is unchanged.
 - Used in: google-fonts-china
 - Notes: fonts.google.com/faq is rendered client-side and returned no text to the fetcher; the repository README is the dated primary statement. Some OFL fonts carry a Reserved Font Name; the README says so.
 
+## T2-03 entries, 8 October 2026
+
+Logged for `recaptcha-china`. Check 1 during research and check 2 in
+iteration 8 were both run on 8 October 2026 by separate fetches (curl for
+GreatFire's server-rendered verdict text, WebFetch or curl for the vendor
+pages). Every source passed check 2 unchanged. GreatFire pages state a
+relative "last tested" age in the visible text and the ISO date in their
+FAQ markup ("As of the last test on YYYY-MM-DD"); the ISO date is the one
+logged.
+
+### reCAPTCHA default addresses, GreatFire
+- Fact ID: F2
+- Value: https://www.google.com/recaptcha blocked, 1 of 1 conclusive tests, interference recorded since 7 May 2015; https://www.google.com/recaptcha/api.js 100% blocked, 3 of 3; https://www.google.com/recaptcha/api/siteverify 100% blocked, 1 of 1
+- Vantage point: n/a, GreatFire reachability verdicts
+- As of: 28 September 2026, 7 September 2026, 28 September 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/www.google.com/recaptcha (and /recaptcha/api.js, /recaptcha/api/siteverify)
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china
+- Notes: The siteverify verdict is the one that matters for a mainland-hosted server: it cannot confirm any token, so the default setup fails for overseas visitors too.
+
+### The www.recaptcha.net swap, GreatFire (closes the 2026-09-11 "not attempted" entry)
+- Fact ID: F2
+- Value: https://www.recaptcha.net not blocked, 0 of 2 conclusive tests disrupted, first tested 2018; 30 recaptcha.net URLs tested, 28 accessible, 2 disrupted. https://www.recaptcha.net/recaptcha/api.js not blocked, 0 of 2. https://www.recaptcha.net/recaptcha/api/siteverify reachable at its last test, none since. https://www.gstatic.com/recaptcha not blocked, 0 of 1
+- Vantage point: n/a, GreatFire reachability verdicts
+- As of: 30 September 2026; 27 August 2026; 2 May 2026 (older than 90 days, print the date); 20 August 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/www.recaptcha.net and siblings
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china
+- Notes: Reachability only. No 21YunBox or other dated probe has timed recaptcha.net from either vantage point, and the 21YunBox study does not test it. The api.js served from www.recaptcha.net loads its challenge code from https://www.gstatic.com/recaptcha/releases/ (script read 8 October 2026), so the swap still depends on gstatic.com.
+
+### gstatic.com domain tally, GreatFire
+- Fact ID: none
+- Value: 175 gstatic.com URLs tested: 8 blocked, 42 disrupted, 123 accessible, 2 no verdict
+- Vantage point: n/a
+- As of: read 8 October 2026 (a running tally with no single test date; cite it as read on the date)
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/www.gstatic.com
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china
+
+### reCAPTCHA documentation, Google
+- Fact ID: F2
+- Value: FAQ: "Yes, please use "www.recaptcha.net" in your code in circumstances when "www.google.com" is not accessible", then replace every other use of www.google.com/recaptcha/. Verify: server posts the token (g-recaptcha-response) to https://www.google.com/recaptcha/api/siteverify; error missing-input-response, "The response parameter is missing." v3: loads https://www.google.com/recaptcha/api.js?render=...; "reCAPTCHA v3 will never interrupt your users"
+- Vantage point: n/a
+- As of: FAQ last updated 2 April 2026; verify page 14 October 2024; v3 page 10 July 2024
+- Source: Google for Developers
+- URL: https://developers.google.com/recaptcha/docs/faq, /docs/verify, /docs/v3
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china
+
+### hCaptcha, GreatFire (updates the T6-06 entry of 22 September)
+- Fact ID: F35
+- Value: https://hcaptcha.com not blocked, 0 of 3; https://js.hcaptcha.com not blocked, 0 of 1; https://api2.hcaptcha.com not blocked, 0 of 1. GreatFire revised api2's earlier "partly disrupted" verdict: refused connections since late August 2026 no longer count as evidence of blocking
+- Vantage point: n/a
+- As of: 25 September, 26 September and 14 September 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/hcaptcha.com, /https/js.hcaptcha.com, /https/api2.hcaptcha.com
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china (api2 also on great-firewall-what-it-blocks, unchanged)
+
+### Cloudflare Turnstile script, GreatFire (F42 corrected)
+- Fact ID: F42 (CORRECTED)
+- Value: https://challenges.cloudflare.com/turnstile/v0/api.js not blocked, 0 of 1 conclusive tests
+- Vantage point: n/a
+- As of: 23 September 2026
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/challenges.cloudflare.com/turnstile/v0/api.js
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china; great-firewall-what-it-blocks (new table row and the "Not yet probed" paragraph, four locales, 8 October 2026); src/data/chinaDependencies.ts
+- Notes: F42 listed Turnstile among dependencies resting on verdicts older than 90 days. This dated test removes it from the untested list. 21YunBox's Turnstile support page (https://www.21cloudbox.com/support/cloudflare-turnstile-china.html, reviewed 28 August 2026) is NOT citable: its text says 0 of 3 inside 60 seconds and its table says 2 of 3 at a 1,011ms median, and it times cloudflare.com/products/turnstile, the marketing page.
+
+### Alibaba Cloud Captcha 2.0 server access
+- Fact ID: F41
+- Value: after the client integration the server calls VerifyIntelligentCaptcha; regions mainland China (Shanghai, captcha.cn-shanghai.aliyuncs.com) and outside the mainland (Singapore, captcha.ap-southeast-1.aliyuncs.com); "AliyunCaptchaConfig 参数 region 传值和服务端接入地址 endpoint 必须映射正确，否则会导致验证请求返回错误"
+- Vantage point: n/a
+- As of: page modified 11 September 2026 (lastModifiedTime 1789091081000)
+- Source: Alibaba Cloud (阿里云) help centre, 服务端接入
+- URL: https://help.aliyun.com/zh/captcha/captcha2-0/user-guide/server-access
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china
+
+### Tencent Cloud Captcha ticket verification and product name
+- Fact ID: F41 (CORRECTED: the product is 腾讯云验证码, not 天御)
+- Value: DescribeCaptchaResult at captcha.tencentcloudapi.com; CaptchaCode 1 = "OK 验证通过". Product overview names it 腾讯云验证码 with no mention of 天御
+- Vantage point: n/a
+- As of: 18 September 2026 (verification API); 8 September 2026 (product overview)
+- Source: Tencent Cloud (腾讯云)
+- URL: https://cloud.tencent.com/document/product/1110/36926 and https://cloud.tencent.com/document/product/1110/36334
+- Verified 1: 2026-10-08
+- Verified 2: 2026-10-08
+- Used in: recaptcha-china
+
+### GeeTest server documentation (not citable)
+- Fact ID: F41
+- Verified 1: **no date found, 2026-10-08.** https://docs.geetest.com/gt4/deploy/server names the second check at gcaptcha4.geetest.com/validate but carries no date anywhere on the page; the GeeTeam/gt4-python-demo repository was last changed 21 February 2022.
+- Verified 2: not applicable.
+- Effect: GeeTest (极验) is named in recaptcha-china without any technical claim. Find a dated GeeTest page before citing its mechanics.
+
+### reCAPTCHA, both vantage points (third check)
+- Fact ID: F2
+- Value: unchanged from the entries of 10 September and 6 October 2026. The home-line row of the study is labelled "www.google.com (reCAPTCHA host)", 18 requests, 18 never answered
+- Verified 2: 2026-10-08, re-fetched for recaptcha-china, unchanged
+- Used in: recaptcha-china
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)

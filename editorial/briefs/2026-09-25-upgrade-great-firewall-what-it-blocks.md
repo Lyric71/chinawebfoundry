@@ -55,7 +55,7 @@ tier-specific boxes for T6.
 
 **Acceptance criteria.**
 - [ ] Every table row has a non-empty vantage point cell and a non-empty date cell, or is explicitly marked untested.
-- [ ] No row in the table asserts a verdict for any of the eleven dependencies listed in F42 without a fresh probe.
+- [ ] No row in the table asserts a verdict for any of the ten dependencies listed in F42 without a fresh probe.
 - [ ] The table is server-rendered in the HTML source, verified by viewing source with JavaScript disabled.
 - [ ] The table container scrolls horizontally at 390px without the page body scrolling sideways.
 - [ ] The F33 framing appears within the first 30% of the page by word count.

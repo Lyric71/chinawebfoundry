@@ -14,7 +14,8 @@ import type { Locale } from '../i18n/ui';
  * in a guide file, or the locales drift apart.
  *
  * Sources: editorial/sources/verified-sources.md, entries of 17 and 22
- * September 2026 (T6-05 and T6-06), both checks logged there. Every row was
+ * September 2026 (T6-05 and T6-06) and 8 October 2026 (T2-03, the Cloudflare
+ * Turnstile row), both checks logged there. Every row was
  * last checked against its source on `lastCheckedOn`. Recheck any row whose
  * test date is more than ninety days old at `reviewBy`.
  */
@@ -139,6 +140,7 @@ export const dependencies: DependencyRow[] = [
   { id: 'typeform', category: 'formsAndChat', host: null, hostNote: 'vendorSite', verdict: 'answersThenStalls', measured: 'text', vantage: ['zhangjiakou'], citations: [yb('typeform', '2026-08-28')] },
   { id: 'mailchimp', category: 'formsAndChat', host: 'cdn-images.mailchimp.com', verdict: 'answersThenStalls', measured: 'text', vantage: ['zhangjiakou'], citations: [yb('mailchimp', '2026-08-28'), gf('cdn-images.mailchimp.com', '2026-09-10')] },
   { id: 'hcaptcha', category: 'formsAndChat', host: 'api2.hcaptcha.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('api2.hcaptcha.com', '2026-09-14')] },
+  { id: 'cloudflare-turnstile', category: 'formsAndChat', host: 'challenges.cloudflare.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('challenges.cloudflare.com/turnstile/v0/api.js', '2026-09-23')] },
   { id: 'calendly', category: 'formsAndChat', host: 'calendly.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('calendly.com', '2026-06-10')] },
   { id: 'intercom', category: 'formsAndChat', host: 'widget.intercom.io', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('widget.intercom.io', '2026-06-16')] },
   { id: 'zendesk', category: 'formsAndChat', host: 'static.zdassets.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('static.zdassets.com', '2026-04-29')] },
@@ -224,6 +226,7 @@ export const brandNames: Record<string, string> = {
   typeform: 'Typeform',
   mailchimp: 'Mailchimp',
   hcaptcha: 'hCaptcha',
+  'cloudflare-turnstile': 'Cloudflare Turnstile',
   calendly: 'Calendly',
   intercom: 'Intercom',
   zendesk: 'Zendesk',

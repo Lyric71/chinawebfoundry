@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-06
+updatedAt: 2026-10-08
 category: Technology
 ---
 
@@ -119,6 +119,7 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Typeform | Site du fournisseur, hôte non précisé par la source | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 907 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 812 ms, premier rendu à 2,0 s | Alibaba Cloud cn-zhangjiakou | 21YunBox 28 août 2026, GreatFire 10 septembre 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 14 septembre 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 23 septembre 2026 |
 | Calendly | `calendly.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 10 juin 2026 |
 | Intercom | `widget.intercom.io` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 16 juin 2026 |
 | Zendesk | `static.zdassets.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 29 avril 2026 |
@@ -178,9 +179,9 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 
 ### En attente de mesure
 
-Pour treize dépendances, nous n'avons aucun résultat que nous soyons prêts à défendre : soit personne ne les a testées, soit le seul verdict disponible a plus de quatre-vingt-dix jours. Nous les citons plutôt que de les passer sous silence, car cette lacune est une information en soi : Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, le LinkedIn Insight Tag, Cloudflare Turnstile, Adobe Fonts, Font Awesome, Marketo et le script de suivi HubSpot.
+Douze dépendances n'ont fait l'objet d'aucun test que nous soyons prêts à reprendre à notre compte, soit que personne ne les ait mesurées, soit que le seul verdict disponible date de plus de quatre-vingt-dix jours. Nous les citons malgré tout, car ce silence est en soi une information : Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, le LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo et le script de suivi de HubSpot. Cloudflare Turnstile a figuré sur cette liste jusqu'au 8 octobre 2026. GreatFire a testé son script le 23 septembre, et le service a désormais sa ligne dans le tableau ci-dessus.
 
-Drift porte le compte à quatorze et illustre la manière dont l'erreur s'installe. Drift est souvent présenté comme accessible, mais ce verdict porte sur le site marketing. `js.driftt.com`, l'hôte réellement appelé par le navigateur du visiteur, n'a jamais été testé. Un verdict rendu sur le mauvais nom d'hôte : voilà comment s'écrit l'essentiel de ce qui circule sur le sujet.
+Drift porte le total à treize, et son cas montre comment naît l'erreur. On le dit volontiers accessible, mais ce verdict vise le site marketing. `js.driftt.com`, l'hôte qu'appelle réellement le navigateur du visiteur, n'a jamais été testé. Se tromper de nom d'hôte : c'est ainsi que s'écrit l'essentiel de ce qui circule sur le sujet.
 
 Les dates comptent autant que les verdicts. Un verdict de mars renseigne sur mars. Deux lignes du tableau datent de six mois, Wistia et l'hôte de télémétrie de Mapbox, et leurs cellules le signalent. Wistia est un lecteur vidéo qu'une équipe marketing pourrait intégrer dès cet après-midi, sur la foi d'un relevé effectué au printemps.
 

@@ -46,7 +46,7 @@ tier-specific boxes for T4.
 Delta against T4-01 and T4-03.
 
 - **Slug** `china-dependency-index-2026-12`. Panel expands to 64 hosts.
-- **The eleven join.** Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, Turnstile, Adobe Fonts and Font Awesome enter the panel with first-time verdicts, plus refreshed verdicts for Marketo and the HubSpot script, whose prior data was over 90 days old (F42). Each new row is marked as a first observation with no change value, and the article says which needed a provisioned account before a real endpoint could be exercised.
+- **The ten join.** Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, Adobe Fonts and Font Awesome enter the panel with first-time verdicts, plus refreshed verdicts for Marketo and the HubSpot script, whose prior data was over 90 days old (F42). Each new row is marked as a first observation with no change value, and the article says which needed a provisioned account before a real endpoint could be exercised.
 - **First quarterly view.** A second table showing the three editions side by side per host, October, November, December, with a stability count. This is the section that will get cited, because nobody else has three dated observations of anything.
 - **Method statement gains** a short paragraph on panel expansion policy: how a host enters the panel, how one leaves, and the commitment that a host is never removed for producing an inconvenient result.
 - **Narrative shifts.** Lead on the quarterly finding, which is how many verdicts held steady across three months, then the new entrants, then the movement.
@@ -54,8 +54,8 @@ Delta against T4-01 and T4-03.
 **Metadata.**
 ```yaml
 title: "China Dependency Index, December 2026"                                       # 37 / 52
-description: "Sixty-four hosts across three mainland vantage points, with a quarter of movement, the eleven newly probed hosts, and the full method."   # 134 / 152
-excerpt: "December closes the first quarter of the index, adds eleven previously untested hosts, and reports what moved over 90 days."   # 20 / 25 words
+description: "Sixty-four hosts across three mainland vantage points, with a quarter of movement, the ten newly probed hosts, and the full method."   # 131 / 152
+excerpt: "December closes the first quarter of the index, adds ten previously untested hosts, and reports what moved over 90 days."   # 20 / 25 words
 ```
 
 ## T4 rules (from PLAN.md section 8)

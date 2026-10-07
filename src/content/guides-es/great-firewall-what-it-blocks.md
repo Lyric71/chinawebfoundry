@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-06
+updatedAt: 2026-10-08
 category: Technology
 ---
 
@@ -119,6 +119,7 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Typeform | Sitio del proveedor, servidor no indicado por la fuente | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 907 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 812 ms, renderizado en 2,0 s | Alibaba Cloud cn-zhangjiakou | 21YunBox 28 de agosto de 2026, GreatFire 10 de septiembre de 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 14 de septiembre de 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 23 de septiembre de 2026 |
 | Calendly | `calendly.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 10 de junio de 2026 |
 | Intercom | `widget.intercom.io` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 16 de junio de 2026 |
 | Zendesk | `static.zdassets.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 29 de abril de 2026 |
@@ -178,9 +179,9 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 
 ### Pendientes de medición
 
-Trece dependencias no tienen ningún resultado que estemos dispuestos a defender, bien porque nadie las ha medido, bien porque el único veredicto disponible tiene más de noventa días. Las recogemos en lugar de omitirlas, porque ese vacío también es información: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, el LinkedIn Insight Tag, Cloudflare Turnstile, Adobe Fonts, Font Awesome, Marketo y el script de seguimiento de HubSpot.
+Doce dependencias carecen de un resultado que estemos dispuestos a suscribir, bien porque nadie las ha medido, bien porque el único veredicto disponible supera los noventa días. Aun así figuran aquí, porque la propia laguna resulta reveladora: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, el LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo y el script de seguimiento de HubSpot. Cloudflare Turnstile figuró en esta relación hasta el 8 de octubre de 2026. GreatFire analizó su script el 23 de septiembre, y el servicio dispone ya de su propia fila en la tabla anterior.
 
-Drift eleva la cuenta a catorce y muestra cómo se cuela el error. Drift suele figurar como accesible, pero ese veredicto se refiere al sitio comercial. `js.driftt.com`, el servidor al que llama de verdad el navegador del visitante, no se ha probado nunca. Un veredicto sobre el nombre de servidor equivocado: así se escribe la mayor parte de lo que se publica sobre este asunto.
+Drift eleva el recuento a trece, y su caso muestra cómo se origina el error. Se le suele dar por accesible, pero ese veredicto atañe al sitio comercial. `js.driftt.com`, el servidor al que de verdad llama el navegador del visitante, nunca se ha probado. Evaluar el nombre de servidor equivocado: así se escribe buena parte de lo que se publica sobre el tema.
 
 Las fechas importan tanto como los veredictos. Un veredicto de marzo habla de marzo. Dos filas de la tabla tienen seis meses, Wistia y el servidor de telemetría de Mapbox, y así lo indican en sus propias celdas. Wistia es un reproductor de vídeo que un equipo de marketing podría incorporar esta misma tarde fiándose de una medición tomada en primavera.
 

@@ -11,7 +11,7 @@ title: "reCAPTCHA in China: Your Forms Are Dead"
 suggested_category: Technology
 locales_at_publish: en
 facts: [F2, F35, F41]
-status: not_started
+status: published
 ---
 
 ## How to run this brief

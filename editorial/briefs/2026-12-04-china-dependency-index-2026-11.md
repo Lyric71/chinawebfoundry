@@ -44,17 +44,17 @@ tier-specific boxes for T4.
 
 Delta against T4-01. Everything not listed here is unchanged.
 
-- **Slug** `china-dependency-index-2026-11`. Same panel of 53 hosts.
+- **Slug** `china-dependency-index-2026-11`. Same panel of 54 hosts.
 - **Third vantage point added.** A residential line in Shanghai on China Telecom (中国电信), so the index reports one datacenter and two consumer networks in different cities on different carriers. The method statement gains a paragraph on why a second consumer city was added and what it can and cannot prove with one month of data.
 - **Change column goes live.** October was the baseline, so November is the first edition where the change column carries values. Define the movement rule in the article: a verdict change requires the same direction on at least two of three vantage points, otherwise it is logged as unstable rather than as movement.
 - **Narrative shifts.** The 300 words lead on what moved rather than on the panel size, and name every host whose verdict changed, including the ones that improved. An index that only reports deterioration is an argument, not an index.
 - **Table gains three columns.** Shanghai consumer median TTFB, Shanghai consumer completions, and city agreement, which records whether Beijing and Shanghai returned the same verdict.
-- **Still untested.** The eleven held-out hosts remain named and dated for December.
+- **Still untested.** The ten held-out hosts remain named and dated for December.
 
 **Metadata.**
 ```yaml
 title: "China Dependency Index, November 2026"                                       # 37 / 52
-description: "Fifty-three hosts retested from Alibaba Cloud Zhangjiakou and two consumer lines in Beijing and Shanghai. Full table, method and every change."   # 142 / 152
+description: "Fifty-four hosts retested from Alibaba Cloud Zhangjiakou and two consumer lines in Beijing and Shanghai. Full table, method and every change."   # 141 / 152
 excerpt: "The November edition adds a Shanghai China Telecom line and reports every verdict that moved since October."   # 17 / 25 words
 ```
 
