@@ -6,17 +6,16 @@ visual: "/images/guides/submitting-urls-to-baidu.webp"
 order: 23
 published: true
 publishedAt: 2026-08-16
-updatedAt: 2026-08-16
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Die Standardeinreichung (普通收录, pǔtōng shōulù) ist der Teil der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái), der Baidu mitteilt, dass eine Seite existiert, ganz gleich ob diese Seiten aus [einem in China gehosteten WordPress](/de/wordpress-in-china/) stammen oder aus etwas anderem. Drei Kanäle: Push, Sitemap, manuell. Die Plattform stellt sie nebeneinander, als wäre die Wahl eine Frage der Vorliebe, dabei stehen sie in einer Rangfolge von Privilegien. Einer ist bei zwanzig Links pro Vorgang gedeckelt. Die beiden anderen sind an Bedingungen geknüpft: Der Sitemap-Zugang wird nach Baidus Ermessen vergeben und wieder entzogen, und die schnellste Form des Push steht nur Websites offen, die an eine in China registrierte juristische Person gebunden sind.
 
-> Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
->
-> *Quelle: StatCounter, zitiert nach The Egg, 11. Februar 2026*
+> Baidu hielt im September 2026 laut Statcounter über alle Plattformen hinweg 46,65 % des Suchmaschinenmarkts in China, auf Mobilgeräten 60,15 %.
+> Quelle: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china und https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-StatCounters China-Panel bewegt sich, lesen Sie den Wert also als Spanne und nicht als feste Zahl. Er ist zugleich der Grund, warum irgendjemand diese Installationsarbeit auf sich nimmt.
+Statcounters China-Panel bewegt sich, lesen Sie den Wert also als Spanne und nicht als feste Zahl. Er ist zugleich der Grund, warum irgendjemand diese Installationsarbeit auf sich nimmt.
 
 Eine Sache vorweg, noch vor der Mechanik. Einreichen ist nicht Indexieren. Sie teilen Baidu mit, dass eine URL existiert, und was danach geschieht, wird anderswo entschieden.
 

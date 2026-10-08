@@ -6,17 +6,16 @@ visual: "/images/guides/submitting-urls-to-baidu.webp"
 order: 23
 published: true
 publishedAt: 2026-08-16
-updatedAt: 2026-08-16
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Standard submission (普通收录, pǔtōng shōulù) is the part of the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) that tells Baidu a page exists, whether those pages come from [a WordPress install running in China](/wordpress-in-china/) or anything else. Three channels: push, sitemap, manual. The platform lays them out side by side as though choosing between them were a matter of preference, when they really sit in an order of privilege. One is capped at twenty links a go. The other two are conditional: sitemap access gets handed out and taken away at Baidu's discretion, and the fastest form of push is open only to sites tied to a registered legal entity in China.
 
-> Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
->
-> *Source: StatCounter, cited by The Egg, February 11, 2026*
+> Baidu held 46.65% of the search engine market in China across all platforms in September 2026, by Statcounter's measure, and 60.15% on mobile.
+> Source: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-StatCounter's China panel moves around, so read that as a range rather than a fixed number. It is also why anyone puts up with the plumbing.
+Statcounter's China panel moves around, so read that as a range rather than a fixed number. It is also why anyone puts up with the plumbing.
 
 One thing to settle before the mechanics. Submission is not indexing. It tells Baidu a URL exists, and what happens after that is decided elsewhere.
 

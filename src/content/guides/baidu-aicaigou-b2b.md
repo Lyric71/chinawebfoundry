@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-aicaigou-b2b.webp"
 order: 15
 published: true
 publishedAt: 2026-08-12
-updatedAt: 2026-08-12
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -38,11 +38,10 @@ Those figures are three years old. Baidu has not refreshed them and no independe
 
 What makes any Baidu placement worth arguing about is the reach behind it.
 
-> Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
->
-> *Source: StatCounter, cited by The Egg, February 11, 2026*
+> Baidu held 46.65% of the search engine market in China across all platforms in September 2026, by Statcounter's measure, and 60.15% on mobile.
+> Source: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-StatCounter's China panel bounces around, so hold the decimals loosely. The share is large enough either way to make the top of a Baidu results page expensive, which is why Baidu sells it instead of awarding it.
+Statcounter's China panel bounces around, so hold the decimals loosely. The share is large enough either way to make the top of a Baidu results page expensive, which is why Baidu sells it instead of awarding it.
 
 ## Membership is the floor, not the price
 

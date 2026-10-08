@@ -1,22 +1,21 @@
 ---
-title: "Vérifier son site sur Baidu : fichier ou balise HTML"
+title: "Vérifier son site sur Baidu : fichier ou balise HTML"
 subtitle: "Deux méthodes de vérification fonctionnent. Une troisième figure encore dans la plupart des guides anglophones, et elle ne marche plus depuis le premier trimestre 2023."
 summary: "Deux méthodes de vérification fonctionnent encore chez Baidu, et le CNAME n'en fait pas partie. Noms de fichiers exacts, emplacement de la balise, cas WordPress et Astro."
 visual: "/images/guides/baidu-site-verification.webp"
 order: 26
 published: true
 publishedAt: 2026-08-18
-updatedAt: 2026-08-18
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Vérifier un domaine sur la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) transforme une URL en ressource dont vous pouvez tirer des données et à laquelle vous pouvez soumettre des pages. L'opération prend dix minutes, à condition que l'hébergement coopère et que [le site WordPress soit déjà prêt pour la Chine](/fr/wordpress-en-chine/). Obtenir le compte qui se trouve derrière constitue la vraie difficulté, et cela fait [l'objet d'un article distinct](/fr/ressources/guide-web-chine/compte-baidu-entreprise-etrangere/).
 
-> Baidu détenait 63,97 % du marché chinois de la recherche tous appareils confondus en novembre 2025, et 77,86 % sur mobile.
->
-> *Source : StatCounter, cité par The Egg, 11 février 2026*
+> En septembre 2026, Baidu pesait 46,65 % du marché des moteurs de recherche en Chine, toutes plateformes confondues, et 60,15 % sur mobile, selon Statcounter.
+> Source : Statcounter Global Stats, septembre 2026. https://gs.statcounter.com/search-engine-market-share/all/china et https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Prenez ce chiffre comme une fourchette plutôt que comme une constante, car le panel chinois de StatCounter varie fortement d'un mois à l'autre. C'est l'ordre de grandeur qui compte. Voilà le moteur pour lequel vous vérifiez.
+Prenez ce chiffre comme une fourchette plutôt que comme une constante, car le panel chinois de Statcounter varie fortement d'un mois à l'autre. C'est l'ordre de grandeur qui compte. Voilà le moteur pour lequel vous vérifiez.
 
 ## Ajouter le site
 
@@ -24,7 +23,7 @@ La gestion des sites (站点管理, zhàndiǎn guǎnlǐ) est l'écran où l'on a
 
 Ajoutez l'hôte que vous voulez positionner. Pas une redirection vers lui, pas un sous-domaine de préproduction, pas la version que votre CDN sert par hasard. Si votre hôte canonique est le www et que le domaine nu renvoie une 301 vers lui, vérifiez le www.
 
-## Méthode un : la vérification par fichier
+## Méthode un : la vérification par fichier
 
 La vérification par fichier (文件验证, wénjiàn yànzhèng) est la méthode à retenir dès que vous pouvez déployer des fichiers.
 
@@ -34,7 +33,7 @@ Trois conditions décident du résultat. Le fichier doit répondre avec un statu
 
 Laissez le fichier en place une fois la vérification obtenue. Baidu revérifie périodiquement, et un fichier qui disparaît à la mise en production suivante emporte la vérification avec lui.
 
-## Méthode deux : la vérification par balise HTML
+## Méthode deux : la vérification par balise HTML
 
 Si la voie du fichier vous est fermée, voici le repli.
 
@@ -54,7 +53,7 @@ La vérification par CNAME (CNAME验证, CNAME yànzhèng) a été suspendue au 
 >
 > La gestion des sites a suspendu la méthode de vérification par CNAME. Le changement n'affecte pas les sites déjà vérifiés.
 >
-> *Source : Baidu Search Resource Platform, annonce officielle, février 2023*
+> *Source : Baidu Search Resource Platform, annonce officielle, février 2023*
 
 Les sites vérifiés de cette façon avant le changement ont conservé leur statut. Les nouveaux disposent de deux options, pas de trois. Si un guide vous en propose trois, vérifiez sa date avant de faire confiance au reste de la page.
 

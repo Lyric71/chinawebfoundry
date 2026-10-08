@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-ads-account-foreign.webp"
 order: 17
 published: true
 publishedAt: 2026-08-13
-updatedAt: 2026-08-13
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Two routes exist for a company with no mainland entity, and neither is a workaround in the sneaky sense. Baidu's resellers run one. Baidu runs the other.
 
-> Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
->
-> *Source: StatCounter, cited by The Egg, February 11, 2026*
+> Baidu held 46.65% of the search engine market in China across all platforms in September 2026, by Statcounter's measure, and 60.15% on mobile.
+> Source: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Nothing else in China buys that reach, which is why teams clear the paperwork instead of walking away. StatCounter's China panel moves around, so read it as a scale.
+That reach is why teams clear the paperwork instead of walking away. Statcounter's China panel moves around, so read it as a scale.
 
 What either route costs you is control more than money, and the choice follows you into hosting and crawl performance long after launch, which is where [a web agency based in China](/web-agency-china/) earns its fee.
 

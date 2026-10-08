@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-verification-scope.webp"
 order: 25
 published: true
 publishedAt: 2026-08-17
-updatedAt: 2026-08-17
+updatedAt: 2026-10-09
 category: Search
 ---
 
 An dieser Lücke stolpern mehr ausländische Teams als an irgendeinem anderen Punkt beim Einrichten der Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Eine Website ist hier ein Protokoll und ein Host, mehr nicht, was zählt, sobald [Ihre chinesische WordPress-Website](/de/wordpress-in-china/) auf mehreren davon antwortet. Wer den Zuschnitt falsch wählt, liest ein Quartal später Dashboards über eine Fassung der eigenen Website, die niemand besucht.
 
-> Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
->
-> *Quelle: StatCounter, zitiert nach The Egg, 11. Februar 2026*
+> Baidu hielt im September 2026 laut Statcounter über alle Plattformen hinweg 46,65 % des Suchmaschinenmarkts in China, auf Mobilgeräten 60,15 %.
+> Quelle: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china und https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-StatCounters China-Panel ist sprunghaft, der genaue Wert wandert also von Monat zu Monat. Das Bild bleibt. Aus dieser Suchmaschine stammen Ihre China-Zahlen, und deshalb sind die Grenzen der Property zehn Minuten Nachdenken wert.
+Statcounters China-Panel ist sprunghaft, der genaue Wert wandert also von Monat zu Monat. Aus dieser Suchmaschine stammen Ihre China-Zahlen, und deshalb sind die Grenzen der Property zehn Minuten Nachdenken wert.
 
 Wie Sie die Inhaberschaft nachweisen, per Datei oder Meta-Tag, wird [gesondert behandelt](/de/ressourcen/china-web-leitfaden/baidu-site-verifizierung/). Hier geht es darum, wofür Sie die Inhaberschaft nachweisen.
 

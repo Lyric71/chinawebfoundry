@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-fast-inclusion-gone.webp"
 order: 22
 published: true
 publishedAt: 2026-08-15
-updatedAt: 2026-08-15
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -14,11 +14,10 @@ Fast inclusion (快速收录, kuàisù shōulù) was the one Baidu submission to
 
 Baidu took it offline and put something narrower in its place.
 
-> Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
->
-> *Source: StatCounter, cited by The Egg, February 11, 2026*
+> Baidu held 46.65% of the search engine market in China across all platforms in September 2026, by Statcounter's measure, and 60.15% on mobile.
+> Source: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-StatCounter's China panel swings around, so read that as a range. It also explains why a tool that shortened the wait for indexing mattered to anybody, and why losing it counts as news two years later.
+Statcounter's China panel swings around, so read that as a range. It also explains why a tool that shortened the wait for indexing mattered to anybody, and why losing it counts as news two years later.
 
 ## The announcement that ended it
 

@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-ads-account-foreign.webp"
 order: 17
 published: true
 publishedAt: 2026-08-13
-updatedAt: 2026-08-13
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Deux voies existent pour une entreprise sans entité continentale, et aucune ne relève du contournement au sens douteux. Les revendeurs de Baidu exploitent la première. Baidu exploite la seconde.
 
-> Baidu détenait 63,97 % du marché chinois de la recherche tous appareils confondus en novembre 2025, et 77,86 % sur mobile.
->
-> *Source : StatCounter, cité par The Egg, 11 février 2026*
+> En septembre 2026, Baidu pesait 46,65 % du marché des moteurs de recherche en Chine, toutes plateformes confondues, et 60,15 % sur mobile, selon Statcounter.
+> Source : Statcounter Global Stats, septembre 2026. https://gs.statcounter.com/search-engine-market-share/all/china et https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Rien d'autre en Chine n'achète cette portée, et c'est pourquoi les équipes affrontent la paperasse au lieu de renoncer. Le panel chinois de StatCounter bouge : lisez ce chiffre comme un ordre de grandeur.
+C'est pour cette audience que les équipes se plient à la paperasse au lieu de renoncer. Le panel chinois de Statcounter bouge : lisez ce chiffre comme un ordre de grandeur.
 
 Ce que l'une ou l'autre voie vous coûte tient au contrôle plus qu'à l'argent, et ce choix vous suit jusque dans l'hébergement et les performances d'exploration, longtemps après le lancement, et c'est là qu'[une agence web basée en Chine](/fr/agence-web-chine/) justifie ses honoraires.
 
@@ -28,7 +27,7 @@ Une licence commerciale continentale (营业执照, yíngyè zhízhào) sert d'a
 
 Vient ensuite le domaine. Son titulaire doit être l'entité qui détient le compte publicitaire, et ce point piège davantage de marques étrangères que la licence. Les domaines mondiaux dorment généralement chez un service juridique de siège situé ailleurs, et personne ne vérifie avant qu'une création ne revienne rejetée.
 
-Les pages de destination doivent être en chinois simplifié, et ce qu'elles disent doit tenir dans l'objet social inscrit sur la licence. L'objet social en Chine est étroit et littéral. Licence mentionnant le négoce, page vendant du conseil : rejet.
+Les pages de destination doivent être en chinois simplifié, et ce qu'elles disent doit tenir dans l'objet social inscrit sur la licence. L'objet social en Chine est étroit et littéral. Licence mentionnant le négoce, page vendant du conseil : rejet.
 
 Le dépôt ICP (备案, bèi'àn) entre en jeu quand la page de destination est hébergée en Chine continentale. C'est une condition de l'hébergement, pas du compte, et cette distinction devient le principal problème structurel de cette page.
 
@@ -36,9 +35,9 @@ Les secteurs réglementés affrontent en plus une revue de qualification, avec d
 
 ## La première voie loue la licence de quelqu'un d'autre
 
-La réponse habituelle est le sous-compte d'agence. Une agence partenaire locale détient le compte principal sous sa propre licence continentale et vos campagnes tournent en dessous. Licence, compte bancaire, pièce d'identité du représentant légal : tout appartient à l'agence. Ce que vous fournissez, ce sont les créations, le budget et une page de destination.
+La réponse habituelle est le sous-compte d'agence. Une agence partenaire locale détient le compte principal sous sa propre licence continentale et vos campagnes tournent en dessous. Licence, compte bancaire, pièce d'identité du représentant légal : tout appartient à l'agence. Ce que vous fournissez, ce sont les créations, le budget et une page de destination.
 
-L'approbation est annoncée entre cinq et dix jours ouvrés. La mise en place est chiffrée autour de 300 à 500 dollars, avec une gestion courante à 10 ou 15 % des dépenses. Ces chiffres proviennent de documents commerciaux d'agences et non de Baidu : traitez-les comme indicatifs et obtenez un devis écrit avant qu'un budget n'en dépende.
+L'approbation est annoncée entre cinq et dix jours ouvrés. La mise en place est chiffrée autour de 300 à 500 dollars, avec une gestion courante à 10 ou 15 % des dépenses. Ces chiffres proviennent de documents commerciaux d'agences et non de Baidu : traitez-les comme indicatifs et obtenez un devis écrit avant qu'un budget n'en dépende.
 
 Ce n'est pas la commission qui doit vous inquiéter. Le compte n'est pas le vôtre. L'agence est l'entité de référence, donc le compte et son historique partent avec la relation. Changer d'agence signifie reconstruire et non transférer, et nous avons vu des clients l'apprendre au moment du renouvellement.
 
@@ -50,7 +49,7 @@ La paperasse a un autre caractère. Un scan de passeport du signataire plutôt q
 
 L'approbation est annoncée entre trois et cinq jours ouvrés, plus vite que la voie agence, mais selon les mêmes sources commerciales. Le compte porte le nom de votre propre société. C'est toute la raison de choisir cette voie.
 
-La juridiction constitue le piège. Une maison mère allemande ou italienne ne se qualifie pas d'elle-même, et la solution habituelle passe par une entité à Hong Kong ou à Singapour. Cela emporte des conséquences fiscales et juridiques bien au-delà d'une conversation marketing : associez un avocat tôt.
+La juridiction constitue le piège. Une maison mère allemande ou italienne ne se qualifie pas d'elle-même, et la solution habituelle passe par une entité à Hong Kong ou à Singapour. Cela emporte des conséquences fiscales et juridiques bien au-delà d'une conversation marketing : associez un avocat tôt.
 
 | Ce qui diffère | Sous-compte d'agence | Baidu International |
 |---|---|---|
@@ -62,7 +61,7 @@ La juridiction constitue le piège. Une maison mère allemande ou italienne ne s
 
 En ouverture directe, le dépôt s'élève à 5 000 yuans. Via un partenaire local, il monte à 6 000, la différence correspondant à 1 000 yuans de frais d'agence intégrés au montant.
 
-Le budget quotidien minimum est de 100 yuans, ce qui relève de la contrainte de conception plus que du coût. Dix campagnes représentent mille yuans par jour engagés, que le trafic les mérite ou non : les structures granulaires qui fonctionnent sur Google deviennent donc vite coûteuses ici.
+Le budget quotidien minimum est de 100 yuans, ce qui relève de la contrainte de conception plus que du coût. Dix campagnes représentent mille yuans par jour engagés, que le trafic les mérite ou non : les structures granulaires qui fonctionnent sur Google deviennent donc vite coûteuses ici.
 
 ## Renoncer à l'entité revient en général à renoncer à l'hébergement continental
 
@@ -82,4 +81,4 @@ L'accès à Merchant Center est une permission activée sur un compte publicitai
 
 Ce que l'on sait, c'est où part la demande. Elle passe par la gestion de comptes régionale continentale, sur un produit dont la documentation a cessé d'être mise à jour en janvier 2021. Cela ne prouve rien, mais cela ne pointe pas dans une direction encourageante. Posez la question pendant la sélection de l'agence, et demandez la réponse par écrit.
 
-Les tarifs et les délais d'approbation des deux voies proviennent de revendeurs et non de Baidu : vérifiez les chiffres en vigueur avant de bâtir un budget.
+Les tarifs et les délais d'approbation des deux voies proviennent de revendeurs et non de Baidu : vérifiez les chiffres en vigueur avant de bâtir un budget.

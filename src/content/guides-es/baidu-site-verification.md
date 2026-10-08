@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-site-verification.webp"
 order: 26
 published: true
 publishedAt: 2026-08-18
-updatedAt: 2026-08-18
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Verificar un dominio en la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) convierte una URL en una propiedad de la que puede extraer datos y a la que puede enviar páginas. El trámite lleva diez minutos, suponiendo que el alojamiento colabore y que [el WordPress ya esté preparado para China](/es/wordpress-en-china/). Conseguir la cuenta que hay detrás es la parte difícil, y eso [es materia de otro artículo](/es/recursos/guia-web-china/cuenta-baidu-empresa-extranjera/).
 
-> Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
->
-> *Fuente: StatCounter, citado por The Egg, 11 de febrero de 2026*
+> En septiembre de 2026, Baidu acaparaba el 46,65 % del mercado de buscadores en China, sumadas todas las plataformas, y el 60,15 % en el móvil, según Statcounter.
+> Fuente: Statcounter Global Stats, septiembre de 2026. https://gs.statcounter.com/search-engine-market-share/all/china y https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Tome esa cifra como una horquilla y no como una constante, porque el panel chino de StatCounter oscila con fuerza de un mes a otro. Lo que importa es el orden de magnitud. Este es el buscador para el que está verificando.
+Tome esa cifra como una horquilla y no como una constante, porque el panel chino de Statcounter oscila con fuerza de un mes a otro. Lo que importa es el orden de magnitud. Este es el buscador para el que está verificando.
 
 ## Añadir el sitio
 

@@ -6,17 +6,16 @@ visual: "/images/guides/submitting-urls-to-baidu.webp"
 order: 23
 published: true
 publishedAt: 2026-08-16
-updatedAt: 2026-08-16
+updatedAt: 2026-10-09
 category: Search
 ---
 
 El envío estándar (普通收录, pǔtōng shōulù) es la parte de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) que le comunica a Baidu que una página existe, tanto si esas páginas salen de [un WordPress alojado en China](/es/wordpress-en-china/) como de cualquier otro sistema. Tres canales: push, sitemap y envío manual. La plataforma los presenta uno junto a otro como si elegir entre ellos fuese cuestión de preferencia, cuando en realidad forman una jerarquía de privilegios. Uno está limitado a veinte enlaces por envío. Los otros dos son condicionales: el acceso al sitemap se concede y se retira a discreción de Baidu, y la forma más rápida de push solo se abre a los sitios vinculados a una entidad jurídica registrada en China.
 
-> Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
->
-> *Fuente: StatCounter, citado por The Egg, 11 de febrero de 2026*
+> En septiembre de 2026, Baidu acaparaba el 46,65 % del mercado de buscadores en China, sumadas todas las plataformas, y el 60,15 % en el móvil, según Statcounter.
+> Fuente: Statcounter Global Stats, septiembre de 2026. https://gs.statcounter.com/search-engine-market-share/all/china y https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-El panel chino de StatCounter se mueve, así que conviene leer esa cifra como una horquilla y no como un valor fijo. Es también la razón por la que alguien acepta toda esta fontanería.
+El panel chino de Statcounter se mueve, así que conviene leer esa cifra como una horquilla y no como un valor fijo. Es también la razón por la que alguien acepta toda esta fontanería.
 
 Una cuestión que conviene cerrar antes de la mecánica. Enviar no es indexar. Usted le comunica a Baidu que una URL existe, y lo que ocurra después se decide en otro sitio.
 

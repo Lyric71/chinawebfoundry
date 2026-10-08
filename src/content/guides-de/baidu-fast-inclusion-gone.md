@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-fast-inclusion-gone.webp"
 order: 22
 published: true
 publishedAt: 2026-08-15
-updatedAt: 2026-08-15
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -14,11 +14,10 @@ Die Schnellindexierung (快速收录, kuàisù shōulù) war das eine Einreichun
 
 Baidu nahm es vom Netz und stellte etwas Engeres an seine Stelle.
 
-> Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
->
-> *Quelle: StatCounter, zitiert nach The Egg, 11. Februar 2026*
+> Baidu hielt im September 2026 laut Statcounter über alle Plattformen hinweg 46,65 % des Suchmaschinenmarkts in China, auf Mobilgeräten 60,15 %.
+> Quelle: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china und https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-StatCounters China-Panel schwankt, lesen Sie den Wert also als Spanne. Er erklärt zugleich, warum ein Werkzeug, das die Wartezeit bis zur Indexierung verkürzte, überhaupt jemanden interessierte, und warum sein Verschwinden zwei Jahre später noch eine Nachricht ist.
+Statcounters China-Panel schwankt, lesen Sie den Wert also als Spanne. Er erklärt zugleich, warum ein Werkzeug, das die Wartezeit bis zur Indexierung verkürzte, überhaupt jemanden interessierte, und warum sein Verschwinden zwei Jahre später noch eine Nachricht ist.
 
 ## Die Ankündigung, die es beendete
 

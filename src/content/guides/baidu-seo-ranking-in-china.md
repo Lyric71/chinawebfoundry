@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
 publishedAt: 2026-03-31
-updatedAt: 2026-05-01
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -19,7 +19,7 @@ category: Search
 | Market share in China | 56 to 64% (2025) |
 | Monthly active users | 724 million (March 2025) |
 | Daily searches | 3.3 billion+ |
-| Mobile search share | 77.86% (Nov. 2025) |
+| Mobile search share | 60.15% (Sept. 2026) |
 | Baidu-owned pages in top 10 | 34.9%, up from 24.7% in 2020 |
 | Traffic from China | 93.9% |
 | Male users | 74.3% |

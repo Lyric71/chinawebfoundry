@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-05-02
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -19,7 +19,7 @@ Baidu recibe 724 millones de usuarios al mes y procesa 3.300 millones de búsque
 | Cuota de mercado en China | 56 a 64 % (2025) |
 | Usuarios activos mensuales | 724 millones (marzo de 2025) |
 | Búsquedas diarias | 3.300 millones o más |
-| Cuota de búsqueda móvil | 77,86 % (nov. de 2025) |
+| Cuota de búsqueda móvil | 60,15 % (sept. de 2026) |
 | Páginas de Baidu en los diez primeros resultados | 34,9 %, frente al 24,7 % en 2020 |
 | Tráfico de origen chino | 93,9 % |
 | Usuarios hombres | 74,3 % |

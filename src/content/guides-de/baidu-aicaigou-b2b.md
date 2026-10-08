@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-aicaigou-b2b.webp"
 order: 15
 published: true
 publishedAt: 2026-08-12
-updatedAt: 2026-08-12
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -38,11 +38,10 @@ Diese Zahlen sind drei Jahre alt. Baidu hat sie nicht aktualisiert, und eine una
 
 Was jede Platzierung bei Baidu diskussionswürdig macht, ist die Reichweite dahinter.
 
-> Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
->
-> *Quelle: StatCounter, zitiert nach The Egg, 11. Februar 2026*
+> Baidu hielt im September 2026 laut Statcounter über alle Plattformen hinweg 46,65 % des Suchmaschinenmarkts in China, auf Mobilgeräten 60,15 %.
+> Quelle: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china und https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-StatCounters China-Panel springt, halten Sie die Nachkommastellen also locker. Der Anteil ist in jedem Fall groß genug, um den oberen Rand einer Baidu-Ergebnisseite teuer zu machen, und genau deshalb verkauft Baidu ihn, statt ihn zu vergeben.
+Statcounters China-Panel springt, halten Sie die Nachkommastellen also locker. Der Anteil ist in jedem Fall groß genug, um den oberen Rand einer Baidu-Ergebnisseite teuer zu machen, und genau deshalb verkauft Baidu ihn, statt ihn zu vergeben.
 
 ## Die Mitgliedschaft ist der Boden, nicht der Preis
 

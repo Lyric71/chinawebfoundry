@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-account-ownership.webp"
 order: 29
 published: true
 publishedAt: 2026-08-19
-updatedAt: 2026-08-19
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Das Baidu-Konto wird als operatives Detail abgelegt. Es lebt in einem Passwortmanager, oder eben nicht, und niemand spricht es an, bis ein Vertrag endet oder eine Marketingleitung kündigt. Dann hört es auf, technisch zu sein. Die Identität an diesem Konto ist das, was einem Grundbucheintrag für Ihre Präsenz in der chinesischen Suche bei Baidu am nächsten kommt, prüfen Sie also den Namen darauf, bevor [eine Agentur vor Ort](/de/webagentur-china/) eines für Sie anlegt.
 
-> Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
->
-> *Quelle: StatCounter, zitiert nach The Egg, 11. Februar 2026*
+> Baidu hielt im September 2026 laut Statcounter über alle Plattformen hinweg 46,65 % des Suchmaschinenmarkts in China, auf Mobilgeräten 60,15 %.
+> Quelle: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china und https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Die Suche in China liegt nahezu vollständig bei einem Unternehmen. Das hier ist kein Punkt für die IT-Hausordnung.
+Ein einziges Unternehmen bündelt fast die Hälfte aller Suchanfragen in China, auf Mobilgeräten sechs von zehn. Das hier ist kein Punkt für die IT-Hausordnung.
 
 ## Die Realnamen-Verifizierung ist der Eigentumsnachweis
 

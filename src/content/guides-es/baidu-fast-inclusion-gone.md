@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-fast-inclusion-gone.webp"
 order: 22
 published: true
 publishedAt: 2026-08-15
-updatedAt: 2026-08-15
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -14,11 +14,10 @@ La inclusión rápida (快速收录, kuàisù shōulù) era la única herramient
 
 Baidu la retiró y colocó en su lugar algo más estrecho.
 
-> Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
->
-> *Fuente: StatCounter, citado por The Egg, 11 de febrero de 2026*
+> En septiembre de 2026, Baidu acaparaba el 46,65 % del mercado de buscadores en China, sumadas todas las plataformas, y el 60,15 % en el móvil, según Statcounter.
+> Fuente: Statcounter Global Stats, septiembre de 2026. https://gs.statcounter.com/search-engine-market-share/all/china y https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-El panel chino de StatCounter oscila, así que conviene leer esa cifra como una horquilla. También explica por qué a alguien le importaba una herramienta que acortaba la espera hasta la indexación, y por qué su desaparición sigue siendo noticia dos años después.
+El panel chino de Statcounter oscila, así que conviene leer esa cifra como una horquilla. También explica por qué a alguien le importaba una herramienta que acortaba la espera hasta la indexación, y por qué su desaparición sigue siendo noticia dos años después.
 
 ## El anuncio que le puso fin
 

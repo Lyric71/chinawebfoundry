@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-account-ownership.webp"
 order: 29
 published: true
 publishedAt: 2026-08-19
-updatedAt: 2026-08-19
+updatedAt: 2026-10-09
 category: Search
 ---
 
 The Baidu account gets filed as an operational detail. It lives in a password manager, or it does not, and nobody raises it until a contract ends or a marketing manager quits. Then it stops being technical. The identity on that account is the closest thing Baidu keeps to a title deed for your China search presence, so check whose name it carries before [an agency on the ground](/web-agency-china/) sets one up on your behalf.
 
-> Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
->
-> *Source: StatCounter, cited by The Egg, February 11, 2026*
+> Baidu held 46.65% of the search engine market in China across all platforms in September 2026, by Statcounter's measure, and 60.15% on mobile.
+> Source: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-China search is close to one company. This is not an IT housekeeping item.
+Close to half of China's searches, and six in ten on a phone, go through one company. This is not an IT housekeeping item.
 
 ## Real-name verification is the ownership record
 

@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-site-verification.webp"
 order: 26
 published: true
 publishedAt: 2026-08-18
-updatedAt: 2026-08-18
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Verifying a domain on the Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái) turns a URL into a property you can pull data from and submit pages to. The job takes ten minutes, assuming the hosting cooperates and [the WordPress side is already China-ready](/wordpress-in-china/). Getting the account that sits behind it is the hard part, and that is [a separate piece](/resources/china-web-guide/baidu-account-foreign-company/).
 
-> Baidu held 63.97% of China's search engine market across all devices in November 2025, and 77.86% on mobile.
->
-> *Source: StatCounter, cited by The Egg, February 11, 2026*
+> Baidu held 46.65% of the search engine market in China across all platforms in September 2026, by Statcounter's measure, and 60.15% on mobile.
+> Source: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Treat that number as a range rather than a constant, because StatCounter's China panel swings hard from month to month. The direction is what matters. This is the search engine you are verifying for.
+Treat that number as a range rather than a constant, because Statcounter's China panel swings hard from month to month. The scale is what matters. This is the search engine you are verifying for.
 
 ## Adding the site
 

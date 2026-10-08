@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-ads-account-foreign.webp"
 order: 17
 published: true
 publishedAt: 2026-08-13
-updatedAt: 2026-08-13
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Existen dos vías para una empresa sin entidad continental, y ninguna de ellas es un atajo en el sentido turbio del término. Una la operan los distribuidores de Baidu. La otra la opera Baidu.
 
-> Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
->
-> *Fuente: StatCounter, citado por The Egg, 11 de febrero de 2026*
+> En septiembre de 2026, Baidu acaparaba el 46,65 % del mercado de buscadores en China, sumadas todas las plataformas, y el 60,15 % en el móvil, según Statcounter.
+> Fuente: Statcounter Global Stats, septiembre de 2026. https://gs.statcounter.com/search-engine-market-share/all/china y https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Nada más en China compra ese alcance, y por eso los equipos se enfrentan al papeleo en lugar de darse la vuelta. El panel chino de StatCounter se mueve, así que léalo como un orden de magnitud.
+Ese alcance explica que los equipos se enfrenten al papeleo en lugar de darse la vuelta. El panel chino de Statcounter se mueve, así que lea la cifra como un orden de magnitud.
 
 Lo que cualquiera de las dos vías le cuesta tiene más que ver con el control que con el dinero, y esa elección le acompaña hasta el alojamiento y el rendimiento del rastreo mucho después del lanzamiento, y ahí es donde [una agencia web con base en China](/es/agencia-web-china/) justifica sus honorarios.
 

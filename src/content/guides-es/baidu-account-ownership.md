@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-account-ownership.webp"
 order: 29
 published: true
 publishedAt: 2026-08-19
-updatedAt: 2026-08-19
+updatedAt: 2026-10-09
 category: Search
 ---
 
 La cuenta de Baidu se archiva como un detalle operativo. Vive en un gestor de contraseñas, o no vive en ninguna parte, y nadie la menciona hasta que termina un contrato o dimite un responsable de marketing. Entonces deja de ser técnica. La identidad asociada a esa cuenta es lo más parecido a una escritura de propiedad que Baidu conserva sobre su presencia en la búsqueda china, así que compruebe a qué nombre está antes de que [una agencia sobre el terreno](/es/agencia-web-china/) abra una por usted.
 
-> Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
->
-> *Fuente: StatCounter, citado por The Egg, 11 de febrero de 2026*
+> En septiembre de 2026, Baidu acaparaba el 46,65 % del mercado de buscadores en China, sumadas todas las plataformas, y el 60,15 % en el móvil, según Statcounter.
+> Fuente: Statcounter Global Stats, septiembre de 2026. https://gs.statcounter.com/search-engine-market-share/all/china y https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-La búsqueda en China se concentra casi por completo en una sola compañía. Esto no es una tarea doméstica de sistemas.
+Una sola compañía canaliza casi la mitad de las búsquedas que se hacen en China, y seis de cada diez en el móvil. Esto no es una tarea doméstica de sistemas.
 
 ## La verificación de identidad real es el registro de propiedad
 

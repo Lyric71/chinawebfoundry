@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-aicaigou-b2b.webp"
 order: 15
 published: true
 publishedAt: 2026-08-12
-updatedAt: 2026-08-12
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -38,11 +38,10 @@ Esas cifras tienen tres años. Baidu no las ha actualizado y no existe ninguna a
 
 Lo que hace que merezca la pena discutir cualquier emplazamiento en Baidu es el alcance que hay detrás.
 
-> Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
->
-> *Fuente: StatCounter, citado por The Egg, 11 de febrero de 2026*
+> En septiembre de 2026, Baidu acaparaba el 46,65 % del mercado de buscadores en China, sumadas todas las plataformas, y el 60,15 % en el móvil, según Statcounter.
+> Fuente: Statcounter Global Stats, septiembre de 2026. https://gs.statcounter.com/search-engine-market-share/all/china y https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-El panel chino de StatCounter da saltos, así que sujete los decimales con poca fe. La cuota es en cualquier caso lo bastante grande como para encarecer la parte alta de una página de resultados de Baidu, y por eso Baidu la vende en lugar de concederla.
+El panel chino de Statcounter da saltos, así que sujete los decimales con poca fe. La cuota es en cualquier caso lo bastante grande como para encarecer la parte alta de una página de resultados de Baidu, y por eso Baidu la vende en lugar de concederla.
 
 ## La membresía es el suelo, no el precio
 

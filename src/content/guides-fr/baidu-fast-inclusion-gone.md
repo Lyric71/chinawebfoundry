@@ -1,12 +1,12 @@
 ---
-title: "Indexation rapide de Baidu : que reste-t-il ?"
+title: "Indexation rapide de Baidu : que reste-t-il ?"
 subtitle: "L'indexation rapide était le seul outil de soumission de Baidu qui enthousiasmait quelqu'un. Baidu l'a retirée en avril 2024 et lui a substitué une promesse nettement plus étroite, réservée aux sites qui ont déjà du trafic."
 summary: "Baidu a retiré l'indexation rapide en avril 2024. Ce que promet réellement l'exploration rapide, qui y a droit, et ce qui reste à un site étranger neuf."
 visual: "/images/guides/baidu-fast-inclusion-gone.webp"
 order: 22
 published: true
 publishedAt: 2026-08-15
-updatedAt: 2026-08-15
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -14,11 +14,10 @@ L'indexation rapide (快速收录, kuàisù shōulù) était le seul outil de so
 
 Baidu l'a retirée et a mis quelque chose de plus étroit à sa place.
 
-> Baidu détenait 63,97 % du marché chinois de la recherche tous appareils confondus en novembre 2025, et 77,86 % sur mobile.
->
-> *Source : StatCounter, cité par The Egg, 11 février 2026*
+> En septembre 2026, Baidu pesait 46,65 % du marché des moteurs de recherche en Chine, toutes plateformes confondues, et 60,15 % sur mobile, selon Statcounter.
+> Source : Statcounter Global Stats, septembre 2026. https://gs.statcounter.com/search-engine-market-share/all/china et https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Le panel chinois de StatCounter oscille : lisez ce chiffre comme une fourchette. Il explique aussi pourquoi un outil qui raccourcissait l'attente avant indexation comptait pour quelqu'un, et pourquoi sa perte fait encore l'actualité deux ans plus tard.
+Le panel chinois de Statcounter oscille : lisez ce chiffre comme une fourchette. Il explique aussi pourquoi un outil qui raccourcissait l'attente avant indexation comptait pour quelqu'un, et pourquoi sa perte fait encore l'actualité deux ans plus tard.
 
 ## L'annonce qui y a mis fin
 
@@ -26,7 +25,7 @@ Le panel chinois de StatCounter oscille : lisez ce chiffre comme une fourchette.
 >
 > Le 26 avril, la plateforme de ressources a retiré l'outil d'indexation rapide et lancé un nouvel outil d'exploration rapide.
 >
-> *Source : Baidu Search Resource Platform, annonce officielle, avril 2024*
+> *Source : Baidu Search Resource Platform, annonce officielle, avril 2024*
 
 Une phrase, deux événements. Un outil supprimé et un autre lancé le même jour. Baidu n'a jamais parlé de changement de nom, et la garantie attachée au nouvel outil explique pourquoi on ne peut pas le lire ainsi.
 
@@ -36,21 +35,21 @@ Le nom est précis et mérite d'être lu tel qu'il est écrit. L'exploration rap
 
 Rien n'y indique que Baidu conservera la page une fois récupérée, ni qu'elle ressortira dans les résultats. Baidu tranche ces questions séparément. L'exploration vient d'abord. Le fait que la page soit conservée, puis qu'une page conservée soit un jour montrée à un internaute, relève de décisions prises plus loin et sur d'autres critères. L'exploration rapide n'atteint que la première.
 
-Les noms racontent l'histoire : inclusion (收录, shōulù) désigne chez Baidu l'entrée d'une page dans l'index, et l'ancien outil portait ce nom, tandis que le nouveau porte celui de la récupération. Quoi que les équipes aient cru acheter avec l'indexation rapide, Baidu a rédigé la seconde promesse avec bien plus de soin.
+Les noms racontent l'histoire : inclusion (收录, shōulù) désigne chez Baidu l'entrée d'une page dans l'index, et l'ancien outil portait ce nom, tandis que le nouveau porte celui de la récupération. Quoi que les équipes aient cru acheter avec l'indexation rapide, Baidu a rédigé la seconde promesse avec bien plus de soin.
 
 ## Le remplaçant se trouve derrière une porte réservée aux membres
 
 L'exploration rapide est verrouillée derrière le club VIP de Baidu (VIP俱乐部, VIP jùlèbù). Ce club a été relancé le 24 novembre 2023, et Baidu a réexaminé à cette occasion les sites qui en faisaient déjà partie. L'adhésion a donc déjà été reprise, détail qu'il vaut mieux garder en tête.
 
-Des sources professionnelles chinoises situent le ticket d'entrée à cinq conditions : vérification d'identité réelle (实名认证, shímíng rènzhèng) sur le compte, dépôt ICP (备案号, bèi'àn hào), plus d'un an d'ancienneté, conformité aux règles de qualité de Baidu, et un plancher de trafic. Ce plancher tranche la plupart des cas. Les mêmes sources l'établissent à plus de 10 000 clics quotidiens en moyenne sur les 30 derniers jours, mobile et desktop confondus.
+Des sources professionnelles chinoises situent le ticket d'entrée à cinq conditions : vérification d'identité réelle (实名认证, shímíng rènzhèng) sur le compte, dépôt ICP (备案号, bèi'àn hào), plus d'un an d'ancienneté, conformité aux règles de qualité de Baidu, et un plancher de trafic. Ce plancher tranche la plupart des cas. Les mêmes sources l'établissent à plus de 10 000 clics quotidiens en moyenne sur les 30 derniers jours, mobile et desktop confondus.
 
-Maniez ce chiffre avec précaution. Baidu a publié ses standards VIP au moment de la relance de novembre 2023, mais les seuils sont partis dans une image plutôt qu'en texte, et c'est pourquoi tous les chiffres qui circulent sont de seconde main. Ce que Baidu affirme clairement est plus étroit et vaut davantage : les sites qui deviennent partenaires VIP de la plateforme se voient accorder automatiquement le privilège d'exploration rapide. Tous les autres lisent une capture d'écran. La forme générale n'est pas contestée, même si les seuils le sont. L'accès récompense les sites qui ont déjà du trafic.
+Maniez ce chiffre avec précaution. Baidu a publié ses standards VIP au moment de la relance de novembre 2023, mais les seuils sont partis dans une image plutôt qu'en texte, et c'est pourquoi tous les chiffres qui circulent sont de seconde main. Ce que Baidu affirme clairement est plus étroit et vaut davantage : les sites qui deviennent partenaires VIP de la plateforme se voient accorder automatiquement le privilège d'exploration rapide. Tous les autres lisent une capture d'écran. La forme générale n'est pas contestée, même si les seuils le sont. L'accès récompense les sites qui ont déjà du trafic.
 
 ## Où est passée la promesse d'indexation à la journée
 
 Elle refait généralement surface sous forme de présentation commerciale exhumée d'un disque partagé. Le document promet une indexation à la journée via Xiongzhang ID (熊掌号, Xióngzhǎng Hào), et le client veut savoir pourquoi cela ne figure pas dans le périmètre de la mission.
 
-La réponse commence en 2020. Xiongzhang ID était le programme de propriété de contenu de Baidu, et le privilège d'indexation à la journée constituait la raison même d'y adhérer. Baidu a fermé le programme le 17 mars 2020. Ce qu'est devenu le privilège ensuite tient de la reconstitution par les praticiens plutôt que de l'annonce officielle : la voie rapide est réapparue à l'intérieur de l'indexation rapide, sous une forme réduite. Puis l'indexation rapide est partie en avril 2024, et la voie a resurgi une fois de plus, plus étroite, derrière la porte VIP.
+La réponse commence en 2020. Xiongzhang ID était le programme de propriété de contenu de Baidu, et le privilège d'indexation à la journée constituait la raison même d'y adhérer. Baidu a fermé le programme le 17 mars 2020. Ce qu'est devenu le privilège ensuite tient de la reconstitution par les praticiens plutôt que de l'annonce officielle : la voie rapide est réapparue à l'intérieur de l'indexation rapide, sous une forme réduite. Puis l'indexation rapide est partie en avril 2024, et la voie a resurgi une fois de plus, plus étroite, derrière la porte VIP.
 
 Trois noms, chacun touchant moins de sites que le précédent. Un conseil non daté sur l'outillage Baidu ne vaut presque rien.
 
@@ -74,4 +73,4 @@ L'hébergement forme l'autre moitié. Baiduspider devrait pouvoir atteindre le s
 
 Le dernier chantier est celui des attentes, et il épargne plus de contrariétés que tout le reste. L'indexation initiale d'un site neuf demande deux à quatre semaines. Un volume d'index (索引量, suǒyǐn liàng) affichant zéro pendant cette période relève de la normale, pas du symptôme. Baidu ne publie aucun engagement de service là-dessus, il n'y a donc rien contre quoi escalader quand la cinquième semaine arrive et que le chiffre est toujours à zéro.
 
-Baidu retire des outils sans grand préavis : consultez le fil d'annonces de la plateforme avant de suivre un tutoriel daté.
+Baidu retire des outils sans grand préavis : consultez le fil d'annonces de la plateforme avant de suivre un tutoriel daté.

@@ -1,12 +1,12 @@
 ---
-title: "Baidu Aicaigou : la recherche B2B en Chine"
+title: "Baidu Aicaigou : la recherche B2B en Chine"
 subtitle: "Les entreprises B2B étrangères lisent une page de résultats Baidu comme elles liraient une page Google. Les annonces en haut, signalées comme telles, puis les vrais résultats en dessous. Sur les requêtes commerciales des catégories industrielles, cette lecture est fausse. Le bloc placé au-dessus de tout est souvent une place de marché que Baidu possède, et l'acheteur qui clique se retrouve à parcourir une liste de fournisseurs au lieu de lire votre site."
 summary: "Baidu Aicaigou est une place de marché B2B payante qui passe devant votre propre site sur les requêtes commerciales. Ce qu'elle coûte, comment y entrer, et quand elle vaut le coup."
 visual: "/images/guides/baidu-aicaigou-b2b.webp"
 order: 15
 published: true
 publishedAt: 2026-08-12
-updatedAt: 2026-08-12
+updatedAt: 2026-10-09
 category: Search
 ---
 
@@ -26,23 +26,22 @@ Baidu n'a jamais isolé ce produit lors d'une présentation de résultats, et au
 
 > Baidu Aicaigou a mis en relation plus de 13 millions d'opportunités commerciales en une seule année et accumulé plus de 200 millions de contenus sur la plateforme.
 >
-> *Source : 南方都市报, 14 juin 2023*
+> *Source : 南方都市报, 14 juin 2023*
 
 Le même article, et non Baidu, décrivait la trajectoire.
 
-> La base d'utilisateurs d'Aicaigou a progressé de 48 % par an en moyenne sur trois ans.
+> La base d'utilisateurs d'Aicaigou a progressé de 48 % par an en moyenne sur trois ans.
 >
-> *Source : 南方都市报, 14 juin 2023*
+> *Source : 南方都市报, 14 juin 2023*
 
-Ces chiffres ont trois ans. Baidu ne les a pas actualisés et aucun audit indépendant n'existe : servez-vous-en pour la seule chose qu'ils établissent, à savoir que la plateforme existe et qu'elle transforme. Ils ne porteront aucune prévision.
+Ces chiffres ont trois ans. Baidu ne les a pas actualisés et aucun audit indépendant n'existe : servez-vous-en pour la seule chose qu'ils établissent, à savoir que la plateforme existe et qu'elle transforme. Ils ne porteront aucune prévision.
 
 Ce qui rend un placement Baidu digne de discussion, c'est la portée qui se trouve derrière.
 
-> Baidu détenait 63,97 % du marché chinois de la recherche tous appareils confondus en novembre 2025, et 77,86 % sur mobile.
->
-> *Source : StatCounter, cité par The Egg, 11 février 2026*
+> En septembre 2026, Baidu pesait 46,65 % du marché des moteurs de recherche en Chine, toutes plateformes confondues, et 60,15 % sur mobile, selon Statcounter.
+> Source : Statcounter Global Stats, septembre 2026. https://gs.statcounter.com/search-engine-market-share/all/china et https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Le panel chinois de StatCounter tressaute : tenez les décimales sans y croire. La part reste dans tous les cas assez large pour rendre le haut d'une page de résultats Baidu coûteux, et c'est pourquoi Baidu le vend au lieu de l'attribuer.
+Le panel chinois de Statcounter tressaute : tenez les décimales sans y croire. La part reste dans tous les cas assez large pour rendre le haut d'une page de résultats Baidu coûteux, et c'est pourquoi Baidu le vend au lieu de l'attribuer.
 
 ## L'adhésion constitue le plancher, pas le prix
 
@@ -54,7 +53,7 @@ L'adhésion standard est annoncée à 6 980 yuans par an. Des prestataires écri
 
 Rien de tout ce tarif ne compte tant que vous ne pouvez pas acheter. L'entrée passe par un prestataire agréé (服务商, fúwùshāng). Personne n'ouvre un compte Aicaigou directement auprès de Baidu. Vous héritez d'un revendeur, et son empressement à décrocher le téléphone un vendredi à dix-sept heures fait partie de ce que vous achetez.
 
-Parmi les conditions d'entrée qu'appliquent les prestataires figure une licence commerciale délivrée depuis moins de six mois. Cela retombe sur les entreprises étrangères comme tous les autres produits commerciaux de Baidu : on présuppose une entité continentale. Sans elle, vous opérez sous la licence de quelqu'un d'autre, et le compte appartient alors à celui qui a signé. Réglez ce point avant l'intégration plutôt qu'après.
+Parmi les conditions d'entrée qu'appliquent les prestataires figure une licence commerciale délivrée depuis moins de six mois. Cela retombe sur les entreprises étrangères comme tous les autres produits commerciaux de Baidu : on présuppose une entité continentale. Sans elle, vous opérez sous la licence de quelqu'un d'autre, et le compte appartient alors à celui qui a signé. Réglez ce point avant l'intégration plutôt qu'après.
 
 C'est la même couche qui explique pourquoi les tarifs annoncés flottent. Prenez les montants ci-dessus comme repère. Personne n'y est tenu.
 
@@ -64,7 +63,7 @@ Mettez la paperasse de côté et regardez l'arithmétique. Prenez un terme comme
 
 La plupart des plans marketing classent cela sous organique contre payant, ce qui manque l'essentiel. Un emplacement se loue ce mois-ci. L'autre se gagne peut-être au terme d'une année de travail éditorial en chinois, et il se situe plus bas sur la page quand il arrive.
 
-Le premier geste n'est donc pas un brief de contenu. Cherchez sur Baidu, depuis une connexion continentale, les dix ou vingt termes qui comptent et notez ce qui occupe le haut de chaque page. Coupez la liste en deux : les termes où un module Aicaigou tient le sommet, et ceux où les résultats organiques démarrent encore haut. Le second groupe est celui où le contenu que vous possédez gagne sa vie. Le premier relève d'une conversation tarifaire. Nous menons ce contrôle avant d'écrire quoi que ce soit, et il réordonne le plan assez souvent pour justifier l'après-midi qu'il coûte.
+Le premier geste n'est donc pas un brief de contenu. Cherchez sur Baidu, depuis une connexion continentale, les dix ou vingt termes qui comptent et notez ce qui occupe le haut de chaque page. Coupez la liste en deux : les termes où un module Aicaigou tient le sommet, et ceux où les résultats organiques démarrent encore haut. Le second groupe est celui où le contenu que vous possédez gagne sa vie. Le premier relève d'une conversation tarifaire. Nous menons ce contrôle avant d'écrire quoi que ce soit, et il réordonne le plan assez souvent pour justifier l'après-midi qu'il coûte.
 
 ## Louer de la visibilité ou la construire
 
@@ -76,4 +75,4 @@ Ce qui convient dépend surtout de ce que vous vendez. Aicaigou convient aux ent
 
 Mener les deux de front se défend, et pas seulement à titre de couverture. Le canal payant montre quels termes produisent réellement des demandes pendant que vos propres pages attendent encore d'être indexées, des mois avant que le reporting de Baidu ne vous apprenne quoi que ce soit. Orientez le contenu que vous possédez vers ce qu'il révèle.
 
-Les offres et les tarifs d'Aicaigou circulent via les revendeurs : confirmez les conditions en vigueur auprès d'un prestataire avant de budgéter quoi que ce soit.
+Les offres et les tarifs d'Aicaigou circulent via les revendeurs : confirmez les conditions en vigueur auprès d'un prestataire avant de budgéter quoi que ce soit.

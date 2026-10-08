@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-ads-account-foreign.webp"
 order: 17
 published: true
 publishedAt: 2026-08-13
-updatedAt: 2026-08-13
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Für ein Unternehmen ohne Festlandgesellschaft gibt es zwei Wege, und keiner davon ist ein Trick im zwielichtigen Sinn. Den einen betreiben Baidus Wiederverkäufer. Den anderen betreibt Baidu.
 
-> Baidu hielt im November 2025 über alle Geräte hinweg 63,97 % des chinesischen Suchmaschinenmarkts, auf Mobilgeräten 77,86 %.
->
-> *Quelle: StatCounter, zitiert nach The Egg, 11. Februar 2026*
+> Baidu hielt im September 2026 laut Statcounter über alle Plattformen hinweg 46,65 % des Suchmaschinenmarkts in China, auf Mobilgeräten 60,15 %.
+> Quelle: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china und https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-Nichts sonst in China kauft diese Reichweite, und deshalb arbeiten Teams den Papierkram ab, statt sich abzuwenden. StatCounters China-Panel bewegt sich, lesen Sie den Wert also als Größenordnung.
+Um diese Reichweite zu erreichen, arbeiten Teams den Papierkram ab, statt sich abzuwenden. Statcounters China-Panel bewegt sich, lesen Sie den Wert also als Größenordnung.
 
 Was Sie beide Wege kosten, ist eher Kontrolle als Geld, und die Entscheidung folgt Ihnen bis ins Hosting und in die Crawl-Leistung, lange nach dem Start, und genau dort verdient [eine Webagentur mit Sitz in China](/de/webagentur-china/) ihr Honorar.
 

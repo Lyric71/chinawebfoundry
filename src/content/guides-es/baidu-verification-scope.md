@@ -6,17 +6,16 @@ visual: "/images/guides/baidu-verification-scope.webp"
 order: 25
 published: true
 publishedAt: 2026-08-17
-updatedAt: 2026-08-17
+updatedAt: 2026-10-09
 category: Search
 ---
 
 Esa diferencia hace tropezar a más equipos extranjeros que cualquier otro punto de la configuración de la Baidu Search Resource Platform (百度搜索资源平台, Bǎidù Sōusuǒ Zīyuán Píngtái). Aquí un sitio es un protocolo y un host, nada más amplio, algo que importa si [su sitio WordPress chino](/es/wordpress-en-china/) responde en más de uno de ellos. Si delimita mal el alcance, un trimestre después estará leyendo paneles referidos a una versión de su web que no visita nadie.
 
-> Baidu concentraba el 63,97 % del mercado chino de buscadores en todos los dispositivos en noviembre de 2025, y el 77,86 % en móvil.
->
-> *Fuente: StatCounter, citado por The Egg, 11 de febrero de 2026*
+> En septiembre de 2026, Baidu acaparaba el 46,65 % del mercado de buscadores en China, sumadas todas las plataformas, y el 60,15 % en el móvil, según Statcounter.
+> Fuente: Statcounter Global Stats, septiembre de 2026. https://gs.statcounter.com/search-engine-market-share/all/china y https://gs.statcounter.com/search-engine-market-share/mobile/china
 
-El panel chino de StatCounter es inestable, así que la cifra exacta se mueve de un mes a otro. El panorama general no. De este buscador salen sus números de China, y por eso conviene dedicar diez minutos a pensar dónde están las fronteras de cada propiedad.
+El panel chino de Statcounter es inestable, así que la cifra exacta se mueve de un mes a otro. De este buscador salen sus números de China, y por eso conviene dedicar diez minutos a pensar dónde están las fronteras de cada propiedad.
 
 Cómo se demuestra la titularidad, con archivo o con etiqueta meta, [se trata por separado](/es/recursos/guia-web-china/verificacion-sitio-baidu/). Este artículo va sobre qué es aquello cuya titularidad está demostrando.
 
