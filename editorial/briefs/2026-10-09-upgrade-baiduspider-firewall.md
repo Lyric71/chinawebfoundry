@@ -10,7 +10,7 @@ slug: upgrade-baiduspider-firewall
 title: "Add F15 and F16 to baiduspider-firewall"
 locales_at_publish: as the page exists
 facts: [F15, F16, F18, F20]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -51,7 +51,7 @@ tier-specific boxes for T6.
 
 **Why.** F15 and F16 are both read from plugin source and neither appears anywhere else on the web, which makes this the highest-differentiation edit in the T6 set. The article currently discusses the problem in general terms while the two named, version-pinned findings that would make it citable sit unused in the fact bank.
 
-**What to change.** Add a section on Wordfence 9.0.0 covering F15: every rate limit ships disabled, the only crawler policy whitelists Google alone by reverse DNS to `.googlebot.com`, there is no Baidu equivalent, and the allowlist is IP-only with no user-agent allowlist at all, while Baidu publishes no stable IP range. Spell out the consequence, which is that Baiduspider loses all protection the moment an administrator turns crawler rate limits on. Add a second section on Solid Security 10.0.3, packaged as better-wp-security and now branded Kadence Security, covering F16: the HackRepair ban list returns 403 for `360Spider` and `YisouSpider` at the server config level, it is opt-in with `"default": false`, and a client who enabled "Default Ban List" is 403ing Chinese crawlers without knowing it. Name the version numbers and the read date in both sections. Add the correct verification method from F20, reverse DNS to a hostname ending `.baidu.com` or `.baidu.jp`, never user agent, and state explicitly that published IP allowlists on Chinese SEO blogs go stale. Add the LiteSpeed Cache 7.9.1 and W3 Total Cache 2.10.6 clearance from F18, since ruling those out is as useful as ruling the others in.
+**What to change.** Add a section on Wordfence 9.0.0 covering F15: every rate limit ships disabled, the only crawler policy exempts verified Google crawlers alone (Google IP ranges, then a forward-confirmed reverse lookup to googlebot.com, google.<tld> or 1e100.net), there is no Baidu equivalent, and the allowlist is IP-only with no user-agent allowlist at all, while Baidu publishes no stable IP range. Spell out the consequence, which is that Baiduspider loses all protection the moment an administrator turns crawler rate limits on. Add a second section on Solid Security 10.0.3, packaged as better-wp-security and now branded Kadence Security, covering F16: the HackRepair ban list returns 403 for `360Spider` and `YisouSpider` at the server config level, it is opt-in with `"default": false`, and a client who enabled "Default Ban List" is 403ing Chinese crawlers without knowing it. Name the version numbers and the read date in both sections. Add the correct verification method from F20, reverse DNS to a hostname ending `.baidu.com` or `.baidu.jp`, never user agent, and state explicitly that published IP allowlists on Chinese SEO blogs go stale. Add the LiteSpeed Cache 7.9.1 and W3 Total Cache 2.10.6 clearance from F18, since ruling those out is as useful as ruling the others in.
 
 **Acceptance criteria.**
 - [ ] Both plugin sections name the exact version number inspected and the source read date.

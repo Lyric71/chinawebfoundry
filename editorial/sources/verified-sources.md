@@ -653,7 +653,7 @@ these as verified twice.
 - Fact ID: F18
 - Verified 1: 2026-09-04 (fact bank, from a source read)
 - Verified 2: **not completed, 2026-09-11.** `plugins.trac.wordpress.org` returns HTTP 403 to the fetcher on `/browser/litespeed-cache/trunk/src/gui.cls.php`. The plugin's public GitHub master (`litespeedtech/lscache_wp`, `src/gui.cls.php`) contains no match for "gstatic", "preconnect" or "dns-prefetch", so the preconnect claim is not merely unconfirmed, it is absent from where the fact bank implies it lives.
-- Effect: both claims **cut**. Only the two version numbers reached `wordpress-plugins-china`, and the caching section rests on WP Rocket and QUIC.cloud instead. Re-read both plugin sources from a local install before F18 is cited again, and correct PLAN.md if the preconnect is genuinely absent.
+- Effect: both claims **cut**. Only the two version numbers reached `wordpress-plugins-china`, and the caching section rests on WP Rocket and QUIC.cloud instead. Re-read both plugin sources from a local install before F18 is cited again, and correct PLAN.md if the preconnect is genuinely absent. **Superseded 9 October 2026:** both plugins were re-read from the release zips; the empty lists hold and the preconnect is present in `src/optimize.cls.php` behind "Load Google Fonts Asynchronously" (default off). See "T6-10 entries, 9 October 2026".
 
 ### The www.recaptcha.net workaround
 - Fact ID: F2
@@ -1695,6 +1695,105 @@ logged.
 - Value: unchanged from the entries of 10 September and 6 October 2026. The home-line row of the study is labelled "www.google.com (reCAPTCHA host)", 18 requests, 18 never answered
 - Verified 2: 2026-10-08, re-fetched for recaptcha-china, unchanged
 - Used in: recaptcha-china
+
+## T6-10 entries, 9 October 2026 (upgrade-baiduspider-firewall)
+
+Plugin zips downloaded from downloads.wordpress.org to the session temp
+directory and read there; nothing from them is kept in the repo.
+
+### Wordfence: rate limits off, one crawler policy, for Google
+- Fact ID: F15
+- Value: five rate limits (`maxGlobalRequests`, `maxRequestsCrawlers`, `max404Crawlers`, `maxRequestsHumans`, `max404Humans`) default `DISABLED`; `firewallEnabled` ("Enable Rate Limiting and Advanced Blocking") default on; `neverBlockBG` ("How should we treat Google's crawlers") default `neverBlockVerified` ("Verified Google crawlers will not be rate-limited"); Google verified by Google IP ranges, then a forward-confirmed reverse lookup against `googlebot.com`, `google.<tld>` or `1e100.net`, then Wordfence's lookup service; past a limit the visitor gets a 503 on throttle or block; the allowlist ("Allowlisted IP addresses that bypass all rules") accepts IPs and ranges only; no user-agent allowlist
+- Vantage point: n/a, code read
+- As of: Wordfence 9.0.0, released 10 August 2026; 9.0.2 (current, updated 30 September 2026) identical in behaviour
+- Source: Wordfence plugin source, `lib/wfConfig.php`, `lib/wfCrawl.php`, `lib/wfLog.php`, `models/block/wfRateLimit.php`, `lib/wfJavascriptBridge.php`
+- URL: https://downloads.wordpress.org/plugin/wordfence.9.0.0.zip and https://downloads.wordpress.org/plugin/wordfence.9.0.2.zip (page: https://wordpress.org/plugins/wordfence/)
+- Verified 1: 2026-09-04 (fact bank); primary re-read 2026-10-09
+- Verified 2: 2026-10-09, re-grepped in iteration 8, plugin page re-fetched (9.0.2 listed)
+- Used in: baiduspider-firewall (T6-10)
+- Notes: F15's "reverse DNS to .googlebot.com" was too narrow; PLAN.md corrected 9 October 2026. Recheck at reviewBy 2027-01-07.
+
+### Solid Security (Kadence Security): HackRepair Default Ban List
+- Fact ID: F16
+- Value: "Default Ban List" `"default": false`; when on, the HackRepair.com list is written into .htaccess (Apache, LiteSpeed) or nginx.conf and returns 403 to user agents matching `360Spider`, `EasouSpider` and `YisouSpider`; no Baiduspider entry; the block starts "# Start HackRepair.com Blacklist"; the setting lives in the Ban Users module
+- Vantage point: n/a, code read
+- As of: 10.0.3, released 27 July 2026 (header "Kadence Security Basic"; rebrand in 10.0.0, 11 May 2026, per `history.txt`); 10.0.5 (current, updated 30 September 2026) has a byte-identical `ban-users` module
+- Source: better-wp-security source, `core/modules/ban-users/module.json`, `class-itsec-ban-users.php`, `config-generators.php`, `lists/hackrepair-*.inc`
+- URL: https://downloads.wordpress.org/plugin/better-wp-security.10.0.3.zip and https://downloads.wordpress.org/plugin/better-wp-security.10.0.5.zip (page: https://wordpress.org/plugins/better-wp-security/)
+- Verified 1: 2026-09-04 (fact bank); primary re-read 2026-10-09
+- Verified 2: 2026-10-09, re-grepped in iteration 8, plugin page re-fetched (10.0.5, Kadence)
+- Used in: baiduspider-firewall (T6-10)
+- Notes: EasouSpider's operator has no dated primary source; printed as a string only. Recheck at reviewBy 2027-01-07.
+
+### LiteSpeed Cache and W3 Total Cache: empty user-agent cache exclusions, and the LiteSpeed preconnect
+- Fact ID: F18
+- Value: LiteSpeed Cache 7.9.1 "Do Not Cache User Agents" (`cache-exc_useragents`) empty; W3 Total Cache 2.10.6 and 2.10.7 `pgcache.reject.ua`, `minify.reject.ua` and `cdn.reject.ua` empty; neither names Baiduspider outside bundled vendor libraries. LiteSpeed 7.9.1 `src/optimize.cls.php` line 591 writes `<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />` when "Load Google Fonts Asynchronously" (`optm-ggfonts_async`, default false) is on and the page has Google Fonts URLs
+- Vantage point: n/a, code read
+- As of: LiteSpeed Cache 7.9.1, 1 September 2026; W3 Total Cache 2.10.6 (4 September 2026) and 2.10.7 (1 October 2026)
+- Source: plugin source from WordPress.org
+- URL: https://downloads.wordpress.org/plugin/litespeed-cache.7.9.1.zip, https://downloads.wordpress.org/plugin/w3-total-cache.2.10.6.zip and https://downloads.wordpress.org/plugin/w3-total-cache.2.10.7.zip
+- Verified 1: 2026-10-09 (local read of the release zips, as the 11 September entry asked)
+- Verified 2: 2026-10-09, re-grepped in iteration 8; plugin pages re-fetched
+- Used in: baiduspider-firewall (T6-10), the empty lists only
+- Notes: **Supersedes the 11 September 2026 "not completed" F18 entry under "Measurements (ours)".** That check looked in `gui.cls.php` on GitHub; the preconnect is in `optimize.cls.php`, behind an off-by-default option. PLAN.md F18 corrected 9 October 2026.
+
+### Baiduspider verification by reverse DNS; Baidu does not publish its IP ranges
+- Fact ID: F20
+- Value: hostname must end `*.baidu.com` or `*.baidu.jp`, anything else is impersonation; the forward lookup must return the original IP; "IP地址范围动态变化不固定，我们无法对外公布"
+- Vantage point: n/a
+- As of: 8 February 2022
+- Source: Baidu Search Resource Platform (百度搜索资源平台), 轻松两步，教你快速识别百度蜘蛛（User-Agent）
+- URL: https://ziyuan.baidu.com/college/articleinfo?id=3378
+- Verified 1: 2026-10-09
+- Verified 2: 2026-10-09, re-fetched in iteration 8
+- Used in: baiduspider-firewall (T6-10)
+- Notes: Primary source for F20; added to PLAN.md F20.
+
+### 360Spider is 360 Search's crawler; 360 publishes IP ranges and does not support nslookup verification
+- Fact ID: none (F16 context)
+- Value: the UA carries "360Spider"; IP ranges are published on the page; "目前360搜索蜘蛛暂时不支持nslookup命令的查询"
+- Vantage point: n/a
+- As of: HTTP Last-Modified 6 February 2026 (no date in the page body)
+- Source: 360 Search (360搜索), 360蜘蛛IP help page
+- URL: https://www.so.com/help/spider_ip.html
+- Verified 1: 2026-10-09
+- Verified 2: 2026-10-09, re-fetched in iteration 8
+- Used in: baiduspider-firewall (T6-10)
+
+### YisouSpider is Shenma Search's crawler
+- Fact ID: none (F16 context)
+- Value: "神马搜索的爬虫user agent是yisouspider"
+- Vantage point: n/a
+- As of: July 2014
+- Source: Shenma Search (神马搜索) webmaster platform, 移动网站优化指南
+- URL: https://zhanzhang.sm.cn/open/optimizaGuide
+- Verified 1: 2026-10-09
+- Verified 2: 2026-10-09, re-fetched in iteration 8
+- Used in: baiduspider-firewall (T6-10)
+
+### Baidu crawl diagnosis quota and size; robots tool size
+- Fact ID: none
+- Value: crawl diagnosis (抓取诊断) allows 70 fetches a week per site and shows the first 200KB; the robots tool checks up to 48k of file content. (The launch notice, https://ziyuan.baidu.com/wiki/610, dated 22 April 2014, said 300 a month; the tool page supersedes it.)
+- Vantage point: n/a
+- As of: tool pages as served on 9 October 2026 (©2026, no page date; cited as "tool page, read 9 October 2026")
+- Source: Baidu Search Resource Platform (百度搜索资源平台), crawl diagnosis and robots tool pages
+- URL: https://ziyuan.baidu.com/crawltools/index and https://ziyuan.baidu.com/robots/index
+- Verified 1: 2026-10-09
+- Verified 2: 2026-10-09, re-fetched in iteration 8
+- Used in: baiduspider-firewall (T6-10)
+- Notes: Replaces the live page's unsourced "between 70 and 200 a week".
+
+### Baidu search engine market share in China, September 2026
+- Fact ID: none
+- Value: 46.65% all platforms, 60.15% mobile (page headline figures). The monthly CSV for the same month gives 46.85% and 60.35%. November 2025 in the same series: 63.97% and 77.86%
+- Vantage point: n/a (Statcounter's share, measured from sites running its tracker)
+- As of: September 2026
+- Source: Statcounter Global Stats
+- URL: https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
+- Verified 1: 2026-10-09
+- Verified 2: 2026-10-09, re-fetched in iteration 8
+- Used in: baiduspider-firewall (T6-10)
+- Notes: Print the page headline figures, which a reader clicking through sees. Replaces the live citation via The Egg (11 February 2026). Monthly and volatile: refresh at each review.
 
 ## Retired entries
 
