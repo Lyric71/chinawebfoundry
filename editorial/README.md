@@ -42,6 +42,7 @@ scripts/
   run-daily.ps1           the scheduled runner (draft / publish)
   register-tasks.ps1      creates the two Windows scheduled tasks
   notify-publish.mjs      the Resend email after a publish
+  check-queue.mjs         daily queue watchdog, mails when drafting stalls
 ```
 
 ## The daily command

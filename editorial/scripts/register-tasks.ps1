@@ -3,8 +3,15 @@
   Registers (or re-registers) the two Windows scheduled tasks that run the
   ChinaWebFoundry editorial pipeline on this machine.
 
-  ChinaWebFoundry Editorial Draft    Tue, Thu, Fri at 01:30 local (Shanghai, night)
+  ChinaWebFoundry Editorial Draft    every day at 01:30 local (Shanghai, night);
+                                     each run drafts the next row in the
+                                     queue, whatever its publish_date
   ChinaWebFoundry Editorial Publish  every day at 05:30 local
+
+  Both tasks start run-daily.ps1 through the shared wrapper
+  C:\Users\cyril\Project\automation\scripts\Invoke-ScheduledProjectScript.ps1,
+  which retries a run that fails before the model starts. Rerunning this
+  script keeps that action and leaves both tasks enabled.
 
   Run from any PowerShell prompt:
     powershell -ExecutionPolicy Bypass -File editorial\scripts\register-tasks.ps1
@@ -24,11 +31,12 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $Runner = Join-Path $PSScriptRoot 'run-daily.ps1'
+$Wrapper = 'C:\Users\cyril\Project\automation\scripts\Invoke-ScheduledProjectScript.ps1'
 $Pwsh = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
 
 function Register([string]$Name, [string]$Mode, $Trigger, [bool]$Enabled) {
   $Action = New-ScheduledTaskAction -Execute $Pwsh `
-    -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$Runner`" -Mode $Mode"
+    -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$Wrapper`" -Runner `"$Runner`" -Mode $Mode"
   $Settings = New-ScheduledTaskSettingsSet `
     -ExecutionTimeLimit (New-TimeSpan -Hours 6) `
     -StartWhenAvailable `
@@ -40,7 +48,7 @@ function Register([string]$Name, [string]$Mode, $Trigger, [bool]$Enabled) {
   Write-Host "$Name registered ($(if ($Enabled) {'enabled'} else {'disabled'}))"
 }
 
-$DraftTrigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Tuesday, Thursday, Friday -At $DraftTime
+$DraftTrigger = New-ScheduledTaskTrigger -Daily -At $DraftTime
 Register 'ChinaWebFoundry Editorial Draft' 'draft' $DraftTrigger $true
 
 $PublishTrigger = New-ScheduledTaskTrigger -Daily -At $PublishTime

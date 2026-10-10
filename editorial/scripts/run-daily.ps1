@@ -9,11 +9,20 @@
   routine has none of those.
 
   Modes:
-    draft    "Draft today's piece."  Steps 0 to 3 of the pipeline. Stops at
-             image_ready. Runs Tue, Thu, Fri.
+    draft    "Draft today's piece."  Steps 0 to 3 of the pipeline on the next
+             row in publish_date order, whatever its date. Stops at
+             image_ready. Runs every day. Then check-queue.mjs emails Cyril
+             when drafting stalls, a finished draft waits, or a week or less
+             of briefs is left.
     publish  Publishes every row in editorial/schedule.csv whose status is
-             image_ready and whose publish_date is today or earlier, then
+             image_ready, whatever its publish_date, oldest date first, then
              sends the Resend email. Runs daily.
+
+  publish_date orders the queue. It never gates a run, in either mode
+  (Cyril, 10 October 2026): finished drafts and ready briefs sat idle behind
+  their dates. The one exception is genuinely dated content: a China
+  Dependency Index edition, and any row whose notes say "Hold until
+  YYYY-MM-DD", waits for that date (editorial/CLAUDE.md).
 
   Output of each run is written to editorial/logs/runs/<date>-<mode>.txt.
   Register with editorial/scripts/register-tasks.ps1.
@@ -24,8 +33,7 @@
 param(
   [ValidateSet('draft', 'publish')]
   [string]$Mode = 'draft',
-  # Manual test run: ignore the plan-start date, the weekday guard and, in
-  # publish mode, the publish_date filter.
+  # Manual test run: ignore the plan-start date.
   [switch]$Force,
   # Optional extra instructions appended to the prompt (for example a resume
   # note after an interrupted run, or "Draft brief T2-01").
@@ -48,15 +56,6 @@ if (-not $Force -and (Get-Date).Date -lt $PlanStart) {
   exit 0
 }
 
-# Drafting happens Tue, Thu, Fri. The schedule has no rows on other days.
-if ($Mode -eq 'draft' -and -not $Force) {
-  $Dow = (Get-Date).DayOfWeek
-  if ($Dow -in 'Saturday', 'Sunday', 'Monday', 'Wednesday') {
-    "$(Get-Date -Format s) no draft on $Dow" | Out-File $RunLog -Encoding utf8
-    exit 0
-  }
-}
-
 # The shared runner uses: Opus 5.5, then Fable, GPT-6 Astra and GPT-5.6 Sol as fallbacks.
 $Model = 'claude-opus-5-5'
 
@@ -65,7 +64,17 @@ if ($Mode -eq 'draft') {
 Draft today's piece.
 
 Read editorial/CLAUDE.md, editorial/SPEC.md and editorial/RUNBOOK.md first and
-follow them exactly. Run steps 0 to 3 of the pipeline: read the fact IDs the
+follow them exactly. Take ONE row from editorial/schedule.csv. If a row
+stopped at drafted or quality_passed (an interrupted run), finish that one.
+Otherwise take the earliest row in publish_date order whose status is
+not_started and whose gate is clear, WHATEVER ITS PUBLISH_DATE: that column
+orders the queue, it is not a release date, and a future date is never a
+reason to skip a row or end the run. Skip a blocked or reserve row, a row
+whose gate is not clear, and the one dated exception in editorial/CLAUDE.md
+(a China Dependency Index edition before its publish_date, or a row whose
+notes say "Hold until YYYY-MM-DD" before that date). If no row qualifies at
+all, record that the queue is empty and end. Its brief is the brief_file of
+that row. Run steps 0 to 3 of the pipeline: read the fact IDs the
 brief cites in editorial/sources/fact-bank.md and the Do Not Assert list, reuse
 the ledger, research anything else with every source validated twice,
 /createarticle (house version), then /content-quality-us on the finished draft
@@ -97,13 +106,18 @@ the decision in the run log.
 '@
 } else {
   $Prompt = @'
-Publish every reviewed draft that is due.
+Publish every finished draft.
 
 Read editorial/CLAUDE.md, editorial/SPEC.md and editorial/RUNBOOK.md first.
-In editorial/schedule.csv, find every row whose status is image_ready and
-whose publish_date is today or earlier. Skip, and report in the run log, any
-such row with an empty quality_passed_on: it did not go through
-/content-quality-us and must not publish. For each one, in date order, run the
+In editorial/schedule.csv, find every row whose status is image_ready,
+WHATEVER ITS PUBLISH_DATE: that column orders the queue, it is not a release
+date, and a finished draft never waits for it. The one exception is dated
+content (editorial/CLAUDE.md): a China Dependency Index edition, or a row
+whose notes say "Hold until YYYY-MM-DD", stays at image_ready until that
+date. Skip, and report in the run log, any row with an empty
+quality_passed_on: it did not go through /content-quality-us and must not
+publish. Publish at most three rows in this run, oldest publish_date first;
+any further row publishes at the next run. For each one, in date order, run the
 publish step for its content_type as the SPEC's publish mapping describes.
 For a T1 guide this includes, without exception, writing guides-fr, guides-es
 and guides-de, registering the three localized slugs from the brief in
@@ -165,7 +179,7 @@ if ($Extra) {
 }
 
 if ($Force) {
-  $Prompt += "`n`nMANUAL TEST RUN: ignore the publish_date. Process every row whose status is image_ready (publish mode) or take the oldest not_started row whose gate is clear (draft mode). Say in the run log that this was a forced test run."
+  $Prompt += "`n`nMANUAL TEST RUN: say in the run log that this was a forced test run."
   $RunLog = Join-Path $RunLogDir "$Stamp-$Mode-forced.txt"
 }
 
@@ -180,4 +194,13 @@ $AgentRunner = 'C:\Users\cyril\Project\automation\scripts\Invoke-ProjectAgent.ps
 $Code = & $AgentRunner -Repo $Repo -PromptFile $PromptFile -RunLog $RunLog -RunName "ChinaWebFoundry $Mode"
 
 "$(Get-Date -Format s) end $Mode exit $Code" | Out-File $RunLog -Append -Encoding utf8
+
+# The runner, not the model, says when the pipeline stops producing: a mail
+# at most once a day when drafting stalls, a finished draft waits, or a week
+# or less of briefs is left. Never fails the run.
+if ($Mode -eq 'draft') {
+  $Queue = & cmd.exe /c "node editorial\scripts\check-queue.mjs 2>&1"
+  "$(Get-Date -Format s) queue: $($Queue -join ' ')" | Out-File $RunLog -Append -Encoding utf8
+}
+
 exit $Code

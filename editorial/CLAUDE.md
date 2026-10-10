@@ -32,9 +32,37 @@ Every piece goes through these steps. None is optional.
 | 5. Notify | `editorial/scripts/notify-publish.mjs` (Resend) | Emails a publish summary to Cyril | (noted in the run log) |
 
 "Draft today's piece." runs steps 0 to 3 and stops. Step 4 runs only when a
-person says "Publish <slug>" or when the 05:30 scheduled publish task finds a due
+person says "Publish <slug>" or when the 05:30 scheduled publish task finds an
 `image_ready` row. Step 5 follows step 4 automatically. Nothing publishes
 itself outside those two paths.
+
+**`publish_date` orders the queue; it never gates a run (standing rule,
+Cyril, 10 October 2026).** "Today's piece" is a row stopped at `drafted` or
+`quality_passed` by an interrupted run, or else the next `not_started` row
+in `publish_date` order whose gate is clear, whatever its date: a run takes
+it on a future date too. A finished draft publishes at the next publish run,
+whatever its date. No prompt, script or rule may make a run wait for a row's
+date, and "nothing due today" is never a reason to end a run while a row is
+left to draft. The reason: finished drafts and ready briefs sat idle behind
+their dates (on 10 October T2-05 had waited undrafted since 2 October,
+because each run took that day's row first and drafted only on Tuesday,
+Thursday and Friday). Content gates still hold: `blocked` and `reserve`
+rows, a `gate` column that is not clear, a client sign-off. The draft task
+runs every day at 01:30, and `scripts/check-queue.mjs` runs after every
+draft run and mails Cyril, at most once a day, when drafting stalls for two
+days, a finished draft sits at `image_ready` for two days, or a week or less
+of briefs is left.
+
+**The one dated exception.** Genuinely time-bound content never runs ahead
+of its date, in either mode. A China Dependency Index edition (slug
+`china-dependency-index-YYYY-MM`) is neither drafted nor published before its
+`publish_date`, because each edition reports measurements dated in the month
+it names and its change column runs against the previous edition. Any other
+row that must wait for a real-world event carries `Hold until YYYY-MM-DD` in
+its `notes` and waits for that date. Nothing else is held: seasonal and
+evergreen pieces drafted and published early are fine. When every row left
+is gated or held, the run records that the queue is empty for now and ends;
+that holds only when no row qualifies at all.
 
 Not every piece is an article. `content_type` in the brief header and in
 `schedule.csv` decides what each step produces. `SPEC.md` has the table.

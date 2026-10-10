@@ -1,8 +1,13 @@
 # Runbook
 
-Three pieces a week, 26 weeks, 8 September 2026 to 5 March 2027. Tuesday,
-Thursday and Friday carry a slot each. Monday is for reviewing and publishing
-anything left over. Wednesday is empty.
+Three pieces a week, 26 weeks, 8 September 2026 to 5 March 2027, planned on
+Tuesday, Thursday and Friday slots. The plan sets the order, not the pace:
+`publish_date` orders the queue and never gates a run (`CLAUDE.md`, the
+standing rule under the pipeline table). The draft task runs every day and
+takes the next row whatever its date; the publish task publishes every
+finished draft the next morning. The only rows that wait for their date are
+the China Dependency Index editions and any row marked `Hold until
+YYYY-MM-DD` in its notes.
 
 ## The daily command
 
@@ -12,7 +17,8 @@ Open Claude Code at the repo root (or in `editorial/`) and paste:
 Draft today's piece.
 ```
 
-That is the whole prompt. `CLAUDE.md` tells Claude what "today's piece" means.
+That is the whole prompt. `CLAUDE.md` tells Claude what "today's piece" means:
+the next row in the queue, not the row dated today.
 If you want a specific one:
 
 ```
@@ -28,8 +34,13 @@ Publish wordpress-plugins-china
 ## What Claude does, in order
 
 1. Reads `CLAUDE.md` and `SPEC.md`.
-2. Finds today's row in `schedule.csv`. If today has no row, takes the oldest
-   row with status `not_started` whose gate is clear and says so.
+2. Picks the row in `schedule.csv`: a row stopped at `drafted` or
+   `quality_passed` by an interrupted run first, otherwise the earliest
+   `not_started` row in `publish_date` order whose gate is clear, whatever
+   its date. It skips `blocked` and `reserve` rows, a gate that is not
+   clear, and a China Dependency Index edition or a `Hold until` row before
+   its date. Only when no row qualifies at all does it record that the queue
+   is empty and stop.
 3. Reads that brief file in `briefs/`, then every fact ID it cites in
    `sources/fact-bank.md`, then the Do Not Assert list.
 4. Reads `sources/site-profile.md` instead of fetching the site, unless the
@@ -103,7 +114,7 @@ re-fetched against its source, updated or cut, the changed passages go
 through `/deep-translate` in every locale, and `updatedAt` and `reviewBy`
 move (`reviewBy` to the oldest cited test date plus 90 days). The recheck
 ships in the same commit as the piece, or in its own `fix(guide): recheck
-<slug>` commit when no piece is due.
+<slug>` commit when no piece is publishing.
 
 Then, in this order, and only when each step passes: `npm run build`,
 `npx astro check`, `git add` of everything the piece touched (content in
@@ -157,11 +168,13 @@ scheduled task). Drafts wait in `output/` until one of them happens.
 
 ## Weekly rhythm
 
-| Day | Slot | Job |
+The plan's slots set the mix and the order of the queue. They no longer set
+the drafting days: the draft task runs every day and takes the next row,
+whatever its date.
+
+| Planned day | Slot | Job |
 |---|---|---|
-| Monday | - | No draft. Review and publish anything still at `image_ready`. |
 | Tuesday | 1 | The substantial piece. A T1 flagship or a T5 guide. |
-| Wednesday | - | No draft. |
 | Thursday | 2 | The fast piece. A T2 compatibility page or a T3 case study. |
 | Friday | 3 | The no-new-URL piece. A T6 upgrade, a T7 translation slot, or a T4 report in the weeks it falls due. |
 
@@ -175,7 +188,7 @@ and 2 only and accept a slower build.
 |---|---|---|
 | Week 1, 8 to 11 Sept | M1 ships first, ahead of every article. T6-01 (title suffix) and T6-02 (Google Fonts correction) follow. | M1 is a page, not a guide. T6-01 is a template change and needs the build-time title assertion. T6-02 is the correction of a live claim on the highest-traffic guide. |
 | Before week 2 | T2-01 is week 2 slot 2. | T2 and T4 pieces follow the GFW rule in `CLAUDE.md`: dated third-party verdicts, labelled as theirs. No harness and no mainland probe, ever (Cyril, 2 October 2026). |
-| 1 to 7 Oct | National Day Golden Week | Week 4 slot 2 (T3-01, Thu 1 Oct) and slot 3 (T6-03, Fri 2 Oct) fall inside it. Draft both during week 3 and let the publish task release them on their dates. |
+| 1 to 7 Oct | National Day Golden Week | Week 4 slot 2 (T3-01, Thu 1 Oct) and slot 3 (T6-03, Fri 2 Oct) fall inside it. Both were planned for drafting in week 3. Since 10 October the queue runs ahead of every holiday on its own, so no early start is needed. |
 | Week 6, Fri 16 Oct | T4-01, China Dependency Index edition 1 | Built under the GFW rule from GreatFire and 21YunBox data refreshed in the first half of October, every row dated and attributed. Method page must exist first. |
 | Week 8 | Structure audit | Diff the headings of every published T2 page against each other. No shared structure above H2 (PLAN.md section 13, item 3). |
 | Week 10, Fri 13 Nov | T4-02, the vantage point study | Built under the GFW rule from 21YunBox's paired datacentre and home line data and GreatFire verdicts, every figure attributed and dated. No run of our own. |
@@ -270,22 +283,25 @@ keys and the full model are all here, and a cloud routine has none of them.
 
 | Task | When (Shanghai) | What | Default |
 |---|---|---|---|
-| ChinaWebFoundry Editorial Draft | Tue, Thu, Fri 01:30 | `run-daily.ps1 -Mode draft`: steps 0 to 3, stops at `image_ready` | enabled |
-| ChinaWebFoundry Editorial Publish | every day 05:30 | `run-daily.ps1 -Mode publish`: publishes every due `image_ready` row, builds, commits, pushes, emails | enabled |
+| ChinaWebFoundry Editorial Draft | every day 01:30 | `run-daily.ps1 -Mode draft`: one row per run, the next in `publish_date` order whatever its date; steps 0 to 3, stops at `image_ready`; then `check-queue.mjs` mails Cyril if drafting stalls, a finished draft waits, or a week or less of briefs is left | enabled |
+| ChinaWebFoundry Editorial Publish | every day 05:30 | `run-daily.ps1 -Mode publish`: publishes every `image_ready` row whatever its `publish_date` (at most three a run, oldest first; a China Dependency Index edition or a `Hold until` row waits for its date), builds, commits, pushes, emails | enabled |
 
 The hours are chosen around the three pipelines already registered on this
 machine:
 
 | Pipeline | Draft | Publish |
 |---|---|---|
-| ChinaWebFoundry (this one) | Tue, Thu, Fri 01:30 | daily 05:30 |
+| ChinaWebFoundry (this one) | daily 01:30 | daily 05:30 |
 | BBChien | daily 00:00 | daily 05:00 |
 | TheRedScroll | Mon, Tue, Thu, Fri 00:30 | daily 04:00 |
 | TheChinaPath | Mon, Tue, Wed, Thu 01:00 | daily 04:30 |
 | VisitMoganshan | daily 22:00 (rows due tomorrow) | daily 03:30 |
 
 Scripts live in `editorial/scripts/`. `register-tasks.ps1` creates or updates
-both tasks. Each run writes its console output to `logs/runs/<date>-<mode>.txt`
+both tasks, each started through the shared wrapper
+`C:UserscyrilProjectautomationscriptsInvoke-ScheduledProjectScript.ps1`.
+`check-queue.mjs` (`--dry-run` to preview) is the queue watchdog the draft
+run calls; its mail states facts and never lists open items. Each run writes its console output to `logs/runs/<date>-<mode>.txt`
 next to the piece's run log. The machine has to be on, or asleep with wake
 allowed, at the run time. A missed run fires as soon as the machine is back.
 
