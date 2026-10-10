@@ -133,7 +133,8 @@ without a `quality_passed_on` date),
 `/deep-translate` run interactively in the main conversation (never a
 subagent, all three passes step by step, FR then ES then DE, none skipped),
 then the publish step only when
-a person asks or the 05:30 scheduled task finds a due `image_ready` row, then
+a person asks or the 05:30 scheduled task finds an `image_ready` row (whatever
+its publish_date, which orders the queue and never gates it), then
 one email via `editorial/scripts/notify-publish.mjs` (Resend) when the
 publish is done. House SEO ceilings are title 52, meta 152, excerpt 25 words.
 Guide heroes go to `public/images/guides/<slug>.webp`, max 1050px, under
