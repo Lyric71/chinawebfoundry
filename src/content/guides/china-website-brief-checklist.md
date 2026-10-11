@@ -6,7 +6,7 @@ visual: "/images/guides/china-website-brief-checklist.webp"
 order: 39
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-11"
 category: "Technology"
 author: "cyril-drouin"
 faqSchema: true
@@ -155,9 +155,9 @@ Which external scripts stay on the page? A theme that loads jQuery from
 ajax.googleapis.com halts the page while it waits.
 
 > Probed from an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August
-> 2026, Google Hosted Libraries returned a first byte in 0 of 3 runs, each
-> abandoned at 60 seconds.
-> Source: 21YunBox, Google Hosted Libraries in China, 30 August 2026.
+> 2026, the Google Hosted Libraries website returned a first byte in 0 of 3
+> runs, each abandoned at 60 seconds.
+> Source: 21YunBox, Google Hosted Libraries in China, reviewed 8 October 2026.
 > https://www.21cloudbox.com/support/google-hosted-libraries.html
 
 Last comes the exit. A vendor holding the server login and the domain can

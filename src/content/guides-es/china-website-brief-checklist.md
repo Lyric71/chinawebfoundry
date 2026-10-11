@@ -6,7 +6,7 @@ visual: "/images/guides/china-website-brief-checklist.webp"
 order: 39
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-11"
 category: "Technology"
 author: "cyril-drouin"
 faqSchema: true
@@ -107,8 +107,8 @@ Luego está el renderizado. Baidu anunció su rastreador con renderizado, Baidus
 
 ¿Qué scripts externos seguirán en la página? Un tema que carga jQuery desde ajax.googleapis.com deja la página bloqueada mientras espera una respuesta.
 
-> En una prueba desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou el 28 de agosto de 2026, Google Hosted Libraries no devolvió el primer byte en ninguna de las 3 ejecuciones, cada una abandonada a los 60 segundos.
-> Fuente: 21YunBox, Google Hosted Libraries in China, 30 de agosto de 2026.
+> En una prueba realizada desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou el 28 de agosto de 2026, el sitio web de Google Hosted Libraries no llegó a devolver el primer byte en ninguna de las 3 ejecuciones, todas abandonadas a los 60 segundos.
+> Fuente: 21YunBox, Google Hosted Libraries in China, página revisada el 8 de octubre de 2026.
 > https://www.21cloudbox.com/support/google-hosted-libraries.html
 
 Queda la salida. Un proveedor que tiene el acceso al servidor y el dominio puede frenar cualquier cambio de proveedor. Detalle lo que debe entregarse el último día del contrato.

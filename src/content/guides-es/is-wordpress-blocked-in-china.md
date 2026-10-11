@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-06
+updatedAt: 2026-10-11
 category: Technology
 ---
 
@@ -70,7 +70,7 @@ Las listas que circulan por la web anglosajona se redactaron en su mayoría entr
 | Google Fonts (fonts.googleapis.com, fonts.gstatic.com) | Depende de dónde se mida | Responde desde un centro de datos continental y enmudece en una línea doméstica de Pekín |
 | Google Tag Manager | Depende de dónde se mida | El mismo corte que las tipografías. La baliza hacia google-analytics.com falla en los dos casos |
 | wordpress.org y servidores de actualización | Accesible, con límite de peticiones | HTTP 429 en las actualizaciones del núcleo y de los plugins |
-| cdnjs, unpkg | Accesible, lento | Ambos completan. Sin probar desde una línea residencial |
+| cdnjs, unpkg | Accesible | Sin bloqueo según GreatFire. No hay pruebas publicadas desde una línea residencial |
 | cdn.jsdelivr.net | Accesible, lento | Mediana de 660 ms desde un centro de datos; completa en una línea doméstica |
 | Scripts de Stripe y PayPal | Accesible | El obstáculo son las licencias, no el cortafuegos |
 
@@ -80,7 +80,7 @@ Para el panorama completo, más allá de WordPress, nuestra guía sobre [lo que 
 
 Si un tema carga jQuery desde Google Hosted Libraries, algo que siguen haciendo miles de temas comerciales, la página se detiene en seco.
 
-Esa etiqueta bloquea el renderizado. El navegador se niega a pintar mientras no se resuelva, y desde China continental no se resuelve jamás. En sondeos repetidos desde una instancia de Alibaba Cloud en Zhangjiakou, las peticiones a ajax.googleapis.com no devolvieron un solo byte en ninguna de las tandas, hasta que abandonamos la prueba a los sesenta segundos.
+Esa etiqueta bloquea el renderizado. El navegador se niega a pintar mientras no se resuelva, y desde China continental no se resuelve jamás. En GreatFire, la última prueba concluyente de ajax.googleapis.com realizada desde el territorio continental, el 22 de agosto de 2026, acabó en fallo. Seis días más tarde, una sonda de 21YunBox alojada en Alibaba Cloud, en Zhangjiakou, solicitó tres veces la página Hosted Libraries de Google sin recibir un solo byte; cada intento se abandonó a los sesenta segundos.
 
 El visitante ve una pantalla en blanco, espera cuatro o cinco segundos y se marcha. La analítica no registraría nada, suponiendo que la analítica funcionara. Es el motivo más habitual por el que un sitio extranjero acaba catalogado como bloqueado en China cuando no lo está en absoluto.
 

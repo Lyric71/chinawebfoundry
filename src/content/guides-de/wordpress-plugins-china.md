@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: 2026-09-15
-updatedAt: 2026-09-15
+updatedAt: 2026-10-11
 category: Technology
 author: cyril-drouin
 ---
@@ -50,7 +50,7 @@ jsDelivr schloss die Anfragen von beiden untersuchten Anschlüssen ab. Die Laten
 
 Benötigt die Seite eine Bibliothek zwingend, können Sie diese über den eigenen Ursprungsserver ausliefern. Prüfen Sie die Funktion nach der Einbindung und halten Sie die verwendete Version fest. Wer später das Update übernimmt, weiß dann, welche Datei ersetzt werden muss.
 
-Für cdnjs und unpkg liegt hier kein vollständig datierter Test mit benanntem Standort vor. Ihr Status bleibt ungeprüft. Nehmen Sie Anfragen an `cdnjs.cloudflare.com` oder `unpkg.com` in Ihre eigene Prüfung auf.
+Laut GreatFire sind weder `cdnjs.cloudflare.com` noch `unpkg.com` gesperrt (zuletzt getestet am 27. September beziehungsweise am 14. August 2026). Einen veröffentlichten Test über einen Privatanschluss gibt es für keinen der beiden Hosts; Anfragen an sie gehören deshalb in Ihre eigene Prüfung.
 
 ## Google Fonts hängt vom Anschluss ab
 
@@ -113,7 +113,7 @@ Ermitteln Sie, welcher Bestandteil die Anfrage auslöst. Dort setzen Sie die Än
 | Google reCAPTCHA | Beide Stichproben gescheitert, 28./30. August 2026 | Anfrage absenden | Alternative Formularprüfung testen |
 | Google Tag Manager | Im Rechenzentrum erreichbar; am getesteten Privatanschluss blockiert, 28./30. August 2026 | Container lädt und Ereignisse kommen an | Jedes Tag einzeln prüfen |
 | jsDelivr | Beide Stichproben abgeschlossen, 28./30. August 2026 | Notwendige Bibliothek | Benötigte Dateien lokal einbinden |
-| cdnjs, unpkg | Hier ungeprüft | Jede angeforderte URL | Testen oder selbst hosten |
+| cdnjs, unpkg | Laut GreatFire nicht gesperrt, 27. Sept. und 14. Aug. 2026 | Jede angeforderte URL | Testen oder selbst hosten |
 | WP Rocket Used CSS | Architektur dokumentiert; Netz ungeprüft | Dienst kann Seite abrufen | Auftragsabschluss prüfen |
 | QUIC.cloud-Bilder | Architektur dokumentiert; Netz ungeprüft | Verarbeitung erfolgreich | Vor dem Hochladen komprimieren |
 

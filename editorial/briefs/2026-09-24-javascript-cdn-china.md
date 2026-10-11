@@ -11,7 +11,7 @@ title: "Which JavaScript CDNs Work in China"
 suggested_category: Technology
 locales_at_publish: en
 facts: [F1, F7, F42]
-status: not_started
+status: image_ready
 ---
 
 ## How to run this brief
@@ -44,10 +44,10 @@ tier-specific boxes for T2.
 #### T2-05 `javascript-cdn-china`
 
 **Target:** cdn blocked china · **Facts:** F1, F7, F42
-The single most valuable correction available. Everyone writes "CDNs are blocked," which gets the priority exactly backwards. Google Hosted Libraries returns nothing at all and halts the render; cdnjs, unpkg and jsDelivr all complete and merely cost seconds. One line of code accounts for most of the damage in this whole category.
+The single most valuable correction available. Everyone writes "CDNs are blocked," which gets the priority exactly backwards. Google Hosted Libraries returns nothing at all and halts the render; cdnjs, unpkg and jsDelivr all read as not blocked, and jsDelivr, the only one with a published home line test, completes from both vantage points with a slow tail (1,757ms at the 95th percentile). One line of code accounts for most of the damage in this whole category. (Corrected 11 October 2026: "all complete and merely cost seconds" rested on 21YunBox per-host timings withdrawn on 7 October 2026, see F7.)
 ```yaml
 title: "Which JavaScript CDNs Work in China"
-description: "One CDN returns nothing and stops the page. Three others answer, and the home line test splits them. The category answer everyone gets backwards."
+description: "Google Hosted Libraries is blocked in mainland China and halts the page. cdnjs, jsDelivr and unpkg answer. Dated GreatFire and 21YunBox records."
 excerpt: "Google Hosted Libraries halts the render. cdnjs, unpkg and jsDelivr do not. The difference matters more than the category."
 ```
 

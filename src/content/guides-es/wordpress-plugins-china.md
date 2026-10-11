@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: 2026-09-15
-updatedAt: 2026-09-15
+updatedAt: 2026-10-11
 category: Technology
 author: cyril-drouin
 ---
@@ -50,7 +50,7 @@ jsDelivr completó las peticiones desde las dos conexiones de la muestra. Su lat
 
 Cuando una biblioteca sea indispensable para la página, considere alojarla en su servidor de origen. Compruebe que funciona al incorporarla al proyecto y deje constancia de la versión. Así, quien se ocupe de actualizarla sabrá qué archivo debe sustituir.
 
-No disponemos de una prueba completa, fechada y con ubicación identificada para cdnjs y unpkg. Su estado queda sin verificar aquí. Incluya en su auditoría las peticiones a `cdnjs.cloudflare.com` o `unpkg.com`.
+Según GreatFire, ni `cdnjs.cloudflare.com` ni `unpkg.com` están bloqueados (últimas pruebas, el 27 de septiembre y el 14 de agosto de 2026). No se ha publicado ninguna prueba desde una línea residencial, así que mantenga sus peticiones dentro de su propia auditoría.
 
 ## Google Fonts depende de la conexión
 
@@ -113,7 +113,7 @@ Identifique el componente que inicia la petición para decidir dónde intervenir
 | Google reCAPTCHA | Fallo en ambas muestras, 28/30 ago. 2026 | Enviar una consulta | Probar otra verificación del formulario |
 | Google Tag Manager | Accesible desde el centro de datos; bloqueado en la línea residencial probada, 28/30 ago. 2026 | Carga del contenedor y recepción de eventos | Revisar cada etiqueta |
 | jsDelivr | Peticiones completadas en ambas muestras, 28/30 ago. 2026 | Biblioteca esencial | Incorporar los archivos localmente |
-| cdnjs, unpkg | Sin verificar aquí | Cada URL solicitada | Probar o alojar localmente |
+| cdnjs, unpkg | Sin bloqueo según GreatFire, 27 sept. y 14 ago. 2026 | Cada URL solicitada | Probar o alojar localmente |
 | WP Rocket Used CSS | Arquitectura documentada; red sin verificar | Acceso del servicio a la página | Comprobar que termina la tarea |
 | Imágenes QUIC.cloud | Arquitectura documentada; red sin verificar | Finalización del procesamiento | Comprimir antes de subir |
 

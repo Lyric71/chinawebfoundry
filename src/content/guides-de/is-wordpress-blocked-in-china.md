@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-06
+updatedAt: 2026-10-11
 category: Technology
 ---
 
@@ -70,7 +70,7 @@ Die Listen, die im englischsprachigen Netz kursieren, stammen überwiegend aus d
 | Google Fonts (fonts.googleapis.com, fonts.gstatic.com) | Hängt vom Messpunkt ab | Antwortet aus einem Rechenzentrum auf dem Festland, schweigt an einer Privatleitung in Peking |
 | Google Tag Manager | Hängt vom Messpunkt ab | Dieselbe Spaltung wie bei den Schriften. Das Signal an google-analytics.com scheitert in beiden Fällen |
 | wordpress.org und Update-Server | Erreichbar, gedrosselt | HTTP 429 bei Core- und Plugin-Updates |
-| cdnjs, unpkg | Erreichbar, langsam | Beide kommen durch. Von einer Privatleitung nie getestet |
+| cdnjs, unpkg | Erreichbar | Laut GreatFire nicht gesperrt. Kein veröffentlichter Test über eine Privatleitung |
 | cdn.jsdelivr.net | Erreichbar, langsam | Median 660 ms aus einem Rechenzentrum, kommt auch an einer Privatleitung durch |
 | Stripe- und PayPal-Skripte | Erreichbar | Die Hürde sind die Lizenzen, nicht die Firewall |
 
@@ -80,7 +80,7 @@ Das größere Bild jenseits von WordPress zeichnet unser Leitfaden dazu, [was di
 
 Lädt ein Theme jQuery von den Google Hosted Libraries, und Tausende gekaufter Themes tun das noch immer, bleibt die Seite stehen.
 
-Dieses Script-Tag blockiert das Rendering. Der Browser malt nichts, solange es nicht aufgelöst ist, und aus Festlandchina löst es sich nie auf. In wiederholten Messungen von einer Alibaba-Cloud-Instanz in Zhangjiakou kam auf Anfragen an ajax.googleapis.com in keinem einzigen Durchlauf ein Byte zurück, bis wir den Test nach sechzig Sekunden abgebrochen haben.
+Dieses Script-Tag blockiert das Rendering. Der Browser malt nichts, solange es nicht aufgelöst ist, und aus Festlandchina löst es sich nie auf. Bei GreatFire scheiterte der letzte aussagekräftige Test von ajax.googleapis.com aus Festlandchina am 22. August 2026. Sechs Tage später rief eine Messstation von 21YunBox auf einer Alibaba-Cloud-Instanz in Zhangjiakou dreimal Googles eigene Hosted-Libraries-Seite auf, ohne auch nur ein Byte zu erhalten; jeder Versuch wurde nach sechzig Sekunden abgebrochen.
 
 Der Besucher sieht Weiß, wartet vier oder fünf Sekunden und geht. Die Analyse würde nichts erfassen, falls die Analyse denn funktionierte. Das ist der häufigste Grund, warum eine ausländische Website als in China gesperrt abgestempelt wird, obwohl davon keine Rede sein kann.
 

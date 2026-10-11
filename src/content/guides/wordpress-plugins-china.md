@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: "2026-09-15"
-updatedAt: "2026-09-15"
+updatedAt: "2026-10-11"
 category: "Technology"
 author: "cyril-drouin"
 ---
@@ -81,9 +81,9 @@ For a library needed before the page works, consider serving it from your
 own origin. Test after bundling it and keep a record of its version so
 updates don’t depend on someone remembering where the file came from.
 
-The ledger lacks a fully dated test with a named location for cdnjs and
-unpkg. Their status remains unverified here. Include any requests to
-`cdnjs.cloudflare.com` or `unpkg.com` in your own audit.
+GreatFire reads `cdnjs.cloudflare.com` and `unpkg.com` as not blocked, last
+tested on 27 September and 14 August 2026. Neither host has a published test
+from a home line, so keep any requests to them in your own audit.
 
 
 
@@ -194,7 +194,7 @@ Paired dates below mean the datacentre test followed by the residential test.
 | Google reCAPTCHA | Both samples failed, 28/30 Aug 2026 | Submit an enquiry | Test an alternative form challenge |
 | Google Tag Manager | Datacentre reachable; sampled home line blocked, 28/30 Aug 2026 | Container loads and events arrive | Review each tag separately |
 | jsDelivr | Both samples completed, 28/30 Aug 2026 | Critical library dependency | Bundle required files locally |
-| cdnjs, unpkg | Unverified here | Each requested URL | Test or self-host |
+| cdnjs, unpkg | Not blocked, GreatFire, 27 Sep and 14 Aug 2026 | Each requested URL | Test or self-host |
 | WP Rocket Used CSS | Architecture documented; network unverified | Service can fetch the page | Test job completion |
 | QUIC.cloud images | Architecture documented; network unverified | Processing succeeds | Compress before upload |
 

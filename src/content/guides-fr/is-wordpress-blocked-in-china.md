@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-06
+updatedAt: 2026-10-11
 category: Technology
 ---
 
@@ -70,7 +70,7 @@ Les listes qui circulent sur le web anglophone datent pour l'essentiel de 2019 �
 | Google Fonts (fonts.googleapis.com, fonts.gstatic.com) | Dépend du point de mesure | Répond depuis un centre de données continental, muet sur une ligne domestique à Pékin |
 | Google Tag Manager | Dépend du point de mesure | Même clivage que pour les polices. La requête vers google-analytics.com échoue de toute façon |
 | wordpress.org et serveurs de mise à jour | Accessible, débit limité | HTTP 429 sur les mises à jour du cœur et des extensions |
-| cdnjs, unpkg | Accessible, lent | Les deux aboutissent. Jamais testés depuis une ligne grand public |
+| cdnjs, unpkg | Accessible | Non bloqués selon GreatFire. Aucun test publié sur ligne résidentielle |
 | cdn.jsdelivr.net | Accessible, lent | Médiane de 660 ms depuis un centre de données, aboutit sur une ligne domestique |
 | Scripts Stripe et PayPal | Accessible | L'obstacle vient des licences, pas du pare-feu |
 
@@ -80,7 +80,7 @@ Pour le tableau d'ensemble, au-delà de WordPress, notre guide sur [ce que bloqu
 
 Si un thème charge jQuery depuis Google Hosted Libraries, ce que font encore des milliers de thèmes commerciaux, la page s'arrête net.
 
-Cette balise bloque le rendu. Le navigateur refuse de peindre tant qu'elle n'est pas résolue, et depuis la Chine continentale elle ne se résout jamais. Lors de sondages répétés depuis une instance Alibaba Cloud à Zhangjiakou, les requêtes vers ajax.googleapis.com n'ont renvoyé aucun octet, sur aucun essai, avant l'abandon du test à soixante secondes.
+Cette balise bloque le rendu. Le navigateur refuse de peindre tant qu'elle n'est pas résolue, et depuis la Chine continentale elle ne se résout jamais. Chez GreatFire, le dernier test concluant d'ajax.googleapis.com mené depuis le continent, le 22 août 2026, s'est soldé par un échec. Six jours plus tard, une sonde de 21YunBox hébergée chez Alibaba Cloud à Zhangjiakou a sollicité à trois reprises la page Hosted Libraries de Google sans en tirer le moindre octet ; chaque tentative a été abandonnée au bout de soixante secondes.
 
 Le visiteur voit du blanc, patiente quatre ou cinq secondes, et s'en va. La mesure d'audience n'enregistrerait rien, à supposer qu'elle fonctionne. C'est la raison la plus fréquente pour laquelle un site étranger se retrouve catalogué « bloqué en Chine » alors qu'il n'en est rien.
 

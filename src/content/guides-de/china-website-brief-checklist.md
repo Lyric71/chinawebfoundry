@@ -6,7 +6,7 @@ visual: "/images/guides/china-website-brief-checklist.webp"
 order: 39
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-11"
 category: "Technology"
 author: "cyril-drouin"
 faqSchema: true
@@ -107,8 +107,8 @@ Wie gelangen Core- und Plugin-Updates auf einen Server in Festlandchina?
 
 Welche externen Skripte bleiben auf der Seite? Ein Theme, das jQuery von ajax.googleapis.com lädt, legt die Seite lahm, solange es wartet.
 
-> Bei Tests von einer Alibaba-Cloud-Instanz (阿里云) in cn-zhangjiakou am 28. August 2026 lieferte Google Hosted Libraries in keinem der 3 Durchläufe ein erstes Byte, jeder wurde nach 60 Sekunden abgebrochen.
-> Quelle: 21YunBox, Google Hosted Libraries in China, 30. August 2026.
+> Bei Tests von einer Alibaba-Cloud-Instanz (阿里云) in cn-zhangjiakou am 28. August 2026 lieferte die Website von Google Hosted Libraries in keinem der 3 Durchläufe ein erstes Byte; jeder Versuch wurde nach 60 Sekunden abgebrochen.
+> Quelle: 21YunBox, Google Hosted Libraries in China, Seite geprüft am 8. Oktober 2026.
 > https://www.21cloudbox.com/support/google-hosted-libraries.html
 
 Bleibt der Ausstieg. Ein Anbieter, der den Serverzugang und die Domain hält, kann jeden Anbieterwechsel verschleppen. Halten Sie fest, was am letzten Vertragstag an Sie zurückgeht.

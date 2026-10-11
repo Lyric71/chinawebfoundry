@@ -1795,6 +1795,110 @@ directory and read there; nothing from them is kept in the repo.
 - Used in: baiduspider-firewall (T6-10)
 - Notes: Print the page headline figures, which a reader clicking through sees. Replaces the live citation via The Egg (11 February 2026). Monthly and volatile: refresh at each review.
 
+## T2-05 entries, 11 October 2026 (javascript-cdn-china)
+
+Logged for `javascript-cdn-china` on a catch-up draft run. Every URL fetched
+by curl from this machine on 11 October 2026 at check 1 and again in
+iteration 8 (check 2), each assertion matched against the page text the
+second time with a fresh fetch.
+
+### ajax.googleapis.com blocked verdict, rechecked
+- Fact ID: F1 (verdict half)
+- Value: blocked, "100% of the last 1 conclusive tests failed in mainland China", 1 of 1 blocked in the last 90 days; googleapis.com domain counts now 581 tested (do not publish, they drift)
+- Vantage point: n/a, reachability verdict
+- As of: last tested 2026-08-22 (12:10 UTC)
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/ajax.googleapis.com
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, re-fetched in iteration 8
+- Used in: javascript-cdn-china (T2-05); wordpress-plugins-china, is-wordpress-blocked-in-china and website-in-china (all four locales) corrected to it on 2026-10-11
+- Notes: Older than 90 days on 2026-11-20. javascript-cdn-china carries reviewBy 2026-11-12.
+
+### Google Hosted Libraries website from a mainland datacentre (CORRECTION)
+- Fact ID: F1 (timing half, corrected)
+- Value: the Google Hosted Libraries site, developers.google.com/speed/libraries, returned no first byte in three of three runs, each abandoned at the sixty-second limit
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou
+- As of: measured 2026-08-28; support page reviewed 2026-10-08
+- Source: 21YunBox, Google Hosted Libraries in China
+- URL: https://www.21cloudbox.com/support/google-hosted-libraries.html
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, re-fetched in iteration 8
+- Used in: javascript-cdn-china (T2-05); china-website-brief-checklist (four locales, restated 2026-10-11)
+- Notes: **The page names the timed URL: Google's documentation site, not `ajax.googleapis.com`.** The 22 September entry above called it "a page load of the vendor target"; four live pages turned that into "requests to ajax.googleapis.com", one of them as "we abandoned the test" and the money page as "ChinaWebFoundry measurement, 29 August 2026". All fixed on 2026-10-11. Cite this figure as a load of Google's library website and the host's verdict from GreatFire.
+
+### 21YunBox 280-site census: public asset CDNs
+- Fact ID: F1, F7
+- Value: "Public asset CDNs: two of five worked". cdnjs 3 of 3 completed; Microsoft Ajax CDN 3 of 3 completed; Google Hosted Libraries no response at all; BootstrapCDN 0 of 3; Font Awesome 0 of 3. Three requests per site, 60-second ceiling, 840 requests, 280 sites. "Vendor sites, not customer deployments." States that the rule "public CDNs don't work in China" is not supported, and advises: "measure the host you actually depend on, or bundle the library into your own build and remove the question."
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou
+- As of: measured 28 to 29 August 2026; page dated 29 August 2026, reviewed 2026-10-07
+- Source: 21YunBox, 280 Sites Measured From Inside China: A Third Never Finished Loading
+- URL: https://www.21cloudbox.com/websites-blocked-in-china.html
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, re-fetched in iteration 8
+- Used in: javascript-cdn-china (T2-05): cdnjs website and Google Hosted Libraries rows, the "not supported" conclusion (paraphrased, because the original sentence carries em dashes), the bundling advice
+- Notes: Each row is a load of the vendor's own site. BootstrapCDN and Font Awesome are F42 hosts: their 0 of 3 is a vendor-site load, not a test of the asset host, so on the 8 October Turnstile precedent it gives them no verdict and they stay untested. The page's own "73 out of 73" for fonts.googleapis.com disagrees with the paired study's 72 samples; the paired study stays the cited figure. The census mentions a 493ms to 1,086ms swing for an unnamed host; it is not attributable to jsDelivr from this page.
+
+### cdn.jsdelivr.net, paired study, rechecked
+- Fact ID: F7
+- Value: direct, 100% success over 72 samples, 660ms median TTFB, 1,757ms p95; Beijing home line, 36 requests, 0 failures. Font stylesheet (fonts.googleapis.com) 72 of 72 at 111ms and 54 requests, 54 never answered. Quote: "A p95 of 1,757ms against a median of 660ms means one request in twenty takes nearly two seconds."
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou, 28 August 2026, every ten minutes for twelve hours, 30-second timeout; Beijing China Mobile (中国移动) residential broadband, 30 August 2026
+- As of: updated 30 August 2026
+- Source: 21YunBox, A Day of Third-Party Requests From Inside China
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, re-fetched in iteration 8
+- Used in: javascript-cdn-china (T2-05)
+
+### GreatFire verdicts on cdnjs, unpkg and jsDelivr, rechecked
+- Fact ID: F7 (verdict half)
+- Value: cdnjs.cloudflare.com not blocked, "All 1 recent conclusive tests connected normally", last tested 2026-09-27 (23:10 UTC); unpkg.com not blocked, same wording, last tested 2026-08-14; cdn.jsdelivr.net not blocked, "All 3 recent conclusive tests connected normally", last tested 2026-10-08
+- Vantage point: n/a, reachability verdicts
+- As of: as dated per host
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/cdnjs.cloudflare.com, https://en.greatfire.org/https/unpkg.com, https://en.greatfire.org/https/cdn.jsdelivr.net
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, re-fetched in iteration 8
+- Used in: javascript-cdn-china (T2-05); wordpress-plugins-china and is-wordpress-blocked-in-china (four locales, corrected 2026-10-11)
+- Notes: The cdnjs verdict is no longer four months old: GreatFire retested on 27 September. The page shows relative dates ("13 d ago"); the absolute timestamps are in the page's embedded data. unpkg passes 90 days on 2026-11-12, which sets the piece's reviewBy.
+
+### Google Hosted Libraries documentation
+- Fact ID: F1 (context)
+- Value: "a stable, reliable, high-speed, globally available content distribution network for the most popular, open-source JavaScript libraries"; jQuery snippet `https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js`
+- Vantage point: n/a
+- As of: last updated 2026-10-09
+- Source: Google for Developers, Hosted Libraries
+- URL: https://developers.google.com/speed/libraries
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, re-fetched in iteration 8
+- Used in: javascript-cdn-china (T2-05)
+
+### MDN, the script element, rechecked
+- Fact ID: none
+- Value: "Scripts without async, defer or type="module" attributes, as well as inline scripts without the type="module" attribute, are fetched and executed immediately before the browser continues to parse the page."
+- As of: last modified 2026-05-09
+- Source: MDN Web Docs
+- URL: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, re-fetched in iteration 8
+- Used in: javascript-cdn-china (T2-05)
+
+### WordPress core bundles jQuery 3.7.1
+- Fact ID: none
+- Value: `$scripts->add( 'jquery-core', "/wp-includes/js/jquery/jquery$suffix.js", array(), '3.7.1' );` (line 908)
+- Vantage point: n/a, source code
+- As of: WordPress 7.1.3, the current stable release on 2026-10-11 (api.wordpress.org version check)
+- Source: WordPress core, wp-includes/script-loader.php
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/script-loader.php
+- Verified 1: 2026-10-11
+- Verified 2: 2026-10-11, second fetch, same line
+- Used in: javascript-cdn-china (T2-05), prose, no blockquote
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)
+
+### 21YunBox per-host CDN figures (cdnjs, unpkg, jsDelivr), retired 2026-10-11
+- Fact ID: F7
+- Was: cdnjs 3 of 3 at a 478ms median first byte (LCP 1,524ms); unpkg 3 of 3 at 824ms from the datacentre and 0 of 3 page loads at a 1,026ms median first byte from the Beijing home line; jsDelivr 3 of 3 at 769ms (LCP 2.6s) and a 493ms to 1,086ms twelve-hour swing with a 1,780ms p95 (entries of 22 September 2026 above)
+- URLs: https://www.21cloudbox.com/support/cdnjs-china.html, https://www.21cloudbox.com/support/unpkg-china.html, https://www.21cloudbox.com/support/jsdelivr-china.html
+- Check of 2026-10-11: **failed.** 21YunBox rewrote all three pages on 7 October 2026 ("Reviewed 2026-10-07") into a compliance format. Fetched twice: no figure, no probe, no date on any of them. A figure its publisher no longer carries is not printed as theirs. None of the figures was printed on the site (the T2-05 partial draft that used them was withdrawn on 2 October); the "Reachable, slow / Both complete" row on is-wordpress-blocked-in-china that rested on them was corrected in four locales on 2026-10-11.

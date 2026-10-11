@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-06
+updatedAt: 2026-10-11
 category: Technology
 ---
 
@@ -70,7 +70,7 @@ Most of the lists circulating on the English web were written between 2019 and 2
 | Google Fonts (fonts.googleapis.com, fonts.gstatic.com) | Depends on where you measure | Answers from a mainland datacentre, silent on a Beijing home line |
 | Google Tag Manager | Depends on where you measure | Same split as the fonts. The beacon to google-analytics.com fails either way |
 | wordpress.org and update servers | Reachable, rate limited | HTTP 429 on plugin and core updates |
-| cdnjs, unpkg | Reachable, slow | Both complete. Untested from a consumer line |
+| cdnjs, unpkg | Reachable | GreatFire reads both as not blocked. Neither has a published home line test |
 | cdn.jsdelivr.net | Reachable, slow | 660ms median from a datacentre, completes on a home line |
 | Stripe and PayPal scripts | Reachable | Licensing, not the firewall, is the blocker |
 
@@ -80,7 +80,7 @@ For the wider picture beyond WordPress, our guide on [what the Great Firewall bl
 
 If a theme loads jQuery from Google Hosted Libraries, and thousands of commercial themes still do, the page stops dead.
 
-That script tag is render blocking. The browser won't paint until it resolves, and from mainland China it never resolves. In repeated probes from an Alibaba Cloud instance in Zhangjiakou, requests to ajax.googleapis.com returned no first byte on any run before we abandoned the test at sixty seconds.
+That script tag is render blocking. The browser won't paint until it resolves, and from mainland China it never resolves. GreatFire's last conclusive test of ajax.googleapis.com from the mainland, on 22 August 2026, failed. Six days later a 21YunBox probe on an Alibaba Cloud instance in Zhangjiakou tried Google's own Hosted Libraries page three times and got no first byte back before each attempt was abandoned at sixty seconds.
 
 The visitor sees white, waits four or five seconds, and leaves. Analytics would record nothing, assuming analytics worked. It's the most common reason a foreign site gets written off as blocked in China when it's doing no such thing.
 

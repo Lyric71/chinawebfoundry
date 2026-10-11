@@ -6,7 +6,7 @@ visual: "/images/guides/china-website-brief-checklist.webp"
 order: 39
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-11"
 category: "Technology"
 author: "cyril-drouin"
 faqSchema: true
@@ -107,8 +107,8 @@ Comment les mises à jour du cœur et des extensions parviennent-elles à un ser
 
 Quels scripts externes resteront sur la page ? Un thème qui va chercher jQuery sur ajax.googleapis.com fige la page tant qu’il attend.
 
-> Testé depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou le 28 août 2026, Google Hosted Libraries n’a renvoyé de premier octet dans aucun des 3 essais, chacun abandonné au bout de 60 secondes.
-> Source : 21YunBox, Google Hosted Libraries in China, 30 août 2026.
+> Interrogé depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou le 28 août 2026, le site de Google Hosted Libraries n’a renvoyé aucun premier octet sur 3 essais, tous abandonnés au bout de 60 secondes.
+> Source : 21YunBox, Google Hosted Libraries in China, page revue le 8 octobre 2026.
 > https://www.21cloudbox.com/support/google-hosted-libraries.html
 
 Reste la sortie. Un prestataire qui détient l’accès au serveur et le nom de domaine peut faire traîner tout changement de prestataire. Listez ce qui doit vous être remis le dernier jour du contrat.

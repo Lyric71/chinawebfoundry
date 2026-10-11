@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: 2026-09-15
-updatedAt: 2026-09-15
+updatedAt: 2026-10-11
 category: Technology
 author: cyril-drouin
 ---
@@ -50,7 +50,7 @@ jsDelivr a terminé ses requêtes depuis les deux connexions testées. Le tablea
 
 Pour une bibliothèque indispensable à la page, envisagez un hébergement sur votre serveur d’origine. Testez son intégration et consignez la version utilisée. La personne chargée des prochaines mises à jour saura ainsi quel fichier remplacer.
 
-Nous ne disposons pas de test complet, daté et associé à un lieu précis pour cdnjs et unpkg. Leur état reste donc non vérifié ici. Incluez dans votre audit les requêtes vers `cdnjs.cloudflare.com` ou `unpkg.com`.
+Pour GreatFire, ni `cdnjs.cloudflare.com` ni `unpkg.com` ne sont bloqués (derniers tests les 27 septembre et 14 août 2026). Aucun test n’a été publié depuis une ligne résidentielle : gardez donc leurs requêtes dans le périmètre de votre audit.
 
 ## Google Fonts dépend de la connexion
 
@@ -113,7 +113,7 @@ Identifiez le composant à l’origine de la requête pour savoir où intervenir
 | Google reCAPTCHA | Échec aux deux points de mesure, 28/30 août 2026 | Envoi d’une demande | Tester un autre dispositif de vérification |
 | Google Tag Manager | Centre de données accessible ; ligne résidentielle testée bloquée, 28/30 août 2026 | Chargement du conteneur et réception des événements | Examiner chaque balise |
 | jsDelivr | Requêtes abouties aux deux points, 28/30 août 2026 | Bibliothèque indispensable | Intégrer les fichiers localement |
-| cdnjs, unpkg | Non vérifiés ici | Chaque URL appelée | Tester ou héberger localement |
+| cdnjs, unpkg | Non bloqués selon GreatFire, 27 sept. et 14 août 2026 | Chaque URL appelée | Tester ou héberger localement |
 | WP Rocket Used CSS | Architecture documentée ; réseau non vérifié | Accès du service à la page | Vérifier la fin du traitement |
 | Images QUIC.cloud | Architecture documentée ; réseau non vérifié | Réussite du traitement | Compresser avant l’envoi |
 
