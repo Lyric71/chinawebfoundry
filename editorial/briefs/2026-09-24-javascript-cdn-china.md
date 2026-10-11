@@ -11,7 +11,7 @@ title: "Which JavaScript CDNs Work in China"
 suggested_category: Technology
 locales_at_publish: en
 facts: [F1, F7, F42]
-status: image_ready
+status: published
 ---
 
 ## How to run this brief

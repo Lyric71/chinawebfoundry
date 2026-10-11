@@ -11,7 +11,7 @@ title: "Why wp-admin Is Slow in China"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F1, F4, F8, F10, F11]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -52,7 +52,7 @@ tier-specific boxes for T1.
 | **Incumbent** | Nobody. |
 | **Length** | 1,200 words |
 
-**Angle.** Every guide optimizes the front end. Nobody writes about the back end, and the back end is where the Chinese marketing team actually lives eight hours a day. Gravatar and the update servers are the culprits, and both are fixable in an afternoon.
+**Angle.** Every guide optimizes the front end. Nobody writes about the back end, and the back end is where the Chinese marketing team actually lives eight hours a day. Gravatar and the update servers are the culprits, with the editor's own font calls behind them, and both are fixable in an afternoon.
 
 **Facts.** F4 (lead), F8, F11, F10 (the editor Roboto call), F1.
 
@@ -61,7 +61,7 @@ tier-specific boxes for T1.
 2. Gravatar, called on every comment screen and across wp-admin (F4)
 3. The update servers, and the silent 429 (F8)
 4. The block editor's own calls (F11, F10)
-5. Mainland avatar mirrors, with measured latency (F4)
+5. Mainland avatar mirrors (F4). No mirror has a dated third-party timing, so none is printed (corrected 12 October 2026)
 6. What to disable, what to mirror, what to accept
 7. Frequently asked
 

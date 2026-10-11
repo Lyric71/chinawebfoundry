@@ -1893,6 +1893,168 @@ second time with a fresh fetch.
 - Verified 2: 2026-10-11, second fetch, same line
 - Used in: javascript-cdn-china (T2-05), prose, no blockquote
 
+### secure.gravatar.com blocked, rechecked 12 October 2026
+- Fact ID: F4 (verdict)
+- Value: blocked, 100% of the last 1 conclusive tests failed; all 29 tested gravatar.com URLs blocked; first tested 12 May 2014
+- Vantage point: GreatFire's mainland test network
+- As of: last tested 2026-08-31
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/secure.gravatar.com (JSON: https://en.greatfire.org/api/url/https/secure.gravatar.com)
+- Verified 1: 2026-10-12, HTML and JSON agree
+- Verified 2: 2026-10-12, re-fetched in iteration 8, unchanged
+- Used in: wp-admin-slow-china (A4)
+- Notes: GreatFire now lists 29 gravatar.com URLs (28 on 11 September). Last test older than 40 days; reviewBy on A4 is 2026-11-20.
+
+### Where WordPress 7.1.3 draws avatars in wp-admin
+- Fact ID: F4
+- Value: every avatar URL is `https://secure.gravatar.com/avatar/<hash>` (link-template.php 4605); admin bar `get_avatar( $user_id, 28 )` and `get_avatar( $user_id, 64 )` (admin-bar.php 279, 325); Comments list `get_avatar( $comment, 32, 'mystery' )`; Users list `get_avatar( $user_object->ID, 32 )`; Dashboard Activity `get_avatar( $comment, 50, 'mystery' )`; Settings > Discussion forces avatars on ("Force avatars on to display these choices") for ten default previews; `get_avatar()` returns false when Show Avatars is off unless `force_display`
+- Vantage point: n/a, source code
+- As of: WordPress 7.1.3 (current stable on 2026-10-12)
+- Source: WordPress core source
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-admin/options-discussion.php (and wp-includes/link-template.php, wp-includes/admin-bar.php, wp-includes/pluggable.php, wp-admin/includes/class-wp-comments-list-table.php, class-wp-users-list-table.php, dashboard.php at the same tag)
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12, re-fetched, every string present
+- Used in: wp-admin-slow-china (A4)
+- Notes: none.
+
+### WordPress 7.1.3 update check timeouts and silent failure
+- Fact ID: F8 (mechanism)
+- Value: core version check timeout 3 seconds outside cron (30 in cron); plugin and theme checks 3 seconds plus 1 per 10 installed (30 in cron); HTTPS failure retries over HTTP; any non-200 answer returns silently; last_checked written before the request; `_maybe_update_*` on admin_init every 12 hours, plugins check hourly on the Plugins screen, every minute on Dashboard > Updates
+- Vantage point: n/a, source code
+- As of: WordPress 7.1.3
+- Source: WordPress core, wp-includes/update.php
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/update.php
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: "40 plugins, 7 seconds, then again over HTTP" in A4 is our arithmetic from these timeouts and is labelled as such.
+
+### wordpress.org and api.wordpress.org, GreatFire verdicts
+- Fact ID: F8 (reachability)
+- Value: https://wordpress.org not blocked, 13 of 13 recent conclusive tests connected normally, last tested 2026-10-11 (verdict revised from partly disrupted: refused connections no longer counted); http://api.wordpress.org not blocked, 1 conclusive test, 2026-10-07; https://api.wordpress.org never tested
+- Vantage point: GreatFire's mainland test network
+- As of: 2026-10-11 and 2026-10-07
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/wordpress.org ; https://en.greatfire.org/api/url/api.wordpress.org ; https://en.greatfire.org/https/api.wordpress.org
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: https://downloads.wordpress.org last tested 2026-06-18 (older than 90 days, not cited).
+
+### s.w.org reachable, GreatFire
+- Fact ID: F11 (and the Do Not Assert list, corrected)
+- Value: https://s.w.org not blocked, 1 recent conclusive test, last tested 2026-10-07 (verdict revised from partly disrupted); http://s.w.org intermittent
+- Vantage point: GreatFire's mainland test network
+- As of: 2026-10-07
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/s.w.org
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: s.w.org left the Do Not Assert "untested" list in PLAN.md on 2026-10-12. Print with its one conclusive test and date.
+
+### WordPress 7.1.3 Font Library downloads Google fonts in the browser
+- Fact ID: F11 (corrected)
+- Value: collection JSON at `https://s.w.org/images/fonts/wp-7.1/collections/google-fonts-with-preview.json` (fonts.php 269), file URLs on fonts.gstatic.com; editor prompt "To install fonts from Google you must give permission to connect directly to Google servers."; `downloadFontFaceAssets` uses `fetch(new Request(url))` in the browser, then uploads
+- Vantage point: n/a, source code
+- As of: WordPress 7.1.3
+- Source: WordPress core, wp-includes/js/dist/editor.js and wp-includes/fonts.php
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/js/dist/editor.js
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: Corrects F11's "downloads the font files to the local server". Corrected in PLAN.md the same day.
+
+### Emoji images on s.w.org, detection script in wp-admin
+- Fact ID: F11
+- Value: `https://s.w.org/images/core/emoji/17.0.2/72x72/` (formatting.php 6032); `add_action( 'admin_print_scripts', 'print_emoji_detection_script' )` (admin-filters.php 59)
+- Vantage point: n/a, source code
+- As of: WordPress 7.1.3
+- Source: WordPress core
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/formatting.php
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4), prose only
+- Notes: none.
+
+### WordPress skips a stylesheet whose dependency is missing
+- Fact ID: none
+- Value: `WP_Dependencies::all_deps()` sets `$keep_going = false; // Item requires dependencies that don't exist.`
+- Vantage point: n/a, source code
+- As of: WordPress 7.1.3
+- Source: WordPress core, wp-includes/class-wp-dependencies.php
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/class-wp-dependencies.php
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4), prose only
+- Notes: supports the advice to repoint `google-font-roboto` instead of deregistering it.
+
+### Elementor 4.3.4 editor and admin top bar load Roboto from Google, ungated
+- Fact ID: F10
+- Value: `register_base_styles()` registers `google-font-roboto` = `https://fonts.googleapis.com/css?family=Roboto:300,400,500,700` with no condition, as a dependency of `elementor-editor` (core/editor/loader/editor-loader.php 475, 511); admin top bar enqueues `https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap` with no condition on Elementor admin screens (modules/admin-top-bar/module.php 41); Google Fonts setting `elementor_google_font`, Advanced tab, default '1' (Enable), read only in includes/fonts.php
+- Vantage point: n/a, source code
+- As of: Elementor 4.3.4, released 2026-10-05, tested to WordPress 7.1.3
+- Source: Elementor plugin zip, WordPress.org
+- URL: https://downloads.wordpress.org/plugin/elementor.4.3.4.zip
+- Verified 1: 2026-10-12, zip downloaded and read
+- Verified 2: 2026-10-12, zip downloaded again, both strings present
+- Used in: wp-admin-slow-china (A4)
+- Notes: Closes the ledger note of 11 September 2026 that called the ungated Roboto registration unverified.
+
+### MDN: CSS is render blocking
+- Fact ID: none
+- Value: "CSS is render blocking: the browser blocks page rendering until it receives and processes all the CSS."
+- Vantage point: n/a
+- As of: last modified 2025-02-25
+- Source: MDN Web Docs, Critical rendering path
+- URL: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Critical_rendering_path
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: none.
+
+### Cravatar: API format, fallback order, WordPress filter, operator
+- Fact ID: F4 (mirror half, corrected)
+- Value: requests at `https://cravatar.cn/avatar/HASH`; no Cravatar avatar → tries Gravatar, then QQ, then default; rating option not supported (API docs, modified 2024-09-29). WordPress integration: `get_avatar_url` filter replacing gravatar.com hosts with `cravatar.cn`, or the WPAvatar plugin (modified 2023-08-15). Operator 文派（广州）科技有限公司, 粤ICP备2023091240号-1; caches avatar originals on mainland servers (home page)
+- Vantage point: n/a, vendor documentation
+- As of: 2024-09-29 (API), 2023-08-15 (WordPress page), 2025-02-17 (home page)
+- Source: Cravatar (初认头像)
+- URL: https://cravatar.com/developer/api ; https://cravatar.com/developer/for-wordpress ; https://cravatar.cn/
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: No dated speed figure for any avatar mirror exists; the fact bank's 284ms, 33ms and 50ms were cut on 2026-10-12. cravatar.cn has no GreatFire test.
+
+### WPAvatar plugin status
+- Fact ID: none
+- Value: version 1.9.4, last updated 2025-09-13, tested up to 6.8.11, "Replace Gravatar with Cravatar"
+- Vantage point: n/a
+- As of: 2025-09-13
+- Source: WordPress.org plugin directory API
+- URL: https://api.wordpress.org/plugins/info/1.0/wpavatar.json
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: none.
+
+### WP-China-Yes closed on WordPress.org, continues as WPCY.COM
+- Fact ID: F8
+- Value: closed 2020-04-14, "Guideline Violation"; GitHub WenPai-org/wp-china-yes readme: stable 3.9.3, tested up to 7.1, improves mainland connections to WordPress.org, Gravatar and public front-end resources, mirror failure falls back to the original upstream, Cravatar
+- Vantage point: n/a
+- As of: 2020-04-14 (closure); readme last committed 2026-09-03
+- Source: WordPress.org plugin directory API; WenPai-org on GitHub
+- URL: https://api.wordpress.org/plugins/info/1.0/wp-china-yes.json ; https://raw.githubusercontent.com/WenPai-org/wp-china-yes/main/readme.txt
+- Verified 1: 2026-10-12
+- Verified 2: 2026-10-12
+- Used in: wp-admin-slow-china (A4)
+- Notes: The directory API answers HTTP 404 with the closure record in the body.
+
+### Reused in A4 with check 2 on 2026-10-12
+- F6 21YunBox Google Fonts pair (datacentre 28 August 2026, home line 30 August 2026): page re-read, figures unchanged.
+- F8 Meta Trac #5106 archive capture: re-fetched, quotes present.
+- F1 ajax.googleapis.com, GreatFire, last tested 2026-08-22: JSON re-read, unchanged.
+- F10 Elementor issue 32838 (Load Google Fonts Locally off by default): referenced in the fixes table only.
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)

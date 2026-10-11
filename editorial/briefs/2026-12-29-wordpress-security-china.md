@@ -70,6 +70,8 @@ tier-specific boxes for T1.
 
 **Links.** Up to `/wordpress-in-china/` and the Maintenance service page. Sideways to `wp-admin-slow-china` and the existing `baiduspider-firewall`.
 
+**On publish, add the link an earlier piece could not.** `wp-admin-slow-china` (A4, drafted 12 October 2026) wanted a sideways link to this guide and, because it did not exist yet, points its update-server reference at `is-wordpress-blocked-in-china` in all four locales (the sentence about patches that stop arriving, in the section on the update servers). The publish step of this piece repoints that link to this guide in en, fr, es and de, using this brief's localized slugs, and moves `updatedAt` on the four A4 files. If the anchor text has to change, the changed sentence goes through `/deep-translate` in the same run.
+
 **Metadata.**
 ```yaml
 title: "WordPress Security on a Mainland Server"
