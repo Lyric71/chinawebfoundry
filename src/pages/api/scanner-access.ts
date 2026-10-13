@@ -104,22 +104,9 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: t.sendFailed }), { status: 500, headers });
   }
 
-  // Follow-up to the lead, scheduled 1 hour out. A failure here is logged but never blocks the scan.
-  const followUp = buildFollowUp(name, website);
-  const { error: followUpError } = await resend.emails.send({
-    from: FOLLOW_UP_FROM,
-    to: email,
-    bcc: FOLLOW_UP_BCC,
-    replyTo: FOLLOW_UP_REPLY_TO,
-    subject: followUp.subject,
-    html: followUp.html,
-    text: followUp.text,
-    scheduledAt: new Date(Date.now() + FOLLOW_UP_DELAY_MS).toISOString(),
-  });
-
-  if (followUpError) {
-    console.error('Resend follow-up error:', followUpError);
-  }
+  // Follow-up to the lead, scheduled 1 hour out, sent once per email address however many
+  // scans it runs. A failure here is logged but never blocks the scan.
+  await sendFollowUpOnce(resend, email, name, website);
 
   return new Response(JSON.stringify({ success: true }), { status: 200, headers });
 };
@@ -129,6 +116,72 @@ const FOLLOW_UP_FROM = 'Cyril Drouin <cyril.drouin@thechinapath.com>';
 const FOLLOW_UP_REPLY_TO = 'cyril.drouin@outlook.com';
 const FOLLOW_UP_BCC = 'cyril.drouin@outlook.com';
 const FOLLOW_UP_DELAY_MS = 60 * 60 * 1000;
+
+// Every address that has been sent the follow-up is a contact in this Resend segment.
+// The segment is created on first use, so it needs no setup in the dashboard.
+const FOLLOW_UP_SEGMENT = 'China Site Scanner follow-up';
+
+async function sendFollowUpOnce(resend: Resend, rawEmail: string, name: string, website: string) {
+  const email = rawEmail.trim().toLowerCase();
+
+  const segmentId = await getFollowUpSegmentId(resend);
+  if (!segmentId) return;
+
+  // A lookup error other than "no such contact" skips the follow-up: a missed follow-up
+  // is better than a second copy.
+  const { data: memberships, error: lookupError } = await resend.contacts.segments.list({ email, limit: 100 });
+  const isContact = !lookupError;
+  if (lookupError && lookupError.name !== 'not_found') {
+    console.error('Resend follow-up lookup error:', lookupError);
+    return;
+  }
+  if (memberships?.data.some((segment) => segment.id === segmentId)) return;
+
+  const followUp = buildFollowUp(name, website);
+  const { error: sendError } = await resend.emails.send({
+    from: FOLLOW_UP_FROM,
+    to: email,
+    bcc: FOLLOW_UP_BCC,
+    replyTo: FOLLOW_UP_REPLY_TO,
+    subject: followUp.subject,
+    html: followUp.html,
+    text: followUp.text,
+    scheduledAt: new Date(Date.now() + FOLLOW_UP_DELAY_MS).toISOString(),
+  });
+  if (sendError) {
+    console.error('Resend follow-up error:', sendError);
+    return;
+  }
+
+  const { error: recordError } = isContact
+    ? await resend.contacts.segments.add({ email, segmentId })
+    : await resend.contacts.create({ email, firstName: name.split(/\s+/)[0], segments: [{ id: segmentId }] });
+  if (recordError) {
+    console.error('Resend follow-up record error:', recordError);
+  }
+}
+
+let followUpSegmentId: string | undefined;
+
+async function getFollowUpSegmentId(resend: Resend): Promise<string | null> {
+  if (followUpSegmentId) return followUpSegmentId;
+
+  const { data: segments, error: listError } = await resend.segments.list({ limit: 100 });
+  if (listError) {
+    console.error('Resend segment list error:', listError);
+    return null;
+  }
+
+  const existing = segments.data.find((segment) => segment.name === FOLLOW_UP_SEGMENT);
+  if (existing) return (followUpSegmentId = existing.id);
+
+  const { data: created, error: createError } = await resend.segments.create({ name: FOLLOW_UP_SEGMENT });
+  if (createError) {
+    console.error('Resend segment create error:', createError);
+    return null;
+  }
+  return (followUpSegmentId = created.id);
+}
 
 function buildFollowUp(name: string, website: string) {
   const site = website.replace(/^https?:\/\//i, '').replace(/\/+$/, '');
