@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-hosting-china.webp"
 order: 32
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-13
 reviewBy: 2026-12-29
 category: Hosting
 ---
@@ -87,7 +87,7 @@ The ports detail is ours: on our projects, that interception closes ports 80 and
 
 That's up to 22 working days on paper. Documents take time to gather and applications come back for corrections, so we plan three to six weeks, and that assumes the mainland entity already exists. Our [ICP filing guide](/resources/china-web-guide/icp-licence-filing-foreign-companies/) walks through the documents and the order they go in.
 
-A commercial ICP licence (ICP许可证) is a different instrument. You need it when the site itself earns money: e-commerce, paid content, paid software, advertising.
+A commercial ICP licence (ICP许可证) is a different instrument. You need it when users pay the site for information or online services, such as paid content or paid software. Where an online shop or advertising revenue falls on that line is a question for a licensed adviser.
 
 > The Shanghai Communications Administration (上海市通信管理局) commits to deciding on a value-added telecoms licence within 60 days of accepting the application.
 > Source: Shanghai Communications Administration, service guide, June 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
@@ -176,7 +176,7 @@ Teams that price only the server line are the ones renegotiating scope in month 
 | --- | --- | --- |
 | No mainland entity, need to launch now | Hong Kong | None |
 | Mainland entity, informational site | Alibaba, Tencent or Huawei mainland | ICP filing, 3 to 6 weeks |
-| Mainland entity, revenue on the site | Mainland, plus domestic payment rails | Commercial ICP licence, 12 to 18 weeks |
+| Mainland entity, users pay for content or services | Mainland, plus domestic payment rails | Commercial ICP licence, 12 to 18 weeks |
 | Global site, small China audience, no entity | Keep the origin abroad, fix dependencies first | None |
 
 That last row gets skipped most often, and it's frequently the right answer. If China is 3% of your traffic and there's no entity in sight, stripping the blocked dependencies out of the site you already have [recovers most of the available speed](/resources/china-web-guide/wordpress-speed-china/) for a fraction of what a mainland deployment costs.

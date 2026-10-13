@@ -1,66 +1,93 @@
 ---
 title: "Licencia ICP o registro Bei'an: no son lo mismo"
 subtitle: "Alojar un sitio en China continental obliga a tener un ICP, sin excepciones. El problema es que existen dos tipos, y confundirlos puede costar meses."
-summary: "Todo sitio alojado en China exige un ICP. El registro Bei'an se tramita sin dificultad, pero la licencia comercial impone una restricción de accionariado que cierra la puerta a la mayoría de las empresas extranjeras."
+summary: "Todo sitio en un servidor del continente necesita un registro ICP a nombre de una sociedad china. Los servicios de información de pago exigen además una licencia."
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-05-02
+updatedAt: 2026-10-13
 category: Legal
 ---
 
-Todo sitio alojado en un servidor de China continental necesita un registro ICP. Hasta aquí, la norma es sencilla. La trampa para las empresas extranjeras está en un detalle: hay dos tipos de ICP, con reglas muy distintas. El primero es rápido, prácticamente gratuito y accesible para casi cualquier sociedad extranjera. El segundo lleva meses, cuesta dinero e impone una restricción de accionariado que deja fuera a casi todas las empresas extranjeras. Confundir los dos, o prescindir de ellos, condena el sitio a páginas lentas, a un mal posicionamiento y a la desconfianza de los usuarios chinos, y por eso [una agencia que tramita expedientes ICP a diario](/es/agencia-wordpress-china/) vale más aquí que un presupuesto más barato.
+Todo sitio alojado en un servidor de China continental necesita un registro ICP. Hasta ahí, la norma es sencilla. Lo que confunde a las empresas extranjeras es que existen dos instrumentos distintos, con reglas muy diferentes. El registro ICP (ICP备案, que suele llamarse Bei'an) se aplica a todos los sitios y lo presenta una sociedad inscrita en el continente, papel que puede desempeñar su filial china. La licencia ICP (ICP许可证) cubre los servicios de información de pago, exige un examen formal y limita la participación extranjera al 50 %, salvo en unas pocas zonas piloto. Confundir los dos, o prescindir de ambos, cuesta meses, y por eso [una agencia que tramita expedientes ICP a diario](/es/agencia-wordpress-china/) vale aquí más que un presupuesto más barato.
 
 ## El ICP en breve
 
-| | ICP Bei'an (备案) | Licencia comercial ICP (经营性许可证) |
+| | Registro ICP (备案) | Licencia ICP (经营性许可证) |
 |---|---|---|
-| **Objeto** | Sitios no comerciales | Sitios que generan ingresos |
-| **Ejemplos** | Perfiles de empresa, blogs, contenidos educativos | Comercio electrónico, SaaS, publicidad, suscripciones |
-| **Quién puede solicitarlo** | Sociedades chinas, WFOE, particulares extranjeros con un representante en China | Sociedades de capital totalmente chino o empresas conjuntas con participación extranjera inferior al 50 % |
-| **Plazo** | 1 a 4 semanas | 2 a 6 meses |
-| **Coste** | Gratuito o gastos administrativos mínimos | 5.000 a más de 20.000 RMB |
+| **Objeto** | Servicios de información no comerciales | Servicios de información de pago |
+| **Ejemplos** | Sitios corporativos, blogs, fichas de producto | Contenidos de pago, suscripciones, servicios en línea de pago |
+| **Quién puede solicitarlo** | Una sociedad inscrita en el continente (una WFOE también) o un residente en el continente | Una sociedad china, con la participación extranjera limitada al 50 % fuera de las zonas piloto |
+| **Revisión oficial** | Revisión del proveedor en 1 a 2 días hábiles y, después, la provincial, por lo general de 1 a 20 días hábiles | Resolución dentro de los 60 días siguientes a la admisión de la solicitud |
+| **Tasas oficiales** | Ninguna, aunque el servidor sobre el que se presenta es de pago | Ninguna |
+| **Lo que planificamos** | De 3 a 6 semanas | De 12 a 18 semanas |
 
-## ICP Bei'an, la parte accesible
+## El registro ICP, el que sí se puede conseguir
 
-El Bei'an es la base obligatoria de todo sitio alojado en China continental, genere ingresos o no. Da lo mismo que sea un perfil de empresa, un blog, un sitio educativo o un catálogo de productos. Todos necesitan un Bei'an.
+El registro es la base. Todo sitio servido desde un servidor del continente lo necesita, genere ingresos o no. La norma que creó el sistema lo dice en dos frases.
 
-El trámite es bastante sencillo. Pueden pedirlo las sociedades chinas, las WFOE y los particulares extranjeros con un representante en China. El plazo va de una a cuatro semanas. En la mayoría de los casos, el proveedor de alojamiento se ocupa de las gestiones. El coste es nulo o casi nulo: algunos gastos administrativos, nada de miles de RMB.
+> Los servicios de información en internet de carácter comercial están sujetos a licencia, y los no comerciales, a registro. Sin licencia ni registro, nadie puede prestar servicios de información en internet.
+> Fuente: Consejo de Estado, Medidas para la Administración de los Servicios de Información en Internet (互联网信息服务管理办法), artículos 3 y 4, texto del 8 de enero de 2011, que la revisión del 6 de diciembre de 2024 no modificó. https://www.gov.cn/gongbao/content/2011/content_1860864.htm
 
-Para la mayoría de las empresas extranjeras que llegan a China con un sitio de presentación o un centro de contenidos, el Bei'an es el primer ICP. Y es la parte fácil del expediente.
+El círculo de quienes pueden presentarlo es más estrecho de lo que esperan muchas empresas extranjeras. La matriz no puede hacerlo desde el extranjero, y tampoco un particular extranjero que viva fuera de China.
 
-> El ICP Bei'an se resuelve en un plazo de una a cuatro semanas y apenas cuesta nada. El proveedor de alojamiento suele encargarse del trámite. La dificultad está en otra parte.
+> Para solicitar el registro ICP, la entidad debe ser una empresa inscrita en China continental o un residente en China continental. Las cuentas del portal internacional de Alibaba Cloud (alibabacloud.com) no admiten solicitudes de registro ICP.
+> Fuente: centro de ayuda de Alibaba Cloud, registro ICP para empresas situadas fuera de China continental, actualizado el 20 de agosto de 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland
 
-Lo que viene después es de otro orden.
+En la práctica, una empresa extranjera presenta el registro a través de su filial en el continente. La solicitud pasa por el proveedor que da acceso a la red al servidor, de modo que el trabajo se hace en la consola de ese proveedor.
 
-## Licencia comercial ICP, el cerrojo
+> La revisión propia de Alibaba Cloud dura entre 1 y 2 días hábiles. La de la Administración provincial de Comunicaciones (省级通信管理局), que viene después, suele llevar entre 1 y 20 días hábiles.
+> Fuente: centro de ayuda de Alibaba Cloud (阿里云), descripción del proceso de registro ICP, actualizado el 26 de agosto de 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-En cuanto el sitio genera ingresos, sea cual sea la forma (comercio electrónico, SaaS, publicidad, suscripciones o contenido de pago), la licencia comercial ICP se suma al Bei'an.
+Sobre el papel, son 22 días hábiles como máximo. Reunir los documentos lleva su tiempo y las solicitudes vuelven para corregirse, así que planificamos entre tres y seis semanas. El registro en sí no cuesta nada.
 
-La restricción de accionariado es lo que lo bloquea todo. Solo pueden pedir esta licencia las sociedades de capital totalmente chino, o las empresas conjuntas con participación extranjera por debajo del 50 %. Una empresa de capital totalmente extranjero queda fuera. Esa regla, por sí sola, fuerza una decisión que la mayoría de las empresas extranjeras no esperaba: buscar un socio local para una empresa conjunta, reestructurar el accionariado para bajar del umbral, o aceptar que ciertas actividades de pago no pueden operar legalmente desde un sitio alojado en China.
+> El registro ICP no tiene coste, pero exige un servidor en la nube compatible, y comprar ese servidor sí cuesta dinero.
+> Fuente: centro de ayuda de Alibaba Cloud (阿里云), preguntas sobre el registro ICP según el caso, actualizado el 23 de abril de 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/product-overview/faq-about-icp-filing-applications-in-different-scenarios
 
-> La licencia comercial ICP solo está abierta a sociedades de capital totalmente chino o a empresas conjuntas con participación extranjera por debajo del 50 %. Para la mayoría de las empresas extranjeras, ese es el verdadero obstáculo.
+## La licencia ICP, la que limita el capital extranjero
 
-El plazo va de dos a seis meses. El coste oscila entre 5.000 y más de 20.000 RMB, según la complejidad del expediente. Y una vez obtenida, mantenerla al día exige un seguimiento constante.
+Si su sitio cobra a los usuarios por información o por servicios en línea (contenidos de pago, suscripciones, servicios en línea de pago), necesita la licencia ICP además del registro. Dónde queda una tienda en línea o un producto de software respecto a esa línea es una pregunta para un asesor autorizado, y conviene hacerla antes de presentar el registro y no después.
 
-## Qué pasa cuando se omite el ICP
+Es en la regla de la propiedad donde se detiene la mayoría de las empresas extranjeras.
 
-Ante estas restricciones, algunas empresas prefieren alojar el sitio fuera de China. La idea es esquivar el papeleo, evitar las cuestiones de capital y hacer funcionar el sitio desde Singapur o Fráncfort. Parece razonable. Pero la factura es más alta de lo que parece.
+> La participación extranjera en los servicios de telecomunicaciones de valor añadido no puede superar el 50 %, salvo en el comercio electrónico, las comunicaciones multipartitas nacionales, los servicios de almacenamiento y reenvío y los centros de llamadas.
+> Fuente: Comisión Nacional de Desarrollo y Reforma y Ministerio de Comercio, Medidas Especiales de Gestión del Acceso de la Inversión Extranjera (lista negativa), edición de 2024, en vigor desde el 1 de noviembre de 2024. https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/202409/P020240907514493057643.pdf
 
-| Consecuencia | Impacto |
-|---|---|
-| **Velocidad de carga** | Más de un 200 % de lentitud para los usuarios chinos |
-| **Posicionamiento en Baidu** | El ICP es una señal de confianza; sin él, el posicionamiento se penaliza |
-| **Gran Cortafuegos** | Riesgo de bloqueo completo del sitio |
-| **Confianza de los usuarios** | El 78 % de los usuarios chinos prefiere los sitios con un ICP válido |
+Un programa piloto abrió en parte esa puerta en 2024, solo para categorías concretas.
 
-El primer problema es la velocidad. Un sitio alojado fuera de China continental carga un 200 % más lento para quienes navegan desde el país. La lentitud es tan evidente que los usuarios cierran la pestaña antes de que la página termine de cargar.
+> En las zonas piloto autorizadas (Pekín, la Nueva Zona de Lingang y Pudong dentro de la zona franca de Shanghái, el puerto franco de Hainan y Shenzhen), se elimina el límite a la participación extranjera para los IDC, los CDN, los ISP, el procesamiento de datos y de transacciones en línea, las plataformas de publicación y difusión de información (salvo noticias, edición en línea, audiovisual y cultura en internet) y los servicios de protección y tratamiento de la información.
+> Fuente: Ministerio de Industria y Tecnología de la Información (工业和信息化部), aviso 工信部通信函〔2024〕107号, 8 de abril de 2024. https://www.gov.cn/zhengce/zhengceku/202404/content_6944441.htm
 
-El segundo problema es el posicionamiento. Baidu trata el registro ICP como una señal de confianza. Sin ICP, competir en el primer buscador de China empieza con una desventaja que ninguna optimización de palabras clave compensa.
+La respuesta depende, por tanto, de dónde esté inscrita la sociedad y de la categoría a la que pertenezca el servicio. Una sociedad de capital totalmente extranjero situada fuera de las zonas piloto no puede obtener la licencia para un servicio de información corriente. Esa regla obliga a una decisión que pocas empresas extranjeras ven venir: una empresa conjunta, una reestructuración del accionariado o un sitio en el continente que no cobre por nada.
 
-El tercer riesgo es el Gran Cortafuegos. Un sitio alojado en el extranjero sin ICP puede quedar bloqueado, además de cargar despacio. No ocurre siempre, pero ocurre. Y es imposible prever cuándo o por qué.
+> La Administración resuelve una solicitud de licencia dentro de los 60 días siguientes a su admisión.
+> Fuente: Administración de Comunicaciones de Shanghái (上海市通信管理局), guía de la licencia de telecomunicaciones de valor añadido, 1 de junio de 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
 
-Queda la confianza. El 78 % de los usuarios chinos prefiere los sitios con un número ICP válido. Ese número va en el pie de página, y los usuarios se fijan en él. Un sitio sin ICP parece extranjero o poco profesional. No es la impresión que conviene dar a un cliente potencial.
+El expediente tiene que estar completo antes de que se admita, así que planificamos entre doce y dieciocho semanas. Esa cifra es nuestra, no de la Administración.
 
-> El 78 % de los usuarios chinos prefiere los sitios con un número ICP válido. Aparece en el pie de página, y lo comprueban.
+## Qué pasa si se prescinde del ICP
+
+En un servidor del continente, no hay manera de prescindir de él. El proveedor no abre el dominio y la Administración puede cerrar el sitio.
+
+> Conforme a las normas del MIIT, un dominio que apunta a un servidor de China continental debe completar su registro antes de que pueda abrirse el acceso al sitio.
+> Fuente: centro de ayuda de Alibaba Cloud (阿里云), qué hacer cuando un sitio no es accesible, actualizado el 4 de septiembre de 2026. https://help.aliyun.com/zh/dws/support/how-do-i-troubleshoot-the-failures-to-access-a-website-by-using-its-domain-name
+
+> El sitio que presta servicios de información no comerciales sin registro recibe de la autoridad provincial de telecomunicaciones la orden de regularizarse en un plazo determinado, y si se niega, la orden de cierre.
+> Fuente: Consejo de Estado, Medidas para la Administración de los Servicios de Información en Internet, artículo 19, texto del 8 de enero de 2011, que la revisión del 6 de diciembre de 2024 no modificó. https://www.gov.cn/gongbao/content/2011/content_1860864.htm
+
+Ante todo esto, algunas empresas optan por alojar fuera del continente, en Hong Kong, Singapur o Fráncfort. De ese modo se ahorran el registro. El precio es la frontera: cada petición de un visitante tiene que atravesar el Gran Cortafuegos, a la ida y a la vuelta.
+
+| Opción | ¿Registro ICP? | Lo que cuesta |
+|---|---|---|
+| **Servidor en el continente, con registro** | Sí | Semanas de trámites antes del lanzamiento |
+| **Servidor en el continente, sin registro** | No es posible | El proveedor mantiene cerrado el dominio |
+| **Servidor en Hong Kong o en el extranjero** | No | Cada petición cruza la frontera |
+
+> Chinafy analizó 614 sitios internacionales desde Pekín, Virginia y Londres: dos de cada tres no llegaron a cargar en China, y en Pekín el tiempo hasta el primer byte fue entre 4 y 4,5 veces mayor que en Estados Unidos o el Reino Unido.
+> Fuente: Chinafy, China Website Performance Benchmarks 2026, 14 de abril de 2026 (estudio publicado por un proveedor). https://www.chinafy.com/blog/china-website-performance-benchmarks-2026
+
+Una vez aprobado el registro, el número tiene que figurar en el sitio, por lo general en el pie de página, y no es opcional.
+
+> Tras la aprobación del registro, el sitio debe mostrar al pie de la página el número ICP asignado por el ministerio, con un enlace a beian.miit.gov.cn. Si falta, la Administración provincial de Comunicaciones puede ordenar que se corrija e imponer una multa de 5.000 a 10.000 yuanes.
+> Fuente: centro de ayuda de Alibaba Cloud (阿里云), cómo añadir el número de registro a un sitio, actualizado el 12 de agosto de 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/the-icp-record-post-processing-1

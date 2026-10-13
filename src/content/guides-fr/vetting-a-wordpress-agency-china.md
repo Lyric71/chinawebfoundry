@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-06
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -33,10 +33,10 @@ Nous partons ici du principe que vous avez lu notre guide de référence, La loc
 
 Trois raisons à cela, et chacune suffit à couler un lancement.
 
-D'abord, le dépôt. Tout site hébergé sur le continent exige un dépôt ICP, le Bei'an (备案), délivré par une antenne provinciale du ministère de l'Industrie et des Technologies de l'information (MIIT). Sans lui, pas d'hébergement continental légal, et Baidu boude l'indexation du site. Une agence générique n'y peut rien pour vous : la démarche réclame une entité enregistrée en Chine pour garantir le dossier et un hôte continental pour déposer les pièces. C'est une procédure administrative à part entière, rythmée par son propre calendrier.
+D'abord, le dépôt. Tout site hébergé sur le continent doit disposer d'un dépôt ICP, le Bei'an (备案), qui relève d'une antenne provinciale du ministère de l'Industrie et des Technologies de l'information (MIIT). Sans ce dépôt, le site ne peut pas être hébergé légalement sur le continent. Une agence généraliste ne peut pas s'en charger à votre place : il faut une entité immatriculée en Chine pour porter le dossier et un hébergeur continental pour le déposer. C'est une procédure administrative à part entière, avec son propre calendrier.
 
-> En Chine, le dépôt ICP (Bei'an) d'un site non commercial est instruit par l'autorité provinciale des communications dans un délai réglementaire de 20 jours ouvrés, et aboutit souvent plus vite.
-> Source : Mesures relatives à l'administration des services d'information sur Internet, MIIT.
+> Le dépôt ICP (Bei'an) d'un site non commercial est examiné par l'autorité provinciale des communications dans un délai réglementaire de 20 jours ouvrés, et aboutit souvent plus tôt.
+> Source : MIIT, Mesures relatives à la gestion du dépôt des services d'information non commerciaux sur Internet (非经营性互联网信息服务备案管理办法), article 12, dans leur version modifiée le 18 janvier 2024.
 
 Ensuite, le pare-feu. Une installation WordPress ordinaire, thème et extensions compris, appelle en silence Google Fonts, Google Maps, reCAPTCHA et souvent des scripts d'analyse ou de paiement hébergés hors de Chine. Certains sont purement et simplement bloqués. Google Fonts, lui, répond ou se tait selon le réseau du visiteur. Lorsqu'un appel reste lettre morte, la page n'affiche aucune erreur. Elle reste en suspens, à guetter une réponse qui ne viendra pas, le temps que votre visiteur vous range parmi les sites en panne. Une agence qui connaît le pare-feu héberge les polices en local, troque reCAPTCHA contre une solution conforme, remplace la carte et coupe la moindre dépendance étrangère avant la mise en ligne.
 

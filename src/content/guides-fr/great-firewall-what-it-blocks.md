@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-08
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -210,7 +210,7 @@ Le pare-feu ne se perce pas. On peut bâtir un site qui n'a pas besoin de le tra
 | Hébergement à Hong Kong | Solution intermédiaire, sans ICP |
 | Lucidité sur les VPN | Zone grise juridique, distinction entre usage professionnel et personnel |
 
-**Héberger en Chine continentale avec une licence ICP.** La voie la plus directe. Le site vit à l'intérieur du pare-feu plutôt que de batailler pour le franchir. Chargements les plus rapides, meilleurs classements Baidu, conformité totale. Pour qui s'engage sur le marché chinois, c'est la destination.
+**Héberger en Chine continentale avec un dépôt ICP.** La voie la plus nette. Le site vit à l'intérieur du pare-feu au lieu de batailler pour le franchir. Les requêtes restent dans le pays, Baiduspider explore le site sans passer la frontière, et la conformité est assurée. Pour qui s'engage sur le marché chinois, c'est là qu'il faut être.
 
 **Passer par un CDN chinois** pour mettre le contenu en cache sur des noeuds implantés en Chine continentale. Même avec un serveur d'origine hors du pays, un CDN doté de PoP continentaux sert les pages aux internautes chinois sans que chaque requête doive traverser le pare-feu.
 

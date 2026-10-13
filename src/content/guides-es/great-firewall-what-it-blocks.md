@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-08
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -210,7 +210,7 @@ Nadie va a perforar el Gran Cortafuegos. Lo sensato es construir un sitio que no
 | Alojamiento en Hong Kong | Solución intermedia, sin ICP |
 | Claridad sobre las VPN | Zona gris jurídica, con distinción entre uso profesional y personal |
 
-**Alojar el sitio en China continental con una licencia ICP** es la vía más directa. El sitio vive dentro del cortafuegos y no tiene que cruzarlo. Las páginas cargan más rápido. Baidu las posiciona mejor. El cumplimiento normativo queda resuelto. Para una empresa decidida a operar en China, esta es la opción de referencia.
+**Alojar el sitio en China continental con un registro ICP** es la vía más limpia. El sitio vive dentro del cortafuegos en lugar de pelear para atravesarlo: las peticiones se quedan en el país, Baiduspider lo rastrea sin cruzar la frontera y el cumplimiento normativo queda resuelto. Para una empresa decidida a operar en China, esta es la opción de referencia.
 
 **Recurrir a un CDN chino** permite guardar el contenido en caché en nodos de China continental. El servidor de origen puede estar fuera del país. Un CDN con nodos en el continente entrega igualmente las páginas, sin que cada petición cruce el cortafuegos.
 

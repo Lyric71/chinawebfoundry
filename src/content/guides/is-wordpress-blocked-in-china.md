@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-11
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -118,7 +118,7 @@ A site on default settings won't tell you it has stopped updating. It slips behi
 
 Self-hosted WordPress, the software you download from wordpress.org, is fine.
 
-WordPress.com, the hosted service Automattic runs, isn't wholesale blocked either, though nearly every guide says it is. The apex domain frequently resolves. What's blocked is a large share of what sits underneath it, including the Chinese-language properties and a great many individual user blogs.
+WordPress.com, the hosted service Automattic runs, isn't wholesale blocked either, though nearly every guide says it is. The apex domain frequently resolves. What's blocked or disrupted is a large share of what sits underneath it, a great many individual user blogs among them.
 
 For a company the distinction is academic, because there's a harder constraint underneath. You can't complete an ICP filing (ICP备案) for a domain whose hosting you don't control, and without a filing you can't legally serve from a mainland server. A WordPress.com site can't be made compliant, whether or not it happens to load today. Our [ICP filing guide](/resources/china-web-guide/icp-licence-filing-foreign-companies/) walks through what the paperwork asks for.
 

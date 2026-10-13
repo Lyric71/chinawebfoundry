@@ -1,16 +1,16 @@
 ---
 title: "Website Hosting in China: Where the Server Sits"
 subtitle: "For Chinese users, the difference between a site hosted in Shanghai and one hosted in Frankfurt comes down to whether your page loads at all."
-summary: "Where you host your China website affects speed, Baidu rankings and compliance. Compare mainland, Hong Kong and overseas hosting plus top cloud providers."
+summary: "Where your China website is hosted decides how it loads there and whether it needs an ICP filing. Mainland, Hong Kong and overseas compared."
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-05-01
+updatedAt: 2026-10-13
 category: Hosting
 ---
 
-Hosting is the most underestimated decision in any China web strategy, and it decides more about page speed than [anything you change inside a WordPress build](/wordpress-in-china/). Pick the wrong server location and your site takes five seconds to load, if it loads at all. Pick the wrong provider and you miss ecosystem integrations your competitors are already using. China's cloud market is dominated by local players, each one wired into a different part of the Chinese internet. The server location question comes down to three tiers with very different tradeoffs. And the CDN you choose here matters more than it does anywhere else in the world.
+Hosting is the most underestimated decision in any China web strategy, and it decides more about page speed than [anything you change inside a WordPress build](/wordpress-in-china/). Pick the wrong server location and your site crawls, if it loads at all. Pick the wrong provider and you miss ecosystem integrations your competitors are already using. China's cloud market is dominated by local players, each one wired into a different part of the Chinese internet. The server location question comes down to three tiers with very different tradeoffs. And the CDN you choose here matters more than it does anywhere else in the world.
 
 ## China's cloud providers
 
@@ -40,21 +40,21 @@ Companies that assume otherwise get surprised during setup.
 
 | | Mainland China | Hong Kong | Overseas (US/EU) |
 |---|---|---|---|
-| **Load time** | Under 1 second | 50 to 150ms latency | 300 to 500ms+ latency |
+| **Requests cross the border** | No | Yes | Yes |
 | **ICP required** | Yes | No | No |
-| **Baidu SEO boost** | Yes | No | No |
 | **PIPL compliance** | Yes | No | No |
 | **Great Firewall risk** | None | Low | High (packet loss + blocking) |
 
 Where your servers physically sit determines everything else - provider choice, CDN setup, Baidu strategy. Get this one wrong and nothing downstream fixes it.
 
-**Mainland China** is the right answer if you're serious about reaching Chinese users. Load times under one second. Baidu treats mainland hosting as a trust signal. PIPL compliance requires it. Yes, you need an ICP licence, but the Bei'an filing is manageable for most foreign companies. If your audience is in China, your servers need to be too.
+**Mainland China** is the right answer if you're serious about reaching Chinese users. Requests stay inside the country. PIPL compliance requires it. Yes, you need an ICP filing (ICP备案) first, and a company registered in the mainland to hold it. If your audience is in China, your servers need to be too.
 
-> Mainland-hosted sites load in under one second. Overseas-hosted sites hit 300 to 500ms before the Great Firewall even gets involved.
+> Chinafy tested 614 global websites from Beijing, Virginia and London. Two in three failed to load in China, and time to first byte was 4 to 4.5 times higher in Beijing than in the US or UK.
+> Source: Chinafy, China Website Performance Benchmarks 2026, 14 April 2026 (a vendor benchmark).
 
-**Hong Kong** works as a stepping stone. No ICP needed, latency to the mainland runs 50 to 150 milliseconds, and it's a reasonable option for companies testing the market before going through the full ICP process. Also decent for sites serving both Chinese and international audiences from one location. But don't kid yourself, it's a compromise. For anyone who wants to rank on Baidu or meet PIPL requirements, it's a stopgap.
+**Hong Kong** works as a stepping stone. No ICP needed, it sits next door to the mainland, and it's a reasonable option for companies testing the market before going through the full ICP process. Also decent for sites serving both Chinese and international audiences from one location. But don't kid yourself, it's a compromise. For a site whose audience is mainly in the mainland, it's a stopgap.
 
-And then there's **overseas hosting from the US or Europe.** This is what companies choose when they want to avoid the ICP process entirely. The tradeoff is rough. Latency hits 300 to 500 milliseconds minimum. The Great Firewall layers packet loss into the picture. And there's a genuine risk the site gets blocked altogether. No Baidu trust signal, no PIPL compliance, and load times so slow that most Chinese users will close the tab before your page finishes rendering. If you're hosting in Frankfurt to serve users in Shenzhen, you're losing them before they see your homepage.
+And then there's **overseas hosting from the US or Europe.** This is what companies choose when they want to avoid the ICP process entirely. The tradeoff is rough. Every request crosses the border, and the Great Firewall layers packet loss into the picture. And there's a genuine risk the site gets blocked altogether. No PIPL compliance, and load times slow enough that many visitors close the tab before your page finishes rendering. If you're hosting in Frankfurt to serve users in Shenzhen, you're losing them before they see your homepage.
 
 ## CDN providers that actually work in China
 

@@ -2055,6 +2055,262 @@ second time with a fresh fetch.
 - F1 ajax.googleapis.com, GreatFire, last tested 2026-08-22: JSON re-read, unchanged.
 - F10 Elementor issue 32838 (Load Google Fonts Locally off by default): referenced in the fixes table only.
 
+## A6 entries, 13 October 2026 (wordpress-icp-filing, and the live pages corrected with it)
+
+Check 1 for the entries marked "agent" was run in this session by a research
+subagent (curl and WebFetch, both methods); check 2 was a curl re-fetch in
+iteration 8 of /createarticle, same day, every quoted phrase present. Alibaba
+help-centre dates are the page's `lastModifiedTime` (Beijing time); Tencent
+dates are the page's 最近更新时间.
+
+### Commercial versus non-commercial internet information services (Order 292, art 3 and 4)
+- Fact ID: F26
+- Value: art 3 "经营性互联网信息服务，是指通过互联网向上网用户有偿提供信息或者网页制作等服务活动"; art 4 licence for commercial, filing for non-commercial, "未取得许可或者未履行备案手续的，不得从事互联网信息服务"
+- Vantage point: n/a
+- As of: text of 8 January 2011; the revision by State Council Order 797 (6 December 2024, in force 20 January 2025) changed only art 5
+- Source: State Council, 互联网信息服务管理办法 (gov.cn gazette 2011)
+- URL: https://www.gov.cn/gongbao/content/2011/content_1860864.htm
+- Verified 1: 2026-10-13 (08:41 attempt, check 1; and curl this attempt)
+- Verified 2: 2026-10-13, curl re-fetch, arts 3, 4, 5, 9 and 19 present
+- Used in: wordpress-icp-filing, icp-licence-filing-foreign-companies (en fr es de)
+- Notes: Cite as "text of 8 January 2011, which the revision of 6 December 2024 left unchanged". The live guide used to say "as revised on 8 January 2011", which ignored the 2024 revision; fixed in four locales on 2026-10-13.
+
+### Order 292 art 5 as revised: pre-approval before the filing
+- Fact ID: none
+- Value: "从事新闻、出版、教育等互联网信息服务，依照法律、行政法规以及国家有关规定须经有关主管部门审核同意的，在申请经营许可或者履行备案手续前，应当依法经有关主管部门审核同意。"; in force 2025年1月20日
+- Vantage point: n/a
+- As of: 6 December 2024 (State Council Order 797)
+- Source: State Council Order 797 (国务院令第797号), republished by the Ministry of Ecology and Environment
+- URL: https://www.mee.gov.cn/zcwj/gwywj/202412/t20241216_1098631.shtml
+- Verified 1: 2026-10-13, curl, item 十八 read
+- Verified 2: 2026-10-13, curl re-fetch, both phrases present
+- Used in: wordpress-icp-filing
+
+### Electronic bulletin services: art 9 still in the text, approval cancelled, MIIT rule repealed 2014
+- Fact ID: none
+- Value: Order 292 art 9 "拟开办电子公告服务的 ... 提出专项申请或者专项备案"; MIIT Order 28 (23 September 2014) repeals 《互联网电子公告服务管理规定》; MIIT's interpretation: the rule was built around the "互联网电子公告服务专项审批（备案）" item, repealed "根据国务院取消该审批项目的要求"
+- Vantage point: n/a
+- As of: 23 September 2014 (Order 28); interpretation published 30 October 2014
+- Source: gov.cn gazette 2014 No. 35; Changchun industry bureau republishing the MIIT policy department interview
+- URL: https://www.gov.cn/gongbao/content/2014/content_2792646.htm ; http://gxj.changchun.gov.cn/xxfb/zcjd/201410/t20141030_1011983.html
+- Verified 1: 2026-10-13, agent (Order 28 and NPPA copy of art 9)
+- Verified 2: 2026-10-13, curl re-fetch of both pages, phrases present
+- Used in: wordpress-icp-filing
+- Notes: Providers still list 电子公告类 as needing pre-approval (Alibaba rejection FAQ below). Print the disagreement; give no verdict on plain blog comments (no current page found).
+
+### MIIT Order 33 as amended 18 January 2024 (non-commercial filing measures)
+- Fact ID: F26
+- Value: art 5 no service without a filing, including IP-only sites; art 11 pre-approval and 电子公告 special filing; art 12 20 working days; art 13 number "在其网站开通时在主页底部的中央位置" with a link to the MIIT system; art 14 changes "提前三十日"; art 15 cancellation on the day service ends; art 20, 21 annual review (年度审核); art 22 unfiled service 10,000 yuan fine; art 25 missing link: order to correct, then 5,000 to 10,000 yuan
+- Vantage point: n/a
+- As of: amended by MIIT Order 68, 18 January 2024; page published 2 February 2024
+- Source: Ministry of Industry and Information Technology (工业和信息化部), 非经营性互联网信息服务备案管理办法
+- URL: https://www.miit.gov.cn/gyhxxhb/jgsj/cyzcyfgs/bmgz/xxtxl/art/2024/art_84a0cfa0ebd049bbbe751dca9a008e56.html
+- Verified 1: 2026-10-13, WebFetch
+- Verified 2: 2026-10-13, curl, full text read; re-fetched again in iteration 8
+- Used in: wordpress-icp-filing; vetting-a-wordpress-agency-china (art 12, citation confirmed)
+- Notes: No provider page says the annual review still runs; print "the measures still provide for an annual review", nothing more.
+
+### A first filing's site must be closed during review (Tencent Cloud)
+- Fact ID: F25 (extends)
+- Value: "新增备案 / 新增网站备案 审核期间不能访问，网站必须关闭或不能通过公网域名/IP 访问，否则无法通过管局核验，可能被驳回。"; "其他类型的备案需要删除域名解析"
+- Vantage point: n/a
+- As of: 21 August 2026
+- Source: Tencent Cloud (腾讯云) documentation 243/19650
+- URL: https://cloud.tencent.com/document/product/243/19650
+- Verified 1: 2026-10-13, agent (curl full sentence; WebFetch dropped the rejection clause)
+- Verified 2: 2026-10-13, curl re-fetch, both phrases present
+- Used in: wordpress-icp-filing
+- Notes: Supporting: Tencent faq 243/19637 (27 August 2024), "网站在办理首次备案或新增网站过程中，不允许上线访问". Corrects the A6 brief, which promised a "holding-page requirement".
+
+### No web service before the filing number (Alibaba Cloud)
+- Fact ID: F25
+- Value: "网站在未取得备案号之前不允许开通访问 ... 否则将被阿里云监测系统识别并阻断网站服务。"
+- Vantage point: n/a
+- As of: 23 September 2026
+- Source: Alibaba Cloud (阿里云) help centre, ICP filing FAQ (备案全生命周期管理FAQ)
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/support/faq-about-icp-filing-preparations
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch, phrases present
+- Used in: wordpress-icp-filing
+
+### Domain requirements for filing (Alibaba Cloud)
+- Fact ID: none
+- Value: suffix approved by MIIT; registrar approved; holder details match the filing entity; domains registered on alibabacloud.com must move to a mainland registrar and be real-name verified; more than 45 days before expiry
+- Vantage point: n/a
+- As of: 23 September 2026
+- Source: Alibaba Cloud (阿里云) help centre, 域名准备与检查
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/prepare-and-check-the-domain-name
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+
+### Website name rules (Alibaba Cloud)
+- Fact ID: none
+- Value: company site name "需由三个及以上汉字组成", no pure numbers, English or domain names, must match content; non-state bodies may not use 中国、中华、中央、人民、人大、国家; 博客、论坛、在线、社区、交流 need pre-approval; provincial extra words on the same page
+- Vantage point: n/a
+- As of: 21 September 2026
+- Source: Alibaba Cloud (阿里云) help centre, 填写网站信息
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/fill-in-website-information
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+
+### Pre-approval categories (Alibaba Cloud)
+- Fact ID: none
+- Value: news (互联网新闻信息服务许可证), publishing (网络出版服务许可证), drugs and medical devices (互联网药品信息服务资格证书), culture, film/TV/audiovisual, off-campus tutoring, ride-hailing, finance, religion; some regions ask for a 前置审批承诺书 when none applies
+- Vantage point: n/a
+- As of: 21 August 2026
+- Source: Alibaba Cloud (阿里云) help centre, 前置审批
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/pre-approvals
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing (pre-approval table)
+
+### Rejection reasons (Alibaba Cloud)
+- Fact ID: none
+- Value: filed site must show the filed name "在网站标签页与页面上方"; contact phone "电话不通或无人接听" is a rejection reason; pre-approval industries include 电子公告类 and 游戏类; a transfer is rejected when the filed site cannot be reached
+- Vantage point: n/a
+- As of: 7 July 2026
+- Source: Alibaba Cloud (阿里云) help centre, 备案驳回的常见原因和解决方案
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/support/for-the-record-to-dismiss-the-faq
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch, three phrases present
+- Used in: wordpress-icp-filing
+
+### Company content must match business scope (Tencent Cloud)
+- Fact ID: none
+- Value: "非个人备案：主办单位网站内容需是本公司网站，网站内容需符合公司经营范围"
+- Vantage point: n/a
+- As of: 23 July 2026
+- Source: Tencent Cloud (腾讯云) documentation 243/19644
+- URL: https://cloud.tencent.com/document/product/243/19644
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+
+### Filing is made where the server is (Tencent Cloud, "谁接入谁备案")
+- Fact ID: F9
+- Value: "不能，备案遵循 "谁接入谁备案" 的原则，您使用哪个接入商的服务器就需要在哪里备案。"
+- Vantage point: n/a
+- As of: 30 January 2026
+- Source: Tencent Cloud (腾讯云) documentation 243/19631
+- URL: https://cloud.tencent.com/document/product/243/19631
+- Verified 1: 2026-10-13, agent (curl and WebFetch)
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+
+### WordPress.com data-centre options
+- Fact ID: F9
+- Value: "Optimal data center, US West, US Central, US East, EU West"; no mainland option
+- Vantage point: n/a
+- As of: last reviewed 21 September 2026
+- Source: WordPress.com support, choose your site's primary data center
+- URL: https://wordpress.com/support/choose-your-sites-primary-data-center/
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+- Notes: "No mainland server" is read from the list; the page does not state it.
+
+### GreatFire: https://wordpress.com and the wordpress.com domain
+- Fact ID: F9 (corrected 2026-10-13)
+- Value: https://wordpress.com not blocked, "All 20 recent conclusive tests connected normally", revised verdict (refusals since late August 2026 no longer count); domain: 1,516 URLs tested, 230 blocked, 823 disrupted, 461 normal, 2 no conclusive result; https://zh.wordpress.com 1 of 2 disrupted (13 September 2026)
+- Vantage point: GreatFire mainland test network
+- As of: last tested 2026-10-11 (URL); most recent domain test 2026-10-13
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/wordpress.com ; https://en.greatfire.org/domain/wordpress.com
+- Verified 1: 2026-10-13, agent (curl and WebFetch)
+- Verified 2: 2026-10-13, curl re-fetch, phrases and counts present
+- Used in: wordpress-icp-filing; is-wordpress-blocked-in-china (en fr es de, sentence corrected)
+- Notes: Replaces the fact bank's "508 of 1,509 blocked, including the Chinese-language properties". GreatFire's domain page still labels the apex intermittent; cite the URL page with its revision note. reviewBy 2027-01-09 on the A6 draft.
+
+### Responsible person: ID documents and face check (Alibaba Cloud)
+- Fact ID: none
+- Value: "其他国家或地区居民：护照" accepted (required materials, 11 September 2026); "负责人资料需上传居民身份证并完成人脸验证" (upload and verification, 2 June 2026)
+- Vantage point: n/a
+- As of: 11 September 2026; 2 June 2026
+- Source: Alibaba Cloud (阿里云) help centre
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/required-materials ; https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/upload-data-and-authenticity-verification
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+- Notes: No page found on how a passport holder passes the face check; printed as such.
+
+### MIIT SMS verification within 24 hours (Alibaba Cloud)
+- Fact ID: none
+- Value: "请务必在 24 小时内完成短信核验。逾期需重新提交备案流程。"
+- Vantage point: n/a
+- As of: 17 September 2025
+- Source: Alibaba Cloud (阿里云) help centre, 工信部短信核验
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/sms-check
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch (twice)
+- Used in: wordpress-icp-filing
+
+### Empty-shell cancellation when access is withdrawn (Tencent Cloud)
+- Fact ID: none
+- Value: withdrawn access turns the record into "空壳网站/APP" which the regulator cancels; a dead phone number at a spot check can cancel a filing
+- Vantage point: n/a
+- As of: 3 February 2026
+- Source: Tencent Cloud (腾讯云) documentation 243/20220
+- URL: https://cloud.tencent.com/document/product/243/20220
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+
+### Public security filing number at the bottom of the homepage (Shenzhen PSB)
+- Fact ID: F26 (PSB half)
+- Value: "网站通过公安联网备案后，需在网站首页底部的显著位置悬挂公安联网备案号。"
+- Vantage point: n/a
+- As of: 10 June 2023
+- Source: Shenzhen Public Security Bureau (深圳市公安局)
+- URL: https://ga.sz.gov.cn/ZT/HLWSYSQ/CJWT/content/post_10642126.html
+- Verified 1: 2026-10-13, agent
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+- Notes: A city bureau, not the Ministry of Public Security; beian.mps.gov.cn is a script app with no dated text. The 30-day deadline stays on Alibaba's overview (26 August 2026).
+
+### Baidu Tongji: install the code before </head> on every page
+- Fact ID: F23 (refined 2026-10-13)
+- Value: "请将异步分析代码安装在标签</head>标记前"; "在网站的所有页面都安装代码"
+- Vantage point: n/a
+- As of: 22 September 2021 (holmes page); legacy page undated, same text
+- Source: Baidu Tongji (百度统计) help
+- URL: https://tongji.baidu.com/web/help/article?id=176&type=0
+- Verified 1: 2026-10-13, agent (curl, two URLs)
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: wordpress-icp-filing
+- Notes: Related: baidu-tongji-generator closed on WordPress.org 27 July 2023 (security issue); WPJAM Basic 7.1.2 (3 October 2026, 4,000+ installs) has a Tongji module.
+
+### ICP filing is free; the server is not (Alibaba Cloud)
+- Fact ID: F26
+- Value: "ICP 备案不收取费用，但 ICP 备案需要购买支持备案的云服务器，您在购买云服务器时会产生费用。"
+- Vantage point: n/a
+- As of: 23 April 2026
+- Source: Alibaba Cloud (阿里云) help centre, 不同场景下的备案常见问题
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/product-overview/faq-about-icp-filing-applications-in-different-scenarios
+- Verified 1: 2026-10-13 (08:41 attempt)
+- Verified 2: 2026-10-13, curl re-fetch, sentence present
+- Used in: wordpress-icp-filing, icp-licence-filing-foreign-companies (en fr es de)
+
+### Baidu render UA announcement, re-fetched for baidu-seo-ranking-in-china
+- Fact ID: F19
+- Value: 发布日期 2017-03-24; Baiduspider-render/2.0 fetches CSS, JavaScript and images, beta on selected sites from 24 March 2017
+- Vantage point: n/a
+- As of: 24 March 2017
+- Source: Baidu Search Resource Platform (百度搜索资源平台), 百度Spider新增渲染抓取UA公告
+- URL: https://ziyuan.baidu.com/wiki/990
+- Verified 1: 2026-10-01 (ledger, curl twice)
+- Verified 2: 2026-10-13, curl re-fetch
+- Used in: baidu-seo-ranking-in-china (en fr es de, new blockquote replacing "Baidu's crawler can't render it")
+
+### Reused in A6 and the corrected live pages with check 2 on 2026-10-13
+- F26 Alibaba 阿里云ICP备案流程概述 (26 August 2026): 1~2 and 1~20 working days, 公安备案 within 30 days, re-fetched.
+- F27 Alibaba international accounts EN (20 August 2026): re-fetched.
+- F25 Alibaba 域名/网站无法访问 (4 September 2026) and Alibaba footer number page (12 August 2026): reused in the ICP guide locales, unchanged since 2026-09-29.
+- F26 Shanghai CA licence guide (1 June 2015) "60日内完成审查工作": check 2 completed today (the 2026-09-24 entry owed it).
+- F26 MIIT 107 notice (8 April 2024) and NDRC negative list 2024 (50% cap, e-commerce carved out): re-fetched today, text present.
+- F31 Chinafy benchmark, posted 2026-04-14: re-fetched; 614 sites, "2 in 3 ... failed to load", TTFB "4 to 4.5x".
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)

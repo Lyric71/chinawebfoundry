@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-09
+updatedAt: 2026-10-13
 category: Search
 ---
 
@@ -41,23 +41,26 @@ Pour qui pratique le SEO Google depuis des années, plusieurs certitudes vont vo
 |---|---|---|
 | Correspondance exacte des mots-clés | Toujours très déterminante | Approche sémantique, fondée sur l'intention |
 | Balise meta keywords | Toujours prise en compte | Abandonnée depuis des années |
-| Licence ICP | Fort signal de confiance et de classement | Sans incidence |
-| Localisation de l'hébergement | Chine continentale = 200 % plus rapide, mieux classé | Moins déterminante |
+| Dépôt ICP | Indispensable pour héberger sur le continent, aucune règle de classement publiée | Sans incidence |
+| Localisation de l'hébergement | Un hébergement continental garde l'exploration et l'affichage à l'intérieur des frontières | Moins déterminante |
 | Fraîcheur du contenu | Fortement valorisée | Prise en compte, avec un poids moindre |
-| Domaine .cn | Favorisé par rapport aux TLD internationaux | Aucune préférence de TLD |
-| HTML face au JavaScript | HTML statique privilégié, les SPA posent problème | Bonne interprétation du JS |
+| Domaine .cn | Aucune préférence publiée par Baidu | Aucune préférence de TLD |
+| HTML face au JavaScript | Interprète le JS depuis 2017, couverture non publiée | Bonne interprétation du JS |
 | Liens entrants | Qualité ET quantité comptent | Priorité à la qualité |
 | Langue | 83 % et plus des pages de tête en chinois simplifié | Indexation multilingue |
 
 Plusieurs points méritent qu'on s'y arrête, surtout en arrivant du monde Google.
 
-**La licence ICP.** Un enregistrement officiel imposé à tout site hébergé sur des serveurs en Chine continentale. Baidu y voit un gage de légitimité. On peut, en théorie, être indexé sans ICP, mais le handicap initial est tel que toutes les autres optimisations ne le rattraperont pas.
+**Le dépôt ICP.** C'est l'enregistrement officiel que doit porter tout site installé sur un serveur en Chine continentale. Baidu ne publie aucune règle qui récompense un dépôt en tant que tel, et des sites hébergés à l'étranger sont bel et bien indexés. Il ouvre surtout le droit d'héberger sur le continent, et c'est là qu'intervient la ligne suivante.
 
-**L'hébergement.** Les pages servies depuis des serveurs physiquement installés en Chine continentale se chargent jusqu'à 200 % plus vite pour les utilisateurs locaux que celles hébergées en Allemagne ou en Virginie. L'écart est colossal. Sur Baidu, il peut séparer à lui seul la première page de l'invisibilité.
+**L'hébergement.** Sur un serveur continental, toutes les requêtes restent à l'intérieur des frontières, celles de Baiduspider comme celles du visiteur. Depuis l'Allemagne ou la Virginie, chacune doit franchir le Grand Pare-feu, et les pages qui calent en route offrent moins de prise à Baidu. Baidu ne dit pas quel poids il accorde à la vitesse dans son classement : voyez-y un risque que vous pouvez écarter.
 
-> Un site hébergé en Chine continentale charge jusqu'à 200 % plus vite pour les utilisateurs locaux. Ce facteur peut décider à lui seul de votre classement.
+**Le JavaScript.** Baidu interprète le JavaScript depuis 2017, année où il a annoncé un robot de rendu dédié, chargé de récupérer CSS, JavaScript et images.
 
-**Le JavaScript.** Un piège dans lequel bien des entreprises tombent sans s'en apercevoir. Si votre site est une application monopage sous React, Vue ou Angular, le robot de Baidu peine souvent à l'interpréter. Il arrive sur la page, ne voit rien, repart. Votre interface soignée pourrait aussi bien ne pas exister. Le HTML rendu côté serveur reste indispensable dès que le classement Baidu compte.
+> À partir du 24 mars 2017, Baidu Search a commencé à récupérer CSS, JavaScript et images avec un nouvel agent utilisateur de rendu, Baiduspider-render/2.0, d'abord sur un échantillon de sites.
+> Source : Baidu Search Resource Platform (百度搜索资源平台), annonce du nouvel agent de rendu, 24 mars 2017. https://ziyuan.baidu.com/wiki/990
+
+Baidu n'a en revanche jamais publié la part du web qu'il interprète, ni le temps qu'une page passe en file d'attente. Si votre site est une application monopage sous React, Vue ou Angular, le HTML rendu côté serveur lève cette inconnue. C'est le choix prudent dès que le classement Baidu compte.
 
 **La langue.** Plus de 83 % des pages les mieux positionnées sur Baidu sont rédigées en chinois simplifié. Du chinois natif, écrit par des humains, jamais un texte passé à la moulinette d'un traducteur. Baidu fait nettement la distinction.
 
@@ -97,9 +100,9 @@ Presque toutes les entreprises étrangères qui peinent sur Baidu reproduisent l
 
 **Google Translate pour le contenu.** Les algorithmes de Baidu repèrent le texte traduit automatiquement, et les lecteurs chinois le détectent encore plus vite. Des tournures artificielles tuent la confiance. Un client potentiel qui ferme la page dans les 5 premières secondes, sans qu'on sache jamais pourquoi.
 
-**Pas d'hébergement local.** Sans licence ICP ni serveurs en Chine continentale, les pages rament, ne portent aucun signal de confiance auprès de Baidu et s'enterrent dans les résultats. Sans doute l'erreur technique la plus fréquente chez les entreprises étrangères, et la plus coûteuse en visibilité perdue.
+**Pas d'hébergement local.** Sans dépôt ICP ni serveurs en Chine continentale, chaque requête franchit le Grand Pare-feu, et les pages qui calent en chemin font fuir les visiteurs et offrent moins de matière à Baiduspider. Sans doute l'erreur technique la plus fréquente chez les entreprises étrangères, et la plus coûteuse en visibilité perdue.
 
-**Trop de JavaScript.** La belle application monopage sur laquelle votre équipe technique a planché des mois ? Si le robot de Baidu ne parvient pas à la lire, autant ne pas avoir de site. Une page vide pour le crawler égale une indexation à zéro.
+**Trop de JavaScript.** La belle application monopage sur laquelle votre équipe technique a planché des mois ? Baidu interprète le JavaScript, mais n'a jamais dit dans quelle mesure ni à quel rythme. Si le contenu n'existe qu'une fois les scripts exécutés, vous misez votre indexation sur une file d'attente que Baidu ne documente pas.
 
 **Des liens vers des plateformes bloquées.** Facebook, YouTube, Twitter : tous coincés derrière le Grand Pare-feu. Chaque lien sortant vers ces services est une impasse pour les utilisateurs en Chine. Et un signal limpide envoyé à Baidu : votre contenu vise un autre public.
 

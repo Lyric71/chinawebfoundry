@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-hosting-china.webp"
 order: 32
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-13
 reviewBy: 2026-12-29
 category: Hosting
 ---
@@ -87,7 +87,7 @@ Das Detail zu den Ports stammt von uns: In unseren Projekten schließt diese Spe
 
 Auf dem Papier ergibt das höchstens 22 Arbeitstage. In der Praxis braucht das Zusammentragen der Unterlagen Zeit, und Anträge kommen zur Nachbesserung zurück. Wir planen deshalb drei bis sechs Wochen ein, vorausgesetzt, die Gesellschaft auf dem Festland besteht bereits. Unser [Leitfaden zur ICP-Registrierung](/de/ressourcen/china-web-leitfaden/icp-lizenz-auslaendische-unternehmen/) führt durch die Unterlagen und die Reihenfolge ihrer Einreichung.
 
-Die kommerzielle ICP-Lizenz (ICP许可证) ist ein eigenes Instrument. Nötig wird sie, sobald die Website selbst Geld verdient: E-Commerce, kostenpflichtige Inhalte, kostenpflichtige Software, Werbung.
+Die kommerzielle ICP-Lizenz (ICP许可证) ist ein eigenes Instrument. Nötig wird sie, sobald Nutzer die Website für Informationen oder Online-Dienste bezahlen, etwa für kostenpflichtige Inhalte oder Software. Wo ein Onlineshop oder eine werbefinanzierte Seite auf dieser Linie liegt, muss ein zugelassener Berater klären.
 
 > Die Kommunikationsverwaltung Shanghai (上海市通信管理局) sagt zu, über eine Lizenz für Mehrwert-Telekommunikationsdienste innerhalb von 60 Tagen nach Annahme des Antrags zu entscheiden.
 > Quelle: Kommunikationsverwaltung Shanghai, Verfahrensleitfaden, Juni 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
@@ -176,7 +176,7 @@ Teams, die nur die Serverzeile kalkulieren, verhandeln im vierten Monat über de
 | --- | --- | --- |
 | Keine Gesellschaft auf dem Festland, Start muss jetzt sein | Hongkong | Keine |
 | Gesellschaft vorhanden, informative Website | Alibaba, Tencent oder Huawei auf dem Festland | ICP-Registrierung, 3 bis 6 Wochen |
-| Gesellschaft vorhanden, Umsatz auf der Website | Festland, dazu inländische Zahlungswege | Kommerzielle ICP-Lizenz, 12 bis 18 Wochen |
+| Gesellschaft vorhanden, Nutzer zahlen für Inhalte oder Dienste | Festland, dazu inländische Zahlungswege | Kommerzielle ICP-Lizenz, 12 bis 18 Wochen |
 | Globale Website, kleines China-Publikum, keine Gesellschaft | Ursprung im Ausland lassen, zuerst die Abhängigkeiten bereinigen | Keine |
 
 Die letzte Zeile wird am häufigsten übersprungen und ist oft die richtige Antwort. Wenn China 3 % Ihres Verkehrs ausmacht und keine Gesellschaft in Sicht ist, holt das Entfernen der blockierten Abhängigkeiten aus der bestehenden Website [den größten Teil des möglichen Tempos](/de/ressourcen/china-web-leitfaden/wordpress-geschwindigkeit-china/) heraus, zu einem Bruchteil der Kosten eines Festland-Deployments.

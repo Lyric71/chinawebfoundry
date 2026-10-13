@@ -1,16 +1,16 @@
 ---
 title: "Hosting in China: der Serverstandort entscheidet"
 subtitle: "Für chinesische Nutzer liegt zwischen einem Server in Shanghai und einem in Frankfurt nicht eine Frage von Millisekunden, sondern die Frage, ob die Seite überhaupt erscheint."
-summary: "Wo Sie Ihre China-Website hosten, bestimmt Geschwindigkeit, Baidu-Ranking und Rechtskonformität. Vergleich von Festland, Hongkong und Ausland samt Überblick über die führenden Cloud-Anbieter."
+summary: "Der Serverstandort entscheidet, wie eine Website in China lädt und ob sie eine ICP-Registrierung braucht. Festland, Hongkong und Ausland im Vergleich."
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-05-01
+updatedAt: 2026-10-13
 category: Hosting
 ---
 
-In jeder China-Strategie für das Web ist das Hosting die am stärksten unterschätzte Entscheidung, und es wiegt für die Ladezeit schwerer als [alles, was Sie an einer WordPress-Installation drehen](/de/wordpress-in-china/). Steht der Server am falschen Ort, braucht die Seite fünf Sekunden zum Laden, sofern sie überhaupt lädt. Wählen Sie den falschen Anbieter, entgehen Ihnen Integrationen ins lokale Ökosystem, die Ihre Wettbewerber längst nutzen. Der chinesische Cloud-Markt wird von einheimischen Akteuren beherrscht, von denen jeder an einen anderen Teil des chinesischen Internets angeschlossen ist. Beim Serverstandort selbst geht es um drei Stufen mit sehr unterschiedlichen Abwägungen. Und das CDN wiegt hier schwerer als irgendwo sonst auf der Welt.
+In jeder China-Strategie für das Web ist das Hosting die am stärksten unterschätzte Entscheidung, und es wiegt für die Ladezeit schwerer als [alles, was Sie an einer WordPress-Installation drehen](/de/wordpress-in-china/). Steht der Server am falschen Ort, quält sich die Seite, wenn sie denn überhaupt lädt. Wählen Sie den falschen Anbieter, entgehen Ihnen Integrationen ins lokale Ökosystem, die Ihre Wettbewerber längst nutzen. Der chinesische Cloud-Markt wird von einheimischen Akteuren beherrscht, von denen jeder an einen anderen Teil des chinesischen Internets angeschlossen ist. Beim Serverstandort selbst geht es um drei Stufen mit sehr unterschiedlichen Abwägungen. Und das CDN wiegt hier schwerer als irgendwo sonst auf der Welt.
 
 ## Chinas Cloud-Anbieter
 
@@ -40,21 +40,21 @@ Unternehmen, die etwas anderes annehmen, erleben bei der Einrichtung eine Überr
 
 | | Festlandchina | Hongkong | Ausland (USA/EU) |
 |---|---|---|---|
-| **Ladezeit** | unter 1 Sekunde | 50 bis 150 ms Latenz | 300 bis 500 ms und mehr Latenz |
+| **Anfragen gehen über die Grenze** | Nein | Ja | Ja |
 | **ICP erforderlich** | Ja | Nein | Nein |
-| **Baidu-SEO-Vorteil** | Ja | Nein | Nein |
 | **PIPL-Konformität** | Ja | Nein | Nein |
 | **Risiko durch die Große Firewall** | Keines | Gering | Hoch (Paketverluste plus Sperren) |
 
 Wo Ihre Server physisch stehen, bestimmt alles Weitere: die Wahl des Anbieters, die Einrichtung des CDN, die Baidu-Strategie. Ist diese eine Entscheidung falsch, lässt sich danach nichts mehr ausbügeln.
 
-**Festlandchina** ist die richtige Antwort, wenn es Ihnen ernst damit ist, chinesische Nutzer zu erreichen. Die Ladezeiten liegen unter einer Sekunde. Baidu wertet Hosting auf dem Festland als Vertrauenssignal. Die PIPL-Konformität setzt es voraus. Ja, Sie brauchen eine ICP-Lizenz, doch die Bei'an-Registrierung ist für die meisten ausländischen Unternehmen gut zu bewältigen. Sitzt Ihr Publikum in China, müssen Ihre Server es ebenfalls tun.
+**Festlandchina** ist die richtige Wahl, wenn Sie chinesische Nutzer ernsthaft erreichen wollen. Die Anfragen verlassen das Land nicht, und die PIPL verlangt ohnehin ein solches Hosting. Zuvor ist allerdings die ICP-Registrierung (ICP备案) fällig, und zwar auf den Namen eines auf dem Festland eingetragenen Unternehmens. Sitzt Ihr Publikum in China, gehören auch Ihre Server dorthin.
 
-> Auf dem Festland gehostete Seiten laden in unter einer Sekunde. Im Ausland gehostete Seiten brauchen 300 bis 500 ms, bevor die Große Firewall überhaupt ins Spiel kommt.
+> Chinafy hat 614 internationale Websites von Peking, Virginia und London aus getestet: Zwei von drei luden in China nicht, und die Zeit bis zum ersten Byte war in Peking 4- bis 4,5-mal so lang wie in den USA oder Großbritannien.
+> Quelle: Chinafy, China Website Performance Benchmarks 2026, 14. April 2026 (Benchmark eines Anbieters).
 
-**Hongkong** taugt als Zwischenschritt. Keine ICP nötig, die Latenz zum Festland liegt bei 50 bis 150 Millisekunden, und für Unternehmen, die den Markt vor dem vollständigen ICP-Verfahren erst einmal testen wollen, ist das eine vertretbare Option. Auch für Seiten, die ein chinesisches und ein internationales Publikum von einem einzigen Standort aus bedienen, taugt Hongkong durchaus. Aber machen Sie sich nichts vor, es ist ein Kompromiss. Für alle, die auf Baidu ranken oder die PIPL-Vorgaben erfüllen wollen, ist es eine Notlösung.
+**Hongkong** taugt als Zwischenschritt. Eine ICP-Registrierung ist dort nicht nötig, das Festland liegt gleich nebenan, und für Unternehmen, die den Markt vor dem vollständigen ICP-Verfahren erst testen wollen, ist das eine vertretbare Option. Auch wer ein chinesisches und ein internationales Publikum von einem einzigen Standort aus bedienen will, ist hier nicht schlecht aufgehoben. Ein Kompromiss bleibt es trotzdem: Für eine Website, deren Publikum überwiegend auf dem Festland sitzt, ist Hongkong eine Notlösung.
 
-Schließlich gibt es **das Hosting im Ausland, aus den USA oder Europa.** Dafür entscheiden sich Unternehmen, die das ICP-Verfahren ganz umgehen wollen. Der Preis dafür ist happig. Die Latenz erreicht mindestens 300 bis 500 Millisekunden. Die Große Firewall packt obendrein Paketverluste auf das Bild. Und es besteht das ganz reale Risiko, dass die Seite vollständig gesperrt wird. Kein Vertrauenssignal bei Baidu, keine PIPL-Konformität, dazu Ladezeiten, die so lahm sind, dass die meisten chinesischen Nutzer den Tab schließen, bevor Ihre Seite fertig aufgebaut ist. Wer in Frankfurt hostet, um Nutzer in Shenzhen zu bedienen, verliert sie schon, bevor sie die Startseite sehen.
+Schließlich gibt es **das Hosting im Ausland, aus den USA oder Europa.** Dafür entscheiden sich Unternehmen, die das ICP-Verfahren ganz umgehen wollen. Der Preis dafür ist happig. Jede Anfrage muss über die Grenze, die Große Firewall sorgt zusätzlich für Paketverluste, und das Risiko einer vollständigen Sperre ist durchaus real. Die PIPL lässt sich so nicht einhalten, und die Ladezeiten sind so lang, dass viele Besucher den Tab schließen, bevor Ihre Seite steht. Wer in Frankfurt hostet, um Nutzer in Shenzhen zu bedienen, verliert sie schon, bevor sie die Startseite sehen.
 
 ## CDN-Anbieter, die in China tatsächlich funktionieren
 

@@ -77,6 +77,7 @@ export const guideSlugs: Record<string, Trans> = {
   'wordpress-speed-china': { fr: 'vitesse-wordpress-chine', es: 'velocidad-wordpress-china', de: 'wordpress-geschwindigkeit-china' },
   'migrate-wordpress-to-china': { fr: 'migrer-wordpress-vers-chine', es: 'migrar-wordpress-a-china', de: 'wordpress-nach-china-migrieren' },
   'wp-admin-slow-china': { fr: 'wp-admin-lent-chine', es: 'wp-admin-lento-china', de: 'wp-admin-langsam-china' },
+  'wordpress-icp-filing': { fr: 'wordpress-licence-icp', es: 'wordpress-licencia-icp', de: 'wordpress-icp-antrag' },
   // Baidu series. Product names (Merchant Center, Aicaigou, Baiduspider) keep their English slug.
   'baidu-search-resource-platform': { fr: 'plateforme-ressources-recherche-baidu', es: 'plataforma-recursos-busqueda-baidu', de: 'baidu-suchressourcen-plattform' },
   'baidu-account-ownership': { fr: 'proprietaire-compte-baidu', es: 'propiedad-cuenta-baidu', de: 'baidu-konto-eigentum' },

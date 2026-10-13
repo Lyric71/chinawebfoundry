@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-08
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -210,7 +210,7 @@ You can't punch through the firewall. But you can build so your site doesn't nee
 | Hong Kong hosting | Middle ground, no ICP needed |
 | VPN awareness | Legal grey area, corporate vs. consumer distinction |
 
-**Host in mainland China with an ICP licence.** This is the cleanest path. Site lives inside the firewall instead of fighting through it. Fastest loads, best Baidu rankings, full compliance. If you're committed to the Chinese market this is where you want to be.
+**Host in mainland China with an ICP filing.** This is the cleanest path. Site lives inside the firewall instead of fighting through it. Requests stay in the country, Baiduspider crawls without crossing the border, and the site is compliant. If you're committed to the Chinese market this is where you want to be.
 
 **Use a China CDN** to cache content at edge nodes inside mainland China. Even with an origin server sitting outside the country, a CDN with mainland PoPs serves cached pages to Chinese users without every request having to fight through the firewall.
 

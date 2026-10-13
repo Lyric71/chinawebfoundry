@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-hosting-china.webp"
 order: 32
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-13
 reviewBy: 2026-12-29
 category: Hosting
 ---
@@ -87,7 +87,7 @@ El dato de los puertos es nuestro: en nuestros proyectos, esa interceptación ci
 
 Sobre el papel, son 22 días hábiles como máximo. Pero reunir la documentación lleva tiempo y hay expedientes que vuelven para subsanar defectos, así que calculamos de tres a seis semanas, siempre que la entidad continental ya exista. Nuestra [guía del registro ICP](/es/recursos/guia-web-china/licencia-icp-empresas-extranjeras/) detalla los documentos necesarios y el orden en que deben presentarse.
 
-La licencia ICP comercial (ICP许可证) es un instrumento distinto, necesario cuando el propio sitio genera ingresos: comercio electrónico, contenidos de pago, software de pago, publicidad.
+La licencia ICP comercial (ICP许可证) es un instrumento distinto: hace falta cuando los usuarios pagan al sitio por información o por servicios en línea, como contenidos o software de pago. Dónde queda una tienda en línea o un sitio que vive de la publicidad es una pregunta para un asesor autorizado.
 
 > La Administración de Comunicaciones de Shanghái (上海市通信管理局) se compromete a resolver sobre una licencia de telecomunicaciones de valor añadido en un plazo de 60 días desde la admisión de la solicitud.
 > Fuente: Administración de Comunicaciones de Shanghái, guía de trámites, junio de 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
@@ -176,7 +176,7 @@ Los equipos que solo cifran la línea del servidor son los que renegocian el alc
 | --- | --- | --- |
 | Sin entidad continental, hay que lanzar ya | Hong Kong | Ninguno |
 | Entidad continental, sitio informativo | Alibaba, Tencent o Huawei en el continente | Registro ICP, de 3 a 6 semanas |
-| Entidad continental, ingresos en el sitio | Continente, más medios de pago domésticos | Licencia ICP comercial, de 12 a 18 semanas |
+| Entidad continental, usuarios que pagan contenidos o servicios | Continente, más medios de pago domésticos | Licencia ICP comercial, de 12 a 18 semanas |
 | Sitio global, audiencia china pequeña, sin entidad | Mantener el origen fuera y arreglar antes las dependencias | Ninguno |
 
 Esa última fila es la que más se salta, y con frecuencia es la respuesta correcta. Si China representa el 3 % de su tráfico y no hay ninguna entidad a la vista, retirar las dependencias bloqueadas del sitio que ya tiene [recupera la mayor parte de la velocidad disponible](/es/recursos/guia-web-china/velocidad-wordpress-china/) por una fracción de lo que cuesta un despliegue continental.

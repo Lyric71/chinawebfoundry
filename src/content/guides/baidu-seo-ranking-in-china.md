@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
 publishedAt: 2026-03-31
-updatedAt: 2026-10-09
+updatedAt: 2026-10-13
 category: Search
 ---
 
@@ -41,23 +41,26 @@ If you've been doing Google SEO for any length of time, prepare to have some of 
 |---|---|---|
 | Exact-match keywords | Still heavily relied on | Semantic, intent-based |
 | Meta keywords tag | Still a ranking factor | Abandoned years ago |
-| ICP licence | Major trust and ranking boost | Not a factor |
-| Hosting location | Mainland China = 200% faster, ranks better | Less location-dependent |
+| ICP filing | Needed to host in the mainland, no published ranking rule | Not a factor |
+| Hosting location | Mainland hosting keeps crawling and page loads inside the border | Less location-dependent |
 | Content freshness | Heavily favoured | Matters, but less weight |
-| .cn domain | Preferred over international TLDs | No TLD preference |
-| HTML vs. JavaScript | Plain HTML preferred, struggles with SPA | Renders JS well |
+| .cn domain | No published Baidu preference | No TLD preference |
+| HTML vs. JavaScript | Renders JS since 2017, coverage unpublished | Renders JS well |
 | Backlinks | Quality AND quantity matter | Quality over quantity |
 | Language | 83%+ top pages in Simplified Chinese | Multilingual indexing |
 
 A few of these hit harder than others when you're coming from a Google background, so let me expand on those.
 
-**ICP licence.** This is a government-issued registration for any website hosted on mainland Chinese servers. Baidu treats it as a legitimacy indicator. You can get indexed without one - technically - but you're starting from so far behind that it almost doesn't matter what else you do right.
+**ICP filing.** This is the government record every website on a mainland Chinese server must carry. Baidu publishes no rule that rewards a filing as such, and offshore sites do get indexed. What the filing buys you is the right to host inside the mainland, which is where the next row comes in.
 
-**Hosting.** Pages served from servers physically located in mainland China load up to 200% faster for Chinese users than pages coming from, say, Germany or Virginia. That speed gap is enormous. On Baidu it can be the difference between page one and page nowhere.
+**Hosting.** A site on a mainland server keeps every request inside the border, for Baiduspider and for the visitor. A site in Germany or Virginia sends every one of them across the Great Firewall, and pages that stall on the way give Baidu less to work with. Baidu doesn't publish how much speed weighs in its ranking, so treat this as a risk you can remove.
 
-> Sites hosted in mainland China load up to 200% faster for users in China. That alone can determine whether you rank or you don't.
+**JavaScript.** Baidu has rendered JavaScript since 2017, when it announced a dedicated rendering crawler to fetch CSS, JavaScript and images.
 
-**JavaScript.** Here's where a lot of companies get burned without realising it. If your site is a single-page application running on React, Vue, Angular - Baidu's crawler often just can't render it. The crawler hits the page, sees nothing, moves on. Your beautiful frontend might as well not exist. Stick with server-rendered HTML if Baidu rankings matter to you.
+> From 24 March 2017, Baidu Search began fetching CSS, JavaScript and images with a new rendering user agent, Baiduspider-render/2.0, starting with a sample of sites.
+> Source: Baidu Search Resource Platform (百度搜索资源平台), announcement of the new rendering crawl UA, 24 March 2017. https://ziyuan.baidu.com/wiki/990
+
+What Baidu has never published is how much of the web it renders, or how long a page waits in the queue. If your site is a single-page application on React, Vue or Angular, server-rendered HTML takes that unknown off the table. It's the defensive choice when Baidu rankings matter to you.
 
 **Language.** 83%+ of top-ranking Baidu pages are in Simplified Chinese. And I mean written natively in Simplified Chinese. Translation tools don't get you there. There's a noticeable gap in how Baidu treats the two.
 
@@ -97,9 +100,9 @@ Nearly every foreign company that struggles with Baidu is making some version of
 
 **Google Translate for content.** Baidu's algorithms pick up on machine-translated text, and Chinese readers pick up on it even faster. Unnatural phrasing destroys trust. It's the kind of thing where a potential customer bounces in the first five seconds and you never know why.
 
-**No local hosting.** Without an ICP licence and servers in mainland China, your pages load slow, carry no trust indicator with Baidu, and get buried in results. This is probably the single most common technical mistake foreign companies make, and also the most expensive one in terms of lost visibility.
+**No local hosting.** Without an ICP filing and servers in mainland China, every request crosses the Great Firewall, and pages that stall on the way lose visitors and give Baiduspider less to crawl. This is probably the single most common technical mistake foreign companies make, and also the most expensive one in terms of lost visibility.
 
-**Too much JavaScript.** That polished SPA your dev team spent months building? If Baidu's crawler can't render it, it's the same as having no website at all. A blank page to the crawler means zero indexing.
+**Too much JavaScript.** That polished SPA your dev team spent months building? Baidu renders JavaScript, but it has never said how much or how fast. If the content only exists after scripts run, you're betting your indexing on a queue Baidu doesn't document.
 
 **Links to blocked platforms.** Facebook, YouTube, Twitter - all blocked behind the Great Firewall. Every outbound link pointing to them is a dead end for any user in China. And it's a fairly clear indication to Baidu that your content was made for a different audience.
 

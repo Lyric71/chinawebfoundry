@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-08
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -210,7 +210,7 @@ Durch die Firewall durchschlagen können Sie nicht, doch Sie können so bauen, d
 | Hosting in Hongkong | Mittelweg, keine ICP nötig |
 | VPN-Bewusstsein | rechtliche Grauzone, Unterschied zwischen Firmen- und Verbrauchernutzung |
 
-**Hosten Sie in Festlandchina mit einer ICP-Lizenz.** Das ist der sauberste Weg. Die Seite lebt innerhalb der Firewall, statt sich durch sie zu kämpfen. Schnellste Ladezeiten, beste Baidu-Rankings, vollständige Konformität. Wenn Sie sich dem chinesischen Markt verschrieben haben, ist das der Ort, an dem Sie sein wollen.
+**Hosten Sie in Festlandchina mit einer ICP-Registrierung.** Das ist der sauberste Weg. Die Seite lebt innerhalb der Firewall, statt sich durch sie zu kämpfen: Die Anfragen bleiben im Land, Baiduspider crawlt ohne Umweg über die Grenze, und die Vorschriften sind erfüllt. Wenn Sie sich dem chinesischen Markt verschrieben haben, gehören Sie dorthin.
 
 **Setzen Sie ein China-CDN ein,** um Inhalte an Edge-Knoten innerhalb von Festlandchina zwischenzuspeichern. Selbst wenn Ihr Ursprungsserver außerhalb des Landes steht, liefert ein CDN mit PoPs auf dem Festland zwischengespeicherte Seiten an chinesische Nutzer aus, ohne dass jede Anfrage sich durch die Firewall kämpfen muss.
 

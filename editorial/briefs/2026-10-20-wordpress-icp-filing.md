@@ -11,7 +11,7 @@ title: "ICP Filing for a WordPress Site"
 suggested_category: Legal
 locales_at_publish: en fr es de
 facts: [F9, F23, F25, F26, F27]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -52,16 +52,16 @@ tier-specific boxes for T1.
 | **Incumbent** | AppInChina owns the generic ICP cluster. This one is narrower and winnable. |
 | **Length** | 1,400 words |
 
-**Angle.** Do not rewrite the generic ICP explainer; the site already has one at `icp-licence-filing-foreign-companies` and AppInChina owns the head term. Write the WordPress-specific half nobody covers: what the filing asks of the site itself, the holding-page requirement, what has to come off the site before review, and the sequencing against a WordPress build.
+**Angle.** Do not rewrite the generic ICP explainer; the site already has one at `icp-licence-filing-foreign-companies` and AppInChina owns the head term. Write the WordPress-specific half the generic guides leave out: what the filing asks of the site itself, the rule that a first filing's site stays dark during review, what has to come off the site before review, and the sequencing against a WordPress build. (Corrected 13 October 2026: this angle used to promise a "holding-page requirement". No provider or regulator page states one. Tencent Cloud says a site under a first or new-site filing must be closed or unreachable by its public domain or IP, with the DNS record removed, or the regulator's check can reject it (documentation 243/19650, 21 August 2026); Alibaba Cloud says an unfiled site may not open web service at all and its monitoring blocks it (23 September 2026). A holding page on the mainland server is therefore what not to do.)
 
 **Facts.** F26 (filing versus licence), F25, F27, F9, F23.
 
 **Outline.**
 1. Filing or licence, decided by whether the site takes money (F26)
 2. What the filing needs from the site, not from the company
-3. The holding page, and what cannot be live during review
+3. Dark during review: no holding page, and what cannot be live while the filing is examined
 4. Why WordPress.com cannot be filed (F9)
-5. The Chinese-language console, and who on your side owns it (F27)
+5. The China-site console, and who on your side owns it (F27; corrected 13 October 2026: "Chinese-language console" is on no Alibaba page, see F27)
 6. After approval: the footer number, the PSB filing, the annual obligations
 7. Frequently asked
 
@@ -74,8 +74,8 @@ tier-specific boxes for T1.
 **Metadata.**
 ```yaml
 title: "ICP Filing for a WordPress Site"
-description: "What the filing asks of the site rather than the company: the holding page, what must come down for review, and where it sits in a build."
-excerpt: "The WordPress-specific half of the ICP filing, which the general guides skip entirely."
+description: "What the ICP filing asks of the site itself: a domain kept dark during review, a name and content that match the record, and where it fits in a build."
+excerpt: "The WordPress half of the ICP filing: what the review checks on the site itself, and how to schedule a build around it."
 ```
 
 **CTA.** Talk to our team about ICP filing and China hosting

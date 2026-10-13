@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-06
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -33,10 +33,10 @@ Wir setzen voraus, dass Sie unseren Grundlagenleitfaden zur Website-Lokalisierun
 
 Es sind drei Gründe, und jeder für sich kann einen Marktstart versenken.
 
-Erstens die Anmeldung. Jede Seite, die auf dem Festland liegt, braucht eine ICP-Anmeldung, den sogenannten Bei'an (备案). Ausgestellt wird sie über die Provinzbehörde des Ministeriums für Industrie und Informationstechnologie (MIIT). Fehlt sie, darf in China niemand die Seite legal hosten, und auch Baidu nimmt sie nicht sauber in den Index auf. Eine gewöhnliche Agentur kann Ihnen das nicht abnehmen. Es braucht eine in China registrierte Gesellschaft, die als Antragspate auftritt, und einen Festland-Host, der die Unterlagen einreicht. Kein Plugin erledigt das. Es ist ein Behördenverfahren, das seinem eigenen Takt folgt.
+Erstens die Anmeldung. Jede Website auf dem Festland braucht eine ICP-Anmeldung, das sogenannte Bei'an (备案), die über die Provinzbehörde des Ministeriums für Industrie und Informationstechnologie (MIIT) läuft. Ohne sie darf die Seite auf dem Festland nicht gehostet werden. Eine gewöhnliche Agentur kann Ihnen das nicht abnehmen: Es braucht eine in China eingetragene Gesellschaft, die den Antrag trägt, und einen Festland-Host, der die Unterlagen einreicht. Es ist ein Behördenverfahren mit eigenem Takt, und kein Plugin ersetzt es.
 
-> Die chinesische ICP-Anmeldung (Bei'an) für eine nichtkommerzielle Seite prüft die zuständige Kommunikationsbehörde der Provinz laut Vorschrift binnen 20 Arbeitstagen, häufig geht es schneller.
-> Quelle: Verwaltungsmaßnahmen für Internet-Informationsdienste, MIIT.
+> Die ICP-Anmeldung (Bei'an) einer nichtkommerziellen Website prüft die Kommunikationsbehörde der Provinz laut Vorschrift binnen 20 Arbeitstagen, oft geht es schneller.
+> Quelle: MIIT, Verwaltungsmaßnahmen zur Anmeldung nichtkommerzieller Internet-Informationsdienste (非经营性互联网信息服务备案管理办法), Art. 12, in der Fassung vom 18. Januar 2024.
 
 Zweitens die Firewall. Eine typische WordPress-Installation lädt samt Theme und Plugins klammheimlich Google Fonts, Google Maps, reCAPTCHA und oft auch Analyse- oder Zahlungsskripte von Servern außerhalb Chinas. Manche davon sind rundweg gesperrt. Google Fonts antwortet oder schweigt, je nachdem, in welchem Netz der Besucher sitzt. Bleibt eine Anfrage unbeantwortet, zeigt die Seite keinen Fehler an. Sie hängt einfach und wartet auf eine Antwort, die nie eintrifft, und der Besucher schließt daraus, bei Ihnen sei etwas kaputt. Eine Firewall-taugliche Agentur hostet die Schriften selbst, ersetzt reCAPTCHA durch eine zulässige Alternative, tauscht die Karte aus und räumt vor dem Start jede Abhängigkeit von Übersee-Diensten aus.
 

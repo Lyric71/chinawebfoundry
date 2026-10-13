@@ -6,7 +6,7 @@ visual: "/images/guides/migrate-wordpress-to-china.webp"
 order: 37
 published: true
 publishedAt: 2026-09-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-13
 category: Hosting
 author: echo-peng
 ---
@@ -41,7 +41,7 @@ Concrètement, sur nos projets, les ports 80 et 443 (ceux du HTTP et du HTTPS) r
 > La vérification d'Alibaba Cloud prend 1 à 2 jours ouvrés. L'examen de l'administration provinciale des communications (省级通信管理局) qui suit demande en général 1 à 20 jours ouvrés.
 > Source : centre d'aide d'Alibaba Cloud (阿里云), présentation de la procédure d'enregistrement ICP, mise à jour le 26 août 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-Soit 22 jours ouvrés au plus, sur le papier. Réunir les pièces prend du temps et les dossiers reviennent pour correction : comptez trois à six semaines. [Notre guide de l'enregistrement ICP pour les entreprises étrangères](/fr/ressources/guide-web-chine/licence-icp-entreprises-etrangeres/) détaille les documents à fournir. Un site marchand peut en outre devoir obtenir la licence commerciale ICP (ICP许可证), une procédure distincte et plus lente.
+Soit 22 jours ouvrés au plus, sur le papier. Réunir les pièces prend du temps et les dossiers reviennent pour correction : comptez trois à six semaines. Ce que l'examen vérifie sur le site lui-même fait l'objet de [notre guide consacré à l'enregistrement ICP d'un site WordPress](/fr/ressources/guide-web-chine/wordpress-licence-icp/). Un site marchand peut en outre devoir obtenir la licence commerciale ICP (ICP许可证), une procédure distincte et plus lente.
 
 Passer par un CDN implanté en Chine ne permet pas davantage de contourner l'enregistrement.
 

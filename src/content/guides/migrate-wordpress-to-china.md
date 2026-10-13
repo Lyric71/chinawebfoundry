@@ -6,7 +6,7 @@ visual: "/images/guides/migrate-wordpress-to-china.webp"
 order: 37
 published: true
 publishedAt: "2026-09-29"
-updatedAt: "2026-10-02"
+updatedAt: "2026-10-13"
 category: "Hosting"
 author: "echo-peng"
 ---
@@ -68,7 +68,7 @@ it on its own network.
 
 That is up to 22 working days on paper. Documents take time to gather and
 applications come back for corrections, so plan three to six weeks. [Our guide to
-ICP filing for foreign companies](/resources/china-web-guide/icp-licence-filing-foreign-companies/) lists the documents. A site that sells online
+ICP filing for a WordPress site](/resources/china-web-guide/wordpress-icp-filing/) covers what the review checks on the site itself. A site that sells online
 may also need the commercial ICP licence (ICP许可证), which is a separate and
 slower application.
 

@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-11
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -118,7 +118,7 @@ Un sitio dejado en su configuración de origen no le avisará de que ha dejado d
 
 WordPress autoalojado, el software que usted descarga de wordpress.org, no plantea ningún problema.
 
-WordPress.com, el servicio alojado que gestiona Automattic, tampoco está bloqueado en bloque, por más que lo afirmen casi todas las guías. El dominio principal se resuelve con frecuencia. Lo que sí está bloqueado es buena parte de lo que vive por debajo, incluidas las propiedades en lengua china y un número considerable de blogs de usuarios.
+WordPress.com, el servicio alojado que gestiona Automattic, tampoco está bloqueado en su totalidad, por mucho que lo afirmen casi todas las guías. El dominio principal suele resolverse. Lo que sí sufre bloqueos o interferencias es buena parte de lo que cuelga de ese dominio, empezando por un sinfín de blogs de usuarios.
 
 Para una empresa, la distinción resulta teórica, porque detrás espera una restricción más dura. No se puede completar un registro ICP (备案) para un dominio cuyo alojamiento no controla, y sin ese registro no se puede servir legalmente desde un servidor continental. Un sitio en WordPress.com no puede adecuarse a la norma, cargue hoy o no cargue. Nuestra [guía del registro ICP](/es/recursos/guia-web-china/licencia-icp-empresas-extranjeras/) explica qué pide realmente el papeleo.
 

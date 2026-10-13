@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-06
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -33,10 +33,10 @@ Damos por hecho que ya ha leído nuestra guía de referencia, Localización de s
 
 Los motivos son tres, y cada uno por separado basta para hundir un lanzamiento.
 
-El primero es el trámite. Todo sitio alojado en el continente necesita un registro ICP, conocido como Bei'an (备案), que expide una delegación provincial del Ministerio de Industria y Tecnología de la Información (MIIT). Sin ese registro no hay alojamiento continental legal, y Baidu tampoco indexará el sitio como es debido. Una agencia genérica no puede encargarse de esto por usted: hace falta una entidad registrada en China que patrocine el trámite y un proveedor de alojamiento continental que presente la documentación. Ningún plugin lo resuelve, porque se trata de un procedimiento burocrático que avanza a su propio ritmo.
+El primero es el trámite. Todo sitio alojado en el continente necesita un registro ICP, conocido como Bei'an (备案), que tramita una delegación provincial del Ministerio de Industria y Tecnología de la Información (MIIT). Sin ese registro, el sitio no puede alojarse legalmente en el continente. Una agencia generalista no puede ocuparse de ello en su lugar: hace falta una entidad registrada en China que respalde el expediente y un proveedor de alojamiento continental que presente la documentación. Se trata de un procedimiento administrativo con su propio calendario, y ningún plugin lo sustituye.
 
-> El registro ICP (Bei'an) de un sitio sin fines comerciales lo revisa la autoridad provincial de comunicaciones en un plazo de 20 días hábiles, según la normativa, y a menudo se aprueba antes.
-> Fuente: Medidas para la Administración de los Servicios de Información en Internet, MIIT.
+> La autoridad provincial de comunicaciones revisa el registro ICP (Bei'an) de un sitio sin fines comerciales en un plazo reglamentario de 20 días hábiles, y a menudo lo aprueba antes.
+> Fuente: MIIT, Medidas de Gestión del Registro de Servicios No Comerciales de Información en Internet (非经营性互联网信息服务备案管理办法), artículo 12, en su versión modificada el 18 de enero de 2024.
 
 El segundo es el cortafuegos. Un WordPress corriente, con su tema y sus plugins, carga sin avisar Google Fonts, Google Maps, reCAPTCHA y, a menudo, scripts de analítica o de pago alojados fuera de China. Algunos están bloqueados sin paliativos. Google Fonts, por su parte, responde o calla según la red del visitante. Cuando una petición no obtiene respuesta, la página no devuelve un error: sencillamente se queda colgada, esperando una respuesta que no llega, mientras el visitante decide que su empresa parece rota. Una agencia que conoce el cortafuegos autoaloja las tipografías, cambia reCAPTCHA por una alternativa que sí funciona en China, reemplaza el mapa y elimina cualquier dependencia extranjera antes de publicar.
 

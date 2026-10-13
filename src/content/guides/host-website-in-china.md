@@ -1,18 +1,18 @@
 ---
 title: "Host a Website in China: The Full Guide"
-subtitle: "Where your server physically sits decides whether a Chinese visitor sees your homepage in under a second or gives up on a spinner."
+subtitle: "Where your server physically sits decides whether a Chinese visitor sees your homepage or gives up on a spinner."
 summary: "Why offshore hosting fails in China, the ICP and entity rules, Alibaba Cloud vs Tencent Cloud vs offshore, plus a step-by-step launch checklist."
 visual: "/images/guides/host-website-in-china.webp"
 order: 14
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-06
+updatedAt: 2026-10-13
 category: Hosting
 ---
 
 Your site loads fine everywhere except the one market you built it for. Open it from Shanghai and you wait. And wait. Sometimes the page never resolves at all.
 
-That gap is almost always hosting. Where your server physically sits decides whether a Chinese visitor sees your homepage in under a second or gives up on a spinner, and it outweighs every other choice in [a WordPress build for China](/wordpress-in-china/). This guide walks through why offshore hosting breaks inside China, what you legally need before you can host on the mainland, how the main providers compare, and the order to do everything in.
+That gap is almost always hosting. Where your server physically sits decides whether a Chinese visitor sees your homepage or gives up on a spinner, and it outweighs every other choice in [a WordPress build for China](/wordpress-in-china/). This guide walks through why offshore hosting breaks inside China, what you legally need before you can host on the mainland, how the main providers compare, and the order to do everything in.
 
 Most of what follows builds on our pillar guide, Website Localisation for China. If you have not read that yet, start there, then come back for the hosting specifics.
 
@@ -40,38 +40,38 @@ You cannot just rent a mainland server and point your domain at it. Three things
 
 **2. A domain, .cn or .com.** The domain has to pass real-name verification, and the registered owner must match the filing entity exactly. A mismatch here is one of the most common reasons a filing stalls before it even reaches the regulator.
 
-**3. The ICP filing itself.** This is the mandatory one. ICP Bei'an (备案) is the record every mainland-hosted site must carry, administered under the Ministry of Industry and Information Technology (工业和信息化部), or MIIT. Informational sites need the standard Bei'an. Sites doing commercial business, real transactions, need the fuller commercial ICP license (经营许可证), which takes longer.
+**3. The ICP filing itself.** This is the mandatory one. ICP Bei'an (备案) is the record every mainland-hosted site must carry, administered under the Ministry of Industry and Information Technology (工业和信息化部), or MIIT. Informational sites need the standard Bei'an. A site that charges users for information or online services also needs an ICP licence (ICP许可证), which takes longer.
 
-> Standard ICP Bei'an typically clears in 3 to 22 working days, with heavy provincial variation. Shanghai can approve in about 3 days; Beijing often runs closer to 15.
-> Source: Alibaba Cloud filing documentation, MIIT.
+> Alibaba Cloud's own check takes 1 to 2 working days. The provincial Communications Administration (省级通信管理局) review that follows generally takes 1 to 20 working days.
+> Source: Alibaba Cloud (阿里云) help centre, ICP filing process overview, last updated 26 August 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-One more piece people miss: within 30 days of your site going live on a mainland host, you also file a public security record (公安备案) with the local authorities. For the full walk-through on filing, entity options, and document prep, read our dedicated ICP licensing guide. This page assumes you know it is coming.
+One more piece people miss: within 30 days of your site going live on a mainland host, you also file a public security record (公安备案) with the local authorities. For the full walk-through on filing, entity options, and document prep, read our dedicated ICP guide. This page assumes you know it is coming.
 
 ## China hosting options compared: Alibaba Cloud vs Tencent Cloud vs offshore
 
 Three realistic paths, depending on whether you have an ICP yet and who your audience actually is.
 
-| Option              | Load in China   | ICP needed | Baidu SEO | Best for                        |
-| ------------------- | --------------- | ---------- | --------- | ------------------------------- |
-| Mainland (Aliyun)   | Under 1s        | Yes        | Strong    | Serious, long-term China play   |
-| Mainland (Tencent)  | Under 1s        | Yes        | Strong    | WeChat-centric projects         |
-| Hong Kong           | 2 to 4s         | No         | Minimal   | Bridge while ICP is pending     |
-| US / Europe         | 8 to 15s+       | No         | None      | Not viable for a China audience |
+| Option              | Requests cross the border | ICP needed | Best for                        |
+| ------------------- | ------------------------- | ---------- | ------------------------------- |
+| Mainland (Aliyun)   | No                        | Yes        | Serious, long-term China play   |
+| Mainland (Tencent)  | No                        | Yes        | WeChat-centric projects         |
+| Hong Kong           | Yes                       | No         | Bridge while ICP is pending     |
+| US / Europe         | Yes                       | No         | Not viable for a China audience |
 
-**Alibaba Cloud (Aliyun, 阿里云)** is the default for most foreign brands going into China properly. The widest set of mainland regions, mature English-language console, and a filing system that walks you through Bei'an inside the same platform. The practical draw is coverage and the fact that everything, server and filing, lives in one place.
+**Alibaba Cloud (Aliyun, 阿里云)** is the default for most foreign brands going into China properly. The widest set of mainland regions, and a filing system on its China site (aliyun.com) that walks you through Bei'an next to the server. The English-language international site, alibabacloud.com, can't file. The practical draw is coverage and the fact that everything, server and filing, lives in one place.
 
 **Tencent Cloud (腾讯云)** is the strong second, and often the better call if your project leans on the WeChat (微信) ecosystem, since it sits natively closer to that stack. Performance is comparable to Aliyun at the same tier. The deciding factor is usually ecosystem fit rather than raw specs.
 
 **Huawei Cloud (华为云)** is a credible third mainland option, particularly for teams already standardised on Huawei infrastructure.
 
-**Offshore, including Hong Kong,** skips the ICP requirement entirely, which is its whole appeal. Hong Kong is the practical bridge: with a decent CDN and caching layer you can land 2 to 4 second loads on the mainland, not great, but night and day compared to serving from Frankfurt. Plenty of teams run Hong Kong while their filing is in progress, then migrate.
+**Offshore, including Hong Kong,** skips the ICP requirement entirely, which is its whole appeal. Hong Kong is the practical bridge: it sits next door to the mainland, and with a decent CDN and caching layer it does far better than Frankfurt, though every request still crosses the border. Plenty of teams run Hong Kong while their filing is in progress, then migrate.
 
-On price, be careful reading Chinese cloud pricing at face value. The headline numbers you see, entry servers advertised at a few dozen RMB a year, are promotional new-user rates on the smallest boxes.
+On price, be careful reading Chinese cloud pricing at face value. The headline offers are usually promotional new-user rates on the smallest boxes, and a production configuration for a business site costs more.
 
-> Entry-level cloud servers from the major Chinese providers advertise promotional first-year pricing in the range of roughly 38 to 200 RMB. Real production configurations for a business site run materially higher.
-> Source: published 2025 to 2026 provider pricing, Aliyun and Tencent Cloud.
+Which console you use matters too. The filing runs on each provider's China site, and Alibaba's international accounts can't file at all, which is a large part of why teams hand that piece to a local partner.
 
-English usability is worth weighing too. Aliyun's international console is the most foreigner-friendly of the three. All of them assume Chinese for parts of the filing process, which is a large part of why teams hand that piece to a local partner.
+> Alibaba Cloud international site (alibabacloud.com) accounts do not support ICP filing applications. To apply, you must register an Alibaba Cloud China site (aliyun.com) account.
+> Source: Alibaba Cloud help centre, ICP filing for enterprises outside the Chinese mainland, last updated 20 August 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland
 
 ## Speeding it up: China CDN and edge delivery
 
@@ -91,9 +91,9 @@ The order matters, because each step depends on the one before it. Skip ahead an
 
 **2. Register and verify the domain.** Get your .cn or .com onto a registrar, pass real-name verification, and make sure the owner matches the entity exactly.
 
-**3. File the ICP.** Submit Bei'an through your hosting provider's system. Standard informational filing is faster; commercial licensing takes longer, so budget for it early if you sell.
+**3. Buy the mainland server.** The filing is made against a server at the provider that will host the site, so the server comes first: Aliyun, Tencent Cloud or Huawei Cloud, on a subscription long enough to qualify (Alibaba asks for 3 months or more). The domain stays closed to visitors until the filing clears.
 
-**4. Provision mainland hosting.** Stand up your server on Aliyun, Tencent Cloud, or Huawei Cloud, and configure it for the Chinese environment: China-compatible SSL, self-hosted fonts, no blocked third-party calls.
+**4. File the ICP.** Submit Bei'an through that provider's system. Standard informational filing is faster; the licence takes longer, so budget for it early if you charge for information or services. Once the filing clears, configure the server for the Chinese environment: China-compatible SSL, self-hosted fonts, no blocked third-party calls.
 
 **5. Wire up the CDN.** Add a China CDN with its own filing coverage, and point your static assets at it.
 
@@ -105,10 +105,10 @@ The order matters, because each step depends on the one before it. Skip ahead an
 
 The right setup depends mostly on where you are in the process and what your site does.
 
-If you are building a serious, long-term presence and organic search is part of the plan, go straight to mainland hosting on Aliyun or Tencent Cloud with a proper filing. That's the setup that actually ranks on Baidu and loads the way Chinese users expect.
+If you are building a serious, long-term presence and organic search is part of the plan, go straight to mainland hosting on Aliyun or Tencent Cloud with a proper filing. That keeps every request inside the mainland, for your visitors and for Baiduspider alike.
 
 If you need to be live yesterday and your ICP is still pending, start on Hong Kong as a bridge, get a CDN and caching in front of it, and plan the migration onto the mainland once the filing clears.
 
-If you sell, if there are real transactions, factor the commercial ICP license into your timeline from day one, since it is the slowest single step and the one most likely to catch a team off guard.
+If you sell, if there are real transactions, factor the ICP licence into your timeline from day one, since it is the slowest single step and the one most likely to catch a team off guard.
 
-And if any of this, the entity, the filing, the console in Chinese, the monitoring from inside the wall, is more than you want to wire up alone, that is exactly the work we do. Tell us where you are: whether you have an entity, where you stand on ICP, who your audience is, what your timeline looks like. We come back with a hosting recommendation built for your situation, not a generic proposal.
+And if any of this, the entity, the filing, the provider console, the monitoring from inside the wall, is more than you want to wire up alone, that is exactly the work we do. Tell us where you are: whether you have an entity, where you stand on ICP, who your audience is, what your timeline looks like. We come back with a hosting recommendation built for your situation, not a generic proposal.

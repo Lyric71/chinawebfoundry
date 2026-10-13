@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-09
+updatedAt: 2026-10-13
 category: Search
 ---
 
@@ -41,23 +41,26 @@ Quien lleva años haciendo SEO para Google va a ver caer varias certezas.
 |---|---|---|
 | Coincidencia exacta de palabras clave | Sigue siendo muy determinante | Enfoque semántico, basado en la intención |
 | Etiqueta meta keywords | Sigue contando | Abandonada hace años |
-| Licencia ICP | Fuerte señal de confianza y posicionamiento | Sin incidencia |
-| Ubicación del alojamiento | China continental: 200 % más rápido y mejor posicionado | Menos determinante |
+| Registro ICP | Necesario para alojar en el continente; Baidu no publica ninguna regla de posicionamiento | Sin incidencia |
+| Ubicación del alojamiento | Alojar en el continente mantiene el rastreo y la carga dentro de la frontera | Menos determinante |
 | Frescura del contenido | Muy valorada | Se tiene en cuenta, con menos peso |
-| Dominio .cn | Favorecido frente a los TLD internacionales | Sin preferencia de TLD |
-| HTML frente a JavaScript | Se prefiere el HTML estático; las SPA complican la indexación | Buena interpretación del JS |
+| Dominio .cn | Baidu no ha publicado ninguna preferencia | Sin preferencia de TLD |
+| HTML frente a JavaScript | Interpreta JS desde 2017; no publica su alcance | Buena interpretación del JS |
 | Enlaces entrantes | Cuenta tanto la calidad como la cantidad | Prima la calidad |
 | Idioma | El 83 % o más de las páginas de cabecera, en chino simplificado | Indexación multilingüe |
 
 Varios de estos puntos piden explicación, sobre todo si usted viene del mundo de Google.
 
-**La licencia ICP** es un registro oficial. Es obligatorio para todo sitio alojado en China continental. Baidu lo lee como una prueba de legitimidad. Sin ICP se puede indexar un sitio, en teoría. Pero la desventaja de partida es tan grande que ninguna otra optimización la compensa.
+**El registro ICP** es la inscripción oficial que debe tener todo sitio alojado en un servidor de China continental. Baidu no ha publicado ninguna regla que premie el registro por sí mismo, y hay sitios alojados en el extranjero que se indexan con normalidad. Lo que aporta el registro, sobre todo, es el derecho a alojar el sitio en el continente, y ahí entra la siguiente fila.
 
-**El alojamiento** influye más de lo que parece. Un servidor instalado en China continental carga hasta un 200 % más rápido para los usuarios locales que uno en Alemania o en Virginia. La diferencia es enorme. En Baidu, puede bastar por sí sola para separar la primera página de la invisibilidad.
+**El alojamiento** influye más de lo que parece. Con un servidor en China continental, todas las peticiones se quedan dentro de la frontera, tanto las de Baiduspider como las del visitante. Desde Alemania o Virginia, cada una debe cruzar el Gran Cortafuegos, y las páginas que se atascan por el camino le dan a Baidu menos material con el que trabajar. Baidu no explica cuánto pesa la velocidad en su clasificación, así que conviene tratarlo como un riesgo que se puede eliminar.
 
-> Un sitio alojado en China continental carga hasta un 200 % más rápido para los usuarios locales. Este único factor puede decidir su posicionamiento.
+**El JavaScript** lo interpreta Baidu desde 2017, cuando anunció un rastreador de renderizado propio, pensado para recuperar CSS, JavaScript e imágenes.
 
-**El JavaScript** es una trampa frecuente. Si su sitio es una aplicación de página única hecha con React, Vue o Angular, el robot de Baidu suele tener problemas para leerlo. Llega a la página, no encuentra contenido y se marcha. Por muy cuidada que esté la interfaz, para el rastreador no existe. Por eso el HTML renderizado en el servidor sigue siendo indispensable para posicionar en Baidu.
+> Desde el 24 de marzo de 2017, Baidu Search empezó a recuperar CSS, JavaScript e imágenes con un nuevo agente de usuario de renderizado, Baiduspider-render/2.0, primero en una muestra de sitios.
+> Fuente: Baidu Search Resource Platform (百度搜索资源平台), anuncio del nuevo agente de rastreo con renderizado, 24 de marzo de 2017. https://ziyuan.baidu.com/wiki/990
+
+Lo que Baidu nunca ha publicado es qué parte de la web renderiza ni cuánto tiempo espera una página en la cola. Si su sitio es una aplicación de página única hecha con React, Vue o Angular, el HTML renderizado en el servidor despeja esa incógnita. Es la opción prudente cuando el posicionamiento en Baidu importa.
 
 **El idioma** cierra la lista. Más del 83 % de las páginas mejor posicionadas en Baidu están en chino simplificado. Y es chino nativo, escrito por personas, nunca un texto de traductor automático. Baidu distingue una cosa de la otra sin dificultad.
 
@@ -97,9 +100,9 @@ Casi todas las empresas extranjeras que se atascan en Baidu repiten los mismos e
 
 **Traducir el contenido con Google Translate.** Los algoritmos de Baidu detectan el texto traducido por una máquina. Los lectores chinos lo notan aún antes. Las frases artificiales destruyen la confianza. El cliente cierra la página en cinco segundos, y nadie sabe por qué.
 
-**Prescindir del alojamiento local.** Sin licencia ICP ni servidores en China continental, las páginas cargan despacio. No envían ninguna señal de confianza a Baidu. Y se hunden en los resultados. Es el error técnico más habitual entre las empresas extranjeras, y el más caro en visibilidad.
+**Prescindir del alojamiento local.** Sin registro ICP ni servidores en China continental, cada petición cruza el Gran Cortafuegos, y las páginas que se atascan por el camino ahuyentan a los visitantes y dejan a Baiduspider con menos que rastrear. Es el error técnico más habitual entre las empresas extranjeras, y el que más visibilidad cuesta.
 
-**Abusar del JavaScript.** Su equipo técnico ha trabajado meses en una aplicación de página única elegante. Si el robot de Baidu no la lee, no vale nada. Una página vacía para el rastreador no se indexa.
+**Abusar del JavaScript.** Su equipo técnico ha trabajado meses en una aplicación de página única elegante. Baidu interpreta JavaScript, pero nunca ha dicho hasta qué punto ni a qué ritmo. Si el contenido solo existe después de ejecutar los scripts, la indexación depende de una cola que Baidu no documenta.
 
 **Enlazar a plataformas bloqueadas.** Facebook, YouTube y Twitter están al otro lado del Gran Cortafuegos. Cada enlace a esos servicios es un callejón sin salida para los usuarios de China. Y le dice a Baidu que su contenido se dirige a otro público.
 

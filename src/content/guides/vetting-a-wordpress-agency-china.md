@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-agency-china.webp"
 order: 13
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-06
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -33,10 +33,10 @@ This assumes you have read our pillar guide, Website Localisation for China. If 
 
 The reasons split into three, and each one alone can sink a launch.
 
-First, the filing. Any mainland-hosted site needs an ICP filing, known as Bei'an (备案), issued through a provincial arm of the Ministry of Industry and Information Technology (MIIT). No filing, no legal mainland hosting, and Baidu will not properly index the site either. A generic agency cannot do this for you. It takes a China-registered entity as the filing sponsor and a mainland host that submits the paperwork. This is not a plugin, it is a bureaucratic process with its own clock.
+First, the filing. Any mainland-hosted site needs an ICP filing, known as Bei'an (备案), issued through a provincial arm of the Ministry of Industry and Information Technology (MIIT). No filing, no legal mainland hosting. A generic agency cannot do this for you. It takes a China-registered entity as the filing sponsor and a mainland host that submits the paperwork. This is not a plugin, it is a bureaucratic process with its own clock.
 
 > China's ICP filing (Bei'an) for a non-commercial site is reviewed by the provincial communications authority within 20 working days by regulation, and often clears faster.
-> Source: Measures for the Administration of Internet Information Services, MIIT.
+> Source: Ministry of Industry and Information Technology, Measures for the Administration of Non-Commercial Internet Information Service Filing (非经营性互联网信息服务备案管理办法), article 12, as amended on 18 January 2024.
 
 Second, the firewall. A typical WordPress build, once the theme and plugins are in, quietly loads Google Fonts, Google Maps, reCAPTCHA, and often analytics or payment scripts from servers outside China. Some of those are blocked outright. Google Fonts answers or goes silent depending on the visitor's network. When a request goes unanswered, the page doesn't error out. It just hangs, waiting on a response that never comes, while your visitor decides you look broken. A firewall-aware agency self-hosts the fonts, swaps reCAPTCHA for a compliant alternative, replaces the map, and strips every overseas dependency before launch.
 

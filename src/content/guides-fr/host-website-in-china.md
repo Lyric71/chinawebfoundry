@@ -1,18 +1,18 @@
 ---
 title: "Héberger un site web en Chine : le guide complet"
-subtitle: "Là où se trouve physiquement votre serveur, tout se joue : votre page d'accueil s'affiche en moins d'une seconde pour un visiteur chinois, ou celui-ci renonce devant un écran qui tourne dans le vide."
+subtitle: "Tout se joue sur l'emplacement physique de votre serveur : le visiteur chinois voit votre page d'accueil, ou il renonce devant un écran qui tourne dans le vide."
 summary: "Pourquoi l'hébergement à l'étranger échoue en Chine, les règles de l'ICP et de l'entité, Alibaba Cloud face à Tencent Cloud et à l'étranger, et une checklist de lancement étape par étape."
 visual: "/images/guides/host-website-in-china.webp"
 order: 14
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-06
+updatedAt: 2026-10-13
 category: Hosting
 ---
 
 Votre site s'affiche sans accroc partout, sauf sur le seul marché pour lequel vous l'avez pensé. Ouvrez-le depuis Shanghai : ça rame. Ça rame encore. Et parfois la page ne se charge jamais.
 
-Neuf fois sur dix, la cause tient à l'hébergement. L'endroit où se trouve physiquement votre serveur décide de tout, davantage que n'importe quel autre choix dans [un site WordPress pensé pour la Chine](/fr/wordpress-en-chine/) : votre page d'accueil s'affiche en moins d'une seconde pour un visiteur chinois, ou il baisse les bras devant un écran qui tourne. Ce guide explique pourquoi l'hébergement à l'étranger casse en Chine, ce qu'il vous faut légalement avant de pouvoir héberger sur le continent, ce que valent les grands fournisseurs et dans quel ordre tout enchaîner.
+Neuf fois sur dix, la cause tient à l'hébergement. L'endroit où se trouve physiquement votre serveur décide de tout, davantage que n'importe quel autre choix dans [un site WordPress pensé pour la Chine](/fr/wordpress-en-chine/) : soit le visiteur chinois voit s'afficher votre page d'accueil, soit il renonce devant un écran qui tourne. Ce guide explique pourquoi l'hébergement à l'étranger casse en Chine, ce qu'il vous faut légalement avant de pouvoir héberger sur le continent, ce que valent les grands fournisseurs et dans quel ordre tout enchaîner.
 
 L'essentiel de ce qui suit prolonge notre guide de référence, La localisation d'un site web pour la Chine. Si vous ne l'avez pas encore lu, commencez par lui, puis revenez pour les détails d'hébergement.
 
@@ -40,38 +40,38 @@ Impossible de louer un serveur sur le continent et d'y faire simplement pointer 
 
 **2. Un domaine, en .cn ou en .com.** Le domaine doit passer une vérification d'identité réelle, et le titulaire enregistré doit être, au caractère près, l'entité déclarante. Une discordance à ce stade compte parmi les causes les plus fréquentes de blocage d'un dossier, avant même qu'il n'atteigne le régulateur.
 
-**3. L'enregistrement ICP lui-même.** C'est le seul vraiment incontournable. L'ICP Bei'an (备案) est le registre que tout site hébergé sur le continent doit porter, sous l'autorité du ministère de l'Industrie et des Technologies de l'information (工业和信息化部), le MIIT. Un site informatif se contente du Bei'an standard. Un site marchand, avec de vraies transactions, exige la licence ICP commerciale, plus complète (经营许可证), et plus longue à obtenir.
+**3. L'enregistrement ICP lui-même.** C'est le seul vraiment incontournable. L'ICP Bei'an (备案) est le registre que tout site hébergé sur le continent doit porter, sous l'autorité du ministère de l'Industrie et des Technologies de l'information (工业和信息化部), le MIIT. Un site d'information se contente du Bei'an standard. Un site qui fait payer ses utilisateurs pour des informations ou des services en ligne doit obtenir en plus une licence ICP (ICP许可证), plus longue à décrocher.
 
-> Le Bei'an ICP standard s'obtient en général en 3 à 22 jours ouvrés, avec de fortes variations selon la province. Shanghai peut valider en 3 jours environ ; Pékin tourne souvent plus près de 15.
-> Source : documentation de dépôt Alibaba Cloud, MIIT.
+> Le contrôle d'Alibaba Cloud prend 1 à 2 jours ouvrés. L'examen par l'administration provinciale des communications (省级通信管理局) qui suit dure en général de 1 à 20 jours ouvrés.
+> Source : centre d'aide d'Alibaba Cloud (阿里云), présentation de la procédure de dépôt ICP, mis à jour le 26 août 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-Un détail que l'on oublie souvent : dans les 30 jours suivant la mise en ligne sur un hébergeur du continent, vous déposez aussi un enregistrement auprès de la sécurité publique (公安备案) auprès des autorités locales. Pour le déroulé complet du dépôt, des options d'entité et de la préparation des pièces, lisez notre guide dédié à la licence ICP. Cette page tient pour acquis que vous savez qu'il arrive.
+Un détail que l'on oublie souvent : dans les 30 jours suivant la mise en ligne sur un hébergeur du continent, vous déposez aussi un enregistrement auprès de la sécurité publique (公安备案) auprès des autorités locales. Pour le déroulé complet du dépôt, des options d'entité et de la préparation des pièces, lisez notre guide consacré à l'ICP. Cette page tient pour acquis que vous savez qu'il arrive.
 
 ## Options d'hébergement en Chine : Alibaba Cloud, Tencent Cloud ou l'étranger
 
 Trois voies réalistes, selon que vous détenez déjà un ICP ou non, et selon qui est vraiment votre audience.
 
-| Option              | Chargement en Chine | ICP requis | SEO Baidu | Idéal pour                            |
-| ------------------- | ------------------- | ---------- | --------- | ------------------------------------- |
-| Continent (Aliyun)  | Moins d'1 s         | Oui        | Fort      | Une implantation sérieuse et durable  |
-| Continent (Tencent) | Moins d'1 s         | Oui        | Fort      | Les projets centrés sur WeChat        |
-| Hong Kong           | 2 à 4 s             | Non        | Minimal   | Faire le pont pendant l'instruction   |
-| États-Unis / Europe | 8 à 15 s et plus    | Non        | Nul       | Rien, pour une audience chinoise      |
+| Option              | Les requêtes franchissent la frontière | ICP requis | Idéal pour                              |
+| ------------------- | -------------------------------------- | ---------- | --------------------------------------- |
+| Continent (Aliyun)  | Non                                    | Oui        | Une implantation sérieuse et durable    |
+| Continent (Tencent) | Non                                    | Oui        | Les projets centrés sur WeChat          |
+| Hong Kong           | Oui                                    | Non        | Assurer la transition pendant l'examen  |
+| États-Unis / Europe | Oui                                    | Non        | À écarter pour un public chinois        |
 
-**Alibaba Cloud (Aliyun, 阿里云)** s'impose par défaut auprès de la plupart des marques étrangères qui entrent en Chine pour de bon. Le plus large éventail de régions sur le continent, une console anglophone rodée et un système de dépôt qui vous guide dans le Bei'an sans quitter la plateforme. L'atout concret : la couverture, et le fait que tout, serveur comme dépôt, tienne au même endroit.
+**Alibaba Cloud (Aliyun, 阿里云)** reste le choix par défaut de la plupart des marques étrangères qui s'installent pour de bon en Chine. Il couvre le plus grand nombre de régions sur le continent et propose, sur son site chinois (aliyun.com), un module qui permet de conduire le Bei'an là où se trouve le serveur. Son site international en anglais, alibabacloud.com, ne permet aucun dépôt. L'intérêt pratique tient à la couverture, et au fait que tout, serveur comme dépôt, se trouve au même endroit.
 
 **Tencent Cloud (腾讯云)** talonne de près, et l'emporte souvent dès que le projet s'appuie sur l'écosystème WeChat (微信), dont il est nativement plus proche. Les performances valent celles d'Aliyun à gamme égale. Ce qui tranche, d'ordinaire, c'est l'adéquation à l'écosystème, pas la fiche technique.
 
 **Huawei Cloud (华为云)** fait une troisième option crédible sur le continent, en particulier pour les équipes déjà rangées sur l'infrastructure Huawei.
 
-**L'étranger, Hong Kong compris,** s'affranchit complètement de l'ICP, et c'est tout son intérêt. Hong Kong sert de pont commode : avec un CDN et une couche de cache corrects, vous tombez à 2 ou 4 secondes de chargement sur le continent, sans plus, mais à des années-lumière d'un site servi depuis Francfort. Beaucoup d'équipes tournent sur Hong Kong le temps de l'instruction, puis migrent.
+**L'étranger, Hong Kong compris,** s'affranchit complètement de l'ICP, et c'est tout son intérêt. Hong Kong sert de pont commode : la ville jouxte le continent et, avec un CDN et une couche de cache corrects, fait nettement mieux qu'un serveur à Francfort, même si chaque requête franchit toujours la frontière. Beaucoup d'équipes tournent sur Hong Kong le temps de l'instruction, puis migrent.
 
-Côté prix, gardez-vous de lire les tarifs du cloud chinois au premier degré. Les chiffres d'appel, ces serveurs d'entrée de gamme affichés à quelques dizaines de yuans par an, sont des tarifs promotionnels réservés aux nouveaux clients, sur les plus petites machines.
+Côté prix, gardez-vous de lire les tarifs du cloud chinois au premier degré. Les offres d'appel sont le plus souvent des tarifs promotionnels réservés aux nouveaux clients, sur les plus petites machines, et une configuration de production pour un site professionnel coûte davantage.
 
-> Les serveurs cloud d'entrée de gamme des grands fournisseurs chinois affichent une première année en promotion, entre 38 et 200 yuans environ. Une configuration de production réelle, pour un site professionnel, coûte nettement plus.
-> Source : tarifs fournisseurs publiés de 2025 à 2026, Aliyun et Tencent Cloud.
+Reste la question de la console. Le dépôt passe par le site chinois de chaque fournisseur, et les comptes internationaux d'Alibaba ne permettent tout simplement pas de déposer : c'est en bonne partie pour cela que les équipes confient ce volet à un partenaire local.
 
-L'ergonomie en anglais pèse aussi dans la balance. La console internationale d'Aliyun reste la plus accueillante des trois pour un étranger. Toutes supposent le chinois sur certaines parties du dépôt, ce qui explique en bonne part pourquoi les équipes confient ce morceau à un partenaire local.
+> Les comptes du site international d'Alibaba Cloud (alibabacloud.com) ne permettent pas de déposer une demande ICP. Il faut ouvrir un compte sur le site chinois d'Alibaba Cloud (aliyun.com).
+> Source : centre d'aide d'Alibaba Cloud, dépôt ICP des entreprises situées hors de Chine continentale, mis à jour le 20 août 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland
 
 ## L'accélérer : CDN chinois et diffusion en périphérie
 
@@ -91,9 +91,9 @@ L'ordre compte, car chaque étape repose sur la précédente. Brûlez-en une et 
 
 **2. Enregistrer et vérifier le domaine.** Placez votre .cn ou votre .com chez un bureau d'enregistrement, passez la vérification d'identité réelle et veillez à ce que le titulaire colle exactement à l'entité.
 
-**3. Déposer l'ICP.** Soumettez le Bei'an via le système de votre hébergeur. Le dépôt informatif standard va plus vite ; la licence commerciale prend son temps, alors anticipez-la tôt si vous vendez.
+**3. Acheter le serveur continental.** Le dépôt est rattaché à un serveur loué chez l'hébergeur du site : le serveur vient donc en premier, chez Aliyun, Tencent Cloud ou Huawei Cloud, avec un abonnement assez long pour être accepté (Alibaba exige au moins 3 mois). Le domaine reste fermé au public jusqu'à la validation du dépôt.
 
-**4. Provisionner l'hébergement continental.** Montez votre serveur sur Aliyun, Tencent Cloud ou Huawei Cloud, et taillez-le pour l'environnement chinois : SSL compatible Chine, polices auto-hébergées, aucun appel tiers bloqué.
+**4. Déposer l'ICP.** Soumettez le Bei'an via le système de ce même hébergeur. Le dépôt informatif standard va plus vite ; la licence demande davantage de temps, anticipez-la donc si vous faites payer des informations ou des services. Une fois le dépôt validé, préparez le serveur pour l'environnement chinois : SSL compatible Chine, polices auto-hébergées, aucun appel tiers bloqué.
 
 **5. Brancher le CDN.** Ajoutez un CDN chinois doté de sa propre couverture de dépôt, et pointez-y vos ressources statiques.
 
@@ -105,10 +105,10 @@ L'ordre compte, car chaque étape repose sur la précédente. Brûlez-en une et 
 
 Le bon dispositif dépend surtout de votre avancement dans le processus et de ce que fait votre site.
 
-Vous bâtissez une présence sérieuse et durable, et le référencement naturel fait partie du plan ? Allez droit à l'hébergement continental sur Aliyun ou Tencent Cloud, avec un dépôt en règle. C'est le dispositif qui se classe pour de bon sur Baidu et se charge comme les internautes chinois l'attendent.
+Vous bâtissez une présence sérieuse et durable, et le référencement naturel fait partie du plan ? Allez droit à l'hébergement continental sur Aliyun ou Tencent Cloud, avec un dépôt en règle. Toutes les requêtes restent alors sur le continent, celles de vos visiteurs comme celles de Baiduspider.
 
 Vous devez être en ligne pour hier et votre ICP traîne encore ? Démarrez sur Hong Kong en guise de pont, glissez un CDN et du cache devant, et programmez la migration vers le continent une fois le dossier validé.
 
-Vous vendez, il y a de vraies transactions ? Inscrivez la licence ICP commerciale à votre calendrier dès le premier jour, car c'est l'étape la plus lente à elle seule, et celle qui prend le plus souvent une équipe de court.
+Vous vendez, il y a de vraies transactions ? Inscrivez la licence ICP à votre calendrier dès le premier jour, car c'est l'étape la plus lente à elle seule, et celle qui prend le plus souvent une équipe de court.
 
-Et si tout cela, l'entité, le dépôt, la console en chinois, la surveillance depuis l'intérieur du mur, dépasse ce que vous tenez à câbler seul, c'est précisément notre métier. Dites-nous où vous en êtes : entité ou non, avancement de l'ICP, audience visée, calendrier envisagé. Nous revenons avec une recommandation d'hébergement taillée pour votre situation, pas une proposition passe-partout.
+Et si tout cela, l'entité, le dépôt, la console de l'hébergeur, la surveillance depuis l'intérieur du mur, dépasse ce que vous tenez à câbler seul, c'est précisément notre métier. Dites-nous où vous en êtes : entité ou non, avancement de l'ICP, audience visée, calendrier envisagé. Nous revenons avec une recommandation d'hébergement taillée pour votre situation, pas une proposition passe-partout.

@@ -6,7 +6,7 @@ visual: "/images/guides/migrate-wordpress-to-china.webp"
 order: 37
 published: true
 publishedAt: 2026-09-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-13
 category: Hosting
 author: echo-peng
 ---
@@ -41,7 +41,7 @@ En los proyectos que hemos llevado, esa interceptación deja cerrados para su do
 > La revisión de Alibaba Cloud tarda de 1 a 2 días hábiles. El examen posterior de la Administración provincial de Comunicaciones (省级通信管理局) suele llevar de 1 a 20 días hábiles.
 > Fuente: centro de ayuda de Alibaba Cloud (阿里云), descripción general del proceso de registro ICP, actualizado el 26 de agosto de 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-Sobre el papel son, como mucho, 22 días hábiles. Reunir los documentos lleva tiempo y los expedientes vuelven para correcciones, así que conviene prever entre tres y seis semanas. [Nuestra guía sobre el registro ICP para empresas extranjeras](/es/recursos/guia-web-china/licencia-icp-empresas-extranjeras/) enumera la documentación necesaria. Un sitio de comercio electrónico puede necesitar, además, la licencia comercial ICP (ICP许可证), una solicitud distinta y más lenta.
+Sobre el papel son, como mucho, 22 días hábiles. Reunir los documentos lleva tiempo y los expedientes vuelven para correcciones, así que conviene prever entre tres y seis semanas. Lo que la revisión comprueba en el propio sitio se detalla en [nuestra guía sobre el registro ICP de un sitio WordPress](/es/recursos/guia-web-china/wordpress-licencia-icp/). Un sitio de comercio electrónico puede necesitar, además, la licencia comercial ICP (ICP许可证), una solicitud distinta y más lenta.
 
 Una CDN con nodos en el país tampoco permite esquivar el registro.
 

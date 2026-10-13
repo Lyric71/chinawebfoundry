@@ -1,16 +1,16 @@
 ---
 title: "Alojamiento en China: el servidor lo decide todo"
 subtitle: "Para un usuario chino, la distancia entre Shanghái y Fráncfort se resume en una sola cosa: la página aparece o no aparece."
-summary: "El lugar donde se aloja un sitio determina su velocidad, su posicionamiento en Baidu y su cumplimiento normativo. Comparamos el continente, Hong Kong y el extranjero, y repasamos los proveedores de la nube."
+summary: "La ubicación del servidor decide cómo carga un sitio en China y si necesita un registro ICP. Comparamos el continente, Hong Kong y el extranjero."
 visual: "/images/guides/china-website-hosting-guide.webp"
 order: 6
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-05-02
+updatedAt: 2026-10-13
 category: Hosting
 ---
 
-En una estrategia web para China, el alojamiento es la decisión que más se subestima, y pesa más sobre la velocidad de carga que [cualquier ajuste que usted haga dentro de un WordPress](/es/wordpress-en-china/). Coloque mal el servidor y la página tardará cinco segundos en cargar, si es que carga. Elija mal el proveedor y se quedará sin las integraciones locales que sus competidores ya usan. El mercado chino de la nube está en manos de empresas nacionales. Cada una está conectada a una parte distinta de la red del país. La ubicación física del servidor se plantea en tres niveles, cada uno con sus compromisos. Y aquí el CDN pesa mucho más que en cualquier otro mercado.
+En una estrategia web para China, el alojamiento es la decisión que más se subestima, y pesa más sobre la velocidad de carga que [cualquier ajuste que usted haga dentro de un WordPress](/es/wordpress-en-china/). Con el servidor en el lugar equivocado, la página se arrastra, si es que llega a cargar. Elija mal el proveedor y se quedará sin las integraciones locales que sus competidores ya usan. El mercado chino de la nube está en manos de empresas nacionales. Cada una está conectada a una parte distinta de la red del país. La ubicación física del servidor se plantea en tres niveles, cada uno con sus compromisos. Y aquí el CDN pesa mucho más que en cualquier otro mercado.
 
 ## Los proveedores chinos de la nube
 
@@ -40,21 +40,21 @@ Las empresas que confunden las dos cosas lo descubren al pasar a producción.
 
 | | China continental | Hong Kong | Extranjero (EE. UU./UE) |
 |---|---|---|---|
-| **Tiempo de carga** | Menos de un segundo | 50 a 150 ms de latencia | 300 a 500 ms o más de latencia |
+| **Las peticiones cruzan la frontera** | No | Sí | Sí |
 | **ICP obligatorio** | Sí | No | No |
-| **Ventaja SEO en Baidu** | Sí | No | No |
 | **Cumplimiento de la PIPL** | Sí | No | No |
 | **Riesgo del Gran Cortafuegos** | Ninguno | Bajo | Alto (pérdida de paquetes y bloqueo) |
 
 La ubicación física de los servidores condiciona todo lo demás: el proveedor, la configuración del CDN, la estrategia en Baidu. Un error aquí no se arregla después.
 
-**China continental** es la opción acertada si una empresa se dirige en serio a los usuarios chinos. Las páginas cargan en menos de un segundo. Baidu lo lee como una señal de confianza. Y la PIPL lo exige. Sí, la licencia ICP pasa a ser obligatoria, pero el registro Bei'an está al alcance de casi cualquier empresa extranjera. Si su audiencia está en China, sus servidores también deberían estarlo.
+**China continental** es la respuesta correcta para una empresa que quiere llegar en serio al usuario chino. Las peticiones no salen del país, y la PIPL obliga en cualquier caso a este tipo de alojamiento. Antes, eso sí, hay que obtener un registro ICP (ICP备案) a nombre de una sociedad inscrita en el continente. Si su público está en China, sus servidores también deben estar allí.
 
-> Un sitio alojado en China continental carga en menos de un segundo. Uno alojado en el extranjero parte ya de 300 a 500 milisegundos de latencia, incluso antes de que el Gran Cortafuegos entre en juego.
+> Chinafy analizó 614 sitios internacionales desde Pekín, Virginia y Londres: dos de cada tres no llegaron a cargar en China, y en Pekín el tiempo hasta el primer byte fue entre 4 y 4,5 veces mayor que en Estados Unidos o el Reino Unido.
+> Fuente: Chinafy, China Website Performance Benchmarks 2026, 14 de abril de 2026 (estudio publicado por un proveedor).
 
-**Hong Kong** funciona como trampolín. No exige ICP. La latencia hacia el continente es de 50 a 150 milisegundos. Es una opción aceptable para las empresas que tantean el mercado antes de un registro ICP completo. También permite servir un mismo sitio a un público chino e internacional desde un solo punto. Pero el compromiso se nota: la solución muestra sus límites en cuanto hay que posicionar en Baidu o cumplir la PIPL.
+**Hong Kong** sirve de trampolín. No exige ICP y está a las puertas del continente, lo que hace de esta vía una opción razonable para la empresa que quiere tantear el mercado antes de emprender un registro ICP completo. También permite atender desde un único punto a un público chino e internacional. Pero se trata de un compromiso, y conviene asumirlo: si el público está sobre todo en el continente, no pasa de ser una solución provisional.
 
-Queda **el alojamiento en Estados Unidos o Europa**. Es la vía de quienes quieren evitar el ICP, y la factura es alta. La latencia parte de 300 a 500 milisegundos. El Gran Cortafuegos añade su propia pérdida de paquetes, y existe el riesgo de un bloqueo total. El sitio no envía ninguna señal de confianza a Baidu. No cumple la PIPL. Y carga tan despacio que la mayoría de los usuarios chinos cierra la pestaña antes de ver la página. Alojar en Fráncfort para servir a Shenzhen es perder a los visitantes antes de la página de inicio.
+Queda **el alojamiento en Estados Unidos o Europa**, la vía de quienes quieren esquivar el ICP, y la factura es alta. Cada petición tiene que cruzar la frontera, el Gran Cortafuegos añade su propia pérdida de paquetes y el riesgo de un bloqueo total es real. Tampoco permite cumplir la PIPL, y las páginas cargan tan despacio que muchos visitantes cierran la pestaña antes de verlas. Alojar en Fráncfort para atender a Shenzhen equivale a perder a los visitantes antes de que lleguen a la página de inicio.
 
 ## Los CDN que funcionan realmente en China
 

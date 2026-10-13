@@ -6,7 +6,7 @@ visual: "/images/guides/baidu-seo-ranking-in-china.webp"
 order: 2
 published: true
 publishedAt: 2026-03-31
-updatedAt: 2026-10-09
+updatedAt: 2026-10-13
 category: Search
 ---
 
@@ -41,23 +41,26 @@ Wer seit Längerem Google-SEO betreibt, sollte sich darauf einstellen, dass eini
 |---|---|---|
 | exakte Keyword-Übereinstimmung | weiterhin stark gewichtet | semantisch, absichtsbasiert |
 | Meta-Keywords-Tag | weiterhin ein Rankingfaktor | seit Jahren aufgegeben |
-| ICP-Lizenz | starker Vertrauens- und Rankingschub | kein Faktor |
-| Hosting-Standort | Festland-China = 200 % schneller, bessere Platzierung | kaum standortabhängig |
+| ICP-Registrierung | nötig für Hosting auf dem Festland, keine veröffentlichte Rankingregel | kein Faktor |
+| Hosting-Standort | Festland-Hosting hält Crawling und Ladevorgang innerhalb der Grenze | kaum standortabhängig |
 | Aktualität der Inhalte | stark bevorzugt | wichtig, aber geringeres Gewicht |
-| .cn-Domain | gegenüber internationalen TLDs bevorzugt | keine TLD-Präferenz |
-| HTML gegen JavaScript | reines HTML bevorzugt, Probleme mit SPA | rendert JS zuverlässig |
+| .cn-Domain | keine von Baidu veröffentlichte Präferenz | keine TLD-Präferenz |
+| HTML gegen JavaScript | rendert JS seit 2017, Umfang unveröffentlicht | rendert JS zuverlässig |
 | Backlinks | Qualität UND Quantität zählen | Qualität vor Quantität |
 | Sprache | über 83 % der Top-Seiten in vereinfachtem Chinesisch | mehrsprachige Indexierung |
 
 Einige dieser Punkte treffen besonders hart, wenn man aus der Google-Welt kommt. Diese erläutern wir genauer.
 
-**ICP-Lizenz.** Das ist eine staatlich ausgestellte Registrierung für jede Website, die auf Servern im chinesischen Festland gehostet wird. Baidu wertet sie als Indiz für Seriosität. Theoretisch können Sie auch ohne Lizenz indexiert werden, doch dann starten Sie so weit hinten, dass fast egal ist, was Sie sonst richtig machen.
+**ICP-Registrierung.** Sie ist der amtliche Eintrag, den jede Website auf einem Server im chinesischen Festland braucht. Baidu hat keine Regel veröffentlicht, die eine Registrierung als solche belohnt, und im Ausland gehostete Seiten werden durchaus indexiert. Die Registrierung verschafft vor allem das Recht, auf dem Festland zu hosten, und damit kommt die nächste Zeile ins Spiel.
 
-**Hosting.** Seiten von Servern, die physisch im chinesischen Festland stehen, laden für chinesische Nutzer bis zu 200 Prozent schneller als Seiten, die etwa aus Deutschland oder Virginia kommen. Dieser Geschwindigkeitsunterschied ist enorm. Bei Baidu kann er über Seite eins oder gar keine Platzierung entscheiden.
+**Hosting.** Bei einem Server auf dem Festland bleibt jede Anfrage innerhalb der Grenze, die von Baiduspider ebenso wie die des Besuchers. Steht der Server in Deutschland oder Virginia, muss jede Anfrage durch die Große Firewall, und Seiten, die unterwegs hängen bleiben, liefern Baidu weniger Material. Wie stark Geschwindigkeit in sein Ranking einfließt, verrät Baidu nicht. Betrachten Sie es als Risiko, das Sie ausschalten können.
 
-> Seiten, die im chinesischen Festland gehostet werden, laden für Nutzer in China bis zu 200 Prozent schneller. Allein das kann darüber entscheiden, ob Sie ranken oder nicht.
+**JavaScript.** Baidu rendert JavaScript seit 2017. Damals kündigte die Suchmaschine einen eigenen Rendering-Crawler an, der CSS, JavaScript und Bilder abruft.
 
-**JavaScript.** Hier verbrennen sich viele Unternehmen die Finger, ohne es zu merken. Wenn Ihre Website eine Single-Page-Application auf React, Vue oder Angular ist, kann der Crawler von Baidu sie oft schlicht nicht rendern. Der Crawler ruft die Seite ab, sieht nichts und zieht weiter. Ihr schönes Frontend existiert für ihn nicht. Wenn Ihnen Baidu-Platzierungen wichtig sind, bleiben Sie bei serverseitig gerendertem HTML.
+> Ab dem 24. März 2017 ruft die Baidu-Suche CSS, JavaScript und Bilder mit einem neuen Rendering-User-Agent ab, Baiduspider-render/2.0, zunächst bei einer Auswahl von Websites.
+> Quelle: Baidu Search Resource Platform (百度搜索资源平台), Ankündigung des neuen Rendering-Crawlers, 24. März 2017. https://ziyuan.baidu.com/wiki/990
+
+Nie veröffentlicht hat Baidu dagegen, welchen Anteil des Webs es rendert und wie lange eine Seite in der Warteschlange liegt. Ist Ihre Website eine Single-Page-Application auf React, Vue oder Angular, räumt serverseitig gerendertes HTML diese Unbekannte aus. Wenn Ihnen Baidu-Platzierungen wichtig sind, ist das die vorsichtige Wahl.
 
 **Sprache.** Über 83 Prozent der bestplatzierten Baidu-Seiten sind in vereinfachtem Chinesisch verfasst. Und zwar nativ in vereinfachtem Chinesisch geschrieben. Übersetzungswerkzeuge bringen Sie dorthin nicht. Baidu behandelt beide Fälle spürbar unterschiedlich.
 
@@ -97,9 +100,9 @@ Fast jedes ausländische Unternehmen, das sich mit Baidu schwertut, begeht eine 
 
 **Google Translate für Inhalte.** Die Algorithmen von Baidu erkennen maschinell übersetzten Text, und chinesische Leser erkennen ihn noch schneller. Unnatürliche Formulierungen zerstören Vertrauen. Ein möglicher Kunde springt in den ersten fünf Sekunden ab, und Sie erfahren nie, warum.
 
-**Kein lokales Hosting.** Ohne ICP-Lizenz und Server im chinesischen Festland laden Ihre Seiten langsam, tragen kein Vertrauenssignal bei Baidu und verschwinden in den Ergebnissen. Das ist wahrscheinlich der häufigste technische Fehler ausländischer Unternehmen und zugleich der teuerste, gemessen an verlorener Sichtbarkeit.
+**Kein lokales Hosting.** Ohne ICP-Registrierung und Server im chinesischen Festland muss jede Anfrage durch die Große Firewall, und Seiten, die unterwegs hängen bleiben, vertreiben Besucher und lassen Baiduspider weniger zum Crawlen übrig. Das ist wahrscheinlich der häufigste technische Fehler ausländischer Unternehmen und zugleich der teuerste, gemessen an verlorener Sichtbarkeit.
 
-**Zu viel JavaScript.** Die ausgefeilte SPA, an der Ihr Entwicklungsteam Monate gebaut hat? Wenn der Crawler von Baidu sie nicht rendern kann, ist das so, als gäbe es Ihre Website nicht. Eine leere Seite für den Crawler bedeutet null Indexierung.
+**Zu viel JavaScript.** Die ausgefeilte SPA, an der Ihr Entwicklungsteam Monate gebaut hat? Baidu rendert JavaScript, hat aber nie gesagt, in welchem Umfang und in welchem Tempo. Entsteht der Inhalt erst, wenn die Skripte gelaufen sind, hängt Ihre Indexierung an einer Warteschlange, die Baidu nicht dokumentiert.
 
 **Links zu gesperrten Plattformen.** Facebook, YouTube, Twitter, allesamt hinter der Großen Firewall gesperrt. Jeder ausgehende Link dorthin ist eine Sackgasse für jeden Nutzer in China. Und er ist ein recht deutliches Zeichen für Baidu, dass Ihr Inhalt für ein anderes Publikum gemacht wurde.
 

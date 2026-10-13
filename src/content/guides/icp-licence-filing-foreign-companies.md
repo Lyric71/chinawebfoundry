@@ -1,66 +1,93 @@
 ---
 title: "ICP Licence and ICP Filing for Foreign Firms"
 subtitle: "If you want to host a website in mainland China, you need an ICP. No exceptions. But there are two types, and confusing them can cost you months."
-summary: "Every China-hosted website needs an ICP. The Bei'an filing is simple. The Commercial Licence has ownership restrictions that block most foreign companies."
+summary: "Every site on a mainland server needs an ICP filing, made by a mainland company. Paid information services also need a licence, with ownership caps."
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
 published: true
 publishedAt: 2026-03-31
-updatedAt: 2026-05-01
+updatedAt: 2026-10-13
 category: Legal
 ---
 
-Every website on a mainland Chinese server needs an ICP registration. That part is simple enough. What trips foreign companies up is that there are two separate types of ICP with very different rules. One is quick, cheap, and open to most foreign businesses. The other takes months, costs real money, and has an ownership restriction that blocks most foreign companies outright. Getting them confused, or skipping both, means slower pages, lower rankings, and a site that Chinese users may never trust, which is why [an agency that files ICP applications routinely](/wordpress-agency-china/) is worth more here than a cheaper build.
+Every website on a mainland Chinese server needs an ICP registration. That part is simple enough. What trips foreign companies up is that there are two separate instruments with very different rules. The ICP filing (ICP备案, often called Bei'an) covers every site, and it's made by a company registered in the mainland, which your Chinese subsidiary can be. The ICP licence (ICP许可证) covers paid information services, goes through a formal review, and caps foreign ownership at 50% outside a handful of pilot zones. Confusing the two, or skipping both, costs months, which is why [an agency that files ICP applications routinely](/wordpress-agency-china/) is worth more here than a cheaper build.
 
 ## ICP at a glance
 
-| | ICP Bei'an (备案) | ICP Commercial Licence (经营性许可证) |
+| | ICP filing (备案) | ICP licence (经营性许可证) |
 |---|---|---|
-| **Purpose** | Non-commercial sites | Revenue-generating sites |
-| **Examples** | Company profiles, blogs, educational content | E-commerce, SaaS, advertising, subscriptions |
-| **Who can apply** | Chinese companies, WFOEs, foreign individuals with CN representative | 100% Chinese-owned or JV with foreign ownership under 50% |
-| **Timeline** | 1 to 4 weeks | 2 to 6 months |
-| **Cost** | Free or minimal admin fees | RMB 5,000 to 20,000+ |
+| **Purpose** | Non-commercial information services | Information services users pay for |
+| **Examples** | Company sites, blogs, product information | Paid content, subscriptions, paid web services |
+| **Who can apply** | A company registered in the mainland (a WFOE counts) or a mainland resident | A mainland company; foreign ownership capped at 50% outside the pilot zones |
+| **Official review** | Provider check 1 to 2 working days, then the provincial regulator, generally 1 to 20 working days | Within 60 days of the application being accepted |
+| **Official fee** | None, though the server you file against is paid for | None |
+| **What we plan** | 3 to 6 weeks | 12 to 18 weeks |
 
-## ICP Bei'an - the filing you can actually get
+## ICP filing: the one you can actually get
 
-ICP Bei'an is the baseline. Mandatory for all websites hosted on mainland Chinese servers, whether the site makes money or not. Company profiles, blogs, educational pages, product information - doesn't matter what's on it. If it's hosted in China, it needs Bei'an.
+The filing is the baseline. Every website served from a mainland server needs one, whether it makes money or not. The rules that created the system say so in two sentences.
 
-The process is relatively painless. Chinese companies, WFOEs, and foreign individuals with a Chinese representative can all apply. Takes between 1 and 4 weeks, and most of the time your hosting provider handles the paperwork for you. Cost is either free or minimal - we're talking small administrative fees, not thousands of RMB.
+> Commercial internet information services require a licence and non-commercial ones a filing. Without the licence or the filing, no one may provide internet information services.
+> Source: State Council, Measures for the Administration of Internet Information Services (互联网信息服务管理办法), articles 3 and 4, text of 8 January 2011, which the revision of 6 December 2024 left unchanged. https://www.gov.cn/gongbao/content/2011/content_1860864.htm
 
-For most foreign companies entering China with a basic company site or content hub, Bei'an is the first ICP you'll deal with. It's the manageable one.
+Who can file is narrower than most foreign companies expect. Head office can't do it from abroad, and neither can a foreign individual living outside China.
 
-> ICP Bei'an takes 1 to 4 weeks and costs almost nothing. Your hosting provider usually handles the filing. Not the part of this process you need to worry about.
+> To apply for ICP filing, the filing entity must be an enterprise registered in the Chinese mainland or a Chinese mainland resident. Alibaba Cloud international site (alibabacloud.com) accounts do not support ICP filing applications.
+> Source: Alibaba Cloud help centre, ICP filing for enterprises outside the Chinese mainland, last updated 20 August 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland
 
-The next part is a different story.
+In practice, a foreign company files through its mainland subsidiary. The application runs through the hosting provider that gives the server its network access, so the provider's console is where the work happens.
 
-## ICP Commercial Licence - the one that blocks most foreign companies
+> Alibaba Cloud's own check takes 1 to 2 working days. The provincial Communications Administration (省级通信管理局) review that follows generally takes 1 to 20 working days.
+> Source: Alibaba Cloud (阿里云) help centre, ICP filing process overview, last updated 26 August 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-If your website generates revenue in any form - e-commerce, SaaS, online advertising, subscriptions, paid content - you need the ICP Commercial Licence on top of the Bei'an filing.
+That is up to 22 working days on paper. Documents take time to gather and applications come back for corrections, so we plan three to six weeks. The filing itself costs nothing.
 
-The ownership restriction is the part that stops most foreign companies cold. This licence can only be obtained by companies that are 100% Chinese-owned, or by joint ventures where foreign ownership does not exceed 50%. A fully foreign-owned company simply cannot get it. That one rule forces a choice that most foreign businesses aren't expecting: find a local partner willing to form a joint venture, restructure your ownership to meet the threshold, or accept that certain revenue-generating activities can't legally operate on a China-hosted website.
+> ICP filing is free of charge, but it needs a cloud server that supports filing, and buying that server costs money.
+> Source: Alibaba Cloud (阿里云) help centre, ICP filing questions by scenario, last updated 23 April 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/product-overview/faq-about-icp-filing-applications-in-different-scenarios
 
-> The ICP Commercial Licence can only be obtained by 100% Chinese-owned companies or JVs with foreign ownership under 50%. For most foreign businesses, that's the dealbreaker.
+## ICP licence: the one with the ownership cap
 
-Timeline is 2 to 6 months. Costs run from RMB 5,000 to north of RMB 20,000 depending on how complex the application gets. And the compliance process after approval takes some effort too.
+If your website charges users for information or web services (paid content, subscriptions, paid online services), you need the ICP licence on top of the filing. Where an online shop or a software product falls on that line is a question for a licensed adviser, and it's worth asking before you file rather than after.
+
+The ownership rule is where most foreign companies stop.
+
+> Foreign ownership of value-added telecoms businesses may not exceed 50%, except for e-commerce, domestic multi-party communications, store-and-forward and call centre services.
+> Source: National Development and Reform Commission and Ministry of Commerce, Special Administrative Measures for Foreign Investment Access (Negative List), 2024 edition, in force from 1 November 2024. https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/202409/P020240907514493057643.pdf
+
+A pilot opened part of that in 2024, for named categories only.
+
+> In approved pilot areas (Beijing, the Shanghai FTZ Lingang New Area and Pudong, Hainan Free Trade Port and Shenzhen), the foreign ownership cap is lifted for IDC, CDN, ISP, online data processing and transaction processing, information publishing platforms and delivery services (excluding news, online publishing, audiovisual and internet culture), and information protection and processing services.
+> Source: Ministry of Industry and Information Technology (工业和信息化部), notice 工信部通信函〔2024〕107号, 8 April 2024. https://www.gov.cn/zhengce/zhengceku/202404/content_6944441.htm
+
+So the answer depends on where the company is registered and which category the service sits in. A fully foreign-owned company outside the pilot zones can't hold the licence for an ordinary information service. That rule forces a choice most foreign businesses don't see coming: a joint venture, a restructured shareholding, or a mainland site that doesn't charge for anything.
+
+> The regulator decides on a licence application within 60 days of accepting it.
+> Source: Shanghai Communications Administration (上海市通信管理局), value-added telecoms licence service guide, 1 June 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
+
+Gathering the file comes before acceptance, so we plan twelve to eighteen weeks. That is our planning figure, not the regulator's.
 
 ## What happens if you skip the ICP entirely
 
-Some companies look at all this and decide to just host outside China. Avoid the paperwork, avoid the ownership questions, run the site from a server in Singapore or Frankfurt. Sounds reasonable. But the tradeoffs are worse than most people expect going in.
+On a mainland server, skipping it isn't an option. The provider won't open the domain, and the regulator can close the site.
 
-| Consequence | Impact |
-|---|---|
-| **Load speed** | 200%+ slower for Chinese users |
-| **Baidu rankings** | ICP is a trust signal - no ICP means lower rankings |
-| **Great Firewall** | Risk of site being blocked entirely |
-| **User trust** | 78% of Chinese users prefer sites with valid ICP |
+> Under MIIT rules, a domain resolved to a server in the Chinese mainland must complete its website filing before website access can be opened.
+> Source: Alibaba Cloud (阿里云) help centre, troubleshooting a website that can't be reached, last updated 4 September 2026. https://help.aliyun.com/zh/dws/support/how-do-i-troubleshoot-the-failures-to-access-a-website-by-using-its-domain-name
 
-The most obvious problem is speed. A website hosted outside mainland China loads 200% or more slower for users in China. The delay is heavy enough that people close the tab before the page finishes rendering.
+> A site that provides non-commercial information services without a filing is ordered by the provincial telecoms authority to correct it within a time limit, and ordered closed if it refuses.
+> Source: State Council, Measures for the Administration of Internet Information Services, article 19, text of 8 January 2011, which the revision of 6 December 2024 left unchanged. https://www.gov.cn/gongbao/content/2011/content_1860864.htm
 
-Rankings take a hit too. Baidu treats ICP registration as a trust signal. Without one, you're trying to compete on China's biggest search engine with a handicap that no amount of keyword optimisation alone will fix.
+Some companies look at all this and host outside the mainland instead, in Hong Kong, Singapore or Frankfurt. That needs no filing. The cost is the border, because every request a visitor makes has to cross the Great Firewall and back.
 
-The Great Firewall is the other risk. Sites hosted overseas without an ICP can get blocked entirely on top of the slow loads. Doesn't happen to every site, but it happens, and there's no reliable way to predict when or why.
+| Choice | ICP filing needed | What it costs |
+|---|---|---|
+| **Mainland server, filed** | Yes | Weeks of paperwork before launch |
+| **Mainland server, not filed** | Not possible | The provider keeps the domain closed |
+| **Hong Kong or overseas server** | No | Every request crosses the border |
 
-And user trust. 78% of Chinese internet users prefer websites with a valid ICP licence number displayed. It's usually down in the footer, and Chinese users absolutely check for it. A site without one reads as either foreign or unprofessional. Not the impression you want to make on a potential customer.
+> Chinafy tested 614 global websites from Beijing, Virginia and London. Two in three failed to load in China, and time to first byte was 4 to 4.5 times higher in Beijing than in the US or UK.
+> Source: Chinafy, China Website Performance Benchmarks 2026, 14 April 2026 (a vendor benchmark). https://www.chinafy.com/blog/china-website-performance-benchmarks-2026
 
-> 78% of Chinese internet users prefer websites with a valid ICP number. It's in the footer, and they check.
+Once the filing clears, the number goes on the site. It's usually down in the footer, and it isn't optional.
+
+> After the filing succeeds, the site must display the ICP number issued by the ministry at the bottom of the page, linked to beian.miit.gov.cn. Leaving it off can bring an order to correct it and a fine of 5,000 to 10,000 yuan from the provincial Communications Administration.
+> Source: Alibaba Cloud (阿里云) help centre, adding the filing number to a website, last updated 12 August 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/the-icp-record-post-processing-1

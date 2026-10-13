@@ -1,66 +1,93 @@
 ---
 title: "Licence ICP ou Bei'an : ne pas les confondre"
 subtitle: "Héberger un site en Chine continentale impose un ICP. Sans exception. Sauf qu'il en existe deux, et confondre les deux peut coûter des mois."
-summary: "Tout site hébergé en Chine exige un ICP. L'enregistrement Bei'an reste simple. La licence commerciale, elle, comporte une restriction d'actionnariat qui bloque la plupart des entreprises étrangères."
+summary: "Un site sur un serveur continental doit faire l'objet d'un dépôt ICP, au nom d'une société chinoise. Les services d'information payants exigent en outre une licence."
 visual: "/images/guides/icp-licence-filing-foreign-companies.webp"
 order: 5
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-05-02
+updatedAt: 2026-10-13
 category: Legal
 ---
 
-Tout site posé sur un serveur en Chine continentale doit disposer d'un enregistrement ICP. Jusque-là, rien de compliqué. Le piège pour les entreprises étrangères tient à un autre détail : il existe 2 types d'ICP, régis par des règles très différentes. Le premier est rapide, presque gratuit et accessible à la plupart des sociétés étrangères. Le second prend des mois, coûte vraiment, et impose une restriction d'actionnariat qui verrouille d'entrée la plupart des entreprises étrangères. Les confondre, ou passer outre, expose à des pages lentes, à un référencement dégradé et à un site auquel les internautes chinois n'accorderont aucune confiance, et c'est pourquoi [une agence qui dépose des dossiers ICP à longueur d'année](/fr/agence-wordpress-chine/) vaut mieux ici qu'un devis moins cher.
+Tout site hébergé sur un serveur en Chine continentale doit disposer d'un enregistrement ICP. Sur le principe, rien de compliqué. Le piège, pour une entreprise étrangère, tient à la coexistence de deux régimes aux règles très différentes. Le dépôt ICP (ICP备案, souvent appelé Bei'an) s'applique à tous les sites ; il est effectué par une société immatriculée sur le continent, rôle que peut tenir votre filiale chinoise. La licence ICP (ICP许可证) concerne les services d'information payants : elle suppose un véritable examen et limite la participation étrangère à 50 %, sauf dans quelques zones pilotes. Confondre les deux, ou s'en dispenser, fait perdre des mois, d'où l'intérêt de confier le dossier à [une agence qui dépose des dossiers ICP à longueur d'année](/fr/agence-wordpress-chine/) plutôt que de retenir le devis le moins cher.
 
 ## L'ICP en bref
 
-| | ICP Bei'an (备案) | Licence commerciale ICP (经营性许可证) |
+| | Dépôt ICP (备案) | Licence ICP (经营性许可证) |
 |---|---|---|
-| **Objet** | Sites non commerciaux | Sites générant des revenus |
-| **Exemples** | Profils d'entreprise, blogs, contenus éducatifs | E-commerce, SaaS, publicité, abonnements |
-| **Qui peut déposer** | Sociétés chinoises, WFOE, particuliers étrangers avec un représentant en Chine | Sociétés 100 % chinoises ou coentreprises avec participation étrangère inférieure à 50 % |
-| **Délai** | 1 à 4 semaines | 2 à 6 mois |
-| **Coût** | Gratuit ou frais administratifs minimes | 5 000 à plus de 20 000 RMB |
+| **Objet** | Services d'information non commerciaux | Services d'information payants |
+| **Exemples** | Sites d'entreprise, blogs, fiches produits | Contenus payants, abonnements, services en ligne facturés |
+| **Qui peut déposer** | Une société immatriculée sur le continent (WFOE comprise) ou un résident du continent | Une société chinoise, avec une participation étrangère limitée à 50 % hors zones pilotes |
+| **Examen officiel** | Contrôle de l'hébergeur en 1 à 2 jours ouvrés, puis examen provincial, en général de 1 à 20 jours ouvrés | Décision dans les 60 jours qui suivent l'acceptation du dossier |
+| **Frais officiels** | Aucun, mais le serveur associé au dépôt est payant | Aucun |
+| **Notre calendrier** | 3 à 6 semaines | 12 à 18 semaines |
 
-## ICP Bei'an, la partie accessible
+## Le dépôt ICP, celui qu'on peut obtenir
 
-Le Bei'an est le socle obligatoire de tout site hébergé sur des serveurs en Chine continentale, qu'il génère ou non des revenus. Profils d'entreprise, blogs, contenus éducatifs, fiches produit : peu importe la nature du contenu, un site hébergé en Chine doit disposer d'un Bei'an.
+Le dépôt est la base. Tout site servi depuis un serveur continental doit en disposer, qu'il génère ou non des revenus. Le texte qui a créé le système le dit en deux phrases.
 
-La procédure reste relativement simple. Sociétés chinoises, WFOE et particuliers étrangers disposant d'un représentant en Chine peuvent toutes la déposer. Comptez 1 à 4 semaines, et dans la plupart des cas, l'hébergeur prend les formalités en charge. Le coût est nul ou quasi nul : quelques frais administratifs, pas des milliers de RMB.
+> Les services d'information sur Internet à caractère commercial sont soumis à licence, les services non commerciaux à dépôt. Sans licence ni dépôt, personne ne peut fournir de services d'information sur Internet.
+> Source : Conseil des affaires de l'État, Mesures relatives à l'administration des services d'information sur Internet (互联网信息服务管理办法), articles 3 et 4, texte du 8 janvier 2011, que la révision du 6 décembre 2024 n'a pas modifié. https://www.gov.cn/gongbao/content/2011/content_1860864.htm
 
-Pour la majorité des entreprises étrangères qui arrivent en Chine avec un site vitrine ou un hub de contenu, le Bei'an est le premier ICP qui se présente. La partie gérable du dossier.
+Le cercle des déposants est plus restreint que ne l'imaginent la plupart des entreprises étrangères. Le siège ne peut pas déposer depuis l'étranger, et un particulier étranger qui vit hors de Chine pas davantage.
 
-> L'ICP Bei'an prend 1 à 4 semaines et ne coûte quasiment rien. Votre hébergeur gère généralement la procédure. Le problème se trouve ailleurs.
+> Pour déposer une demande ICP, l'entité doit être une entreprise immatriculée en Chine continentale ou un résident de Chine continentale. Les comptes ouverts sur le site international d'Alibaba Cloud (alibabacloud.com) ne permettent pas de déposer.
+> Source : centre d'aide d'Alibaba Cloud, dépôt ICP pour les entreprises situées hors de Chine continentale, mis à jour le 20 août 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland
 
-La suite est d'un autre ordre.
+En pratique, une entreprise étrangère dépose par l'intermédiaire de sa filiale continentale. La demande passe par l'hébergeur qui assure l'accès réseau du serveur, et c'est dans sa console que le dossier se constitue.
 
-## Licence commerciale ICP, le verrou
+> Le contrôle d'Alibaba Cloud prend 1 à 2 jours ouvrés. Vient ensuite l'examen de l'administration provinciale des communications (省级通信管理局), qui prend en général de 1 à 20 jours ouvrés.
+> Source : centre d'aide d'Alibaba Cloud (阿里云), présentation de la procédure de dépôt ICP, mis à jour le 26 août 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
 
-Dès que le site génère des revenus, sous quelque forme que ce soit, commerce en ligne, SaaS, publicité, abonnements, contenu payant, la licence commerciale ICP vient s'ajouter au Bei'an.
+Sur le papier, cela fait au plus 22 jours ouvrés. Mais il faut du temps pour réunir les pièces, et les dossiers reviennent pour correction : nous prévoyons donc trois à six semaines. Le dépôt en lui-même est gratuit.
 
-La restriction d'actionnariat, c'est le point d'arrêt. Seules les sociétés détenues à 100 % par des capitaux chinois, ou les coentreprises où la participation étrangère ne dépasse pas 50 %, peuvent y prétendre. Une entreprise à capitaux entièrement étrangers en est de fait exclue. Cette règle à elle seule impose un choix auquel la plupart des entreprises étrangères ne s'attendent pas : trouver un partenaire local pour bâtir une coentreprise, restructurer l'actionnariat pour passer sous le seuil, ou accepter que certaines activités génératrices de revenus ne puissent pas légalement opérer depuis un site hébergé en Chine.
+> Le dépôt ICP ne donne lieu à aucun frais, mais il faut acheter un serveur cloud compatible, ce qui, lui, est payant.
+> Source : centre d'aide d'Alibaba Cloud (阿里云), questions sur le dépôt ICP selon les situations, mis à jour le 23 avril 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/product-overview/faq-about-icp-filing-applications-in-different-scenarios
 
-> La licence commerciale ICP n'est ouverte qu'aux sociétés 100 % chinoises ou aux coentreprises avec participation étrangère inférieure à 50 %. Pour la plupart des entreprises étrangères, c'est le verrou.
+## La licence ICP, celle qui plafonne le capital étranger
 
-Le délai tourne autour de 2 à 6 mois. Le coût varie de 5 000 RMB à plus de 20 000 RMB selon la complexité du dossier. Et la conformité post-obtention réclame elle aussi un suivi.
+Si votre site fait payer aux utilisateurs des informations ou des services en ligne (contenus payants, abonnements, services en ligne facturés), il vous faut la licence ICP en plus du dépôt. De quel côté de la ligne se range une boutique en ligne ou un logiciel ? La réponse revient à un conseil agréé, et mieux vaut l'obtenir avant le dépôt.
 
-## Ce qui se passe quand on saute l'ICP
+C'est sur la règle d'actionnariat que butent la plupart des entreprises étrangères.
 
-Certaines entreprises, face à ces contraintes, préfèrent héberger hors de Chine. Zapper la paperasse, contourner les questions de capital, faire tourner le site depuis Singapour ou Francfort. La démarche semble raisonnable. L'addition est plus lourde qu'il n'y paraît.
+> La participation étrangère dans les services de télécommunications à valeur ajoutée ne peut excéder 50 %, à l'exception du commerce électronique, des communications multipartites nationales, des services de stockage et retransmission et des centres d'appels.
+> Source : Commission nationale du développement et de la réforme et ministère du Commerce, Mesures spéciales de gestion de l'accès des investissements étrangers (liste négative), édition 2024, en vigueur depuis le 1er novembre 2024. https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/202409/P020240907514493057643.pdf
 
-| Conséquence | Impact |
-|---|---|
-| **Vitesse de chargement** | Plus de 200 % de lenteur pour les utilisateurs chinois |
-| **Classement Baidu** | L'ICP est un signal de confiance ; sans lui, classement pénalisé |
-| **Grand Pare-feu** | Risque de blocage complet du site |
-| **Confiance des utilisateurs** | 78 % des internautes chinois préfèrent les sites avec un ICP valide |
+Un programme pilote a desserré ce verrou en 2024, pour des catégories précises seulement.
 
-Le premier problème est la vitesse. Un site hébergé hors de Chine continentale charge avec plus de 200 % de retard pour les utilisateurs en Chine. Rien de subtil : la lenteur est telle que les internautes ferment l'onglet avant l'affichage complet.
+> Dans les zones pilotes agréées (Pékin, la nouvelle zone de Lingang et Pudong au sein de la zone franche de Shanghai, le port franc de Hainan et Shenzhen), le plafond de participation étrangère est levé pour les IDC, les CDN, les FAI, le traitement de données et de transactions en ligne, les plateformes de publication et de diffusion d'informations (hors actualités, édition en ligne, audiovisuel et culture sur Internet) et les services de protection et de traitement de l'information.
+> Source : ministère de l'Industrie et des Technologies de l'information (工业和信息化部), avis 工信部通信函〔2024〕107号, 8 avril 2024. https://www.gov.cn/zhengce/zhengceku/202404/content_6944441.htm
 
-Le référencement suit. Baidu traite l'enregistrement ICP comme un signal de confiance. Sans lui, la compétition sur le premier moteur de recherche chinois démarre avec un handicap qu'aucune optimisation de mots-clés ne rattrapera à elle seule.
+Tout dépend donc du lieu d'immatriculation de la société et de la catégorie dont relève le service. Une société à capitaux entièrement étrangers, établie hors des zones pilotes, ne peut pas détenir la licence pour un service d'information ordinaire. D'où un choix que peu d'entreprises étrangères voient venir : une coentreprise, un actionnariat recomposé, ou un site continental qui ne fait rien payer.
 
-Le Grand Pare-feu est l'autre risque. Les sites hébergés à l'étranger sans ICP peuvent, en plus de leur lenteur, être purement et simplement bloqués. Rien de systématique : cela arrive, sans qu'on puisse prédire ni quand ni pourquoi.
+> L'administration se prononce sur une demande de licence dans les 60 jours qui suivent son acceptation.
+> Source : administration des communications de Shanghai (上海市通信管理局), guide de la licence de télécommunications à valeur ajoutée, 1er juin 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
 
-Reste la confiance. 78 % des internautes chinois privilégient les sites qui affichent un numéro ICP valide. Ce numéro figure dans le pied de page, et les utilisateurs chinois le vérifient. Un site qui en est dépourvu passe pour étranger ou peu professionnel. Une impression à éviter face à un prospect.
+Le dossier doit être complet avant d'être accepté, et nous prévoyons donc douze à dix-huit semaines. C'est notre estimation, pas celle de l'administration.
 
-> 78 % des internautes chinois préfèrent les sites avec un numéro ICP valide. Il est dans le pied de page, et ils le vérifient.
+## Ce qui arrive si l'on fait l'impasse sur l'ICP
+
+Sur un serveur continental, l'impasse est impossible : l'hébergeur n'ouvre pas le domaine, et l'administration peut fermer le site.
+
+> Selon les règles du MIIT, un domaine qui pointe vers un serveur situé en Chine continentale doit avoir achevé son dépôt avant que l'accès au site puisse être ouvert.
+> Source : centre d'aide d'Alibaba Cloud (阿里云), que faire quand un site est inaccessible, mis à jour le 4 septembre 2026. https://help.aliyun.com/zh/dws/support/how-do-i-troubleshoot-the-failures-to-access-a-website-by-using-its-domain-name
+
+> Le site qui fournit des services d'information non commerciaux sans dépôt reçoit de l'autorité provinciale des télécommunications l'ordre de se mettre en règle dans un délai fixé ; s'il refuse, sa fermeture est ordonnée.
+> Source : Conseil des affaires de l'État, Mesures relatives à l'administration des services d'information sur Internet, article 19, texte du 8 janvier 2011, que la révision du 6 décembre 2024 n'a pas modifié. https://www.gov.cn/gongbao/content/2011/content_1860864.htm
+
+Devant ces contraintes, certaines entreprises choisissent d'héberger hors du continent, à Hong Kong, à Singapour ou à Francfort. Aucun dépôt n'est alors nécessaire. La contrepartie, c'est la frontière : chaque requête d'un visiteur doit traverser le Grand Pare-feu, dans un sens puis dans l'autre.
+
+| Option | Dépôt ICP requis | Ce que cela coûte |
+|---|---|---|
+| **Serveur continental, avec dépôt** | Oui | Des semaines de démarches avant le lancement |
+| **Serveur continental, sans dépôt** | Impossible | L'hébergeur laisse le domaine fermé |
+| **Serveur à Hong Kong ou à l'étranger** | Non | Chaque requête franchit la frontière |
+
+> Chinafy a testé 614 sites internationaux depuis Pékin, la Virginie et Londres : deux sur trois ne se sont pas chargés en Chine, et le délai avant le premier octet était à Pékin 4 à 4,5 fois plus long qu'aux États-Unis ou au Royaume-Uni.
+> Source : Chinafy, China Website Performance Benchmarks 2026, 14 avril 2026 (étude publiée par un prestataire). https://www.chinafy.com/blog/china-website-performance-benchmarks-2026
+
+Une fois le dépôt validé, le numéro doit apparaître sur le site, le plus souvent en pied de page. C'est une obligation.
+
+> Après validation du dépôt, le site doit afficher en bas de page le numéro ICP attribué par le ministère, assorti d'un lien vers beian.miit.gov.cn. En cas d'oubli, l'administration provinciale des communications peut ordonner la mise en conformité et infliger une amende de 5 000 à 10 000 yuans.
+> Source : centre d'aide d'Alibaba Cloud (阿里云), ajouter le numéro de dépôt sur un site, mis à jour le 12 août 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/the-icp-record-post-processing-1

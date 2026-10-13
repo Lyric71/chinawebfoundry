@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-11
+updatedAt: 2026-10-13
 category: Technology
 ---
 
@@ -118,7 +118,7 @@ Eine Website in Werkseinstellung sagt Ihnen nicht, dass sie sich nicht mehr aktu
 
 Selbst gehostetes WordPress, die Software von wordpress.org, ist unproblematisch.
 
-WordPress.com, der gehostete Dienst von Automattic, ist ebenfalls nicht pauschal gesperrt, auch wenn nahezu jeder Ratgeber das behauptet. Die Hauptdomain löst sich häufig auf. Gesperrt ist ein großer Teil dessen, was darunter liegt, darunter die chinesischsprachigen Angebote und sehr viele einzelne Nutzerblogs.
+Auch WordPress.com, der gehostete Dienst von Automattic, ist nicht pauschal gesperrt, obwohl fast jeder Ratgeber das behauptet. Die Hauptdomain löst häufig auf. Gesperrt oder gestört ist dagegen ein großer Teil dessen, was unter der Domain liegt, darunter zahllose einzelne Nutzerblogs.
 
 Für ein Unternehmen bleibt die Unterscheidung theoretisch, denn dahinter wartet eine härtere Einschränkung. Eine ICP-Registrierung (备案) lässt sich für eine Domain, deren Hosting Sie nicht kontrollieren, nicht abschließen, und ohne Registrierung dürfen Sie von einem Festlandserver aus nicht legal ausliefern. Eine WordPress.com-Website lässt sich nicht rechtskonform aufstellen, ob sie heute lädt oder nicht. Unser [Leitfaden zur ICP-Registrierung](/de/ressourcen/china-web-leitfaden/icp-lizenz-auslaendische-unternehmen/) beschreibt, was der Papierkram wirklich verlangt.
 
