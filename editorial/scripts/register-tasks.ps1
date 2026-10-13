@@ -10,8 +10,9 @@
 
   Both tasks start run-daily.ps1 through the shared wrapper
   C:\Users\cyril\Project\automation\scripts\Invoke-ScheduledProjectScript.ps1,
-  which retries a run that fails before the model starts. Rerunning this
-  script keeps that action and leaves both tasks enabled.
+  which retries a run that fails before the model starts and keeps the
+  machine out of idle sleep until the run ends. Rerunning this script keeps
+  that action and leaves both tasks enabled.
 
   Run from any PowerShell prompt:
     powershell -ExecutionPolicy Bypass -File editorial\scripts\register-tasks.ps1
@@ -37,10 +38,16 @@ $Pwsh = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
 function Register([string]$Name, [string]$Mode, $Trigger, [bool]$Enabled) {
   $Action = New-ScheduledTaskAction -Execute $Pwsh `
     -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$Wrapper`" -Runner `"$Runner`" -Mode $Mode"
+  # The defaults refuse to start on battery and kill a run the moment the
+  # laptop is unplugged, which it is several times a day; a killed run leaves
+  # its work uncommitted (13 October 2026). Battery and idle never stop a run.
   $Settings = New-ScheduledTaskSettingsSet `
     -ExecutionTimeLimit (New-TimeSpan -Hours 6) `
     -StartWhenAvailable `
     -WakeToRun `
+    -AllowStartIfOnBatteries `
+    -DontStopIfGoingOnBatteries `
+    -DontStopOnIdleEnd `
     -MultipleInstances IgnoreNew
   Register-ScheduledTask -TaskName $Name -Action $Action -Trigger $Trigger `
     -Settings $Settings -Description "ChinaWebFoundry editorial pipeline ($Mode)" -Force | Out-Null

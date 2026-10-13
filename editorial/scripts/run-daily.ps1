@@ -143,7 +143,8 @@ editorial/output, editorial/logs, editorial/schedule.csv, editorial/sources,
 editorial/PLAN.md and editorial/briefs if its draft corrected them, and every
 live page listed under "corrected live pages" in the row's notes).
 Read git status first and stage nothing that belongs to another session or
-another piece. Commit on main with a conventional commit message (feat(guide):
+another piece; earlier days' logs under editorial/logs/ are committed by the
+runner after this run, so leave them. Commit on main with a conventional commit message (feat(guide):
 publish <slug>, feat(work): for case studies, feat(page): for the money page,
 fix(guide): for upgrades, feat(i18n): for translations), then git push origin
 main. Only after the push succeeds, run
@@ -194,6 +195,42 @@ $AgentRunner = 'C:\Users\cyril\Project\automation\scripts\Invoke-ProjectAgent.ps
 $Code = & $AgentRunner -Repo $Repo -PromptFile $PromptFile -RunLog $RunLog -RunName "ChinaWebFoundry $Mode"
 
 "$(Get-Date -Format s) end $Mode exit $Code" | Out-File $RunLog -Append -Encoding utf8
+
+# Draft runs never commit, and a publish run stages only its own piece, so a
+# log written by a catch-up draft or a run with nothing to publish stayed in
+# the working tree for good (the 6 and 10 October logs sat there for a week).
+# After every publish run the runner, not the model, commits and pushes the
+# editorial logs of earlier days. Today's logs are left to today's runs, and
+# nothing outside editorial/logs is touched. Never fails the run.
+function Invoke-Git([string[]]$GitArgs) {
+  # Native stderr under Stop is a terminating error in PowerShell 5.1.
+  $ErrorActionPreference = 'Continue'
+  $Out = & git @GitArgs 2>&1 | ForEach-Object { "$_" }
+  return [pscustomobject]@{ Code = $LASTEXITCODE; Out = @($Out) }
+}
+if ($Mode -eq 'publish') {
+  try {
+    $Branch = (Invoke-Git @('rev-parse', '--abbrev-ref', 'HEAD')).Out -join ''
+    $Leftover = @((Invoke-Git @('status', '--porcelain', '-uall', '--', 'editorial/logs')).Out |
+      Where-Object { $_.Length -gt 3 } |
+      ForEach-Object { $_.Substring(3).Trim('"') } |
+      Where-Object { $_ -match '^editorial/logs/(\d{4}-\d{2}-\d{2})' -and $Matches[1] -lt $Stamp })
+    if ($Leftover.Count -and $Branch -eq 'main') {
+      $Add = Invoke-Git (@('add', '--') + $Leftover)
+      $Commit = Invoke-Git (@('commit', '-m', 'chore(editorial): commit run logs left by earlier runs', '--') + $Leftover)
+      if ($Add.Code -eq 0 -and $Commit.Code -eq 0) {
+        $Push = Invoke-Git @('push', 'origin', 'main')
+        "$(Get-Date -Format s) leftover logs: committed $($Leftover.Count) file(s), push exit $($Push.Code)" | Out-File $RunLog -Append -Encoding utf8
+      } else {
+        "$(Get-Date -Format s) leftover logs: commit failed: $($Add.Out -join ' ') $($Commit.Out -join ' ')" | Out-File $RunLog -Append -Encoding utf8
+      }
+    } elseif ($Leftover.Count) {
+      "$(Get-Date -Format s) leftover logs: $($Leftover.Count) file(s) left, HEAD is on $Branch, not main" | Out-File $RunLog -Append -Encoding utf8
+    }
+  } catch {
+    "$(Get-Date -Format s) leftover logs: $($_.Exception.Message)" | Out-File $RunLog -Append -Encoding utf8
+  }
+}
 
 # The runner, not the model, says when the pipeline stops producing: a mail
 # at most once a day when drafting stalls, a finished draft waits, or a week

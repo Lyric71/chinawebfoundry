@@ -123,7 +123,9 @@ every locale, image, `src/i18n/routes.ts` if changed, `editorial/output`,
 (`feat(guide): publish <slug>`, or `feat(work):`, `feat(page):`,
 `fix(guide):` for upgrades, `feat(i18n):` for translations), `git push
 origin main`. Read `git status` first and stage nothing that belongs to
-another session or another piece. The repo's pre-push hook runs the build a
+another session or another piece. Earlier days' logs under `editorial/logs/`
+are left to the runner, which commits them after the run (see "Nothing
+waits in the working tree"). The repo's pre-push hook runs the build a
 second time; that is expected.
 
 `npx astro check` passes when it reports no more errors than a clean checkout
@@ -299,18 +301,36 @@ machine:
 
 Scripts live in `editorial/scripts/`. `register-tasks.ps1` creates or updates
 both tasks, each started through the shared wrapper
-`C:UserscyrilProjectautomationscriptsInvoke-ScheduledProjectScript.ps1`.
+`C:\Users\cyril\Project\automation\scripts\Invoke-ScheduledProjectScript.ps1`.
 `check-queue.mjs` (`--dry-run` to preview) is the queue watchdog the draft
 run calls; its mail states facts and never lists open items. Each run writes its console output to `logs/runs/<date>-<mode>.txt`
 next to the piece's run log. The machine has to be on, or asleep with wake
 allowed, at the run time. A missed run fires as soon as the machine is back.
 
-**Sleep kills a run in progress.** A T1 publish with three deep translations
-can take well over an hour. The machine must stay awake from 01:30 until the
-publish finishes. Set the power plan to never sleep on AC, or keep the laptop
-plugged in and the lid open on run days. The runner retries transient API
+**Sleep and battery used to kill runs in progress.** A T1 publish with three
+deep translations can take well over an hour. On battery the laptop sleeps
+after 3 minutes idle, and the tasks were registered with Windows' defaults,
+which refuse to start on battery and stop a run when the laptop is
+unplugged. About 20 runs between 10 September and 13 October 2026 died with
+no end line; the last left 18 corrected guide files uncommitted. Since
+13 October 2026: the shared wrapper holds the machine out of idle sleep
+until the run ends (`SetThreadExecutionState`), and `register-tasks.ps1`
+lets both tasks start and keep running on battery. A sleep the user asks
+for, or closing the lid, still suspends a run; `Relaunch-MissedTasks.ps1`
+relaunches it at the next logon, and the catch-up finishes the partial
+work. Wake timers are off on battery in the power plan, so a 01:30 run on
+battery fires when the laptop next wakes. The runner retries transient API
 errors (overloaded, rate limit, 5xx) up to three times, five minutes apart,
 on the same model.
+
+**Nothing waits in the working tree.** After every publish run,
+`run-daily.ps1` itself commits and pushes the run logs of earlier days
+under `editorial/logs/` (`chore(editorial): commit run logs left by earlier
+runs`), which draft runs and nothing-to-publish runs never commit. It
+touches nothing else. `check-queue.mjs` mails Cyril when files under
+`src/content`, `public/images` or `editorial/output` have sat uncommitted
+for two days, which means a run died before its publish step and the
+relaunch did not finish it.
 
 Publishing is unattended: a draft made at 01:30 is published at 05:30 the
 same day unless someone sets its row to `blocked` before then. That

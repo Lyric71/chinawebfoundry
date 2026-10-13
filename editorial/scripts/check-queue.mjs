@@ -14,6 +14,9 @@
  *   - stuck:   a finished draft has sat at image_ready for --stall-days days
  *              (a China Dependency Index edition or a "Hold until" row is
  *              not counted before its date).
+ *   - stranded: files under src/content, public/images or editorial/output
+ *              have sat uncommitted for --stall-days days, so the live site
+ *              never got them (a run killed before its publish step).
  *   - low:     a week or less of briefs is left to draft, or none at all.
  *
  * Rows behind a content gate (blocked, reserve, a non-empty gate column) are
@@ -28,7 +31,8 @@
  * Always exits 0, so it never fails the run that calls it.
  */
 
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 // Same sender and recipient as notify-publish.mjs (Resend testing mode).
@@ -91,6 +95,26 @@ function holdUntil(row) {
   return '';
 }
 
+/**
+ * Content a run changed and nothing shipped: uncommitted files under the
+ * paths a publish commits, last written days ago. A run killed mid-pipeline
+ * left 18 corrected guide files this way on 13 October 2026. Fresh changes
+ * belong to a run still in progress and are not counted.
+ */
+function strandedFiles(days) {
+  let out = '';
+  try {
+    out = execFileSync('git', ['status', '--porcelain', '-uall', '--', 'src/content', 'public/images', 'editorial/output'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  } catch {
+    return [];
+  }
+  const cutoff = Date.now() - days * DAY;
+  return out.split(/\r?\n/).filter((l) => l.length > 3)
+    .map((l) => l.slice(3).replace(/^"|"$/g, ''))
+    .filter((f) => existsSync(f) && statSync(f).mtimeMs < cutoff);
+}
+
 async function main() {
   loadEnv();
   const perDay = arg('per-day', 1);
@@ -129,6 +153,10 @@ async function main() {
   if (stuck.length) {
     alerts.push(`Publishing has stalled: ${stuck.map((r) => `${r.brief_id} ${r.slug}`).join(', ')} ${stuck.length === 1 ? 'has' : 'have'} been at image_ready for ${stallDays} days or more. The publish run logs are in editorial/logs/runs/.`);
   }
+  const stranded = strandedFiles(stallDays);
+  if (stranded.length) {
+    alerts.push(`Content is sitting uncommitted: ${stranded.length} file${stranded.length === 1 ? '' : 's'} under src/content, public/images or editorial/output changed more than ${stallDays} day${stallDays === 1 ? '' : 's'} ago and never shipped, so the live site does not have them. Usually a run was interrupted before its publish step. ${stranded.slice(0, 8).join(', ')}${stranded.length > 8 ? `, and ${stranded.length - 8} more` : ''}.`);
+  }
   if (ready.length === 0 && heldRows.length === 0) {
     alerts.push(`The drafting queue is empty: no row in editorial/schedule.csv is left to draft. ${gated.length} rows remain behind a content gate, which every run skips as settled. No new piece will publish until new rows and briefs are added (editorial/PLAN.md, then build-briefs.mjs).`);
   } else if (ready.length === 0) {
@@ -150,6 +178,7 @@ async function main() {
 
   const subject = alerts[0].startsWith('Drafting has stalled') ? `ChinaWebFoundry drafting stalled (${ready.length} rows ready)`
     : alerts[0].startsWith('Publishing has stalled') ? 'ChinaWebFoundry publishing stalled'
+    : alerts[0].startsWith('Content is sitting') ? `ChinaWebFoundry content uncommitted (${stranded.length} files)`
     : alerts[0].startsWith('The drafting queue is empty') ? 'ChinaWebFoundry editorial queue empty'
     : alerts[0].startsWith('Nothing is ready') ? 'ChinaWebFoundry editorial queue paused to a dated row'
     : `ChinaWebFoundry editorial queue low: ${ready.length} rows left`;

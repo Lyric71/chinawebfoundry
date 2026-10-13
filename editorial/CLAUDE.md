@@ -50,8 +50,8 @@ Thursday and Friday). Content gates still hold: `blocked` and `reserve`
 rows, a `gate` column that is not clear, a client sign-off. The draft task
 runs every day at 01:30, and `scripts/check-queue.mjs` runs after every
 draft run and mails Cyril, at most once a day, when drafting stalls for two
-days, a finished draft sits at `image_ready` for two days, or a week or less
-of briefs is left.
+days, a finished draft sits at `image_ready` for two days, content files sit
+uncommitted for two days, or a week or less of briefs is left.
 
 **The one dated exception.** Genuinely time-bound content never runs ahead
 of its date, in either mode. A China Dependency Index edition (slug
