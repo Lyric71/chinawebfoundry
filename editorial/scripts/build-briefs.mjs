@@ -188,7 +188,9 @@ function sliceSection(startRe, endRe) {
 const T7_RULES = sliceSection(/^## 11\. T7/, /^## 12\./);
 const T3_TEMPLATE = sliceSection(/^### Shared case study template/, /^#### T3-01/);
 const T2_RULES = sliceSection(/^### The selection rule/, /^### Batch 1/);
-const T2_STRUCTURE = sliceSection(/^### Structure rule/, /^### Batch 1/);
+// T2_RULES runs from the selection rule to Batch 1, so it already carries the
+// structure and evidence rules. Appending a second slice of them duplicated
+// both sections in every T2 brief (fixed 14 October 2026).
 const T4_RULES = sliceSection(/^## 8\. T4/, /^#### T4-01/);
 const T6_RULES = sliceSection(/^## 10\. T6/, /^#### T6-01/);
 
@@ -275,7 +277,7 @@ for (let w = 0; w < CALENDAR.length; w++) {
 
     let extra = '';
     if (p.type === 'casestudy') extra = `\n\n## Shared case study template (from PLAN.md section 7)\n\n${T3_TEMPLATE}`;
-    if (p.type === 'guide-en') extra = `\n\n## T2 rules (from PLAN.md section 6)\n\n${T2_RULES}\n\n${T2_STRUCTURE}`;
+    if (p.type === 'guide-en') extra = `\n\n## T2 rules (from PLAN.md section 6)\n\n${T2_RULES}`;
     if (p.type === 'report') extra = `\n\n## T4 rules (from PLAN.md section 8)\n\n${T4_RULES}`;
     if (p.type === 'upgrade') extra = `\n\n## T6 rules (from PLAN.md section 10)\n\n${T6_RULES}`;
 

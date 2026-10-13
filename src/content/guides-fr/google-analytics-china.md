@@ -6,7 +6,7 @@ visual: "/images/guides/google-analytics-china.webp"
 order: 31
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-09-18
+updatedAt: 2026-10-14
 category: Technology
 ---
 
@@ -141,26 +141,26 @@ Pour la majorité des sites B2B étrangers, un compteur edge léger à côté du
 
 Remplacer GA par un autre script hébergé ailleurs ne règle rien. Le problème change de nom d'hôte, voilà tout. Les solutions de repli les plus évidentes sont elles aussi étrangères, et plusieurs lâchent d'une façon autrement plus sournoise qu'un blocage franc.
 
-Le tableau croise deux natures de preuve, qui ne répondent pas à la même question. GreatFire vérifie si un hôte reste joignable. 21YunBox chronomètre de vrais chargements de page depuis une sonde posée sur le continent. Les deux se contredisent sur Hotjar, et c'est cette contradiction qui vous apprend le plus.
+Chaque ligne du tableau ci-dessous reprend un verdict d'accessibilité de GreatFire : la connexion à l'hôte s'est-elle établie lors des derniers tests concluants ? Sur la vitesse, ce verdict ne dit rien. Jusqu'en octobre, le tableau intégrait aussi les temps de chargement du site de chaque éditeur, chronométrés par 21YunBox. 21YunBox les a retirés le 7 octobre 2026 ; ils disparaissent donc de cette page à leur tour.
 
-| Outil | Ce que montrent les tests | Requêtes abouties | Source et date |
+| Outil | Ce que montrent les tests | Tests concluants | Source et date |
 |---|---|---|---|
-| Hotjar | Perturbé sur les sondes de GreatFire, mais aboutit depuis une instance Alibaba Cloud, premier octet à 487 ms | 3 sur 3 depuis le centre de données | GreatFire, 18 août 2026 ; 21YunBox, 30 août 2026 |
-| Meta Pixel | `connect.facebook.net` bloqué | aucune | GreatFire, 27 mai 2026 |
-| Microsoft Clarity | Répond vite, puis se fige. Premier octet à 541 ms, rien de terminé en 60 secondes | 0 sur 3 | 21YunBox, 28 août 2026 |
-| Mixpanel | Même profil. Premier octet à 391 ms, rien de terminé en 60 secondes | 0 sur 3 | 21YunBox, 28 août 2026 |
-| Segment | Aboutit, lentement. Premier octet à 900 ms sur un relevé, 1 084 ms sur un autre | 3 sur 3 | 21YunBox, 28 et 30 août 2026 |
-| Plausible | Aboutit. Premier octet à 550 ms, LCP à 1 208 ms | 3 sur 3 | 21YunBox, 28 août 2026 |
-| Matomo cloud | Aboutit. Premier octet à 516 ms, LCP à 1 532 ms | 3 sur 3 | 21YunBox, revu le 29 août 2026 |
+| Hotjar | `static.hotjar.com` intermittent | 1 test perturbé sur 2 | GreatFire, 30 septembre 2026 |
+| Meta Pixel | `connect.facebook.net` bloqué | aucun depuis 90 jours | GreatFire, 27 mai 2026 |
+| Microsoft Clarity | `www.clarity.ms` accessible | aucun perturbé sur 1 | GreatFire, 15 septembre 2026 |
+| Mixpanel | Hôte du script `cdn.mxpnl.com` perturbé, hôte des événements `api.mixpanel.com` accessible | 1 perturbé sur 1 ; aucun sur 1 | GreatFire, 6 et 19 septembre 2026 |
+| Segment | Hôte des événements `api.segment.io` accessible | aucun perturbé sur 1 | GreatFire, 15 septembre 2026 |
+| Plausible | `plausible.io` intermittent | 1 test perturbé sur 2 | GreatFire, 20 août 2026 |
+| Matomo cloud | Aucun test daté du traceur cloud | aucun | sans objet |
 
-> Tous les temps du tableau ci-dessus proviennent d'une sonde installée en Chine continentale, sur Alibaba Cloud (阿里云) cn-zhangjiakou, trois relevés par outil, abandon au bout de 60 secondes, entre le 28 et le 30 août 2026.
-> Source : 21YunBox, mesures par outil en Chine, août 2026. https://www.21cloudbox.com/support/microsoft-clarity-china.html
+> Selon GreatFire, https://cdn.mxpnl.com était perturbé à 100 % (1 test concluant sur 1, dernier test le 6 septembre 2026) et https://api.mixpanel.com non bloqué (0 sur 1, dernier test le 19 septembre 2026). Sur https://static.hotjar.com, des perturbations ont été relevées lors de 1 des 2 derniers tests concluants, le plus récent datant du 30 septembre 2026.
+> Source : GreatFire, septembre 2026. https://en.greatfire.org/https/cdn.mxpnl.com et https://en.greatfire.org/https/static.hotjar.com
 
-Un centre de données à Zhangjiakou n'est pas un appartement à Pékin. Prenez ces chiffres pour le meilleur des cas, et partez de l'idée que vos visiteurs s'en tirent moins bien.
+Un verdict d'accessibilité atteste seulement qu'une connexion s'est ouverte depuis les sondes de GreatFire. Le temps de chargement du script, ce que reçoit une ligne résidentielle à Pékin : il n'en dit rien.
 
-Cet écart explique à lui seul les deux verdicts sur Hotjar. 21YunBox a mené son test depuis une baie. Les sondes de GreatFire, elles, ont vu tout autre chose. Un hôte qui répond à un centre de données peut parfaitement ignorer une ligne résidentielle. Tant que vous n'avez pas mesuré Hotjar sur votre propre trafic, tenez pour acquis qu'il fait les deux.
+Mixpanel mérite une seconde lecture. En septembre, ses deux noms d'hôtes ont obtenu des verdicts opposés : la bibliothèque, qui doit se charger la première, était perturbée ; le point de collecte des événements ne l'était pas. Sans script, aucun événement ne part, et le bon verdict de l'hôte de collecte ne vous est d'aucun secours.
 
-Clarity et Mixpanel méritent une seconde lecture. Aucun des deux ne figure sur une liste de blocage. Le 15 septembre 2026, GreatFire donnait `www.clarity.ms` pour normalement accessible, et `api.mixpanel.com` de même lors de son dernier test, le 17 avril 2026. Les deux ont pourtant renvoyé un premier octet en moins de 600 ms avant de ne rien mener à terme en une minute.
+Le script de Hotjar, lui, a été perturbé lors de l'un de ses deux derniers tests. De tous les verdicts, « intermittent » est le plus délicat à anticiper : un tel hôte peut répondre le jour de votre vérification et faire défaut le jour où un visiteur se présente.
 
 Un blocage franc finit par déclencher une erreur, et quelqu'un la remarque. Une requête figée, elle, patiente en silence jusqu'à ce que le navigateur renonce. Vos enregistrements de session maigrissent, et aucune alerte ne vous préviendra.
 
@@ -168,7 +168,7 @@ Un blocage franc finit par déclencher une erreur, et quelqu'un la remarque. Une
 
 Amplitude charge son script depuis un nom d'hôte et envoie ses événements vers un autre. Quand un produit se répartit ainsi, un même réseau peut traiter les deux différemment. Le script se charge, les événements ne partent jamais, et votre tableau de bord affiche la même bonne santé dans les deux cas.
 
-En avril 2026, GreatFire donnait `cdn.amplitude.com` joignable et `api.amplitude.com` bloqué, exactement ce profil. Nous avons retesté les deux noms d'hôtes pour cette mise à jour, le 17 septembre 2026.
+En avril 2026, GreatFire donnait `cdn.amplitude.com` joignable et `api.amplitude.com` bloqué, exactement ce profil. Nous avons relu les verdicts de GreatFire sur les deux noms d'hôtes pour cette mise à jour, le 17 septembre 2026.
 
 > `cdn.amplitude.com` non bloqué, dernier test le 14 septembre 2026, le seul test concluant récent s'est connecté normalement. `api.amplitude.com` non bloqué, dernier test le 10 septembre 2026, 0 perturbation sur 1 test dans les 90 derniers jours. Sur 13 URL amplitude.com testées, GreatFire relève 1 bloquée, 3 perturbées et 9 accessibles.
 > Source : GreatFire, septembre 2026. https://en.greatfire.org/https/api.amplitude.com
@@ -181,7 +181,7 @@ La leçon est là. Un verdict lu quelque part porte une date, et cinq mois suffi
 
 Baidu Tongji (百度统计) d'abord, si le marché continental pèse dans vos comptes. Ses serveurs sont dans le pays, la requête ne franchit donc aucune frontière, et ses rapports sont construits autour du trafic Baidu (百度), celui-là même que vous cherchez à comprendre. Sensors Data (神策) et GrowingIO sont les options domestiques les plus lourdes.
 
-Sinon, hébergez l'outil vous-même. Plausible et Matomo ont abouti à chaque relevé du tableau, et tous deux s'installent sur votre propre serveur continental. La dépendance étrangère devient une requête first-party, et la question juridique de la section suivante se règle du même coup.
+Sinon, hébergez l'outil vous-même. Plausible et Matomo s'installent tous deux sur votre propre serveur continental, ce qui met hors jeu leurs versions hébergées, et avec elles les verdicts ci-dessus. La dépendance étrangère devient une requête first-party, et la question juridique de la section suivante se règle du même coup.
 
 Une réserve, cela dit, puisque cette page traite avant tout d'un filtre. Un endpoint analytics auto-hébergé en Chine n'a besoin d'aucun filtre : il n'y a rien à arrêter. Gardez la route `/ga.js` pour GA et pour tout ce que vous chargez depuis un hôte étranger, et laissez l'outil domestique tourner pour tout le monde.
 

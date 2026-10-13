@@ -6,16 +6,16 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-13
+updatedAt: 2026-10-14
 category: Technology
 ---
 
 Un bloqueo no pasa desapercibido. Alguien en la oficina lo advierte y se soluciona. El fallo que de verdad cuesta dinero es el que no hace ruido: el servidor responde, el primer byte llega en medio segundo y, a partir de ahí, la petición no termina nunca.
 
-> Microsoft Clarity, Mixpanel, Typeform, Mailchimp, Wix y Algolia devolvieron el primer byte y, sin embargo, no completaron ninguna de las 3 cargas de página en 60 segundos (0 de 3), según las mediciones realizadas el 28 y el 30 de agosto de 2026 desde una instancia de Alibaba Cloud (阿里云) en la región cn-zhangjiakou.
-> Fuente: 21YunBox, mediciones por servidor en China, agosto de 2026. https://www.21cloudbox.com/support/typeform-china.html
+> Wix entregó el primer byte en una mediana de 532 ms, pero ninguna de las 3 cargas de página llegó a completarse en 60 segundos (0 de 3), según la medición efectuada el 30 de agosto de 2026 desde una instancia de Alibaba Cloud (阿里云) en la región cn-zhangjiakou.
+> Fuente: 21YunBox, Does Wix Work in China?, agosto de 2026, página revisada el 7 de octubre de 2026. https://www.21cloudbox.com/support/wix-china.html
 
-Alrededor de esos widgets, la página se muestra con normalidad. El widget se queda en blanco y ningún registro deja constancia del error. De ahí que un equipo que trabaja fuera de China pueda revisar el sitio cada mañana durante un año sin notar nada extraño.
+Cuando un widget se comporta de este modo, la página que lo rodea se muestra con total normalidad. El widget se queda en blanco y ningún registro deja constancia del error. De ahí que un equipo que trabaja fuera de China pueda revisar el sitio cada mañana durante un año sin notar nada extraño.
 
 Por debajo opera la maquinaria sobre la que todo el mundo escribe: DNS envenenadas, rangos de IP bloqueados, contenido de los paquetes inspeccionado en tiempo real. El cortafuegos rastrea además las firmas de las VPN, y [una instalación estándar de WordPress arrastra varias dependencias que chocan con él](/es/wordpress-en-china/). Todo eso es real. Las solicitudes de contacto que se pierden, en cambio, se explican casi siempre por una conexión abierta que nadie vigila.
 
@@ -79,7 +79,7 @@ Lo que más sorprende llega después. Cualquier script, tipografía, widget o ll
 
 Las páginas mejor posicionadas para estas consultas no aportan ningún dato que lo respalde. En todas las páginas de compatibilidad que hemos leído de Chinafy, de AppInChina y de las agencias más pequeñas no hay tabla, ni fecha de prueba, ni lugar de medición identificado, ni cifra de latencia. Las empresas especializadas en medición publican sus datos, pero las páginas que le explican qué falla no los citan. La tabla que sigue cubre ese hueco, fila por fila.
 
-Conviene dejar claro de quién son estas cifras. Cada fila procede de GreatFire o de 21YunBox, con su fuente y su fecha.
+Conviene dejar claro de quién son estas cifras. Cada fila procede de GreatFire o de 21YunBox, con su fuente y su fecha. El 7 de octubre de 2026, 21YunBox retiró buena parte de sus mediciones herramienta por herramienta. Las filas que dependían de ellas reflejan ahora el veredicto de GreatFire o, si GreatFire no ha emitido ninguno, figuran como «sin probar».
 
 La tabla combina dos tipos de datos que responden a preguntas distintas. Un veredicto de accesibilidad indica si es posible conectarse a un servidor. Una carga de página cronometrada mide cuánto tardó en completarse el sitio del propio proveedor desde una sonda identificada en China continental, lo que ofrece una aproximación al punto de acceso del script al que llama el navegador de su visitante, sin medirlo directamente. Cuando ambas fuentes discrepan, publicamos las dos, sin promediarlas.
 
@@ -103,21 +103,22 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Google Analytics | `www.google-analytics.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 24 de julio de 2026 |
 | Google Tag Manager | `www.googletagmanager.com` | Diverge según el punto de medición | 72 de 72 (primer byte en 118 ms) y 0 de 112 | Alibaba Cloud (阿里云) cn-zhangjiakou y China Mobile (中国移动) en Pekín | 21YunBox, 28 y 30 de agosto de 2026 |
 | Meta Pixel | `connect.facebook.net` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 27 de mayo de 2026 |
-| Hotjar | `static.hotjar.com` | Intermitente | 3 de 3, primer byte en 487 ms, LCP en 1.660 ms | Alibaba Cloud cn-zhangjiakou | GreatFire 18 de agosto de 2026, 21YunBox 30 de agosto de 2026 |
+| Hotjar | `static.hotjar.com` | Intermitente | Interferencias en 1 de las 2 últimas pruebas concluyentes | no aplica | GreatFire, 30 de septiembre de 2026 |
 | Amplitude, servidor del script | `cdn.amplitude.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 14 de septiembre de 2026 |
 | Amplitude, servidor de eventos | `api.amplitude.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 10 de septiembre de 2026 |
-| Microsoft Clarity | `www.clarity.ms` | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 541 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox 28 de agosto de 2026, GreatFire 15 de septiembre de 2026 |
-| Mixpanel | `api.mixpanel.com` | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 391 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
-| Segment | Sitio del proveedor, servidor no indicado por la fuente | Lento | 3 de 3, primer byte en 900 ms en una medición y en 1.084 ms en otra | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 y 30 de agosto de 2026 |
-| Plausible | Sitio del proveedor, servidor no indicado por la fuente | Lento | 3 de 3, primer byte en 550 ms, LCP en 1.208 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
-| Matomo cloud | Sitio del proveedor, servidor no indicado por la fuente | Lento | 3 de 3, primer byte en 516 ms, LCP en 1.532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 29 de agosto de 2026 |
+| Microsoft Clarity | `www.clarity.ms` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 15 de septiembre de 2026 |
+| Mixpanel, servidor del script | `cdn.mxpnl.com` | Intermitente | Interferencias en el 100 % de las pruebas concluyentes recientes (1 prueba) | no aplica | GreatFire, 6 de septiembre de 2026 |
+| Mixpanel, servidor de eventos | `api.mixpanel.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 19 de septiembre de 2026 |
+| Segment | `api.segment.io` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 15 de septiembre de 2026 |
+| Plausible | `plausible.io` | Intermitente | Interferencias en 1 de las 2 últimas pruebas concluyentes | no aplica | GreatFire, 20 de agosto de 2026 |
+| Matomo cloud | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
 ### Formularios y chat
 
 | Servicio | Servidor o destino probado | Veredicto | Medición | Punto de medición | Fuente y fecha |
 |---|---|---|---|---|---|
-| Typeform | Sitio del proveedor, servidor no indicado por la fuente | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 907 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
-| Mailchimp | `cdn-images.mailchimp.com` | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 812 ms, renderizado en 2,0 s | Alibaba Cloud cn-zhangjiakou | 21YunBox 28 de agosto de 2026, GreatFire 10 de septiembre de 2026 |
+| Typeform | `form.typeform.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 30 de septiembre de 2026 |
+| Mailchimp | `cdn-images.mailchimp.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 10 de septiembre de 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 14 de septiembre de 2026 |
 | Cloudflare Turnstile | `challenges.cloudflare.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 23 de septiembre de 2026 |
 | Calendly | `calendly.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 10 de junio de 2026 |
@@ -152,7 +153,7 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Servicio | Servidor o destino probado | Veredicto | Medición | Punto de medición | Fuente y fecha |
 |---|---|---|---|---|---|
 | Wix | `wix.com` | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 30 de agosto de 2026 |
-| Shopify | `shopify.com` | Lento | 3 de 3, primer byte en 575 ms, carga mediana de 3,6 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
+| Shopify | `cdn.shopify.com` | Accesible | Conexión normal en las 2 pruebas concluyentes recientes | no aplica | GreatFire, 8 de octubre de 2026 |
 | Webflow | `webflow.com` | Intermitente | Interferencias en el 100 % de las pruebas concluyentes recientes (1 prueba) | no aplica | GreatFire, 23 de agosto de 2026 |
 | Squarespace | `www.squarespace.com` | Accesible | Conexión normal en las 2 pruebas concluyentes recientes | no aplica | GreatFire, 12 de septiembre de 2026 |
 | Netlify | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
@@ -162,10 +163,10 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 
 | Servicio | Servidor o destino probado | Veredicto | Medición | Punto de medición | Fuente y fecha |
 |---|---|---|---|---|---|
-| Algolia | Sitio del proveedor, servidor no indicado por la fuente | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 1.027 ms, renderizado en 3,4 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
+| Algolia | `algolia.net` | Intermitente | Interferencias en el 100 % de las 2 últimas pruebas concluyentes, medidas en el dominio raíz; los servidores de búsqueda de cada aplicación no se han probado nunca | no aplica | GreatFire, 31 de agosto de 2026 |
 | Firebase | `firebase.google.com` | Intermitente | Interferencias en el 100 % de las 2 últimas pruebas concluyentes | no aplica | GreatFire, 14 de septiembre de 2026 |
-| AWS CloudFront | Sitio del proveedor, servidor no indicado por la fuente | Diverge según el punto de medición | 3 de 3 (primer byte en 665 ms) y 0 de 3 (743 ms) | Alibaba Cloud cn-zhangjiakou y China Mobile en Pekín | 21YunBox, 28 y 30 de agosto de 2026 |
-| Sentry | Sitio del proveedor, servidor no indicado por la fuente | Accesible | 3 de 3, primer byte en 252 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 de agosto de 2026 |
+| AWS CloudFront | `aws.amazon.com/cloudfront` | Lento | 3 de 3 (primer byte en 665 ms) y 3 de 3 (718 ms) | Alibaba Cloud cn-zhangjiakou y China Mobile en Pekín | 21YunBox, 28 y 30 de agosto de 2026 |
+| Sentry | `browser.sentry-cdn.com` | Intermitente | Interferencias en el 100 % de las pruebas concluyentes recientes (1 prueba) | no aplica | GreatFire, 1 de octubre de 2026 |
 | Bootstrap CDN | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
 ### Pagos
@@ -183,9 +184,11 @@ Doce dependencias carecen de un resultado que estemos dispuestos a suscribir, bi
 
 Drift eleva el recuento a trece, y su caso muestra cómo se origina el error. Se le suele dar por accesible, pero ese veredicto atañe al sitio comercial. `js.driftt.com`, el servidor al que de verdad llama el navegador del visitante, nunca se ha probado. Evaluar el nombre de servidor equivocado: así se escribe buena parte de lo que se publica sobre el tema.
 
+El servicio en la nube de Matomo se sumó a esta lista el 14 de octubre de 2026. Su fila descansaba en un cronometraje del sitio de Matomo que 21YunBox ha retirado desde entonces, y ninguna prueba fechada del rastreador en la nube ha venido a sustituirlo.
+
 Las fechas importan tanto como los veredictos. Un veredicto de marzo habla de marzo. Dos filas de la tabla tienen seis meses, Wistia y el servidor de telemetría de Mapbox, y así lo indican en sus propias celdas. Wistia es un reproductor de vídeo que un equipo de marketing podría incorporar esta misma tarde fiándose de una medición tomada en primavera.
 
-Contrastamos esta tabla con sus fuentes por última vez el 22 de septiembre de 2026, y cualquier fila que supere los noventa días se vuelve a comprobar. Si la consulta mucho después de esa fecha y alguna fila resulta determinante para su proyecto, pruebe antes usted mismo el servidor.
+Contrastamos esta tabla con sus fuentes por última vez el 22 de septiembre de 2026, y volvimos a hacerlo el 14 de octubre de 2026 con las filas que dependían de las mediciones de 21YunBox. Cualquier fila que supere los noventa días se vuelve a comprobar. Si la consulta mucho después de esa fecha y alguna fila resulta determinante para su proyecto, pruebe antes usted mismo el servidor.
 
 ### Por qué Stripe queda fuera de esta tabla
 

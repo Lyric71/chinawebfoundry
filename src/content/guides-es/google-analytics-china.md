@@ -6,7 +6,7 @@ visual: "/images/guides/google-analytics-china.webp"
 order: 31
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-09-18
+updatedAt: 2026-10-14
 category: Technology
 ---
 
@@ -141,26 +141,26 @@ Para la mayoría de sitios B2B extranjeros, un contador ligero en el edge junto 
 
 Quitar GA para colocar en su lugar otro script alojado fuera no resuelve nada: el problema se limita a cambiar de nombre de servidor. Los sustitutos más evidentes son también servidores extranjeros, y varios de ellos fallan de una manera bastante más escurridiza que un bloqueo limpio.
 
-La tabla cruza dos clases de prueba que responden a preguntas distintas. GreatFire comprueba si un servidor resulta accesible. 21YunBox cronometra cargas de página reales desde una sonda instalada en el continente. Ambas fuentes se contradicen en Hotjar, y es esa contradicción lo más instructivo que ofrece la tabla.
+Cada fila de la tabla siguiente recoge un veredicto de accesibilidad de GreatFire, que se limita a indicar si se abrió una conexión con el servidor en las últimas pruebas concluyentes; de la velocidad no dice nada. Hasta octubre, la tabla incluía además los tiempos de carga del sitio de cada proveedor cronometrados por 21YunBox. 21YunBox retiró esas cifras el 7 de octubre de 2026, y con ello desaparecen también de esta página.
 
-| Herramienta | Lo que muestran las pruebas | Peticiones completadas | Fuente y fecha |
+| Herramienta | Lo que muestran las pruebas | Pruebas concluyentes | Fuente y fecha |
 |---|---|---|---|
-| Hotjar | Alterado en las sondas de GreatFire, pero se completa desde una instancia de Alibaba Cloud con el primer byte en 487 ms | 3 de 3 desde el centro de datos | GreatFire, 18 de agosto de 2026; 21YunBox, 30 de agosto de 2026 |
-| Meta Pixel | `connect.facebook.net` bloqueado | ninguna | GreatFire, 27 de mayo de 2026 |
-| Microsoft Clarity | Responde deprisa y luego se queda colgado. Primer byte en 541 ms y nada terminado en 60 segundos | 0 de 3 | 21YunBox, 28 de agosto de 2026 |
-| Mixpanel | El mismo patrón. Primer byte en 391 ms y nada terminado en 60 segundos | 0 de 3 | 21YunBox, 28 de agosto de 2026 |
-| Segment | Se completa, pero despacio. Primer byte en 900 ms en una medición y en 1.084 ms en otra | 3 de 3 | 21YunBox, 28 y 30 de agosto de 2026 |
-| Plausible | Se completa. Primer byte en 550 ms y LCP en 1.208 ms | 3 de 3 | 21YunBox, 28 de agosto de 2026 |
-| Matomo cloud | Se completa. Primer byte en 516 ms y LCP en 1.532 ms | 3 de 3 | 21YunBox, revisado el 29 de agosto de 2026 |
+| Hotjar | `static.hotjar.com` intermitente | 1 de 2 con interferencias | GreatFire, 30 de septiembre de 2026 |
+| Meta Pixel | `connect.facebook.net` bloqueado | ninguna en los últimos 90 días | GreatFire, 27 de mayo de 2026 |
+| Microsoft Clarity | `www.clarity.ms` accesible | 0 de 1 con interferencias | GreatFire, 15 de septiembre de 2026 |
+| Mixpanel | Servidor del script `cdn.mxpnl.com` con interferencias, servidor de eventos `api.mixpanel.com` accesible | 1 de 1 con interferencias; 0 de 1 | GreatFire, 6 y 19 de septiembre de 2026 |
+| Segment | Servidor de eventos `api.segment.io` accesible | 0 de 1 con interferencias | GreatFire, 15 de septiembre de 2026 |
+| Plausible | `plausible.io` intermitente | 1 de 2 con interferencias | GreatFire, 20 de agosto de 2026 |
+| Matomo cloud | Ninguna prueba fechada del rastreador en la nube | ninguna | no aplica |
 
-> Todos los tiempos de la tabla anterior proceden de una sonda situada en China continental, en Alibaba Cloud (阿里云) cn-zhangjiakou, con tres mediciones por herramienta y abandono a los 60 segundos, entre el 28 y el 30 de agosto de 2026.
-> Fuente: 21YunBox, mediciones por herramienta en China, agosto de 2026. https://www.21cloudbox.com/support/microsoft-clarity-china.html
+> Según GreatFire, https://cdn.mxpnl.com sufría interferencias en el 100 % de los casos (1 de 1 pruebas concluyentes, la última el 6 de septiembre de 2026), mientras que https://api.mixpanel.com no estaba bloqueado (0 de 1, la última el 19 de septiembre de 2026). En https://static.hotjar.com registró interferencias en 1 de sus 2 últimas pruebas concluyentes, la más reciente el 30 de septiembre de 2026.
+> Fuente: GreatFire, septiembre de 2026. https://en.greatfire.org/https/cdn.mxpnl.com y https://en.greatfire.org/https/static.hotjar.com
 
-Un centro de datos en Zhangjiakou no es un piso en Pekín. Tome esas cifras como el mejor escenario posible y parta de la idea de que sus visitantes reciben algo peor.
+Un veredicto de accesibilidad solo acredita que se abrió una conexión desde las sondas de GreatFire. Nada dice de cuánto tardó en cargar el script ni de lo que recibe una línea residencial en Pekín.
 
-Esa distancia explica por sí sola los dos veredictos sobre Hotjar. 21YunBox realizó su prueba desde un rack, mientras que las sondas de GreatFire vieron algo muy distinto, y un servidor que atiende a un centro de datos puede perfectamente desentenderse de una línea residencial. Mientras no haya medido Hotjar sobre su propio tráfico, dé por supuesto que hace las dos cosas.
+Mixpanel es la fila que merece una segunda lectura. En septiembre, sus dos nombres de servidor obtuvieron veredictos opuestos: la biblioteca, que es lo primero que debe cargarse, sufría interferencias, y el punto de recepción de eventos no. Sin script no sale ningún evento, por bueno que sea el veredicto del servidor que debía recibirlos.
 
-Clarity y Mixpanel son las dos filas que merecen una segunda lectura. Ninguno de los dos figura en una lista de bloqueo. El 15 de septiembre de 2026 GreatFire daba `www.clarity.ms` por accesible con normalidad, y otro tanto valía para `api.mixpanel.com` en su última prueba, del 17 de abril de 2026. Aun así, ambos devolvieron el primer byte en menos de 600 ms y luego no llegaron a terminar nada en un minuto.
+En el caso de Hotjar, el servidor del script registró interferencias en una de sus dos últimas pruebas. De todos los veredictos, el intermitente es el más difícil de prever: un servidor así puede responder el día en que usted lo comprueba y fallar justo cuando llega un visitante.
 
 Un bloqueo duro termina lanzando un error que alguien advierte. Una petición colgada, en cambio, espera en silencio hasta que el navegador se rinde: sus grabaciones de sesión salen más pobres de lo que deberían y ninguna alerta se lo advierte.
 
@@ -168,7 +168,7 @@ Un bloqueo duro termina lanzando un error que alguien advierte. Una petición co
 
 Amplitude carga su script desde un nombre de servidor y envía los eventos a otro. Cuando un producto se reparte así, una misma red puede tratar cada nombre de forma diferente: el script carga, los eventos no salen nunca y su panel de control aparenta la misma salud en ambos casos.
 
-En abril de 2026 GreatFire daba `cdn.amplitude.com` por accesible y `api.amplitude.com` por bloqueado, exactamente ese patrón. Hemos vuelto a probar los dos nombres de servidor para esta actualización, el 17 de septiembre de 2026.
+En abril de 2026 GreatFire daba `cdn.amplitude.com` por accesible y `api.amplitude.com` por bloqueado, exactamente ese patrón. Hemos vuelto a consultar los veredictos de GreatFire sobre los dos nombres de servidor para esta actualización, el 17 de septiembre de 2026.
 
 > `cdn.amplitude.com` no bloqueado, última prueba el 14 de septiembre de 2026, y la única prueba concluyente reciente conectó con normalidad. `api.amplitude.com` no bloqueado, última prueba el 10 de septiembre de 2026, 0 alteraciones sobre 1 prueba en los últimos 90 días. Sobre 13 URL de amplitude.com analizadas, GreatFire registra 1 bloqueada, 3 alteradas y 9 accesibles.
 > Fuente: GreatFire, septiembre de 2026. https://en.greatfire.org/https/api.amplitude.com
@@ -181,7 +181,7 @@ Ahí está la lección. Cualquier veredicto que uno lea lleva una fecha, y cinco
 
 Baidu Tongji (百度统计) en primer lugar, si el mercado continental pesa en sus cuentas. Sus servidores están en el país, de modo que la petición no cruza ninguna frontera, y sus informes se organizan en torno al tráfico de Baidu (百度), que es justamente el que usted quiere entender. Sensors Data (神策) y GrowingIO son las opciones domésticas más pesadas.
 
-Si no, aloje la herramienta usted mismo. Plausible y Matomo completaron todas las mediciones de la tabla y ambos se instalan en su propio servidor continental. La dependencia extranjera pasa entonces a ser una petición de primera parte y, de paso, queda resuelta la cuestión legal de la sección siguiente.
+Si no, aloje la herramienta usted mismo. Plausible y Matomo pueden instalarse en su propio servidor continental, lo que deja fuera de juego sus versiones alojadas y, con ellas, los veredictos anteriores. La dependencia extranjera pasa entonces a ser una petición de primera parte y, de paso, queda resuelta la cuestión legal de la sección siguiente.
 
 Una salvedad, ya que esta página trata sobre todo de un filtro. Un endpoint de analítica autoalojado dentro de China no necesita filtro alguno, porque no hay nada que detener. Conserve la ruta `/ga.js` para GA y para cualquier otra cosa que cargue desde un servidor extranjero, y deje que la herramienta doméstica funcione para todo el mundo.
 

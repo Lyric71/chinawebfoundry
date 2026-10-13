@@ -11,7 +11,7 @@ title: "HubSpot in China: What Works and What Does Not"
 suggested_category: Technology
 locales_at_publish: en
 facts: [F35, F42]
-status: not_started
+status: image_ready
 ---
 
 ## How to run this brief
@@ -47,8 +47,8 @@ tier-specific boxes for T2.
 CWF's exact buyer, marketing ops at a foreign brand. Freshest competing page is 2024 and the SERP is fragmented. Separate the two cases cleanly: the tracking script is a degraded dependency, a HubSpot-hosted CMS site is a hosting problem with a different fix.
 ```yaml
 title: "HubSpot in China: What Works and What Does Not"
-description: "The tracking script, the forms, the CTAs and a HubSpot-hosted site fail in different ways for different reasons. Tested, with the fix for each."
-excerpt: "Which parts of a HubSpot stack reach Chinese visitors, which quietly do not, and what to do about each."
+description: "HubSpot’s scripts and a HubSpot-hosted site carry different risks in China. What GreatFire’s tests show, what is untested, and the fix for each."
+excerpt: "Which parts of a HubSpot stack have a dated test from inside China, which have none, and how to keep the lead when one fails."
 ```
 
 ## T2 rules (from PLAN.md section 6)
@@ -64,18 +64,6 @@ The SERP confirms it every time: **if VPN affiliate sites or travel blogs rank, 
 **Do not write these, whatever their volume:** Slack, Teams, Zoom, Notion, Asana, Trello, Miro, Gmail, Drive, Dropbox, WhatsApp, Instagram as an app, Facebook, Netflix, Spotify as a service, password managers, and every "is X app banned in China" variant. These are higher volume than the list below, which is exactly the trap. They inflate a traffic chart and produce no pipeline.
 
 **Also excluded, for a different reason:** Stripe, because it is not a compatibility question (see F40, and write the payments article in T5 instead), Calendly, because the SERP is traveler and remote-worker intent, and the developer observability cluster (Datadog, New Relic, LaunchDarkly), because the buyer is an SRE and not a marketing lead.
-
-### Structure rule
-
-**No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a vantage-point problem (the mechanism behind the home-line failure is unpublished, so no page names one), Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
-
-Every page: a named human byline with a China-based author bio, a test date, a named network or region, and the answer in the **first paragraph**, because roughly 44% of AI citations come from the first 30% of a page (F46).
-
-Length 700 to 1,000 words. These are answers, not essays.
-
-### Evidence rule (the GFW rule, 2 October 2026)
-
-Every T2 page states what the Great Firewall does to its subject from dated third-party evidence: GreatFire reachability verdicts with their last-tested date, and 21YunBox's published probes (an Alibaba Cloud cn-zhangjiakou instance and a Beijing China Mobile home line) with the vantage point and the date, both labelled as theirs and never as ours. Six verdicts (reachable, slow, answers then stalls, intermittent, blocked, splits by vantage point), datacenter and home line in separate columns, untested hosts listed as untested with no verdict, any verdict older than 90 days printed with its date. There is no harness gate and no mainland probe (Cyril, 2 October 2026). A T2 page that can carry no dated third-party figure on its subject says so and argues from documentation; it is never held for a measurement of our own.
 
 ### Structure rule
 

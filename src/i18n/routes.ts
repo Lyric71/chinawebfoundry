@@ -229,6 +229,7 @@ export const englishOnlyRoutes: Record<string, string> = {
   '/resources/ceo-opinion/': '/resources/china-web-guide/',
   '/resources/china-web-guide/recaptcha-china/': '/resources/china-web-guide/',
   '/resources/china-web-guide/javascript-cdn-china/': '/resources/china-web-guide/',
+  '/resources/china-web-guide/hubspot-china/': '/resources/china-web-guide/',
 };
 
 /** The equivalent of `pathname` in another locale. */

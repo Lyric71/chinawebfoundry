@@ -6,16 +6,16 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-13
+updatedAt: 2026-10-14
 category: Technology
 ---
 
 Eine Sperre fällt auf. Jemand im Büro meldet sie, und sie wird behoben. Ins Geld geht der stille Ausfall: Der Host antwortet, das erste Byte trifft nach einer halben Sekunde ein, und danach wird die Anfrage schlicht nie fertig.
 
-> Microsoft Clarity, Mixpanel, Typeform, Mailchimp, Wix und Algolia lieferten jeweils ein erstes Byte, brachten aber keinen der 3 Seitenaufrufe binnen 60 Sekunden zu Ende (0 von 3). Gemessen am 28. und 30. August 2026 von einer Instanz bei Alibaba Cloud (阿里云) in der Region cn-zhangjiakou.
-> Quelle: 21YunBox, Messungen je Host in China, August 2026. https://www.21cloudbox.com/support/typeform-china.html
+> Wix lieferte im Median nach 532 ms ein erstes Byte, brachte aber keinen der 3 Seitenaufrufe binnen 60 Sekunden zu Ende (0 von 3). Gemessen am 30. August 2026 von einer Instanz bei Alibaba Cloud (阿里云) in der Region cn-zhangjiakou.
+> Quelle: 21YunBox, Does Wix Work in China?, August 2026, Seite überarbeitet am 7. Oktober 2026. https://www.21cloudbox.com/support/wix-china.html
 
-Rund um diese Widgets baut sich die Seite ganz normal auf. Das Widget selbst bleibt leer, und nirgends taucht ein Fehler im Log auf. Ein Team außerhalb Chinas kann die Website also ein Jahr lang jeden Morgen aufrufen, ohne dass ihm etwas auffällt.
+Verhält sich ein Widget so, baut sich die Seite um es herum ganz normal auf. Das Widget selbst bleibt leer, und nirgends taucht ein Fehler im Log auf. Ein Team außerhalb Chinas kann die Website also ein Jahr lang jeden Morgen aufrufen, ohne dass ihm etwas auffällt.
 
 Darunter arbeitet die Maschinerie, über die ohnehin alle schreiben: vergiftetes DNS, gesperrte IP-Bereiche, in Echtzeit mitgelesene Paketinhalte. Die Firewall spürt außerdem VPN-Signaturen auf, und [eine Standardinstallation von WordPress bringt mehrere Abhängigkeiten mit, die daran hängen bleiben](/de/wordpress-in-china/). Das alles gibt es wirklich. Die verlorenen Kundenanfragen gehen aber fast immer auf das Konto einer offenen Verbindung, die niemand im Blick hat.
 
@@ -79,7 +79,7 @@ Was die meisten Unternehmen kalt erwischt, reicht über die gesperrten Dienste s
 
 Die Seiten, die bei diesen Fragen oben stehen, liefern keinerlei Belege. Auf keiner der Kompatibilitätsseiten, die wir bei Chinafy, AppInChina und kleineren Agenturen gelesen haben, findet sich eine Tabelle, ein Testdatum, ein benannter Testort oder eine Latenzzahl. Dabei veröffentlichen die Messanbieter durchaus Zahlen, nur zitieren die Seiten, die Ihnen erklären, was nicht funktioniert, sie nicht. Die Tabelle unten holt das nach, Zeile für Zeile.
 
-Damit kein Missverständnis entsteht, woher diese Zahlen stammen: Jede Zeile geht auf GreatFire oder 21YunBox zurück, mit Quelle und Datum.
+Damit kein Missverständnis entsteht, woher diese Zahlen stammen: Jede Zeile geht auf GreatFire oder 21YunBox zurück, mit Quelle und Datum. Am 7. Oktober 2026 hat 21YunBox den Großteil seiner Messungen je Werkzeug zurückgezogen. Wo Zeilen darauf beruhten, steht nun das Urteil von GreatFire, und wo GreatFire keines gefällt hat, der Vermerk „nicht getestet“.
 
 Die Tabelle vereint zwei Arten von Belegen, die unterschiedliche Fragen beantworten. Ein Erreichbarkeitsbefund sagt, ob sich zu einem Host überhaupt eine Verbindung aufbauen lässt. Ein zeitlich gemessener Seitenaufruf zeigt, wie lange die Website des Anbieters selbst brauchte, um von einer benannten Sonde in Festlandchina aus vollständig zu laden. Dieser Wert nähert sich dem Skript-Endpunkt an, den der Browser Ihres Besuchers aufruft, misst ihn aber nicht direkt. Weichen beide voneinander ab, stehen beide in der Tabelle, ohne dass ein Mittelwert gebildet wird.
 
@@ -103,21 +103,22 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Google Analytics | `www.google-analytics.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 24. Juli 2026 |
 | Google Tag Manager | `www.googletagmanager.com` | Je nach Messpunkt verschieden | 72 von 72 (erstes Byte nach 118 ms) und 0 von 112 | Alibaba Cloud (阿里云) cn-zhangjiakou und China Mobile (中国移动) in Peking | 21YunBox, 28. und 30. August 2026 |
 | Meta Pixel | `connect.facebook.net` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 27. Mai 2026 |
-| Hotjar | `static.hotjar.com` | Sporadisch gestört | 3 von 3, erstes Byte nach 487 ms, LCP 1.660 ms | Alibaba Cloud cn-zhangjiakou | GreatFire 18. August 2026, 21YunBox 30. August 2026 |
+| Hotjar | `static.hotjar.com` | Sporadisch gestört | Störungen bei 1 der letzten 2 aussagekräftigen Tests | entfällt | GreatFire, 30. September 2026 |
 | Amplitude, Skript-Host | `cdn.amplitude.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 14. September 2026 |
 | Amplitude, Event-Host | `api.amplitude.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 10. September 2026 |
-| Microsoft Clarity | `www.clarity.ms` | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 541 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox 28. August 2026, GreatFire 15. September 2026 |
-| Mixpanel | `api.mixpanel.com` | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 391 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
-| Segment | Website des Anbieters, Host von der Quelle nicht genannt | Langsam | 3 von 3, erstes Byte nach 900 ms in einem Durchlauf und 1.084 ms in einem anderen | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. und 30. August 2026 |
-| Plausible | Website des Anbieters, Host von der Quelle nicht genannt | Langsam | 3 von 3, erstes Byte nach 550 ms, LCP 1.208 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
-| Matomo Cloud | Website des Anbieters, Host von der Quelle nicht genannt | Langsam | 3 von 3, erstes Byte nach 516 ms, LCP 1.532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 29. August 2026 |
+| Microsoft Clarity | `www.clarity.ms` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 15. September 2026 |
+| Mixpanel, Skript-Host | `cdn.mxpnl.com` | Sporadisch gestört | Störungen bei 100 % der jüngsten aussagekräftigen Tests (1 Test) | entfällt | GreatFire, 6. September 2026 |
+| Mixpanel, Event-Host | `api.mixpanel.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 19. September 2026 |
+| Segment | `api.segment.io` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 15. September 2026 |
+| Plausible | `plausible.io` | Sporadisch gestört | Störungen bei 1 der letzten 2 aussagekräftigen Tests | entfällt | GreatFire, 20. August 2026 |
+| Matomo Cloud | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
 ### Formulare und Chat
 
 | Dienst | Host oder Testziel | Befund | Messwert | Messpunkt | Quelle und Datum |
 |---|---|---|---|---|---|
-| Typeform | Website des Anbieters, Host von der Quelle nicht genannt | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 907 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
-| Mailchimp | `cdn-images.mailchimp.com` | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 812 ms, erstes Rendering nach 2,0 s | Alibaba Cloud cn-zhangjiakou | 21YunBox 28. August 2026, GreatFire 10. September 2026 |
+| Typeform | `form.typeform.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 30. September 2026 |
+| Mailchimp | `cdn-images.mailchimp.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 10. September 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 14. September 2026 |
 | Cloudflare Turnstile | `challenges.cloudflare.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 23. September 2026 |
 | Calendly | `calendly.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 10. Juni 2026 |
@@ -152,7 +153,7 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Dienst | Host oder Testziel | Befund | Messwert | Messpunkt | Quelle und Datum |
 |---|---|---|---|---|---|
 | Wix | `wix.com` | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 30. August 2026 |
-| Shopify | `shopify.com` | Langsam | 3 von 3, erstes Byte nach 575 ms, Median-Ladezeit 3,6 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
+| Shopify | `cdn.shopify.com` | Erreichbar | Normale Verbindung bei den 2 jüngsten aussagekräftigen Tests | entfällt | GreatFire, 8. Oktober 2026 |
 | Webflow | `webflow.com` | Sporadisch gestört | Störungen bei 100 % der jüngsten aussagekräftigen Tests (1 Test) | entfällt | GreatFire, 23. August 2026 |
 | Squarespace | `www.squarespace.com` | Erreichbar | Normale Verbindung bei den 2 jüngsten aussagekräftigen Tests | entfällt | GreatFire, 12. September 2026 |
 | Netlify | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
@@ -162,10 +163,10 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 
 | Dienst | Host oder Testziel | Befund | Messwert | Messpunkt | Quelle und Datum |
 |---|---|---|---|---|---|
-| Algolia | Website des Anbieters, Host von der Quelle nicht genannt | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 1.027 ms, erstes Rendering nach 3,4 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
+| Algolia | `algolia.net` | Sporadisch gestört | Störungen bei 100 % der letzten 2 aussagekräftigen Tests, ermittelt für die Stammdomain; für die Suchhosts der einzelnen Anwendungen liegt kein Test vor | entfällt | GreatFire, 31. August 2026 |
 | Firebase | `firebase.google.com` | Sporadisch gestört | Störungen bei 100 % der letzten 2 aussagekräftigen Tests | entfällt | GreatFire, 14. September 2026 |
-| AWS CloudFront | Website des Anbieters, Host von der Quelle nicht genannt | Je nach Messpunkt verschieden | 3 von 3 (erstes Byte nach 665 ms) und 0 von 3 (743 ms) | Alibaba Cloud cn-zhangjiakou und China Mobile in Peking | 21YunBox, 28. und 30. August 2026 |
-| Sentry | Website des Anbieters, Host von der Quelle nicht genannt | Erreichbar | 3 von 3, erstes Byte nach 252 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28. August 2026 |
+| AWS CloudFront | `aws.amazon.com/cloudfront` | Langsam | 3 von 3 (erstes Byte nach 665 ms) und 3 von 3 (718 ms) | Alibaba Cloud cn-zhangjiakou und China Mobile in Peking | 21YunBox, 28. und 30. August 2026 |
+| Sentry | `browser.sentry-cdn.com` | Sporadisch gestört | Störungen bei 100 % der jüngsten aussagekräftigen Tests (1 Test) | entfällt | GreatFire, 1. Oktober 2026 |
 | Bootstrap CDN | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
 ### Zahlungen
@@ -183,9 +184,11 @@ Für zwölf Abhängigkeiten fehlt ein Testergebnis, für das wir einstehen würd
 
 Mit Drift sind es dreizehn, und an diesem Fall lässt sich ablesen, wie Fehlbefunde zustande kommen. Der Dienst gilt gemeinhin als erreichbar, doch das Urteil bezieht sich auf die Marketing-Website. `js.driftt.com`, den Host, den der Browser des Besuchers tatsächlich aufruft, hat nie jemand getestet. Ein Befund zum falschen Hostnamen: Auf diese Weise entsteht das meiste, was über das Thema geschrieben wird.
 
+Der Cloud-Dienst von Matomo ist am 14. Oktober 2026 auf diese Liste gerückt. Seine Zeile beruhte auf einer Zeitmessung der Matomo-Website, die 21YunBox inzwischen zurückgezogen hat; ein datierter Test des Cloud-Trackers ist bislang nicht an ihre Stelle getreten.
+
 Das Testdatum zählt so viel wie der Befund. Ein Befund vom März sagt etwas über den März. Zwei Zeilen der Tabelle sind sechs Monate alt, Wistia und der Telemetrie-Host von Mapbox, und beide weisen in ihren Zellen darauf hin. Wistia ist ein Videoplayer, den ein Marketingteam noch heute Nachmittag einbinden könnte, im Vertrauen auf eine Messung aus dem Frühjahr.
 
-Zuletzt haben wir diese Tabelle am 22. September 2026 mit ihren Quellen abgeglichen, und jede Zeile, die älter als neunzig Tage wird, prüfen wir erneut. Wer sie deutlich später liest und für sein Projekt auf eine bestimmte Zeile angewiesen ist, sollte den Host zuerst selbst testen.
+Mit ihren Quellen abgeglichen haben wir diese Tabelle zuletzt am 22. September 2026, die auf Messungen von 21YunBox gestützten Zeilen erneut am 14. Oktober 2026. Jede Zeile, die älter als neunzig Tage wird, prüfen wir erneut. Wer sie deutlich später liest und für sein Projekt auf eine bestimmte Zeile angewiesen ist, sollte den Host zuerst selbst testen.
 
 ### Warum Stripe außerhalb dieser Tabelle steht
 

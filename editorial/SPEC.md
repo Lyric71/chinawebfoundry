@@ -149,9 +149,10 @@ the consumer figure, completions as "n of m" (never a percentage from three
 attempts), the verdict from the six-value set (reachable, slow, answers then
 stalls, intermittent, blocked, splits by vantage point), and the test date.
 "Splits by vantage point" is for a host that gives opposite answers from a
-datacentre and from a home line on the same days (Google Tag Manager, AWS
-CloudFront, Google Fonts; unpkg left this list on 11 October 2026, when
-21YunBox withdrew its home line figure); it is not "intermittent". The two vantage points are
+datacentre and from a home line on the same days (Google Tag Manager, Google
+Fonts; unpkg left this list on 11 October 2026, when 21YunBox withdrew its
+home line figure, and AWS CloudFront on 14 October 2026, when 21YunBox's
+page read 3 of 3 from the home line); it is not "intermittent". The two vantage points are
 separate columns, never averaged.
 
 ## Citations

@@ -6,16 +6,16 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-13
+updatedAt: 2026-10-14
 category: Technology
 ---
 
 Un blocage ne passe pas inaperçu. Quelqu'un au bureau le signale, et le problème est réglé. La panne qui coûte cher, elle, ne fait aucun bruit : l'hôte répond, le premier octet arrive en une demi-seconde, puis la requête n'aboutit jamais.
 
-> Microsoft Clarity, Mixpanel, Typeform, Mailchimp, Wix et Algolia ont tous renvoyé un premier octet sans mener à terme un seul des 3 chargements de page dans les 60 secondes. Mesures effectuées depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou, les 28 et 30 août 2026.
-> Source : 21YunBox, mesures par hôte en Chine, août 2026. https://www.21cloudbox.com/support/typeform-china.html
+> Wix a livré son premier octet en 532 ms (médiane), sans qu'aucun des 3 chargements de page n'aboutisse en 60 secondes. Mesure prise depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou, le 30 août 2026.
+> Source : 21YunBox, Does Wix Work in China?, août 2026, page revue le 7 octobre 2026. https://www.21cloudbox.com/support/wix-china.html
 
-La page s'affiche normalement autour de ces widgets. Le widget, lui, reste vide, et aucun journal ne consigne la moindre erreur. Une équipe basée hors de Chine peut ainsi ouvrir le site chaque matin pendant un an sans rien remarquer.
+Intégré à une page, un widget de ce genre laisse tout le reste s'afficher normalement. Le widget, lui, reste vide, et aucun journal ne consigne la moindre erreur. Une équipe basée hors de Chine peut ainsi ouvrir le site chaque matin pendant un an sans rien remarquer.
 
 Sous la surface tourne la machinerie que tout le monde décrit : DNS empoisonnés, plages d'adresses IP bloquées, contenu des paquets inspecté en temps réel. Le pare-feu traque aussi les signatures VPN, et [une installation WordPress standard embarque plusieurs dépendances qui s'y heurtent](/fr/wordpress-en-chine/). Tout cela est bien réel. Les demandes de contact perdues, elles, tiennent presque toujours à une connexion restée ouverte que personne ne surveille.
 
@@ -79,7 +79,7 @@ Ce qui surprend le plus les entreprises se joue au-delà des services bloqués e
 
 Les pages les mieux classées sur ces questions ne fournissent aucune preuve. Dans toutes les pages de compatibilité que nous avons lues chez Chinafy, chez AppInChina ou dans les petites agences, on ne trouve ni tableau, ni date de test, ni lieu de mesure, ni chiffre de latence. Les spécialistes de la mesure publient pourtant leurs chiffres. Les pages censées vous dire ce qui casse ne les citent pas. Le tableau ci-dessous comble ce manque, ligne par ligne.
 
-Précisons l'origine de ces chiffres. Chaque ligne vient de GreatFire ou de 21YunBox, sourcée et datée.
+Précisons l'origine de ces chiffres. Chaque ligne vient de GreatFire ou de 21YunBox, sourcée et datée. Le 7 octobre 2026, 21YunBox a retiré l'essentiel de ses mesures outil par outil. Les lignes qui en dépendaient affichent désormais le verdict de GreatFire, ou la mention « non testé » lorsque GreatFire n'en a rendu aucun.
 
 Le tableau réunit deux types de preuves, qui ne répondent pas à la même question. Un verdict d'accessibilité indique si l'on parvient tout simplement à se connecter à un hôte. Un chargement chronométré mesure le temps qu'a mis le site du fournisseur à se charger depuis une sonde identifiée en Chine continentale. Ce second chiffre donne une idée du comportement du point d'accès qu'appelle le navigateur de votre visiteur, sans le mesurer directement. Quand les deux sources divergent, nous publions les deux, sans en faire la moyenne.
 
@@ -103,21 +103,22 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Google Analytics | `www.google-analytics.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 24 juillet 2026 |
 | Google Tag Manager | `www.googletagmanager.com` | Diverge selon le point de mesure | 72 sur 72 (premier octet à 118 ms) et 0 sur 112 | Alibaba Cloud (阿里云) cn-zhangjiakou et China Mobile (中国移动) à Pékin | 21YunBox, 28 et 30 août 2026 |
 | Meta Pixel | `connect.facebook.net` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 27 mai 2026 |
-| Hotjar | `static.hotjar.com` | Intermittent | 3 sur 3, premier octet à 487 ms, LCP à 1 660 ms | Alibaba Cloud cn-zhangjiakou | GreatFire 18 août 2026, 21YunBox 30 août 2026 |
+| Hotjar | `static.hotjar.com` | Intermittent | Interférences sur 1 des 2 derniers tests concluants | sans objet | GreatFire, 30 septembre 2026 |
 | Amplitude, hôte du script | `cdn.amplitude.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 14 septembre 2026 |
 | Amplitude, hôte des événements | `api.amplitude.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 10 septembre 2026 |
-| Microsoft Clarity | `www.clarity.ms` | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 541 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox 28 août 2026, GreatFire 15 septembre 2026 |
-| Mixpanel | `api.mixpanel.com` | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 391 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
-| Segment | Site du fournisseur, hôte non précisé par la source | Lent | 3 sur 3, premier octet à 900 ms sur un relevé et 1 084 ms sur un autre | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 et 30 août 2026 |
-| Plausible | Site du fournisseur, hôte non précisé par la source | Lent | 3 sur 3, premier octet à 550 ms, LCP à 1 208 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
-| Matomo cloud | Site du fournisseur, hôte non précisé par la source | Lent | 3 sur 3, premier octet à 516 ms, LCP à 1 532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 29 août 2026 |
+| Microsoft Clarity | `www.clarity.ms` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 15 septembre 2026 |
+| Mixpanel, hôte du script | `cdn.mxpnl.com` | Intermittent | Interférences sur 100 % des tests concluants récents (1 test) | sans objet | GreatFire, 6 septembre 2026 |
+| Mixpanel, hôte des événements | `api.mixpanel.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 19 septembre 2026 |
+| Segment | `api.segment.io` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 15 septembre 2026 |
+| Plausible | `plausible.io` | Intermittent | Interférences sur 1 des 2 derniers tests concluants | sans objet | GreatFire, 20 août 2026 |
+| Matomo cloud | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
 ### Formulaires et messagerie
 
 | Service | Hôte ou cible du test | Verdict | Mesure | Point de mesure | Source et date |
 |---|---|---|---|---|---|
-| Typeform | Site du fournisseur, hôte non précisé par la source | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 907 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
-| Mailchimp | `cdn-images.mailchimp.com` | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 812 ms, premier rendu à 2,0 s | Alibaba Cloud cn-zhangjiakou | 21YunBox 28 août 2026, GreatFire 10 septembre 2026 |
+| Typeform | `form.typeform.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 30 septembre 2026 |
+| Mailchimp | `cdn-images.mailchimp.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 10 septembre 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 14 septembre 2026 |
 | Cloudflare Turnstile | `challenges.cloudflare.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 23 septembre 2026 |
 | Calendly | `calendly.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 10 juin 2026 |
@@ -152,7 +153,7 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Service | Hôte ou cible du test | Verdict | Mesure | Point de mesure | Source et date |
 |---|---|---|---|---|---|
 | Wix | `wix.com` | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 30 août 2026 |
-| Shopify | `shopify.com` | Lent | 3 sur 3, premier octet à 575 ms, chargement médian 3,6 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
+| Shopify | `cdn.shopify.com` | Accessible | Connexion normale sur les 2 tests concluants récents | sans objet | GreatFire, 8 octobre 2026 |
 | Webflow | `webflow.com` | Intermittent | Interférences sur 100 % des tests concluants récents (1 test) | sans objet | GreatFire, 23 août 2026 |
 | Squarespace | `www.squarespace.com` | Accessible | Connexion normale sur les 2 tests concluants récents | sans objet | GreatFire, 12 septembre 2026 |
 | Netlify | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
@@ -162,10 +163,10 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 
 | Service | Hôte ou cible du test | Verdict | Mesure | Point de mesure | Source et date |
 |---|---|---|---|---|---|
-| Algolia | Site du fournisseur, hôte non précisé par la source | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 1 027 ms, premier rendu à 3,4 s | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
+| Algolia | `algolia.net` | Intermittent | Interférences sur 100 % des 2 derniers tests concluants, relevées sur le domaine racine ; les hôtes de recherche propres à chaque application n'ont jamais été testés | sans objet | GreatFire, 31 août 2026 |
 | Firebase | `firebase.google.com` | Intermittent | Interférences sur 100 % des 2 derniers tests concluants | sans objet | GreatFire, 14 septembre 2026 |
-| AWS CloudFront | Site du fournisseur, hôte non précisé par la source | Diverge selon le point de mesure | 3 sur 3 (premier octet à 665 ms) et 0 sur 3 (743 ms) | Alibaba Cloud cn-zhangjiakou et China Mobile à Pékin | 21YunBox, 28 et 30 août 2026 |
-| Sentry | Site du fournisseur, hôte non précisé par la source | Accessible | 3 sur 3, premier octet à 252 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 28 août 2026 |
+| AWS CloudFront | `aws.amazon.com/cloudfront` | Lent | 3 sur 3 (premier octet à 665 ms) et 3 sur 3 (718 ms) | Alibaba Cloud cn-zhangjiakou et China Mobile à Pékin | 21YunBox, 28 et 30 août 2026 |
+| Sentry | `browser.sentry-cdn.com` | Intermittent | Interférences sur 100 % des tests concluants récents (1 test) | sans objet | GreatFire, 1er octobre 2026 |
 | Bootstrap CDN | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
 ### Paiements
@@ -183,9 +184,11 @@ Douze dépendances n'ont fait l'objet d'aucun test que nous soyons prêts à rep
 
 Drift porte le total à treize, et son cas montre comment naît l'erreur. On le dit volontiers accessible, mais ce verdict vise le site marketing. `js.driftt.com`, l'hôte qu'appelle réellement le navigateur du visiteur, n'a jamais été testé. Se tromper de nom d'hôte : c'est ainsi que s'écrit l'essentiel de ce qui circule sur le sujet.
 
+Le service cloud de Matomo a rejoint cette liste le 14 octobre 2026. Sa ligne reposait sur un chronométrage du site de Matomo par 21YunBox, depuis retiré, et aucun test daté du traceur cloud n'a pris le relais.
+
 Les dates comptent autant que les verdicts. Un verdict de mars renseigne sur mars. Deux lignes du tableau datent de six mois, Wistia et l'hôte de télémétrie de Mapbox, et leurs cellules le signalent. Wistia est un lecteur vidéo qu'une équipe marketing pourrait intégrer dès cet après-midi, sur la foi d'un relevé effectué au printemps.
 
-Ce tableau a été confronté à ses sources pour la dernière fois le 22 septembre 2026, et toute ligne de plus de quatre-vingt-dix jours est revérifiée. Si vous le consultez longtemps après cette date et qu'une ligne pèse sur votre projet, testez d'abord l'hôte vous-même.
+Ce tableau a été confronté à ses sources le 22 septembre 2026, puis à nouveau le 14 octobre 2026 pour les lignes qui dépendaient des mesures de 21YunBox. Toute ligne qui dépasse quatre-vingt-dix jours est revérifiée. Si vous le consultez longtemps après cette date et qu'une ligne pèse sur votre projet, testez d'abord l'hôte vous-même.
 
 ### Pourquoi Stripe reste hors de ce tableau
 

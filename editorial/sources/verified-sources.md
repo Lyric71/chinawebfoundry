@@ -2311,9 +2311,72 @@ dates are the page's 最近更新时间.
 - F26 MIIT 107 notice (8 April 2024) and NDRC negative list 2024 (50% cap, e-commerce carved out): re-fetched today, text present.
 - F31 Chinafy benchmark, posted 2026-04-14: re-fetched; 614 sites, "2 in 3 ... failed to load", TTFB "4 to 4.5x".
 
+### HubSpot hosts, GreatFire (T2-02)
+- Fact ID: F35 (HubSpot line added 2026-10-14), F42
+- Value: https://api.hubspot.com 100% disrupted, 1 of 1 conclusive tests, last tested 2026-09-10, first tested 2020. https://app.hubspot.com not blocked, 0 of 1, last tested 2026-09-22 ("Verdict revised": a refused connection no longer counts). https://hs-sites.com not blocked, 0 of 1, last tested 2026-08-02. http://js.hs-scripts.com (plain HTTP only) 0 of 1, last tested 2026-09-13; GreatFire notes HTTP and HTTPS are filtered by different means (on the app.hubspot.com page). https://js-eu1.hs-scripts.com/26918530.js last tested 2026-07-14 (older than 90 days; date printed, no verdict, F42). Never tested over HTTPS: js.hs-scripts.com, js.hs-analytics.net, js.hs-banner.com, js.hscollectedforms.net, js.hsforms.net, forms.hsforms.com, api.hsforms.com, js.usemessages.com, api.usemessages.com, track.hubspot.com, no-cache.hubspot.com, cdn2.hubspot.net, hubspotusercontent-na1.net.
+- Vantage point: GreatFire reachability verdicts (no named probe)
+- As of: the test dates above
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/api.hubspot.com, /https/app.hubspot.com, /https/hs-sites.com, /http/js.hs-scripts.com, /https/js-eu1.hs-scripts.com/26918530.js, /https/js.hs-scripts.com (and the other never-tested pages)
+- Verified 1: 2026-10-14, curl of each page
+- Verified 2: 2026-10-14, curl re-fetch in iteration 8, every date and count present
+- Used in: hubspot-china
+- Notes: 21YunBox publishes no HubSpot figure: its support page (reviewed 2026-10-07) is compliance only, and its *A Day of Third-Party Requests* study has no HubSpot host.
+
+### HubSpot documentation (T2-02)
+- Fact ID: none (vendor documentation)
+- Value: (1) Troubleshoot the tracking code (updated 23 July 2026): loader js.hs-scripts.com, tracking script js.hs-analytics.net, js.hs-banner places cookies even without the banner, chatflows add api.usemessages.com; if the code is not working, data "may be incomplete or unavailable", chat "may not work as expected", HubSpot "can't recover tracking data that was missed while the code was inactive". (2) Install the tracking code (updated 29 September 2026): paste before the closing </body> tag; "Features that depend on the tracking code, such as live chat widgets, will not load." (3) Use non-HubSpot forms (updated 27 July 2026): "The non-HubSpot forms tool is dependent on the tracking code. HubSpot can only collect form submissions if the tracking code loads successfully."; alternative: Submit data to a form API. (4) HubSpot forms, developer docs (modified 29 March 2026): embed code loads //js.hsforms.net/forms/embed/v2.js; "HubSpot forms should only be loaded using the HubSpot-hosted JavaScript file. Making a copy of the form embed code and self-hosting it is not supported." (5) Submit data to a form, unauthenticated (modified 29 March 2026): https://api.hsforms.com/submissions/v3/integration/submit/{portalId}/{formGuid}. (6) Cloud Infrastructure and Data Hosting FAQ (updated 24 July 2026): AWS in the US (Virginia, Oregon), Canada (Montreal), Australia (Sydney), EU (Germany); no China region. (7) Reverse proxy overview (modified 9 October 2026): "HubSpot's CDN (powered by Cloudflare)"; proxies must run on a CDN or distributed environment, not a single server; setup "is not provided by HubSpot's support team". (8) CDN, security, and performance overview (modified 10 February 2026): "globally distributed Content Delivery Network"; neither (7) nor (8) mentions China. (9) Display system domains (updated 13 August 2026): US East accounts use [Hub ID].hs-sites.com.
+- Vantage point: n/a, documentation
+- As of: the page dates above
+- Source: HubSpot Knowledge Base and HubSpot developer documentation
+- URL: https://knowledge.hubspot.com/reports/how-do-i-know-if-my-hubspot-tracking-code-is-working ; https://knowledge.hubspot.com/reports/install-the-hubspot-tracking-code ; https://knowledge.hubspot.com/forms/use-non-hubspot-forms ; https://developers.hubspot.com/docs/cms/start-building/building-blocks/modules/forms ; https://developers.hubspot.com/docs/api-reference/legacy/marketing/forms/v3-legacy/submit-data-unauthenticated ; https://knowledge.hubspot.com/account-security/hubspot-cloud-infrastructure-and-data-hosting-frequently-asked-questions ; https://developers.hubspot.com/docs/cms/best-practices/testing-staging-performance/reverse-proxies/overview ; https://developers.hubspot.com/docs/cms/best-practices/testing-staging-performance/overview ; https://knowledge.hubspot.com/domains-and-urls/display-system-domains-in-domain-settings
+- Verified 1: 2026-10-14, curl
+- Verified 2: 2026-10-14, curl re-fetch, every quoted string and date present
+- Used in: hubspot-china
+
+### Reused in T2-02 with check 2 on 2026-10-14
+- F25 Alibaba Cloud 域名/网站无法访问 (4 September 2026): "必须先完成网站备案" re-fetched, present.
+
+### Replacement GreatFire verdicts for the rows 21YunBox withdrew (dependency table, GA guide)
+- Fact ID: F33, F34, F35, F38, F39, F42 (all corrected 2026-10-14)
+- Value: static.hotjar.com 1 of 2 disrupted, 2026-09-30. www.clarity.ms not blocked, 0 of 1, 2026-09-15. cdn.mxpnl.com 100% disrupted, 1 of 1, 2026-09-06. api.mixpanel.com not blocked, 0 of 1, 2026-09-19 (revised). api.segment.io not blocked, 0 of 1, 2026-09-15. cdn.segment.com reachable, no recent tests, 2026-05-20. plausible.io 1 of 2 disrupted, 2026-08-20. cdn.matomo.cloud never tested. form.typeform.com not blocked, 0 of 1, 2026-09-30 (revised). embed.typeform.com never tested. cdn-images.mailchimp.com blocked, 1 of 1, 2026-09-10. cdn.shopify.com not blocked, 0 of 2, 2026-10-08 (revised). algolia.net (apex) 100% disrupted, 2 of 2, 2026-08-31. browser.sentry-cdn.com 100% disrupted, 1 of 1, 2026-10-01. connect.facebook.net blocked, no recent tests, 2026-05-27.
+- Vantage point: GreatFire reachability verdicts (no named probe)
+- As of: the test dates above
+- Source: GreatFire
+- URL: https://en.greatfire.org/https/<host> for each host above
+- Verified 1: 2026-10-14, curl of each page (T2-02 research)
+- Verified 2: 2026-10-14, curl re-fetch after the corrections were written, every date and count present
+- Used in: src/data/chinaDependencies.ts and the generated table of great-firewall-what-it-blocks (en fr es de); google-analytics-china analytics table (en fr es de)
+- Notes: Mixpanel's library host is named in Mixpanel's own JavaScript SDK docs (https://docs.mixpanel.com/docs/tracking-methods/sdks/javascript, modified 9 October 2026), checked twice on 2026-10-14.
+
+### 21YunBox figures still on the page (Wix, AWS CloudFront), rechecked
+- Fact ID: F33, F38, F39
+- Value: Wix, a 532ms median first byte, 0 of 3 within a 60-second ceiling, Alibaba Cloud cn-zhangjiakou, 2026-08-30. AWS CloudFront (a load of aws.amazon.com/cloudfront): datacentre 3 of 3, median first byte 665ms, LCP 4,028ms, 2026-08-28; Beijing residential broadband 3 of 3, median first byte 718ms, LCP 2,180ms, 2026-08-30.
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou; Beijing residential broadband (CloudFront)
+- As of: measured 28 and 30 August 2026; pages reviewed 2026-10-07
+- Source: 21YunBox support pages
+- URL: https://www.21cloudbox.com/support/wix-china.html ; https://www.21cloudbox.com/support/aws-cloudfront-china.html
+- Verified 1: 2026-10-14
+- Verified 2: 2026-10-14, re-fetched, all figures present
+- Used in: great-firewall-what-it-blocks (en fr es de: opening blockquote now cites Wix only; CloudFront row)
+- Notes: **The CloudFront home line used to be logged and printed as 0 of 3 at 743ms.** The page now reads 3 of 3 at 718ms. Verdict changed from "splits by vantage point" to "slow"; SPEC.md's list of split hosts corrected.
+
 ## Retired entries
 
 (Stale entries, kept for traceability.)
+
+### 21YunBox per-tool figures (Typeform, Mailchimp, Hotjar, Clarity, Mixpanel, Segment, Plausible, Matomo, Shopify, Algolia, Sentry), retired 2026-10-14
+- Fact ID: F33, F34, F35, F38, F39
+- Was: Typeform 0 of 3, first byte 907ms; Mailchimp 0 of 3, 812ms, paint 2.0s; Hotjar 3 of 3 at 487ms, LCP 1,660ms; Clarity 0 of 3, 541ms; Mixpanel 0 of 3, 391ms; Segment 3 of 3, 900ms and 1,084ms; Plausible 3 of 3, 550ms, LCP 1,208ms; Matomo cloud 3 of 3, 516ms, LCP 1,532ms; Shopify 3 of 3, 575ms, median load 3.6s; Algolia 0 of 3, 1,027ms, paint 3.4s; Sentry 3 of 3, 252ms (Alibaba Cloud cn-zhangjiakou, 28 to 30 August 2026)
+- URLs: https://www.21cloudbox.com/support/<tool>-china.html for each tool above
+- Check of 2026-10-14: **failed, twice.** 21YunBox rewrote all eleven pages on 7 October 2026 ("Reviewed 2026-10-07") into a compliance format (data residency, PIPL). No probe, no figure, no date on any of them (0 millisecond figures on each page, fetched at research time and again after the corrections). A figure its publisher no longer carries is not printed as theirs (precedent: cdnjs, unpkg, jsDelivr, 11 October 2026).
+- Live pages corrected the same day: the dependency table (src/data/chinaDependencies.ts, regenerated into great-firewall-what-it-blocks en fr es de), the opening blockquote, the 21YunBox note and the "Not yet probed" paragraph of great-firewall-what-it-blocks (en fr es de), and the analytics table and its prose in google-analytics-china (en fr es de), each through /deep-translate. PLAN.md F33 to F35, F38, F39, F42 and the T2-06, T2-08, T3-05 and T6-05 briefs corrected; build-briefs rerun.
+
+### AWS CloudFront home line "0 of 3 at 743ms", retired 2026-10-14
+- Fact ID: F39
+- Was: Beijing China Mobile home line 0 of 3 at a 743ms first byte, 30 August 2026; verdict "splits by vantage point"
+- URL: https://www.21cloudbox.com/support/aws-cloudfront-china.html
+- Check of 2026-10-14: **contradicted.** The page now reads 3 of 3 from a Beijing residential broadband line, median first byte 718ms, LCP 2,180ms, 30 August 2026. Replaced by the entry "21YunBox figures still on the page (Wix, AWS CloudFront), rechecked" above.
 
 ### 21YunBox per-host CDN figures (cdnjs, unpkg, jsDelivr), retired 2026-10-11
 - Fact ID: F7

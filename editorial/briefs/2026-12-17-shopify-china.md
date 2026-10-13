@@ -47,7 +47,7 @@ tier-specific boxes for T2.
 Real demand, moderate SERP, nobody has data. Split the question cleanly from cross-border selling, which is a market-entry topic and not a CWF engagement.
 ```yaml
 title: "Does Shopify Work in China?"
-description: "Measured 3.6 seconds median load from a mainland instance. The cause is the storefront CDN, and the fix is not a Shopify setting."
+description: "GreatFire reads Shopify's CDN host as reachable. What decides a storefront in China is where it is served from, and no Shopify setting moves that."
 excerpt: "How a Shopify storefront actually performs for Chinese visitors, and the two ways to fix it."
 ```
 
@@ -64,18 +64,6 @@ The SERP confirms it every time: **if VPN affiliate sites or travel blogs rank, 
 **Do not write these, whatever their volume:** Slack, Teams, Zoom, Notion, Asana, Trello, Miro, Gmail, Drive, Dropbox, WhatsApp, Instagram as an app, Facebook, Netflix, Spotify as a service, password managers, and every "is X app banned in China" variant. These are higher volume than the list below, which is exactly the trap. They inflate a traffic chart and produce no pipeline.
 
 **Also excluded, for a different reason:** Stripe, because it is not a compatibility question (see F40, and write the payments article in T5 instead), Calendly, because the SERP is traveler and remote-worker intent, and the developer observability cluster (Datadog, New Relic, LaunchDarkly), because the buyer is an SRE and not a marketing lead.
-
-### Structure rule
-
-**No shared template above the H2 level.** Chinafy's 104 directory pages share an identical H1 and 65 boilerplate sentences, and that is the failure mode. Each page's structure follows that tool's actual China behavior, which genuinely differs: Google Fonts is a vantage-point problem (the mechanism behind the home-line failure is unpublished, so no page names one), Wistia is a latency problem, Mapbox is a licensing problem, HubSpot is a partial-failure problem.
-
-Every page: a named human byline with a China-based author bio, a test date, a named network or region, and the answer in the **first paragraph**, because roughly 44% of AI citations come from the first 30% of a page (F46).
-
-Length 700 to 1,000 words. These are answers, not essays.
-
-### Evidence rule (the GFW rule, 2 October 2026)
-
-Every T2 page states what the Great Firewall does to its subject from dated third-party evidence: GreatFire reachability verdicts with their last-tested date, and 21YunBox's published probes (an Alibaba Cloud cn-zhangjiakou instance and a Beijing China Mobile home line) with the vantage point and the date, both labelled as theirs and never as ours. Six verdicts (reachable, slow, answers then stalls, intermittent, blocked, splits by vantage point), datacenter and home line in separate columns, untested hosts listed as untested with no verdict, any verdict older than 90 days printed with its date. There is no harness gate and no mainland probe (Cyril, 2 October 2026). A T2 page that can carry no dated third-party figure on its subject says so and argues from documentation; it is never held for a measurement of our own.
 
 ### Structure rule
 

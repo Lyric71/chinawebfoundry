@@ -6,7 +6,7 @@ visual: "/images/guides/google-analytics-china.webp"
 order: 31
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-09-18
+updatedAt: 2026-10-14
 category: Technology
 ---
 
@@ -141,26 +141,26 @@ For most foreign B2B sites, a light edge counter alongside the gate is enough. I
 
 Pulling GA out and dropping in another hosted script moves the problem to a different hostname. Most of the obvious replacements are foreign hosts too, and several of them fail in a way that is harder to catch than a clean block.
 
-The table holds two kinds of evidence, and they answer different questions. GreatFire tests whether a host is reachable at all. 21YunBox times real page loads from a probe inside the mainland. They disagree on Hotjar, and that disagreement is the most useful thing here.
+Every row below is a GreatFire reachability verdict: whether a connection to the host opened on its recent conclusive tests, and nothing about speed. Until October this table also carried 21YunBox's timed loads of each vendor's website. 21YunBox withdrew those figures on 7 October 2026, so they have gone from this page as well.
 
-| Tool | What the tests show | Completions | Source and date |
+| Tool | What the tests show | Conclusive tests | Source and date |
 |---|---|---|---|
-| Hotjar | Disrupted on GreatFire's probes, yet completes from an Alibaba Cloud instance at 487ms first byte | 3 of 3 from the datacentre | GreatFire 18 Aug 2026; 21YunBox 30 Aug 2026 |
-| Meta Pixel | `connect.facebook.net` blocked | none | GreatFire 27 May 2026 |
-| Microsoft Clarity | Answers quickly, then stalls. First byte 541ms, nothing finished inside 60 seconds | 0 of 3 | 21YunBox 28 Aug 2026 |
-| Mixpanel | The same shape. First byte 391ms, nothing finished inside 60 seconds | 0 of 3 | 21YunBox 28 Aug 2026 |
-| Segment | Completes, slowly. First byte 900ms on one run and 1,084ms on another | 3 of 3 | 21YunBox 28 and 30 Aug 2026 |
-| Plausible | Completes. First byte 550ms, largest contentful paint 1,208ms | 3 of 3 | 21YunBox 28 Aug 2026 |
-| Matomo cloud | Completes. First byte 516ms, largest contentful paint 1,532ms | 3 of 3 | 21YunBox, reviewed 29 Aug 2026 |
+| Hotjar | `static.hotjar.com` intermittent | 1 of 2 disrupted | GreatFire 30 Sep 2026 |
+| Meta Pixel | `connect.facebook.net` blocked | none in the last 90 days | GreatFire 27 May 2026 |
+| Microsoft Clarity | `www.clarity.ms` reachable | 0 of 1 disrupted | GreatFire 15 Sep 2026 |
+| Mixpanel | Script host `cdn.mxpnl.com` disrupted, event host `api.mixpanel.com` reachable | 1 of 1 disrupted, and 0 of 1 | GreatFire 6 and 19 Sep 2026 |
+| Segment | Event host `api.segment.io` reachable | 0 of 1 disrupted | GreatFire 15 Sep 2026 |
+| Plausible | `plausible.io` intermittent | 1 of 2 disrupted | GreatFire 20 Aug 2026 |
+| Matomo cloud | No dated test of the cloud tracker | none | n/a |
 
-> Every timing in the table above was measured from a probe inside mainland China on Alibaba Cloud (阿里云) cn-zhangjiakou, three runs per tool with a 60-second abandon, between 28 and 30 August 2026.
-> Source: 21YunBox, per-tool China measurements, August 2026. https://www.21cloudbox.com/support/microsoft-clarity-china.html
+> GreatFire read https://cdn.mxpnl.com as 100% disrupted, 1 of 1 conclusive tests, last tested 6 September 2026, and https://api.mixpanel.com as not blocked, 0 of 1, last tested 19 September 2026. It read https://static.hotjar.com as disrupted on 1 of its last 2 conclusive tests, last tested 30 September 2026.
+> Source: GreatFire, September 2026. https://en.greatfire.org/https/cdn.mxpnl.com and https://en.greatfire.org/https/static.hotjar.com
 
-A datacentre in Zhangjiakou is not a flat in Beijing. Read those numbers as the best case, and assume your visitors get something worse.
+A reachability verdict means a connection opened from GreatFire's probes. It says nothing about how long the script took, or what a home broadband line in Beijing gets.
 
-That gap is the whole reason Hotjar has two verdicts. 21YunBox ran its test from a rack. Whatever GreatFire's probes saw, they saw something else, and a host that answers a datacentre can still ignore a home broadband line. Until you've measured Hotjar on your own traffic, assume it can do both.
+Mixpanel is the row worth reading twice. Its two hostnames got opposite answers in September: the library that has to load first was disrupted, and the endpoint that receives events was not. If the script never arrives, nothing is sent, and the event host's clean verdict is no help to you.
 
-Clarity and Mixpanel are the two rows worth reading twice. Neither host is on a block list. GreatFire had `www.clarity.ms` answering normally on 15 September 2026, and `api.mixpanel.com` answering normally when it last tested on 17 April 2026. Both still returned a first byte in under 600ms and then finished nothing inside a minute.
+Hotjar's script host showed interference on one of its last two tests. Intermittent is the hardest verdict to plan around, because a host like that can pass on the day you check and fail on the day a visitor arrives.
 
 A hard block eventually throws an error that somebody notices. A stalled request sits there quietly until the browser gives up, and your session recording is simply thinner than it should be, in a way no alert will ever tell you about.
 
@@ -168,7 +168,7 @@ A hard block eventually throws an error that somebody notices. A stalled request
 
 Amplitude loads its script from one hostname and posts events to another. When a product splits like that, the two hostnames can get different answers from the same network. The script loads and the events never post. Your dashboard reads as healthy either way.
 
-In April 2026 GreatFire had `cdn.amplitude.com` reachable while `api.amplitude.com` was blocked, which is exactly that shape. We re-tested both hostnames for this update on 17 September 2026.
+In April 2026 GreatFire had `cdn.amplitude.com` reachable while `api.amplitude.com` was blocked, which is exactly that shape. We re-read GreatFire's verdicts on both hostnames for this update on 17 September 2026.
 
 > `cdn.amplitude.com` not blocked, last tested 14 September 2026, all 1 recent conclusive test connected normally. `api.amplitude.com` not blocked, last tested 10 September 2026, 0 of 1 disrupted in the last 90 days. Across 13 tested amplitude.com URLs GreatFire records 1 blocked, 3 disrupted and 9 accessible.
 > Source: GreatFire, September 2026. https://en.greatfire.org/https/api.amplitude.com
@@ -181,7 +181,7 @@ Which is the actual lesson. A verdict you read somewhere has a date on it, and f
 
 Baidu Tongji (百度统计) first, if the mainland market matters to you. Its servers are in the country, so the request never crosses a border, and its reporting is built around Baidu (百度) traffic, which is the traffic you're trying to understand. Sensors Data (神策) and GrowingIO are the heavier domestic options.
 
-Otherwise, self-host. Plausible and Matomo both completed every run in the table, and both can be installed on your own mainland server. That turns a foreign dependency into a first-party request and settles the legal question in the next section at the same time.
+Otherwise, self-host. Plausible and Matomo can both be installed on your own mainland server, which takes their hosted versions, and the verdicts above, out of the picture. That turns a foreign dependency into a first-party request and settles the legal question in the next section at the same time.
 
 One caveat, since this page is mostly about a gate. A self-hosted analytics endpoint inside China needs no gate at all, because there's nothing to stop. Keep the `/ga.js` route for GA and for whatever else you load from a foreign host, and let the domestic tool run for everybody.
 
