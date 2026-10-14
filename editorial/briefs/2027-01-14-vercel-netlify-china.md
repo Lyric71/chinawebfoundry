@@ -1,7 +1,7 @@
 ---
 brief_id: T2-10
 tier: T2
-content_type: guide-en
+content_type: guide
 publish_date: 2027-01-14
 week: 19
 slot: 2
@@ -9,7 +9,7 @@ slot_job: fast
 slug: vercel-netlify-china
 title: "Vercel and Netlify From Mainland China"
 suggested_category: Hosting
-locales_at_publish: en
+locales_at_publish: en fr es de
 facts: [F29, F39, F42]
 status: not_started
 ---
@@ -27,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/vercel-netlify-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -44,6 +44,9 @@ tier-specific boxes for T2.
 #### T2-10 `vercel-netlify-china`
 
 **Target:** vercel china · **Facts:** F29, F39, F42
+
+**Slugs** en `vercel-netlify-china` · de `vercel-netlify-china` · es `vercel-netlify-china` · fr `vercel-netlify-chine`.
+
 Directly relevant to CWF's own Astro positioning, and prospects on modern stacks hit this. Be plain that CWF builds on Vercel and that a static build on an overseas platform is a different thing from a static build on a filed mainland origin.
 ```yaml
 title: "Vercel and Netlify From Mainland China"

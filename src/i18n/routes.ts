@@ -74,6 +74,9 @@ export const guideSlugs: Record<string, Trans> = {
   'choosing-web-agency-china': { fr: 'choisir-agence-web-chine', es: 'elegir-agencia-web-china', de: 'webagentur-china-auswaehlen' },
   'china-website-brief-checklist': { fr: 'checklist-brief-site-chine', es: 'checklist-brief-sitio-china', de: 'china-website-briefing-checkliste' },
   'google-fonts-china': { fr: 'google-fonts-chine', es: 'google-fonts-china', de: 'google-fonts-china' },
+  'javascript-cdn-china': { fr: 'cdn-javascript-chine', es: 'cdn-javascript-china', de: 'javascript-cdn-china' },
+  'recaptcha-china': { fr: 'recaptcha-chine', es: 'recaptcha-china', de: 'recaptcha-china' },
+  'hubspot-china': { fr: 'hubspot-chine', es: 'hubspot-china', de: 'hubspot-china' },
   'wordpress-speed-china': { fr: 'vitesse-wordpress-chine', es: 'velocidad-wordpress-china', de: 'wordpress-geschwindigkeit-china' },
   'migrate-wordpress-to-china': { fr: 'migrer-wordpress-vers-chine', es: 'migrar-wordpress-a-china', de: 'wordpress-nach-china-migrieren' },
   'wp-admin-slow-china': { fr: 'wp-admin-lent-chine', es: 'wp-admin-lento-china', de: 'wp-admin-langsam-china' },
@@ -227,9 +230,6 @@ export function hreflangFor(pathname: string, siteOrigin: string) {
  */
 export const englishOnlyRoutes: Record<string, string> = {
   '/resources/ceo-opinion/': '/resources/china-web-guide/',
-  '/resources/china-web-guide/recaptcha-china/': '/resources/china-web-guide/',
-  '/resources/china-web-guide/javascript-cdn-china/': '/resources/china-web-guide/',
-  '/resources/china-web-guide/hubspot-china/': '/resources/china-web-guide/',
 };
 
 /** The equivalent of `pathname` in another locale. */

@@ -86,21 +86,21 @@ route files resolve `guideSlugs[guide.id]?.<locale> ?? guide.id`, so a
 missing entry silently publishes an English slug under a French path. That
 is a failed publish.
 
-**English-only pieces.** A guide that ships in English only (`guide-en`,
-`guide-en-first`, `report`) is added to `englishOnlyRoutes` in
+**English-only pieces.** A guide that ships in English only (`guide-en-first`,
+`report`) is added to `englishOnlyRoutes` in
 `src/i18n/routes.ts`, keyed by its canonical path
 (`/resources/china-web-guide/<slug>/`) and pointing at
 `/resources/china-web-guide/`. Without the entry the page announces fr, es
 and de hreflang twins and sitemap alternates that 404, and the language
 switcher sends readers to them (settled 6 October 2026, first T2 publish).
-The entry is removed when a T7 slot, or a named exception from Cyril, ships the page in every locale (T2-01, 6 October 2026: entry removed, `guideSlugs` entry added).
+The entry is removed when a T7 slot, or a named exception from Cyril, ships the page in every locale (T2-01, 6 October 2026: entry removed, `guideSlugs` entry added). T2 left this list for good on 14 October 2026, when Cyril ruled that it ships in every locale: the T2-02, T2-03 and T2-05 entries were removed and their `guideSlugs` added the same day, and no T2 page is added to it again.
 
 Per content type:
 
 | `content_type` | Writes | Locales at publish | Translation |
 |---|---|---|---|
 | `guide` (T1) | `src/content/guides/<slug>.md` + `guides-fr`, `guides-es`, `guides-de` | all four, one commit | `/deep-translate` three passes each, FR then ES then DE |
-| `guide-en` (T2) | `src/content/guides/<slug>.md` only | en | never, except where Cyril names a page (T2-01 `google-fonts-china`, 6 October 2026: fr es de, `/deep-translate` three passes each) |
+| `guide` (T2) | `src/content/guides/<slug>.md` + `guides-fr`, `guides-es`, `guides-de` | all four, one commit | `/deep-translate` three passes each, FR then ES then DE. Cyril, 14 October 2026: T2 propagates to every language. Until then it was `guide-en`, English only; T2-01, T2-02, T2-03 and T2-05 were localised after publishing |
 | `guide-en-first` (T5) | `src/content/guides/<slug>.md` | en | via a T7 slot after day 90, on evidence |
 | `report` (T4) | `src/content/guides/<slug>.md`, dated slug | en | never overwritten; a new edition is a new file |
 | `casestudy` (T3) | `src/content/casestudies/<slug>.md` (existing file for upgrades T3-01 to T3-05) | en | via a T7 slot, on evidence |

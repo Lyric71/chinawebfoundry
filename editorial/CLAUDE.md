@@ -440,7 +440,7 @@ A piece the build or the check stopped gets `--status held`: the subject reads
 when it reports no more errors than a clean worktree at HEAD, same count and
 same files (Cyril, 10 September 2026; see RUNBOOK).
 
-`--type` is the `content_type` from the schedule row (guide, guide-en,
+`--type` is the `content_type` from the schedule row (guide,
 guide-en-first, report, casestudy, money-page, upgrade, translation). It
 sends one email through Resend (key in `.env`) to cyril.drouin@outlook.com
 (the only address Resend's testing mode can deliver to; switch `DEFAULT_TO`

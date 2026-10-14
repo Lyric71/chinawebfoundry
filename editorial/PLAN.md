@@ -76,7 +76,7 @@ The site is 308 URLs: 77 English pages mirrored into three locales. 78 new artic
 
 Templated compatibility content, auto-translated three ways, at 4x multiplication, on a domain that is already three quarters machine-multiplied, is close to a literal match for that policy text. There have been three spam updates in the last six months, the most recent completing on 21 August.
 
-**What that means for this plan.** The genuinely cluster-shaped content is capped at 14 pieces, English only. The rest of the 78 is editorial, proof and original research, which are protective rather than risky. And the whole thing is built on a measurement engine that no competitor has, described in section 2.
+**What that means for this plan.** The genuinely cluster-shaped content is capped at 14 pieces, English only. (Superseded 14 October 2026: Cyril ruled that the T2 pages propagate to every language, so they ship in en, fr, es and de like T1. See the translation policy in section 1.) The rest of the 78 is editorial, proof and original research, which are protective rather than risky. And the whole thing is built on a measurement engine that no competitor has, described in section 2.
 
 **One correction you must apply before anything publishes.** See F6 in section 4. The Google Fonts finding circulated earlier was a datacenter measurement and it does not hold on a consumer connection. The live article `is-wordpress-blocked-in-china` currently carries the version F6 retracts, and T6-02 fixes it in week 1.
 
@@ -113,10 +113,10 @@ Never three of the same type in one week. A working rhythm:
 
 ### Translation policy
 
-Shipping all four locales in the same commit is correct for 16 pieces and wrong for 78.
+Shipping all four locales in the same commit is correct for the T1 pieces, the money page and, since 14 October 2026, the 14 T2 pages. It is wrong for the rest.
 
 - **T1 and the money page:** all four locales, same commit. Unchanged.
-- **T2 compatibility cluster:** **English only.** No exceptions. `hreflang` set to `x-default` on the English URL.
+- **T2 compatibility cluster:** all four locales, same commit, exactly as T1 (Cyril, 14 October 2026: "it should propagate to each language"). This replaces the English-only rule. Each locale goes through `/deep-translate`, three passes, FR then ES then DE, and the slugs in each T2 entry go into `guideSlugs`. No T2 page uses a T7 slot. The four T2 pages that had shipped in English only were localised in fr, es and de: T2-01 on 6 October 2026, T2-05, T2-03 and T2-02 on 14 October 2026.
 - **T3, T4, T5:** English first. Translate individually after 90 days, and only pages that have earned traffic or an inquiry.
 - **T7 is the translation budget.** Fourteen slots across the 26 weeks, allocated on performance, not on principle.
 
@@ -1168,7 +1168,7 @@ excerpt: "The web agency in China for international brands, from strategy and IC
 
 ## 6. T2: the compatibility cluster
 
-Fourteen pieces. **English only.** Every one carries a dated measurement or verdict on its subject under the GFW rule (see the evidence rule below), never a measurement of our own.
+Fourteen pieces, each published in en, fr, es and de in one commit (Cyril, 14 October 2026; this tier was English only until then). Every one carries a dated measurement or verdict on its subject under the GFW rule (see the evidence rule below), never a measurement of our own.
 
 ### The selection rule that produced this list
 
@@ -1200,7 +1200,9 @@ Every T2 page states what the Great Firewall does to its subject from dated thir
 
 **Target:** google fonts china · **Facts:** F6, F42
 
-**Locales.** Published in English on 6 October 2026, then localised the same day on Cyril's instruction: fr `google-fonts-chine`, es `google-fonts-china`, de `google-fonts-china`, each through `/deep-translate`. The only T2 page outside the English-only rule (section 11).
+**Slugs** en `google-fonts-china` · de `google-fonts-china` · es `google-fonts-china` · fr `google-fonts-chine`
+
+**Locales.** Published in English on 6 October 2026, then localised the same day on Cyril's instruction: fr `google-fonts-chine`, es `google-fonts-china`, de `google-fonts-china`, each through `/deep-translate`. It was the first T2 page localised; since 14 October 2026 every T2 page ships in all four locales (translation policy, section 1).
 The purest site-owner query in the set, and the SERP is GitHub issues and forum threads with no authoritative page anywhere. Lead with the vantage-point split, because that is the finding and nobody else has it. Ties directly to CWF's own self-hosted-fonts practice, which is first-hand experience Google's guidance explicitly rewards.
 ```yaml
 title: "Google Fonts in China: It Depends Where You Are"
@@ -1211,6 +1213,9 @@ excerpt: "The Google Fonts answer changes with the network you test from, which 
 #### T2-02 `hubspot-china`
 
 **Target:** is hubspot blocked in china · **Facts:** F35, F42
+
+**Slugs** en `hubspot-china` · de `hubspot-china` · es `hubspot-china` · fr `hubspot-chine`. Published in English on 14 October 2026, localised in fr, es and de on 14 October 2026 (section 1).
+
 CWF's exact buyer, marketing ops at a foreign brand. Freshest competing page is 2024 and the SERP is fragmented. Separate the two cases cleanly: the tracking script is a degraded dependency, a HubSpot-hosted CMS site is a hosting problem with a different fix.
 ```yaml
 title: "HubSpot in China: What Works and What Does Not"
@@ -1221,6 +1226,9 @@ excerpt: "Which parts of a HubSpot stack have a dated test from inside China, wh
 #### T2-03 `recaptcha-china`
 
 **Target:** recaptcha china · **Facts:** F2, F35, F41
+
+**Slugs** en `recaptcha-china` · de `recaptcha-china` · es `recaptcha-china` · fr `recaptcha-chine`. Published in English on 8 October 2026, localised in fr, es and de on 14 October 2026 (section 1).
+
 High panic value and a direct migration trigger. reCAPTCHA gates submission, so the form does not degrade, it dies, and the site owner sees nothing. Cover the `www.recaptcha.net` swap honestly under the GFW rule: print GreatFire's dated verdict on `www.recaptcha.net` if one exists; if none does, say that Google documents the swap and that no current third-party test of it was found, and recommend a domestic captcha instead.
 ```yaml
 title: "reCAPTCHA in China: Your Forms Are Dead"
@@ -1231,6 +1239,9 @@ excerpt: "Why Chinese visitors cannot submit your forms, and the three captcha s
 #### T2-04 `cloudflare-china`
 
 **Target:** cloudflare china website · **Facts:** F30, F38, F26
+
+**Slugs** en `cloudflare-china` · de `cloudflare-china` · es `cloudflare-china` · fr `cloudflare-chine`.
+
 You will not outrank Cloudflare on its own product name, so do not try. Write the prerequisite angle their own pages soft-pedal: the China Network is Enterprise-only, operated with JD Cloud, requires a valid ICP filing per apex domain, and requires JD Cloud content review. That is an ICP filing lead.
 ```yaml
 title: "Cloudflare in China: The Part Nobody Mentions"
@@ -1241,6 +1252,9 @@ excerpt: "What Cloudflare does and does not do for Chinese visitors, and the fil
 #### T2-05 `javascript-cdn-china`
 
 **Target:** cdn blocked china · **Facts:** F1, F7, F42
+
+**Slugs** en `javascript-cdn-china` · de `javascript-cdn-china` · es `cdn-javascript-china` · fr `cdn-javascript-chine`. Published in English on 11 October 2026, localised in fr, es and de on 14 October 2026 (section 1).
+
 The single most valuable correction available. Everyone writes "CDNs are blocked," which gets the priority exactly backwards. Google Hosted Libraries returns nothing at all and halts the render; cdnjs, unpkg and jsDelivr all read as not blocked, and jsDelivr, the only one with a published home line test, completes from both vantage points with a slow tail (1,757ms at the 95th percentile). One line of code accounts for most of the damage in this whole category. (Corrected 11 October 2026: "all complete and merely cost seconds" rested on 21YunBox per-host timings withdrawn on 7 October 2026, see F7.)
 ```yaml
 title: "Which JavaScript CDNs Work in China"
@@ -1253,6 +1267,9 @@ excerpt: "Google Hosted Libraries halts the render. cdnjs, unpkg and jsDelivr do
 #### T2-06 `shopify-china`
 
 **Target:** does shopify work in china · **Facts:** F38, F30
+
+**Slugs** en `shopify-china` · de `shopify-china` · es `shopify-china` · fr `shopify-chine`.
+
 Real demand, moderate SERP, nobody has data. Split the question cleanly from cross-border selling, which is a market-entry topic and not a CWF engagement.
 ```yaml
 title: "Does Shopify Work in China?"
@@ -1263,6 +1280,9 @@ excerpt: "How a Shopify storefront actually performs for Chinese visitors, and t
 #### T2-07 `video-embeds-china`
 
 **Target:** youtube embed china · **Facts:** F5, F36, F41
+
+**Slugs** en `video-embeds-china` · de `video-einbettungen-china` · es `videos-incrustados-china` · fr `videos-integrees-chine`.
+
 One article, not four. YouTube, Vimeo, Wistia and Loom in a single piece, because the reader's question is "my video does not play" and not "tell me about Wistia."
 ```yaml
 title: "Video Embeds That Work in China"
@@ -1273,6 +1293,9 @@ excerpt: "Why the video on your China page shows an empty box, and the platforms
 #### T2-08 `form-embeds-china`
 
 **Target:** typeform china · **Facts:** F35, F41
+
+**Slugs** en `form-embeds-china` · de `eingebettete-formulare-china` · es `formularios-incrustados-china` · fr `formulaires-integres-chine`.
+
 Bundle Typeform, Jotform, Google Forms and Mailchimp embeds. Lead with what is on record: Mailchimp's image host `cdn-images.mailchimp.com` blocked on GreatFire's last test (10 September 2026), Typeform's form host reachable (30 September 2026) while its embed script host has never been tested. The hook is the architecture fix T2-02 sets out: own the form, store each submission on your server first, forward it later. (Corrected 14 October 2026: the old hook, "907ms to first byte, then nothing", was a 21YunBox figure withdrawn on 7 October 2026.)
 ```yaml
 title: "Embedded Forms That Fail Silently in China"
@@ -1283,6 +1306,9 @@ excerpt: "The embedded form failure nobody catches, because it produces no error
 #### T2-09 `maps-china`
 
 **Target:** mapbox china · **Facts:** F37, F41
+
+**Slugs** en `maps-china` · de `karten-china` · es `mapas-china` · fr `cartes-chine`.
+
 Chinafy covers Mapbox three ways and misses the regulatory layer entirely. The differentiation here is that maps are a licensing question before they are a firewall question: surveying and mapping qualification, the GCJ-02 coordinate offset, and why AMap or Baidu Maps is the answer rather than a faster mirror.
 ```yaml
 title: "Maps in China: Licensing Before Firewall"
@@ -1293,6 +1319,9 @@ excerpt: "Why your store locator breaks in China, and why a faster mirror is not
 #### T2-10 `vercel-netlify-china`
 
 **Target:** vercel china · **Facts:** F29, F39, F42
+
+**Slugs** en `vercel-netlify-china` · de `vercel-netlify-china` · es `vercel-netlify-china` · fr `vercel-netlify-chine`.
+
 Directly relevant to CWF's own Astro positioning, and prospects on modern stacks hit this. Be plain that CWF builds on Vercel and that a static build on an overseas platform is a different thing from a static build on a filed mainland origin.
 ```yaml
 title: "Vercel and Netlify From Mainland China"
@@ -1310,7 +1339,7 @@ Full briefs below. Gated on the kill switch in section 13: if the first five T2 
 
 | | |
 |---|---|
-| **Slug** | en `webflow-china` |
+| **Slugs** | en `webflow-china` · de `webflow-china` · es `webflow-china` · fr `webflow-chine` |
 | **Target** | does webflow work in china |
 | **Secondary** | webflow china, is webflow blocked in china, webflow alternative china |
 | **Intent** | Commercial investigation. A marketing team already on Webflow, or about to sign, and somebody in the China office is asking. |
@@ -1349,7 +1378,7 @@ excerpt: "The HTTP verdict competing pages quote is the wrong one. What Webflow 
 
 | | |
 |---|---|
-| **Slug** | en `squarespace-wix-china` |
+| **Slugs** | en `squarespace-wix-china` · de `squarespace-wix-china` · es `squarespace-wix-china` · fr `squarespace-wix-chine` |
 | **Target** | does squarespace work in china |
 | **Secondary** | does wix work in china, squarespace china, wix blocked china |
 | **Intent** | Commercial investigation, lower technical sophistication than T2-11. Often a founder or an office manager, not a developer. |
@@ -1388,7 +1417,7 @@ excerpt: "Two builders, two failure modes, one filing problem neither can solve.
 
 | | |
 |---|---|
-| **Slug** | en `chat-widgets-china` |
+| **Slugs** | en `chat-widgets-china` · de `chat-widgets-china` · es `widgets-chat-china` · fr `widgets-chat-chine` |
 | **Target** | intercom china |
 | **Secondary** | zendesk chat china, drift china, crisp chat china, live chat china |
 | **Intent** | Correct intent, near zero individual demand. Four queries that each deserve a paragraph and none of which deserves a URL. |
@@ -1427,7 +1456,7 @@ excerpt: "Four Western chat widgets, their dated verdicts from inside China, and
 
 | | |
 |---|---|
-| **Slug** | en `cookie-consent-china` |
+| **Slugs** | en `cookie-consent-china` · de `cookie-einwilligung-china` · es `consentimiento-cookies-china` · fr `consentement-cookies-chine` |
 | **Target** | cookie consent china |
 | **Secondary** | onetrust china, cookiebot china, pipl cookie banner, gdpr banner china |
 | **Intent** | Mixed. Half compliance anxiety, half a broken banner. Usually arrives from a legal or marketing owner rather than a developer. |
@@ -2678,7 +2707,7 @@ Consolidation branch: keep `china-website-hosting-guide` as the surviving URL, m
 
 Fourteen slots across 26 weeks. Not a schedule, a budget.
 
-**Rules.** Nothing is translated before day 90. Nothing in T2 is translated at all, with one exception: T2-01 `google-fonts-china` ships in fr, es and de since 6 October 2026, on Cyril's instruction the day it published, outside this budget (it uses no T7 slot). Every other T2 page stays English only unless Cyril names it. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
+**Rules.** Nothing is translated before day 90. T2 is outside this budget: since 14 October 2026 every T2 page ships in en, fr, es and de at publish (Cyril, section 1), so no T2 page uses a T7 slot. T2-01 was localised on 6 October 2026 and T2-02, T2-03 and T2-05 on 14 October 2026, also outside the budget. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
 
 Expect roughly half the slots to go to T1 and the money page, which ship four-locale on day one anyway and therefore do not consume budget. The real allocation is T3 and T5.
 

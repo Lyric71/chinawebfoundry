@@ -26,7 +26,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/translation-batch-10.md` |
 
-**Tier rule.** T7 translation slot. A budget, not a schedule. On this date, review the queue: pages published 90 or more days ago that have earned it (organic entries, an attributed inquiry, an observed AI citation). Pick one or leave the slot unspent and say so in the log. Translate fr, es and de together or not at all. Nothing in T2 is ever translated. Run `/deep-translate`, all three passes, per locale, FR then ES then DE, interactively in the main conversation, never a subagent, one pass at a time, none skipped or merged.
+**Tier rule.** T7 translation slot. A budget, not a schedule. On this date, review the queue: pages published 90 or more days ago that have earned it (organic entries, an attributed inquiry, an observed AI citation). Pick one or leave the slot unspent and say so in the log. Translate fr, es and de together or not at all. T2 never takes a slot: it ships in all four locales at publish (since 14 October 2026). Run `/deep-translate`, all three passes, per locale, FR then ES then DE, interactively in the main conversation, never a subagent, one pass at a time, none skipped or merged.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -48,6 +48,6 @@ No page is named in advance. On this date, review the translation queue and spen
 
 Fourteen slots across 26 weeks. Not a schedule, a budget.
 
-**Rules.** Nothing is translated before day 90. Nothing in T2 is translated at all, with one exception: T2-01 `google-fonts-china` ships in fr, es and de since 6 October 2026, on Cyril's instruction the day it published, outside this budget (it uses no T7 slot). Every other T2 page stays English only unless Cyril names it. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
+**Rules.** Nothing is translated before day 90. T2 is outside this budget: since 14 October 2026 every T2 page ships in en, fr, es and de at publish (Cyril, section 1), so no T2 page uses a T7 slot. T2-01 was localised on 6 October 2026 and T2-02, T2-03 and T2-05 on 14 October 2026, also outside the budget. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
 
 Expect roughly half the slots to go to T1 and the money page, which ship four-locale on day one anyway and therefore do not consume budget. The real allocation is T3 and T5.

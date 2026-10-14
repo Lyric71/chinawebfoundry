@@ -1,7 +1,7 @@
 ---
 brief_id: T2-12
 tier: T2
-content_type: guide-en
+content_type: guide
 publish_date: 2027-02-11
 week: 23
 slot: 2
@@ -9,7 +9,7 @@ slot_job: fast
 slug: squarespace-wix-china
 title: "Squarespace and Wix in China, Measured"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 facts: [F9, F25, F26, F32, F33, F38, F45]
 status: not_started
 ---
@@ -27,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/squarespace-wix-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -45,7 +45,7 @@ tier-specific boxes for T2.
 
 | | |
 |---|---|
-| **Slug** | en `squarespace-wix-china` |
+| **Slugs** | en `squarespace-wix-china` · de `squarespace-wix-china` · es `squarespace-wix-china` · fr `squarespace-wix-chine` |
 | **Target** | does squarespace work in china |
 | **Secondary** | does wix work in china, squarespace china, wix blocked china |
 | **Intent** | Commercial investigation, lower technical sophistication than T2-11. Often a founder or an office manager, not a developer. |

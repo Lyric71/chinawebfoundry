@@ -305,7 +305,7 @@ INTERNAL LINKS:
   the plugin and extension work we do -> /services/plugins-extensions/
   what the Great Firewall blocks, host by host -> /resources/china-web-guide/great-firewall-what-it-blocks/
   China Site Scanner -> /china-site-scanner/
-LOCALIZED SLUGS: none (T2 is English only, hreflang x-default on the English URL; add to englishOnlyRoutes at publish)
+LOCALIZED SLUGS: fr recaptcha-chine, es recaptcha-china, de recaptcha-china (added 14 October 2026, when T2 moved to all four locales)
 CLIENT SIGN-OFF ON RECORD: none needed (no client named, no client figure)
 LINK SUBSTITUTIONS: none
 REVIEW BY: 2026-11-18 (oldest cited test inside the 90-day window,

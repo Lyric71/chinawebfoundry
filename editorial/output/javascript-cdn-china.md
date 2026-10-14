@@ -286,9 +286,9 @@ INTERNAL LINKS:
   what the Great Firewall blocks -> /resources/china-web-guide/great-firewall-what-it-blocks/
   China Site Scanner -> /china-site-scanner/
   Technical Integration service -> /services/technical-integration/
-LOCALIZED SLUGS: none (T2 is English only; add
-  /resources/china-web-guide/javascript-cdn-china/ to englishOnlyRoutes in
-  src/i18n/routes.ts at publish)
+LOCALIZED SLUGS: fr cdn-javascript-chine, es cdn-javascript-china, de
+  javascript-cdn-china (added 14 October 2026, when T2 moved to all four
+  locales)
 CLIENT SIGN-OFF ON RECORD: none needed (no client figure or name)
 LINK SUBSTITUTIONS: none
 THIRD-PARTY MEASUREMENTS CITED (GFW rule):

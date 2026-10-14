@@ -260,7 +260,7 @@ INTERNAL LINKS:
   our guide to China's data privacy rules -> /resources/china-web-guide/china-data-privacy-pipl-dsl/
   our table of what the Great Firewall blocks, host by host -> /resources/china-web-guide/great-firewall-what-it-blocks/
   CTA "Run a free China readiness scan" -> /china-site-scanner/ (rendered by the layout)
-LOCALIZED SLUGS: none (T2 is English only, hreflang x-default on the English URL; add to englishOnlyRoutes at publish)
+LOCALIZED SLUGS: fr hubspot-chine, es hubspot-china, de hubspot-china (added 14 October 2026, when T2 moved to all four locales)
 CLIENT SIGN-OFF ON RECORD: none needed (no client named, no client figure)
 LINK SUBSTITUTIONS: none
 REVIEW BY: 2026-10-31 (oldest cited verdict inside the 90-day window,

@@ -1,7 +1,7 @@
 ---
 brief_id: T2-03
 tier: T2
-content_type: guide-en
+content_type: guide
 publish_date: 2026-10-08
 week: 05
 slot: 2
@@ -9,7 +9,7 @@ slot_job: fast
 slug: recaptcha-china
 title: "reCAPTCHA in China: Your Forms Are Dead"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 facts: [F2, F35, F41]
 status: published
 ---
@@ -27,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/recaptcha-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -44,6 +44,9 @@ tier-specific boxes for T2.
 #### T2-03 `recaptcha-china`
 
 **Target:** recaptcha china · **Facts:** F2, F35, F41
+
+**Slugs** en `recaptcha-china` · de `recaptcha-china` · es `recaptcha-china` · fr `recaptcha-chine`. Published in English on 8 October 2026, localised in fr, es and de on 14 October 2026 (section 1).
+
 High panic value and a direct migration trigger. reCAPTCHA gates submission, so the form does not degrade, it dies, and the site owner sees nothing. Cover the `www.recaptcha.net` swap honestly under the GFW rule: print GreatFire's dated verdict on `www.recaptcha.net` if one exists; if none does, say that Google documents the swap and that no current third-party test of it was found, and recommend a domestic captcha instead.
 ```yaml
 title: "reCAPTCHA in China: Your Forms Are Dead"

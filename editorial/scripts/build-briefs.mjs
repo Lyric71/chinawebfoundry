@@ -37,9 +37,9 @@ const plan = readFileSync(PLAN, 'utf8').split(/\r?\n/);
 /* ------------------------------------------------------------------ */
 
 // type drives where the publish step writes:
-//   guide          guides collection, all four locales in one commit (T1)
+//   guide          guides collection, all four locales in one commit (T1, and T2
+//                  since 14 October 2026, Cyril: "it should propagate to each language")
 //   money-page     src/pages/website-in-china.astro and the three locale pages (M1)
-//   guide-en       guides collection, English only, never translated (T2)
 //   casestudy      casestudies collection, English first (T3)
 //   report         guides collection, English only, dated slug (T4)
 //   guide-en-first guides collection, English first, translated on evidence (T5)
@@ -63,20 +63,20 @@ const PIECES = {
   B4:  { title: 'Can Your Global Agency Build Your China Site?', slug: 'global-agency-china-website', type: 'guide', category: 'Technology', heading: /^#### B4\./ },
   B5:  { title: 'The China Website Brief: A Checklist', slug: 'china-website-brief-checklist', type: 'guide', category: 'Technology', heading: /^#### B5\./ },
   B6:  { title: 'The China Web Agency Landscape, 2026', slug: 'china-web-agency-landscape-2026', type: 'guide', category: 'Technology', heading: /^#### B6\./ },
-  'T2-01': { title: 'Google Fonts in China: It Depends Where You Are', slug: 'google-fonts-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-01 / },
-  'T2-02': { title: 'HubSpot in China: What Works and What Does Not', slug: 'hubspot-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-02 / },
-  'T2-03': { title: 'reCAPTCHA in China: Your Forms Are Dead', slug: 'recaptcha-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-03 / },
-  'T2-04': { title: 'Cloudflare in China: The Part Nobody Mentions', slug: 'cloudflare-china', type: 'guide-en', category: 'Hosting', heading: /^#### T2-04 / },
-  'T2-05': { title: 'Which JavaScript CDNs Work in China', slug: 'javascript-cdn-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-05 / },
-  'T2-06': { title: 'Does Shopify Work in China?', slug: 'shopify-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-06 / },
-  'T2-07': { title: 'Video Embeds That Work in China', slug: 'video-embeds-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-07 / },
-  'T2-08': { title: 'Embedded Forms That Fail Silently in China', slug: 'form-embeds-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-08 / },
-  'T2-09': { title: 'Maps in China: Licensing Before Firewall', slug: 'maps-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-09 / },
-  'T2-10': { title: 'Vercel and Netlify From Mainland China', slug: 'vercel-netlify-china', type: 'guide-en', category: 'Hosting', heading: /^#### T2-10 / },
-  'T2-11': { title: 'Does Webflow Work in China? We Measured', slug: 'webflow-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-11\./ },
-  'T2-12': { title: 'Squarespace and Wix in China, Measured', slug: 'squarespace-wix-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-12\./ },
-  'T2-13': { title: 'Chat Widgets in China: Intercom to Crisp', slug: 'chat-widgets-china', type: 'guide-en', category: 'Technology', heading: /^#### T2-13\./ },
-  'T2-14': { title: 'Cookie Consent Banners in China', slug: 'cookie-consent-china', type: 'guide-en', category: 'Legal', heading: /^#### T2-14\./ },
+  'T2-01': { title: 'Google Fonts in China: It Depends Where You Are', slug: 'google-fonts-china', type: 'guide', category: 'Technology', heading: /^#### T2-01 / },
+  'T2-02': { title: 'HubSpot in China: What Works and What Does Not', slug: 'hubspot-china', type: 'guide', category: 'Technology', heading: /^#### T2-02 / },
+  'T2-03': { title: 'reCAPTCHA in China: Your Forms Are Dead', slug: 'recaptcha-china', type: 'guide', category: 'Technology', heading: /^#### T2-03 / },
+  'T2-04': { title: 'Cloudflare in China: The Part Nobody Mentions', slug: 'cloudflare-china', type: 'guide', category: 'Hosting', heading: /^#### T2-04 / },
+  'T2-05': { title: 'Which JavaScript CDNs Work in China', slug: 'javascript-cdn-china', type: 'guide', category: 'Technology', heading: /^#### T2-05 / },
+  'T2-06': { title: 'Does Shopify Work in China?', slug: 'shopify-china', type: 'guide', category: 'Technology', heading: /^#### T2-06 / },
+  'T2-07': { title: 'Video Embeds That Work in China', slug: 'video-embeds-china', type: 'guide', category: 'Technology', heading: /^#### T2-07 / },
+  'T2-08': { title: 'Embedded Forms That Fail Silently in China', slug: 'form-embeds-china', type: 'guide', category: 'Technology', heading: /^#### T2-08 / },
+  'T2-09': { title: 'Maps in China: Licensing Before Firewall', slug: 'maps-china', type: 'guide', category: 'Technology', heading: /^#### T2-09 / },
+  'T2-10': { title: 'Vercel and Netlify From Mainland China', slug: 'vercel-netlify-china', type: 'guide', category: 'Hosting', heading: /^#### T2-10 / },
+  'T2-11': { title: 'Does Webflow Work in China? We Measured', slug: 'webflow-china', type: 'guide', category: 'Technology', heading: /^#### T2-11\./ },
+  'T2-12': { title: 'Squarespace and Wix in China, Measured', slug: 'squarespace-wix-china', type: 'guide', category: 'Technology', heading: /^#### T2-12\./ },
+  'T2-13': { title: 'Chat Widgets in China: Intercom to Crisp', slug: 'chat-widgets-china', type: 'guide', category: 'Technology', heading: /^#### T2-13\./ },
+  'T2-14': { title: 'Cookie Consent Banners in China', slug: 'cookie-consent-china', type: 'guide', category: 'Legal', heading: /^#### T2-14\./ },
   'T3-01': { title: 'Moving a French Software Site Into China', slug: 'bassetti-wordpress-china', type: 'casestudy', category: '', heading: /^#### T3-01\./ },
   'T3-02': { title: 'Hosting a Chemicals Group in Mainland China', slug: 'snf-china-wordpress', type: 'casestudy', category: '', heading: /^#### T3-02\./ },
   'T3-03': { title: 'WooCommerce Checkout in China, Rebuilt', slug: 'imhof-woocommerce-china', type: 'casestudy', category: '', heading: /^#### T3-03\./ },
@@ -197,12 +197,13 @@ const T6_RULES = sliceSection(/^## 10\. T6/, /^#### T6-01/);
 const TIER_NOTES = {
   'guide': 'T1 flagship. Ships in all four locales (en, fr, es, de) in one commit. Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped.',
   'money-page': 'The money page. Not a guide article. Copy ships into `src/pages/website-in-china.astro` and the three locale pages already reserved by Move 1 (`/fr/site-web-en-chine/`, `/es/sitio-web-en-china/`, `/de/website-in-china/`). Remove `noindex` and the sitemap exclusion in the same commit. FAQ schema required. No pricing. The three locale pages go through `/deep-translate`, main conversation, no subagent, three passes each, FR then ES then DE.',
-  'guide-en': 'T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.',
+  // T2 uses the `guide` type (four locales) but takes this note, not the T1 one.
+  'guide-t2': 'T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.',
   'casestudy': 'T3 case study. Publishes into `src/content/casestudies/` under the existing `/work/{client}-{descriptor}/` convention. English at publish, translation earned per the T7 rules. All six template sections, in order. Before and after figures each carry a named Chinese network or cloud region and a date. Client named or the reason for anonymity stated.',
   'report': 'T4 measurement report. English only, dated slug, never overwritten. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.',
   'guide-en-first': 'T5 editorial guide. English first. Translation only after day 90 and only on evidence (organic entries, an attributed inquiry, an observed AI citation), through a T7 slot.',
   'upgrade': 'T6 upgrade. ZERO NEW URLS. An edit to a page that already exists, in all four locales where the page is localized. Verify the sitemap entry count is unchanged before and after. No canonical or hreflang change unless the work order says so. The draft step produces the replacement copy and a change list in `output/`; the publish step applies it. Changed passages in fr, es and de go through `/deep-translate`, main conversation, no subagent, three passes each.',
-  'translation': 'T7 translation slot. A budget, not a schedule. On this date, review the queue: pages published 90 or more days ago that have earned it (organic entries, an attributed inquiry, an observed AI citation). Pick one or leave the slot unspent and say so in the log. Translate fr, es and de together or not at all. Nothing in T2 is ever translated. Run `/deep-translate`, all three passes, per locale, FR then ES then DE, interactively in the main conversation, never a subagent, one pass at a time, none skipped or merged.',
+  'translation': 'T7 translation slot. A budget, not a schedule. On this date, review the queue: pages published 90 or more days ago that have earned it (organic entries, an attributed inquiry, an observed AI citation). Pick one or leave the slot unspent and say so in the log. Translate fr, es and de together or not at all. T2 never takes a slot: it ships in all four locales at publish (since 14 October 2026). Run `/deep-translate`, all three passes, per locale, FR then ES then DE, interactively in the main conversation, never a subagent, one pass at a time, none skipped or merged.',
   'reserve': 'Reserve slot. Absorbs a slip, a rerun of a measurement, or a refresh pass. Not a licence to add a 79th piece. Leave unspent unless something has slipped.',
 };
 
@@ -277,7 +278,7 @@ for (let w = 0; w < CALENDAR.length; w++) {
 
     let extra = '';
     if (p.type === 'casestudy') extra = `\n\n## Shared case study template (from PLAN.md section 7)\n\n${T3_TEMPLATE}`;
-    if (p.type === 'guide-en') extra = `\n\n## T2 rules (from PLAN.md section 6)\n\n${T2_RULES}`;
+    if (tier === 'T2') extra = `\n\n## T2 rules (from PLAN.md section 6)\n\n${T2_RULES}`;
     if (p.type === 'report') extra = `\n\n## T4 rules (from PLAN.md section 8)\n\n${T4_RULES}`;
     if (p.type === 'upgrade') extra = `\n\n## T6 rules (from PLAN.md section 10)\n\n${T6_RULES}`;
 
@@ -314,7 +315,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | \`../${outputFile || 'n/a'}\` |
 
-**Tier rule.** ${TIER_NOTES[p.type]}
+**Tier rule.** ${TIER_NOTES[tier === 'T2' ? 'guide-t2' : p.type]}
 
 **Quality gate, every piece.** After \`/createarticle\`, run \`/content-quality-us\`
 on the output file, all 18 passes, British spelling, tracker in the run log.

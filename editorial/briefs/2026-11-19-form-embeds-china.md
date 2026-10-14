@@ -1,7 +1,7 @@
 ---
 brief_id: T2-08
 tier: T2
-content_type: guide-en
+content_type: guide
 publish_date: 2026-11-19
 week: 11
 slot: 2
@@ -9,7 +9,7 @@ slot_job: fast
 slug: form-embeds-china
 title: "Embedded Forms That Fail Silently in China"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 facts: [F35, F41]
 status: not_started
 ---
@@ -27,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/form-embeds-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -44,6 +44,9 @@ tier-specific boxes for T2.
 #### T2-08 `form-embeds-china`
 
 **Target:** typeform china · **Facts:** F35, F41
+
+**Slugs** en `form-embeds-china` · de `eingebettete-formulare-china` · es `formularios-incrustados-china` · fr `formulaires-integres-chine`.
+
 Bundle Typeform, Jotform, Google Forms and Mailchimp embeds. Lead with what is on record: Mailchimp's image host `cdn-images.mailchimp.com` blocked on GreatFire's last test (10 September 2026), Typeform's form host reachable (30 September 2026) while its embed script host has never been tested. The hook is the architecture fix T2-02 sets out: own the form, store each submission on your server first, forward it later. (Corrected 14 October 2026: the old hook, "907ms to first byte, then nothing", was a 21YunBox figure withdrawn on 7 October 2026.)
 ```yaml
 title: "Embedded Forms That Fail Silently in China"

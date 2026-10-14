@@ -1,7 +1,7 @@
 ---
 brief_id: T2-09
 tier: T2
-content_type: guide-en
+content_type: guide
 publish_date: 2026-12-31
 week: 17
 slot: 2
@@ -9,7 +9,7 @@ slot_job: fast
 slug: maps-china
 title: "Maps in China: Licensing Before Firewall"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 facts: [F37, F41]
 status: not_started
 ---
@@ -27,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/maps-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -44,6 +44,9 @@ tier-specific boxes for T2.
 #### T2-09 `maps-china`
 
 **Target:** mapbox china · **Facts:** F37, F41
+
+**Slugs** en `maps-china` · de `karten-china` · es `mapas-china` · fr `cartes-chine`.
+
 Chinafy covers Mapbox three ways and misses the regulatory layer entirely. The differentiation here is that maps are a licensing question before they are a firewall question: surveying and mapping qualification, the GCJ-02 coordinate offset, and why AMap or Baidu Maps is the answer rather than a faster mirror.
 ```yaml
 title: "Maps in China: Licensing Before Firewall"

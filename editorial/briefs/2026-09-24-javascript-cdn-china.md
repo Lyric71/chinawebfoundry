@@ -1,7 +1,7 @@
 ---
 brief_id: T2-05
 tier: T2
-content_type: guide-en
+content_type: guide
 publish_date: 2026-09-24
 week: 03
 slot: 2
@@ -9,7 +9,7 @@ slot_job: fast
 slug: javascript-cdn-china
 title: "Which JavaScript CDNs Work in China"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 facts: [F1, F7, F42]
 status: published
 ---
@@ -27,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/javascript-cdn-china.md` |
 
-**Tier rule.** T2 compatibility page. ENGLISH ONLY, never translated, hreflang x-default on the English URL. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
+**Tier rule.** T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -44,6 +44,9 @@ tier-specific boxes for T2.
 #### T2-05 `javascript-cdn-china`
 
 **Target:** cdn blocked china · **Facts:** F1, F7, F42
+
+**Slugs** en `javascript-cdn-china` · de `javascript-cdn-china` · es `cdn-javascript-china` · fr `cdn-javascript-chine`. Published in English on 11 October 2026, localised in fr, es and de on 14 October 2026 (section 1).
+
 The single most valuable correction available. Everyone writes "CDNs are blocked," which gets the priority exactly backwards. Google Hosted Libraries returns nothing at all and halts the render; cdnjs, unpkg and jsDelivr all read as not blocked, and jsDelivr, the only one with a published home line test, completes from both vantage points with a slow tail (1,757ms at the 95th percentile). One line of code accounts for most of the damage in this whole category. (Corrected 11 October 2026: "all complete and merely cost seconds" rested on 21YunBox per-host timings withdrawn on 7 October 2026, see F7.)
 ```yaml
 title: "Which JavaScript CDNs Work in China"

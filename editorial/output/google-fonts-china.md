@@ -254,7 +254,7 @@ INTERNAL LINKS:
   the WordPress plugins that break in China -> /resources/china-web-guide/wordpress-plugins-china/
   the list of what the Great Firewall blocks -> /resources/china-web-guide/great-firewall-what-it-blocks/
   China Site Scanner -> /china-site-scanner/
-LOCALIZED SLUGS: none (T2 is English only, hreflang x-default on the English URL)
+LOCALIZED SLUGS: fr google-fonts-chine, es google-fonts-china, de google-fonts-china (added 6 October 2026; T2 ships in all four locales since 14 October 2026)
 CLIENT SIGN-OFF ON RECORD: none needed (no client named, no client figure)
 LINK SUBSTITUTIONS: none
 REVIEW BY: 2026-11-26 (oldest cited test, 28 August 2026, plus 90 days);
