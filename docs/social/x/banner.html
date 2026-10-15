@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: "Poppins"; font-weight: 500; src: url("../../../public/fonts/poppins-500.woff2") format("woff2"); }
+  @font-face { font-family: "Poppins"; font-weight: 600; src: url("../../../public/fonts/poppins-600.woff2") format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 400; src: url("../../../public/fonts/inter-400.woff2") format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 500; src: url("../../../public/fonts/inter-500.woff2") format("woff2"); }
+
+  :root { --orange: #f25f29; }
+  html, body { margin: 0; width: 1500px; height: 500px; overflow: hidden; }
+  /* The cinematic hero base: orange glow, and blue only as a background glow. */
+  body {
+    position: relative; color: #fff; font-family: "Inter", sans-serif;
+    background:
+      radial-gradient(ellipse 40% 75% at 18% 105%, rgb(242 95 41 / 0.26), transparent 70%),
+      radial-gradient(ellipse 35% 70% at 92% 0%, rgb(59 130 246 / 0.14), transparent 70%),
+      #0a0a0e;
+  }
+
+  /* Copy: upper left, ends above the avatar zone (y > 320 at x < 420). */
+  .copy { position: absolute; left: 92px; top: 58px; width: 740px; }
+  .eyebrow { font-family: "Inter", sans-serif; font-weight: 500; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); }
+  h1 {
+    margin: 14px 0 0; font-family: "Poppins", sans-serif; font-weight: 500;
+    font-size: 54px; line-height: 1.04; letter-spacing: -0.02em;
+  }
+  h1 .grad {
+    background: linear-gradient(90deg, #f25f29, #ff9466, #f25f29);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  h1 .end { color: rgb(255 255 255 / 0.95); }
+  .sub { margin: 16px 0 0; font-size: 20px; white-space: nowrap; line-height: 1.45; color: rgb(255 255 255 / 0.65); max-width: 640px; }
+
+  /* The China Site Scanner, as a glass panel: what it checks, in its own words. */
+  .panel {
+    position: absolute; left: 900px; right: 92px; top: 58px; bottom: 58px;
+    background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.10); border-radius: 18px;
+    padding: 22px 26px;
+  }
+  .panel .head { display: flex; align-items: center; justify-content: space-between; }
+  .panel .name { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 22px; }
+  .panel .tag { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 14px; letter-spacing: 0.08em; color: rgb(255 255 255 / 0.55); }
+  .panel .live { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); margin-right: 8px; vertical-align: 1px; }
+  .panel ul { list-style: none; margin: 16px 0 0; padding: 0; }
+  .panel li { padding: 11px 0; border-top: 1px solid rgb(255 255 255 / 0.10); }
+  .panel li b { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 18px; color: rgb(255 255 255 / 0.95); }
+  .panel li span { display: block; margin-top: 3px; font-size: 15px; color: rgb(255 255 255 / 0.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+</style></head>
+<body>
+  <div class="copy">
+    <div class="eyebrow">ChinaWebFoundry</div>
+    <h1>A web agency built<br><span class="grad">in Shanghai</span><br><span class="end">for China.</span></h1>
+    <p class="sub">Websites that load behind the Great Firewall and get found on Baidu.</p>
+  </div>
+
+  <div class="panel">
+    <div class="head"><span class="name">China Site Scanner</span><span class="tag"><span class="live"></span>chinawebfoundry.com</span></div>
+    <ul>
+      <li><b>Fonts and code libraries</b><span>Google Fonts, Font Awesome, jsDelivr, cdnjs</span></li>
+      <li><b>Forms and captchas</b><span>reCAPTCHA, hCaptcha, Typeform, HubSpot</span></li>
+      <li><b>Hosting and CDN</b><span>Where a mainland visitor gets sent</span></li>
+      <li><b>China launch checklist</b><span>ICP and PSB numbers, Baidu verification</span></li>
+    </ul>
+  </div>
+</body></html>
