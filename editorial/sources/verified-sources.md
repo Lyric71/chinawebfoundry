@@ -258,7 +258,7 @@ primary source, record the URL and the check 2 date, and move the entry to
 ### Migration: 23.4s on a European origin to 1.2s on a mainland origin
 - Fact ID: F32
 - Value: median page load 23.4s before, 1.2s after
-- Vantage point: mainland; carrier and date NOT published. TODO T3-01
+- Vantage point: mainland; carrier and date NOT published; owed by T3-01 (blocked at client sign-off)
 - As of: published 2026-08-29
 - Source: ChinaWebFoundry, is-wordpress-blocked-in-china and the agency pages
 - URL: https://www.chinawebfoundry.com/resources/china-web-guide/is-wordpress-blocked-in-china/
@@ -270,7 +270,7 @@ primary source, record the URL and the check 2 date, and move the entry to
 ### 99.98% uptime over 90 days; 48ms, 36ms, 61ms from Beijing, Shanghai, Guangzhou
 - Fact ID: F32
 - Value: as stated
-- Vantage point: Beijing, Shanghai, Guangzhou; carriers and window NOT published. TODO T3-02
+- Vantage point: Beijing, Shanghai, Guangzhou; carriers and window NOT published; owed by T3-02 (blocked at client sign-off)
 - As of: live 2026-09-06
 - Source: ChinaWebFoundry, maintenance-support and agency pages
 - URL: https://www.chinawebfoundry.com/services/maintenance-support/
@@ -2360,6 +2360,41 @@ dates are the page's 最近更新时间.
 - Verified 2: 2026-10-14, re-fetched, all figures present
 - Used in: great-firewall-what-it-blocks (en fr es de: opening blockquote now cites Wix only; CloudFront row)
 - Notes: **The CloudFront home line used to be logged and printed as 0 of 3 at 743ms.** The page now reads 3 of 3 at 718ms. Verdict changed from "splits by vantage point" to "slow"; SPEC.md's list of split hosts corrected.
+
+## T6-04 entries, 15 October 2026 (upgrade-choosing-web-agency-china, and /website-in-china/ corrected with it)
+
+### Delivery-layer services and the ICP filing
+- Fact ID: none
+- Value: Chinafy: "Navigate the complex ICP license process with Chinafy, Alibaba Cloud, and other partners", listing ICP Filing Fast Track, ICP Commercial License, Company Registration. 21YunBox: "We handle the entire ICP application process on your behalf, from initial assessment to final approval."
+- Vantage point: n/a, product descriptions
+- As of: Chinafy page undated (copyright 2025), read 15 October 2026; 21YunBox page reviewed 28 August 2026
+- Source: Chinafy, China go-to-market page; 21YunBox, China ICP licence page
+- URL: https://www.chinafy.com/china-go-to-market and https://www.21cloudbox.com/china-icp-license-website.html
+- Verified 1: 2026-10-15, WebFetch, both sentences confirmed
+- Verified 2: 2026-10-15, curl re-fetch in iteration 8, both sentences present
+- Used in: upgrade-choosing-web-agency-china (the delivery-layer cells; nothing quoted, no figure)
+- Notes: Corrects the live cell "Cannot build, design, file or write anything". Product descriptions only: never a figure, never a motive. Not printed as a citation because the page states no figure.
+
+### Baidu indexing timetable for a new site: no primary source
+- Fact ID: none
+- Value: none found. A search on 15 October 2026 (百度搜索资源平台 新站 收录 需要多长时间 官方) returned only Zhihu, CSDN and cnblogs estimates ("1-2个月都有可能", "3-7天内发起首次抓取"), none from Baidu.
+- Vantage point: n/a
+- As of: 15 October 2026
+- Source: none
+- URL: none
+- Verified 1: 2026-10-15, search
+- Verified 2: n/a (nothing to cite)
+- Used in: not used. "Baidu indexing usually takes two to four weeks" cut from choosing-web-agency-china (T6-04 change 10). The same planning line on other live pages is not contradicted by a source, only unsourced; it stays until a piece about Baidu indexing researches it.
+
+### Reused in T6-04 with check 2 on 2026-10-15
+- Alibaba Cloud ICP filing review windows and the 30-day public security filing (F26): check 1 and check 2 on 2026-10-15, curl; page lastModifiedTime still 26 August 2026.
+- Shanghai CA value-added telecoms licence, 60 days from acceptance (F26): check 1 and check 2 on 2026-10-15, curl.
+- Alibaba Cloud footer number linked to beian.miit.gov.cn, fine of 5,000 to 10,000 yuan: check 1 and check 2 on 2026-10-15, curl; lastModifiedTime 12 August 2026.
+- Alibaba Cloud international accounts cannot apply; filing entity a mainland enterprise or resident (F27): check 1 and check 2 on 2026-10-15; lastModifiedTime 20 August 2026.
+- Alibaba Cloud mainland server, ECS "more than 3 months", Simple Application Server "3 months or longer" (F27): check 1 and check 2 on 2026-10-15; the page's lastModifiedTime is now 24 September 2026 (was 2 September), phrases unchanged. Cite as September 2026.
+- Order 292 art 3, commercial services provided to users for a fee (有偿): check 1 and check 2 on 2026-10-15. Used for the /website-in-china/ correction ("takes payment" becomes "charges users for information or online services", every locale).
+- Tencent Cloud 243/19650, a first filing's site closed during review: check 1 and check 2 on 2026-10-15; 最近更新时间 2026-08-21. Used for the /website-in-china/ correction ("carry the holding page through review" cut, every locale).
+- Statcounter, Baidu 46.65% all platforms and 60.15% mobile, September 2026: check 1 and check 2 on 2026-10-15, headline figures unchanged. Used in choosing-web-agency-china; reviewBy 2027-01-13 on that page for the monthly refresh.
 
 ## Retired entries
 

@@ -1,12 +1,14 @@
 ---
 title: "How to Choose a Web Agency in China"
-subtitle: "Four kinds of vendor sell China websites, and only one of them can build, file, host and rank one. Here is how to tell them apart before you sign."
-summary: "The four vendor types on every China shortlist, eight questions that expose the difference on the first call, the red flags worth acting on, and how the market prices this work."
+subtitle: "Four kinds of vendor sell China websites, and only one builds, files, hosts and ranks them. How to tell them apart before you sign."
+summary: "The four vendor types on every China shortlist, compared on filing, hosting, Chinese copy and Baidu, plus eight questions for the first call."
 visual: "/images/guides/choosing-web-agency-china.webp"
 order: 33
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-02
+updatedAt: 2026-10-15
+reviewBy: 2027-01-13
+faqSchema: true
 category: Technology
 ---
 
@@ -18,16 +20,30 @@ If you already know you want a WordPress build specifically, our guide on [vetti
 
 ## The four kinds of vendor selling China websites
 
-| Type | What they actually do | Where they break |
+| Type | What they sell | Where they break |
 | --- | --- | --- |
-| China web specialist | Builds, files, hosts, tunes for Baidu and maintains the site | Smaller teams, fewer household-name logos |
-| Marketing agency with a web page | Sells retainers for social, search and media buying | The website is the entry ticket, not the product |
-| Delivery layer SaaS | Serves a faster version of your existing site inside China | Cannot build, design, file or write anything |
-| Offshore development shop | Cheap production capacity | No mainland entity, so no filing and no local hosting |
+| China web specialist | A build, the filing, mainland hosting and Baidu work, then a maintenance retainer | Smaller teams, fewer household-name logos |
+| Marketing agency with a web page | A monthly retainer for social, search and media buying | The website is the way into the retainer |
+| Delivery-layer SaaS | A subscription that serves your existing site faster to visitors in China | Writes and builds nothing |
+| Offshore development shop | Cheap production capacity | No mainland company, so no filing of its own and no mainland server |
 
 The expensive mistake is hiring the second type for the first type's job. A China marketing agency can be genuinely good at what it does. It also, quite often, cannot name the content management system it builds on, because the website is a lead-in to a monthly retainer rather than something it engineers.
 
-The third type is legitimate inside its lane. A delivery-layer service rewrites the blocked resources in your existing site and serves it faster inside China without a rebuild. If your problem really is just performance, that's a reasonable purchase. If your problem is that you have no Chinese site, no mainland entity and no Baidu presence, it refers all of that out to somebody else.
+The third type is legitimate inside its lane. A delivery-layer service rewrites the blocked resources in your existing site and serves it faster inside China without a rebuild. If your problem really is just performance, that's a reasonable purchase. If you have no Chinese site, no mainland entity and no Baidu presence, the service passes most of that work to partners. Some will run the ICP filing for you, as a separate job.
+
+Line the four types up against the jobs a China site needs and the gaps show quickly.
+
+| Type | ICP filing | Mainland hosting | Chinese-language content | Baidu work |
+| --- | --- | --- | --- | --- |
+| China web specialist | Prepares and submits it with you | Buys and runs the mainland server | Written in Chinese, in-house | Crawl checks and the Search Resource Platform |
+| Marketing agency with a web page | Ask question 1 | Question 3 will tell you | Strong for campaigns and social | Often paid search; for the technical side, question 5 |
+| Delivery-layer SaaS | Through a partner, or as a separate service | Serves a copy of your site from its own network | Through partners, where offered | Paid ads through partners, where offered |
+| Offshore development shop | None of its own: it has no mainland company | None on the mainland | Depends on the team | Ask question 5 |
+
+The last column decides whether people searching in Chinese find the site.
+
+> Baidu held 46.65% of the search engine market in China across all platforms in September 2026, by Statcounter's measure, and 60.15% on mobile.
+> Source: Statcounter Global Stats, September 2026. https://gs.statcounter.com/search-engine-market-share/all/china and https://gs.statcounter.com/search-engine-market-share/mobile/china
 
 ## Eight questions that separate them
 
@@ -57,11 +73,28 @@ Mainland IP rate limiting on the WordPress update servers is the specific thing 
 **8. Can you show me a live site with a filing number in the footer?**
 Fastest single check on this list. A mainland-filed site carries its ICP number at the bottom of the page. Start with their own site.
 
+> Once a filing is approved, the ICP number has to sit at the bottom of the site, linked to the register of the Ministry of Industry and Information Technology (工信部) at beian.miit.gov.cn. A site that leaves it off can be ordered to fix it and fined 5,000 to 10,000 yuan by the provincial Communications Administration (省级通信管理局).
+> Source: Alibaba Cloud (阿里云) help centre, adding the filing number after ICP filing, August 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/the-icp-record-post-processing-1
+
 ## What a credible answer set sounds like
 
 A vendor who does this work is specific about time and vague about nothing.
 
-They'll tell you the ICP filing takes three to six weeks once your mainland entity exists, and twelve to eighteen weeks if the site takes payment and needs a commercial licence. They'll tell you a build runs six to twelve weeks, and that migrating a large existing site runs longer than that. They'll quote load times measured from inside China rather than from a global testing tool, and the numbers will come from projects they shipped rather than from targets.
+They'll explain that the filing goes through two reviews. The host the site is filed through checks the application first, then the provincial Communications Administration (省级通信管理局) reviews it. Alibaba Cloud (阿里云) publishes both windows.
+
+> Alibaba Cloud completes its initial review in 1 to 2 working days. The provincial Communications Administration's review generally takes 1 to 20 working days. The public security filing (公安备案) is due within 30 days of the site going live.
+> Source: Alibaba Cloud (阿里云) help centre, ICP filing process overview, August 2026. https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
+
+With the paperwork on either side (the entity documents, the domain in the filer's name), we plan three to six weeks for the filing, once your mainland entity exists.
+
+The licence is a separate track. A site that charges users for information or online services needs an ICP licence (ICP许可证) on top of the filing. It's a value-added telecoms licence, with its own review. Where an online shop falls is a question for a licensed adviser, and a vendor who knows the work says so before you ask.
+
+> A value-added telecoms licence application is reviewed and decided within 60 days of acceptance.
+> Source: Shanghai Communications Administration (上海市通信管理局), value-added telecoms service guide, June 2015. https://shca.miit.gov.cn/bsfw/bszn/dxsc/blcx/art/2020/art_7426922df3754a189aaf4278ff0c7b1d.html
+
+The clock starts at acceptance, once the file is complete, so we plan twelve to eighteen weeks for a licence.
+
+They'll put the build on a dated plan, with the filing as its own line and the mainland server bought before it. Their load times will come from inside China, with the network and the date attached, and from projects they shipped.
 
 They'll also tell you when the answer is no. A vendor who says yes to every requirement in the first meeting hasn't thought about your requirements.
 
@@ -69,7 +102,10 @@ They'll also tell you when the answer is no. A vendor who says yes to every requ
 
 Two of these are disqualifying on their own.
 
-**No mainland entity.** A Hong Kong or Singapore agency cannot sponsor an ICP filing, because the filing requires a mainland-registered company. They can advise on it. They can't do it.
+**No mainland entity.** An ICP filing is made by a company registered in the mainland or by a mainland resident, against a server inside the mainland. A Hong Kong or Singapore agency with no mainland company can advise on yours, but it can't file a site of its own, so there's no number at the bottom of its homepage to show you.
+
+> Alibaba Cloud's international site does not accept ICP filing applications. The filing entity must be an enterprise registered in the Chinese mainland or a Chinese mainland resident, and the filing is made against a mainland Alibaba Cloud server on a subscription of three months or more (more than three for an ECS instance).
+> Source: Alibaba Cloud help centre, ICP filing for enterprises outside the Chinese mainland, August 2026, and server and access information check, September 2026. https://help.aliyun.com/en/icp-filing/basic-icp-service/product-overview/icp-filing-application-for-enterprises-outside-the-chinese-mainland and https://help.aliyun.com/en/icp-filing/basic-icp-service/user-guide/icp-filing-server-access-information-check
 
 **A case study page with no case studies.** More common than you'd expect. Several agencies in this market publish dozens of case study URLs that search engines can see and visitors can't open.
 
@@ -88,6 +124,8 @@ Very little sits between those bands. A shortlist that mixes them produces quote
 
 That scope comparison is where an hour of your time saves the most money on this entire process.
 
+Send us the proposals and the scope lines from a shortlist you already have. We'll tell you which of the four types each vendor really is, and where the scope gaps sit. If you'd rather start from evidence than from a call, run your current site through our [China readiness scan](/china-site-scanner/) first, or read how we work as a [web agency in China](/web-agency-china/).
+
 ## Frequently asked
 
 **Should we use a local Chinese agency instead?**
@@ -97,9 +135,7 @@ Domestic agencies are strong on execution and on Baidu, and they're often cheape
 Your global agency can build the site. It can't file the ICP, it won't know what Baidu does with JavaScript, and it'll keep the dependencies that break inside the country. A common arrangement that works: global agency owns the design system, China specialist owns build, filing, hosting and search.
 
 **How long before we see search results in China?**
-Baidu indexing usually takes two to four weeks after a correctly configured launch. Meaningful ranking movement takes three to six months. Anyone promising faster is selling paid placement and calling it SEO.
+For a site hosted on the mainland, nothing can rank before the filing clears, because the site stays closed while a first filing is reviewed. The provincial review alone generally takes 1 to 20 working days, by Alibaba Cloud's own figure (August 2026). After launch, the pace is Baidu's. Anyone who promises rankings by a date is usually selling paid placement and calling it SEO.
 
 **What's the smallest sensible first step?**
 An audit. It costs a fraction of a build, it tells you whether you need a rebuild or a repair, and it leaves you with a document you can hand to any vendor on your shortlist.
-
-Send us the proposals and the scope lines from a shortlist you already have. We'll tell you which of the four types each vendor really is, and where the scope gaps sit. If you'd rather start from evidence than from a call, run your current site through our [China readiness scan](/china-site-scanner/) first, or read how we work as a [web agency in China](/web-agency-china/).
