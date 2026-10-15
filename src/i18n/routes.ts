@@ -230,6 +230,7 @@ export function hreflangFor(pathname: string, siteOrigin: string) {
  */
 export const englishOnlyRoutes: Record<string, string> = {
   '/resources/ceo-opinion/': '/resources/china-web-guide/',
+  '/resources/china-web-guide/china-dependency-index-2026-10/': '/resources/china-web-guide/',
 };
 
 /** The equivalent of `pathname` in another locale. */

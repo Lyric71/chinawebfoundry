@@ -10,7 +10,6 @@ slug: china-latency-vantage-point-study
 title: "Why China Latency Tests Disagree"
 suggested_category: Technology
 locales_at_publish: en
-facts: [F6, F46]
 status: not_started
 ---
 
@@ -46,39 +45,25 @@ tier-specific boxes for T4.
 | | |
 |---|---|
 | **Slug** | `china-latency-vantage-point-study` |
-| **Cadence** | Once, then revised in place with a visible revision log and the original figures retained |
 | **Length** | 2,200 words plus the table |
-| **Locales** | English at publish. Chinese earned, and it will be earned, because Chinese developers argue about this constantly. |
+| **Locales** | English at publish |
 
-**What it publishes.** The datacenter-versus-consumer finding, run properly. Forty-four hosts, each tested from a mainland datacenter and a mainland consumer connection on the same day, with the disagreements counted and classified. The finding that makes it worth publishing is already visible in one host: from an Alibaba Cloud mainland instance on 28 August 2026, `fonts.googleapis.com` completed 72 of 72 requests at a median 111ms time to first byte and `fonts.gstatic.com` completed 72 of 72 at 102ms, while from a Beijing China Mobile residential broadband line on 30 August 2026 the same two hosts answered 0 of 54 and 0 of 6 (F6, 21YunBox). Both measurements are real. The industry reports the first kind and describes it as visitor experience. That is the story, and Google Fonts is the demonstration case rather than the subject.
+**What it publishes.** Explain why 21YunBox's named cloud and consumer observations disagree, using only dated published evidence. The worked example is the paired five-resource study: Alibaba Cloud (阿里云) cn-zhangjiakou on 28 August 2026 and Beijing China Mobile (中国移动) residential broadband on 30 August 2026. Retain per-host attempt counts and separate timing columns. The Google Fonts pair and Google Tag Manager demonstrate a split; jsDelivr and reCAPTCHA supply the comparison cases. No source supports the former brief's 44-host, same-day experiment or its invented 22 disagreements.
 
-The article states the correct formulation and refuses both flat claims. It does not say Google Fonts is blocked in China and it does not say Google Fonts is not blocked in China. It says the host resolves from mainland datacenters and frequently does not resolve on consumer connections, which is exactly why self-hosting is right: it removes a variable that changes by network, by resolver and by hour. Note separately that `fonts.google.com`, the browsing interface, is a separate host with no 21YunBox probe: GreatFire reads `https://fonts.google.com` 100% disrupted, 2 of 2 conclusive tests, last tested 30 September 2026, with interference recorded since 15 October 2016; no 21YunBox probe covers it (F6, corrected 6 October 2026).
+**Method and limits.** Third-party sources only, no mainland infrastructure owned or provisioned by ChinaWebFoundry. The cloud resource study used a 30-second timeout; the home observations came from browser page loads with a 60-second page-load ceiling and unequal per-host request counts. Different dates and methods remain visible. No mobile-radio finding, national success rate or inferred DNS cause. A changed classification or a newly discovered older test is not a new measurement. Re-fetch every cited source twice. Unknown fields remain unavailable.
 
-**Method statement.** Two vantage points, named and dated. An Alibaba Cloud (阿里云) mainland instance in Zhangjiakou, and a residential broadband line in Beijing on China Unicom (中国联通), with a second consumer line noted where available. Same 44 hosts, same day, same request per host, sequenced so neither vantage point gets the quiet hour. Fifty-four attempts per host on the consumer line and up to 73 on the datacenter instance where the earlier runs support it, with attempt counts published per cell rather than summarized. Sixty second abandon. DNS resolution recorded separately from connection outcome, because a resolver failure and a filtered connection are different problems with different fixes and the industry conflates them.
-
-What could not be tested, said plainly: one datacenter region rather than several, one carrier on the consumer side in this edition, fixed-line rather than mobile, Beijing rather than a spread of provinces, and no repeat across weeks, so this is a same-day comparison and not a stability claim. Also state that the harness itself sits inside China and that a probe originating outside the mainland would produce a third, different answer.
-
-**The table it carries.** One row per host, sorted by size of disagreement, so the most citable rows sit at the top where retrieval reads.
-
-| Host | Category | Datacenter median TTFB, ms | Datacenter completions | Consumer median TTFB, ms | Consumer completions | Completion gap, percentage points | Agreement class | Test date |
-|---|---|---|---|---|---|---|---|---|
-
-Agreement class takes four values, defined in the article: both reachable, both failed, datacenter only, consumer only. The fourth class matters even if it is empty, and if it is empty the article says so, because an empty class is a finding.
-
-**The 300-word narrative.** First paragraph carries the answer: how many of 44 hosts got different verdicts from the two vantage points on the same day, with both dates. Second, the mechanism, in plain language: filtering that acts on DNS resolution and on TLS negotiation behaves differently on a commercial mainland network path than on a residential ISP resolver, and neither path is a lie about the other. Third, the Google Fonts pair as the worked example, with all four figures and both dates. Fourth, the consequence for anyone reading a China compatibility page anywhere, including the ones that rank: a table with no vantage point is not evidence, and a datacenter number presented as visitor experience is the most common error in the category. Fifth, what a developer should do, which is to test from both and design so the answer does not matter. The prose ends on the last finding.
-
-**Citation design.** The count of disagreements goes in the opening sentence with both dates attached. High entity density throughout: Alibaba Cloud, Zhangjiakou, China Unicom, Beijing, the host names in full. Every assertion carries a figure and a date, since answer engines prefer specific figures and fresh pages (F46). Static HTML, real table markup, stable anchors per host. Add a short, explicitly quotable definitional paragraph near the top, one that states the vantage point rule in a single sentence, because that sentence is what an assistant will lift when asked why China latency numbers conflict. Publish the raw attempt counts, not just the medians, so a skeptical reader can check the arithmetic. That is the difference between a study and a claim.
-
-**Links and reuse.** This is the methodological backbone under everything else. The China Dependency Index cites it for its two-vantage-point method, every case study that publishes a latency figure links it as the reason the vantage point is named, and the Google Fonts article and the self-hosted fonts guide both cite it rather than repeating a flat claim. The China Site Scanner cites it in its results explanation, since the scanner reports from one vantage point and has to say which. Money page: `/services/strategy-audit/`. Sideways to `self-hosting-fonts-china` and `china-dependency-index-2026-10`.
+**Structure.** State method, paired-subset counts, named networks and dates in the opening. Compare the common resources in a static Markdown table with counts rather than percentages. Explain how a first byte differs from completion and how a vendor-page test differs from the asset a visitor needs. Discuss missing regions, carriers and dates without promising to collect them. Use the October index as the raw evidence register; include the source URLs directly. Link to Strategy Audit and the existing Google Fonts guide. Apply settled link fallbacks if a proposed font guide is absent.
 
 **Metadata.**
 ```yaml
-title: "Why China Latency Tests Disagree"                                            # 32 / 52
-description: "Forty-four hosts tested from a mainland datacenter and a Beijing consumer line on the same day. The two vantage points disagreed 22 times."   # 138 / 152
-excerpt: "The measurement gap behind most bad China advice, quantified across 44 hosts on two networks the same day."   # 18 / 25 words
+title: "Why China Latency Tests Disagree"
+description: "Why cloud and home-line results differ in China, using dated 21YunBox observations, exact hosts and separate request counts."
+excerpt: "The same resource can answer from a cloud probe and fail on a home connection. Read the network, method and date together."
 ```
 
-**CTA.** Ask us to test your stack from both vantage points
+**On publish.** Repoint the October index's live Great Firewall method reference to this study, using its corresponding section anchor. Do not alter scanner copy or severities.
+
+**CTA.** Review your site's external requests
 
 ## T4 rules (from PLAN.md section 8)
 

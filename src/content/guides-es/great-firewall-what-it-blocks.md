@@ -6,7 +6,8 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-14
+updatedAt: 2026-10-16
+reviewBy: 2026-11-15
 category: Technology
 ---
 
@@ -120,10 +121,10 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Typeform | `form.typeform.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 30 de septiembre de 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 10 de septiembre de 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 14 de septiembre de 2026 |
-| Cloudflare Turnstile | `challenges.cloudflare.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 23 de septiembre de 2026 |
-| Calendly | `calendly.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 10 de junio de 2026 |
-| Intercom | `widget.intercom.io` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 16 de junio de 2026 |
-| Zendesk | `static.zdassets.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 29 de abril de 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 11 de octubre de 2026 |
+| Calendly | `calendly.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 3 de octubre de 2026 |
+| Intercom | `widget.intercom.io` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 23 de septiembre de 2026 |
+| Zendesk | `static.zdassets.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 8 de octubre de 2026 |
 | Drift | `js.driftt.com` | Sin probar | Ninguna prueba registrada | no aplica | GreatFire nunca ha probado este servidor |
 | Crisp | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 | Tawk.to | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
@@ -135,9 +136,9 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Disqus | `disqus.com` | Bloqueado | 41 de 43 URL probadas bloqueadas, 2 alteradas | no aplica | GreatFire, 13 de septiembre de 2026 |
 | SoundCloud | `w.soundcloud.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 24 de junio de 2026 |
 | Spotify | `open.spotify.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 12 de septiembre de 2026 |
-| Instagram | `www.instagram.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 30 de agosto de 2026 |
+| Instagram | `www.instagram.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 3 de octubre de 2026 |
 | X, widget de la cronología | `platform.twitter.com` | Bloqueado | Solo veredicto de accesibilidad | no aplica | GreatFire, 7 de julio de 2026 |
-| Wistia | `fast.wistia.com` | Accesible | Solo veredicto de accesibilidad, medición de hace seis meses | no aplica | GreatFire, 17 de marzo de 2026 |
+| Wistia | `fast.wistia.com` | Intermitente | 9 de 15 peticiones recibieron respuesta; no se comprobó la reproducción completa | China Mobile en Pekín | 21YunBox, 30 de agosto de 2026 |
 | Loom | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
 ### Mapas
@@ -155,7 +156,7 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 | Wix | `wix.com` | Responde y se cuelga | 0 de 3 en 60 s, primer byte en 532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 30 de agosto de 2026 |
 | Shopify | `cdn.shopify.com` | Accesible | Conexión normal en las 2 pruebas concluyentes recientes | no aplica | GreatFire, 8 de octubre de 2026 |
 | Webflow | `webflow.com` | Intermitente | Interferencias en el 100 % de las pruebas concluyentes recientes (1 prueba) | no aplica | GreatFire, 23 de agosto de 2026 |
-| Squarespace | `www.squarespace.com` | Accesible | Conexión normal en las 2 pruebas concluyentes recientes | no aplica | GreatFire, 12 de septiembre de 2026 |
+| Squarespace | `www.squarespace.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 3 de octubre de 2026 |
 | Netlify | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 | Sanity | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
@@ -165,7 +166,7 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 |---|---|---|---|---|---|
 | Algolia | `algolia.net` | Intermitente | Interferencias en el 100 % de las 2 últimas pruebas concluyentes, medidas en el dominio raíz; los servidores de búsqueda de cada aplicación no se han probado nunca | no aplica | GreatFire, 31 de agosto de 2026 |
 | Firebase | `firebase.google.com` | Intermitente | Interferencias en el 100 % de las 2 últimas pruebas concluyentes | no aplica | GreatFire, 14 de septiembre de 2026 |
-| AWS CloudFront | `aws.amazon.com/cloudfront` | Lento | 3 de 3 (primer byte en 665 ms) y 3 de 3 (718 ms) | Alibaba Cloud cn-zhangjiakou y China Mobile en Pekín | 21YunBox, 28 y 30 de agosto de 2026 |
+| AWS CloudFront | `aws.amazon.com/cloudfront` | Accesible | 3 de 3 (primer byte en 665 ms) y 3 de 3 (718 ms) | Alibaba Cloud cn-zhangjiakou y Banda ancha residencial en Pekín, operador no especificado | 21YunBox, 28 y 30 de agosto de 2026 |
 | Sentry | `browser.sentry-cdn.com` | Intermitente | Interferencias en el 100 % de las pruebas concluyentes recientes (1 prueba) | no aplica | GreatFire, 1 de octubre de 2026 |
 | Bootstrap CDN | Sin medir | Sin probar | Ninguna prueba registrada | no aplica | no aplica |
 
@@ -173,22 +174,28 @@ La columna de veredicto recoge seis valores, y dos de ellos merecen una lectura 
 
 | Servicio | Servidor o destino probado | Veredicto | Medición | Punto de medición | Fuente y fecha |
 |---|---|---|---|---|---|
-| PayPal | `www.paypal.com` | Accesible | 9 de 27 URL probadas alteradas, todas ellas redirecciones de pago | no aplica | GreatFire, 18 de mayo de 2026 |
+| PayPal | `www.paypal.com` | Accesible | Solo veredicto de accesibilidad | no aplica | GreatFire, 25 de septiembre de 2026 |
 | Stripe | `js.stripe.com` | Sin probar | Ninguna prueba registrada. Véase la nota más abajo: la accesibilidad no es aquí la cuestión decisiva | no aplica | no aplica |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 
 ### Pendientes de medición
 
-Doce dependencias carecen de un resultado que estemos dispuestos a suscribir, bien porque nadie las ha medido, bien porque el único veredicto disponible supera los noventa días. Aun así figuran aquí, porque la propia laguna resulta reveladora: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, el LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo y el script de seguimiento de HubSpot. Cloudflare Turnstile figuró en esta relación hasta el 8 de octubre de 2026. GreatFire analizó su script el 23 de septiembre, y el servicio dispone ya de su propia fila en la tabla anterior.
+Este registro no contiene pruebas fechadas de Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN ni `js.stripe.com`. También faltan resultados para el cargador HTTPS de HubSpot, `js.driftt.com` de Drift y `cdn.matomo.cloud`. Una prueba del sitio de un proveedor no demuestra cómo funciona el servidor de su widget.
 
-Drift eleva el recuento a trece, y su caso muestra cómo se origina el error. Se le suele dar por accesible, pero ese veredicto atañe al sitio comercial. `js.driftt.com`, el servidor al que de verdad llama el navegador del visitante, nunca se ha probado. Evaluar el nombre de servidor equivocado: así se escribe buena parte de lo que se publica sobre el tema.
+Adobe Fonts, Font Awesome y LinkedIn Insight Tag sí cuentan con resultados fechados.
 
-El servicio en la nube de Matomo se sumó a esta lista el 14 de octubre de 2026. Su fila descansaba en un cronometraje del sitio de Matomo que 21YunBox ha retirado desde entonces, y ninguna prueba fechada del rastreador en la nube ha venido a sustituirlo.
+> GreatFire dio por accesibles `use.typekit.net` y `snap.licdn.com` el 22 de septiembre de 2026, con una prueba concluyente por servidor. Registró el mismo resultado para `use.fontawesome.com` el 11 de octubre de 2026 y `kit.fontawesome.com` el 13 de septiembre de 2026, también con una prueba concluyente en cada caso.
+> Fuente: GreatFire, septiembre y octubre de 2026. https://en.greatfire.org/https/use.typekit.net ; https://en.greatfire.org/https/snap.licdn.com ; https://en.greatfire.org/https/use.fontawesome.com ; https://en.greatfire.org/https/kit.fontawesome.com
 
-Las fechas importan tanto como los veredictos. Un veredicto de marzo habla de marzo. Dos filas de la tabla tienen seis meses, Wistia y el servidor de telemetría de Mapbox, y así lo indican en sus propias celdas. Wistia es un reproductor de vídeo que un equipo de marketing podría incorporar esta misma tarde fiándose de una medición tomada en primavera.
+En la conexión residencial observada, el servidor de Adobe no respondió. El recuento del servidor de verificación indica cuántas peticiones recibieron respuesta. No mide si el usuario completó el proceso.
 
-Contrastamos esta tabla con sus fuentes por última vez el 22 de septiembre de 2026, y volvimos a hacerlo el 14 de octubre de 2026 con las filas que dependían de las mediciones de 21YunBox. Cualquier fila que supere los noventa días se vuelve a comprobar. Si la consulta mucho después de esa fecha y alguna fila resulta determinante para su proyecto, pruebe antes usted mismo el servidor.
+> En una conexión residencial de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, 21YunBox no obtuvo respuesta a ninguna de las 11 peticiones a `use.typekit.net` ni de las 6 a `static.hotjar.com`. Registró 6 fallos en 15 peticiones a `fast.wistia.com` y 3 en 12 a `challenges.cloudflare.com`. Por separado, GreatFire indica que la URL del script de Turnstile era accesible en sus 2 pruebas concluyentes; la última se realizó el 11 de octubre de 2026.
+> Fuente: 21YunBox, 30 de agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html ; GreatFire, 11 de octubre de 2026. https://en.greatfire.org/https/challenges.cloudflare.com/turnstile/v0/api.js
+
+El veredicto de accesibilidad de `munchkin.marketo.net`, de Marketo, data del 31 de mayo de 2026 y supera los 90 días de antigüedad. Las fuentes se contrastaron el 16 de octubre de 2026; las fechas de las pruebas no cambian por volver a consultar las fuentes. La próxima revisión editorial se hará el 15 de noviembre de 2026.
+
+> Fuente: GreatFire, 31 de mayo de 2026. https://en.greatfire.org/https/munchkin.marketo.net
 
 ### Por qué Stripe queda fuera de esta tabla
 
@@ -199,7 +206,7 @@ Stripe es el nombre que cualquiera espera encontrar en una tabla como esta. Su c
 
 Una entidad del continente no dispone de adquirencia local, llegue o no el script al navegador, así que optimizar su carga no resuelve nada. La pregunta que de verdad merece respuesta es cómo cobrar con Alipay (支付宝), WeChat Pay (微信支付) y UnionPay (银联), y [nuestra guía para gestionar una tienda WooCommerce en China](/es/recursos/guia-web-china/woocommerce-china-store-guide/) es lo más cercano que hemos publicado sobre ello.
 
-PayPal es un caso distinto y sí figura en la tabla: sigue siendo accesible, aunque con alteraciones parciales, y las rutas afectadas son precisamente las redirecciones hacia el pago.
+El veredicto de la tabla corresponde a `www.paypal.com`. No demuestra que el proceso de pago llegue a completarse.
 
 ## Estrategias para las empresas extranjeras
 

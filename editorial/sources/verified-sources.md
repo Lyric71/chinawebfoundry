@@ -2418,3 +2418,59 @@ dates are the page's 最近更新时间.
 - Was: cdnjs 3 of 3 at a 478ms median first byte (LCP 1,524ms); unpkg 3 of 3 at 824ms from the datacentre and 0 of 3 page loads at a 1,026ms median first byte from the Beijing home line; jsDelivr 3 of 3 at 769ms (LCP 2.6s) and a 493ms to 1,086ms twelve-hour swing with a 1,780ms p95 (entries of 22 September 2026 above)
 - URLs: https://www.21cloudbox.com/support/cdnjs-china.html, https://www.21cloudbox.com/support/unpkg-china.html, https://www.21cloudbox.com/support/jsdelivr-china.html
 - Check of 2026-10-11: **failed.** 21YunBox rewrote all three pages on 7 October 2026 ("Reviewed 2026-10-07") into a compliance format. Fetched twice: no figure, no probe, no date on any of them. A figure its publisher no longer carries is not printed as theirs. None of the figures was printed on the site (the T2-05 partial draft that used them was withdrawn on 2 October); the "Reachable, slow / Both complete" row on is-wordpress-blocked-in-china that rested on them was corrected in four locales on 2026-10-11.
+
+
+## T4-01 source verification, 16 October 2026
+
+Check 1: 2026-10-16, direct HTTPS fetch. Check 2: 2026-10-16, independent re-fetch during createarticle iteration 8. All 51 pages returned source content; dated verdict, count and timing claims matched on both reads. Full per-source receipts and text paths: editorial/logs/2026-10-16-t401/research-check1.json and research-check2.json. The October manifest in that directory records each row, source, vantage and test date. No verification date is represented as a test date.
+
+- https://en.greatfire.org/https/ajax.googleapis.com: 2026-08-22; blocked; 1/1 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/algolia.net: 2026-08-31; disrupted; 2/2 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/api.amplitude.com: 2026-09-10; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/api.mapbox.com: 2026-08-31; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/api.mixpanel.com: 2026-09-19; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/api.segment.io: 2026-09-15; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/api2.hcaptcha.com: 2026-09-14; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/browser.sentry-cdn.com: 2026-10-01; disrupted; 1/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/calendly.com: 2026-10-03; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/cdn-images.mailchimp.com: 2026-09-10; blocked; 1/1 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/cdn.amplitude.com: 2026-09-14; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/cdn.jsdelivr.net: 2026-10-15; not blocked; 0/4 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/cdn.matomo.cloud: no dated test, untested. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/cdn.mxpnl.com: 2026-09-06; disrupted; 1/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/cdn.shopify.com: 2026-10-08; not blocked; 0/2 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/cdnjs.cloudflare.com: 2026-09-27; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/challenges.cloudflare.com/turnstile/v0/api.js: 2026-10-11; not blocked; 0/2 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/connect.facebook.net: 2026-05-27; blocked; historical, no recent conclusive count. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/disqus.com: 2026-09-13; blocked; 2/2 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/embed.typeform.com: no dated test, untested. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/events.mapbox.com: 2026-03-12; blocked; historical, no recent conclusive count. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/fast.wistia.com: 2026-03-17; not blocked; historical, no recent conclusive count. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/firebase.google.com: 2026-09-14; disrupted; 2/2 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/fonts.googleapis.com: 2026-10-15; not blocked; 0/4 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/fonts.gstatic.com: 2026-10-15; not blocked; 0/7 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/form.typeform.com: 2026-09-30; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/js.hs-scripts.com: no dated test, untested. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/kit.fontawesome.com: 2026-09-13; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/munchkin.marketo.net: 2026-05-31; not blocked; historical, no recent conclusive count. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/open.spotify.com: 2026-09-12; blocked; 4/4 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/platform.twitter.com: 2026-07-07; blocked; historical, no recent conclusive count. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/plausible.io: 2026-08-20; disrupted; 1/2 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/snap.licdn.com: 2026-09-22; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/static.hotjar.com: 2026-09-30; disrupted; 1/2 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/static.zdassets.com: 2026-10-08; not blocked; 0/2 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/tile.openstreetmap.org: 2026-09-07; blocked; 1/1 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/unpkg.com: 2026-08-14; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/use.fontawesome.com: 2026-10-11; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/use.typekit.net: 2026-09-22; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/w.soundcloud.com: 2026-06-24; blocked; historical, no recent conclusive count. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/webflow.com: 2026-08-23; disrupted; 1/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/widget.intercom.io: 2026-09-23; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/www.clarity.ms: 2026-09-15; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/www.google-analytics.com: 2026-07-24; blocked; 1/1 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/www.google.com/recaptcha: 2026-09-28; blocked; 1/1 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/www.instagram.com: 2026-10-03; blocked; 2/2 blocked. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/www.paypal.com: 2026-09-25; not blocked; 0/1 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+- https://en.greatfire.org/https/www.squarespace.com: 2026-10-03; not blocked; 0/3 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
+
+21YunBox sources: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html, https://www.21cloudbox.com/support/aws-cloudfront-china.html, https://www.21cloudbox.com/support/wix-china.html. Verified 1 and 2: 2026-10-16. Reused F6/F7 paired figures unchanged; Wix and CloudFront figures from 14 October unchanged. Additional consumer observations on 30 August 2026, Beijing China Mobile residential broadband: use.typekit.net 0 of 11 answers, static.hotjar.com 0 of 6, fast.wistia.com 6 failures of 15 requests (9 answers), challenges.cloudflare.com 3 failures of 12 requests (9 answers). The latter two are response observations, not completed player/challenge workflows. The CloudFront product-page source names only Beijing residential broadband, so remove the inferred carrier from the live table. F42 corrected for dated Adobe, Font Awesome and LinkedIn records; Marketo has a historical 31 May 2026 reachable verdict.

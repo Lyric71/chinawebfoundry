@@ -10,8 +10,7 @@ slug: china-dependency-index-2026-10
 title: "China Dependency Index, October 2026"
 suggested_category: Technology
 locales_at_publish: en
-facts: [F33, F34, F42, F46]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -46,40 +45,27 @@ tier-specific boxes for T4.
 | | |
 |---|---|
 | **Slug** | `china-dependency-index-2026-10` |
-| **Cadence** | Monthly, dated slug, never overwritten. Each edition is a permanent URL. |
-| **Length** | 1,400 words plus the table |
-| **Locales** | English only. Monthly translation of a dated data page is unaffordable and the audience for the raw table reads English. |
+| **Cadence** | Monthly, dated slug, permanent edition. |
+| **Length** | 1,400 narrative words plus tables and per-row evidence notes. |
+| **Locales** | English only. |
 
-**What it publishes.** A fixed panel of 54 third-party web hosts that foreign sites commonly depend on, tested from mainland China from two vantage points on stated dates, with a verdict per host and a change column against the previous edition. October is edition one, so the change column reads "baseline" throughout and the article says so rather than hiding an empty column. Categories in the panel: analytics and tag management, fonts and icons, script CDNs, forms and captcha, chat and support widgets, social and media embeds, maps, payments, search and infrastructure, site platforms. The host list is published in full, including the hosts that behaved perfectly, because a panel that only shows failures is a marketing asset and not an index.
+**What it publishes.** An evidence register of 55 dependency entries, established by the October manifest: all 45 entries in the existing dependency table plus six font/script-CDN hosts, reCAPTCHA, Adobe Fonts, the LinkedIn Insight Tag and HubSpot's loader. This corrects the unsupported claim of 54 hosts uniformly tested from two locations. Include untested entries, and distinguish vendor-page targets from actual dependency hosts. The manifest is saved with the output. Every change cell says baseline in edition one.
 
-**Method statement.** Everything below appears before the first finding, not in a footnote.
+**Method before findings.** Reuse dated GreatFire URL verdicts and 21YunBox's published probes. Never invent a ChinaWebFoundry test. GreatFire has no named cloud or home-line vantage and supplies no TTFB: those cells stay unavailable. 21YunBox's five-resource study sampled direct requests every ten minutes for twelve hours on 28 August 2026 from Alibaba Cloud (阿里云) cn-zhangjiakou with a 30-second timeout. Its 30 August consumer observations came from 264 page loads on 88 sites on Beijing China Mobile (中国移动) residential broadband. Per-host request counts differ. Wix and the CloudFront product page use separate page-load reports; the latter's Beijing carrier is unstated. Describe every method independently. Request answers are not completed user journeys.
 
-Two vantage points. An Alibaba Cloud (阿里云) mainland instance in the Zhangjiakou region, and a residential broadband line in Beijing on China Unicom (中国联通). Both named, both with the test dates written out. State plainly that a datacenter probe and a consumer line in the same country can return opposite verdicts on the same host, that both numbers are real, and that the consumer number is the one that describes a visitor. Where the two disagree, both go in the table and neither is averaged.
+**Findings.** The opening 60 words name the third-party source, both paired-study vantages and dates, and counts for its five-resource subset: one resource unanswered from the cloud, four from the home line. Never present those as a 55-entry failure rate. Google Fonts and GTM split across the two vantages. Use the script-versus-ingestion distinction without claiming that analytics is the worst category. Wix is the dated answers-then-stalls example. No current evidence supports a province-wide or category-wide ranking.
 
-Per host: three requests, 60 second abandon, recording time to first byte, completion or non-completion, HTTP status and DNS resolution result. Quiet-hour and peak-hour runs where the host showed variance in prior testing. A host that returns a first byte and then fails to complete inside 60 seconds is recorded as "answers then stalls" and never as reachable, because that is the failure mode site owners never diagnose (F33).
+**Table and anchors.** One row per dependency, category then evidence severity, with stable host ID, exact host or explicit absent target, purpose, cloud median TTFB, cloud completions, consumer median TTFB, consumer answers/completions, attributed verdict, source test date and baseline. T4 tables may exceed the usual column limit. Markdown tables render as static HTML; stable IDs are attached to their rows at publication. Give each row a plain-text evidence sentence with publisher and date, including the source URL in a blockquote. No date means untested and no verdict. Missing values remain unavailable. GreatFire's disrupted category is retained in the evidence sentence; it is mapped to intermittent in the index, without inventing a cause. A historical result older than 90 days carries its date and age warning.
 
-What could not be tested, stated by name. Ten dependencies in the panel's waiting room have no test record at all and are held out of this edition rather than guessed: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, Adobe Fonts and Font Awesome, plus Marketo and the HubSpot script, which rest on verdicts older than 90 days (F42). Cloudflare Turnstile is not among them: GreatFire read its script, `https://challenges.cloudflare.com/turnstile/v0/api.js`, not blocked on 23 September 2026 (0 of 1 conclusive tests), so it enters this edition as the 54th host with a reachability verdict and its date (corrected 8 October 2026). Several need provisioned accounts before the harness can exercise a real endpoint rather than a marketing page. They join in the December edition. Say that here, with the date.
+**Limits.** October is the edition's compilation month. Test dates remain August or earlier where the source has not retested; current GreatFire rows include October tests. Distinguish reading a source again from retesting a host. No mobile-radio measurements, no nationwide sample, no uniform month-on-month panel experiment. An untested host is visible in the panel. No promise of new tests in December; additions require dated third-party evidence.
 
-Also state what the index does not measure: it does not test from every province, it does not test on mobile networks in this edition, it runs from one datacenter region rather than several, and a single month of data on a host that flips is not a trend.
-
-**The table it carries.** One row per host, sorted by category then by severity, with a stable anchor ID per row so an individual host can be linked and quoted.
-
-| Host | What it is | Category | Datacenter TTFB, median ms | Datacenter completions | Consumer TTFB, median ms | Consumer completions | Verdict | Change since last edition | Tested |
-|---|---|---|---|---|---|---|---|---|---|
-
-Column definitions spelled out in the article. Datacenter is the Alibaba Cloud Zhangjiakou instance. Consumer is the Beijing China Unicom line. Completions is a count out of attempts, written as "0 of 3" rather than as a percentage, because three attempts do not support a percentage. Verdict is one of five values, defined in the article: reachable, slow, answers then stalls, intermittent, blocked. Tested is a date, per host, because the harness does not finish in one hour.
-
-**The 300-word narrative.** The prose around the table does four things and does not editorialize beyond them. It states the headline count in the first sentence, how many of 54 hosts failed to complete from the consumer line and how many from the datacenter, with both dates. It names the two or three hosts whose two vantage points disagreed most sharply and says explicitly that this is why single-source China advice is unreliable. It calls out the category with the worst result and explains the mechanism in one paragraph, which for October is the analytics category, where a script host and an ingestion endpoint can split so the script loads and the events never post, and the dashboard reads as working (F34). And it says what a site owner should do with the table this month, in two sentences, without turning into a service pitch. No conclusion section. The narrative stops when the last finding is stated.
-
-**Citation design.** The answer goes in the first paragraph, with the count, the two vantage points and the dates in the opening 60 words, since roughly 44% of AI answer engine citations come from the first 30% of a page and retrieval works at passage level (F46). Entity density stays high on purpose: name the hosts, the carriers, the cloud regions, the provinces. Every claim carries a figure. Build it as a real HTML table with real header cells, not an image and not a client-rendered grid, because ChatGPT's retrieval bot does not execute JavaScript and Astro ships static HTML, which is already the advantage (F46). Give each host row a stable anchor and a one-sentence verdict line in plain text next to the row, so a passage-level retrieval has something quotable that is not table markup. Put the publication date and the test date range in visible text near the top, not only in schema, since freshness bias is strong and a date only a crawler can see does less work.
-
-**Links and reuse.** This is the citation target for the whole compatibility cluster. Every `does-{tool}-work-in-china` article cites the current edition for its figure and links the specific host anchor rather than the page. The service pages for Technical Integration and China Hosting cite the headline count. It feeds the China Site Scanner directly: the scanner's host reputation list is generated from the index panel, and the scanner output links back to the edition that supplied each verdict, which is what makes the tool defensible rather than a lead magnet with numbers in it. Sideways to `third-party-scripts-china` and the T4-02 vantage point study, which explains the method the index depends on.
+**Links and reuse.** Link to Technical Integration, javascript-cdn-china and the live Great Firewall guide. third-party-scripts-china does not exist and is not scheduled; javascript-cdn-china is the settled nearest-topic fallback. The future vantage-point study replaces the last reference when it publishes. Scanner copy and severities remain Cyril's separate product decision and are never changed by this report. At publish, keep the English-only route mapping, publish the raw panel JSON under /data/china-dependency-index-2026-10.json, and retain the dated source receipts in editorial logs. Do not replace the existing live dependency table with a monthly experiment claim.
 
 **Metadata.**
 ```yaml
-title: "China Dependency Index, October 2026"                                        # 36 / 52
-description: "Fifty-four third-party web hosts tested from an Alibaba Cloud instance and a Beijing consumer line. Full table, method and test dates."   # 134 / 152
-excerpt: "A dated monthly measurement of the third-party hosts foreign sites depend on, from two mainland vantage points."   # 17 / 25 words
+title: "China Dependency Index, October 2026"
+description: "A 55-entry register of China web dependencies, using dated GreatFire verdicts and 21YunBox observations. Missing tests and limits included."
+excerpt: "Dated third-party evidence for 55 web dependencies, with separate cloud and consumer results where sources publish both."
 ```
 
 **CTA.** Run your own site against this list

@@ -44,7 +44,7 @@ export type Category =
 export type SourceKey = 'GreatFire' | '21YunBox';
 
 /** Named probes. A GreatFire reachability verdict has none. */
-export type Vantage = 'zhangjiakou' | 'beijingMobile';
+export type Vantage = 'zhangjiakou' | 'beijingMobile' | 'beijingBroadband';
 
 export interface Citation {
   source: SourceKey;
@@ -77,8 +77,8 @@ export interface DependencyRow {
   sourceNote?: 'neverTestedByGreatFire' | 'noDatedSource';
 }
 
-export const lastCheckedOn = '2026-09-22';
-export const reviewBy = '2026-12-21';
+export const lastCheckedOn = '2026-10-16';
+export const reviewBy = '2026-11-15';
 
 export const categoryOrder: Category[] = [
   'analytics',
@@ -144,10 +144,10 @@ export const dependencies: DependencyRow[] = [
   { id: 'typeform', category: 'formsAndChat', host: 'form.typeform.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('form.typeform.com', '2026-09-30')] },
   { id: 'mailchimp', category: 'formsAndChat', host: 'cdn-images.mailchimp.com', verdict: 'blocked', measured: 'reachabilityOnly', vantage: [], citations: [gf('cdn-images.mailchimp.com', '2026-09-10')] },
   { id: 'hcaptcha', category: 'formsAndChat', host: 'api2.hcaptcha.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('api2.hcaptcha.com', '2026-09-14')] },
-  { id: 'cloudflare-turnstile', category: 'formsAndChat', host: 'challenges.cloudflare.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('challenges.cloudflare.com/turnstile/v0/api.js', '2026-09-23')] },
-  { id: 'calendly', category: 'formsAndChat', host: 'calendly.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('calendly.com', '2026-06-10')] },
-  { id: 'intercom', category: 'formsAndChat', host: 'widget.intercom.io', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('widget.intercom.io', '2026-06-16')] },
-  { id: 'zendesk', category: 'formsAndChat', host: 'static.zdassets.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('static.zdassets.com', '2026-04-29')] },
+  { id: 'cloudflare-turnstile', category: 'formsAndChat', host: 'challenges.cloudflare.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('challenges.cloudflare.com/turnstile/v0/api.js', '2026-10-11')] },
+  { id: 'calendly', category: 'formsAndChat', host: 'calendly.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('calendly.com', '2026-10-03')] },
+  { id: 'intercom', category: 'formsAndChat', host: 'widget.intercom.io', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('widget.intercom.io', '2026-09-23')] },
+  { id: 'zendesk', category: 'formsAndChat', host: 'static.zdassets.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('static.zdassets.com', '2026-10-08')] },
   untested('drift', 'formsAndChat', 'js.driftt.com', 'neverTestedByGreatFire'),
   untested('crisp', 'formsAndChat', null),
   untested('tawk-to', 'formsAndChat', null),
@@ -156,9 +156,9 @@ export const dependencies: DependencyRow[] = [
   { id: 'disqus', category: 'embeds', host: 'disqus.com', verdict: 'blocked', measured: 'text', vantage: [], citations: [gf('disqus.com', '2026-09-13')] },
   { id: 'soundcloud', category: 'embeds', host: 'w.soundcloud.com', verdict: 'blocked', measured: 'reachabilityOnly', vantage: [], citations: [gf('w.soundcloud.com', '2026-06-24')] },
   { id: 'spotify', category: 'embeds', host: 'open.spotify.com', verdict: 'blocked', measured: 'reachabilityOnly', vantage: [], citations: [gf('open.spotify.com', '2026-09-12')] },
-  { id: 'instagram', category: 'embeds', host: 'www.instagram.com', verdict: 'blocked', measured: 'reachabilityOnly', vantage: [], citations: [gf('www.instagram.com', '2026-08-30')] },
+  { id: 'instagram', category: 'embeds', host: 'www.instagram.com', verdict: 'blocked', measured: 'reachabilityOnly', vantage: [], citations: [gf('www.instagram.com', '2026-10-03')] },
   { id: 'x-timeline', category: 'embeds', host: 'platform.twitter.com', verdict: 'blocked', measured: 'reachabilityOnly', vantage: [], citations: [gf('platform.twitter.com', '2026-07-07')] },
-  { id: 'wistia', category: 'embeds', host: 'fast.wistia.com', verdict: 'reachable', measured: 'reachabilityOnly', stale: true, vantage: [], citations: [gf('fast.wistia.com', '2026-03-17')] },
+  { id: 'wistia', category: 'embeds', host: 'fast.wistia.com', verdict: 'intermittent', measured: 'text', vantage: ['beijingMobile'], citations: [ybStudy('2026-08-30')] },
   untested('loom', 'embeds', null),
 
   // Maps
@@ -170,19 +170,19 @@ export const dependencies: DependencyRow[] = [
   { id: 'wix', category: 'platforms', host: 'wix.com', verdict: 'answersThenStalls', measured: 'text', vantage: ['zhangjiakou'], citations: [yb('wix', '2026-08-30')] },
   { id: 'shopify', category: 'platforms', host: 'cdn.shopify.com', verdict: 'reachable', measured: 'text', vantage: [], citations: [gf('cdn.shopify.com', '2026-10-08')] },
   { id: 'webflow', category: 'platforms', host: 'webflow.com', verdict: 'intermittent', measured: 'text', vantage: [], citations: [gf('webflow.com', '2026-08-23')] },
-  { id: 'squarespace', category: 'platforms', host: 'www.squarespace.com', verdict: 'reachable', measured: 'text', vantage: [], citations: [gf('www.squarespace.com', '2026-09-12')] },
+  { id: 'squarespace', category: 'platforms', host: 'www.squarespace.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('www.squarespace.com', '2026-10-03')] },
   untested('netlify', 'platforms', null),
   untested('sanity', 'platforms', null),
 
   // Infrastructure
   { id: 'algolia', category: 'infrastructure', host: 'algolia.net', verdict: 'intermittent', measured: 'text', vantage: [], citations: [gf('algolia.net', '2026-08-31')] },
   { id: 'firebase', category: 'infrastructure', host: 'firebase.google.com', verdict: 'intermittent', measured: 'text', vantage: [], citations: [gf('firebase.google.com', '2026-09-14')] },
-  { id: 'aws-cloudfront', category: 'infrastructure', host: 'aws.amazon.com/cloudfront', verdict: 'slow', measured: 'text', vantage: ['zhangjiakou', 'beijingMobile'], citations: [yb('aws-cloudfront', '2026-08-28', '2026-08-30')] },
+  { id: 'aws-cloudfront', category: 'infrastructure', host: 'aws.amazon.com/cloudfront', verdict: 'reachable', measured: 'text', vantage: ['zhangjiakou', 'beijingBroadband'], citations: [yb('aws-cloudfront', '2026-08-28', '2026-08-30')] },
   { id: 'sentry', category: 'infrastructure', host: 'browser.sentry-cdn.com', verdict: 'intermittent', measured: 'text', vantage: [], citations: [gf('browser.sentry-cdn.com', '2026-10-01')] },
   untested('bootstrap-cdn', 'infrastructure', null),
 
   // Payments
-  { id: 'paypal', category: 'payments', host: 'www.paypal.com', verdict: 'reachable', measured: 'text', vantage: [], citations: [gf('www.paypal.com', '2026-05-18')] },
+  { id: 'paypal', category: 'payments', host: 'www.paypal.com', verdict: 'reachable', measured: 'reachabilityOnly', vantage: [], citations: [gf('www.paypal.com', '2026-09-25')] },
   { ...untested('stripe', 'payments', 'js.stripe.com'), measured: 'text' },
 ];
 
@@ -322,9 +322,10 @@ export const copy: Record<Locale, DependencyCopy> = {
     },
     reachabilityOnly: 'Reachability verdict only',
     noTest: 'No test on record',
-    staleSuffix: ', six months old',
+    staleSuffix: ', test older than 90 days',
     noVantage: 'n/a',
     vantages: {
+      beijingBroadband: { first: 'Beijing residential broadband, carrier unstated', later: 'Beijing residential broadband, carrier unstated' },
       zhangjiakou: { first: 'Alibaba Cloud (阿里云) cn-zhangjiakou', later: 'Alibaba Cloud cn-zhangjiakou' },
       beijingMobile: { first: 'Beijing China Mobile (中国移动)', later: 'Beijing China Mobile' },
     },
@@ -341,6 +342,7 @@ export const copy: Record<Locale, DependencyCopy> = {
       openstreetmap: 'OpenStreetMap tiles',
     },
     measured: {
+      wistia: '9 of 15 requests answered; video completion not measured',
       hotjar: 'Interference on 1 of the last 2 conclusive tests',
       'mixpanel-script': 'Interference on 100% of the last 1 conclusive test',
       plausible: 'Interference on 1 of the last 2 conclusive tests',
@@ -401,9 +403,10 @@ export const copy: Record<Locale, DependencyCopy> = {
     },
     reachabilityOnly: "Verdict d'accessibilité seul",
     noTest: 'Aucun test enregistré',
-    staleSuffix: ', relevé vieux de six mois',
+    staleSuffix: ", test de plus de 90 jours",
     noVantage: 'sans objet',
     vantages: {
+      beijingBroadband: { first: "Connexion résidentielle à Pékin, opérateur non précisé", later: "Connexion résidentielle à Pékin, opérateur non précisé" },
       zhangjiakou: { first: 'Alibaba Cloud (阿里云) cn-zhangjiakou', later: 'Alibaba Cloud cn-zhangjiakou' },
       beijingMobile: { first: 'China Mobile (中国移动) à Pékin', later: 'China Mobile à Pékin' },
     },
@@ -420,6 +423,7 @@ export const copy: Record<Locale, DependencyCopy> = {
       openstreetmap: 'Tuiles OpenStreetMap',
     },
     measured: {
+      wistia: "9 requêtes sur 15 ont reçu une réponse ; lecture vidéo complète non mesurée",
       hotjar: 'Interférences sur 1 des 2 derniers tests concluants',
       'mixpanel-script': `Interférences sur 100${NBSP}% des tests concluants récents (1 test)`,
       plausible: 'Interférences sur 1 des 2 derniers tests concluants',
@@ -483,6 +487,7 @@ export const copy: Record<Locale, DependencyCopy> = {
     staleSuffix: ', medición de hace seis meses',
     noVantage: 'no aplica',
     vantages: {
+      beijingBroadband: { first: "Banda ancha residencial en Pekín, operador no especificado", later: "Banda ancha residencial en Pekín, operador no especificado" },
       zhangjiakou: { first: 'Alibaba Cloud (阿里云) cn-zhangjiakou', later: 'Alibaba Cloud cn-zhangjiakou' },
       beijingMobile: { first: 'China Mobile (中国移动) en Pekín', later: 'China Mobile en Pekín' },
     },
@@ -499,6 +504,7 @@ export const copy: Record<Locale, DependencyCopy> = {
       openstreetmap: 'Teselas de OpenStreetMap',
     },
     measured: {
+      wistia: "9 de 15 peticiones recibieron respuesta; no se comprobó la reproducción completa",
       hotjar: 'Interferencias en 1 de las 2 últimas pruebas concluyentes',
       'mixpanel-script': `Interferencias en el 100${NBSP}% de las pruebas concluyentes recientes (1 prueba)`,
       plausible: 'Interferencias en 1 de las 2 últimas pruebas concluyentes',
@@ -562,6 +568,7 @@ export const copy: Record<Locale, DependencyCopy> = {
     staleSuffix: ', Stand vor sechs Monaten',
     noVantage: 'entfällt',
     vantages: {
+      beijingBroadband: { first: "Privater Breitbandanschluss in Peking, Anbieter nicht angegeben", later: "Privater Breitbandanschluss in Peking, Anbieter nicht angegeben" },
       zhangjiakou: { first: 'Alibaba Cloud (阿里云) cn-zhangjiakou', later: 'Alibaba Cloud cn-zhangjiakou' },
       beijingMobile: { first: 'China Mobile (中国移动) in Peking', later: 'China Mobile in Peking' },
     },
@@ -578,6 +585,7 @@ export const copy: Record<Locale, DependencyCopy> = {
       openstreetmap: 'OpenStreetMap-Kacheln',
     },
     measured: {
+      wistia: "9 von 15 Anfragen beantwortet; vollständige Videowiedergabe nicht geprüft",
       hotjar: 'Störungen bei 1 der letzten 2 aussagekräftigen Tests',
       'mixpanel-script': `Störungen bei 100${NBSP}% der jüngsten aussagekräftigen Tests (1 Test)`,
       plausible: 'Störungen bei 1 der letzten 2 aussagekräftigen Tests',

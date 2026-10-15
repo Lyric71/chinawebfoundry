@@ -42,21 +42,9 @@ tier-specific boxes for T4.
 
 #### T4-06. China Dependency Index, January 2027
 
-Delta against T4-04.
+**Slug:** `china-dependency-index-2027-01`. Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
 
-- **Slug** `china-dependency-index-2027-01`. Panel holds at 64 hosts.
-- **Fourth vantage point added.** A mobile connection in Guangzhou on China Mobile (中国移动), which introduces the carrier question and the mobile question together. The method statement has to separate the two and say the edition cannot fully isolate them yet, since one line cannot distinguish a carrier effect from a mobile network effect. Say it rather than let a reader assume otherwise.
-- **Stability ranking introduced.** With four dated editions, every host gets a stability score based on how many times its verdict has changed, published as a sorted list. Hosts that have never moved across four editions are named as such, and that list is more useful to a developer than the failure list.
-- **Table gains** Guangzhou mobile median TTFB, Guangzhou mobile completions, and a stability column carrying the four-edition change count.
-- **Narrative shifts.** Lead on stability rather than on movement: which dependencies can be planned around and which cannot. Then the mobile and carrier finding, carefully hedged. Then the month's movement.
-- **Retirement policy stated.** Any host that has produced an identical verdict across all four editions and appears in no current client stack moves to a reduced quarterly cadence, with the reason published so the panel change is not mistaken for a disappearance.
-
-**Metadata.**
-```yaml
-title: "China Dependency Index, January 2027"                                        # 36 / 52
-description: "Sixty-four hosts on four mainland networks, including Guangzhou China Mobile, with the first stability ranking across four editions."   # 132 / 152
-excerpt: "January adds a fourth network and ranks every host by how much its verdict has moved across four monthly editions."   # 20 / 25 words
-```
+**Metadata:** title "China Dependency Index, January 2027". Write the description and excerpt from the verified findings at draft time; never announce an unperformed experiment.
 
 ## T4 rules (from PLAN.md section 8)
 

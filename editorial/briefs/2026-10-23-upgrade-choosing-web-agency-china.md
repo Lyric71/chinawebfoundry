@@ -10,7 +10,7 @@ slug: upgrade-choosing-web-agency-china
 title: "FAQ schema and comparison table for choosing-web-agency-china"
 locales_at_publish: as the page exists
 facts: [F26, F32, F46]
-status: not_started
+status: published
 ---
 
 ## How to run this brief

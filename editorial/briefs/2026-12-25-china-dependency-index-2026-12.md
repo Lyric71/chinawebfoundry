@@ -10,7 +10,6 @@ slug: china-dependency-index-2026-12
 title: "China Dependency Index, December 2026"
 suggested_category: Technology
 locales_at_publish: en
-facts: [F42]
 status: not_started
 ---
 
@@ -43,20 +42,9 @@ tier-specific boxes for T4.
 
 #### T4-04. China Dependency Index, December 2026
 
-Delta against T4-01 and T4-03.
+**Slug:** `china-dependency-index-2026-12`. Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
 
-- **Slug** `china-dependency-index-2026-12`. Panel expands to 64 hosts.
-- **The ten join.** Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, Adobe Fonts and Font Awesome enter the panel with first-time verdicts, plus refreshed verdicts for Marketo and the HubSpot script, whose prior data was over 90 days old (F42). Each new row is marked as a first observation with no change value, and the article says which needed a provisioned account before a real endpoint could be exercised.
-- **First quarterly view.** A second table showing the three editions side by side per host, October, November, December, with a stability count. This is the section that will get cited, because nobody else has three dated observations of anything.
-- **Method statement gains** a short paragraph on panel expansion policy: how a host enters the panel, how one leaves, and the commitment that a host is never removed for producing an inconvenient result.
-- **Narrative shifts.** Lead on the quarterly finding, which is how many verdicts held steady across three months, then the new entrants, then the movement.
-
-**Metadata.**
-```yaml
-title: "China Dependency Index, December 2026"                                       # 37 / 52
-description: "Sixty-four hosts across three mainland vantage points, with a quarter of movement, the ten newly probed hosts, and the full method."   # 131 / 152
-excerpt: "December closes the first quarter of the index, adds ten previously untested hosts, and reports what moved over 90 days."   # 20 / 25 words
-```
+**Metadata:** title "China Dependency Index, December 2026". Write the description and excerpt from the verified findings at draft time; never announce an unperformed experiment.
 
 ## T4 rules (from PLAN.md section 8)
 

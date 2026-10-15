@@ -6,7 +6,8 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-14
+updatedAt: 2026-10-16
+reviewBy: 2026-11-15
 category: Technology
 ---
 
@@ -120,10 +121,10 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Typeform | `form.typeform.com` | Reachable | Reachability verdict only | n/a | GreatFire, 30 Sep 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Blocked | Reachability verdict only | n/a | GreatFire, 10 Sep 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Reachable | Reachability verdict only | n/a | GreatFire, 14 Sep 2026 |
-| Cloudflare Turnstile | `challenges.cloudflare.com` | Reachable | Reachability verdict only | n/a | GreatFire, 23 Sep 2026 |
-| Calendly | `calendly.com` | Reachable | Reachability verdict only | n/a | GreatFire, 10 Jun 2026 |
-| Intercom | `widget.intercom.io` | Reachable | Reachability verdict only | n/a | GreatFire, 16 Jun 2026 |
-| Zendesk | `static.zdassets.com` | Reachable | Reachability verdict only | n/a | GreatFire, 29 Apr 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Reachable | Reachability verdict only | n/a | GreatFire, 11 Oct 2026 |
+| Calendly | `calendly.com` | Reachable | Reachability verdict only | n/a | GreatFire, 3 Oct 2026 |
+| Intercom | `widget.intercom.io` | Reachable | Reachability verdict only | n/a | GreatFire, 23 Sep 2026 |
+| Zendesk | `static.zdassets.com` | Reachable | Reachability verdict only | n/a | GreatFire, 8 Oct 2026 |
 | Drift | `js.driftt.com` | Untested | No test on record | n/a | GreatFire has never tested this host |
 | Crisp | Not probed | Untested | No test on record | n/a | n/a |
 | Tawk.to | Not probed | Untested | No test on record | n/a | n/a |
@@ -135,9 +136,9 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Disqus | `disqus.com` | Blocked | 41 of 43 tested URLs blocked, 2 disrupted | n/a | GreatFire, 13 Sep 2026 |
 | SoundCloud | `w.soundcloud.com` | Blocked | Reachability verdict only | n/a | GreatFire, 24 Jun 2026 |
 | Spotify | `open.spotify.com` | Blocked | Reachability verdict only | n/a | GreatFire, 12 Sep 2026 |
-| Instagram | `www.instagram.com` | Blocked | Reachability verdict only | n/a | GreatFire, 30 Aug 2026 |
+| Instagram | `www.instagram.com` | Blocked | Reachability verdict only | n/a | GreatFire, 3 Oct 2026 |
 | X, the timeline widget | `platform.twitter.com` | Blocked | Reachability verdict only | n/a | GreatFire, 7 Jul 2026 |
-| Wistia | `fast.wistia.com` | Reachable | Reachability verdict only, six months old | n/a | GreatFire, 17 Mar 2026 |
+| Wistia | `fast.wistia.com` | Intermittent | 9 of 15 requests answered; video completion not measured | Beijing China Mobile | 21YunBox, 30 Aug 2026 |
 | Loom | Not probed | Untested | No test on record | n/a | n/a |
 
 ### Maps
@@ -155,7 +156,7 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 | Wix | `wix.com` | Answers then stalls | 0 of 3 inside 60s, first byte 532ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 30 Aug 2026 |
 | Shopify | `cdn.shopify.com` | Reachable | 2 recent conclusive tests connected normally | n/a | GreatFire, 8 Oct 2026 |
 | Webflow | `webflow.com` | Intermittent | Interference on 100% of the last 1 conclusive test | n/a | GreatFire, 23 Aug 2026 |
-| Squarespace | `www.squarespace.com` | Reachable | 2 recent conclusive tests connected normally | n/a | GreatFire, 12 Sep 2026 |
+| Squarespace | `www.squarespace.com` | Reachable | Reachability verdict only | n/a | GreatFire, 3 Oct 2026 |
 | Netlify | Not probed | Untested | No test on record | n/a | n/a |
 | Sanity | Not probed | Untested | No test on record | n/a | n/a |
 
@@ -165,7 +166,7 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 |---|---|---|---|---|---|
 | Algolia | `algolia.net` | Intermittent | Interference on 100% of the last 2 conclusive tests, on the domain apex; the per-application search hosts have no test | n/a | GreatFire, 31 Aug 2026 |
 | Firebase | `firebase.google.com` | Intermittent | Interference on 100% of the last 2 conclusive tests | n/a | GreatFire, 14 Sep 2026 |
-| AWS CloudFront | `aws.amazon.com/cloudfront` | Slow | 3 of 3 at 665ms first byte, and 3 of 3 at 718ms | Alibaba Cloud cn-zhangjiakou, and Beijing China Mobile | 21YunBox, 28 and 30 Aug 2026 |
+| AWS CloudFront | `aws.amazon.com/cloudfront` | Reachable | 3 of 3 at 665ms first byte, and 3 of 3 at 718ms | Alibaba Cloud cn-zhangjiakou, and Beijing residential broadband, carrier unstated | 21YunBox, 28 and 30 Aug 2026 |
 | Sentry | `browser.sentry-cdn.com` | Intermittent | Interference on 100% of the last 1 conclusive test | n/a | GreatFire, 1 Oct 2026 |
 | Bootstrap CDN | Not probed | Untested | No test on record | n/a | n/a |
 
@@ -173,22 +174,28 @@ The verdict column uses six values. Slow down on two of them, intermittent and s
 
 | Service | Host or target tested | Verdict | Measured | Vantage point | Source and date |
 |---|---|---|---|---|---|
-| PayPal | `www.paypal.com` | Reachable | 9 of 27 tested URLs disrupted, and the disrupted ones are checkout redirect paths | n/a | GreatFire, 18 May 2026 |
+| PayPal | `www.paypal.com` | Reachable | Reachability verdict only | n/a | GreatFire, 25 Sep 2026 |
 | Stripe | `js.stripe.com` | Untested | No test on record. See the note below: reachability is not the binding question here | n/a | n/a |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 
 ### Not yet probed
 
-Twelve dependencies have no test record we will stand behind, either because nobody has probed them or because the only verdict available is more than ninety days old. They are listed rather than dropped, because the gap is itself information: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, the LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo and the HubSpot tracking script. Cloudflare Turnstile was on this list until 8 October 2026. GreatFire tested its script on 23 September, and it now has a row in the table above.
+The register has no dated evidence for Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN or `js.stripe.com`. The HTTPS HubSpot loader, Drift’s `js.driftt.com` and Matomo’s `cdn.matomo.cloud` also remain untested in this evidence set. A result for a vendor’s website cannot establish the behaviour of its widget host.
 
-Drift makes thirteen, and it shows how this goes wrong. Drift is commonly reported as reachable, but that verdict is about the marketing site. `js.driftt.com`, the host that actually runs in a visitor's browser, has never been tested. A verdict on the wrong hostname is how most of this category gets written.
+Adobe Fonts, Font Awesome and the LinkedIn Insight Tag have dated evidence and are excluded from that list.
 
-Matomo's cloud service joined this list on 14 October 2026. Its row rested on a 21YunBox timing of the Matomo website, 21YunBox has since withdrawn it, and no dated test of the cloud tracker has taken its place.
+> GreatFire reports `use.typekit.net` and `snap.licdn.com` not blocked on 22 September 2026, one conclusive test each. It reports `use.fontawesome.com` not blocked on 11 October 2026 and `kit.fontawesome.com` not blocked on 13 September 2026, one conclusive test each.
+> Source: GreatFire, September and October 2026. https://en.greatfire.org/https/use.typekit.net ; https://en.greatfire.org/https/snap.licdn.com ; https://en.greatfire.org/https/use.fontawesome.com ; https://en.greatfire.org/https/kit.fontawesome.com
 
-The dates matter as much as the verdicts. A verdict from March tells you about March. Two rows above are six months old, Wistia and the Mapbox telemetry host, and both say so in their own cells. Wistia is a video embed a marketing team might add this afternoon, on the strength of a reading taken in the spring.
+The consumer observations add a different view. Adobe’s host did not answer on the home line, and the challenge-host result describes requests rather than completed challenges.
 
-We last checked this table against its sources on 22 September 2026, and the rows that rested on 21YunBox timings again on 14 October 2026. Any row that passes ninety days gets rechecked. If you're reading it well after that date and a row matters to your build, test the host yourself first.
+> On Beijing China Mobile (中国移动) residential broadband on 30 August 2026, 21YunBox recorded no answers in 11 requests to `use.typekit.net` and 6 to `static.hotjar.com`. It recorded 6 failed requests out of 15 to `fast.wistia.com`, and 3 out of 12 to `challenges.cloudflare.com`. GreatFire separately reports Turnstile’s script URL not blocked, with 2 conclusive tests, last tested 11 October 2026.
+> Source: 21YunBox, 30 August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html ; GreatFire, 11 October 2026. https://en.greatfire.org/https/challenges.cloudflare.com/turnstile/v0/api.js
+
+Marketo’s `munchkin.marketo.net` has a historical reachable verdict dated 31 May 2026, older than 90 days. We checked the sources on 16 October 2026; that check does not move their test dates. The next editorial review is set for 15 November 2026.
+
+> Source: GreatFire, 31 May 2026. https://en.greatfire.org/https/munchkin.marketo.net
 
 ### Why Stripe sits outside this table
 
@@ -199,7 +206,7 @@ Stripe is the entry people expect to find in a table like this one. It belongs t
 
 Domestic acquiring does not exist for a mainland entity regardless of whether the script reaches the browser, so tuning its delivery solves nothing. The question worth answering is how to take Alipay (支付宝), WeChat Pay (微信支付) and UnionPay (银联), and [our guide to running a WooCommerce store in China](/resources/china-web-guide/woocommerce-china-store-guide/) is the nearest thing we have published on it.
 
-PayPal is a different case and is in the table, because it is reachable and partially disrupted rather than unavailable, and because the disrupted paths are the checkout redirects.
+The verdict above covers `www.paypal.com`. It does not establish that a checkout completes.
 
 ## Strategies for foreign businesses
 

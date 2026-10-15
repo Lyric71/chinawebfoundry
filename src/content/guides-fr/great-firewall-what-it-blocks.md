@@ -6,7 +6,8 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-14
+updatedAt: 2026-10-16
+reviewBy: 2026-11-15
 category: Technology
 ---
 
@@ -120,10 +121,10 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Typeform | `form.typeform.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 30 septembre 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 10 septembre 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 14 septembre 2026 |
-| Cloudflare Turnstile | `challenges.cloudflare.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 23 septembre 2026 |
-| Calendly | `calendly.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 10 juin 2026 |
-| Intercom | `widget.intercom.io` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 16 juin 2026 |
-| Zendesk | `static.zdassets.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 29 avril 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 11 octobre 2026 |
+| Calendly | `calendly.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 3 octobre 2026 |
+| Intercom | `widget.intercom.io` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 23 septembre 2026 |
+| Zendesk | `static.zdassets.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 8 octobre 2026 |
 | Drift | `js.driftt.com` | Non testé | Aucun test enregistré | sans objet | GreatFire n'a jamais testé cet hôte |
 | Crisp | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 | Tawk.to | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
@@ -135,9 +136,9 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Disqus | `disqus.com` | Bloqué | 41 URL testées sur 43 bloquées, 2 perturbées | sans objet | GreatFire, 13 septembre 2026 |
 | SoundCloud | `w.soundcloud.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 24 juin 2026 |
 | Spotify | `open.spotify.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 12 septembre 2026 |
-| Instagram | `www.instagram.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 30 août 2026 |
+| Instagram | `www.instagram.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 3 octobre 2026 |
 | X, widget de fil d'actualité | `platform.twitter.com` | Bloqué | Verdict d'accessibilité seul | sans objet | GreatFire, 7 juillet 2026 |
-| Wistia | `fast.wistia.com` | Accessible | Verdict d'accessibilité seul, relevé vieux de six mois | sans objet | GreatFire, 17 mars 2026 |
+| Wistia | `fast.wistia.com` | Intermittent | 9 requêtes sur 15 ont reçu une réponse ; lecture vidéo complète non mesurée | China Mobile à Pékin | 21YunBox, 30 août 2026 |
 | Loom | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
 ### Cartes
@@ -155,7 +156,7 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 | Wix | `wix.com` | Répond puis cale | 0 sur 3 dans les 60 s, premier octet à 532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 30 août 2026 |
 | Shopify | `cdn.shopify.com` | Accessible | Connexion normale sur les 2 tests concluants récents | sans objet | GreatFire, 8 octobre 2026 |
 | Webflow | `webflow.com` | Intermittent | Interférences sur 100 % des tests concluants récents (1 test) | sans objet | GreatFire, 23 août 2026 |
-| Squarespace | `www.squarespace.com` | Accessible | Connexion normale sur les 2 tests concluants récents | sans objet | GreatFire, 12 septembre 2026 |
+| Squarespace | `www.squarespace.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 3 octobre 2026 |
 | Netlify | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 | Sanity | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
@@ -165,7 +166,7 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 |---|---|---|---|---|---|
 | Algolia | `algolia.net` | Intermittent | Interférences sur 100 % des 2 derniers tests concluants, relevées sur le domaine racine ; les hôtes de recherche propres à chaque application n'ont jamais été testés | sans objet | GreatFire, 31 août 2026 |
 | Firebase | `firebase.google.com` | Intermittent | Interférences sur 100 % des 2 derniers tests concluants | sans objet | GreatFire, 14 septembre 2026 |
-| AWS CloudFront | `aws.amazon.com/cloudfront` | Lent | 3 sur 3 (premier octet à 665 ms) et 3 sur 3 (718 ms) | Alibaba Cloud cn-zhangjiakou et China Mobile à Pékin | 21YunBox, 28 et 30 août 2026 |
+| AWS CloudFront | `aws.amazon.com/cloudfront` | Accessible | 3 sur 3 (premier octet à 665 ms) et 3 sur 3 (718 ms) | Alibaba Cloud cn-zhangjiakou et Connexion résidentielle à Pékin, opérateur non précisé | 21YunBox, 28 et 30 août 2026 |
 | Sentry | `browser.sentry-cdn.com` | Intermittent | Interférences sur 100 % des tests concluants récents (1 test) | sans objet | GreatFire, 1er octobre 2026 |
 | Bootstrap CDN | Non sondé | Non testé | Aucun test enregistré | sans objet | sans objet |
 
@@ -173,22 +174,28 @@ La colonne Verdict compte six valeurs. Deux appellent une lecture attentive : �
 
 | Service | Hôte ou cible du test | Verdict | Mesure | Point de mesure | Source et date |
 |---|---|---|---|---|---|
-| PayPal | `www.paypal.com` | Accessible | 9 URL testées sur 27 perturbées, toutes des redirections de paiement | sans objet | GreatFire, 18 mai 2026 |
+| PayPal | `www.paypal.com` | Accessible | Verdict d'accessibilité seul | sans objet | GreatFire, 25 septembre 2026 |
 | Stripe | `js.stripe.com` | Non testé | Aucun test enregistré. Voir plus bas : l'accessibilité n'est pas ici la question déterminante | sans objet | sans objet |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 
 ### En attente de mesure
 
-Douze dépendances n'ont fait l'objet d'aucun test que nous soyons prêts à reprendre à notre compte, soit que personne ne les ait mesurées, soit que le seul verdict disponible date de plus de quatre-vingt-dix jours. Nous les citons malgré tout, car ce silence est en soi une information : Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, le LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo et le script de suivi de HubSpot. Cloudflare Turnstile a figuré sur cette liste jusqu'au 8 octobre 2026. GreatFire a testé son script le 23 septembre, et le service a désormais sa ligne dans le tableau ci-dessus.
+Aucun test daté n’est consigné dans ce relevé pour Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN ou `js.stripe.com`. Le chargeur HTTPS de HubSpot, `js.driftt.com` pour Drift et `cdn.matomo.cloud` restent également sans résultat exploitable dans ce relevé. Un test du site d’un fournisseur ne permet pas de conclure sur le fonctionnement de son widget.
 
-Drift porte le total à treize, et son cas montre comment naît l'erreur. On le dit volontiers accessible, mais ce verdict vise le site marketing. `js.driftt.com`, l'hôte qu'appelle réellement le navigateur du visiteur, n'a jamais été testé. Se tromper de nom d'hôte : c'est ainsi que s'écrit l'essentiel de ce qui circule sur le sujet.
+Adobe Fonts, Font Awesome et le LinkedIn Insight Tag disposent de résultats datés. Ces services disposent d’un verdict attribué et daté.
 
-Le service cloud de Matomo a rejoint cette liste le 14 octobre 2026. Sa ligne reposait sur un chronométrage du site de Matomo par 21YunBox, depuis retiré, et aucun test daté du traceur cloud n'a pris le relais.
+> GreatFire indique que `use.typekit.net` et `snap.licdn.com` étaient accessibles le 22 septembre 2026, avec un test concluant chacun. Même verdict pour `use.fontawesome.com` le 11 octobre 2026 et `kit.fontawesome.com` le 13 septembre 2026, avec un test concluant chacun.
+> Source : GreatFire, septembre et octobre 2026. https://en.greatfire.org/https/use.typekit.net ; https://en.greatfire.org/https/snap.licdn.com ; https://en.greatfire.org/https/use.fontawesome.com ; https://en.greatfire.org/https/kit.fontawesome.com
 
-Les dates comptent autant que les verdicts. Un verdict de mars renseigne sur mars. Deux lignes du tableau datent de six mois, Wistia et l'hôte de télémétrie de Mapbox, et leurs cellules le signalent. Wistia est un lecteur vidéo qu'une équipe marketing pourrait intégrer dès cet après-midi, sur la foi d'un relevé effectué au printemps.
+Sur une connexion résidentielle, les résultats diffèrent. L’hôte d’Adobe n’y a pas répondu. Pour le service de vérification, le relevé compte les requêtes ayant reçu une réponse. Ils ne mesurent pas l’achèvement du parcours de vérification.
 
-Ce tableau a été confronté à ses sources le 22 septembre 2026, puis à nouveau le 14 octobre 2026 pour les lignes qui dépendaient des mesures de 21YunBox. Toute ligne qui dépasse quatre-vingt-dix jours est revérifiée. Si vous le consultez longtemps après cette date et qu'une ligne pèse sur votre projet, testez d'abord l'hôte vous-même.
+> Sur une ligne résidentielle China Mobile (中国移动) à Pékin, le 30 août 2026, 21YunBox n’a reçu aucune réponse aux 11 requêtes vers `use.typekit.net` ni aux 6 requêtes vers `static.hotjar.com`. Le relevé fait état de 6 échecs sur 15 requêtes vers `fast.wistia.com`, et 3 sur 12 vers `challenges.cloudflare.com`. GreatFire indique séparément que l’URL du script Turnstile était accessible lors de ses 2 tests concluants, le dernier datant du 11 octobre 2026.
+> Source : 21YunBox, 30 août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html ; GreatFire, 11 octobre 2026. https://en.greatfire.org/https/challenges.cloudflare.com/turnstile/v0/api.js
+
+Pour Marketo, le verdict d’accessibilité de `munchkin.marketo.net` date du 31 mai 2026 et remonte à plus de 90 jours. Les sources ont été vérifiées le 16 octobre 2026 ; les dates des tests restent inchangées. La prochaine révision éditoriale est fixée au 15 novembre 2026.
+
+> Source : GreatFire, 31 mai 2026. https://en.greatfire.org/https/munchkin.marketo.net
 
 ### Pourquoi Stripe reste hors de ce tableau
 
@@ -199,7 +206,7 @@ C'est le nom que l'on s'attend à voir figurer dans un tableau de ce genre. Son 
 
 Aucune acquisition locale n'est possible pour une entité du continent, que le script atteigne le navigateur ou non ; peaufiner sa diffusion ne sert donc à rien. La question utile est celle de l'encaissement via Alipay (支付宝), WeChat Pay (微信支付) et UnionPay (银联), et [notre guide consacré à l'exploitation d'une boutique WooCommerce en Chine](/fr/ressources/guide-web-chine/woocommerce-china-store-guide/) est ce que nous avons publié de plus proche sur ce point.
 
-PayPal, lui, est un cas différent et figure bien dans le tableau : il reste accessible, avec des perturbations partielles, et ce sont justement les redirections vers le paiement qui sont touchées.
+Le verdict du tableau porte sur `www.paypal.com`. Il ne permet pas de savoir si un paiement aboutit.
 
 ## Stratégies pour les entreprises étrangères
 

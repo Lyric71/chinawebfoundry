@@ -6,7 +6,8 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-14
+updatedAt: 2026-10-16
+reviewBy: 2026-11-15
 category: Technology
 ---
 
@@ -120,10 +121,10 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Typeform | `form.typeform.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 30. September 2026 |
 | Mailchimp | `cdn-images.mailchimp.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 10. September 2026 |
 | hCaptcha | `api2.hcaptcha.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 14. September 2026 |
-| Cloudflare Turnstile | `challenges.cloudflare.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 23. September 2026 |
-| Calendly | `calendly.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 10. Juni 2026 |
-| Intercom | `widget.intercom.io` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 16. Juni 2026 |
-| Zendesk | `static.zdassets.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 29. April 2026 |
+| Cloudflare Turnstile | `challenges.cloudflare.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 11. Oktober 2026 |
+| Calendly | `calendly.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 3. Oktober 2026 |
+| Intercom | `widget.intercom.io` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 23. September 2026 |
+| Zendesk | `static.zdassets.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 8. Oktober 2026 |
 | Drift | `js.driftt.com` | Nicht getestet | Kein Test verzeichnet | entfällt | Von GreatFire nie getestet |
 | Crisp | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 | Tawk.to | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
@@ -135,9 +136,9 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Disqus | `disqus.com` | Gesperrt | 41 von 43 getesteten URLs gesperrt, 2 gestört | entfällt | GreatFire, 13. September 2026 |
 | SoundCloud | `w.soundcloud.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 24. Juni 2026 |
 | Spotify | `open.spotify.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 12. September 2026 |
-| Instagram | `www.instagram.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 30. August 2026 |
+| Instagram | `www.instagram.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 3. Oktober 2026 |
 | X, Timeline-Widget | `platform.twitter.com` | Gesperrt | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 7. Juli 2026 |
-| Wistia | `fast.wistia.com` | Erreichbar | Nur Erreichbarkeitsbefund, Stand vor sechs Monaten | entfällt | GreatFire, 17. März 2026 |
+| Wistia | `fast.wistia.com` | Sporadisch gestört | 9 von 15 Anfragen beantwortet; vollständige Videowiedergabe nicht geprüft | China Mobile in Peking | 21YunBox, 30. August 2026 |
 | Loom | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
 ### Karten
@@ -155,7 +156,7 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 | Wix | `wix.com` | Antwortet, bleibt dann hängen | 0 von 3 binnen 60 s, erstes Byte nach 532 ms | Alibaba Cloud cn-zhangjiakou | 21YunBox, 30. August 2026 |
 | Shopify | `cdn.shopify.com` | Erreichbar | Normale Verbindung bei den 2 jüngsten aussagekräftigen Tests | entfällt | GreatFire, 8. Oktober 2026 |
 | Webflow | `webflow.com` | Sporadisch gestört | Störungen bei 100 % der jüngsten aussagekräftigen Tests (1 Test) | entfällt | GreatFire, 23. August 2026 |
-| Squarespace | `www.squarespace.com` | Erreichbar | Normale Verbindung bei den 2 jüngsten aussagekräftigen Tests | entfällt | GreatFire, 12. September 2026 |
+| Squarespace | `www.squarespace.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 3. Oktober 2026 |
 | Netlify | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 | Sanity | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
@@ -165,7 +166,7 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 |---|---|---|---|---|---|
 | Algolia | `algolia.net` | Sporadisch gestört | Störungen bei 100 % der letzten 2 aussagekräftigen Tests, ermittelt für die Stammdomain; für die Suchhosts der einzelnen Anwendungen liegt kein Test vor | entfällt | GreatFire, 31. August 2026 |
 | Firebase | `firebase.google.com` | Sporadisch gestört | Störungen bei 100 % der letzten 2 aussagekräftigen Tests | entfällt | GreatFire, 14. September 2026 |
-| AWS CloudFront | `aws.amazon.com/cloudfront` | Langsam | 3 von 3 (erstes Byte nach 665 ms) und 3 von 3 (718 ms) | Alibaba Cloud cn-zhangjiakou und China Mobile in Peking | 21YunBox, 28. und 30. August 2026 |
+| AWS CloudFront | `aws.amazon.com/cloudfront` | Erreichbar | 3 von 3 (erstes Byte nach 665 ms) und 3 von 3 (718 ms) | Alibaba Cloud cn-zhangjiakou und Privater Breitbandanschluss in Peking, Anbieter nicht angegeben | 21YunBox, 28. und 30. August 2026 |
 | Sentry | `browser.sentry-cdn.com` | Sporadisch gestört | Störungen bei 100 % der jüngsten aussagekräftigen Tests (1 Test) | entfällt | GreatFire, 1. Oktober 2026 |
 | Bootstrap CDN | Nicht geprüft | Nicht getestet | Kein Test verzeichnet | entfällt | entfällt |
 
@@ -173,22 +174,28 @@ Die Spalte „Befund“ kennt sechs Werte. Bei zweien lohnt ein zweiter Blick: �
 
 | Dienst | Host oder Testziel | Befund | Messwert | Messpunkt | Quelle und Datum |
 |---|---|---|---|---|---|
-| PayPal | `www.paypal.com` | Erreichbar | 9 von 27 getesteten URLs gestört, allesamt Checkout-Weiterleitungen | entfällt | GreatFire, 18. Mai 2026 |
+| PayPal | `www.paypal.com` | Erreichbar | Nur Erreichbarkeitsbefund | entfällt | GreatFire, 25. September 2026 |
 | Stripe | `js.stripe.com` | Nicht getestet | Kein Test verzeichnet. Siehe Hinweis unten: Die Erreichbarkeit ist hier nicht die entscheidende Frage | entfällt | entfällt |
 
 <!-- END DEPENDENCY TABLE: GENERATED -->
 
 ### Noch nicht gemessen
 
-Für zwölf Abhängigkeiten fehlt ein Testergebnis, für das wir einstehen würden. Entweder hat sie niemand gemessen, oder der einzige verfügbare Befund ist älter als neunzig Tage. Aufgeführt werden sie trotzdem, denn schon die Lücke ist aufschlussreich: Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN, `js.stripe.com`, das LinkedIn Insight Tag, Adobe Fonts, Font Awesome, Marketo und das Tracking-Skript von HubSpot. Cloudflare Turnstile stand bis zum 8. Oktober 2026 auf dieser Liste. GreatFire hat das Skript des Dienstes am 23. September geprüft; inzwischen hat Turnstile eine eigene Zeile in der obigen Tabelle.
+Für Crisp, Tawk.to, Loom, Sanity, Netlify, Bootstrap CDN und `js.stripe.com` liegen in diesem Verzeichnis keine datierten Tests vor. Auch für das HTTPS-Ladeskript von HubSpot, Drifts `js.driftt.com` und `cdn.matomo.cloud` fehlen verwertbare Ergebnisse. Ein Test der Anbieter-Website erlaubt keinen Rückschluss auf den Host des Widgets.
 
-Mit Drift sind es dreizehn, und an diesem Fall lässt sich ablesen, wie Fehlbefunde zustande kommen. Der Dienst gilt gemeinhin als erreichbar, doch das Urteil bezieht sich auf die Marketing-Website. `js.driftt.com`, den Host, den der Browser des Besuchers tatsächlich aufruft, hat nie jemand getestet. Ein Befund zum falschen Hostnamen: Auf diese Weise entsteht das meiste, was über das Thema geschrieben wird.
+Adobe Fonts, Font Awesome und das LinkedIn Insight Tag haben datierte Testergebnisse.
 
-Der Cloud-Dienst von Matomo ist am 14. Oktober 2026 auf diese Liste gerückt. Seine Zeile beruhte auf einer Zeitmessung der Matomo-Website, die 21YunBox inzwischen zurückgezogen hat; ein datierter Test des Cloud-Trackers ist bislang nicht an ihre Stelle getreten.
+> GreatFire meldete `use.typekit.net` und `snap.licdn.com` am 22. September 2026 als erreichbar, jeweils nach einem aussagekräftigen Test. Dasselbe gilt für `use.fontawesome.com` am 11. Oktober 2026 und `kit.fontawesome.com` am 13. September 2026, ebenfalls mit jeweils einem aussagekräftigen Test.
+> Quelle: GreatFire, September und Oktober 2026. https://en.greatfire.org/https/use.typekit.net ; https://en.greatfire.org/https/snap.licdn.com ; https://en.greatfire.org/https/use.fontawesome.com ; https://en.greatfire.org/https/kit.fontawesome.com
 
-Das Testdatum zählt so viel wie der Befund. Ein Befund vom März sagt etwas über den März. Zwei Zeilen der Tabelle sind sechs Monate alt, Wistia und der Telemetrie-Host von Mapbox, und beide weisen in ihren Zellen darauf hin. Wistia ist ein Videoplayer, den ein Marketingteam noch heute Nachmittag einbinden könnte, im Vertrauen auf eine Messung aus dem Frühjahr.
+Am beobachteten Privatanschluss antwortete der Adobe-Host nicht. Beim Verifizierungsdienst wurde erfasst, welche Anfragen eine Antwort erhielten. Ob Nutzer die Prüfung abschließen konnten, geht daraus nicht hervor.
 
-Mit ihren Quellen abgeglichen haben wir diese Tabelle zuletzt am 22. September 2026, die auf Messungen von 21YunBox gestützten Zeilen erneut am 14. Oktober 2026. Jede Zeile, die älter als neunzig Tage wird, prüfen wir erneut. Wer sie deutlich später liest und für sein Projekt auf eine bestimmte Zeile angewiesen ist, sollte den Host zuerst selbst testen.
+> Über einen privaten Breitbandanschluss von China Mobile (中国移动) in Peking erhielt 21YunBox am 30. August 2026 auf keine der 11 Anfragen an `use.typekit.net` und keine der 6 Anfragen an `static.hotjar.com` eine Antwort. Bei `fast.wistia.com` scheiterten 6 von 15 Anfragen, bei `challenges.cloudflare.com` 3 von 12. GreatFire meldet die Skript-URL von Turnstile gesondert als erreichbar: bei 2 aussagekräftigen Tests, zuletzt am 11. Oktober 2026.
+> Quelle: 21YunBox, 30. August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html ; GreatFire, 11. Oktober 2026. https://en.greatfire.org/https/challenges.cloudflare.com/turnstile/v0/api.js
+
+Der Erreichbarkeitsbefund für Marketos `munchkin.marketo.net` stammt vom 31. Mai 2026 und ist älter als 90 Tage. Die Quellen wurden am 16. Oktober 2026 erneut geprüft. Die Testdaten selbst bleiben unverändert. Die nächste redaktionelle Prüfung folgt am 15. November 2026.
+
+> Quelle: GreatFire, 31. Mai 2026. https://en.greatfire.org/https/munchkin.marketo.net
 
 ### Warum Stripe außerhalb dieser Tabelle steht
 
@@ -199,7 +206,7 @@ Stripe ist der Name, den man in einer solchen Tabelle erwartet. Sein Fall betrif
 
 Ein Unternehmen auf dem Festland bekommt kein inländisches Acquiring, ganz gleich, ob das Skript den Browser erreicht. Die Auslieferung zu optimieren, bringt daher nichts. Die eigentlich relevante Frage lautet, wie man Zahlungen über Alipay (支付宝), WeChat Pay (微信支付) und UnionPay (银联) annimmt. Was wir dazu bislang veröffentlicht haben, findet sich am ehesten in [unserem Leitfaden zum Betrieb eines WooCommerce-Shops in China](/de/ressourcen/china-web-leitfaden/woocommerce-china-store-guide/).
 
-PayPal liegt anders und steht deshalb in der Tabelle: Der Dienst ist erreichbar, wenn auch teilweise gestört, und gestört sind ausgerechnet die Weiterleitungen im Bezahlvorgang.
+Der Befund in der Tabelle gilt für `www.paypal.com`. Er belegt nicht, dass sich ein Zahlungsvorgang abschließen lässt.
 
 ## Strategien für ausländische Unternehmen
 
