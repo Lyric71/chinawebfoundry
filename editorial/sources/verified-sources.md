@@ -2474,3 +2474,115 @@ Check 1: 2026-10-16, direct HTTPS fetch. Check 2: 2026-10-16, independent re-fet
 - https://en.greatfire.org/https/www.squarespace.com: 2026-10-03; not blocked; 0/3 disrupted. Verified 1 and 2: 2026-10-16. GreatFire names no probe vantage.
 
 21YunBox sources: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html, https://www.21cloudbox.com/support/aws-cloudfront-china.html, https://www.21cloudbox.com/support/wix-china.html. Verified 1 and 2: 2026-10-16. Reused F6/F7 paired figures unchanged; Wix and CloudFront figures from 14 October unchanged. Additional consumer observations on 30 August 2026, Beijing China Mobile residential broadband: use.typekit.net 0 of 11 answers, static.hotjar.com 0 of 6, fast.wistia.com 6 failures of 15 requests (9 answers), challenges.cloudflare.com 3 failures of 12 requests (9 answers). The latter two are response observations, not completed player/challenge workflows. The CloudFront product-page source names only Beijing residential broadband, so remove the inferred carrier from the live table. F42 corrected for dated Adobe, Font Awesome and LinkedIn records; Marketo has a historical 31 May 2026 reachable verdict.
+
+## B3 entries, 17 October 2026 (china-website-timeline, and the live pages corrected with it)
+
+Check 1 at research time and check 2 in createarticle iteration 8, both on
+17 October 2026: curl with the quoted phrase matched in the stripped text;
+WebFetch with a differently worded prompt for the two client-rendered
+Tencent Cloud pages. Alibaba dates are the page's `lastModifiedTime`.
+
+### Market entity registration: on the spot, or within 3 working days (State Council Order 746, art 19)
+- Fact ID: none
+- Value: "对申请材料齐全、符合法定形式的予以确认并当场登记。不能当场登记的，应当在3个工作日内予以登记；情形复杂的，经登记机关负责人批准，可以再延长3个工作日。"
+- Vantage point: n/a
+- As of: promulgated 27 July 2021 (国务院令第746号), in force 1 March 2022
+- Source: State Council, 中华人民共和国市场主体登记管理条例, republished by the Shanghai Municipal People's Government
+- URL: https://www.shanghai.gov.cn/sczr1/20230508/3d4fe69e2cc04091a516be3483ef6357.html
+- Verified 1: 2026-10-17, curl, art 19 and the order number present
+- Verified 2: 2026-10-17, curl re-fetch, both phrases present
+- Used in: china-website-timeline
+- Notes: Covers 公司 (art 2), so a WFOE. The clock starts with a complete file; the parent-company paperwork before it has no published duration, so no entity-setup figure is printed.
+
+### China joins the Apostille Convention, in force 7 November 2023 (MFA)
+- Fact ID: none
+- Value: "其他缔约国公文书送中国内地使用，只需办理该国附加证明书，无需办理该国和中国驻当地使领馆的领事认证。" In force for China 2023年11月7日.
+- Vantage point: n/a
+- As of: announcement of 23 October 2023
+- Source: Ministry of Foreign Affairs (外交部)
+- URL: https://www.mfa.gov.cn/wjbxw_new/202310/t20231023_11165858.shtml
+- Verified 1: 2026-10-17, curl
+- Verified 2: 2026-10-17, curl re-fetch, both phrases present
+- Used in: china-website-timeline
+
+### Baidu fast inclusion offline 26 April 2024, replaced by fast crawl (F24)
+- Fact ID: F24 (corrected 2026-10-17)
+- Value: 发布日期 2024-04-24; "资源平台于 4月26日 下线「快速收录」工具，上新「快速抓取」工具"; original fast-inclusion quotas recalled
+- Vantage point: n/a
+- As of: 24 April 2024
+- Source: Baidu Search Resource Platform (百度搜索资源平台), 关于升级平台「快速收录」工具的通知
+- URL: https://ziyuan.baidu.com/wiki/3546
+- Verified 1: 2026-10-17, curl
+- Verified 2: 2026-10-17, curl re-fetch
+- Used in: china-website-timeline
+
+### Fast crawl: VIP partners automatically, others through activities, no indexing guarantee (F24)
+- Fact ID: F24
+- Value: 发布日期 2024-04-19; "站点成为搜索资源平台VIP合作伙伴，我们会自动赋予权益"; non-VIP sites earn it through platform activities; "通过快速抓取提交的资源将优先抓取，对是否收录及线上展现效果不保证"
+- Vantage point: n/a
+- As of: 19 April 2024
+- Source: Baidu Search Resource Platform, 「快速抓取」使用说明与权益获取
+- URL: https://ziyuan.baidu.com/college/articleinfo?id=3549
+- Verified 1: 2026-10-17, curl
+- Verified 2: 2026-10-17, curl re-fetch
+- Used in: china-website-timeline
+
+### Sitemap submission shut for non-real-name accounts and low-quality sites, 22 September 2023 (F24)
+- Fact ID: F24 (corrected 2026-10-17)
+- Value: 发布日期 2023-09-22; "针对非实名账户内站点、低质站点关停sitemap提交能力并调整API每日推送额度"; rights restored gradually for compliant sites after the holiday
+- Vantage point: n/a
+- As of: 22 September 2023
+- Source: Baidu Search Resource Platform, 关于回收网站提交配额的通知
+- URL: https://ziyuan.baidu.com/wiki/3531
+- Verified 1: 2026-10-17, curl
+- Verified 2: 2026-10-17, curl re-fetch
+- Used in: china-website-timeline
+- Notes: The fact bank used to say Baidu "recalled sitemap quotas in September 2023" as if for every site. Corrected in PLAN.md section 4 and in the T3-06 brief on 2026-10-17. No current Baidu page says whether every site has had sitemap submission restored; print only what the notice says.
+
+### Baidu indexing timetable for a new site: still no primary source (second search)
+- Fact ID: F24
+- Value: none. Search on 17 October 2026 (site:ziyuan.baidu.com 新站 收录 时间) returned old tool pages about the retired fast inclusion and push tools, no timetable for a new site.
+- Vantage point: n/a
+- As of: 17 October 2026
+- Source: none
+- URL: none
+- Verified 1: 2026-10-17, search
+- Verified 2: n/a
+- Used in: china-website-timeline prints "two to four weeks" only as our planning figure ("Our planning allows two to four weeks"), beside Baidu's "no guarantee" line. F24 corrected to say so; the live pages that state it as a planning expectation (FAQ data in four locales) now say "we plan".
+
+### ICP filing is free; the server is not; offshore servers need no ICP filing (Alibaba Cloud)
+- Fact ID: F26
+- Value: "ICP 备案不收取费用，但 ICP 备案需要购买支持备案的云服务器，您在购买云服务器时会产生费用。"; "若解析指向境外服务器（如中国香港），则无需 ICP 备案，但需完成公安联网备案。"
+- Vantage point: n/a
+- As of: 23 April 2026 (lastModifiedTime)
+- Source: Alibaba Cloud (阿里云) help centre, 不同场景下的备案常见问题
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/product-overview/faq-about-icp-filing-applications-in-different-scenarios
+- Verified 1: 2026-10-17, curl
+- Verified 2: 2026-10-17, curl re-fetch, both sentences present
+- Used in: china-website-timeline (blockquote, and the Hong Kong FAQ answer)
+
+### Domain checks before filing: mainland registrar, 2 to 3 day sync, full-width brackets, 45 days (Alibaba Cloud, extends the A6 entry)
+- Fact ID: none
+- Value: domains registered on alibabacloud.com "需转入中国内地域名注册商，并完成域名实名认证才可以进行 ICP 备案"; "域名实名认证或过户信息修改后，同步到工信部系统需要 2～3 天"; holder name brackets must match the business licence (中文全角括号); "域名距离到期日期大于 45 天"
+- Vantage point: n/a
+- As of: 23 September 2026 (lastModifiedTime)
+- Source: Alibaba Cloud (阿里云) help centre, 域名准备与检查
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/prepare-and-check-the-domain-name
+- Verified 1: 2026-10-17, curl
+- Verified 2: 2026-10-17, curl re-fetch, four phrases present
+- Used in: china-website-timeline ("What stalls it" table)
+
+### Reused in B3 with check 1 and check 2 on 2026-10-17
+- Alibaba Cloud ICP filing process overview (F26): 1～2 and 1～20 working days, 公安备案 within 30 days; lastModifiedTime 26 August 2026. Also used for the FAQ data correction in four locales.
+- Alibaba Cloud international accounts cannot file; filing entity a mainland enterprise or resident (F27): 20 August 2026.
+- Alibaba Cloud mainland server, 3 months or longer (F27): 24 September 2026.
+- Alibaba Cloud FAQ, no web service before the filing number (F25): 23 September 2026.
+- Alibaba Cloud SMS check within 24 hours: 17 September 2025.
+- Alibaba Cloud pre-approvals (医疗器械 present): 21 August 2026.
+- Alibaba Cloud site-name rules (三个及以上汉字): 21 September 2026.
+- Alibaba Cloud footer number page: 12 August 2026 (re-fetched; not cited in the piece).
+- Tencent Cloud 243/19650, site closed during a first filing: 最近更新时间 2026-08-21 16:51.
+- Tencent Cloud 243/19644, content within business scope: 最近更新时间 2026-07-23 10:03.
+- MIIT Order 33 art 12, 二十个工作日 (amended 18 January 2024).
+- Shanghai CA licence guide, 自受理之日起60日内 (1 June 2015). Also used for the FAQ data correction in four locales.
+- Order 292 art 3, 有偿 (text of 8 January 2011). Used for the FAQ data correction ("for sites that process transactions" became "for sites that charge users for information or online services", four locales).

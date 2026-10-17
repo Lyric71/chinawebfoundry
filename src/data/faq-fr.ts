@@ -92,16 +92,16 @@ export const faqTopicsFr: FAQTopic[] = [
     icon: 'shield',
     items: [
       {
-        question: "C’est quoi exactement la licence ICP ? En ai-je vraiment besoin ?",
-        answer: "Oui, et sans raccourci possible. ICP (互联网内容提供商) signifie Internet Content Provider. C’est l’autorisation délivrée par le Ministère de l’Industrie et des Technologies de l’Information (工业和信息化部), exigée par la loi pour tout site hébergé sur le continent. Deux versions comptent : l’ICP Bei’an (备案) pour les sites d’information, l’ICP Jing Ying (经营许可证) pour les sites qui encaissent. Nous montons le dossier de bout en bout.",
+        question: "Qu’est-ce que la licence ICP, au juste ? En avons-nous vraiment besoin ?",
+        answer: "Oui, dès que le site tourne sur un serveur en Chine continentale, même si le dépôt suffit à la plupart des sites. ICP (互联网内容提供商) signifie Internet Content Provider. Le ministère de l’Industrie et des Technologies de l’information (工业和信息化部) prévoit deux régimes : le dépôt ICP (ICP备案) pour les sites en accès libre, la licence ICP (ICP许可证) pour ceux qui font payer l’accès à l’information ou à des services en ligne. Un site d’entreprise relève du seul dépôt. Nous préparons le dossier de A à Z.",
       },
       {
         question: "Et si nous n’avons pas encore d’entité chinoise ?",
-        answer: "L’ICP (互联网内容提供商) se complique alors. Deux voies : créer une WFOE (外商独资企业), ou s’adosser à une entité chinoise prête à parrainer le dépôt. Nous avons accompagné les deux. Sans entité, et sans envie d’en créer une, l’hébergement continental se ferme : Hong Kong (香港) reste un plan B sérieux.",
+        answer: "Le dépôt doit alors attendre : il se fait obligatoirement au nom d’une société ou d’un résident du continent. Deux voies existent : créer une WFOE (外商独资企业), ou laisser une société chinoise partenaire déposer le site en son nom, ce qui en fait l’exploitant aux yeux du registre. Nous avons accompagné les deux. Sans entité, et sans envie d’en créer une, l’hébergement continental se ferme : Hong Kong (香港) reste un plan B sérieux.",
       },
       {
         question: "Combien de temps prend réellement le dépôt ICP ?",
-        answer: "Le Bei’an (备案) prend en général 2 à 4 semaines. Le Jing Ying (经营许可证) demande 2 à 3 mois, parfois plus. La grande variable : la complétude de votre dossier. Nous vous remettons une checklist dès la semaine 1 pour que la partie lente ne plombe pas le reste.",
+        answer: "Nous tablons sur 3 à 6 semaines pour le dépôt ICP (ICP备案). Alibaba Cloud affiche 1 à 2 jours ouvrés pour son propre contrôle, puis en général 1 à 20 jours ouvrés pour l’examen provincial, auxquels s’ajoute la collecte des pièces. La licence ICP (ICP许可证) est instruite dans les 60 jours qui suivent l’acceptation du dossier ; nous la planifions sur 12 à 18 semaines. La grande variable : la complétude de votre dossier. Nous vous remettons une checklist dès la semaine 1 pour que la partie lente ne plombe pas le reste.",
       },
       {
         question: "Qu’en est-il de la résidence des données et de la conformité PIPL ?",
@@ -294,7 +294,7 @@ export const faqTopicsFr: FAQTopic[] = [
     items: [
       {
         question: "Quels gains de performance pouvons-nous attendre ?",
-        answer: "Les sites lents migrés vers Aliyun (阿里云) passent en général de 12-15 secondes de chargement à moins de 2. Les développements neufs descendent sous la seconde sur les connexions continentales. L’indexation Baidu (百度) s’amorce d’ordinaire 2 à 4 semaines après la mise en ligne, avec une configuration SEO soignée.",
+        answer: "Nous ne promettons aucun temps de chargement avant d’avoir mesuré votre site. Le gain tient à deux leviers : héberger sur le continent et supprimer les appels vers les hôtes que le Grand Pare-feu bloque ou ralentit. Notre audit stratégique les mesure tous deux avant le moindre devis. Côté Baidu (百度), nous tablons sur 2 à 4 semaines après la mise en ligne avant l’indexation des premières pages.",
       },
       {
         question: "Comment mesurez-vous le succès d’un projet en Chine ?",

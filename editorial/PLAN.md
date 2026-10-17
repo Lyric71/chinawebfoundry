@@ -422,7 +422,7 @@ Every figure below carries a vantage point, and the vantage point changes the an
 - **F21.** Yoast and Rank Math each output exactly one Baidu-specific thing, the site verification meta tag (`baidu-site-verification`). Everything else is manual: no push to the 普通收录 or 快速收录 API, no Baidu Tongji (百度统计) injection, no Baidu-format structured data, no robots.txt handling for Baiduspider.
 - **F22.** Maintained Baidu push plugins exist. `baidu-submit-link` v4.5.0, updated 4 September 2026, tested to WP 7.1, roughly 2,000 active installs, posts to the real endpoint `data.zz.baidu.com/urls` and covers Baidu, Bing, IndexNow, Yandex and Toutiao. It also phones home to `bsl.api.wbolt.com` and uses `oauth2.googleapis.com` for its Google module, which fails from a mainland server. Alternatives: `zhanzhangb-baidu-submit` v1.9.6, `baiduseo` v2.2.4.
 - **F23.** **There is no maintained dedicated Baidu Tongji plugin.** The only dedicated one on WordPress.org, `baidu-tongji-generator`, was closed on 27 July 2023 for a security issue. WPJAM Basic (7.1.2, updated 3 October 2026, 4,000+ active installs) is a general toolkit with a module that adds the Baidu Tongji (百度统计) code, so say "no maintained plugin dedicated to Tongji", never "no plugin can add it". Standard practice remains pasting the `hm.baidu.com` snippet into the theme header or a code-snippets plugin; Baidu's own instruction is to install the asynchronous code before `</head>` on every page of the site (Baidu Tongji help, 如何手动安装代码, updated 22 September 2021). (Refined 13 October 2026.)
-- **F24.** Baidu killed fast inclusion in April 2024, replacing it with VIP-gated fast crawl, and recalled sitemap quotas in September 2023. Realistic timeline to first indexing is two to four weeks.
+- **F24.** Baidu took fast inclusion (快速收录) offline on 26 April 2024 and launched fast crawl (快速抓取) in its place, recalling the old quotas (Baidu Search Resource Platform notice of 24 April 2024, https://ziyuan.baidu.com/wiki/3546). Fast crawl is granted automatically to VIP partners and otherwise only through platform activities, and Baidu guarantees nothing about indexing (fast crawl guide, 19 April 2024, https://ziyuan.baidu.com/college/articleinfo?id=3549). On 22 September 2023 Baidu shut sitemap submission for sites in accounts without real-name verification and for low-quality sites, and adjusted daily API push quotas (https://ziyuan.baidu.com/wiki/3531); it was not a recall of every site's sitemap quota. Baidu publishes no timetable for indexing a new site (searched 15 and 17 October 2026): two to four weeks to first indexing is our own planning figure, printed as ours ("we plan"), never as Baidu's. (Corrected 17 October 2026 by the B3 run.)
 
 ### Infrastructure, filing and hosting
 
@@ -945,7 +945,7 @@ Five articles. This term resolves in an answer engine, so these are written to b
 
 **Links.** Up to `/web-agency-china/`. Sideways to `choosing-web-agency-china` and `china-website-timeline`.
 
-**On publish, add the link an earlier piece could not.** `china-website-brief-checklist` (B5, drafted 1 October 2026) wanted a sideways link to this guide and used `icp-licence-filing-foreign-companies` instead. The publish step of this piece adds the link to this guide from B5 in every locale B5 has, inside an existing sentence about budget where one exists, runs any added sentence through `/deep-translate`, and moves B5's `updatedAt`.
+**On publish, add the link an earlier piece could not.** `china-website-brief-checklist` (B5, drafted 1 October 2026) wanted a sideways link to this guide and used `icp-licence-filing-foreign-companies` instead. The publish step of this piece adds the link to this guide from B5 in every locale B5 has, inside an existing sentence about budget where one exists, runs any added sentence through `/deep-translate`, and moves B5's `updatedAt`. The same applies to `china-website-timeline` (B3, drafted 17 October 2026), which links `china-website-brief-checklist` in place of this guide in its "What shortens the timeline" section ("what to ask a vendor about filing weeks and budget lines"): the publish step of this piece adds a link to this guide in that section of B3 in every locale, inside an existing sentence about budget, through `/deep-translate`, and moves B3's `updatedAt`.
 
 **Metadata.**
 ```yaml
@@ -985,12 +985,12 @@ excerpt: "How China website pricing is actually structured, and the line items t
 
 **Required table.** This is the linkable asset. Phase, weeks, runs in parallel with, blocked by.
 
-**Links.** Up to `/web-agency-china/`. Sideways to `migrate-wordpress-to-china` and `china-website-cost`.
+**Links.** Up to `/web-agency-china/`. Sideways to `migrate-wordpress-to-china` and `china-website-cost`. Drafted 17 October 2026 with `china-website-brief-checklist` in place of `china-website-cost`, which is B2 (12 January 2027, gated); B2's brief carries the "On publish" line that adds the link to this guide. The brief's description ("The build is not the long pole...") was a negate-then-assert line under the anti-AI rules and overstated the case when an entity exists; corrected 17 October 2026.
 
 **Metadata.**
 ```yaml
 title: "How Long a China Website Takes"
-description: "The build is not the long pole. The entity and the filing are, and they run in sequence. A realistic timeline with the blockers named."
+description: "With a mainland entity in place we plan fourteen weeks. The entity and the ICP filing run in sequence and set the date. The plan, week by week."
 excerpt: "The three clocks on a China web project, which ones overlap, and where teams routinely lose a month."
 ```
 
@@ -1709,7 +1709,7 @@ excerpt: "The failure mode that looks like working software, the measurements th
 
 **Required measurements.** Before: indexed page count in Baidu Search Resource Platform (百度搜索资源平台) on a stated date, crawl requests from Baiduspider in the server log over a stated window, and impressions for the target Chinese queries. Zero is a valid before figure and should be published as zero. After: the same three, from the same tools, on a stated later date, plus the number of URLs pushed to `data.zz.baidu.com/urls` and the acceptance rate. Name the mainland region the site is served from, since crawl behavior against an overseas origin is a different experiment.
 
-**What to include about friction.** The dead first month. Baidu killed fast inclusion in April 2024 and recalled sitemap quotas in September 2023, so two to four weeks to first indexing is the realistic floor (F24). Then the security stack problem: Solid Security ships a HackRepair ban list that returns 403 for `360Spider` and `YisouSpider` at the server config level, opt in and off by default, and a client who switched on the default ban list is refusing Chinese crawlers without knowing it (F16). Wordfence is the mirror image, since its only crawler policy exempts verified Google crawlers (Google IP ranges, then a forward-confirmed reverse lookup to Google's hostnames) with no Baidu equivalent, so Baiduspider loses protection the moment rate limits go on (F15). Say which of these was found and how long it had been running.
+**What to include about friction.** The dead first month. Baidu took fast inclusion offline on 26 April 2024 and, since 22 September 2023, shuts sitemap submission for sites in accounts without real-name verification and for low-quality sites, so we plan two to four weeks to first indexing; that planning figure is ours, not Baidu's (F24). Then the security stack problem: Solid Security ships a HackRepair ban list that returns 403 for `360Spider` and `YisouSpider` at the server config level, opt in and off by default, and a client who switched on the default ban list is refusing Chinese crawlers without knowing it (F16). Wordfence is the mirror image, since its only crawler policy exempts verified Google crawlers (Google IP ranges, then a forward-confirmed reverse lookup to Google's hostnames) with no Baidu equivalent, so Baiduspider loses protection the moment rate limits go on (F15). Say which of these was found and how long it had been running.
 
 **Client naming.** Named. A supplier that wants Chinese buyers has no reason to hide.
 

@@ -92,16 +92,16 @@ export const faqTopicsEs: FAQTopic[] = [
     icon: 'shield',
     items: [
       {
-        question: '¿Qué es exactamente la licencia ICP? ¿Es realmente obligatoria?',
-        answer: 'Sí, y no hay atajo posible. ICP (互联网内容提供商) significa Internet Content Provider: es el permiso que concede el Ministerio de Industria y Tecnología de la Información (工业和信息化部), y la ley lo exige a cualquier sitio alojado en el continente. Hay dos tipos: el Bei\'an (备案), para sitios informativos, y el Jing Ying (经营许可证), para los que venden en línea. Del expediente nos encargamos nosotros, de principio a fin.',
+        question: '¿Qué es exactamente la licencia ICP? ¿De verdad la necesitamos?',
+        answer: 'Si el sitio está alojado en un servidor de China continental, sí, aunque la mayoría solo necesita el registro. ICP (互联网内容提供商) significa Internet Content Provider. El Ministerio de Industria y Tecnología de la Información (工业和信息化部) distingue dos regímenes: el registro ICP (ICP备案), para los sitios de acceso libre, y la licencia ICP (ICP许可证), para los que cobran a sus usuarios por información o por servicios en línea. A una web corporativa le basta con el registro. Nos ocupamos del expediente de principio a fin.',
       },
       {
         question: '¿Y si todavía no tenemos una entidad china?',
-        answer: 'Ahí el ICP (互联网内容提供商) se complica. Caben dos opciones: constituir una WFOE (外商独资企业), la sociedad de capital extranjero, o apoyarse en una entidad china que avale la solicitud. Hemos acompañado a clientes por las dos vías. Si no tiene entidad y prefiere no crearla, el alojamiento continental queda descartado y Hong Kong (香港) pasa a ser una alternativa razonable.',
+        answer: 'Entonces el registro tiene que esperar, porque se tramita a nombre de una empresa o de un residente del continente. Caben dos opciones: constituir una WFOE (外商独资企业), la sociedad de capital extranjero, o que una empresa china asociada registre el sitio a su nombre, que pasará así a figurar como titular del sitio. Hemos acompañado a clientes por las dos vías. Si no tiene entidad y prefiere no crearla, el alojamiento continental queda descartado y Hong Kong (香港) pasa a ser una alternativa razonable.',
       },
       {
         question: '¿Cuánto tarda realmente la tramitación del ICP?',
-        answer: 'El Bei\'an (备案) suele tardar entre dos y cuatro semanas; el Jing Ying (经营许可证), de dos a tres meses, a veces más. Todo depende de una cosa: lo completo que esté su expediente. Por eso le pasamos una lista de comprobación en la primera semana, para que el papeleo no frene el resto del proyecto.',
+        answer: 'Contamos con entre tres y seis semanas para el registro ICP (ICP备案). Alibaba Cloud indica de 1 a 2 días hábiles para su propia revisión y, por lo general, de 1 a 20 días hábiles para la revisión provincial, a los que se suma la recopilación de documentos. La licencia ICP (ICP许可证) debe resolverse en los 60 días siguientes a la admisión a trámite; nosotros la planificamos en un plazo de entre doce y dieciocho semanas. Todo depende de una cosa: lo completo que esté su expediente. Por eso le pasamos una lista de comprobación en la primera semana, para que el papeleo no frene el resto del proyecto.',
       },
       {
         question: '¿Cómo gestionan la residencia de los datos y el cumplimiento de la PIPL?',
@@ -294,7 +294,7 @@ export const faqTopicsEs: FAQTopic[] = [
     items: [
       {
         question: '¿Qué mejoras de rendimiento podemos esperar?',
-        answer: 'Un sitio lento que migramos a Aliyun (阿里云) suele pasar de doce o quince segundos de carga a menos de dos. Un desarrollo nuevo carga en menos de un segundo desde el continente. Y la indexación en Baidu (百度), con el SEO bien configurado, suele empezar entre dos y cuatro semanas después del lanzamiento.',
+        answer: 'No prometemos ningún tiempo de carga antes de haber medido su sitio. La mejora depende de dos cambios: alojar en el continente y eliminar las llamadas a servidores que el Gran Cortafuegos bloquea o ralentiza. Nuestra auditoría estratégica cuantifica ambos factores antes de presentar un presupuesto. En Baidu (百度), calculamos entre dos y cuatro semanas desde el lanzamiento hasta que se indexan las primeras páginas.',
       },
       {
         question: '¿Cómo miden el éxito de un proyecto en China?',

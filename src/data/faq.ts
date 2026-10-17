@@ -102,16 +102,16 @@ export const faqTopics: FAQTopic[] = [
     icon: 'shield',
     items: [
       {
-        question: 'What exactly is an ICP license? Do I actually need one?',
-        answer: "You do, and there's no workaround. ICP (互联网内容提供商) stands for Internet Content Provider. It's a permit from China's Ministry of Industry and Information Technology (工业和信息化部), required by law for any website hosted on a mainland Chinese server. Two types matter: ICP Bei'an (备案) for informational sites, and ICP Jing Ying (经营许可证) for sites that process transactions. We handle the application start to finish.",
+        question: 'What exactly is an ICP licence? Do I actually need one?',
+        answer: "If the site is served from a mainland server, yes, though what most sites need is the filing. ICP (互联网内容提供商) stands for Internet Content Provider. China's Ministry of Industry and Information Technology (工业和信息化部) runs two tiers: the ICP filing (ICP备案) for sites that are free to read, and the ICP licence (ICP许可证) for sites that charge users for information or online services. A company site needs only the filing. We prepare the application start to finish.",
       },
       {
         question: "What if we don't have a Chinese business entity yet?",
-        answer: "Then ICP (互联网内容提供商) gets harder. You either need to set up a WFOE (外商独资企业) or partner with a Chinese entity that can sponsor the filing. We've helped clients navigate both routes. If you don't have an entity and don't want one, mainland China hosting isn't an option, but Hong Kong (香港) hosting still works as a fallback.",
+        answer: "Then the filing has to wait, because it's made in the name of a mainland company or a mainland resident. You either set up a WFOE (外商独资企业), or a mainland company you work with files the site in its own name, and the record then shows the site as theirs. We've helped clients take both routes. If you don't have an entity and don't want one, mainland China hosting isn't an option, but Hong Kong (香港) hosting still works as a fallback.",
       },
       {
         question: 'How long does ICP filing actually take?',
-        answer: "Bei'an (备案) typically 2 to 4 weeks. Jing Ying (经营许可证) 2 to 3 months and sometimes longer. The variable is documentation completeness on your side. We give you a checklist in week one so the slow part doesn't slow us down.",
+        answer: "We plan 3 to 6 weeks for the ICP filing (ICP备案). Alibaba Cloud quotes 1 to 2 working days for its own check and generally 1 to 20 working days for the provincial review, and gathering documents comes on top. The ICP licence (ICP许可证) is reviewed within 60 days of acceptance, and we plan 12 to 18 weeks for it. The variable is documentation completeness on your side. We give you a checklist in week one so the slow part doesn't slow us down.",
       },
       {
         question: 'What about data residency and PIPL compliance?',
@@ -304,7 +304,7 @@ export const faqTopics: FAQTopic[] = [
     items: [
       {
         question: 'What kind of performance gains can we expect?',
-        answer: 'Existing slow sites moved to Aliyun (阿里云) typically go from 12 to 15 second load times to under 2 seconds. New builds hit under 1 second on mainland connections. Baidu (百度) indexing usually starts within 2 to 4 weeks of launch with proper SEO setup.',
+        answer: "We don't promise a load time before we've measured your site. The gains come from two changes: hosting on the mainland, and removing calls to hosts the Great Firewall blocks or slows. Our strategy audit measures both before we quote. For Baidu (百度), we plan 2 to 4 weeks after launch before the first pages are indexed.",
       },
       {
         question: 'How do you measure success on China projects?',

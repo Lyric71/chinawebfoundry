@@ -92,16 +92,16 @@ export const faqTopicsDe: FAQTopic[] = [
     icon: 'shield',
     items: [
       {
-        question: 'Was genau ist eine ICP-Lizenz? Brauche ich sie wirklich?',
-        answer: 'Ja, und es gibt keinen Umweg. ICP (互联网内容提供商) steht für Internet Content Provider. Es ist eine Genehmigung des chinesischen Ministeriums für Industrie und Informationstechnologie (工业和信息化部), gesetzlich vorgeschrieben für jede Website, die auf einem Server auf dem chinesischen Festland liegt. Zwei Arten zählen: das ICP Bei’an (备案) für informationelle Seiten und die ICP Jing Ying (经营许可证) für Seiten, die Transaktionen abwickeln. Den Antrag übernehmen wir von Anfang bis Ende.',
+        question: 'Was genau ist eine ICP-Lizenz, und brauchen wir sie wirklich?',
+        answer: 'Ja, sobald die Website auf einem Server in Festlandchina liegt, auch wenn den meisten Websites die Registrierung genügt. ICP (互联网内容提供商) steht für Internet Content Provider. Das Ministerium für Industrie und Informationstechnologie (工业和信息化部) kennt zwei Verfahren: die ICP-Registrierung (ICP备案) für frei zugängliche Websites und die ICP-Lizenz (ICP许可证) für Angebote, die ihren Nutzern Informationen oder Online-Dienste berechnen. Für eine Unternehmenswebsite reicht die Registrierung. Den Antrag bereiten wir vollständig vor.',
       },
       {
         question: 'Was ist, wenn wir noch keine chinesische Gesellschaft haben?',
-        answer: 'Dann wird das ICP (互联网内容提供商) schwieriger. Sie müssen entweder eine WFOE (外商独资企业) gründen oder sich mit einer chinesischen Gesellschaft zusammentun, die die Anmeldung trägt. Beide Wege haben wir mit Kunden begleitet. Ohne Gesellschaft und ohne Wunsch nach einer ist ein Hosting auf dem Festland keine Option, aber ein Hosting in Hongkong (香港) bleibt als Ausweichlösung möglich.',
+        answer: 'Dann muss die Registrierung warten, denn sie erfolgt im Namen eines in Festlandchina ansässigen Unternehmens oder einer dort ansässigen Person. Sie gründen entweder eine WFOE (外商独资企业), oder ein chinesisches Partnerunternehmen registriert die Website in eigenem Namen und wird damit im Register als ihr Betreiber geführt. Beide Wege haben wir mit Kunden begleitet. Ohne Gesellschaft und ohne Wunsch nach einer ist ein Hosting auf dem Festland keine Option, aber ein Hosting in Hongkong (香港) bleibt als Ausweichlösung möglich.',
       },
       {
         question: 'Wie lange dauert die ICP-Anmeldung tatsächlich?',
-        answer: 'Das Bei’an (备案) dauert in der Regel 2 bis 4 Wochen. Die Jing Ying (经营许可证) braucht 2 bis 3 Monate, manchmal länger. Die Variable ist die Vollständigkeit der Unterlagen auf Ihrer Seite. Wir geben Ihnen in Woche eins eine Checkliste, damit der langsame Teil nicht den ganzen Ablauf bremst.',
+        answer: 'Für die ICP-Registrierung (ICP备案) planen wir 3 bis 6 Wochen. Alibaba Cloud nennt 1 bis 2 Arbeitstage für die eigene Prüfung und in der Regel 1 bis 20 Arbeitstage für die Prüfung durch die Provinzbehörde, hinzu kommt die Zeit, um die Unterlagen zusammenzutragen. Über die ICP-Lizenz (ICP许可证) wird binnen 60 Tagen nach Annahme des Antrags entschieden; wir planen dafür 12 bis 18 Wochen. Die Variable ist die Vollständigkeit der Unterlagen auf Ihrer Seite. Wir geben Ihnen in Woche eins eine Checkliste, damit der langsame Teil nicht den ganzen Ablauf bremst.',
       },
       {
         question: 'Wie steht es um Datenresidenz und PIPL-Konformität?',
@@ -294,7 +294,7 @@ export const faqTopicsDe: FAQTopic[] = [
     items: [
       {
         question: 'Welche Leistungsgewinne können wir erwarten?',
-        answer: 'Bestehende langsame Seiten, die zu Aliyun (阿里云) umziehen, gehen typischerweise von 12 bis 15 Sekunden Ladezeit auf unter 2 Sekunden. Neubauten erreichen auf Festland-Verbindungen unter 1 Sekunde. Die Baidu-Indexierung (百度) beginnt mit sauberer SEO-Einrichtung meist innerhalb von 2 bis 4 Wochen nach dem Launch.',
+        answer: 'Eine Ladezeit versprechen wir erst, wenn wir Ihre Website gemessen haben. Der Zugewinn beruht auf zwei Schritten: dem Hosting auf dem Festland und dem Verzicht auf Aufrufe an Hosts, die die Große Firewall blockiert oder ausbremst. Unser Strategie-Audit misst beides, bevor wir ein Angebot vorlegen. Bei Baidu (百度) rechnen wir nach dem Launch mit 2 bis 4 Wochen, bis die ersten Seiten im Index stehen.',
       },
       {
         question: 'Wie messen Sie den Erfolg von China-Projekten?',

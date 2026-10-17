@@ -73,6 +73,7 @@ export const guideSlugs: Record<string, Trans> = {
   'wordpress-hosting-china': { fr: 'hebergement-wordpress-chine', es: 'alojamiento-wordpress-china', de: 'wordpress-hosting-china' },
   'choosing-web-agency-china': { fr: 'choisir-agence-web-chine', es: 'elegir-agencia-web-china', de: 'webagentur-china-auswaehlen' },
   'china-website-brief-checklist': { fr: 'checklist-brief-site-chine', es: 'checklist-brief-sitio-china', de: 'china-website-briefing-checkliste' },
+  'china-website-timeline': { fr: 'delais-site-web-chine', es: 'plazos-sitio-web-china', de: 'china-website-zeitplan' },
   'google-fonts-china': { fr: 'google-fonts-chine', es: 'google-fonts-china', de: 'google-fonts-china' },
   'javascript-cdn-china': { fr: 'cdn-javascript-chine', es: 'cdn-javascript-china', de: 'javascript-cdn-china' },
   'recaptcha-china': { fr: 'recaptcha-chine', es: 'recaptcha-china', de: 'recaptcha-china' },

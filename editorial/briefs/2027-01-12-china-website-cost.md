@@ -70,7 +70,7 @@ tier-specific boxes for T1.
 
 **Links.** Up to `/web-agency-china/`. Sideways to `choosing-web-agency-china` and `china-website-timeline`.
 
-**On publish, add the link an earlier piece could not.** `china-website-brief-checklist` (B5, drafted 1 October 2026) wanted a sideways link to this guide and used `icp-licence-filing-foreign-companies` instead. The publish step of this piece adds the link to this guide from B5 in every locale B5 has, inside an existing sentence about budget where one exists, runs any added sentence through `/deep-translate`, and moves B5's `updatedAt`.
+**On publish, add the link an earlier piece could not.** `china-website-brief-checklist` (B5, drafted 1 October 2026) wanted a sideways link to this guide and used `icp-licence-filing-foreign-companies` instead. The publish step of this piece adds the link to this guide from B5 in every locale B5 has, inside an existing sentence about budget where one exists, runs any added sentence through `/deep-translate`, and moves B5's `updatedAt`. The same applies to `china-website-timeline` (B3, drafted 17 October 2026), which links `china-website-brief-checklist` in place of this guide in its "What shortens the timeline" section ("what to ask a vendor about filing weeks and budget lines"): the publish step of this piece adds a link to this guide in that section of B3 in every locale, inside an existing sentence about budget, through `/deep-translate`, and moves B3's `updatedAt`.
 
 **Metadata.**
 ```yaml

@@ -11,7 +11,7 @@ title: "How Long a China Website Takes"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F24, F25, F26, F27, F32]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -68,12 +68,12 @@ tier-specific boxes for T1.
 
 **Required table.** This is the linkable asset. Phase, weeks, runs in parallel with, blocked by.
 
-**Links.** Up to `/web-agency-china/`. Sideways to `migrate-wordpress-to-china` and `china-website-cost`.
+**Links.** Up to `/web-agency-china/`. Sideways to `migrate-wordpress-to-china` and `china-website-cost`. Drafted 17 October 2026 with `china-website-brief-checklist` in place of `china-website-cost`, which is B2 (12 January 2027, gated); B2's brief carries the "On publish" line that adds the link to this guide. The brief's description ("The build is not the long pole...") was a negate-then-assert line under the anti-AI rules and overstated the case when an entity exists; corrected 17 October 2026.
 
 **Metadata.**
 ```yaml
 title: "How Long a China Website Takes"
-description: "The build is not the long pole. The entity and the filing are, and they run in sequence. A realistic timeline with the blockers named."
+description: "With a mainland entity in place we plan fourteen weeks. The entity and the ICP filing run in sequence and set the date. The plan, week by week."
 excerpt: "The three clocks on a China web project, which ones overlap, and where teams routinely lose a month."
 ```
 
