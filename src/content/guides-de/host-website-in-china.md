@@ -6,7 +6,7 @@ visual: "/images/guides/host-website-in-china.webp"
 order: 14
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-13
+updatedAt: 2026-10-18
 category: Hosting
 ---
 
@@ -23,7 +23,7 @@ Drei Gründe, und sie summieren sich.
 Zuerst das Tempo. Steht Ihr Server in Virginia oder Frankfurt, muss jede Anfrage eines chinesischen Nutzers die Große Firewall (防火长城) überqueren. Dieser Übergang läuft alles andere als glatt. Der Verkehr wird gedrosselt, der SSL-Handshake bricht mitten in der Verbindung ab, und jedes Skript und jede Schrift von einem ausländischen Host, den das Netz des Besuchers nicht erreicht, bleibt schlicht hängen. Google Fonts ist der Klassiker: Aus einem Rechenzentrum auf dem Festland ist der Dienst erreichbar, über einen Pekinger Privatanschluss bleibt er stumm. Die Seite scheitert nicht mit lautem Knall. Sie steht einfach da, halb aufgebaut, bis der Besucher geht.
 
 > Laut den Messungen von 21YunBox beantwortete `fonts.googleapis.com` am 28. August 2026 alle 72 Anfragen einer Alibaba-Cloud-Instanz (阿里云) in der Region cn-zhangjiakou, am 30. August 2026 dagegen keine der 54 Anfragen über einen privaten Breitbandanschluss von China Mobile (中国移动) in Peking.
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Dann die Suche. Baidu (百度) ist die Suchmaschine, auf die es hier ankommt, und sie kann nur Seiten ranken, die sie vom Festland aus crawlen und laden kann. Eine veröffentlichte Regel, nach der Baidu einen Festland-Host oder eine ICP-Registrierung an sich belohnt, gibt es nicht: Für lokales Hosting sprechen der Zugang des Crawlers und die Ladezeit in Festlandnetzen, und beides lässt sich überprüfen.
 

@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-13
+updatedAt: 2026-10-18
 category: Technology
 ---
 
@@ -37,7 +37,7 @@ Two probes, two days apart, over the same list of hosts. One ran on a commercial
 
 > From an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026, sampled every ten minutes for twelve hours with a 30-second timeout, fonts.googleapis.com answered 72 of 72 requests at a median 111ms time to first byte. From a Beijing China Mobile (中国移动) residential line on 30 August 2026, across 264 page loads on 88 real websites, the same host was requested 54 times and answered none of them.
 >
-> Source: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 August 2026, updated 30 August 2026
+> Source: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 August 2026, updated 30 August 2026
 
 Read the two rows for a host together or the number will mislead you. A commercial cloud in China buys better international transit than a flat in Chaoyang does, so the datacentre figure is a ceiling. Your visitor sits somewhere underneath it. On three of the five hosts here, the visitor gets nothing at all.
 
@@ -94,7 +94,7 @@ Two sentences get repeated about Google Fonts in China: that it's blocked, and t
 
 > From an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026, fonts.googleapis.com answered 72 of 72 requests at a median 111ms time to first byte and fonts.gstatic.com answered 72 of 72 at 102ms. From a Beijing China Mobile (中国移动) residential line on 30 August 2026, fonts.googleapis.com was requested 54 times and answered none, and fonts.gstatic.com was requested 6 times and answered none.
 >
-> Source: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 August 2026, updated 30 August 2026
+> Source: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 August 2026, updated 30 August 2026
 
 The honest version is conditional. Google Fonts resolves from mainland datacentres and often doesn't resolve on consumer connections. Which of those your visitor gets depends on the network they are on.
 

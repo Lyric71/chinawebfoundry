@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: "2026-09-22"
-updatedAt: "2026-10-02"
+updatedAt: 2026-10-18
 category: "Technology"
 author: "cyril-drouin"
 ---
@@ -120,7 +120,7 @@ the two vantage points disagree about two of them.
 > The datacentre column was sampled every ten minutes for 12 hours on a
 > 30-second timeout, 72 samples per host. The consumer column covers 88
 > websites and 264 page loads overnight.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, 2026.
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 2026.
 > https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Google Fonts answered every time from the datacentre and never once from the

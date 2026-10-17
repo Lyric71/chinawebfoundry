@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: 2026-09-15
-updatedAt: 2026-10-11
+updatedAt: 2026-10-18
 category: Technology
 author: cyril-drouin
 ---
@@ -24,7 +24,7 @@ Die veröffentlichten Tests belegen, wie stark das Ergebnis vom Anschluss abhän
 | `www.google.com/recaptcha` | 0 von 72 | 0 von 18 | blockiert |
 
 > Die Zahlen abgeschlossener Anfragen und die Laufzeiten stammen von 21YunBox: Alibaba Cloud (阿里云), Zhangjiakou, 28. August 2026, eine Messung alle 10 Minuten über 12 Stunden mit einem Timeout von 30 Sekunden; außerdem ein China-Mobile-Privatanschluss (中国移动) in Peking am 30. August 2026 mit 88 Websites und 264 Seitenaufrufen.
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Die TTFB misst die Zeit bis zum ersten empfangenen Byte; p95 ist das 95. Perzentil. Cloud-Sonde und Browser am Privatanschluss arbeiten mit unterschiedlichen Messverfahren. Ob sich die Seite tatsächlich bedienen lässt, erfordert einen eigenen Test. Die Quellen wurden am 15. September 2026 überprüft. Die Messungen behalten ihre ursprünglichen Datumsangaben.
 

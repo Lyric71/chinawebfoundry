@@ -6,7 +6,7 @@ visual: "/images/guides/google-fonts-china.webp"
 order: 38
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-26"
 category: "Technology"
 author: "echo-peng"
@@ -43,14 +43,14 @@ come from `fonts.gstatic.com`.
 > on 88 real websites from a Beijing China Mobile (中国移动) residential line on
 > 30 August 2026, `fonts.googleapis.com` was requested 54 times and answered
 > none, and `fonts.gstatic.com` was requested 6 times and answered none.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August
 > 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Keep those two columns apart. Each one describes a different network.
 
 > “A datacenter line and a consumer line in the same country are not the
 > same network.”
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August
 > 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 21YunBox doesn’t say why the home line never got an answer, and no other

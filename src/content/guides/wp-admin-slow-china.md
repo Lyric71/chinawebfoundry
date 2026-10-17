@@ -6,7 +6,7 @@ visual: "/images/guides/wp-admin-slow-china.webp"
 order: 42
 published: true
 publishedAt: "2026-10-12"
-updatedAt: "2026-10-12"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-20"
 category: "Technology"
 author: "echo-peng"
@@ -142,7 +142,7 @@ which network the editor happens to be on.
 > 72 requests at a median 111ms time to first byte and fonts.gstatic.com 72 of
 > 72 at 102ms. Across page loads on a Beijing China Mobile (中国移动) home line
 > on 30 August 2026, the same hosts answered 0 of 54 and 0 of 6 requests.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, 28 to 30 August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 to 30 August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 (No Elementor on the site? Skip to the mirrors.)
 

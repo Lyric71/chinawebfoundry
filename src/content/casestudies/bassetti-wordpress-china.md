@@ -39,7 +39,7 @@ The findings were pretty much what we expected:
 
 | Issue | Action |
 |---|---|
-| Google Fonts blocked in China | Removed and replaced with locally hosted alternatives |
+| Google Fonts unreliable on mainland home connections | Removed and replaced with locally hosted alternatives |
 | reCAPTCHA inaccessible | Swapped for a China-compatible solution |
 | CDN routing through overseas servers | Rerouted to China-based infrastructure |
 | Several plugins blocked or incompatible | Replaced, removed, or patched |

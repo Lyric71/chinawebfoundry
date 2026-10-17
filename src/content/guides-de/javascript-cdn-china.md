@@ -6,7 +6,7 @@ visual: "/images/guides/javascript-cdn-china.webp"
 order: 41
 published: true
 publishedAt: "2026-10-11"
-updatedAt: "2026-10-11"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-12"
 category: "Technology"
 author: "echo-peng"
@@ -65,12 +65,12 @@ Der Besucher starrt auf eine weiße Seite, bis der Browser die Anfrage aufgibt. 
 jsDelivr ist das einzige CDN in dieser Übersicht mit Zahlen aus einem Rechenzentrum und von einem Privatanschluss. Es schloss in beiden Netzen jede Anfrage ab.
 
 > Von einer Instanz bei Alibaba Cloud (阿里云) in cn-zhangjiakou, mit Stichproben im Zehn-Minuten-Takt über zwölf Stunden am 28. August 2026 und einem Timeout von 30 Sekunden, schloss `cdn.jsdelivr.net` 72 von 72 Anfragen ab, mit einem Median von 660 ms bis zum ersten Byte und einem 95. Perzentil von 1.757 ms; `fonts.googleapis.com` schloss 72 von 72 bei 111 ms ab. Über einen privaten Breitbandanschluss von China Mobile (中国移动) in Peking wurde `cdn.jsdelivr.net` am 30. August 2026 36-mal ohne Fehler angefragt, `fonts.googleapis.com` 54-mal ohne Antwort.
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, 28. und 30. August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28. und 30. August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Aus dem Rechenzentrum kam Googles Font-Stylesheet am 28. August im Median nach 111 ms zurück. jsDelivr brauchte etwa sechsmal so lange, und 21YunBox rechnet vor, was die langsamsten Anfragen kosten.
 
 > „Ein p95 von 1.757 ms bei einem Median von 660 ms bedeutet, dass jede zwanzigste Anfrage fast zwei Sekunden dauert.“
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, 28. und 30. August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28. und 30. August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 GreatFire bestätigt, dass der Host offen ist: nicht gesperrt, drei von drei aktuellen aussagekräftigen Tests, letzter Test am 8. Oktober 2026. Mit async geladen, fallen die Ausreißer kaum ins Gewicht. Steht eine jsDelivr-Datei dagegen vor dem ersten Rendern (etwa das Skript eines Slider-Plugins im Head), halten die langsamen Anfragen die Seite auf.
 

@@ -6,7 +6,7 @@ visual: "/images/guides/javascript-cdn-china.webp"
 order: 41
 published: true
 publishedAt: "2026-10-11"
-updatedAt: "2026-10-11"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-12"
 category: "Technology"
 author: "echo-peng"
@@ -65,12 +65,12 @@ Le visiteur fixe une page blanche jusqu’à ce que le navigateur renonce à la 
 jsDelivr est le seul CDN de cette liste à disposer de chiffres depuis un centre de données et depuis une ligne résidentielle. Toutes ses requêtes ont abouti, sur l’un comme sur l’autre.
 
 > Depuis une instance Alibaba Cloud (阿里云) de cn-zhangjiakou, avec un relevé toutes les dix minutes pendant douze heures le 28 août 2026 et un délai d’expiration de 30 secondes, `cdn.jsdelivr.net` a mené à terme 72 requêtes sur 72, avec un premier octet médian à 660 ms et un 95e centile à 1 757 ms ; `fonts.googleapis.com` a abouti à 72 sur 72 à 111 ms. Depuis une ligne résidentielle China Mobile (中国移动) à Pékin, le 30 août 2026, `cdn.jsdelivr.net` a été sollicité 36 fois sans aucun échec, et `fonts.googleapis.com` 54 fois sans jamais répondre.
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, 28 et 30 août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 et 30 août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Depuis le centre de données, le 28 août, la feuille de style des polices de Google revenait en 111 ms en médiane. jsDelivr mettait environ six fois plus de temps, et 21YunBox précise ce que coûtent ses requêtes les plus lentes.
 
 > « Un p95 de 1 757 ms pour une médiane de 660 ms signifie qu’une requête sur vingt prend près de deux secondes. »
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, 28 et 30 août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 et 30 août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 GreatFire confirme que l’hôte est ouvert : non bloqué, trois tests concluants récents sur trois, dernier test le 8 octobre 2026. Chargé en async, ce retard occasionnel ne coûte pas grand-chose. Placez en revanche un fichier jsDelivr avant le premier affichage (le script d’un module de carrousel dans l’en-tête, par exemple) et les requêtes lentes retiennent la page.
 

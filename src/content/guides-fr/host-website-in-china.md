@@ -6,7 +6,7 @@ visual: "/images/guides/host-website-in-china.webp"
 order: 14
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-13
+updatedAt: 2026-10-18
 category: Hosting
 ---
 
@@ -23,7 +23,7 @@ Trois raisons, et elles se cumulent.
 La vitesse d'abord. Quand votre serveur se trouve en Virginie ou à Francfort, chaque requête d'un internaute chinois doit franchir le Grand Pare-feu (防火长城). Ce franchissement n'a rien d'un saut net. Le trafic est étranglé, les négociations SSL expirent en cours de route, et le moindre script ou la moindre police tirés d'un hôte étranger hors de portée du réseau du visiteur restent tout bonnement en rade. Google Fonts en offre l'exemple type : joignable depuis un centre de données du continent, muet sur une ligne domestique pékinoise. La page ne plante pas bruyamment. Elle stagne, à moitié dessinée, jusqu'à ce que le visiteur s'en aille.
 
 > Selon les mesures de 21YunBox, `fonts.googleapis.com` a répondu à 72 requêtes sur 72 depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou le 28 août 2026, et à aucune des 54 envoyées depuis une ligne résidentielle China Mobile (中国移动) à Pékin le 30 août 2026.
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Le référencement ensuite. Baidu (百度) est le moteur qui compte ici, et il ne classe que les pages qu'il parvient à explorer et à charger depuis le continent. Aucune règle publiée par Baidu ne récompense en soi un hébergement continental ou un enregistrement ICP : l'intérêt d'un hébergement local tient à l'accès de son robot et à la vitesse des pages sur les réseaux du continent, deux critères qui se vérifient.
 

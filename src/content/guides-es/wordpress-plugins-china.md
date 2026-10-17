@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: 2026-09-15
-updatedAt: 2026-10-11
+updatedAt: 2026-10-18
 category: Technology
 author: cyril-drouin
 ---
@@ -24,7 +24,7 @@ Las pruebas publicadas muestran el peso de la conexión utilizada. La última co
 | `www.google.com/recaptcha` | 0 de 72 | 0 de 18 | bloqueado |
 
 > Los recuentos de peticiones completadas y los tiempos proceden de 21YunBox: Alibaba Cloud (阿里云), Zhangjiakou, 28 de agosto de 2026, con una muestra cada 10 minutos durante 12 horas y un tiempo de espera máximo de 30 segundos; y una línea residencial de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, con 88 sitios y 264 cargas de página.
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 El TTFB mide cuánto tarda en llegar el primer byte; p95 es el percentil 95. La sonda en la nube y el navegador conectado a la línea residencial siguen métodos distintos. El funcionamiento de la página requiere otra comprobación. Las fuentes se revisaron el 15 de septiembre de 2026, sin modificar las fechas originales de las pruebas.
 

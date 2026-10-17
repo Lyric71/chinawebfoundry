@@ -2586,3 +2586,112 @@ Tencent Cloud pages. Alibaba dates are the page's `lastModifiedTime`.
 - MIIT Order 33 art 12, 二十个工作日 (amended 18 January 2024).
 - Shanghai CA licence guide, 自受理之日起60日内 (1 June 2015). Also used for the FAQ data correction in four locales.
 - Order 292 art 3, 有偿 (text of 8 January 2011). Used for the FAQ data correction ("for sites that process transactions" became "for sites that charge users for information or online services", four locales).
+
+## T6-08 entries, 18 October 2026 (upgrade-wordpress-in-china-page)
+
+### The 21YunBox paired study's real title
+- Fact ID: F6, F7 (source key)
+- Value: `<title>`, `og:title` and JSON-LD headline "A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers"; datePublished 2026-08-28, dateModified 2026-08-30; byline "21YunBox China Engineering Team, Reviewed 2026-08-30"
+- Vantage point: n/a
+- As of: 28 August 2026, updated 30 August 2026
+- Source: 21YunBox
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html (Internet Archive capture of 16 September 2026, the earliest, carries the same title)
+- Verified 1: 2026-10-18, curl, title, og:title and headline read
+- Verified 2: 2026-10-18, curl re-fetch, title unchanged; archive capture read
+- Used in: upgrade-wordpress-in-china-page; corrected citations in ten guides x four locales
+- Notes: **Cite this title.** "A Day of Third-Party Requests From Inside China" is only the wording of the URL and was never the page's title on any capture. Corrected on 18 October 2026 in PLAN.md (F6, F7, source key), editorial/CLAUDE.md (statistics example) and 40 live guide files. Older ledger entries above keep the old wording as a record.
+
+### fonts.googleapis.com 72 of 72 (datacentre) and 0 of 54 (home line), rechecked for T6-08
+- Fact ID: F6
+- Value: "100% success, 111ms" from cn-zhangjiakou, 72 samples per cell, 28 August 2026; "54 requests, 54 never answered" from a Beijing China Mobile residential line, 30 August 2026
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou; Beijing China Mobile (中国移动) residential broadband
+- As of: 28 and 30 August 2026
+- Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-10-18, curl
+- Verified 2: 2026-10-18, curl re-fetch in iteration 8, both strings present
+- Used in: upgrade-wordpress-in-china-page (measurement block, rows 1 and 2)
+
+### Google's library website, no first byte in 3 of 3 runs, rechecked for T6-08
+- Fact ID: F1
+- Value: developers.google.com/speed/libraries "returned no first byte in three of three runs, each abandoned at the sixty-second limit"
+- Vantage point: Alibaba Cloud (阿里云) cn-zhangjiakou
+- As of: test 28 August 2026; page reviewed 2026-10-08
+- Source: 21YunBox, Google Hosted Libraries support page
+- URL: https://www.21cloudbox.com/support/google-hosted-libraries.html
+- Verified 1: 2026-10-18, curl
+- Verified 2: 2026-10-18, curl re-fetch
+- Used in: upgrade-wordpress-in-china-page (row 3 note, as a load of Google's library website)
+
+### GreatFire verdicts read for T6-08 (JSON API)
+- Fact ID: F1, F4, F6
+- Value: https://ajax.googleapis.com blocked, 1 of 1 conclusive, last tested 2026-08-22; https://secure.gravatar.com blocked, 1 of 1, last tested 2026-08-31; https://fonts.googleapis.com not blocked, 0 of 4, last tested 2026-10-15; https://fonts.gstatic.com not blocked, 0 of 7, last tested 2026-10-15
+- Vantage point: GreatFire's mainland tests; no network named
+- As of: the last-tested dates above
+- Source: GreatFire
+- URL: https://en.greatfire.org/api/url/https/<host> for each host
+- Verified 1: 2026-10-18, curl
+- Verified 2: 2026-10-18, curl re-fetch, same counts and dates
+- Used in: upgrade-wordpress-in-china-page (rows 3 and 4; the fonts verdicts updated F6 at source and are not printed alone)
+- Notes: ajax.googleapis.com passes 90 days on 2026-11-20, which is the block's `reviewBy`.
+
+### WordPress.org rate-limits Chinese network sources (Meta Trac #5106), rechecked for T6-08
+- Fact ID: F8
+- Value: "Several Chinese network sources are rate-limited on certain services"; reporter's "429 problems when visiting all subdomains of WordPress"
+- Vantage point: n/a (vendor statement)
+- As of: 21 March 2020
+- Source: WordPress.org Meta Trac, ticket #5106, Internet Archive capture of 16 January 2026
+- URL: https://web.archive.org/web/20260116133057/https://meta.trac.wordpress.org/ticket/5106 (the page links the live ticket, https://meta.trac.wordpress.org/ticket/5106, for readers)
+- Verified 1: 2026-10-18, HTTP 200, both quotes and 2020-03-21 present
+- Verified 2: 2026-10-18, re-fetch, unchanged
+- Used in: upgrade-wordpress-in-china-page (row 5, Auto-updates card, FAQ wp-auto-updates)
+
+### Alibaba Cloud ICP overview: review windows, and no filing on Hong Kong or overseas servers
+- Fact ID: F26 (and F9 for "filed through the hosting provider")
+- Value: "阿里云审核专员会在 1～2 个工作日完成初审"; "管局进行最终审核，审核时间一般为 1～20 个工作日"; "用阿里云香港、海外服务器？-- 无需备案"; "使用中国内地节点服务器时须先完成 ICP 备案"
+- Vantage point: n/a
+- As of: lastModifiedTime 1787725147000 (26 August 2026)
+- Source: Alibaba Cloud (阿里云) help centre, 阿里云ICP备案流程概述
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
+- Verified 1: 2026-10-18, curl, text stripped of tags
+- Verified 2: 2026-10-18, curl re-fetch, all four phrases present
+- Used in: upgrade-wordpress-in-china-page (timeline ICP box, FAQ wp-icp)
+
+### Chinafy 2026 benchmark: 2 in 3 of 614 global websites failed to load from Beijing, rechecked
+- Fact ID: F31
+- Value: "testing 614 global websites from Beijing, Virginia, and London, found that 2 in 3 global websites failed to load in China"
+- Vantage point: WebPageTest node in Beijing
+- As of: 14 April 2026
+- Source: Chinafy, China Website Performance Benchmarks 2026 (vendor benchmark)
+- URL: https://www.chinafy.com/blog/china-website-performance-benchmarks-2026
+- Verified 1: 2026-10-18, curl (sentence), WebFetch (date)
+- Verified 2: 2026-10-18, curl re-fetch, sentence present
+- Used in: corrected live pages services/china-hosting and services/index (en fr es de), replacing "ten or fifteen seconds" and "10 to 15 seconds is typical", which had no source, vantage point or date
+
+### Polylang 3.8.7: no external call when serving a page
+- Fact ID: F12 (refined at source this run)
+- Value: remote calls in the 3.8.7 zip are all admin-side: `src/Model/Languages.php` 1079 (custom flag URL check on language save), `src/Options/Business/Domains.php` 143 (domain ping when separate domains are saved), `src/install/t15s.php` 192 (translation-pack update check), `src/license.php` 221 and `src/install/plugin-updater.php` 617 (licence and updater for Pro add-ons)
+- Vantage point: n/a (code read)
+- As of: Polylang 3.8.7 (readme "Stable tag: 3.8.7")
+- Source: WordPress.org plugin download
+- URL: https://downloads.wordpress.org/plugin/polylang.3.8.7.zip
+- Verified 1: 2026-10-18, zip downloaded, grep for wp_remote_*, curl_init and WP_Http
+- Verified 2: 2026-10-18, each call site read in context
+- Used in: upgrade-wordpress-in-china-page (FAQ wp-multilingual)
+
+### Order 292 art 3, commercial service defined as paid ("有偿"), rechecked for T6-08
+- Fact ID: F26
+- Value: "经营性互联网信息服务，是指通过互联网向上网用户有偿提供信息或者网页制作等服务活动"
+- Vantage point: n/a
+- As of: text of 8 January 2011 (left unchanged by the revision of 6 December 2024)
+- Source: State Council, 互联网信息服务管理办法
+- URL: https://www.gov.cn/gongbao/content/2011/content_1860864.htm
+- Verified 1: 2026-10-18, curl
+- Verified 2: 2026-10-18, curl re-fetch
+- Used in: upgrade-wordpress-in-china-page (FAQ wp-icp, the licence sentence)
+
+### Failed: a dated WPML page naming ate.wpml.org and ams.wpml.org
+- Fact ID: F14
+- Value: the two hosts appear only in WPML support-forum threads; the official "cannot connect to WPML.org" FAQ does not name them and carries no date
+- Verified 1: 2026-10-18, web search and WebFetch of https://wpml.org/faq/wpml-plugin-cannot-connect-to-wpml-org/
+- Effect: the claim was cut from the T6-08 FAQ answer. F14 itself is not changed: it was not used.

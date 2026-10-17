@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-02
+updatedAt: 2026-10-18
 category: Technology
 author: cyril-drouin
 ---
@@ -76,7 +76,7 @@ Une installation WordPress équipée d'un constructeur de pages, d'un plugin de 
 | cdn.jsdelivr.net | Accessible. 72 sur 72, médiane 660 ms | Accessible. 36 sur 36 |
 
 > La colonne centre de données repose sur un relevé toutes les dix minutes pendant 12 heures, avec un délai d'expiration de 30 secondes, soit 72 mesures par hôte. La colonne grand public couvre 88 sites et 264 chargements de page au cours d'une nuit.
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Google Fonts a répondu à chaque tentative depuis le centre de données et pas une seule fois depuis la ligne résidentielle. Les deux résultats sont réels, et vos visiteurs se trouvent sur le second. Hébergez la police chez vous : la variable disparaît. jsDelivr, lui, aboutit des deux côtés. D'où l'erreur que l'on commet en traitant les CDN comme un bloc homogène.
 

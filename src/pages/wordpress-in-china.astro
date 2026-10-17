@@ -4,15 +4,11 @@ import Button from '../components/ui/Button.astro';
 import FAQItem from '../components/pages/FAQItem.astro';
 import ScrollEffects from '../components/global/ScrollEffects.astro';
 import DependencyTable from '../components/pages/DependencyTable.astro';
+import WordPressMeasurements from '../components/pages/WordPressMeasurements.astro';
+import { copy as measuredCopy, formatDate, lastReviewedOn } from '../data/wordpressMeasurements';
 
 const metaTitle = 'WordPress in China | What works, what to change | ChinaWebFoundry';
 const metaDescription = 'WordPress runs well in mainland China once it is built for it. The use cases that fit, the rebuilds the Great Firewall demands, and the alternatives that fall short.';
-
-const stats = [
-  { value: 43, suffix: '%', label: 'of all websites run on WordPress', source: 'W3Techs, 2024' },
-  { value: 20, suffix: '+', label: 'years of WordPress work in China', source: 'Shanghai-based since 2005' },
-  { value: 50, suffix: '+', label: 'international sites launched behind the Firewall', source: 'Across industries' },
-];
 
 const useCases = [
   {
@@ -79,7 +75,7 @@ const changeGroups = [
       {
         icon: 'type',
         title: 'Fonts',
-        body: 'Google Fonts don’t load. We self-host, or swap in Chinese-compatible alternatives that ship Latin and CJK glyphs in one file.',
+        body: 'From a mainland datacentre, Google Fonts answers. On home broadband it often goes silent. We self-host the files, or swap in Chinese-compatible alternatives that ship Latin and CJK glyphs in one file.',
       },
       {
         icon: 'palette',
@@ -126,7 +122,7 @@ const changeGroups = [
       {
         icon: 'refresh',
         title: 'Auto-updates',
-        body: 'Core and plugins phone home to wordpress.org and frequently time out from inside China. We route updates through a proxy or schedule manual update windows.',
+        body: 'WordPress.org rate-limits some Chinese networks and answers them with HTTP 429 errors, so updates stall and nothing on screen says why. We route updates through a proxy or schedule manual update windows.',
       },
       {
         icon: 'shield',
@@ -183,7 +179,7 @@ const chinaStack = [
 const elementorItems = [
   {
     label: 'Fonts',
-    body: 'Elementor pulls Google Fonts by default, which don’t resolve in China. We self-host them or swap in Chinese-compatible alternatives.',
+    body: 'Elementor loads Google Fonts by default, and its editor still asks Google for Roboto after that setting is switched off. From a mainland datacentre that host answers; over home connections it frequently doesn’t. So we self-host the fonts or swap in Chinese-compatible alternatives.',
   },
   {
     label: 'Widgets and components',
@@ -191,7 +187,7 @@ const elementorItems = [
   },
   {
     label: 'Icon libraries and CDNs',
-    body: 'External assets get rerouted to load locally from the Chinese server.',
+    body: 'Elementor bundles Font Awesome and its own eicons. Add-on packs and themes often don’t, so we move every outside asset onto the Chinese server.',
   },
   {
     label: 'Templates',
@@ -202,8 +198,8 @@ const elementorItems = [
 const faqs = [
   {
     id: 'wp-icp',
-    question: 'Does our WordPress site need an ICP licence to work in China?',
-    answer: 'If it’s hosted in mainland China, yes. If you host in Hong Kong, no, but the site will be measurably slower and Baidu will treat it as foreign. For most foreign brands serious about the Chinese market, the ICP filing is worth doing.',
+    question: 'Does our WordPress site need an ICP filing to work in China?',
+    answer: 'If it’s hosted on a server in mainland China, yes. The ICP filing (ICP备案) is made through the provider whose server hosts the site, and it has to clear before the site goes live. A site on a Hong Kong or overseas server has nothing to file, but every mainland visit then crosses the border. An ICP licence (ICP许可证) is a separate permit, needed by sites that charge users for information or online services, and we check in the audit whether yours does.',
   },
   {
     id: 'wp-marketing-team',
@@ -213,7 +209,7 @@ const faqs = [
   {
     id: 'wp-vs-astro-speed',
     question: 'Is WordPress slower than Astro in China?',
-    answer: 'In raw load time, yes, all things equal. WordPress is dynamic, Astro is static. In practice though, a well-tuned WordPress site on Aliyun with the right caching layer hits page speed targets that satisfy both Chinese users and Baidu. The difference matters more for some projects than others.',
+    answer: 'No published benchmark compares the two in China, so we won’t quote a number. The difference is in how a page gets built. Astro ships finished HTML files. WordPress builds each page in PHP from a database unless a page cache answers first, and on a tuned mainland server it usually does. Most of the delay in China comes from the outside hosts the theme and plugins call, and clearing those is the same job on either stack.',
   },
   {
     id: 'wp-elementor-divi',
@@ -223,12 +219,12 @@ const faqs = [
   {
     id: 'wp-auto-updates',
     question: 'What about plugin auto-updates from wordpress.org?',
-    answer: 'They often fail or time out from inside China because the wordpress.org repository is slow or unreachable on Chinese networks. We configure update routing through a proxy or run scheduled manual update windows. Either way, your team shouldn’t have to think about it day to day.',
+    answer: 'They often fail. WordPress.org rate-limits some Chinese networks, which get HTTP 429 errors back; its staff said so on the project’s Meta Trac on 21 March 2020. The dashboard doesn’t warn you. It simply stops offering updates. We route updates through a proxy or run scheduled manual update windows, so your team shouldn’t have to think about it day to day.',
   },
   {
     id: 'wp-multilingual',
     question: 'Can we keep WPML or Polylang for our multilingual setup?',
-    answer: 'Yes, both work well in China once the rest of the site is cleaned up. WPML is the more common choice for sites with three or more languages and complex translation workflows. Polylang is lighter and works fine for two or three languages. We have used both extensively. The choice depends more on your editorial process than on China-specific concerns.',
+    answer: 'Yes. Polylang 3.8.7 makes no outside calls when it serves a page, so it behaves the same on a mainland server as anywhere else. WPML suits three or more languages and heavy translation work. For two or three, Polylang is the lighter install. The choice comes down to your editorial process.',
   },
   {
     id: 'wp-woocommerce-china',
@@ -255,6 +251,7 @@ const faqs = [
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  inLanguage: 'en-GB',
   mainEntity: faqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
@@ -319,6 +316,9 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
             Twenty years on the ground. Fifty-plus international sites launched.
           </p>
+          <p class="mt-3 text-sm text-white/45">
+            {measuredCopy.en.lastReviewed} <time datetime={lastReviewedOn}>{formatDate(lastReviewedOn, 'en', 'long')}</time>
+          </p>
           <div class="mt-12 flex flex-wrap gap-4">
             <Button href="/contact/" variant="primary" size="lg">Talk to our team</Button>
             <Button href="/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro for China</Button>
@@ -328,31 +328,8 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
-  <!-- Stat strip -->
-  <section class="border-y border-[var(--color-surface-border)] bg-white">
-    <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        {stats.map((stat, i) => (
-          <div class:list={[
-            'flex flex-col lg:flex-row items-start lg:items-center gap-5',
-            i > 0 ? 'lg:pl-10 lg:border-l lg:border-[var(--color-surface-border)]' : '',
-          ]}>
-            <div class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
-              0{stat.suffix}
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-base text-[var(--color-text-dark)] leading-snug font-medium">
-                {stat.label}
-              </p>
-              <p class="mt-1 text-sm text-[var(--color-text-muted)]">
-                {stat.source}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Measurement block: five dated third-party figures (T6-08) -->
+  <WordPressMeasurements lang="en" />
 
   <!-- Why It Works: editorial split with workspace image -->
   <section class="section-spacing">
@@ -366,10 +343,10 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
             The platform isn’t the problem.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            WordPress runs in China. Core, wordpress.org, the standard publishing workflow: it all works the same on a Shanghai server as on a London one, and wp-admin is reachable without a VPN.
+            WordPress runs in China. Core installs on a Shanghai server exactly as it does on a London one. Your editors reach wp-admin without a VPN, and the publishing workflow doesn’t change.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            The problem is what it depends on by default. Themes load Google Fonts. Plugins call APIs outside the Firewall. Libraries pull from blocked CDNs. Embeds point at YouTube. Analytics call Google.
+            The problem is what it depends on by default. Themes load Google Fonts, and plenty still pull jQuery from Google Hosted Libraries. Plugins call APIs outside the Firewall. Embeds point at YouTube, analytics at Google. Even updates stall, because wordpress.org rate-limits some Chinese networks.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
             Strip those out, swap in local equivalents, and what’s left is a fast, compliant WordPress site, indexed by Baidu and manageable by a team that already knows it.
@@ -925,7 +902,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
           <div class="flex-1">
             <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">ICP filing runs in parallel</p>
             <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              Twenty business days minimum at the provincial level, sometimes longer. We start the filing on day one so it never blocks launch.
+              Alibaba Cloud (阿里云) quotes 1 to 2 working days for its own check, then generally 1 to 20 working days at the provincial Communications Administration (help centre, updated 26 August 2026). We start the filing on day one so it never blocks launch.
             </p>
           </div>
         </div>

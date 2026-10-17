@@ -6,7 +6,7 @@ visual: "/images/guides/recaptcha-china.webp"
 order: 40
 published: true
 publishedAt: "2026-10-08"
-updatedAt: "2026-10-08"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-18"
 category: "Technology"
 author: "cyril-drouin"
@@ -38,7 +38,7 @@ below was checked against its source on 8 October 2026.
 > on 88 real websites from a Beijing China Mobile (中国移动) residential line
 > on 30 August 2026, www.google.com, the reCAPTCHA host, was requested 18
 > times and never answered.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August
 > 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 The checkbox, and the invisible check in version 3, come from one script at
@@ -136,7 +136,7 @@ That gap has caught people before.
 > China Mobile (中国移动) residential line on 30 August 2026, 21YunBox saw the
 > same host requested 54 times and answer none.
 > Source: GreatFire, September 2026. https://en.greatfire.org/https/fonts.googleapis.com;
-> 21YunBox, A Day of Third-Party Requests From Inside China, August 2026.
+> 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August 2026.
 > https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 The swapped script isn’t self-contained either. Read the file

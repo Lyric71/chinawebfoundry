@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-02
+updatedAt: 2026-10-18
 category: Technology
 author: cyril-drouin
 ---
@@ -76,7 +76,7 @@ Eine WordPress-Installation mit Pagebuilder, Formular-Plugin, Analytics-Tag und 
 | cdn.jsdelivr.net | Erreichbar. 72 von 72, Median 660 ms | Erreichbar. 36 von 36 |
 
 > Die Rechenzentrumsspalte wurde über 12 Stunden alle zehn Minuten gemessen, mit einem Timeout von 30 Sekunden, also 72 Messungen je Host. Die Privatanschlussspalte umfasst 88 Websites und 264 Seitenaufrufe über eine Nacht.
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Google Fonts antwortete aus dem Rechenzentrum bei jedem Versuch und vom Privatanschluss kein einziges Mal. Beide Ergebnisse sind echt, und Ihre Besucher sitzen auf dem zweiten. Hosten Sie die Schrift selbst, dann verschwindet diese Variable. jsDelivr dagegen liefert von beiden Seiten aus, weshalb es in die Irre führt, Content Delivery Networks als einen einzigen Block zu behandeln.
 

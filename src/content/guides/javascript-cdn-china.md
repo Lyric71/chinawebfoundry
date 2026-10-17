@@ -6,7 +6,7 @@ visual: "/images/guides/javascript-cdn-china.webp"
 order: 41
 published: true
 publishedAt: "2026-10-11"
-updatedAt: "2026-10-11"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-12"
 category: "Technology"
 author: "echo-peng"
@@ -108,7 +108,7 @@ completed every request on both.
 > 72 at 111ms. From a Beijing China Mobile (中国移动) residential line on 30 August
 > 2026, `cdn.jsdelivr.net` was requested 36 times with no failures and
 > `fonts.googleapis.com` 54 times with no answer.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, 28 and 30
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 and 30
 > August 2026.
 > https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
@@ -118,7 +118,7 @@ slowest requests cost.
 
 > “A p95 of 1,757ms against a median of 660ms means one request in twenty takes
 > nearly two seconds.”
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, 28 and 30
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 and 30
 > August 2026.
 > https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 

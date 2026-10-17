@@ -39,7 +39,7 @@ Les conclusions n'ont guère surpris :
 
 | Problème | Correctif |
 |---|---|
-| Google Fonts bloquées en Chine | Retrait et bascule vers des polices hébergées localement |
+| Google Fonts aléatoires sur les connexions des particuliers en Chine continentale | Retrait et bascule vers des polices hébergées localement |
 | reCAPTCHA hors service | Alternative compatible avec la Chine |
 | CDN routé via des serveurs étrangers | Bascule sur une infrastructure hébergée en Chine |
 | Plusieurs extensions bloquées ou inopérantes | Remplacées, supprimées ou corrigées |

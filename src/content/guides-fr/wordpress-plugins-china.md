@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: 2026-09-15
-updatedAt: 2026-10-11
+updatedAt: 2026-10-18
 category: Technology
 author: cyril-drouin
 ---
@@ -24,7 +24,7 @@ Les tests publiés ci-dessous montrent l’effet du réseau utilisé. La derniè
 | `www.google.com/recaptcha` | 0 sur 72 | 0 sur 18 | bloqué |
 
 > Ces nombres de requêtes abouties et ces délais proviennent de 21YunBox : Alibaba Cloud (阿里云), Zhangjiakou, le 28 août 2026, avec un échantillon toutes les 10 minutes pendant 12 heures et un délai d’expiration de 30 secondes ; puis une ligne résidentielle China Mobile (中国移动) à Pékin, le 30 août 2026, sur 88 sites et 264 chargements de page.
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Le TTFB est le délai avant réception du premier octet ; p95 désigne le 95e percentile. La sonde cloud et le navigateur sur la ligne résidentielle ne suivent pas le même protocole. L’utilisation réelle de la page exige donc un contrôle distinct. Les sources ont été revues le 15 septembre 2026, sans modifier les dates des tests.
 

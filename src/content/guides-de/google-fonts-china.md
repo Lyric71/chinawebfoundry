@@ -6,7 +6,7 @@ visual: "/images/guides/google-fonts-china.webp"
 order: 38
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-26"
 category: "Technology"
 author: "echo-peng"
@@ -26,12 +26,12 @@ Wer die Schriften von der eigenen Domain ausliefert, muss sich diese Frage nicht
 | `fonts.gstatic.com`    | Median-TTFB 102 ms                  | keine Antwort                                   | 72 von 72 / 0 von 6    | je nach Messpunkt      | 28. und 30. Aug. 2026 |
 
 > Von einer Instanz bei Alibaba Cloud (阿里云) in der Region cn-zhangjiakou, mit Stichproben im Zehn-Minuten-Takt über zwölf Stunden am 28. August 2026 und einem Timeout von 30 Sekunden, schloss `fonts.googleapis.com` 72 von 72 Anfragen ab, mit einem Median von 111 ms bis zum ersten Byte, `fonts.gstatic.com` 72 von 72 bei 102 ms. Bei 264 Seitenaufrufen auf 88 realen Websites über einen privaten Breitbandanschluss von China Mobile (中国移动) in Peking am 30. August 2026 wurde `fonts.googleapis.com` 54-mal angefragt und antwortete kein einziges Mal, `fonts.gstatic.com` 6-mal, ebenfalls ohne Antwort.
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Halten Sie die beiden Spalten auseinander. Jede beschreibt ein anderes Netz.
 
 > „Eine Rechenzentrumsleitung und ein Verbraucheranschluss im selben Land sind nicht dasselbe Netz.“
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Warum der Privatanschluss nie eine Antwort bekam, erklärt 21YunBox nicht, und auch sonst liefert kein veröffentlichter Test eine Erklärung. Spekulationen sparen wir uns deshalb. Das Muster aber ist eindeutig: ein Host, zwei Netze, zwei Tage Abstand und gegensätzliche Ergebnisse.
 

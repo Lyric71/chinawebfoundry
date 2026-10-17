@@ -10,7 +10,7 @@ slug: upgrade-wordpress-in-china-page
 title: "Measurement block and FAQ schema for /wordpress-in-china/"
 locales_at_publish: as the page exists
 facts: [F1, F4, F6, F8, F32, F46]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -51,7 +51,7 @@ tier-specific boxes for T6.
 
 **Why.** This is the top of the WordPress cluster and the page most internal links point at, so it should carry the strongest evidence on the site and currently carries none. F46's finding that roughly 44% of AI citations come from the first 30% of a page means a measurement block placed above the fold on the cluster hub does more retrieval work than the same block anywhere else.
 
-**What to change.** Add a measurement block within the first screen carrying four or five figures with vantage points and dates, drawn from F1, F4, F6, F8 and F32. Add FAQ schema covering the five questions this page already answers, with answers matching visible copy verbatim. Add a visible last-reviewed date near the byline. Make sure the Google Fonts line here follows the same F6 treatment as T6-02, because a hub page contradicting its own child article is worse than either error alone.
+**What to change.** Add a measurement block within the first screen carrying four or five figures with vantage points and dates, drawn from F1, F4, F6 and F8. (Corrected 18 October 2026 by the T6-08 draft run: the brief also named F32, but F32's carrier, city and window are unpublished, so no F32 figure can meet the block's own criterion of a vantage point and a date on every figure. T3-01 and T3-02 carry "On publish" lines that add the F32 figures to the block once their conditions are published.) The page already carries FAQPage schema, built from the same array as its ten visible questions, so answers match visible copy verbatim by construction; the work is `inLanguage` on the English file (the three locale files already set it) and correcting every answer the facts contradict, since each wrong answer is published twice. Add a visible last-reviewed date near the byline. Make sure the Google Fonts line here follows the same F6 treatment as T6-02, because a hub page contradicting its own child article is worse than either error alone.
 
 **Acceptance criteria.**
 - [ ] The measurement block appears within the first 30% of the page by word count.

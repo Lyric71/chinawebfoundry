@@ -1,0 +1,84 @@
+---
+/**
+ * The measurement block under the hero of /wordpress-in-china/ and its
+ * locale pages, rendered from src/data/wordpressMeasurements.ts.
+ * Server-rendered, no client JavaScript. Rows stack below 1024px.
+ */
+import { copy, formatDate, measurements } from '../../data/wordpressMeasurements';
+import type { Locale } from '../../i18n/ui';
+import { localePath } from '../../i18n/utils';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'en' } = Astro.props;
+const c = copy[lang];
+const label = 'text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] lg:sr-only';
+---
+
+<section class="border-y border-[var(--color-surface-border)] bg-white" aria-labelledby="wp-measured-heading">
+  <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
+    <div class="max-w-3xl mb-10">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-brand-orange-text)] mb-4">{c.eyebrow}</p>
+      <h2 id="wp-measured-heading" class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">
+        {c.heading}
+      </h2>
+      <p class="mt-4 text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed">{c.intro}</p>
+    </div>
+
+    <div class="hidden lg:grid grid-cols-12 gap-6 pb-3 border-b border-[var(--color-surface-border)] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]" aria-hidden="true">
+      <span class="col-span-3">{c.columns.what}</span>
+      <span class="col-span-3">{c.columns.result}</span>
+      <span class="col-span-3">{c.columns.vantage}</span>
+      <span class="col-span-1">{c.columns.date}</span>
+      <span class="col-span-2">{c.columns.source}</span>
+    </div>
+
+    <div class="divide-y divide-[var(--color-surface-border)]">
+      {measurements.map((m) => {
+        const row = c.rows[m.id];
+        return (
+          <dl class="grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-2 py-5">
+            <div class="lg:col-span-3">
+              <dt class={label}>{c.columns.what}</dt>
+              <dd class="text-base font-semibold text-[var(--color-text-dark)] leading-snug">
+                {row.what}
+                <code class="block mt-0.5 text-sm font-normal text-[var(--color-text-muted)] break-all">{m.host}</code>
+              </dd>
+            </div>
+            <div class="lg:col-span-3">
+              <dt class={label}>{c.columns.result}</dt>
+              <dd class="text-base text-[var(--color-text-dark)] leading-snug">{row.result}</dd>
+            </div>
+            <div class="lg:col-span-3">
+              <dt class={label}>{c.columns.vantage}</dt>
+              <dd class="text-[15px] text-[var(--color-text-body)] leading-snug">{row.vantage}</dd>
+            </div>
+            <div class="lg:col-span-1">
+              <dt class={label}>{c.columns.date}</dt>
+              <dd class="text-[15px] text-[var(--color-text-body)] tabular-nums"><time datetime={m.testedOn}>{formatDate(m.testedOn, lang)}</time></dd>
+            </div>
+            <div class="lg:col-span-2">
+              <dt class={label}>{c.columns.source}</dt>
+              <dd class="text-[15px]">
+                <a href={m.url} rel="noopener" class="text-[var(--color-brand-orange-text)] underline-offset-4 hover:underline">{m.source}</a>
+              </dd>
+            </div>
+            {row.note && (
+              <div class="lg:col-span-12">
+                <dt class="sr-only">{c.columns.note}</dt>
+                <dd class="text-sm text-[var(--color-text-muted)] leading-relaxed">{row.note}</dd>
+              </div>
+            )}
+          </dl>
+        );
+      })}
+    </div>
+
+    <p class="mt-6 text-sm text-[var(--color-text-muted)] leading-relaxed max-w-3xl">{c.footnote}</p>
+    <p class="mt-3 text-sm">
+      <a href={localePath('/resources/china-web-guide/is-wordpress-blocked-in-china/', lang)} class="text-[var(--color-brand-orange-text)] underline-offset-4 hover:underline">{c.more}</a>
+    </p>
+  </div>
+</section>

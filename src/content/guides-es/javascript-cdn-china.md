@@ -6,7 +6,7 @@ visual: "/images/guides/javascript-cdn-china.webp"
 order: 41
 published: true
 publishedAt: "2026-10-11"
-updatedAt: "2026-10-11"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-12"
 category: "Technology"
 author: "echo-peng"
@@ -65,12 +65,12 @@ El visitante se queda mirando una página en blanco hasta que el navegador aband
 jsDelivr es el único CDN de esta lista con cifras desde un centro de datos y desde una línea doméstica. En ambas completó todas las peticiones.
 
 > Desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, con una muestra cada diez minutos durante doce horas el 28 de agosto de 2026 y un tiempo de espera de 30 segundos, `cdn.jsdelivr.net` completó 72 de 72 peticiones con una mediana de 660 ms hasta el primer byte y un percentil 95 de 1757 ms; `fonts.googleapis.com` completó 72 de 72 con 111 ms. Desde una línea residencial de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, `cdn.jsdelivr.net` recibió 36 peticiones sin ningún fallo y `fonts.googleapis.com`, 54 sin ninguna respuesta.
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, 28 y 30 de agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 y 30 de agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Desde el centro de datos, el 28 de agosto, la hoja de estilos de fuentes de Google respondió con una mediana de 111 ms. jsDelivr tardó unas seis veces más, y 21YunBox explica lo que cuestan sus peticiones más lentas.
 
 > «Un p95 de 1757 ms frente a una mediana de 660 ms significa que una de cada veinte peticiones tarda casi dos segundos».
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, 28 y 30 de agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 y 30 de agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 GreatFire coincide en que el servidor está abierto: no bloqueado, tres de tres pruebas concluyentes recientes, la última el 8 de octubre de 2026. Si se carga con async, esas peticiones lentas apenas penalizan. Pero si un archivo de jsDelivr se coloca antes de la primera visualización (el script de un plugin de carrusel en la cabecera, por ejemplo), las peticiones lentas retienen la página.
 

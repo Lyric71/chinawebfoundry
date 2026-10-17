@@ -39,7 +39,7 @@ Los hallazgos confirmaron lo que esperábamos:
 
 | Problema | Solución |
 |---|---|
-| Google Fonts bloqueadas en China | Sustitución por tipografías alojadas localmente |
+| Google Fonts inestables en las conexiones domésticas de China continental | Sustitución por tipografías alojadas localmente |
 | reCAPTCHA fuera de servicio | Alternativa compatible con China |
 | CDN enrutado a través de servidores extranjeros | Migración a una infraestructura alojada en China |
 | Varias extensiones bloqueadas o inoperativas | Sustituidas, eliminadas o corregidas |

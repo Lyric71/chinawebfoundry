@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-plugins-china.webp"
 order: 35
 published: true
 publishedAt: "2026-09-15"
-updatedAt: "2026-10-11"
+updatedAt: 2026-10-18
 category: "Technology"
 author: "cyril-drouin"
 ---
@@ -31,7 +31,7 @@ describes the sampled home line. It makes no promise about other networks.
 > (阿里云), Zhangjiakou, 28 August 2026, sampled every 10 minutes for 12 hours
 > with a 30-second timeout; and a Beijing China Mobile (中国移动) residential
 > line, 30 August 2026, across 88 sites and 264 page loads.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August
 > 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 TTFB means time to first byte. It measures when a response starts; p95 is

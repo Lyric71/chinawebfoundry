@@ -6,7 +6,7 @@ visual: "/images/guides/wp-admin-slow-china.webp"
 order: 42
 published: true
 publishedAt: "2026-10-12"
-updatedAt: "2026-10-12"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-20"
 category: "Technology"
 author: "echo-peng"
@@ -87,7 +87,7 @@ Der Block-Editor des Kerns lädt auf einer öffentlichen Seite keine Google Font
 Die Dateien liegen auf `fonts.gstatic.com`, und ob dieser Host antwortet, hängt davon ab, in welchem Netz der Redakteur gerade arbeitet.
 
 > Am 28. August 2026 beantwortete fonts.googleapis.com, 12 Stunden lang alle zehn Minuten von einer Alibaba-Cloud-Instanz (阿里云) in cn-zhangjiakou abgefragt, 72 von 72 Anfragen mit einem Median von 111 ms bis zum ersten Byte und fonts.gstatic.com 72 von 72 mit 102 ms. Bei Seitenaufrufen über einen privaten China-Mobile-Anschluss (中国移动) in Peking am 30. August 2026 beantworteten dieselben Hosts 0 von 54 beziehungsweise 0 von 6 Anfragen.
-> Quelle: 21YunBox, A Day of Third-Party Requests From Inside China, 28. bis 30. August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Quelle: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28. bis 30. August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 (Kein Elementor auf der Website? Dann weiter zu den Spiegeln.)
 

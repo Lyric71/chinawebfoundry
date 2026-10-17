@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-02
+updatedAt: 2026-10-18
 category: Technology
 author: cyril-drouin
 ---
@@ -76,7 +76,7 @@ Una instalación de WordPress con un constructor de páginas, un plugin de formu
 | cdn.jsdelivr.net | Accesible. 72 de 72, mediana de 660 ms | Accesible. 36 de 36 |
 
 > La columna del centro de datos se muestreó cada diez minutos durante 12 horas, con un tiempo de espera de 30 segundos, lo que da 72 mediciones por servidor. La columna doméstica abarca 88 sitios y 264 cargas de página a lo largo de una noche.
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Google Fonts respondió en todos los intentos desde el centro de datos y en ninguno desde la línea doméstica. Los dos resultados son reales, y sus visitantes están en el segundo. Aloje la fuente en su servidor y esa variable desaparece. jsDelivr, en cambio, completa desde ambos lados, y de ahí el error de tratar las redes de distribución como un bloque homogéneo.
 

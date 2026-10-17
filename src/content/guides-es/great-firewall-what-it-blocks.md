@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-16
+updatedAt: 2026-10-18
 reviewBy: 2026-11-15
 category: Technology
 ---
@@ -62,7 +62,7 @@ El buscador de Google, Gmail, Maps, YouTube y Google Ads no funcionan desde una 
 Google Fonts es la excepción, y quien opina sobre ella suele equivocarse en uno u otro sentido, así que merece un párrafo aparte.
 
 > Desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, el 28 de agosto de 2026, con una muestra cada diez minutos durante doce horas, `fonts.googleapis.com` completó 72 de 72 peticiones con una mediana de 111 ms hasta el primer byte. Desde una línea residencial de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, a lo largo de 264 cargas de página, el mismo servidor respondió a 0 de 54 peticiones.
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Frente a estos dos datos, ninguna afirmación tajante se sostiene. Google Fonts se resuelve desde los centros de datos del continente y, con frecuencia, no lo hace en las conexiones domésticas. Ahí reside todo el argumento para alojar las fuentes en el propio servidor: se elimina una variable que cambia según la red, el resolvedor y la hora. `fonts.google.com`, la interfaz de consulta, depende de otro servidor: GreatFire registró interferencias en sus dos últimas pruebas concluyentes, la más reciente del 30 de septiembre de 2026, y lo da por perturbado al 100 %.
 

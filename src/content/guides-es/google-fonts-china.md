@@ -6,7 +6,7 @@ visual: "/images/guides/google-fonts-china.webp"
 order: 38
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-26"
 category: "Technology"
 author: "echo-peng"
@@ -26,12 +26,12 @@ Basta con servir las fuentes desde su propio dominio para que el problema desapa
 | `fonts.gstatic.com`    | mediana de TTFB de 102 ms           | sin respuesta                                    | 72 de 72 / 0 de 6      | depende del punto de medición | 28 y 30 de agosto de 2026  |
 
 > Desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, con una muestra cada diez minutos durante doce horas el 28 de agosto de 2026 y un tiempo de espera de 30 segundos, `fonts.googleapis.com` completó 72 de 72 peticiones con una mediana de 111 ms hasta el primer byte, y `fonts.gstatic.com`, 72 de 72 con 102 ms. A lo largo de 264 cargas de página de 88 sitios reales, realizadas desde una línea residencial de China Mobile (中国移动) en Pekín el 30 de agosto de 2026, `fonts.googleapis.com` recibió 54 peticiones y no respondió a ninguna, y `fonts.gstatic.com` recibió 6, también sin respuesta.
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 No conviene mezclar esas dos columnas: cada una retrata una red distinta.
 
 > «Una línea de centro de datos y una línea de consumo, dentro del mismo país, no son la misma red».
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 21YunBox no explica por qué la línea doméstica nunca obtuvo respuesta, y tampoco lo hace ninguna otra prueba publicada, de modo que no aventuraremos hipótesis. Las cifras, en cambio, sí dibujan el contorno del problema: un mismo servidor, dos redes, dos días de diferencia y resultados opuestos.
 

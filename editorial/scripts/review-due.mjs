@@ -7,8 +7,10 @@
  * Two kinds of review date exist in the repo:
  *   - `reviewBy: YYYY-MM-DD` in the frontmatter of a content file
  *     (the guide schemas in src/content.config.ts carry it, optional)
- *   - `export const reviewBy = 'YYYY-MM-DD'` in src/data/chinaDependencies.ts,
- *     the dataset behind the dependency table on great-firewall-what-it-blocks
+ *   - `export const reviewBy = 'YYYY-MM-DD'` in src/data/chinaDependencies.ts
+ *     (the dependency table on great-firewall-what-it-blocks) and in
+ *     src/data/wordpressMeasurements.ts (the measurement block on
+ *     /wordpress-in-china/ and its three locale pages)
  *
  * Every publish run calls this. Anything listed as due is rechecked in that
  * run, as editorial/RUNBOOK.md ("Publishing a reviewed draft") describes.
@@ -45,10 +47,14 @@ const items = [];
   }
 })('src/content');
 
-const DATASET = 'src/data/chinaDependencies.ts';
-if (existsSync(DATASET)) {
-  const m = readFileSync(DATASET, 'utf8').match(/export const reviewBy\s*=\s*['"](\d{4}-\d{2}-\d{2})['"]/);
-  if (m) items.push({ what: `${DATASET} (dependency table, all four great-firewall-what-it-blocks files)`, reviewBy: m[1] });
+const DATASETS = [
+  ['src/data/chinaDependencies.ts', 'dependency table, all four great-firewall-what-it-blocks files'],
+  ['src/data/wordpressMeasurements.ts', 'measurement block, /wordpress-in-china/ in all four locales'],
+];
+for (const [file, label] of DATASETS) {
+  if (!existsSync(file)) continue;
+  const m = readFileSync(file, 'utf8').match(/export const reviewBy\s*=\s*['"](\d{4}-\d{2}-\d{2})['"]/);
+  if (m) items.push({ what: `${file} (${label})`, reviewBy: m[1] });
 }
 
 items.sort((a, b) => a.reviewBy.localeCompare(b.reviewBy) || a.what.localeCompare(b.what));

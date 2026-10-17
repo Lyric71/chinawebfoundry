@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-13
+updatedAt: 2026-10-18
 category: Technology
 ---
 
@@ -37,7 +37,7 @@ Zwei Messreihen im Abstand von zwei Tagen, dieselbe Liste von Hosts. Die eine li
 
 > Am 28. August 2026 aus einer Alibaba-Cloud-Instanz (阿里云) in cn-zhangjiakou, alle zehn Minuten über zwölf Stunden abgetastet, Zeitlimit 30 Sekunden: fonts.googleapis.com beantwortete 72 von 72 Anfragen, medianes erstes Byte 111 ms. Am 30. August 2026 über eine Privatleitung von China Mobile (中国移动) in Peking, verteilt auf 264 Seitenaufrufe bei 88 realen Websites, wurde derselbe Host 54-mal angefragt und antwortete kein einziges Mal.
 >
-> Quelle: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28. August 2026, aktualisiert am 30. August 2026
+> Quelle: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28. August 2026, aktualisiert am 30. August 2026
 
 Lesen Sie die beiden Zeilen eines Hosts immer zusammen, sonst führt die Zahl in die Irre. Eine kommerzielle Cloud in China kauft internationalen Transit, den eine Wohnung in Chaoyang nie bekommt; die Messung aus dem Rechenzentrum markiert damit eine Obergrenze. Ihr Besucher liegt irgendwo darunter. Bei drei der fünf Hosts bekommt er gar nichts.
 
@@ -94,7 +94,7 @@ Der verdient einen eigenen Abschnitt, weil das übliche Wissen veraltet ist und 
 
 > Am 28. August 2026 aus einer Alibaba-Cloud-Instanz (阿里云) in cn-zhangjiakou: fonts.googleapis.com beantwortete 72 von 72 Anfragen, medianes erstes Byte 111 ms, fonts.gstatic.com 72 von 72 bei 102 ms. Am 30. August 2026 über eine Privatleitung von China Mobile (中国移动) in Peking: fonts.googleapis.com wurde 54-mal angefragt und antwortete nie, fonts.gstatic.com sechsmal und ebenfalls nie.
 >
-> Quelle: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28. August 2026, aktualisiert am 30. August 2026
+> Quelle: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28. August 2026, aktualisiert am 30. August 2026
 
 Ehrlich ist nur die bedingte Antwort. Google Fonts löst aus Rechenzentren auf dem Festland auf und bleibt an Privatanschlüssen häufig stumm. Was Ihr Besucher bekommt, hängt am Netz, in dem er sitzt.
 

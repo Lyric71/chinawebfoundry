@@ -6,7 +6,7 @@ visual: "/images/guides/wp-admin-slow-china.webp"
 order: 42
 published: true
 publishedAt: "2026-10-12"
-updatedAt: "2026-10-12"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-20"
 category: "Technology"
 author: "echo-peng"
@@ -87,7 +87,7 @@ Sur une page publique, l’éditeur de blocs du cœur ne charge aucune police Go
 Les fichiers se trouvent sur `fonts.gstatic.com`, un hôte dont la réponse varie selon le réseau du rédacteur.
 
 > Le 28 août 2026, depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou, avec une mesure toutes les dix minutes pendant 12 heures, fonts.googleapis.com a répondu à 72 requêtes sur 72, avec un temps médian de 111 ms avant le premier octet, et fonts.gstatic.com à 72 sur 72, en 102 ms. Lors de chargements de pages sur une ligne résidentielle China Mobile (中国移动) à Pékin, le 30 août 2026, les mêmes hôtes ont répondu respectivement à 0 requête sur 54 et 0 sur 6.
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, 28 au 30 août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 au 30 août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 (Pas d’Elementor sur le site ? Passez directement aux miroirs.)
 

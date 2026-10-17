@@ -4,15 +4,11 @@ import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
 import ScrollEffects from '../../components/global/ScrollEffects.astro';
 import DependencyTable from '../../components/pages/DependencyTable.astro';
+import WordPressMeasurements from '../../components/pages/WordPressMeasurements.astro';
+import { copy as measuredCopy, formatDate, lastReviewedOn } from '../../data/wordpressMeasurements';
 
 const metaTitle = 'WordPress en Chine | Ce qui tient, ce qu’il faut revoir | ChinaWebFoundry';
 const metaDescription = 'WordPress tient bien en Chine continentale, à condition d’être construit pour. Les usages où il s’impose, ce que le Grand Pare-feu oblige à revoir, et les alternatives qui ne tiennent pas la distance.';
-
-const stats = [
-  { value: 43, suffix: '%', label: 'des sites web fonctionnent sous WordPress', source: 'W3Techs, 2024' },
-  { value: 20, suffix: '+', label: 'ans de WordPress en Chine', source: 'Implantés à Shanghai depuis 2005' },
-  { value: 50, suffix: '+', label: 'sites internationaux mis en ligne derrière le Pare-feu', source: 'Tous secteurs confondus' },
-];
 
 const useCases = [
   {
@@ -79,7 +75,7 @@ const changeGroups = [
       {
         icon: 'type',
         title: 'Polices',
-        body: 'Google Fonts ne se charge pas en Chine. Nous auto-hébergeons les fontes, ou nous les remplaçons par des polices qui couvrent à la fois les glyphes latins et CJK dans un même fichier.',
+        body: 'Depuis un centre de données continental, Google Fonts répond. Sur une ligne domestique, il reste souvent muet. Nous auto-hébergeons les fichiers, ou nous leur substituons des polices compatibles avec la Chine, qui réunissent glyphes latins et CJK dans un seul fichier.',
       },
       {
         icon: 'palette',
@@ -126,7 +122,7 @@ const changeGroups = [
       {
         icon: 'refresh',
         title: 'Mises à jour automatiques',
-        body: 'Le noyau et les extensions interrogent wordpress.org, et la requête expire souvent depuis la Chine. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles.',
+        body: 'WordPress.org bride le débit de certains réseaux chinois et leur renvoie des erreurs HTTP 429 : les mises à jour calent, sans que rien à l’écran ne l’explique. Nous les faisons transiter par un proxy, ou nous programmons des fenêtres de mise à jour manuelles.',
       },
       {
         icon: 'shield',
@@ -183,7 +179,7 @@ const chinaStack = [
 const elementorItems = [
   {
     label: 'Polices',
-    body: 'Elementor charge Google Fonts par défaut, et la requête n’aboutit pas en Chine. Nous auto-hébergeons les fontes, ou nous les remplaçons par des polices qui couvrent à la fois les glyphes latins et chinois.',
+    body: 'Elementor charge Google Fonts par défaut, et son éditeur réclame encore Roboto à Google une fois ce réglage désactivé. Depuis un centre de données continental, l’hôte répond ; sur une connexion domestique, il se tait souvent. Nous auto-hébergeons donc les fontes, ou nous leur substituons des polices compatibles avec la Chine.',
   },
   {
     label: 'Widgets et composants',
@@ -191,7 +187,7 @@ const elementorItems = [
   },
   {
     label: 'Bibliothèques d’icônes et CDN',
-    body: 'Les ressources externes sont rapatriées et servies localement depuis le serveur chinois.',
+    body: 'Elementor embarque Font Awesome et ses propres eicons. Ce n’est souvent pas le cas des packs complémentaires ni des thèmes : nous rapatrions donc toute ressource externe sur le serveur chinois.',
   },
   {
     label: 'Modèles',
@@ -202,8 +198,8 @@ const elementorItems = [
 const faqs = [
   {
     id: 'wp-icp',
-    question: 'Notre site WordPress a-t-il besoin d’une licence ICP pour fonctionner en Chine ?',
-    answer: 'Hébergé en Chine continentale, oui. Hébergé à Hong Kong, non, mais le site y perdra en vitesse de manière mesurable, et Baidu le traitera comme étranger. Pour la plupart des marques étrangères sérieuses sur le marché chinois, la licence ICP justifie l’investissement.',
+    question: 'Notre site WordPress a-t-il besoin d’un dépôt ICP pour fonctionner en Chine ?',
+    answer: 'S’il est hébergé sur un serveur en Chine continentale, oui. Le dépôt ICP (ICP备案) se fait par l’intermédiaire du fournisseur qui héberge le site, et il doit aboutir avant la mise en ligne. Un site hébergé à Hong Kong ou à l’étranger n’a rien à déposer, mais chaque visite depuis le continent doit alors franchir la frontière. La licence ICP (ICP许可证) est une autorisation à part, exigée des sites qui font payer leurs utilisateurs pour de l’information ou des services en ligne. Nous vérifions pendant l’audit si c’est le cas du vôtre.',
   },
   {
     id: 'wp-marketing-team',
@@ -213,7 +209,7 @@ const faqs = [
   {
     id: 'wp-vs-astro-speed',
     question: 'WordPress est-il plus lent qu’Astro en Chine ?',
-    answer: 'En temps de chargement brut, oui, à conditions égales. WordPress est dynamique, Astro est statique. Dans la réalité, un site WordPress correctement réglé sur Aliyun, avec les bonnes couches de cache, atteint les seuils de performance attendus à la fois par les utilisateurs chinois et par Baidu. L’écart pèse davantage sur certains projets que sur d’autres.',
+    answer: 'Aucun banc d’essai publié ne compare les deux en Chine, nous nous garderons donc d’avancer un chiffre. Tout se joue dans la fabrication de la page. Astro livre des fichiers HTML déjà prêts. WordPress assemble chaque page en PHP à partir d’une base de données, sauf si un cache de page répond d’abord, ce qui est généralement le cas sur un serveur continental bien réglé. En Chine, l’essentiel de la lenteur vient des hôtes extérieurs qu’appellent le thème et les extensions, et ce ménage est le même quelle que soit la pile.',
   },
   {
     id: 'wp-elementor-divi',
@@ -223,12 +219,12 @@ const faqs = [
   {
     id: 'wp-auto-updates',
     question: 'Et les mises à jour automatiques d’extensions depuis wordpress.org ?',
-    answer: 'Elles échouent ou expirent le plus souvent depuis la Chine, parce que le dépôt wordpress.org répond mal, voire pas du tout, sur les réseaux chinois. Nous faisons transiter les mises à jour par un proxy, ou nous programmons des fenêtres manuelles. Dans les deux cas, votre équipe n’a pas à s’en occuper au quotidien.',
+    answer: 'Elles échouent souvent. WordPress.org bride le débit de certains réseaux chinois, qui reçoivent en retour des erreurs HTTP 429 ; son équipe l’a écrit noir sur blanc sur le Meta Trac du projet, le 21 mars 2020. Le tableau de bord ne prévient pas. Il cesse simplement de proposer des mises à jour. Nous les faisons transiter par un proxy, ou nous programmons des fenêtres manuelles, pour que votre équipe n’ait pas à s’en soucier au quotidien.',
   },
   {
     id: 'wp-multilingual',
     question: 'Peut-on garder WPML ou Polylang pour le multilingue ?',
-    answer: 'Oui, les deux passent en Chine sans difficulté, une fois le reste du site assaini. WPML reste le choix le plus courant pour les sites à trois langues ou davantage, et pour les circuits de traduction complexes. Polylang, plus léger, convient parfaitement à deux ou trois langues. Nous avons beaucoup pratiqué l’un comme l’autre. Le choix tient bien plus à votre processus éditorial qu’à des contraintes propres à la Chine.',
+    answer: 'Oui. Polylang 3.8.7 n’émet aucun appel externe lorsqu’il sert une page : sur un serveur continental, il se comporte comme partout ailleurs. WPML convient aux sites de trois langues ou plus et aux gros chantiers de traduction. Pour deux ou trois langues, Polylang reste l’installation la plus légère. Le choix dépend de votre circuit éditorial.',
   },
   {
     id: 'wp-woocommerce-china',
@@ -320,6 +316,9 @@ const faqLd = {
           <p class="mt-4 text-base text-white/45 max-w-xl leading-relaxed">
             Vingt ans d’expérience à Shanghai. Plus de cinquante sites internationaux mis en ligne.
           </p>
+          <p class="mt-3 text-sm text-white/45">
+            {measuredCopy.fr.lastReviewed} <time datetime={lastReviewedOn}>{formatDate(lastReviewedOn, 'fr', 'long')}</time>
+          </p>
           <div class="mt-12 flex flex-wrap gap-4">
             <Button href="/fr/contact/" variant="primary" size="lg">Échanger avec l’équipe</Button>
             <Button href="/fr/astro/" variant="ghost" size="lg" class="!text-white/70 hover:!text-white">Astro en Chine</Button>
@@ -329,31 +328,8 @@ const faqLd = {
     </div>
   </section>
 
-  <!-- Stat strip -->
-  <section class="border-y border-[var(--color-surface-border)] bg-white">
-    <div class="mx-auto max-w-[1400px] section-padding py-14 lg:py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        {stats.map((stat, i) => (
-          <div class:list={[
-            'flex flex-col lg:flex-row items-start lg:items-center gap-5',
-            i > 0 ? 'lg:pl-10 lg:border-l lg:border-[var(--color-surface-border)]' : '',
-          ]}>
-            <div class="text-4xl sm:text-5xl lg:text-[64px] font-medium font-[var(--font-heading)] text-[var(--color-brand-orange)] leading-none tabular-nums" data-count={stat.value} data-count-suffix={stat.suffix}>
-              0{stat.suffix}
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-base text-[var(--color-text-dark)] leading-snug font-medium">
-                {stat.label}
-              </p>
-              <p class="mt-1 text-sm text-[var(--color-text-muted)]">
-                {stat.source}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Measurement block: five dated third-party figures (T6-08) -->
+  <WordPressMeasurements lang="fr" />
 
   <!-- Why It Works: editorial split with workspace image -->
   <section class="section-spacing">
@@ -367,10 +343,10 @@ const faqLd = {
             Le moteur WordPress fonctionne en Chine.
           </h2>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            Le cœur de WordPress tourne sans souci en Chine. Le noyau, le code livré par wordpress.org, le circuit de publication standard : tout se comporte pareil sur un serveur shanghaïen que sur un serveur londonien. Le wp-admin reste accessible sans VPN.
+            WordPress fonctionne en Chine. Le cœur s’installe sur un serveur à Shanghai exactement comme à Londres. Vos rédacteurs ouvrent le wp-admin sans VPN, et le circuit de publication reste le même.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-5">
-            L’écueil vient de ses dépendances par défaut. Les thèmes appellent Google Fonts. Les extensions interrogent des API situées hors du Pare-feu. Les bibliothèques se chargent depuis des CDN bloqués. Les contenus intégrés pointent vers YouTube. L’outil de mesure d’audience interroge Google.
+            L’écueil, ce sont ses dépendances par défaut. Les thèmes chargent Google Fonts, et beaucoup tirent encore jQuery de Google Hosted Libraries. Les extensions interrogent des API hors du Pare-feu. Les contenus intégrés renvoient à YouTube, la mesure d’audience à Google. Les mises à jour elles-mêmes calent : wordpress.org bride le débit de certains réseaux chinois.
           </p>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
             Une fois ces dépendances retirées et remplacées par des équivalents chinois, le résultat reste un site WordPress, rapide, conforme, indexé par Baidu, et administrable par une équipe qui le connaît déjà.
@@ -926,7 +902,7 @@ const faqLd = {
           <div class="flex-1">
             <p class="text-sm font-semibold text-[var(--color-text-dark)] mb-1">Le dépôt ICP avance en parallèle</p>
             <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">
-              Vingt jours ouvrés au minimum à l’échelon provincial, parfois davantage. Nous engageons la procédure dès le premier jour, pour qu’elle ne se retrouve jamais sur le chemin critique de la mise en ligne.
+              Alibaba Cloud (阿里云) annonce 1 à 2 jours ouvrés pour son propre contrôle, puis, en général, 1 à 20 jours ouvrés auprès de l’administration provinciale des communications (centre d’aide, mis à jour le 26 août 2026). Nous lançons la procédure dès le premier jour, pour qu’elle ne retarde jamais la mise en ligne.
             </p>
           </div>
         </div>

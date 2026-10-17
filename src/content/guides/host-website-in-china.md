@@ -6,7 +6,7 @@ visual: "/images/guides/host-website-in-china.webp"
 order: 14
 published: true
 publishedAt: 2026-07-03
-updatedAt: 2026-10-13
+updatedAt: 2026-10-18
 category: Hosting
 ---
 
@@ -23,7 +23,7 @@ Three reasons, and they stack.
 Speed first. When your server lives in Virginia or Frankfurt, every request from a Chinese user has to cross the Great Firewall (防火长城). That crossing is not a clean hop. Traffic gets throttled, SSL handshakes time out mid-connection, and any script or font pulled from an overseas host the visitor's network can't reach simply hangs. Google Fonts is the classic case: it answers from a mainland datacentre and goes silent on a Beijing home line. The page does not fail loudly. It just sits there, half-drawn, until the visitor leaves.
 
 > In 21YunBox's tests, `fonts.googleapis.com` answered 72 of 72 requests from an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026 and 0 of 54 from a Beijing China Mobile (中国移动) residential line on 30 August 2026.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Then SEO. Baidu (百度) is the search engine that matters here, and it can only rank pages it can crawl and load from inside the mainland. Baidu publishes no rule that rewards a mainland host or a filing as such, so the case for local hosting rests on crawl access and page speed from mainland networks, and you can check both.
 

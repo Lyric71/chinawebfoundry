@@ -6,7 +6,7 @@ visual: "/images/guides/great-firewall-what-it-blocks.webp"
 order: 7
 published: true
 publishedAt: 2026-04-01
-updatedAt: 2026-10-16
+updatedAt: 2026-10-18
 reviewBy: 2026-11-15
 category: Technology
 ---
@@ -62,7 +62,7 @@ Google search, Gmail, Maps, YouTube and Google Ads do not work from a mainland c
 Google Fonts is the exception, and people get it wrong in both directions, so it gets an extra paragraph.
 
 > From an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026, sampled every ten minutes for twelve hours, `fonts.googleapis.com` completed 72 of 72 requests at a median 111ms to first byte. From a Beijing China Mobile (中国移动) residential line on 30 August 2026, across 264 page loads, the same host answered 0 of 54.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Neither flat version of that claim survives the pair. Google Fonts resolves from mainland datacentres and frequently does not resolve on consumer connections, which is the whole argument for self-hosting: you remove a variable that changes by network, by resolver and by hour. `fonts.google.com`, the browsing interface, is a separate host: GreatFire read it 100% disrupted on its last two conclusive tests, the latest on 30 September 2026.
 

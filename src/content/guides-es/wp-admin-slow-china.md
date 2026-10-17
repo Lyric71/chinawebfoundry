@@ -6,7 +6,7 @@ visual: "/images/guides/wp-admin-slow-china.webp"
 order: 42
 published: true
 publishedAt: "2026-10-12"
-updatedAt: "2026-10-12"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-20"
 category: "Technology"
 author: "echo-peng"
@@ -87,7 +87,7 @@ El editor de bloques del núcleo no carga ninguna fuente de Google en la página
 Los archivos residen en `fonts.gstatic.com`, y que ese servidor responda depende de la red desde la que trabaje el redactor.
 
 > Desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, con mediciones cada diez minutos durante 12 horas el 28 de agosto de 2026, fonts.googleapis.com respondió a 72 de 72 peticiones con una mediana de 111 ms hasta el primer byte, y fonts.gstatic.com a 72 de 72 en 102 ms. En cargas de página desde una línea doméstica de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, los mismos servidores respondieron, respectivamente, a 0 de 54 y a 0 de 6 peticiones.
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, del 28 al 30 de agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, del 28 al 30 de agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 (¿No usa Elementor? Pase directamente a los espejos.)
 

@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-13
+updatedAt: 2026-10-18
 category: Technology
 ---
 
@@ -37,7 +37,7 @@ Dos campañas de medición separadas por dos días, sobre la misma lista de serv
 
 > El 28 de agosto de 2026, desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, con muestreo cada diez minutos durante doce horas y un tiempo de espera de 30 segundos, fonts.googleapis.com respondió a 72 peticiones de 72, con un primer byte mediano de 111 ms. El 30 de agosto de 2026, desde una línea residencial de China Mobile (中国移动) en Pekín, en 264 cargas de página repartidas por 88 sitios reales, ese mismo servidor recibió 54 peticiones y no respondió a ninguna.
 >
-> Fuente: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 de agosto de 2026, actualizado el 30 de agosto de 2026
+> Fuente: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 de agosto de 2026, actualizado el 30 de agosto de 2026
 
 Lea juntas las dos filas de un mismo servidor: por separado, la cifra engaña. Una nube comercial china se paga un tránsito internacional que un piso de Chaoyang no tendrá nunca, de modo que la medición del centro de datos marca un techo y nada más. Su visitante se queda en algún punto por debajo. En tres de los cinco servidores de la tabla no recibe nada.
 
@@ -94,7 +94,7 @@ Sobre Google Fonts en China circulan dos frases: que está bloqueado y que no lo
 
 > El 28 de agosto de 2026, desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, fonts.googleapis.com respondió a 72 peticiones de 72, con un primer byte mediano de 111 ms, y fonts.gstatic.com a 72 de 72, con 102 ms. El 30 de agosto de 2026, desde una línea residencial de China Mobile (中国移动) en Pekín, fonts.googleapis.com recibió 54 peticiones y no respondió a ninguna, y fonts.gstatic.com recibió 6, sin una sola respuesta.
 >
-> Fuente: 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 de agosto de 2026, actualizado el 30 de agosto de 2026
+> Fuente: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 de agosto de 2026, actualizado el 30 de agosto de 2026
 
 La formulación honesta es condicional. Google Fonts se resuelve desde los centros de datos continentales y a menudo enmudece en las conexiones residenciales. Lo que reciba su visitante depende de la red desde la que navegue.
 

@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-13
+updatedAt: 2026-10-18
 category: Technology
 ---
 
@@ -37,7 +37,7 @@ Deux campagnes de mesure, à deux jours d'écart, sur la même liste d'hôtes. L
 
 > Le 28 août 2026, depuis une instance Alibaba Cloud (阿里云) à cn-zhangjiakou, relevé toutes les dix minutes pendant douze heures avec un délai d'attente de 30 secondes : fonts.googleapis.com a répondu à 72 requêtes sur 72, premier octet médian à 111 ms. Le 30 août 2026, depuis une ligne résidentielle China Mobile (中国移动) à Pékin, sur 264 chargements de pages répartis sur 88 sites réels, le même hôte a été sollicité 54 fois sans répondre une seule fois.
 >
-> Source : 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 août 2026, mis à jour le 30 août 2026
+> Source : 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 août 2026, mis à jour le 30 août 2026
 
 Lisez ensemble les deux lignes d'un même hôte, sans quoi le chiffre vous égare. Un cloud commercial chinois s'achète un transit international qu'un appartement de Chaoyang n'aura jamais : la mesure du centre de données fixe un plafond, rien de plus. Votre visiteur se tient quelque part en dessous. Sur trois des cinq hôtes retenus ici, il ne reçoit rien.
 
@@ -94,7 +94,7 @@ Deux phrases circulent sur Google Fonts en Chine : le service serait bloqué ;
 
 > Le 28 août 2026, depuis une instance Alibaba Cloud (阿里云) à cn-zhangjiakou : fonts.googleapis.com a répondu à 72 requêtes sur 72, premier octet médian à 111 ms, et fonts.gstatic.com à 72 sur 72, à 102 ms. Le 30 août 2026, depuis une ligne résidentielle China Mobile (中国移动) à Pékin : fonts.googleapis.com sollicité 54 fois, aucune réponse ; fonts.gstatic.com sollicité 6 fois, aucune réponse.
 >
-> Source : 21YunBox, *A Day of Third-Party Requests From Inside China*, 28 août 2026, mis à jour le 30 août 2026
+> Source : 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 août 2026, mis à jour le 30 août 2026
 
 La formulation honnête est conditionnelle. Google Fonts se résout depuis les centres de données continentaux et reste souvent muet sur les connexions grand public. Ce que reçoit votre visiteur dépend du réseau où il se trouve.
 

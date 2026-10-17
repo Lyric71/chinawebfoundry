@@ -6,7 +6,7 @@ visual: "/images/guides/woocommerce-china-store-guide.webp"
 order: 12
 published: true
 publishedAt: 2026-07-01
-updatedAt: 2026-10-06
+updatedAt: 2026-10-18
 category: Technology
 ---
 
@@ -47,7 +47,7 @@ page hangs there waiting on a response that never arrives.
 > from an Alibaba Cloud (阿里云) instance in cn-zhangjiakou on 28 August 2026
 > and 0 of 18 from a Beijing China Mobile (中国移动) residential line on
 > 30 August 2026. `fonts.googleapis.com` answered 72 of 72 and 0 of 54.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, August
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, August
 > 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Second, slow checkout. Host the store in Europe or the US and every cart

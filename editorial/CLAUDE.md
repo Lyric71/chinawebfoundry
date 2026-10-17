@@ -411,10 +411,13 @@ every latency figure adds its vantage point.
 > fonts.googleapis.com completed 72 of 72 requests at a median 111ms time to
 > first byte. From a Beijing China Mobile residential line on 30 August 2026
 > it answered 0 of 54.
-> Source: 21YunBox, A Day of Third-Party Requests From Inside China, 28 to 30
-> August 2026
+> Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same
+> Hosts, Opposite Answers, 28 to 30 August 2026
 
-(Corrected 2 October 2026. The example used to say 73 of 73 on 29 August, a
+(Corrected 18 October 2026: the study's title is the one above, on the page
+and in the Internet Archive capture of 16 September 2026; "A Day of
+Third-Party Requests From Inside China" is only the wording of its URL.
+Corrected 2 October 2026. The example used to say 73 of 73 on 29 August, a
 home line on 28 August, and "ChinaWebFoundry measurement". The ledger's twice
 verified pair is the one above, and it is 21YunBox's measurement, not ours.
 A third party figure is never labelled as ours.)

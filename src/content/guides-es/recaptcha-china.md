@@ -6,7 +6,7 @@ visual: "/images/guides/recaptcha-china.webp"
 order: 40
 published: true
 publishedAt: "2026-10-08"
-updatedAt: "2026-10-08"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-18"
 category: "Technology"
 author: "cyril-drouin"
@@ -23,7 +23,7 @@ Sin script no hay token, y un formulario que exige un token rechaza al visitante
 | `www.google.com/recaptcha` | sin respuesta en 30 segundos        | sin respuesta                                    | 0 de 72 / 0 de 18      | bloqueado | 28 y 30 de agosto de 2026 |
 
 > Desde una instancia de Alibaba Cloud (阿里云) en cn-zhangjiakou, con una muestra cada diez minutos durante doce horas el 28 de agosto de 2026 y un tiempo de espera de 30 segundos, `www.google.com/recaptcha` respondió a 0 de 72 peticiones. A lo largo de 264 cargas de página de 88 sitios reales, realizadas desde una línea residencial de China Mobile (中国移动) en Pekín el 30 de agosto de 2026, www.google.com, el servidor de reCAPTCHA, recibió 18 peticiones y no respondió a ninguna.
-> Fuente: 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 La casilla de verificación, y también la comprobación invisible de la versión 3, proceden de un único script: `www.google.com/recaptcha/api.js`. Las tres últimas pruebas concluyentes de GreatFire sobre esa dirección fallaron.
 
@@ -79,7 +79,7 @@ Un veredicto de GreatFire indica si una conexión logró pasar desde sus puntos 
 Esa laguna ya ha inducido a error en otras ocasiones.
 
 > GreatFire consideró https://fonts.googleapis.com no bloqueado, con 0 de 3 pruebas concluyentes interferidas y la última el 7 de septiembre de 2026. Desde una línea residencial de China Mobile (中国移动) en Pekín, el 30 de agosto de 2026, 21YunBox registró 54 peticiones a ese mismo servidor sin ninguna respuesta.
-> Fuente: GreatFire, septiembre de 2026. https://en.greatfire.org/https/fonts.googleapis.com; 21YunBox, A Day of Third-Party Requests From Inside China, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Fuente: GreatFire, septiembre de 2026. https://en.greatfire.org/https/fonts.googleapis.com; 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, agosto de 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 El script alternativo tampoco es autosuficiente. El archivo `www.recaptcha.net/recaptcha/api.js` carga el código del desafío desde `www.gstatic.com/recaptcha`, otro dominio de Google con un historial irregular.
 

@@ -6,7 +6,7 @@ visual: "/images/guides/woocommerce-china-store-guide.webp"
 order: 12
 published: true
 publishedAt: 2026-07-01
-updatedAt: 2026-10-06
+updatedAt: 2026-10-18
 category: Technology
 ---
 
@@ -33,7 +33,7 @@ Trois éléments lâchent, en général d'un seul coup.
 D'abord, les scripts hébergés à l'étranger. Une boutique par défaut appelle en douce Google Fonts et reCAPTCHA. Selon les mesures publiées par 21YunBox en août 2026, reCAPTCHA n'a répondu à aucune requête, ni depuis un centre de données du continent ni depuis une ligne domestique à Pékin ; Google Fonts répondait au centre de données, jamais à la ligne domestique. Dans un cas comme dans l'autre, la page reste suspendue, à guetter une réponse qui ne viendra jamais.
 
 > Selon les mesures de 21YunBox, `www.google.com/recaptcha` n'a répondu à aucune des 72 requêtes envoyées depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou le 28 août 2026, ni à aucune des 18 envoyées depuis une ligne résidentielle China Mobile (中国移动) à Pékin le 30 août 2026. `fonts.googleapis.com` a répondu à 72 requêtes sur 72 dans le premier cas, et à aucune des 54 dans le second.
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Ensuite, la lenteur du paiement. Hébergez la boutique en Europe ou aux États-Unis, et chaque action du panier repart pour un aller-retour poussif à travers le Firewall. L'acheteur chinois ne s'attarde pas devant un indicateur qui tourne.
 

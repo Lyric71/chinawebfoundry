@@ -6,7 +6,7 @@ visual: "/images/guides/google-fonts-china.webp"
 order: 38
 published: true
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: 2026-10-18
 reviewBy: "2026-11-26"
 category: "Technology"
 author: "echo-peng"
@@ -26,12 +26,12 @@ Servez les polices depuis votre propre domaine et la question ne se pose plus. C
 | `fonts.gstatic.com`    | TTFB médian de 102 ms               | aucune réponse                                    | 72 sur 72 / 0 sur 6  | varie selon le point de mesure | 28 et 30 août 2026 |
 
 > Depuis une instance Alibaba Cloud (阿里云) de la région cn-zhangjiakou, avec un relevé toutes les dix minutes pendant douze heures le 28 août 2026 et un délai d’expiration de 30 secondes, `fonts.googleapis.com` a mené à terme 72 requêtes sur 72, avec un premier octet médian à 111 ms, et `fonts.gstatic.com` 72 sur 72 à 102 ms. Sur 264 chargements de page de 88 sites réels, effectués depuis une ligne résidentielle China Mobile (中国移动) à Pékin le 30 août 2026, `fonts.googleapis.com` a été sollicité 54 fois sans jamais répondre, et `fonts.gstatic.com` 6 fois, sans plus de succès.
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Ne mélangez pas ces deux colonnes : elles décrivent deux réseaux distincts.
 
 > « Une ligne de centre de données et une ligne grand public, dans le même pays, ne constituent pas le même réseau. »
-> Source : 21YunBox, A Day of Third-Party Requests From Inside China, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+> Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, août 2026. https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 21YunBox n’explique pas pourquoi la ligne résidentielle est restée sans réponse ; aucun autre test publié ne l’explique, et nous nous garderons de toute hypothèse. Les chiffres dessinent en revanche les contours du problème : un même hôte, deux réseaux, deux jours d’écart et des résultats opposés.
 
