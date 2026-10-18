@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-18
+updatedAt: 2026-10-19
 category: Technology
 author: cyril-drouin
 ---
@@ -67,7 +67,7 @@ Cada servidor adicional se paga, y no precisamente barato, cuando un viaje de id
 > «La conexión es el tiempo que tarda en completarse un saludo TCP. Igual que ocurre con el DNS, cuantas más conexiones de servidor se necesiten, más tiempo se invierte en crearlas.»
 > Fuente: MDN Web Docs, Understanding latency, última modificación el 25 de febrero de 2025. https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Understanding_latency
 
-Una instalación de WordPress con un constructor de páginas, un plugin de formularios, una etiqueta de analítica y una fuente web llama a entre ocho y veinte servidores antes de que el visitante vea nada. Un estudio instrumentó navegación real desde una línea doméstica de Pekín, registró 97 servidores de terceros distintos y dos días antes había sondeado una región de nube situada en China. El estudio solo prueba cinco servidores de forma directa. Los tres que siguen sostienen el argumento, y los dos puntos de medición se contradicen en dos de ellos.
+Una instalación de WordPress con un [constructor de páginas](/es/recursos/guia-web-china/constructores-paginas-china/), un plugin de formularios, una etiqueta de analítica y una fuente web llama a entre ocho y veinte servidores antes de que el visitante vea nada. Un estudio instrumentó navegación real desde una línea doméstica de Pekín, registró 97 servidores de terceros distintos y dos días antes había sondeado una región de nube situada en China. El estudio solo prueba cinco servidores de forma directa. Los tres que siguen sostienen el argumento, y los dos puntos de medición se contradicen en dos de ellos.
 
 | Servidor | Alibaba Cloud (阿里云) cn-zhangjiakou, 28 ago. 2026 | Línea doméstica de China Mobile (中国移动), Pekín, 30 ago. 2026 |
 |---|---|---|

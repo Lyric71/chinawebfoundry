@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-18
+updatedAt: 2026-10-19
 category: Technology
 author: cyril-drouin
 ---
@@ -67,7 +67,7 @@ Chaque hôte supplémentaire se paie, et pas au rabais, dès lors qu'un aller-re
 > « La phase de connexion correspond au temps nécessaire à l'établissement d'une liaison TCP. Comme pour le DNS, plus il faut ouvrir de connexions vers des serveurs, plus le temps consacré à ces connexions augmente. »
 > Source : MDN Web Docs, Understanding latency, dernière modification le 25 février 2025. https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Understanding_latency
 
-Une installation WordPress équipée d'un constructeur de pages, d'un plugin de formulaire, d'une balise analytique et d'une police web sollicite huit à vingt hôtes avant que le visiteur ne voie quoi que ce soit. Une étude a instrumenté une navigation réelle depuis une ligne résidentielle de Pékin, relevé 97 hôtes tiers distincts, et sondé deux jours plus tôt une région cloud installée en Chine. Elle n'en teste directement que cinq. Les trois hôtes ci-dessous portent la démonstration, et les deux points de mesure se contredisent sur deux d'entre eux.
+Une installation WordPress équipée d'un [constructeur de pages](/fr/ressources/guide-web-chine/constructeurs-pages-chine/), d'un plugin de formulaire, d'une balise analytique et d'une police web sollicite huit à vingt hôtes avant que le visiteur ne voie quoi que ce soit. Une étude a instrumenté une navigation réelle depuis une ligne résidentielle de Pékin, relevé 97 hôtes tiers distincts, et sondé deux jours plus tôt une région cloud installée en Chine. Elle n'en teste directement que cinq. Les trois hôtes ci-dessous portent la démonstration, et les deux points de mesure se contredisent sur deux d'entre eux.
 
 | Hôte | Alibaba Cloud (阿里云) cn-zhangjiakou, 28 août 2026 | Ligne résidentielle China Mobile (中国移动), Pékin, 30 août 2026 |
 |---|---|---|

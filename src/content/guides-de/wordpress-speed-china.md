@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-18
+updatedAt: 2026-10-19
 category: Technology
 author: cyril-drouin
 ---
@@ -67,7 +67,7 @@ Jeder zusätzliche Host schlägt zu Buche, und nicht knapp, sobald eine Rundreis
 > „Die Verbindungsphase ist die Zeit, die ein TCP-Handshake bis zum Abschluss benötigt. Wie beim DNS gilt: Je mehr Serververbindungen nötig sind, desto mehr Zeit fließt in ihren Aufbau.“
 > Quelle: MDN Web Docs, Understanding latency, zuletzt geändert am 25. Februar 2025. https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Understanding_latency
 
-Eine WordPress-Installation mit Pagebuilder, Formular-Plugin, Analytics-Tag und Webschrift ruft acht bis zwanzig Hosts auf, bevor der Besucher überhaupt etwas sieht. Eine Studie hat echtes Surfverhalten über einen Privatanschluss in Peking instrumentiert, dabei 97 verschiedene Drittanbieter-Hosts erfasst und zwei Tage zuvor eine Cloud-Region in China vermessen. Direkt getestet hat sie nur fünf Hosts. Die folgenden drei tragen das Argument, und bei zwei von ihnen widersprechen sich die beiden Messpunkte.
+Eine WordPress-Installation mit [Pagebuilder](/de/ressourcen/china-web-leitfaden/page-builder-china/), Formular-Plugin, Analytics-Tag und Webschrift ruft acht bis zwanzig Hosts auf, bevor der Besucher überhaupt etwas sieht. Eine Studie hat echtes Surfverhalten über einen Privatanschluss in Peking instrumentiert, dabei 97 verschiedene Drittanbieter-Hosts erfasst und zwei Tage zuvor eine Cloud-Region in China vermessen. Direkt getestet hat sie nur fünf Hosts. Die folgenden drei tragen das Argument, und bei zwei von ihnen widersprechen sich die beiden Messpunkte.
 
 | Host | Alibaba Cloud (阿里云) cn-zhangjiakou, 28. Aug. 2026 | China-Mobile-Privatanschluss (中国移动), Peking, 30. Aug. 2026 |
 |---|---|---|

@@ -2695,3 +2695,95 @@ Tencent Cloud pages. Alibaba dates are the page's `lastModifiedTime`.
 - Value: the two hosts appear only in WPML support-forum threads; the official "cannot connect to WPML.org" FAQ does not name them and carries no date
 - Verified 1: 2026-10-18, web search and WebFetch of https://wpml.org/faq/wpml-plugin-cannot-connect-to-wpml-org/
 - Effect: the claim was cut from the T6-08 FAQ answer. F14 itself is not changed: it was not used.
+
+## A7 entries, 19 October 2026 (page-builders-china)
+
+Every URL fetched twice on 19 October 2026. Versioned source and study hashes match between fetches. GitHub and Elegant Themes wrappers changed, but cited text and dates were re-read and match. Reuses the prior verified F1/F6/F10/F11 ledger, with fresh checks and newly dated Divi documentation.
+
+### elementor.zip
+- Claim, version/date and scope: F10: Google Fonts default Enable; local font loading default Disable; unguarded editor Roboto dependency and admin-top-bar font request; Font Awesome and eicons use bundled asset paths. Version 4.3.4, inspected 19 October 2026.
+- URL: https://downloads.wordpress.org/plugin/elementor.4.3.4.zip
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 1b67ddd3acca7b245ac0b7e42e4f8ef958e01602d629e8919874b90607cdc12e
+- Used in: page-builders-china.
+
+### script-loader.php
+- Claim, version/date and scope: F11: Open Sans and Noto Serif Google registrations retained for theme/plugin compatibility, not current core use. WordPress 7.1.3 inspected 19 October 2026.
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/script-loader.php
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 87f6567f6a96cb61b2d53eb6caf533bb3458a0257caccb96a8b459e60976c393
+- Used in: page-builders-china.
+
+### editor.js
+- Claim, version/date and scope: F11: permission to connect to Google, browser downloadFontFaceAssets fetches files then upload. WordPress 7.1.3 inspected 19 October 2026.
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/js/dist/editor.js
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 79b846a489d39955f03d4cbeffa8544947fb538d08fce888e85aa015f6cefe99
+- Used in: page-builders-china.
+
+### fonts.php
+- Claim, version/date and scope: F11: Google collection JSON on s.w.org; installed fonts copied to and served from site. WordPress 7.1.3 inspected 19 October 2026.
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/fonts.php
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 16124ad657d5dc720b0da1a898426c432d54e70a7eca63cd06aecfa869364d09
+- Used in: page-builders-china.
+
+### formatting.php
+- Claim, version/date and scope: F11: emoji image base URL on s.w.org. WordPress 7.1.3 inspected 19 October 2026; no reachability verdict used.
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/formatting.php
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 350f6b32303915df970bb0e3ea360fcd54bb0b8a7ecc3d504c3d860ab9468d32
+- Used in: page-builders-china.
+
+### link-template.php
+- Claim, version/date and scope: F11 context: avatar URL built on secure.gravatar.com. WordPress 7.1.3 inspected 19 October 2026; no new reachability claim.
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/link-template.php
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 3e79919111e913b311343c498f30f0cb08b820ff80fd6005218d9e17a258867c
+- Used in: page-builders-china.
+
+### study.html
+- Claim, version/date and scope: F6: fonts.googleapis.com 72 of 72, 111ms median TTFB; Alibaba Cloud cn-zhangjiakou, 28 August 2026, ten-minute intervals for twelve hours, 30-second timeout. Beijing China Mobile residential line, 30 August 2026: 0 of 54 requests within 264 page loads across 88 sites, 60-second page ceiling. Correct title: A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers. Published 28 August, updated 30 August 2026. Third-party evidence only.
+- URL: https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 903fba011f8524b8772c440287f32696bb48e14b7127e78256480efb60dd6afe
+- Used in: page-builders-china.
+
+### elementor-issue.html
+- Claim, version/date and scope: F10: official announcement, 18 September 2025; Load Google Fonts Locally disabled by default, Performance menu path.
+- URL: https://github.com/elementor/elementor/issues/32838
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: a2759705f825de1a3f2432de880bdfea4be68c5cb546731f7e919031392a8dd3
+- Used in: page-builders-china.
+
+### divi.html
+- Claim, version/date and scope: Elegant Themes, Using The Divi Theme Options: Use Google Fonts under General and Improve Google Fonts Loading under Performance. dateModified/time element 31 December 2023. No runtime host list inferred.
+- URL: https://help.elegantthemes.com/en/articles/8626158-using-the-divi-theme-options
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 78a3eaa75faf65710488a35aba0f37a73ff0da4f63339368d407ad905cc36cdd
+- Used in: page-builders-china.
+
+### divi5.html
+- Claim, version/date and scope: Elegant Themes, Divi 5 Theme Options: Use Google Fonts under General. dateModified/time element 18 September 2026. Does not establish older Performance control exists in Divi 5.
+- URL: https://help.elegantthemes.com/en/articles/12958885-divi-5-theme-options
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 96eb7f5d50cb853897f6606c521985dffd8a8224904262de72332d66348064bf
+- Used in: page-builders-china.
+
+### ajax.json
+- Claim, version/date and scope: F1: GreatFire blocked verdict, 1 of 1 failed conclusive tests, last tested 22 August 2026. No city/carrier or latency. No builder dependency inferred.
+- URL: https://en.greatfire.org/api/url/https/ajax.googleapis.com
+- Verified 1: 2026-10-19, HTTP 200; cited text inspected.
+- Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
+- Check 2 SHA-256: 9534ddef3b8d1a278cd67d85c71aefb90a541b34a3b0a8b5c554561be8db48ad
+- Used in: page-builders-china.

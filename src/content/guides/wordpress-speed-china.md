@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: "2026-09-22"
-updatedAt: 2026-10-18
+updatedAt: 2026-10-19
 category: "Technology"
 author: "cyril-drouin"
 ---
@@ -104,7 +104,7 @@ costs what it costs from China.
 > Source: MDN Web Docs, Understanding latency, last modified 25 February 2025.
 > https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Understanding_latency
 
-A WordPress install with a page builder, a form plugin, an analytics tag and
+A WordPress install with [a page builder](/resources/china-web-guide/page-builders-china/), a form plugin, an analytics tag and
 a webfont reaches eight to twenty hosts before a visitor sees anything. One
 study instrumented real browsing from a Beijing home line, found 97 distinct
 third-party hosts, and had probed a cloud region inside China two days

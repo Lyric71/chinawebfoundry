@@ -11,7 +11,7 @@ title: "Elementor, Divi and Gutenberg in China"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F1, F6, F10, F11]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -52,12 +52,12 @@ tier-specific boxes for T1.
 | **Incumbent** | Nobody, and the query has real demand. |
 | **Length** | 1,500 words |
 
-**Angle.** Page builders load more external assets than anything else in a WordPress stack, and the three most common ones behave very differently. This article is the source-verified answer, and it corrects two things everyone repeats.
+**Angle.** Compare the documented request paths of Elementor, Divi and core Gutenberg. Separate public pages from editing and font installation. Correct the assumptions that disabling Elementor Google Fonts removes every editor request and that its bundled icon libraries require an external CDN. No unsupported ranking of asset counts or China speed.
 
 **Facts.** F10 (the centerpiece), F11, F6, F1.
 
 **Outline.**
-1. Why builders are the worst offenders, and why it is not what you think
+1. Where a builder adds outside requests, separated by public page, editor and font installation
 2. Elementor: what it actually loads (F10). Include the settings by their exact names and the default states.
 3. The Elementor editor trap: the setting does not cover the editor (F10)
 4. What Elementor does **not** do, the bundled icon libraries (F10). This corrects a claim in most competitor copy.
@@ -75,8 +75,8 @@ tier-specific boxes for T1.
 **Metadata.**
 ```yaml
 title: "Elementor, Divi and Gutenberg in China"
-description: "Page builders load more outside assets than anything else in the stack. What each one calls out to, read from the source in 2026."
-excerpt: "Which page builder survives behind the Great Firewall, checked against the code rather than the marketing."
+description: "Elementor font settings, Divi controls and core Gutenberg dependencies for China sites. What the source confirms, including the editor caveat."
+excerpt: "Compare font controls, editor requests and local assets before choosing a page builder for a mainland China website."
 ```
 
 **CTA.** Run a free China readiness scan on your site
