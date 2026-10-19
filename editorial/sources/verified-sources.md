@@ -2787,3 +2787,49 @@ Every URL fetched twice on 19 October 2026. Versioned source and study hashes ma
 - Verified 2: 2026-10-19, HTTP 200; re-fetched in createarticle iteration 8; claim and source date confirmed.
 - Check 2 SHA-256: 9534ddef3b8d1a278cd67d85c71aefb90a541b34a3b0a8b5c554561be8db48ad
 - Used in: page-builders-china.
+
+
+## T2-04 entries, 20 October 2026 (cloudflare-china)
+
+Check 1 and check 2 both completed 20 October 2026. All six pages returned HTTP 200 on independent fetches; the second fetch occurred in createarticle iteration 8. Claim/date receipt: editorial/logs/2026-10-20-cloudflare-china/source-check2.json. Reuses the F30 entry verified twice on 18 September, with current routing correction.
+
+### F30: Cloudflare China Network prerequisites
+- Claim: separate subscription for Enterprise customers; mainland data centres operated by JD Cloud; valid ICP filing or licence for each apex domain.
+- Source date: 30 April 2026.
+- URL: https://developers.cloudflare.com/china-network/
+- Verified 1: 2026-10-20. Verified 2: 2026-10-20.
+- Vantage point: not a measurement.
+
+### F30: onboarding and content review
+- Claim: JD Cloud reviews domain content before enablement; customer/company, domain, ICP number, content description and signed self-attestation required; site displays ICP number in footer. First-time zone onboarding estimated at 24-48 hours after vetting, not an ICP approval timeline.
+- Source date: 17 April 2026.
+- URL: https://developers.cloudflare.com/china-network/get-started/
+- Verified 1: 2026-10-20. Verified 2: 2026-10-20.
+- Vantage point: not a measurement.
+
+### F30 correction: geographical routing
+- Claim: anycast does not guarantee the geographically closest data centre. The visitor ISP routing and peering affect the route; customers cannot pin a serving data centre through zone settings. The older nearest-overseas-edge claim and city list are withdrawn.
+- Source date: 14 October 2026.
+- URL: https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/
+- Verified 1: 2026-10-20. Verified 2: 2026-10-20.
+- Used in: cloudflare-china; corrected is-wordpress-blocked-in-china and wordpress-speed-china in en/fr/es/de. PLAN.md F30 corrected and briefs regenerated.
+
+### China Network feature support
+- Claim: static cache only; Tiered Cache and Cache Reserve not supported; Turnstile unavailable within mainland China. Product support statement, not a firewall verdict on the script host.
+- Source date: 10 June 2026, confirmed on directly fetched primary page.
+- URL: https://developers.cloudflare.com/china-network/reference/available-products/
+- Verified 1: 2026-10-20. Verified 2: 2026-10-20.
+
+### China Network FAQ: trial, application ownership, revocation
+- Claim: proof of concept requires valid ICP number and JD Cloud approval; Cloudflare/JD Cloud do not handle the application, referrals are possible; revocation can suspend mainland service and Cloudflare reroutes affected domains offshore.
+- Source date: 16 April 2026.
+- URL: https://developers.cloudflare.com/china-network/faq/
+- Verified 1: 2026-10-20. Verified 2: 2026-10-20.
+
+### 21YunBox Cloudflare vendor-site load observation
+- Claim: Cloudflare's own website completed 3 of 6 load attempts; 21YunBox describes it as intermittent. The article uses only the completion count. No consumer result is supplied for this test and no customer CDN configuration is measured.
+- Vantage point: Alibaba Cloud cn-zhangjiakou. Method: six vendor-site load attempts. Test date: 28 August 2026.
+- Source: 21YunBox, Does Cloudflare Work in China? The China Network & ICP Gate, reviewed 7 October 2026.
+- URL: https://www.21cloudbox.com/support/cloudflare-china.html
+- Verified 1: 2026-10-20. Verified 2: 2026-10-20.
+- Decision: stale search-result figures rejected; the re-fetched revised page consistently supplies 3 of 6. No broad Cloudflare or customer-host verdict inferred. reviewBy 2026-11-26.

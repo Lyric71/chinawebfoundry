@@ -1,0 +1,12 @@
+[
+  {
+    "file": "src/content/guides-es/is-wordpress-blocked-in-china.md",
+    "before": "Ayuda con la distancia y no cambia nada respecto a los servidores bloqueados. La red estándar de Cloudflare atiende a los visitantes continentales desde Hong Kong, Japón o la costa oeste estadounidense, así que la frontera se sigue cruzando en cada petición. Su red interior es un producto Enterprise operado junto con JD Cloud y requiere un registro ICP válido por dominio, con lo que volvemos al papeleo.",
+    "after": "La red mundial de Cloudflare utiliza enrutamiento anycast, que puede dirigir las peticiones a un centro de datos más lejano. Para servir contenido desde China continental, China Network exige una suscripción aparte vinculada al plan Enterprise, un registro ICP (ICP备案) o una licencia ICP (ICP许可证) válidos para cada dominio raíz y una revisión del contenido por parte de JD Cloud.\n\n> Cloudflare detalla los requisitos de China Network y advierte de que el enrutamiento anycast no garantiza el centro de datos más cercano geográficamente.\n> Fuentes: Cloudflare, presentación de China Network, 30 de abril de 2026; puesta en marcha, 17 de abril de 2026; enrutamiento geográfico, 14 de octubre de 2026. https://developers.cloudflare.com/china-network/ https://developers.cloudflare.com/china-network/get-started/ https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/"
+  },
+  {
+    "file": "src/content/guides-es/wordpress-speed-china.md",
+    "before": "En los planes gratuito y estándar de Cloudflare, los visitantes continentales se atienden desde el nodo más cercano fuera del país, por lo general Hong Kong, Japón o la costa oeste de Estados Unidos. Más cerca. Y aun así, al otro lado de la frontera.",
+    "after": "El enrutamiento anycast de Cloudflare puede enviar al visitante a un centro de datos más lejano geográficamente. La ruta depende del proveedor de acceso y de sus acuerdos de interconexión. Los planes gratuitos o estándar no incluyen la suscripción independiente a China Network.\n\n> Según Cloudflare, las rutas del proveedor de acceso y las condiciones de la red pueden llevar una petición a un centro de datos más lejano.\n> Fuente: Cloudflare, enrutamiento geográfico, 14 de octubre de 2026. https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/"
+  }
+]

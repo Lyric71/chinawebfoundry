@@ -1,0 +1,12 @@
+[
+  {
+    "file": "src/content/guides-de/is-wordpress-blocked-in-china.md",
+    "before": "Es hilft bei der Entfernung und ändert nichts an gesperrten Hosts. Das Standardnetz von Cloudflare bedient Festlandbesucher aus Hongkong, Japan oder von der US-Westküste, die Grenze wird also bei jeder Anfrage weiterhin überquert. Das Netz innerhalb Chinas ist ein Enterprise-Produkt, das gemeinsam mit JD Cloud betrieben wird und pro Domain eine gültige ICP-Registrierung verlangt. Damit sind Sie wieder beim Papierkram.",
+    "after": "Cloudflares globales Netz nutzt Anycast-Routing. Dabei können Anfragen ein geografisch weiter entferntes Rechenzentrum erreichen. Für die Auslieferung vom chinesischen Festland aus ist ein separates China-Network-Abonnement zusätzlich zum Enterprise-Tarif nötig. Jede Hauptdomain braucht eine gültige ICP-Registrierung (ICP备案) oder ICP-Lizenz (ICP许可证); JD Cloud muss außerdem die Inhalte prüfen.\n\n> Cloudflare nennt die Voraussetzungen für das China Network und weist darauf hin, dass Anycast nicht immer zum geografisch nächstgelegenen Rechenzentrum führt.\n> Quellen: Cloudflare, Übersicht zum China Network, 30. April 2026; Inbetriebnahme, 17. April 2026; geografisches Routing, 14. Oktober 2026. https://developers.cloudflare.com/china-network/ https://developers.cloudflare.com/china-network/get-started/ https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/"
+  },
+  {
+    "file": "src/content/guides-de/wordpress-speed-china.md",
+    "before": "In Cloudflares kostenlosem und Standard-Plan werden Besucher vom Festland über den nächstgelegenen Knoten außerhalb des Landes bedient, meist Hongkong, Japan oder die US-Westküste. Näher. Und weiterhin jenseits der Grenze.",
+    "after": "Beim Anycast-Routing von Cloudflare kann eine Anfrage zu einem geografisch weiter entfernten Rechenzentrum gelangen. Der Internetanbieter und seine Peering-Vereinbarungen beeinflussen den Weg. Kostenlose und Standardtarife enthalten das separat abonnierte China Network nicht.\n\n> Laut Cloudflare können das Routing des Internetanbieters und die Netzbedingungen eine Anfrage zu einem geografisch weiter entfernten Rechenzentrum führen.\n> Quelle: Cloudflare, geografisches Routing, 14. Oktober 2026. https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/"
+  }
+]

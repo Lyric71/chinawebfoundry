@@ -431,7 +431,7 @@ Every figure below carries a vantage point, and the vantage point changes the an
 - **F27.** **Alibaba runs two platforms, and only one can file.** Alibaba's own help centre (20 August 2026): alibabacloud.com accounts do not support ICP filing applications; filing needs an aliyun.com account and a filing entity that is an enterprise registered in the Chinese mainland or a mainland resident, against a mainland Alibaba Cloud server on a subscription of 3 months or longer (page dated 24 September 2026). Huawei Cloud splits the same way: international website accounts do not support ICP filing (17 July 2024). The earlier claims that alibabacloud.com "cannot deploy to mainland regions" and that the filing workflow is "Chinese-language only" are on no Alibaba page found and are not printed.
 - **F28.** **No managed WordPress exists in China** (our finding: a negative no vendor page can prove, so print it as ours). Alibaba Simple Application Server (轻量应用服务器, page dated 19 August 2026), Tencent Lighthouse (22 September 2026) and Huawei FlexusL (21 September 2026) each ship a one-click WordPress **image** on a self-administered virtual server. No managed updates, no managed backups, no WordPress-aware support.
 - **F29.** **Vercel states in its own knowledge base** (published 3 November 2025, updated 11 September 2026; print both dates) that it has no servers or CDN nodes in mainland China, cannot guarantee availability or performance there, and that `.vercel.app` subdomains may be blocked or throttled. GreatFire reads `https://vercel.app` itself as blocked, 4 of 4 conclusive tests, 14 September 2026; "mostly blocked" is its summary of the whole domain. Vercel's own suggested mitigations are a custom domain, minimizing third-party dependencies, and a separate in-country deployment requiring ICP licensing.
-- **F30.** Cloudflare's standard and free plans serve mainland visitors from the nearest overseas edge, typically Hong Kong, Japan or the US west coast. The in-country network is an Enterprise product operated with JD Cloud, requires a valid ICP filing per apex domain, and requires JD Cloud content review before onboarding.
+- **F30.** Cloudflare China Network is a separate subscription for Enterprise customers, operated in mainland data centres by JD Cloud. Each apex domain needs a valid ICP filing or licence and JD Cloud content review. Cloudflare's routing documentation (14 October 2026) says anycast may send traffic to a geographically more distant data centre; the visitor's ISP routing and peering affect the path. Do not promise the nearest overseas edge or name Hong Kong, Japan or the US west coast as a default route. Corrected 20 October 2026 against Cloudflare's overview, onboarding and geographic-traffic-routing documentation.
 
 ### Performance benchmarks
 
@@ -1244,8 +1244,8 @@ excerpt: "Why Chinese visitors cannot submit your forms, and the three captcha s
 
 You will not outrank Cloudflare on its own product name, so do not try. Write the prerequisite angle their own pages soft-pedal: the China Network is Enterprise-only, operated with JD Cloud, requires a valid ICP filing per apex domain, and requires JD Cloud content review. That is an ICP filing lead.
 ```yaml
-title: "Cloudflare in China: The Part Nobody Mentions"
-description: "The China Network is Enterprise only, runs on JD Cloud, needs an ICP filing per domain and a content review first. What the standard plan actually does."
+title: "Cloudflare in China: ICP and network requirements"
+description: "Cloudflare China Network needs Enterprise, an ICP filing or licence per apex domain, and JD Cloud review. Check the requirements before switching."
 excerpt: "What Cloudflare does and does not do for Chinese visitors, and the filing requirement behind the in-country option."
 ```
 

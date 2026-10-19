@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-19
+updatedAt: 2026-10-20
 category: Technology
 author: cyril-drouin
 ---
@@ -121,7 +121,10 @@ Calcule entre tres y seis semanas, siempre que ya exista una entidad continental
 > «JD Cloud, nuestro socio, está obligado a revisar y validar el contenido de todos los dominios de su red antes de que China Network se active.»
 > Fuente: documentación para desarrolladores de Cloudflare, actualizada el 17 de abril de 2026. https://developers.cloudflare.com/china-network/get-started/
 
-En los planes gratuito y estándar de Cloudflare, los visitantes continentales se atienden desde el nodo más cercano fuera del país, por lo general Hong Kong, Japón o la costa oeste de Estados Unidos. Más cerca. Y aun así, al otro lado de la frontera.
+El enrutamiento anycast permite que una petición a Cloudflare llegue a un centro de datos geográficamente más lejano. El proveedor de acceso y sus acuerdos de interconexión influyen en la ruta. Los planes gratuitos o estándar no incluyen China Network, que se contrata por separado.
+
+> Según Cloudflare, las rutas del proveedor de acceso y las condiciones de la red pueden llevar una petición a un centro de datos más lejano.
+> Fuente: Cloudflare, enrutamiento geográfico, 14 de octubre de 2026. https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/
 
 ## Cómo medirlo con honestidad
 

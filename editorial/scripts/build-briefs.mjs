@@ -66,7 +66,7 @@ const PIECES = {
   'T2-01': { title: 'Google Fonts in China: It Depends Where You Are', slug: 'google-fonts-china', type: 'guide', category: 'Technology', heading: /^#### T2-01 / },
   'T2-02': { title: 'HubSpot in China: What Works and What Does Not', slug: 'hubspot-china', type: 'guide', category: 'Technology', heading: /^#### T2-02 / },
   'T2-03': { title: 'reCAPTCHA in China: Your Forms Are Dead', slug: 'recaptcha-china', type: 'guide', category: 'Technology', heading: /^#### T2-03 / },
-  'T2-04': { title: 'Cloudflare in China: The Part Nobody Mentions', slug: 'cloudflare-china', type: 'guide', category: 'Hosting', heading: /^#### T2-04 / },
+  'T2-04': { title: 'Cloudflare in China: ICP and network requirements', slug: 'cloudflare-china', type: 'guide', category: 'Hosting', heading: /^#### T2-04 / },
   'T2-05': { title: 'Which JavaScript CDNs Work in China', slug: 'javascript-cdn-china', type: 'guide', category: 'Technology', heading: /^#### T2-05 / },
   'T2-06': { title: 'Does Shopify Work in China?', slug: 'shopify-china', type: 'guide', category: 'Technology', heading: /^#### T2-06 / },
   'T2-07': { title: 'Video Embeds That Work in China', slug: 'video-embeds-china', type: 'guide', category: 'Technology', heading: /^#### T2-07 / },

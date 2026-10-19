@@ -7,11 +7,11 @@ week: 09
 slot: 2
 slot_job: fast
 slug: cloudflare-china
-title: "Cloudflare in China: The Part Nobody Mentions"
+title: "Cloudflare in China: ICP and network requirements"
 suggested_category: Hosting
 locales_at_publish: en fr es de
 facts: [F26, F30, F38]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -49,8 +49,8 @@ tier-specific boxes for T2.
 
 You will not outrank Cloudflare on its own product name, so do not try. Write the prerequisite angle their own pages soft-pedal: the China Network is Enterprise-only, operated with JD Cloud, requires a valid ICP filing per apex domain, and requires JD Cloud content review. That is an ICP filing lead.
 ```yaml
-title: "Cloudflare in China: The Part Nobody Mentions"
-description: "The China Network is Enterprise only, runs on JD Cloud, needs an ICP filing per domain and a content review first. What the standard plan actually does."
+title: "Cloudflare in China: ICP and network requirements"
+description: "Cloudflare China Network needs Enterprise, an ICP filing or licence per apex domain, and JD Cloud review. Check the requirements before switching."
 excerpt: "What Cloudflare does and does not do for Chinese visitors, and the filing requirement behind the in-country option."
 ```
 

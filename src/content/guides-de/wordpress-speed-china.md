@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: 2026-09-22
-updatedAt: 2026-10-19
+updatedAt: 2026-10-20
 category: Technology
 author: cyril-drouin
 ---
@@ -121,7 +121,10 @@ Rechnen Sie mit drei bis sechs Wochen, sofern eine Gesellschaft auf dem Festland
 > „JD Cloud, unser Partner, ist verpflichtet, die Inhalte aller Domains in seinem Netz zu prüfen und freizugeben, bevor China Network aktiviert wird.“
 > Quelle: Cloudflare-Entwicklerdokumentation, zuletzt aktualisiert am 17. April 2026. https://developers.cloudflare.com/china-network/get-started/
 
-In Cloudflares kostenlosem und Standard-Plan werden Besucher vom Festland über den nächstgelegenen Knoten außerhalb des Landes bedient, meist Hongkong, Japan oder die US-Westküste. Näher. Und weiterhin jenseits der Grenze.
+Bei Cloudflare können Anfragen durch Anycast ein geografisch weiter entferntes Rechenzentrum erreichen. Das Routing des Internetanbieters und seine Peering-Vereinbarungen beeinflussen den Weg. Das China Network erfordert ein gesondertes Abonnement; kostenlose und Standardtarife schließen es nicht ein.
+
+> Laut Cloudflare können das Routing des Internetanbieters und die Netzbedingungen eine Anfrage zu einem geografisch weiter entfernten Rechenzentrum führen.
+> Quelle: Cloudflare, geografisches Routing, 14. Oktober 2026. https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/
 
 ## Wie Sie ehrlich messen
 

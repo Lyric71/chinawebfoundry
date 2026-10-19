@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-18
+updatedAt: 2026-10-20
 category: Technology
 ---
 
@@ -143,7 +143,10 @@ Nicht sinnvoll. Ein VPN aus dem Ausland führt Sie weiterhin über Ihr eigenes N
 
 **Löst ein globales CDN das Problem?**
 
-Es hilft bei der Entfernung und ändert nichts an gesperrten Hosts. Das Standardnetz von Cloudflare bedient Festlandbesucher aus Hongkong, Japan oder von der US-Westküste, die Grenze wird also bei jeder Anfrage weiterhin überquert. Das Netz innerhalb Chinas ist ein Enterprise-Produkt, das gemeinsam mit JD Cloud betrieben wird und pro Domain eine gültige ICP-Registrierung verlangt. Damit sind Sie wieder beim Papierkram.
+Im globalen Cloudflare-Netz kann Anycast Anfragen zu einem geografisch weiter entfernten Rechenzentrum leiten. Die Auslieferung vom chinesischen Festland aus setzt einen Enterprise-Tarif und ein gesondertes Abonnement für das China Network voraus. Jede Hauptdomain benötigt eine gültige ICP-Registrierung (ICP备案) oder ICP-Lizenz (ICP许可证). JD Cloud prüft die Inhalte vor der Freischaltung.
+
+> Cloudflare nennt die Voraussetzungen für das China Network und weist darauf hin, dass Anycast nicht immer zum geografisch nächstgelegenen Rechenzentrum führt.
+> Quellen: Cloudflare, Übersicht zum China Network, 30. April 2026; Inbetriebnahme, 17. April 2026; geografisches Routing, 14. Oktober 2026. https://developers.cloudflare.com/china-network/ https://developers.cloudflare.com/china-network/get-started/ https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/
 
 **Brauche ich eine ICP-Registrierung oder eine ICP-Lizenz?**
 

@@ -6,7 +6,7 @@ visual: "/images/guides/wordpress-speed-china.webp"
 order: 36
 published: true
 publishedAt: "2026-09-22"
-updatedAt: 2026-10-19
+updatedAt: 2026-10-20
 category: "Technology"
 author: "cyril-drouin"
 ---
@@ -213,9 +213,10 @@ CDN sidesteps the paperwork.
 > Source: Cloudflare developer documentation, last updated 17 April 2026.
 > https://developers.cloudflare.com/china-network/get-started/
 
-On Cloudflare’s free and standard plans, mainland visitors are served from
-the nearest edge outside the country, usually Hong Kong, Japan or the US west
-coast. Closer. Still over the border.
+Cloudflare’s anycast routing can send visitors to a data centre farther away geographically. The visitor’s internet provider and its peering arrangements affect the path. Free or standard service does not include the separate China Network subscription.
+
+> Cloudflare says requests can reach a geographically more distant data centre because routing depends on the visitor’s internet provider and network conditions.
+> Source: Cloudflare, Geographic traffic routing, 14 October 2026. https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/
 
 ## How to measure it honestly
 

@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-18
+updatedAt: 2026-10-20
 category: Technology
 ---
 
@@ -143,7 +143,10 @@ Not usefully. A VPN from outside China still routes you through your own network
 
 **Will a global CDN fix this?**
 
-It helps with distance and does nothing about blocked hosts. Cloudflare's standard network serves mainland visitors from Hong Kong, Japan or the US west coast, so you're still crossing the border on every request. Its in-country network is an Enterprise product operated with JD Cloud, and it requires a valid ICP filing per domain, which puts you back at the paperwork.
+Cloudflare’s global network uses anycast routing, which can send requests to a data centre farther away geographically. Mainland delivery through China Network requires a separate subscription on Enterprise, a valid ICP filing (ICP备案) or ICP licence (ICP许可证) for each apex domain, and JD Cloud content review.
+
+> Cloudflare describes the China Network prerequisites and explains that anycast does not guarantee the geographically closest data centre.
+> Source: Cloudflare, China Network overview, 30 April 2026; Get started, 17 April 2026; Geographic traffic routing, 14 October 2026. https://developers.cloudflare.com/china-network/ https://developers.cloudflare.com/china-network/get-started/ https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/
 
 **Do I need an ICP filing or an ICP licence?**
 
