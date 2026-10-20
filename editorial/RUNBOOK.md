@@ -97,6 +97,10 @@ mapping is in `SPEC.md`. In short:
   interactively in the main conversation, never through a subagent, one pass
   at a time with each pass shown, none skipped. The propagation and the deep
   translation are part of the publish step, never optional, never deferred.
+- **Share card, every publish with a new or replaced hero or visual:** run
+  `node scripts/og-images.mjs` and commit the new `public/og/` JPEG and
+  `src/data/og-cards.json` with the page. Without it the page shares with the
+  default card (settled 20 October 2026, when the share cards shipped).
 - **casestudy:** into `src/content/casestudies/`, editing the existing file
   for T3-01 to T3-05, creating it for T3-06 to T3-10. English only at publish.
 - **money-page:** copy into `src/pages/website-in-china.astro` and the fr,

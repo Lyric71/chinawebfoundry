@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { getLangFromUrl, getHreflangUrls, localePath } from '../i18n/utils';
 import { buildBreadcrumbLd } from '../lib/seoSchema';
 import type { Locale } from '../i18n/ui';
+import ogCards from '../data/og-cards.json';
 
 interface Props {
   title: string;
@@ -21,8 +22,21 @@ interface Props {
   alternateUrls?: { en: string; fr: string; es?: string; de?: string };
 }
 
-const { title, description, canonical, ogImage = '/images/og-default.webp', lang, jsonLd = [], alternateUrls, breadcrumbName, noindex = false } = Astro.props;
+const { title, description, canonical, ogImage, lang, jsonLd = [], alternateUrls, breadcrumbName, noindex = false } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
+
+// The share card (scripts/og-images.mjs): the JPEG a pasted link shows. The
+// page is rendered first so its own hero picks the card: an explicit ogImage,
+// else the first picture in the page that has a card, else the default card.
+// Never a WebP (LinkedIn may drop it) and never a file that does not exist.
+const body = await Astro.slots.render('default');
+const haveCard = new Set<string>(ogCards);
+const cardKey = (src: string) => src.replace(/^\/images\//, '').replace(/\.[^.]+$/, '');
+const heroPick = [ogImage, ...[...body.matchAll(/src="(\/images\/[^"]+)"/g)].map((m) => m[1])]
+  .filter((src): src is string => !!src)
+  .map(cardKey)
+  .find((k) => haveCard.has(k));
+const ogImageUrl = new URL(`/og/${heroPick ?? 'default'}.jpg`, Astro.site).toString();
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toString();
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
 const autoHreflang = getHreflangUrls(Astro.url.pathname, siteOrigin);
@@ -143,7 +157,11 @@ const sitewideLd = [organizationLd, websiteLd, ...breadcrumbLd, ...jsonLd];
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1050" />
+    <meta property="og:image:height" content="550" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content={ogLocale} />
     {ogLocaleAlternates.map((l) => (
       <meta property="og:locale:alternate" content={l} />
@@ -154,7 +172,7 @@ const sitewideLd = [organizationLd, websiteLd, ...breadcrumbLd, ...jsonLd];
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -178,6 +196,6 @@ const sitewideLd = [organizationLd, websiteLd, ...breadcrumbLd, ...jsonLd];
     <script is:inline async src="/ga.js"></script>
   </head>
   <body>
-    <slot />
+    <Fragment set:html={body} />
   </body>
 </html>
