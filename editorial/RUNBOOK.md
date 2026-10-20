@@ -90,7 +90,8 @@ mapping is in `SPEC.md`. In short:
 - **guide, guide-en-first, report:** `/createblogarticle` on
   `output/<slug>.md` into `src/content/guides/`, frontmatter mapped per the
   spec, `order` set to the highest existing plus one, plain-text references
-  converted to links, hero wired. T1 and T2 (T2 since 14 October 2026) also write
+  converted to links, hero wired. T1, T2 (since 14 October 2026) and T4
+  reports (since 16 October 2026) also write
   `guides-fr`, `guides-es`, `guides-de`, registers the three localized slugs in `src/i18n/routes.ts`,
   then runs `/deep-translate` on each, all three passes, FR then ES then DE,
   interactively in the main conversation, never through a subagent, one pass

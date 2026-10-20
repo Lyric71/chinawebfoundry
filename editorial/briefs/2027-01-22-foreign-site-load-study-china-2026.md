@@ -9,7 +9,7 @@ slot_job: upgrade or report
 slug: foreign-site-load-study-china-2026
 title: "How Foreign Sites Load in China"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 facts: [F1, F31, F33, F45, F46]
 status: not_started
 ---
@@ -27,7 +27,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/foreign-site-load-study-china-2026.md` |
 
-**Tier rule.** T4 measurement report. English only, dated slug, never overwritten. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
+**Tier rule.** T4 measurement report. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 16 October 2026; T4 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`), never in `englishOnlyRoutes`. Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. Host IDs, hostnames, URLs, figures and dates stay identical in every locale. Dated slug, never overwritten in any locale. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -45,10 +45,10 @@ tier-specific boxes for T4.
 
 | | |
 |---|---|
-| **Slug** | `foreign-site-load-study-china-2026` |
+| **Slugs** | en `foreign-site-load-study-china-2026` · de `ladetest-auslaendische-websites-china-2026` · es `carga-sitios-extranjeros-china-2026` · fr `chargement-sites-etrangers-chine-2026` |
 | **Cadence** | Annual, dated in the slug, with the method fixed so year two is comparable |
 | **Length** | 3,000 words plus two tables |
-| **Locales** | English at publish. Chinese earned once it is being cited. |
+| **Locales** | en, fr, es and de in one commit (section 1). Chinese earned once it is being cited. |
 
 **What it publishes.** Thirty named, real, currently live foreign sites loaded from mainland China from two vantage points, with request-level data and a fully stated method. Chinafy's four-part study of ten named real sites is the only genuine original-data asset in the competitive set (F45), and it is beaten on three axes at once: three times the sites, both vantage points instead of one, and a method published in enough detail to be reproduced. Site selection is stated and defensible: a fixed number per sector across roughly ten sectors, all publicly reachable, none of them CWF clients, and the selection rule published so nobody can argue the sample was picked to fail.
 
@@ -96,6 +96,8 @@ excerpt: "Thirty real sites, two vantage points, one published method, and the t
 Six pieces. This is the moat, and it is the reason the rest of the plan is safe.
 
 Publication rule for all six: state the method before the findings, name every vantage point, publish the raw host list, and say what could not be tested. A study that hides its method is worth less than no study.
+
+**Locales.** Every T4 report ships in en, fr, es and de in one commit, like T1 (Cyril, 16 October 2026: "change the rules. propagate to all languages"; T4 was English only until then). The localized slugs listed with each report go into `guideSlugs`; no T4 page goes into `englishOnlyRoutes`. Host IDs, hostnames, URLs and figures stay identical in every locale, so a row anchor such as `#host-recaptcha` cites the same row in all four. The raw panel JSON is one file, linked from every locale.
 
 ---
 

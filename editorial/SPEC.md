@@ -86,14 +86,14 @@ route files resolve `guideSlugs[guide.id]?.<locale> ?? guide.id`, so a
 missing entry silently publishes an English slug under a French path. That
 is a failed publish.
 
-**English-only pieces.** A guide that ships in English only (`guide-en-first`,
-`report`) is added to `englishOnlyRoutes` in
+**English-only pieces.** A guide that ships in English only (`guide-en-first`)
+is added to `englishOnlyRoutes` in
 `src/i18n/routes.ts`, keyed by its canonical path
 (`/resources/china-web-guide/<slug>/`) and pointing at
 `/resources/china-web-guide/`. Without the entry the page announces fr, es
 and de hreflang twins and sitemap alternates that 404, and the language
 switcher sends readers to them (settled 6 October 2026, first T2 publish).
-The entry is removed when a T7 slot, or a named exception from Cyril, ships the page in every locale (T2-01, 6 October 2026: entry removed, `guideSlugs` entry added). T2 left this list for good on 14 October 2026, when Cyril ruled that it ships in every locale: the T2-02, T2-03 and T2-05 entries were removed and their `guideSlugs` added the same day, and no T2 page is added to it again.
+The entry is removed when a T7 slot, or a named exception from Cyril, ships the page in every locale (T2-01, 6 October 2026: entry removed, `guideSlugs` entry added). T2 left this list for good on 14 October 2026, when Cyril ruled that it ships in every locale: the T2-02, T2-03 and T2-05 entries were removed and their `guideSlugs` added the same day, and no T2 page is added to it again. T4 left it on 16 October 2026, when Cyril ruled that the reports also ship in every locale ("change the rules. propagate to all languages"): the `china-dependency-index-2026-10` entry was removed and its `guideSlugs` added the same day, and no T4 report is added to it again.
 
 Per content type:
 
@@ -102,7 +102,7 @@ Per content type:
 | `guide` (T1) | `src/content/guides/<slug>.md` + `guides-fr`, `guides-es`, `guides-de` | all four, one commit | `/deep-translate` three passes each, FR then ES then DE |
 | `guide` (T2) | `src/content/guides/<slug>.md` + `guides-fr`, `guides-es`, `guides-de` | all four, one commit | `/deep-translate` three passes each, FR then ES then DE. Cyril, 14 October 2026: T2 propagates to every language. Until then it was `guide-en`, English only; T2-01, T2-02, T2-03 and T2-05 were localised after publishing |
 | `guide-en-first` (T5) | `src/content/guides/<slug>.md` | en | via a T7 slot after day 90, on evidence |
-| `report` (T4) | `src/content/guides/<slug>.md`, dated slug | en | never overwritten; a new edition is a new file |
+| `report` (T4) | `src/content/guides/<slug>.md` + `guides-fr`, `guides-es`, `guides-de`, dated slug | all four, one commit | `/deep-translate` three passes each, FR then ES then DE. Cyril, 16 October 2026: T4 propagates to every language; until then it was English only, and T4-01 was localised the day it published. Never overwritten in any locale; a new edition is a new file in each. Host IDs, hostnames, URLs, figures and dates are identical in every locale, and every locale links the one raw panel JSON |
 | `casestudy` (T3) | `src/content/casestudies/<slug>.md` (existing file for upgrades T3-01 to T3-05) | en | via a T7 slot, on evidence |
 | `money-page` (M1) | `src/pages/website-in-china.astro` and the fr, es, de pages reserved by Move 1 | all four, one commit | `/deep-translate` on each locale page |
 | `upgrade` (T6) | the existing file(s) the work order names, all locales where the page is localized | as the page exists | changed passages translated in the same commit |

@@ -84,6 +84,8 @@ export const guideSlugs: Record<string, Trans> = {
   'wp-admin-slow-china': { fr: 'wp-admin-lent-chine', es: 'wp-admin-lento-china', de: 'wp-admin-langsam-china' },
   'wordpress-icp-filing': { fr: 'wordpress-licence-icp', es: 'wordpress-licencia-icp', de: 'wordpress-icp-antrag' },
   'page-builders-china': { fr: 'constructeurs-pages-chine', es: 'constructores-paginas-china', de: 'page-builder-china' },
+  // T4 reports ship in every locale since 16 October 2026; each dated edition keeps its date in every slug.
+  'china-dependency-index-2026-10': { fr: 'indice-dependances-chine-2026-10', es: 'indice-dependencias-china-2026-10', de: 'china-abhaengigkeitsindex-2026-10' },
   // Baidu series. Product names (Merchant Center, Aicaigou, Baiduspider) keep their English slug.
   'baidu-search-resource-platform': { fr: 'plateforme-ressources-recherche-baidu', es: 'plataforma-recursos-busqueda-baidu', de: 'baidu-suchressourcen-plattform' },
   'baidu-account-ownership': { fr: 'proprietaire-compte-baidu', es: 'propiedad-cuenta-baidu', de: 'baidu-konto-eigentum' },
@@ -233,7 +235,6 @@ export function hreflangFor(pathname: string, siteOrigin: string) {
  */
 export const englishOnlyRoutes: Record<string, string> = {
   '/resources/ceo-opinion/': '/resources/china-web-guide/',
-  '/resources/china-web-guide/china-dependency-index-2026-10/': '/resources/china-web-guide/',
 };
 
 /** The equivalent of `pathname` in another locale. */

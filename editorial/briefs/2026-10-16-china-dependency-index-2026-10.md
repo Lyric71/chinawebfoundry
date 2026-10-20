@@ -9,7 +9,7 @@ slot_job: upgrade or report
 slug: china-dependency-index-2026-10
 title: "China Dependency Index, October 2026"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 status: published
 ---
 
@@ -26,7 +26,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/china-dependency-index-2026-10.md` |
 
-**Tier rule.** T4 measurement report. English only, dated slug, never overwritten. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
+**Tier rule.** T4 measurement report. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 16 October 2026; T4 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`), never in `englishOnlyRoutes`. Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. Host IDs, hostnames, URLs, figures and dates stay identical in every locale. Dated slug, never overwritten in any locale. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -44,10 +44,10 @@ tier-specific boxes for T4.
 
 | | |
 |---|---|
-| **Slug** | `china-dependency-index-2026-10` |
+| **Slugs** | en `china-dependency-index-2026-10` · de `china-abhaengigkeitsindex-2026-10` · es `indice-dependencias-china-2026-10` · fr `indice-dependances-chine-2026-10` |
 | **Cadence** | Monthly, dated slug, permanent edition. |
 | **Length** | 1,400 narrative words plus tables and per-row evidence notes. |
-| **Locales** | English only. |
+| **Locales** | en, fr, es and de. Published in English on 16 October 2026, localised in fr, es and de the same day (section 1). |
 
 **What it publishes.** An evidence register of 55 dependency entries, established by the October manifest: all 45 entries in the existing dependency table plus six font/script-CDN hosts, reCAPTCHA, Adobe Fonts, the LinkedIn Insight Tag and HubSpot's loader. This corrects the unsupported claim of 54 hosts uniformly tested from two locations. Include untested entries, and distinguish vendor-page targets from actual dependency hosts. The manifest is saved with the output. Every change cell says baseline in edition one.
 
@@ -59,7 +59,7 @@ tier-specific boxes for T4.
 
 **Limits.** October is the edition's compilation month. Test dates remain August or earlier where the source has not retested; current GreatFire rows include October tests. Distinguish reading a source again from retesting a host. No mobile-radio measurements, no nationwide sample, no uniform month-on-month panel experiment. An untested host is visible in the panel. No promise of new tests in December; additions require dated third-party evidence.
 
-**Links and reuse.** Link to Technical Integration, javascript-cdn-china and the live Great Firewall guide. third-party-scripts-china does not exist and is not scheduled; javascript-cdn-china is the settled nearest-topic fallback. The future vantage-point study replaces the last reference when it publishes. Scanner copy and severities remain Cyril's separate product decision and are never changed by this report. At publish, keep the English-only route mapping, publish the raw panel JSON under /data/china-dependency-index-2026-10.json, and retain the dated source receipts in editorial logs. Do not replace the existing live dependency table with a monthly experiment claim.
+**Links and reuse.** Link to Technical Integration, javascript-cdn-china and the live Great Firewall guide. third-party-scripts-china does not exist and is not scheduled; javascript-cdn-china is the settled nearest-topic fallback. The future vantage-point study replaces the last reference when it publishes. Scanner copy and severities remain Cyril's separate product decision and are never changed by this report. At publish, register the fr, es and de slugs in `guideSlugs` (no `englishOnlyRoutes` entry since 16 October 2026), publish the raw panel JSON under /data/china-dependency-index-2026-10.json, and retain the dated source receipts in editorial logs. Do not replace the existing live dependency table with a monthly experiment claim.
 
 **Metadata.**
 ```yaml
@@ -79,6 +79,8 @@ excerpt: "Dated third-party evidence for 55 web dependencies, with separate clou
 Six pieces. This is the moat, and it is the reason the rest of the plan is safe.
 
 Publication rule for all six: state the method before the findings, name every vantage point, publish the raw host list, and say what could not be tested. A study that hides its method is worth less than no study.
+
+**Locales.** Every T4 report ships in en, fr, es and de in one commit, like T1 (Cyril, 16 October 2026: "change the rules. propagate to all languages"; T4 was English only until then). The localized slugs listed with each report go into `guideSlugs`; no T4 page goes into `englishOnlyRoutes`. Host IDs, hostnames, URLs and figures stay identical in every locale, so a row anchor such as `#host-recaptcha` cites the same row in all four. The raw panel JSON is one file, linked from every locale.
 
 ---
 

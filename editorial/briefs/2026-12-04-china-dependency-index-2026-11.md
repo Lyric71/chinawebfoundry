@@ -9,7 +9,7 @@ slot_job: upgrade or report
 slug: china-dependency-index-2026-11
 title: "China Dependency Index, November 2026"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 status: not_started
 ---
 
@@ -26,7 +26,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/china-dependency-index-2026-11.md` |
 
-**Tier rule.** T4 measurement report. English only, dated slug, never overwritten. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
+**Tier rule.** T4 measurement report. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 16 October 2026; T4 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`), never in `englishOnlyRoutes`. Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. Host IDs, hostnames, URLs, figures and dates stay identical in every locale. Dated slug, never overwritten in any locale. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -42,7 +42,7 @@ tier-specific boxes for T4.
 
 #### T4-03. China Dependency Index, November 2026
 
-**Slug:** `china-dependency-index-2026-11`. Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
+**Slugs:** en `china-dependency-index-2026-11` · de `china-abhaengigkeitsindex-2026-11` · es `indice-dependencias-china-2026-11` · fr `indice-dependances-chine-2026-11`. Ships in en, fr, es and de in one commit (section 1). Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
 
 **Metadata:** title "China Dependency Index, November 2026". Write the description and excerpt from the verified findings at draft time; never announce an unperformed experiment.
 
@@ -55,6 +55,8 @@ tier-specific boxes for T4.
 Six pieces. This is the moat, and it is the reason the rest of the plan is safe.
 
 Publication rule for all six: state the method before the findings, name every vantage point, publish the raw host list, and say what could not be tested. A study that hides its method is worth less than no study.
+
+**Locales.** Every T4 report ships in en, fr, es and de in one commit, like T1 (Cyril, 16 October 2026: "change the rules. propagate to all languages"; T4 was English only until then). The localized slugs listed with each report go into `guideSlugs`; no T4 page goes into `englishOnlyRoutes`. Host IDs, hostnames, URLs and figures stay identical in every locale, so a row anchor such as `#host-recaptcha` cites the same row in all four. The raw panel JSON is one file, linked from every locale.
 
 ---
 

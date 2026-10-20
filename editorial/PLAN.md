@@ -113,11 +113,12 @@ Never three of the same type in one week. A working rhythm:
 
 ### Translation policy
 
-Shipping all four locales in the same commit is correct for the T1 pieces, the money page and, since 14 October 2026, the 14 T2 pages. It is wrong for the rest.
+Shipping all four locales in the same commit is correct for the T1 pieces, the money page, the 14 T2 pages (since 14 October 2026) and the six T4 reports (since 16 October 2026). It is wrong for the rest.
 
 - **T1 and the money page:** all four locales, same commit. Unchanged.
 - **T2 compatibility cluster:** all four locales, same commit, exactly as T1 (Cyril, 14 October 2026: "it should propagate to each language"). This replaces the English-only rule. Each locale goes through `/deep-translate`, three passes, FR then ES then DE, and the slugs in each T2 entry go into `guideSlugs`. No T2 page uses a T7 slot. The four T2 pages that had shipped in English only were localised in fr, es and de: T2-01 on 6 October 2026, T2-05, T2-03 and T2-02 on 14 October 2026.
-- **T3, T4, T5:** English first. Translate individually after 90 days, and only pages that have earned traffic or an inquiry.
+- **T4 measurement reports:** all four locales, same commit, exactly as T1 (Cyril, 16 October 2026: "change the rules. propagate to all languages"). This replaces the English-first rule for T4. Each locale goes through `/deep-translate`, three passes, FR then ES then DE, and the slugs in each T4 entry go into `guideSlugs`. A new monthly edition is a new file in every locale; no edition is overwritten in any locale. No T4 page uses a T7 slot. T4-01 shipped in English on 16 October 2026 and was localised in fr, es and de the same day.
+- **T3, T5:** English first. Translate individually after 90 days, and only pages that have earned traffic or an inquiry.
 - **T7 is the translation budget.** Fourteen slots across the 26 weeks, allocated on performance, not on principle.
 
 ---
@@ -1870,6 +1871,8 @@ Six pieces. This is the moat, and it is the reason the rest of the plan is safe.
 
 Publication rule for all six: state the method before the findings, name every vantage point, publish the raw host list, and say what could not be tested. A study that hides its method is worth less than no study.
 
+**Locales.** Every T4 report ships in en, fr, es and de in one commit, like T1 (Cyril, 16 October 2026: "change the rules. propagate to all languages"; T4 was English only until then). The localized slugs listed with each report go into `guideSlugs`; no T4 page goes into `englishOnlyRoutes`. Host IDs, hostnames, URLs and figures stay identical in every locale, so a row anchor such as `#host-recaptcha` cites the same row in all four. The raw panel JSON is one file, linked from every locale.
+
 ---
 
 Nobody in the competitive set publishes a measurement. No tables, no test dates, no named test locations, no latency figures, across every compatibility page examined at Chinafy, AppInChina, 21cloudbox, Eggplant and the smaller agencies (F45). Chinafy's one original-data asset, a four-part load study of ten named real sites, sits apart from its compatibility cluster and never supports it. Six reports close that gap and become the thing every other page on the site cites.
@@ -1882,10 +1885,10 @@ Two rules across all six. Every figure carries a named vantage point and a date,
 
 | | |
 |---|---|
-| **Slug** | `china-dependency-index-2026-10` |
+| **Slugs** | en `china-dependency-index-2026-10` · de `china-abhaengigkeitsindex-2026-10` · es `indice-dependencias-china-2026-10` · fr `indice-dependances-chine-2026-10` |
 | **Cadence** | Monthly, dated slug, permanent edition. |
 | **Length** | 1,400 narrative words plus tables and per-row evidence notes. |
-| **Locales** | English only. |
+| **Locales** | en, fr, es and de. Published in English on 16 October 2026, localised in fr, es and de the same day (section 1). |
 
 **What it publishes.** An evidence register of 55 dependency entries, established by the October manifest: all 45 entries in the existing dependency table plus six font/script-CDN hosts, reCAPTCHA, Adobe Fonts, the LinkedIn Insight Tag and HubSpot's loader. This corrects the unsupported claim of 54 hosts uniformly tested from two locations. Include untested entries, and distinguish vendor-page targets from actual dependency hosts. The manifest is saved with the output. Every change cell says baseline in edition one.
 
@@ -1897,7 +1900,7 @@ Two rules across all six. Every figure carries a named vantage point and a date,
 
 **Limits.** October is the edition's compilation month. Test dates remain August or earlier where the source has not retested; current GreatFire rows include October tests. Distinguish reading a source again from retesting a host. No mobile-radio measurements, no nationwide sample, no uniform month-on-month panel experiment. An untested host is visible in the panel. No promise of new tests in December; additions require dated third-party evidence.
 
-**Links and reuse.** Link to Technical Integration, javascript-cdn-china and the live Great Firewall guide. third-party-scripts-china does not exist and is not scheduled; javascript-cdn-china is the settled nearest-topic fallback. The future vantage-point study replaces the last reference when it publishes. Scanner copy and severities remain Cyril's separate product decision and are never changed by this report. At publish, keep the English-only route mapping, publish the raw panel JSON under /data/china-dependency-index-2026-10.json, and retain the dated source receipts in editorial logs. Do not replace the existing live dependency table with a monthly experiment claim.
+**Links and reuse.** Link to Technical Integration, javascript-cdn-china and the live Great Firewall guide. third-party-scripts-china does not exist and is not scheduled; javascript-cdn-china is the settled nearest-topic fallback. The future vantage-point study replaces the last reference when it publishes. Scanner copy and severities remain Cyril's separate product decision and are never changed by this report. At publish, register the fr, es and de slugs in `guideSlugs` (no `englishOnlyRoutes` entry since 16 October 2026), publish the raw panel JSON under /data/china-dependency-index-2026-10.json, and retain the dated source receipts in editorial logs. Do not replace the existing live dependency table with a monthly experiment claim.
 
 **Metadata.**
 ```yaml
@@ -1914,9 +1917,9 @@ excerpt: "Dated third-party evidence for 55 web dependencies, with separate clou
 
 | | |
 |---|---|
-| **Slug** | `china-latency-vantage-point-study` |
+| **Slugs** | en `china-latency-vantage-point-study` · de `china-latenz-messpunkte` · es `latencia-china-puntos-de-medicion` · fr `latence-chine-points-de-mesure` |
 | **Length** | 2,200 words plus the table |
-| **Locales** | English at publish |
+| **Locales** | en, fr, es and de in one commit (section 1) |
 
 **What it publishes.** Explain why 21YunBox's named cloud and consumer observations disagree, using only dated published evidence. The worked example is the paired five-resource study: Alibaba Cloud (阿里云) cn-zhangjiakou on 28 August 2026 and Beijing China Mobile (中国移动) residential broadband on 30 August 2026. Retain per-host attempt counts and separate timing columns. The Google Fonts pair and Google Tag Manager demonstrate a split; jsDelivr and reCAPTCHA supply the comparison cases. No source supports the former brief's 44-host, same-day experiment or its invented 22 disagreements.
 
@@ -1939,7 +1942,7 @@ excerpt: "The same resource can answer from a cloud probe and fail on a home con
 
 #### T4-03. China Dependency Index, November 2026
 
-**Slug:** `china-dependency-index-2026-11`. Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
+**Slugs:** en `china-dependency-index-2026-11` · de `china-abhaengigkeitsindex-2026-11` · es `indice-dependencias-china-2026-11` · fr `indice-dependances-chine-2026-11`. Ships in en, fr, es and de in one commit (section 1). Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
 
 **Metadata:** title "China Dependency Index, November 2026". Write the description and excerpt from the verified findings at draft time; never announce an unperformed experiment.
 
@@ -1947,7 +1950,7 @@ excerpt: "The same resource can answer from a cloud probe and fail on a home con
 
 #### T4-04. China Dependency Index, December 2026
 
-**Slug:** `china-dependency-index-2026-12`. Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
+**Slugs:** en `china-dependency-index-2026-12` · de `china-abhaengigkeitsindex-2026-12` · es `indice-dependencias-china-2026-12` · fr `indice-dependances-chine-2026-12`. Ships in en, fr, es and de in one commit (section 1). Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
 
 **Metadata:** title "China Dependency Index, December 2026". Write the description and excerpt from the verified findings at draft time; never announce an unperformed experiment.
 
@@ -1957,10 +1960,10 @@ excerpt: "The same resource can answer from a cloud probe and fail on a home con
 
 | | |
 |---|---|
-| **Slug** | `foreign-site-load-study-china-2026` |
+| **Slugs** | en `foreign-site-load-study-china-2026` · de `ladetest-auslaendische-websites-china-2026` · es `carga-sitios-extranjeros-china-2026` · fr `chargement-sites-etrangers-chine-2026` |
 | **Cadence** | Annual, dated in the slug, with the method fixed so year two is comparable |
 | **Length** | 3,000 words plus two tables |
-| **Locales** | English at publish. Chinese earned once it is being cited. |
+| **Locales** | en, fr, es and de in one commit (section 1). Chinese earned once it is being cited. |
 
 **What it publishes.** Thirty named, real, currently live foreign sites loaded from mainland China from two vantage points, with request-level data and a fully stated method. Chinafy's four-part study of ten named real sites is the only genuine original-data asset in the competitive set (F45), and it is beaten on three axes at once: three times the sites, both vantage points instead of one, and a method published in enough detail to be reproduced. Site selection is stated and defensible: a fixed number per sector across roughly ten sectors, all publicly reachable, none of them CWF clients, and the selection rule published so nobody can argue the sample was picked to fail.
 
@@ -2003,7 +2006,7 @@ excerpt: "Thirty real sites, two vantage points, one published method, and the t
 
 #### T4-06. China Dependency Index, January 2027
 
-**Slug:** `china-dependency-index-2027-01`. Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
+**Slugs:** en `china-dependency-index-2027-01` · de `china-abhaengigkeitsindex-2027-01` · es `indice-dependencias-china-2027-01` · fr `indice-dependances-chine-2027-01`. Ships in en, fr, es and de in one commit (section 1). Retain October's 55-entry manifest as the comparison baseline. Add hosts only when dated third-party evidence warrants it, and label additions explicitly. Report newly published measurements and verdict dates, including improvements; an unchanged old observation is not a retest. No promised additional ISP, city, provisioned account or December test programme. Missing evidence remains untested. Compare matching source, protocol and endpoint only; mark incompatible or withdrawn evidence as such. Follow T4-01 for method, table, raw list, stable anchors and source attribution. Review the prior editions when preparing this one.
 
 **Metadata:** title "China Dependency Index, January 2027". Write the description and excerpt from the verified findings at draft time; never announce an unperformed experiment.
 
@@ -2643,7 +2646,7 @@ Consolidation branch: keep `china-website-hosting-guide` as the surviving URL, m
 
 Fourteen slots across 26 weeks. Not a schedule, a budget.
 
-**Rules.** Nothing is translated before day 90. T2 is outside this budget: since 14 October 2026 every T2 page ships in en, fr, es and de at publish (Cyril, section 1), so no T2 page uses a T7 slot. T2-01 was localised on 6 October 2026 and T2-02, T2-03 and T2-05 on 14 October 2026, also outside the budget. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
+**Rules.** Nothing is translated before day 90. T2 and T4 are outside this budget: since 14 October 2026 every T2 page, and since 16 October 2026 every T4 report, ships in en, fr, es and de at publish (Cyril, section 1), so neither uses a T7 slot. T2-01 was localised on 6 October 2026 and T2-02, T2-03 and T2-05 on 14 October 2026, also outside the budget. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
 
 Expect roughly half the slots to go to T1 and the money page, which ship four-locale on day one anyway and therefore do not consume budget. The real allocation is T3 and T5.
 
@@ -2744,7 +2747,7 @@ Check every box before marking any piece done. A reviewer should be able to veri
 - [ ] Published in a single commit across the four locales
 
 **T2 only**
-- [ ] English only. No de, es or fr version exists
+- [ ] All four locales present, each through `/deep-translate`, slugs in `guideSlugs` (since 14 October 2026)
 - [ ] At least one dated measurement or verdict with a named vantage point, from GreatFire or 21YunBox, attributed (GFW rule)
 - [ ] No shared structure above the H2 level with any other T2 page, verified by diffing headings
 - [ ] No verdict published for any host in F42 without a dated third-party test
@@ -2761,6 +2764,8 @@ Check every box before marking any piece done. A reviewer should be able to veri
 - [ ] Raw host list published or linked
 - [ ] Untested hosts listed as untested rather than dropped
 - [ ] Dated slug, no overwriting of a prior edition
+- [ ] All four locales present in one commit, each through `/deep-translate`, slugs in `guideSlugs`, no `englishOnlyRoutes` entry (since 16 October 2026)
+- [ ] Host IDs, hostnames, figures and dates identical in every locale
 
 **T6 only**
 - [ ] Zero new URLs created, verified against the sitemap entry count before and after

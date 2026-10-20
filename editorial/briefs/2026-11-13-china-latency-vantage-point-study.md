@@ -9,7 +9,7 @@ slot_job: upgrade or report
 slug: china-latency-vantage-point-study
 title: "Why China Latency Tests Disagree"
 suggested_category: Technology
-locales_at_publish: en
+locales_at_publish: en fr es de
 status: not_started
 ---
 
@@ -26,7 +26,7 @@ rule inside the skills. Then read every fact ID listed above in
 | brief | this file |
 | output | `../output/china-latency-vantage-point-study.md` |
 
-**Tier rule.** T4 measurement report. English only, dated slug, never overwritten. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
+**Tier rule.** T4 measurement report. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 16 October 2026; T4 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`), never in `englishOnlyRoutes`. Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. Host IDs, hostnames, URLs, figures and dates stay identical in every locale. Dated slug, never overwritten in any locale. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.
 
 **Quality gate, every piece.** After `/createarticle`, run `/content-quality-us`
 on the output file, all 18 passes, British spelling, tracker in the run log.
@@ -44,9 +44,9 @@ tier-specific boxes for T4.
 
 | | |
 |---|---|
-| **Slug** | `china-latency-vantage-point-study` |
+| **Slugs** | en `china-latency-vantage-point-study` · de `china-latenz-messpunkte` · es `latencia-china-puntos-de-medicion` · fr `latence-chine-points-de-mesure` |
 | **Length** | 2,200 words plus the table |
-| **Locales** | English at publish |
+| **Locales** | en, fr, es and de in one commit (section 1) |
 
 **What it publishes.** Explain why 21YunBox's named cloud and consumer observations disagree, using only dated published evidence. The worked example is the paired five-resource study: Alibaba Cloud (阿里云) cn-zhangjiakou on 28 August 2026 and Beijing China Mobile (中国移动) residential broadband on 30 August 2026. Retain per-host attempt counts and separate timing columns. The Google Fonts pair and Google Tag Manager demonstrate a split; jsDelivr and reCAPTCHA supply the comparison cases. No source supports the former brief's 44-host, same-day experiment or its invented 22 disagreements.
 
@@ -74,6 +74,8 @@ excerpt: "The same resource can answer from a cloud probe and fail on a home con
 Six pieces. This is the moat, and it is the reason the rest of the plan is safe.
 
 Publication rule for all six: state the method before the findings, name every vantage point, publish the raw host list, and say what could not be tested. A study that hides its method is worth less than no study.
+
+**Locales.** Every T4 report ships in en, fr, es and de in one commit, like T1 (Cyril, 16 October 2026: "change the rules. propagate to all languages"; T4 was English only until then). The localized slugs listed with each report go into `guideSlugs`; no T4 page goes into `englishOnlyRoutes`. Host IDs, hostnames, URLs and figures stay identical in every locale, so a row anchor such as `#host-recaptcha` cites the same row in all four. The raw panel JSON is one file, linked from every locale.
 
 ---
 

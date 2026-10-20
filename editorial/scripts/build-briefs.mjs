@@ -41,7 +41,8 @@ const plan = readFileSync(PLAN, 'utf8').split(/\r?\n/);
 //                  since 14 October 2026, Cyril: "it should propagate to each language")
 //   money-page     src/pages/website-in-china.astro and the three locale pages (M1)
 //   casestudy      casestudies collection, English first (T3)
-//   report         guides collection, English only, dated slug (T4)
+//   report         guides collection, all four locales in one commit, dated slug (T4,
+//                  since 16 October 2026, Cyril: "propagate to all languages")
 //   guide-en-first guides collection, English first, translated on evidence (T5)
 //   upgrade        edit to an existing page, zero new URLs (T6)
 //   translation    deep-translate of an earned page into fr, es, de (T7)
@@ -200,7 +201,7 @@ const TIER_NOTES = {
   // T2 uses the `guide` type (four locales) but takes this note, not the T1 one.
   'guide-t2': 'T2 compatibility page. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 14 October 2026; T2 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`). Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. GFW RULE (editorial/CLAUDE.md): every statement of what the Great Firewall does to a host comes from dated GreatFire verdicts and the published 21YunBox probes, labelled as theirs, with a named vantage point and a date; a host with no dated test is listed as untested. No harness gate, no mainland probe (Cyril, 2 October 2026). No shared structure above the H2 level with any other T2 page. Named human byline. Answer in the first paragraph. 700 to 1,000 words.',
   'casestudy': 'T3 case study. Publishes into `src/content/casestudies/` under the existing `/work/{client}-{descriptor}/` convention. English at publish, translation earned per the T7 rules. All six template sections, in order. Before and after figures each carry a named Chinese network or cloud region and a date. Client named or the reason for anonymity stated.',
-  'report': 'T4 measurement report. English only, dated slug, never overwritten. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.',
+  'report': 'T4 measurement report. Ships in all four locales (en, fr, es, de) in one commit, like T1 (Cyril, 16 October 2026; T4 was English only until then). Register the localized slugs from the brief in `src/i18n/routes.ts` (`guideSlugs`), never in `englishOnlyRoutes`. Run `/deep-translate` on each locale, all three passes, in this order: FR, ES, DE, interactively in the main conversation, never through a subagent, one pass at a time, none skipped. Host IDs, hostnames, URLs, figures and dates stay identical in every locale. Dated slug, never overwritten in any locale. GFW RULE: built from dated GreatFire and 21YunBox data, labelled as theirs; no harness, no mainland probe (Cyril, 2 October 2026). Method before findings, every vantage point named, raw host list published, untested hosts listed as untested. Real HTML tables (markdown tables render to real `<table>` markup), stable anchor per host row.',
   'guide-en-first': 'T5 editorial guide. English first. Translation only after day 90 and only on evidence (organic entries, an attributed inquiry, an observed AI citation), through a T7 slot.',
   'upgrade': 'T6 upgrade. ZERO NEW URLS. An edit to a page that already exists, in all four locales where the page is localized. Verify the sitemap entry count is unchanged before and after. No canonical or hreflang change unless the work order says so. The draft step produces the replacement copy and a change list in `output/`; the publish step applies it. Changed passages in fr, es and de go through `/deep-translate`, main conversation, no subagent, three passes each.',
   'translation': 'T7 translation slot. A budget, not a schedule. On this date, review the queue: pages published 90 or more days ago that have earned it (organic entries, an attributed inquiry, an observed AI citation). Pick one or leave the slot unspent and say so in the log. Translate fr, es and de together or not at all. T2 never takes a slot: it ships in all four locales at publish (since 14 October 2026). Run `/deep-translate`, all three passes, per locale, FR then ES then DE, interactively in the main conversation, never a subagent, one pass at a time, none skipped or merged.',
@@ -245,7 +246,7 @@ for (let w = 0; w < CALENDAR.length; w++) {
       : id === 'B2' ? 'CWF from figures per tier, supplied by Cyril'
       : id === 'T3-01' || id === 'T3-02' || id === 'T3-03' ? 'client sign-off'
       : '';
-    const locales = p.type === 'guide' || p.type === 'money-page' ? 'en fr es de'
+    const locales = p.type === 'guide' || p.type === 'money-page' || p.type === 'report' ? 'en fr es de'
       : p.type === 'upgrade' ? 'as the page exists'
       : p.type === 'translation' ? 'fr es de'
       : p.type === 'reserve' ? '' : 'en';

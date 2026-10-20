@@ -48,6 +48,6 @@ No page is named in advance. On this date, review the translation queue and spen
 
 Fourteen slots across 26 weeks. Not a schedule, a budget.
 
-**Rules.** Nothing is translated before day 90. T2 is outside this budget: since 14 October 2026 every T2 page ships in en, fr, es and de at publish (Cyril, section 1), so no T2 page uses a T7 slot. T2-01 was localised on 6 October 2026 and T2-02, T2-03 and T2-05 on 14 October 2026, also outside the budget. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
+**Rules.** Nothing is translated before day 90. T2 and T4 are outside this budget: since 14 October 2026 every T2 page, and since 16 October 2026 every T4 report, ships in en, fr, es and de at publish (Cyril, section 1), so neither uses a T7 slot. T2-01 was localised on 6 October 2026 and T2-02, T2-03 and T2-05 on 14 October 2026, also outside the budget. A page qualifies on evidence: organic entries, an inquiry attributed to it, or an AI citation observed. Translate all three locales at once or none, so the hreflang set stays complete. Review the queue monthly and spend the slots on what earned them.
 
 Expect roughly half the slots to go to T1 and the money page, which ship four-locale on day one anyway and therefore do not consume budget. The real allocation is T3 and T5.

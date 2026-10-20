@@ -16,24 +16,26 @@
 
 const CONTENT_PATH = /\/src\/content\/(?:guides|casestudies)(?:-(?:fr|es|de))?\//;
 
-/** Stable citation targets for the monthly index's explicit Host ID column. */
+const HOST_ID = /^host-[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+/**
+ * Stable citation targets for the monthly index's Host ID column. The index
+ * ships in four locales and its header is translated, so the table is
+ * recognised by its IDs, never by the header label: every body row must open
+ * with a host-* cell. The IDs are the same in every locale, so
+ * `#host-recaptcha` cites the same row in all four.
+ */
 function indexRowIds(table) {
   const text = (node) => node.type === 'text'
     ? node.value
     : (node.children ?? []).map(text).join('');
-  const head = table.children?.find((node) => node.tagName === 'thead');
-  const headerRow = head?.children?.find((node) => node.tagName === 'tr');
-  const headerCell = headerRow?.children?.find((node) => node.tagName === 'th');
-  if (text(headerCell ?? {}).trim() !== 'Host ID') return;
   const body = table.children?.find((node) => node.tagName === 'tbody');
-  for (const row of body?.children ?? []) {
-    if (row.tagName !== 'tr') continue;
-    const cell = row.children?.find((node) => node.tagName === 'td');
-    const id = text(cell ?? {}).trim();
-    if (/^host-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
-      row.properties = { ...row.properties, id };
-    }
-  }
+  const rows = (body?.children ?? []).filter((node) => node.tagName === 'tr');
+  const ids = rows.map((row) => text(row.children?.find((node) => node.tagName === 'td') ?? {}).trim());
+  if (!ids.length || !ids.every((id) => HOST_ID.test(id))) return;
+  rows.forEach((row, i) => {
+    row.properties = { ...row.properties, id: ids[i] };
+  });
 }
 
 /** @param {any} node */
