@@ -48,6 +48,7 @@ const items = [];
 })('src/content');
 
 const DATASETS = [
+  ['src/data/agencyEvidence.ts', 'agency page evidence, /web-agency-china/ and /wordpress-agency-china/ in all four locales'],
   ['src/data/chinaDependencies.ts', 'dependency table, all four great-firewall-what-it-blocks files'],
   ['src/data/wordpressMeasurements.ts', 'measurement block, /wordpress-in-china/ in all four locales'],
 ];

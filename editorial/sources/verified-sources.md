@@ -1,5 +1,38 @@
 # Verified source ledger
 
+## T6-09 checks, 21 October 2026
+
+These entries reuse the latest dated ledger evidence. Each URL was fetched
+at research time and fetched again with a no-cache request in createarticle
+iteration 8 on 21 October 2026. Raw responses and the source list are in
+`editorial/logs/runs/2026-10-21-t6-09/`.
+
+| Fact | Claim retained and scope | Source URL | Source date | Verified 1 | Verified 2 |
+|---|---|---|---|---|---|
+| F6 | fonts.googleapis.com: 72 samples with 100% success from Alibaba Cloud cn-zhangjiakou; 0 answers from 54 requests on Beijing China Mobile residential broadband. Separate observations, never a universal verdict. | https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html | 28 and 30 August 2026 | 21 October 2026 | 21 October 2026 |
+| F26 | Initial review 1 to 2 working days; provincial review generally 1 to 20. Mainland hosting requires filing; Alibaba Hong Kong and overseas servers do not. Metadata lastModifiedTime 1787725147000. | https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview | 26 August 2026 | 21 October 2026 | 21 October 2026 |
+| F25 | First filing and new-site filing require the website to remain inaccessible during review; access transfers generally remain reachable, with regional exceptions. This does not establish whole-IP closure of ports 80 and 443. | https://cloud.tencent.com/document/product/243/19650 | 21 August 2026 | 21 October 2026 | 21 October 2026 |
+| F31 | Chinafy tested 614 global websites using WebPageTest from Beijing, Virginia and London; its rounded finding is 2 in 3 failed from Beijing. Vendor benchmark, not a WordPress-specific sample. | https://www.chinafy.com/blog/china-website-performance-benchmarks-2026 | 14 April 2026 | 21 October 2026 | 21 October 2026 |
+
+Used in: `upgrade-agency-money-pages`; paired font evidence and provider
+filing guidance also correct the eight agency page sources in this run.
+
+F32 remains excluded from new proof: the ledger lacks complete network,
+method and date records. Removed real-result speed and uptime displays
+from the target WordPress page in every locale; retained the expressly
+illustrative hero simulation required by the work order, labelled as such.
+
+First-party counts checked twice on 21 October 2026 against the repository:
+10 service collection files, 2 named team members, 3 displayed projects per
+page selection, 6 WordPress service scopes, 7 resource categories,
+8 process stages, 3 stack approaches and 2 engagement models. These are
+dated catalogue counts, not client outcomes or market statistics.
+
+Implementation reference: https://schema.org/FAQPage fetched twice on
+21 October 2026, type definition confirmed. This is a schema reference,
+not a dated performance claim. The Google FAQ documentation URL redirected
+to its updates index, so no search-appearance claim was derived from it.
+
 Every figure used in a published piece, with the citation that goes with it.
 
 **Read this before researching anything.** If a figure is here and still

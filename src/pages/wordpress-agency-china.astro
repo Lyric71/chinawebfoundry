@@ -17,6 +17,15 @@ const casestudies = (await getCollection('casestudies'))
 
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
 const pageUrl = `${siteOrigin}${canonicalPath}`;
+const updatedAt = '2026-10-21';
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl}#webpage`,
+  url: pageUrl,
+  dateModified: updatedAt,
+};
+
 
 const services = [
   {
@@ -30,7 +39,7 @@ const services = [
   {
     key: 'hosting',
     title: 'Firewall-safe hosting & CDN',
-    body: 'Mainland or Hong Kong hosting on Alibaba Cloud or Tencent Cloud, fronted by a China CDN. We target sub-2-second loads in tier-1 cities and monitor from nodes inside China.',
+    body: 'Choose mainland or Hong Kong hosting after reviewing the entity, filing requirements and external requests. Alibaba Cloud (阿里云) and Tencent Cloud (腾讯云) provide options for these deployments.',
     deliverable: 'A hosting setup with in-China response times you can check yourself.',
     href: '/services/china-hosting/',
     linkLabel: 'China hosting',
@@ -54,15 +63,15 @@ const services = [
   {
     key: 'migration',
     title: 'Migration & site rescue',
-    body: 'Your WordPress site already exists but crawls or breaks in China. We move it onto China-ready infrastructure and strip the blocked resources, keeping your content and rankings.',
-    deliverable: 'The same site, loading in seconds from Shanghai.',
+    body: 'We review the existing site, move the agreed content and replace unsuitable external requests. Redirects and search changes need their own checks during migration.',
+    deliverable: 'A migration with documented redirects and dependency changes.',
     href: '/services/china-migration/',
     linkLabel: 'China migration',
   },
   {
     key: 'care',
     title: 'Maintenance & support',
-    body: 'Core and plugin updates tested against the firewall before they go live, security patching, uptime monitoring from Chinese nodes, and a human who replies within 24 hours.',
+    body: 'Core and plugin updates, security patches and maintenance reports, with external dependencies reviewed against dated third-party evidence.',
     deliverable: 'A monthly report and a site that stays fast.',
     href: '/services/maintenance-support/',
     linkLabel: 'Maintenance plans',
@@ -72,7 +81,7 @@ const services = [
 const breakages = [
   {
     resource: 'Google Fonts',
-    broken: 'Text invisible for 20+ seconds while the browser waits for a timeout.',
+    broken: 'Availability differs by network. The dated comparison above explains why we self-host fonts.',
     fixed: 'Every font self-hosted as WOFF2 on your own server.',
   },
   {
@@ -111,7 +120,7 @@ const processSteps = [
   {
     title: 'Discovery',
     when: 'Weeks 1-2',
-    body: 'We audit your current site from a Shanghai connection, map your goals for the China market, and agree scope and budget.',
+    body: 'We review your current site and its external requests, then agree the China scope and budget.',
   },
   {
     title: 'Design',
@@ -126,12 +135,12 @@ const processSteps = [
   {
     title: 'China performance testing',
     when: 'Weeks 8-9',
-    body: 'We load the site from Beijing, Shanghai and Guangzhou nodes and fix anything slower than 2 seconds before you ever see a staging link.',
+    body: 'We review dated third-party reachability evidence and check the implementation against the agreed acceptance criteria.',
   },
   {
     title: 'ICP & hosting setup',
     when: 'In parallel',
-    body: 'ICP filing prepared and submitted, hosting and CDN configured. Runs alongside the build, so it costs no extra calendar time.',
+    body: 'Filing preparation and hosting setup can run alongside development. Approval remains a condition of opening a mainland site.',
   },
   {
     title: 'Baidu SEO foundations',
@@ -153,8 +162,8 @@ const processSteps = [
 const alternatives = [
   {
     title: 'WordPress, localised properly',
-    body: 'The right choice when your team already knows the editor, you publish often, or you run multilingual content. Hosted in China with local assets, it loads in under 2 seconds and Baidu indexes it well.',
-    verdict: 'Our default for content-led brand sites.',
+    body: 'WordPress suits teams that already use its editor or publish frequently. Review themes, plugins and external requests when preparing the China site.',
+    verdict: 'Choose it when its publishing workflow fits the team.',
   },
   {
     title: 'WeChat-only or a local CMS',
@@ -163,7 +172,7 @@ const alternatives = [
   },
   {
     title: 'Astro or headless',
-    body: 'When raw speed wins and content changes rarely, a static or headless build beats WordPress on performance. We build these too, and we’ll recommend one when it fits.',
+    body: 'Astro can prepare pages at build time; a headless CMS can supply content to several front ends. Choose against the editing workflow and the requests the finished site makes.',
     verdict: 'The brief decides the stack. If WordPress is wrong for your project, we say so on the first call.',
   },
 ];
@@ -181,7 +190,7 @@ const industries = [
 const differentiators = [
   {
     title: 'We test where your visitors are',
-    body: 'Every build is checked from Chinese connections in Beijing, Shanghai and Guangzhou. A green light in Frankfurt means nothing to a visitor in Chengdu.',
+    body: 'We use dated third-party evidence for mainland host reachability. A datacentre result and a home-line result stay separate, with their networks and test dates.',
   },
   {
     title: 'ICP handled in Mandarin',
@@ -201,12 +210,12 @@ const faqs = [
   {
     id: 'works-in-china',
     q: 'Does WordPress actually work in China?',
-    a: 'Yes, when it’s hosted in or near China and stripped of blocked resources. WordPress core itself is fine; the problems come from themes and plugins that call Google Fonts, reCAPTCHA, Gravatar and other blocked services. We’ve shipped 50+ WordPress sites that load in under 2 seconds from mainland connections.',
+    a: 'WordPress can run on mainland hosting. Its themes and plugins need a separate review of external requests. Google Fonts availability differs by network, as the dated comparison on this page shows. Serving fonts locally removes that external request.',
   },
   {
     id: 'icp-needed',
     q: 'Do I need an ICP licence for my WordPress site?',
-    a: 'Only if you host in mainland China. The basic ICP Bei’an filing covers brochure and marketing sites and requires a Chinese legal entity. Selling directly to Chinese consumers from the site usually means the commercial ICP licence, which has stricter requirements. If you have no Chinese entity, Hong Kong hosting skips the ICP entirely and still performs well.',
+    a: 'Mainland hosting requires an ICP filing (ICP备案). A commercial ICP licence (ICP许可证) is separate and depends on the activity. Review the planned service before choosing a licence category. Alibaba Cloud (阿里云) says its Hong Kong and overseas servers do not require mainland ICP filing.',
   },
   {
     id: 'fix-without-rebuild',
@@ -221,12 +230,12 @@ const faqs = [
   {
     id: 'woocommerce',
     q: 'Does WooCommerce work in China?',
-    a: 'Yes, with local adjustments. Checkout needs WeChat Pay and Alipay rather than Stripe or PayPal, and selling domestically requires the commercial ICP licence plus a Chinese entity. Many foreign brands start with cross-border e-commerce instead, which has lighter requirements. We’ve built both.',
+    a: 'WooCommerce needs payment and fulfilment arrangements suited to the business. Check merchant eligibility with the payment provider and review the activity-specific permissions. A checkout alone does not establish which telecoms licence applies.',
   },
   {
     id: 'google-rankings',
     q: 'Will optimising for China hurt my Google rankings elsewhere?',
-    a: 'No. Your China site runs alongside your global site, usually on a subdomain or a .cn domain, with hreflang tags telling Google and Baidu which version serves which audience. Your existing rankings stay where they are.',
+    a: 'A China site can run alongside the global site. Keep redirects, canonical URLs and language annotations consistent, and monitor search results after changes. No migration can guarantee that existing rankings will stay unchanged.',
   },
   {
     id: 'chinese-content',
@@ -293,7 +302,7 @@ const breadcrumbLd = {
   title={metaTitle}
   description={metaDescription}
   heroPage={true}
-  jsonLd={[serviceLd, faqLd, breadcrumbLd]}
+  jsonLd={[pageLd, serviceLd, faqLd, breadcrumbLd]}
   alternateUrls={{ en: '/wordpress-agency-china/', fr: '/fr/agence-wordpress-chine/', es: '/es/agencia-wordpress-china/', de: '/de/wordpress-agentur-china/' }}
 >
   <ScrollEffects />
@@ -351,7 +360,7 @@ const breadcrumbLd = {
           </h1>
 
           <p class="mt-7 text-base lg:text-lg text-white/65 leading-relaxed max-w-[560px]">
-            Our WordPress sites load in under 2 seconds inside mainland China. Design, build, hosting, ICP licensing and Baidu SEO, all handled by one Shanghai-based team.
+            We plan and build WordPress sites for mainland China, including hosting, filing support and Baidu (百度) SEO. The Shanghai team agrees the scope around your content and publishing needs.
           </p>
 
           <div class="mt-9 flex flex-wrap items-center gap-4">
@@ -377,8 +386,8 @@ const breadcrumbLd = {
               <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Years in China</div>
             </div>
             <div class="border-l-2 border-white/15 pl-4">
-              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">&lt;2s</div>
-              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Load time in tier-1 cities</div>
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">Local</div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Self-hosted assets</div>
             </div>
           </div>
         </div>
@@ -423,7 +432,7 @@ const breadcrumbLd = {
             </div>
           </div>
           <p class="mt-3 text-center lg:text-right text-[11px] font-mono uppercase tracking-[0.14em] text-white/35">
-            Simulation · modelled on the audits we run every day
+            Illustrative simulation. Timings are examples, not measured client results.
           </p>
         </div>
       </div>
@@ -462,13 +471,14 @@ const breadcrumbLd = {
             Why a standard WordPress site fails in China.
           </h2>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            Take a WordPress site built for Europe or North America and open it in Shanghai. It loads in 20 to 40 seconds, if it loads at all. The theme calls Google Fonts. The contact form waits on reCAPTCHA. The footer map calls Google Maps. The Great Firewall blocks all 3, and each one hangs the page while the browser waits for a timeout.
+            Review the requests your WordPress theme and plugins make before a China launch. Google Fonts can behave differently on a mainland datacentre connection and a home line. Serving fonts locally removes that dependency.
           </p>
+          <blockquote class="mt-4 text-sm leading-relaxed"><a href="https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html">21YunBox recorded 72 of 72 completed requests to fonts.googleapis.com from Alibaba Cloud (阿里云) cn-zhangjiakou on 28 August 2026, and 0 answers from 54 requests on Beijing China Mobile (中国移动) residential broadband on 30 August 2026. Source: 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 to 30 August 2026.</a></blockquote>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            Distance makes it worse. Every request travels from the visitor in China to a server in Frankfurt or Virginia through congested international gateways. And without an ICP filing you can't host in mainland China or use a mainland CDN, so there's no way to shorten that trip.
+            Hosting and external requests need separate checks. A mainland site needs its ICP filing (ICP备案) before it opens; the provider’s application process belongs in the launch plan.
           </p>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            A China-specialist WordPress agency deals with all of this before launch. Flip the switcher to see what your buyers see, then run the real test on your own site.
+            Use the illustration to understand request failures. A review of your own site starts with its actual dependencies.
           </p>
           <div class="flex flex-wrap items-center gap-4">
             <Button href="/china-site-scanner/" variant="primary" size="md">Run a free China readiness audit</Button>
@@ -553,7 +563,7 @@ const breadcrumbLd = {
             </div>
           </div>
           <p class="mt-3 text-center text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-            Interactive · switch between the two connections
+            Illustrative comparison. The displayed timings are not measurements.
           </p>
         </div>
       </div>
@@ -619,9 +629,9 @@ const breadcrumbLd = {
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[1].body}</p>
           <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 space-y-3">
             {[
-              { city: 'Beijing', ms: '48ms', w: 'w-[28%]' },
-              { city: 'Shanghai', ms: '36ms', w: 'w-[21%]' },
-              { city: 'Guangzhou', ms: '61ms', w: 'w-[35%]' },
+              { city: 'Beijing', ms: 'Review', w: 'w-[28%]' },
+              { city: 'Shanghai', ms: 'Review', w: 'w-[21%]' },
+              { city: 'Guangzhou', ms: 'Review', w: 'w-[35%]' },
             ].map((row) => (
               <div class="flex items-center gap-3">
                 <span class="w-20 text-[11px] font-mono text-white/50">{row.city}</span>
@@ -673,12 +683,12 @@ const breadcrumbLd = {
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[4].body}</p>
           <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 flex items-center justify-center gap-3">
             <div class="text-center">
-              <div class="text-lg font-mono text-[#F87171] line-through decoration-2">23.4s</div>
+              <div class="text-lg font-mono text-[#F87171] line-through decoration-2">Remote</div>
               <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">Before</div>
             </div>
             <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             <div class="text-center">
-              <div class="text-lg font-mono text-[#4ADE80]">1.8s</div>
+              <div class="text-lg font-mono text-[#4ADE80]">Local</div>
               <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">After</div>
             </div>
           </div>
@@ -697,14 +707,14 @@ const breadcrumbLd = {
             </div>
             <div aria-hidden="true" class="mt-5 lg:mt-0 lg:w-[240px] rounded-xl border border-white/10 bg-[#15151c] p-4">
               <div class="flex items-baseline justify-between mb-2">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-white/40">Uptime · 90 days</span>
-                <span class="text-[13px] font-mono text-[#4ADE80]">99.98%</span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/40">Monitoring</span>
+                <span class="text-[13px] font-mono text-[#4ADE80]">Reports</span>
               </div>
               <svg viewBox="0 0 220 48" class="w-full h-12" preserveAspectRatio="none">
                 <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
                 <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
               </svg>
-              <div class="mt-2 flex items-center gap-1.5 text-[10px] font-mono text-white/40"><span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse"></span>Monitored from Shanghai</div>
+              <div class="mt-2 flex items-center gap-1.5 text-[10px] font-mono text-white/40"><span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse"></span>Agreed in scope</div>
             </div>
           </div>
         </article>
@@ -732,8 +742,8 @@ const breadcrumbLd = {
           What breaks WordPress in China, and how we fix it.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          The Great Firewall doesn't block WordPress. It blocks the services a typical theme quietly depends on. Flip the switch to see what our rebuild changes.
-        </p>
+            These examples show faults to investigate in a theme or plugin. Behaviour depends on the host and the network. Use dated evidence for each service before choosing a replacement.
+          </p>
       </div>
 
       <!-- master toggle -->
@@ -765,7 +775,7 @@ const breadcrumbLd = {
               <span class="text-[15px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{b.resource}</span>
             </div>
             <div class="sm:col-span-2">
-              <span class="fix-chip-broken inline-flex items-center px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#DC2626] transition-all duration-300">Blocked</span>
+              <span class="fix-chip-broken inline-flex items-center px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#DC2626] transition-all duration-300">{b.resource === 'Google Fonts' ? "Depends on network" : "Blocked"}</span>
               <span class="fix-chip-fixed hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#15803D] transition-all duration-300">Fixed</span>
             </div>
             <div class="sm:col-span-7 relative min-h-[1.5em]">
@@ -797,11 +807,11 @@ const breadcrumbLd = {
           ICP licence and hosting requirements, explained.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-          Every website hosted in mainland China needs an ICP filing with MIIT, the Chinese telecoms ministry. There are 2 kinds. The <strong>ICP Bei'an (备案)</strong> is a registration that covers brochure and marketing sites. The <strong>commercial ICP licence</strong> is a full permit, required when you sell directly to Chinese consumers from the site.
-        </p>
+            A mainland-hosted website needs an ICP filing (ICP备案). A commercial ICP licence (ICP许可证) is a separate permission whose applicability depends on the activity. Assess the service and entity before selecting the hosting setup.
+          </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Both require a Chinese legal entity. Answer one question and we'll point you at the right setup.
-        </p>
+            The entity and planned activity determine which setup is available. Start with the entity question below.
+          </p>
       </div>
 
       <!-- entity question -->
@@ -821,10 +831,10 @@ const breadcrumbLd = {
           </span>
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Mainland China hosting</h3>
-            <span class="text-[11px] font-mono text-[#15803D] bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-full px-2.5 py-1 whitespace-nowrap">50-100ms</span>
+            <span class="text-[11px] font-mono text-[#15803D] bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-full px-2.5 py-1 whitespace-nowrap">ICP filing</span>
           </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Alibaba Cloud or Tencent Cloud, inside the firewall. Full access to mainland CDNs and the strongest signal you can send Baidu.
+            Alibaba Cloud (阿里云) and Tencent Cloud (腾讯云) have mainland hosting options. Confirm filing eligibility and the requirements of any mainland CDN before ordering.
           </p>
           <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
             <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Requires an ICP filing, which requires a Chinese entity</li>
@@ -843,8 +853,9 @@ const breadcrumbLd = {
             <span class="text-[11px] font-mono text-[#B45309] bg-[#F59E0B]/10 border border-[#F59E0B]/25 rounded-full px-2.5 py-1 whitespace-nowrap">No ICP needed</span>
           </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Just outside the firewall, so no licence to file. With a tuned site and the right routing, load times in southern and eastern China stay comfortably under 3 seconds.
+            Alibaba Cloud (阿里云) says its Hong Kong servers do not require mainland ICP filing. The site’s external requests and network path still need review.
           </p>
+          <blockquote class="mt-4 text-sm leading-relaxed"><a href="https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview">Source: Alibaba Cloud (阿里云), ICP filing overview, 26 August 2026. Mainland hosting requires filing; its Hong Kong and overseas servers do not.</a></blockquote>
           <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
             <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>No Chinese entity or licence needed</li>
             <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>The usual starting point for foreign brands</li>

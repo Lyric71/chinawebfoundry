@@ -18,6 +18,15 @@ const casestudies = (await getCollection('casestudies-fr'))
 
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
 const pageUrl = `${siteOrigin}${canonicalPath}`;
+const updatedAt = '2026-10-21';
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl}#webpage`,
+  url: pageUrl,
+  dateModified: updatedAt,
+};
+
 
 const services = [
   {
@@ -31,7 +40,7 @@ const services = [
   {
     key: 'hosting',
     title: 'Hébergement & CDN compatibles pare-feu',
-    body: 'Hébergement en Chine continentale ou à Hong Kong, chez Alibaba Cloud ou Tencent Cloud, derrière un CDN chinois. Le cap : moins de 2 secondes dans les grandes villes, sous surveillance depuis des nœuds en Chine.',
+    body: 'Le choix entre la Chine continentale et Hong Kong dépend de l’entité, des formalités et des requêtes externes du site. Alibaba Cloud (阿里云) et Tencent Cloud (腾讯云) proposent des hébergements pour ces configurations.',
     deliverable: 'Une infrastructure dont vous vérifiez vous-même les temps de réponse en Chine.',
     href: '/fr/services/hebergement-chine/',
     linkLabel: 'Hébergement Chine',
@@ -55,15 +64,15 @@ const services = [
   {
     key: 'migration',
     title: 'Migration & sauvetage de site',
-    body: 'Votre site WordPress existe, mais en Chine il rame ou il casse. Nous le déplaçons vers une infrastructure taillée pour la Chine et retirons les ressources bloquées, sans toucher à vos contenus ni à vos positions.',
-    deliverable: 'Le même site, affiché en quelques secondes depuis Shanghai.',
+    body: 'Nous examinons le site existant, transférons les contenus prévus et remplaçons les requêtes externes inadaptées. La migration comprend un contrôle des redirections et des changements qui concernent le référencement.',
+    deliverable: 'Un relevé des redirections et des dépendances modifiées accompagne la migration.',
     href: '/fr/services/migration-chine/',
     linkLabel: 'Migration Chine',
   },
   {
     key: 'care',
     title: 'Maintenance & support',
-    body: 'Mises à jour du cœur et des plugins éprouvées face au pare-feu avant toute mise en ligne, correctifs de sécurité, surveillance depuis des nœuds chinois. Et un humain qui vous répond sous 24 heures.',
+    body: 'Mises à jour du cœur et des extensions, correctifs de sécurité et rapports de maintenance. L’examen des dépendances externes s’appuie sur des tests tiers datés.',
     deliverable: 'Un rapport mensuel et un site qui garde sa vitesse.',
     href: '/fr/services/maintenance-support/',
     linkLabel: 'Formules de maintenance',
@@ -73,7 +82,7 @@ const services = [
 const breakages = [
   {
     resource: 'Google Fonts',
-    broken: 'Plus de 20 secondes de texte invisible, jusqu’à ce que le navigateur renonce.',
+    broken: 'L’accessibilité varie selon le réseau. La comparaison datée ci-dessus explique notre choix d’héberger les polices localement.',
     fixed: 'Chaque police auto-hébergée en WOFF2 sur votre propre serveur.',
   },
   {
@@ -112,7 +121,7 @@ const processSteps = [
   {
     title: 'Cadrage',
     when: 'Semaines 1-2',
-    body: 'Audit de votre site depuis une connexion shanghaïenne, objectifs posés pour le marché chinois, périmètre et budget arrêtés.',
+    body: 'Nous examinons le site et ses requêtes externes, puis fixons le périmètre Chine et le budget.',
   },
   {
     title: 'Design',
@@ -127,12 +136,12 @@ const processSteps = [
   {
     title: 'Tests de performance en Chine',
     when: 'Semaines 8-9',
-    body: 'Le site est chargé depuis des nœuds de Pékin, Shanghai et Canton. Tout ce qui dépasse 2 secondes est corrigé avant même que vous receviez un lien de préproduction.',
+    body: 'Nous examinons les tests d’accessibilité publiés par des tiers et vérifions la réalisation selon les critères de réception convenus.',
   },
   {
     title: 'ICP & hébergement',
     when: 'En parallèle',
-    body: 'Dossier ICP monté et déposé, hébergement et CDN configurés. Le tout avance au rythme du développement, sans un jour de plus au calendrier.',
+    body: 'Le dossier ICP et l’hébergement peuvent avancer en parallèle du développement. L’ouverture d’un site en Chine continentale reste soumise à l’approbation du dépôt.',
   },
   {
     title: 'Fondations SEO Baidu',
@@ -154,8 +163,8 @@ const processSteps = [
 const alternatives = [
   {
     title: 'WordPress, localisé dans les règles',
-    body: 'Le bon choix quand votre équipe maîtrise déjà l’éditeur, publie souvent ou gère plusieurs langues. Hébergé en Chine avec des ressources locales, il s’affiche en moins de 2 secondes et Baidu l’indexe sans difficulté.',
-    verdict: 'Notre choix par défaut pour les sites de marque à forte dimension éditoriale.',
+    body: 'WordPress convient aux équipes qui connaissent son éditeur ou publient fréquemment. La préparation du site Chine suppose d’examiner les thèmes, les extensions et leurs requêtes externes.',
+    verdict: 'À retenir si son fonctionnement éditorial convient à l’équipe.',
   },
   {
     title: 'WeChat seul ou un CMS local',
@@ -164,7 +173,7 @@ const alternatives = [
   },
   {
     title: 'Astro ou headless',
-    body: 'Quand la vitesse prime et que le contenu bouge peu, un site statique ou headless devance WordPress en performance. Nous en construisons aussi, et nous le recommandons quand le projet s’y prête.',
+    body: 'Astro peut préparer les pages à la compilation ; un CMS headless peut alimenter plusieurs interfaces. Le choix dépend de l’organisation éditoriale et des requêtes du site livré.',
     verdict: 'Le brief tranche. Si WordPress ne convient pas à votre projet, nous vous le disons dès le premier échange.',
   },
 ];
@@ -182,7 +191,7 @@ const industries = [
 const differentiators = [
   {
     title: 'Nous testons là où vivent vos visiteurs',
-    body: 'Chaque livraison est contrôlée depuis des connexions chinoises, à Pékin, Shanghai et Canton. Un voyant vert à Francfort ne dit rien à un visiteur de Chengdu.',
+    body: 'L’accessibilité des hôtes en Chine continentale est évaluée à partir de tests tiers datés. Les résultats d’un centre de données et d’une ligne résidentielle restent distincts, avec leur réseau et leur date.',
   },
   {
     title: 'L’ICP traité en mandarin',
@@ -202,12 +211,12 @@ const faqs = [
   {
     id: 'works-in-china',
     q: 'WordPress fonctionne-t-il vraiment en Chine ?',
-    a: 'Oui, à condition de l’héberger en Chine ou à proximité et de le débarrasser des ressources bloquées. Le cœur de WordPress ne pose aucun problème. Les ennuis viennent des thèmes et des plugins qui appellent Google Fonts, reCAPTCHA, Gravatar et d’autres services bloqués. Nous avons livré plus de 50 sites WordPress qui s’affichent en moins de 2 secondes depuis la Chine continentale.',
+    a: 'WordPress peut fonctionner sur un hébergement en Chine continentale. Les requêtes externes des thèmes et des extensions doivent être examinées séparément. L’accessibilité de Google Fonts varie selon le réseau, comme le montre la comparaison datée de cette page. Héberger les polices localement supprime cette requête externe.',
   },
   {
     id: 'icp-needed',
     q: 'Ai-je besoin d’une licence ICP pour mon site WordPress ?',
-    a: 'Uniquement si vous hébergez en Chine continentale. Le dépôt ICP Bei’an couvre les sites vitrines et marketing ; il exige une entité juridique chinoise. Vendre directement aux consommateurs chinois depuis le site relève en général de la licence ICP commerciale, plus exigeante. Sans entité chinoise, l’hébergement à Hong Kong dispense d’ICP et reste performant.',
+    a: 'Un hébergement en Chine continentale exige un dépôt ICP (ICP备案). La licence ICP commerciale (ICP许可证) est une autorisation distincte, liée à l’activité. Il faut examiner le service prévu avant de choisir une catégorie de licence. Selon Alibaba Cloud (阿里云), ses serveurs à Hong Kong et à l’étranger ne nécessitent pas de dépôt ICP continental.',
   },
   {
     id: 'fix-without-rebuild',
@@ -222,12 +231,12 @@ const faqs = [
   {
     id: 'woocommerce',
     q: 'WooCommerce fonctionne-t-il en Chine ?',
-    a: 'Oui, moyennant des ajustements locaux. Le paiement passe par WeChat Pay et Alipay plutôt que par Stripe ou PayPal, et la vente sur le marché domestique suppose la licence ICP commerciale et une entité chinoise. Beaucoup de marques étrangères démarrent par l’e-commerce transfrontalier, moins contraignant. Nous avons construit les deux.',
+    a: 'WooCommerce exige des modalités de paiement et de livraison adaptées à l’activité. Vérifiez l’éligibilité du commerçant auprès du prestataire de paiement et les autorisations propres au service. La présence d’un panier ne suffit pas à déterminer la licence télécom applicable.',
   },
   {
     id: 'google-rankings',
     q: 'Optimiser pour la Chine pénalisera-t-il mes positions Google ailleurs ?',
-    a: 'Non. Votre site Chine vit à côté de votre site global, en général sur un sous-domaine ou un domaine .cn, avec des balises hreflang qui indiquent à Google et à Baidu quelle version sert quel public. Vos positions actuelles ne bougent pas.',
+    a: 'Le site Chine peut coexister avec le site global. Il faut préserver la cohérence des redirections, des URL canoniques et des annotations linguistiques, puis suivre les résultats de recherche après les modifications. Une migration ne permet pas de garantir le maintien des positions.',
   },
   {
     id: 'chinese-content',
@@ -295,7 +304,7 @@ const breadcrumbLd = {
   description={metaDescription}
   heroPage={true}
   lang="fr"
-  jsonLd={[serviceLd, faqLd, breadcrumbLd]}
+  jsonLd={[pageLd, serviceLd, faqLd, breadcrumbLd]}
   alternateUrls={{ en: '/wordpress-agency-china/', fr: '/fr/agence-wordpress-chine/', es: '/es/agencia-wordpress-china/', de: '/de/wordpress-agentur-china/' }}
 >
   <ScrollEffects />
@@ -353,7 +362,7 @@ const breadcrumbLd = {
           </h1>
 
           <p class="mt-7 text-base lg:text-lg text-white/65 leading-relaxed max-w-[560px]">
-            Nos sites WordPress s’affichent en moins de 2 secondes en Chine continentale. Conception, développement, hébergement, licence ICP, SEO Baidu : une seule équipe s’en charge, depuis Shanghai.
+            Nous concevons des sites WordPress pour la Chine continentale, avec l’hébergement, l’accompagnement au dépôt et le référencement Baidu (百度). L’équipe de Shanghai définit le périmètre selon vos contenus et votre organisation éditoriale.
           </p>
 
           <div class="mt-9 flex flex-wrap items-center gap-4">
@@ -379,8 +388,8 @@ const breadcrumbLd = {
               <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Années en Chine</div>
             </div>
             <div class="border-l-2 border-white/15 pl-4">
-              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">&lt;2s</div>
-              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Chargement grandes villes</div>
+              <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">Local</div>
+              <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Ressources auto-hébergées</div>
             </div>
           </div>
         </div>
@@ -425,7 +434,7 @@ const breadcrumbLd = {
             </div>
           </div>
           <p class="mt-3 text-center lg:text-right text-[11px] font-mono uppercase tracking-[0.14em] text-white/35">
-            Simulation fidèle aux audits que nous réalisons chaque jour
+            Simulation illustrative. Les durées sont des exemples, pas des mesures de projets clients.
           </p>
         </div>
       </div>
@@ -464,13 +473,14 @@ const breadcrumbLd = {
             Pourquoi un site WordPress standard échoue en Chine.
           </h2>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            Prenez un site WordPress conçu pour l’Europe ou l’Amérique du Nord et ouvrez-le à Shanghai. Vingt à quarante secondes d’attente, dans le meilleur des cas. Le thème appelle Google Fonts, le formulaire attend reCAPTCHA, la carte du pied de page interroge Google Maps. Trois services bloqués par le Grand Pare-feu, et autant de requêtes qui figent la page jusqu’à ce que le navigateur renonce.
+            Avant un lancement en Chine, examinez les requêtes des thèmes et des extensions WordPress. Google Fonts peut répondre différemment depuis un centre de données continental et une ligne résidentielle. Héberger les polices localement supprime cette dépendance.
           </p>
+          <blockquote class="mt-4 text-sm leading-relaxed"><a href="https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html">21YunBox a enregistré 72 requêtes abouties sur 72 vers fonts.googleapis.com depuis Alibaba Cloud (阿里云), région cn-zhangjiakou, le 28 août 2026. Sur une ligne résidentielle China Mobile (中国移动) à Pékin, aucune des 54 requêtes n’a reçu de réponse le 30 août 2026. Source : 21YunBox, A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers, 28 au 30 août 2026.</a></blockquote>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-            La distance n’arrange rien. Chaque requête part du visiteur en Chine vers un serveur de Francfort ou de Virginie, via des passerelles internationales saturées. Et sans dépôt ICP, ni hébergement en Chine continentale ni CDN local : le trajet reste incompressible.
+            L’hébergement et les requêtes externes demandent des vérifications distinctes. Un site en Chine continentale doit obtenir son dépôt ICP (ICP备案) avant d’ouvrir. La procédure de l’hébergeur fait donc partie du calendrier.
           </p>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-8">
-            Une agence WordPress spécialiste de la Chine règle tout cela avant la mise en ligne. Basculez le comparateur pour voir ce que voient vos clients, puis faites le vrai test sur votre propre site.
+            L’illustration permet de comprendre les échecs de requêtes. L’examen de votre site commence par l’inventaire de ses dépendances réelles.
           </p>
           <div class="flex flex-wrap items-center gap-4">
             <Button href="/fr/china-site-scanner/" variant="primary" size="md">Lancer un audit Chine gratuit</Button>
@@ -555,7 +565,7 @@ const breadcrumbLd = {
             </div>
           </div>
           <p class="mt-3 text-center text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-            Interactif · basculez entre les deux connexions
+            Comparaison illustrative. Les durées affichées ne sont pas des mesures.
           </p>
         </div>
       </div>
@@ -621,9 +631,9 @@ const breadcrumbLd = {
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[1].body}</p>
           <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 space-y-3">
             {[
-              { city: 'Pékin', ms: '48 ms', w: 'w-[28%]' },
-              { city: 'Shanghai', ms: '36 ms', w: 'w-[21%]' },
-              { city: 'Canton', ms: '61 ms', w: 'w-[35%]' },
+              { city: 'Pékin', ms: 'Examen', w: 'w-[28%]' },
+              { city: 'Shanghai', ms: 'Examen', w: 'w-[21%]' },
+              { city: 'Canton', ms: 'Examen', w: 'w-[35%]' },
             ].map((row) => (
               <div class="flex items-center gap-3">
                 <span class="w-20 text-[11px] font-mono text-white/50">{row.city}</span>
@@ -675,12 +685,12 @@ const breadcrumbLd = {
           <p class="text-[14.5px] text-white/60 leading-relaxed mb-4">{services[4].body}</p>
           <div aria-hidden="true" class="rounded-xl border border-white/10 bg-[#15151c] p-4 mb-4 flex items-center justify-center gap-3">
             <div class="text-center">
-              <div class="text-lg font-mono text-[#F87171] line-through decoration-2">23,4 s</div>
+              <div class="text-lg font-mono text-[#F87171] line-through decoration-2">Distant</div>
               <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">Avant</div>
             </div>
             <svg class="w-5 h-5 text-[var(--color-brand-orange)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             <div class="text-center">
-              <div class="text-lg font-mono text-[#4ADE80]">1,8 s</div>
+              <div class="text-lg font-mono text-[#4ADE80]">Local</div>
               <div class="text-[9px] font-mono uppercase tracking-wider text-white/40 mt-0.5">Après</div>
             </div>
           </div>
@@ -699,14 +709,14 @@ const breadcrumbLd = {
             </div>
             <div aria-hidden="true" class="mt-5 lg:mt-0 lg:w-[240px] rounded-xl border border-white/10 bg-[#15151c] p-4">
               <div class="flex items-baseline justify-between mb-2">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-white/40">Disponibilité · 90 jours</span>
-                <span class="text-[13px] font-mono text-[#4ADE80]">99,98 %</span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/40">Surveillance</span>
+                <span class="text-[13px] font-mono text-[#4ADE80]">Rapports</span>
               </div>
               <svg viewBox="0 0 220 48" class="w-full h-12" preserveAspectRatio="none">
                 <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
                 <polyline points="0,30 20,26 40,28 60,20 80,24 100,16 120,20 140,12 160,16 180,10 200,13 220,8" fill="none" stroke="#4ADE80" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
               </svg>
-              <div class="mt-2 flex items-center gap-1.5 text-[10px] font-mono text-white/40"><span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse"></span>Surveillé depuis Shanghai</div>
+              <div class="mt-2 flex items-center gap-1.5 text-[10px] font-mono text-white/40"><span class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse"></span>Selon le périmètre</div>
             </div>
           </div>
         </article>
@@ -734,8 +744,8 @@ const breadcrumbLd = {
           Ce qui casse WordPress en Chine, et comment on le répare.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Le Grand Pare-feu ne bloque pas WordPress. Il bloque les services dont un thème classique dépend sans le dire. Actionnez l’interrupteur : vous verrez ce que change notre refonte.
-        </p>
+            Ces exemples décrivent des défauts à rechercher dans un thème ou une extension. Le comportement dépend de l’hôte et du réseau. Appuyez le choix d’un remplacement sur des constats datés.
+          </p>
       </div>
 
       <!-- interrupteur principal -->
@@ -767,7 +777,7 @@ const breadcrumbLd = {
               <span class="text-[15px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">{b.resource}</span>
             </div>
             <div class="sm:col-span-2">
-              <span class="fix-chip-broken inline-flex items-center px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#DC2626] transition-all duration-300">Bloqué</span>
+              <span class="fix-chip-broken inline-flex items-center px-2.5 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#DC2626] transition-all duration-300">{b.resource === 'Google Fonts' ? "Selon le réseau" : "Bloqu\u00e9"}</span>
               <span class="fix-chip-fixed hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 text-[10px] font-mono font-semibold uppercase tracking-wider text-[#15803D] transition-all duration-300">Corrigé</span>
             </div>
             <div class="sm:col-span-7 relative min-h-[1.5em]">
@@ -799,11 +809,11 @@ const breadcrumbLd = {
           Licence ICP et hébergement : ce qu’il faut savoir.
         </h2>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
-          Tout site hébergé en Chine continentale doit être déclaré auprès du MIIT, le ministère chinois des télécommunications. Deux régimes existent. L’<strong>ICP Bei’an (备案)</strong>, simple enregistrement, couvre les sites vitrines et marketing. La <strong>licence ICP commerciale</strong>, elle, est un véritable permis, exigé dès que le site vend directement aux consommateurs chinois.
-        </p>
+            Un site hébergé en Chine continentale doit faire l’objet d’un dépôt ICP (ICP备案). La licence ICP commerciale (ICP许可证) est une autorisation distincte, requise selon l’activité exercée. Le service prévu et l’entité doivent être examinés avant le choix de l’hébergement.
+          </p>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
-          Les deux exigent une entité juridique chinoise. Une seule question suffit pour vous orienter vers la bonne configuration.
-        </p>
+            L’entité et l’activité prévue déterminent les configurations possibles. Commencez par la question ci-dessous.
+          </p>
       </div>
 
       <!-- question entité -->
@@ -823,10 +833,10 @@ const breadcrumbLd = {
           </span>
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-xl lg:text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight">Hébergement en Chine continentale</h3>
-            <span class="text-[11px] font-mono text-[#15803D] bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-full px-2.5 py-1 whitespace-nowrap">50-100 ms</span>
+            <span class="text-[11px] font-mono text-[#15803D] bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-full px-2.5 py-1 whitespace-nowrap">Dépôt ICP</span>
           </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Alibaba Cloud ou Tencent Cloud, à l’intérieur du pare-feu. L’accès complet aux CDN chinois, et le signal le plus fort qu’on puisse envoyer à Baidu.
+            Alibaba Cloud (阿里云) et Tencent Cloud (腾讯云) proposent des hébergements en Chine continentale. Vérifiez les conditions du dépôt et celles du CDN continental avant de commander.
           </p>
           <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
             <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Exige un dépôt ICP, qui exige une entité chinoise</li>
@@ -845,8 +855,9 @@ const breadcrumbLd = {
             <span class="text-[11px] font-mono text-[#B45309] bg-[#F59E0B]/10 border border-[#F59E0B]/25 rounded-full px-2.5 py-1 whitespace-nowrap">Sans licence ICP</span>
           </div>
           <p class="text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed mb-4">
-            Juste de l’autre côté du pare-feu, donc aucune licence à déposer. Avec un site bien réglé et le bon routage, le chargement reste nettement sous les 3 secondes dans le sud et l’est de la Chine.
+            Selon Alibaba Cloud (阿里云), ses serveurs à Hong Kong ne nécessitent pas de dépôt ICP continental. Les requêtes externes du site et le trajet réseau restent à examiner.
           </p>
+          <blockquote class="mt-4 text-sm leading-relaxed"><a href="https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview">Source : Alibaba Cloud (阿里云), présentation du dépôt ICP, 26 août 2026. L’hébergement continental exige un dépôt ; ses serveurs à Hong Kong et à l’étranger en sont dispensés.</a></blockquote>
           <ul class="space-y-2 text-[14px] text-[var(--color-text-body)]">
             <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Aucune entité chinoise ni licence nécessaire</li>
             <li class="flex gap-2.5"><span class="text-[var(--color-brand-orange)] font-mono shrink-0">›</span>Le point de départ classique des marques étrangères</li>

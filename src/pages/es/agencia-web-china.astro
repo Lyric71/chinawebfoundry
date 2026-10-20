@@ -18,6 +18,15 @@ const casestudies = (await getCollection('casestudies-es'))
 
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
 const pageUrl = `${siteOrigin}${canonicalPath}`;
+const updatedAt = '2026-10-21';
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl}#webpage`,
+  url: pageUrl,
+  dateModified: updatedAt,
+};
+
 
 const serviceLd = {
   '@context': 'https://schema.org',
@@ -66,13 +75,13 @@ const differentiators = [
     cn: '栈',
     label: 'Stack neutral',
     title: 'La tecnología adecuada, proyecto a proyecto',
-    body: 'WordPress cuando manda lo editorial. Astro cuando prima la velocidad. Headless cuando la escala y el contenido compartido lo exigen. El briefing decide y después construimos.',
+    body: 'WordPress encaja con equipos que utilizan su editor y sus plugins. Astro puede preparar las páginas durante la compilación. Una arquitectura headless permite compartir contenido entre sitios. La elección depende de cómo se publica.',
   },
   {
     cn: '深',
     label: 'Conocimiento de China',
     title: 'Pensado para Baidu, WeChat y el cortafuegos',
-    body: 'Baidu indexa con sus propias reglas. La vista dentro de WeChat rompe la mitad de los diseños extranjeros. El Gran Cortafuegos bloquea fuentes, mapas, analítica y CDN que damos por sentados en otros países. Trabajamos con todo eso desde el primer día.',
+    body: 'El proyecto incluye comprobar la web en WeChat (微信), revisar sus peticiones externas y preparar su presencia en Baidu (百度). Para evaluar fuentes y otros servicios externos, cada prueba debe identificar el servidor y la fecha.',
   },
   {
     cn: '端',
@@ -84,26 +93,57 @@ const differentiators = [
 
 const faqs = [
   {
-    q: '¿Qué es una agencia web especializada en China y cuándo conviene contratarla?',
-    a: 'Una agencia web especializada en China diseña y opera sitios pensados para funcionar en China continental. Eso supone un alojamiento servido desde centros de datos chinos, una licencia ICP, contenidos y experiencia de usuario redactados por plumas chinas, posicionamiento en Baidu y presencia en los motores de IA chinos (DeepSeek, Doubao, Kimi, Yuanbao, Baidu IA). Conviene contratarla en cuanto el sitio global deja de convertir entre el público chino. Suele ocurrir unos seis meses después de lanzar una versión traducida.',
+    "q": "¿Qué debemos enviar para solicitar una propuesta?",
+    "a": "Envíe la URL actual y describa qué deben poder hacer los visitantes. Antes de fijar el lanzamiento, habrá que saber quién valida los contenidos en chino, si dispone de una entidad en China continental y qué sistemas se conectarán a la web. Nuestra guía para elegir una agencia web en China ayuda a comparar el trabajo incluido en cada propuesta.",
+    "linkText": "elegir una agencia web en China",
+    "href": "/es/recursos/guia-web-china/elegir-agencia-web-china/",
+    "source": "",
+    "sourceHref": ""
   },
   {
-    q: '¿Por qué importa la ubicación al elegir una agencia web para China?',
-    a: 'Una agencia con sede fuera de China puede leer artículos sobre el Gran Cortafuegos. Una agencia con sede en China se enfrenta a él todos los días. Probamos desde una conexión de Shanghái, tramitamos las licencias en mandarín, trabajamos con bancos chinos para la facturación y nos vemos con los clientes en persona en Shanghái o en Hangzhou. La diferencia se nota en el trabajo entregado.',
+    "q": "¿Pueden trabajar con nuestra agencia internacional?",
+    "a": "Sí, con un reparto de responsabilidades acordado desde el principio. Su agencia internacional puede encargarse de la identidad de marca y de los contenidos originales; el equipo de Shanghái asume el trabajo del sitio para China. Deje por escrito quién valida el diseño, gestiona los accesos al alojamiento y acepta la entrega. Nuestra página sobre un sitio web en China detalla las tareas que conviene prever.",
+    "linkText": "sitio web en China",
+    "href": "/es/sitio-web-en-china/",
+    "source": "",
+    "sourceHref": ""
   },
   {
-    q: 'WordPress, Astro, headless: ¿con qué tecnologías trabajan?',
-    a: 'Depende del proyecto. WordPress para los sitios editoriales y los flujos multilingües. Astro para los sitios de marketing donde cuentan la velocidad y el SEO. Headless cuando una marca internacional quiere una única fuente de contenido que alimente varios sitios regionales. Le ayudamos a decidir durante la fase de planteamiento, una vez que sabemos qué debe hacer el sitio.',
+    "q": "¿Cómo afecta el registro ICP a la fecha de lanzamiento?",
+    "a": "Alibaba Cloud (阿里云) indica de 1 a 2 días laborables para su revisión inicial y, después, entre 1 y 20 días laborables por lo general para la revisión de la autoridad provincial. Hay que añadir el tiempo de preparación de los documentos y de las posibles correcciones. En China continental, el calendario de lanzamiento debe contar con la aprobación del registro ICP (ICP备案). Los plazos de revisión no garantizan una fecha de entrega.",
+    "href": "",
+    "linkText": "",
+    "source": "Fuente: Alibaba Cloud (阿里云), descripción del registro ICP, 26 de agosto de 2026.",
+    "sourceHref": "https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview"
   },
   {
-    q: '¿Cuánto tarda un proyecto web en China?',
-    a: 'Para un sitio de marca acotado, de 8 a 12 semanas entre el arranque y la puesta en línea, con el registro ICP incluido. Para migrar por completo un sitio global existente, con localización, reescritura del contenido y posicionamiento en Baidu, de 14 a 20 semanas. La mayoría de nuestros proyectos se reparten en cuatro fases: Plantear (1 a 2 semanas), Construir (4 a 10 semanas), Hacer crecer (de forma continua a partir de la semana 6) y Operar (de forma continua).',
+    "q": "¿Cómo elegimos entre WordPress y Astro?",
+    "a": "La forma de trabajar de sus editores orienta la elección. WordPress resulta adecuado si el equipo quiere utilizar su editor y sus plugins. Astro puede encajar cuando las páginas se generan durante la compilación. En ambos casos hay que revisar las peticiones externas y el alojamiento. Nuestra guía de plugins de WordPress explica por qué las integraciones importan tanto como la elección del CMS.",
+    "linkText": "guía de plugins de WordPress",
+    "href": "/es/recursos/guia-web-china/plugins-wordpress-china/",
+    "source": "",
+    "sourceHref": ""
   },
   {
-    q: '¿Cómo trabajan con clientes de Europa o Norteamérica?',
-    a: 'Shanghái está en GMT+8. La mañana coincide con Europa y la tarde con la costa este de Estados Unidos. Organizamos llamadas semanales en su franja horaria, enviamos resúmenes escritos entre reuniones y respondemos los correos en menos de 24 horas. Su persona de contacto habla español e inglés. Nadie del equipo de producción necesita traductor.',
-  },
+    "q": "¿Cómo se presupuestará el trabajo?",
+    "a": "El presupuesto debe distinguir el desarrollo de los gastos recurrentes de alojamiento y soporte. Acuerde quién prepara los contenidos en chino y quién los aprueba, porque pueden requerir una parte importante del trabajo. Enumere las plantillas e integraciones incluidas y establezca cómo se autorizarán los cambios. Presentar los costes recurrentes por separado permite comparar mejor las propuestas.",
+    "href": "",
+    "linkText": "",
+    "source": "",
+    "sourceHref": ""
+  }
 ];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
 ---
 
 <PageLayout
@@ -111,7 +151,7 @@ const faqs = [
   description={metaDescription}
   heroPage={true}
   lang="es"
-  jsonLd={[serviceLd, breadcrumbLd]}
+  jsonLd={[pageLd, serviceLd, breadcrumbLd, faqLd]}
   alternateUrls={{ en: '/web-agency-china/', fr: '/fr/agence-web-chine/', es: '/es/agencia-web-china/' }}
 >
   <ScrollEffects />
@@ -221,6 +261,10 @@ const faqs = [
         <h2 class="text-3xl sm:text-4xl lg:text-[52px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.08] mb-6">
           Cómo es una verdadera agencia web en China.
         </h2>
+        <div data-agency-evidence="0" class="my-6 max-w-3xl text-[var(--color-text-body)]">
+          <p class="text-base leading-relaxed">Antes de lanzar su sitio internacional en China, revise la página completa y sus peticiones externas. El estudio de Chinafy aporta contexto para hacer esa comprobación antes de contratar alojamiento o fijar una fecha.</p>
+          <blockquote class="mt-3 border-l-2 border-[var(--color-brand-orange)] pl-4 text-sm leading-relaxed"><a href="https://www.chinafy.com/blog/china-website-performance-benchmarks-2026" class="underline underline-offset-4">Chinafy probó 614 sitios internacionales con WebPageTest desde Pekín, Virginia y Londres. Según el proveedor, 2 de cada 3 no cargaban desde Pekín. Fuente: Chinafy, China Website Performance Benchmarks 2026, 14 de abril de 2026. Es un estudio de un proveedor y no desglosa los resultados de WordPress.</a></blockquote>
+        </div>
         <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
           Cuatro cosas separan nuestro trabajo en China de lo que se entrega desde Londres, Madrid o Nueva York. Las cuatro son operativas y ninguna pertenece al discurso de marketing.
         </p>
@@ -256,6 +300,10 @@ const faqs = [
           <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1] mb-5">
             10 disciplinas. Una agencia web. Toda su presencia en China.
           </h2>
+        <div data-agency-evidence="1" class="my-6 max-w-3xl text-[var(--color-text-body)]">
+          <p class="text-base leading-relaxed">La lista de servicios ayuda a repartir las tareas anteriores y posteriores al lanzamiento. Una vez entregado el sitio, alguien debe seguir a cargo del alojamiento y el mantenimiento.</p>
+          <blockquote class="mt-3 border-l-2 border-[var(--color-brand-orange)] pl-4 text-sm leading-relaxed"><a href="/es/servicios/" class="underline underline-offset-4">ChinaWebFoundry enumera 10 servicios, entre ellos alojamiento en China y mantenimiento y soporte. Fuente: catálogo de servicios de ChinaWebFoundry, comprobado el 21 de octubre de 2026.</a></blockquote>
+        </div>
           <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl">
             Estrategia, contenido, diseño, desarrollo, búsqueda, visibilidad en IA, alojamiento y mantenimiento. Cada disciplina la entregan las mismas personas, dentro de casa, en Shanghái.
           </p>
@@ -301,6 +349,10 @@ const faqs = [
         <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.1]">
           Sitios entregados para marcas internacionales en China.
         </h2>
+        <div data-agency-evidence="2" class="my-6 max-w-3xl text-[var(--color-text-body)]">
+          <p class="text-base leading-relaxed">Consulte las fichas de los proyectos para saber qué se entregó y qué servicios intervinieron. Su utilidad como referencia depende de cuánto se parezcan esas necesidades a las de su web.</p>
+          <blockquote class="mt-3 border-l-2 border-[var(--color-brand-orange)] pl-4 text-sm leading-relaxed">Esta página muestra 3 proyectos publicados, seleccionados según el orden del catálogo. Fuente: código de la página de ChinaWebFoundry, comprobado el 21 de octubre de 2026. La cifra describe únicamente los proyectos que aparecen aquí.</blockquote>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
@@ -366,6 +418,10 @@ const faqs = [
           <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-[1.12] mb-6">
             La agencia que usted contrata es el equipo que entrega su sitio.
           </h2>
+        <div data-agency-evidence="3" class="my-6 max-w-3xl text-[var(--color-text-body)]">
+          <p class="text-base leading-relaxed">Aclare quién dirigirá el desarrollo y quién se hará cargo de la web cuando esté publicada. Consulte la presentación del equipo para preparar esa conversación.</p>
+          <blockquote class="mt-3 border-l-2 border-[var(--color-brand-orange)] pl-4 text-sm leading-relaxed"><a href="/es/quienes-somos/" class="underline underline-offset-4">Las fichas del equipo de ChinaWebFoundry presentan a 2 directivos: Cyril Drouin y Echo Peng. Fuente: fichas del equipo de ChinaWebFoundry, comprobadas el 21 de octubre de 2026.</a></blockquote>
+        </div>
           <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
             ChinaWebFoundry está dirigida por Cyril Drouin, afincado en China desde 2005. Nuestro equipo de producción es bilingüe, trabaja desde Shanghái y se dedica a tiempo completo a proyectos web en China. Cada línea de código, cada frase en chino y cada decisión de diseño sale de las personas a las que usted da el briefing. Nunca subcontratamos.
           </p>
@@ -410,8 +466,9 @@ const faqs = [
               </svg>
             </summary>
             <p class="mt-4 text-[15px] lg:text-base text-[var(--color-text-body)] leading-relaxed">
-              {f.a}
+              {f.linkText ? <>{f.a.split(f.linkText)[0]}<a href={f.href} class="underline underline-offset-4">{f.linkText}</a>{f.a.split(f.linkText)[1]}</> : f.a}
             </p>
+            {f.source && <blockquote class="mt-3 border-l-2 border-[var(--color-brand-orange)] pl-4 text-sm leading-relaxed text-[var(--color-text-body)]"><a href={f.sourceHref} class="underline underline-offset-4">{f.source}</a></blockquote>}
           </details>
         ))}
       </div>
@@ -443,6 +500,10 @@ const faqs = [
           </span>
         </span>
       </h2>
+        <div data-agency-evidence="5" class="my-6 max-w-3xl text-white/75">
+          <p class="text-base leading-relaxed">Envíe el documento del proyecto con su URL actual y la acción que debe poder completar un visitante en China.</p>
+          <blockquote class="mt-3 border-l-2 border-[var(--color-brand-orange)] pl-4 text-sm leading-relaxed"><a href="/es/servicios/" class="underline underline-offset-4">La página de la agencia enumera 10 servicios para definir el alcance del trabajo. Fuente: catálogo de servicios de ChinaWebFoundry, comprobado el 21 de octubre de 2026.</a></blockquote>
+        </div>
       <p class="text-base lg:text-xl text-white/65 leading-relaxed max-w-2xl mx-auto mb-9" data-reveal data-reveal-delay="160">
         Envíenos un briefing o reserve una llamada de 30 minutos. Le responde una persona en menos de 24 horas, en su franja horaria.
       </p>

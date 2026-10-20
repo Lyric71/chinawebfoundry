@@ -49,9 +49,9 @@ tier-specific boxes for T6.
 | **New URLs** | 0 |
 | **Effort** | One to two days total across both pages. |
 
-**Why.** These are the two pages that carry the commercial intent for the primary keyword set, and both currently argue without evidence. One specific, sourced figure per section is the cheapest available upgrade to both conversion and retrievability, since F46 notes a preference for entity density and specific figures. FAQ schema on a commercial page also captures the procurement questions buyers type verbatim.
+**Why.** These are the two pages that carry the commercial intent for the primary keyword set, and both need dated evidence beside their claims. One specific, sourced figure per section is the cheapest available upgrade to both conversion and retrievability, since F46 notes a preference for entity density and specific figures. Visible procurement answers help buyers compare scope. FAQPage describes those answers without a promise of search presentation or ranking.
 
-**What to change.** For each H2 section on both pages, add exactly one figure with a source and a date. Draw from F26 for filing timelines including the provider's published review windows (1 to 2 working days, then generally 1 to 20) against the realistic three to six weeks, F25 for the ports constraint, F32 for delivery outcomes, and F31 for the market context, cited with attribution as a vendor benchmark. Add FAQ schema to each page covering five to six procurement questions. Make sure the two pages do not use the same figures in the same order, because near-identical commercial pages under the same brand invite the same passage-level dedupe the T2 tier is designed to avoid.
+**What to change.** For each H2 section on both pages, add exactly one figure with a source and a date. Draw from F26 for the provider's review windows (1 to 2 working days, then generally 1 to 20), F25 for first-filing website closure, and F31 for market context, attributed as a vendor benchmark. F32 outcomes lack complete dates and measurement conditions and are excluded. Dated first-party catalogue counts can support service, team, pricing-scope and CTA sections; label them as scope counts, never performance evidence. The WordPress page already has FAQPage from its visible FAQ array (source checked 21 October 2026). Retain that mapping and revise the answers. Add the same single-source mapping to the general agency page, using five to six procurement questions per page. Make sure the two pages do not use the same figures in the same order, because near-identical commercial pages under the same brand invite the same passage-level dedupe the T2 tier is designed to avoid.
 
 **Acceptance criteria.**
 - [ ] Every H2 section on both pages contains at least one figure with a named source and date.
@@ -65,6 +65,10 @@ tier-specific boxes for T6.
 - [ ] No URL, canonical or hreflang change in the deploy diff.
 
 **Risk.** These are the pages ranking for the primary commercial terms, so edits carry more downside than on a guide article. Ship them in two deploys, one page at a time, a week apart, so any ranking movement is attributable. Do not touch headings on either page.
+
+---
+
+**Publication state, clarified 21 October 2026.** Factual corrections found in the draft run ship together with the first deployment. After the general agency additions publish, keep this row at image_ready, record `general agency additions published YYYY-MM-DD` and `Hold until YYYY-MM-DD` for seven days later in notes. The next eligible publish run applies only the WordPress additions and marks the row published. Preserve existing headings and paths throughout. Evidence review date: 26 November 2026, registered in src/data/agencyEvidence.ts and the review-due script.
 
 ## T6 rules (from PLAN.md section 10)
 
