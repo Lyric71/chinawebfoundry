@@ -16,7 +16,8 @@
              of briefs is left.
     publish  Publishes every row in editorial/schedule.csv whose status is
              image_ready, whatever its publish_date, oldest date first, then
-             sends the Resend email. Runs daily.
+             queues the notification for the editorial digest (one email a day
+             at 07:00). Runs daily.
 
   publish_date orders the queue. It never gates a run, in either mode
   (Cyril, 10 October 2026): finished drafts and ready briefs sat idle behind

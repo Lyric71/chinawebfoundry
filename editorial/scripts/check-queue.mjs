@@ -32,7 +32,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, renameSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 // Same sender and recipient as notify-publish.mjs (Resend testing mode).
@@ -115,6 +115,22 @@ function strandedFiles(days) {
     .filter((f) => existsSync(f) && statSync(f).mtimeMs < cutoff);
 }
 
+// Alerts go out batched: this script drops its message in the shared queue
+// and the Editorial Email Digest task sends everything waiting as one email
+// once a day at 07:00
+// (C:\Users\cyril\Project\automation\scripts\send-editorial-digest.mjs).
+const OUTBOX = process.env.EDITORIAL_OUTBOX || 'C:\\Users\\cyril\\Project\\automation\\outbox\\pending';
+
+function queueDigest(payload) {
+  mkdirSync(OUTBOX, { recursive: true });
+  const name = `${new Date().toISOString().replace(/[:.]/g, '-')}-chinawebfoundry-queue-${Math.random().toString(36).slice(2, 8)}.json`;
+  const file = path.join(OUTBOX, name);
+  // Written then renamed, so the digest never reads a half written file.
+  writeFileSync(`${file}.tmp`, JSON.stringify({ queued_at: new Date().toISOString(), source: 'ChinaWebFoundry', ...payload }, null, 2));
+  renameSync(`${file}.tmp`, file);
+  return file;
+}
+
 async function main() {
   loadEnv();
   const perDay = arg('per-day', 1);
@@ -188,22 +204,9 @@ async function main() {
     console.log(text);
     return;
   }
-  const key = process.env.RESEND_API_KEY;
-  if (!key) {
-    console.log(`alert not sent, RESEND_API_KEY missing: ${subject}`);
-    return;
-  }
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: FROM, to: [DEFAULT_TO], subject, text }),
-  });
-  if (!res.ok) {
-    console.log(`alert not sent, Resend ${res.status}: ${subject}`);
-    return;
-  }
+  queueDigest({ to: [DEFAULT_TO], subject, text });
   writeFileSync(marker, `${new Date().toISOString()} ${text}\n`);
-  console.log(`alert sent to ${DEFAULT_TO}: ${subject}`);
+  console.log(`alert queued for the editorial digest: ${subject}`);
 }
 
 main().catch((err) => {

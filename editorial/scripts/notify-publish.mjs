@@ -38,7 +38,7 @@
  * from the environment. Pass --dry-run to print the email without sending.
  */
 
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const SITE = 'https://www.chinawebfoundry.com';
@@ -171,6 +171,22 @@ function esc(s) {
   return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 }
 
+// Editorial mail goes out batched: this script drops its message in the
+// shared queue and the Editorial Email Digest task sends everything waiting
+// as one email a day at 07:00
+// (C:\Users\cyril\Project\automation\scripts\send-editorial-digest.mjs).
+const OUTBOX = process.env.EDITORIAL_OUTBOX || 'C:\\Users\\cyril\\Project\\automation\\outbox\\pending';
+
+function queueDigest(payload) {
+  mkdirSync(OUTBOX, { recursive: true });
+  const name = `${new Date().toISOString().replace(/[:.]/g, '-')}-chinawebfoundry-${Math.random().toString(36).slice(2, 8)}.json`;
+  const file = path.join(OUTBOX, name);
+  // Written then renamed, so the digest never reads a half written file.
+  writeFileSync(`${file}.tmp`, JSON.stringify({ queued_at: new Date().toISOString(), source: 'ChinaWebFoundry', ...payload }, null, 2));
+  renameSync(`${file}.tmp`, file);
+  return file;
+}
+
 async function main() {
   loadEnv();
   const args = parseArgs(process.argv.slice(2));
@@ -242,23 +258,7 @@ async function main() {
     return;
   }
 
-  const key = process.env.RESEND_API_KEY;
-  if (!key) {
-    console.error('RESEND_API_KEY missing. Add it to .env at the repo root.');
-    process.exit(1);
-  }
-
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    console.error(`Resend error ${res.status}: ${JSON.stringify(data)}`);
-    process.exit(1);
-  }
-  console.log(`Sent to ${to} (id ${data.id || 'n/a'})`);
+  console.log(`Queued for the next editorial digest (${queueDigest(payload)})`);
 }
 
 main().catch((err) => {

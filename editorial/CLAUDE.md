@@ -29,7 +29,7 @@ Every piece goes through these steps. None is optional.
 | 2. Quality | `/content-quality-us` | 18-pass loop on the draft, in place, with British spelling (see conflicts) | `quality_passed`, `quality_passed_on` |
 | 3. Image | `/generate-image-openai` | Hero image from the feature-image block, WebP, max 1050px wide, under 350KB | `image_ready`, `image_generated_on` |
 | 4. Publish | `/createblogarticle` + `/deep-translate` + build + git | Writes the content file(s), registers localized slugs, wires the image, translates where the tier says so, runs `npm run build` and `npx astro check`, commits on main, pushes | `published`, `published_on` |
-| 5. Notify | `editorial/scripts/notify-publish.mjs` (Resend) | Emails a publish summary to Cyril | (noted in the run log) |
+| 5. Notify | `editorial/scripts/notify-publish.mjs` (digest queue) | Queues a publish summary for the daily 07:00 digest to Cyril | (noted in the run log) |
 
 "Draft today's piece." runs steps 0 to 3 and stops. Step 4 runs only when a
 person says "Publish <slug>" or when the 05:30 scheduled publish task finds an
@@ -445,12 +445,9 @@ same files (Cyril, 10 September 2026; see RUNBOOK).
 
 `--type` is the `content_type` from the schedule row (guide,
 guide-en-first, report, casestudy, money-page, upgrade, translation). It
-sends one email through Resend (key in `.env`) to cyril.drouin@outlook.com
-(the only address Resend's testing mode can deliver to; switch `DEFAULT_TO`
-in the script to gmail once a sending domain is verified at
-resend.com/domains) with the live URL per locale, the hero image path, build
-status and the run log path. Add `--dry-run` to preview. If the
-send fails, say so in the run log and the final message instead of skipping
+queues one message for the editorial email digest (`C:\Users\cyril\Project\automation\scripts\send-editorial-digest.mjs`), which mails everything waiting as one email a day at 07:00, with the live URL per locale, the hero image path, build
+status and the run log path. Add `--dry-run` to preview. If
+queueing fails, say so in the run log and the final message instead of skipping
 silently.
 
 ## Where files go
