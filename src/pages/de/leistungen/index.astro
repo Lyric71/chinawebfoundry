@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
 
@@ -23,7 +25,7 @@ const phases = [
     label: 'Hosten',
     cn: '主机',
     title: 'Hosting, das auf dem chinesischen Festland wirklich funktioniert',
-    blurb: 'Ladezeiten unter einer Sekunde auf Shanghaier Smartphones, eine ICP-Registrierung von Anfang bis Ende in unserer Hand und die Wahl zwischen Festland, Hongkong und Dual-Stack.',
+    blurb: 'Auslieferung vom Festland, ohne Grenzübertritt für Anfragen von Shanghaier Smartphones, eine ICP-Registrierung von Anfang bis Ende in unserer Hand und die Wahl zwischen Festland, Hongkong und Dual-Stack.',
   },
   {
     id: 'grow',
@@ -105,7 +107,7 @@ const buildServices = [
   {
     title: 'Technische Integration',
     cn: '技术',
-    tagline: '2 Sekunden im Westen werden zu 15 in Shenzhen.',
+    tagline: 'Anfragen an externe Dienste können den Seitenaufbau in China verzögern.',
     description: 'Serverkonfiguration, Theme-Bereinigung, Austausch blockierter Abhängigkeiten sowie die Anbindung von WeChat Pay, Alipay und Baidu Tongji: Der gesamte Stack entsteht neu und wird über echte chinesische Netze in Shanghai und Shenzhen geprüft.',
     link: '/de/leistungen/technische-integration/',
     cta: 'Technische Beratung vereinbaren',
@@ -117,15 +119,15 @@ const buildServices = [
       'Architektur nach PIPL und Cybersicherheitsgesetz ab dem ersten Tag',
     ],
     stats: [
-      { value: '47', label: 'blockierte Ressourcen pro Website' },
-      { value: '2,1 s', label: 'Ladezeit nach den Korrekturen' },
+      { value: '72 von 72', label: 'Google-Fonts-Anfragen beantwortet, Alibaba Cloud in Zhangjiakou' },
+      { value: '0 von 54', label: 'beantwortet auf einem Pekinger Privatanschluss (21YunBox, Aug. 2026)' },
     ],
   },
   {
     title: 'Plugins und Erweiterungen',
     cn: '插件',
     tagline: 'WordPress-Plugins, gebaut für die Firewall.',
-    description: 'Rund 40 % der gängigen WordPress-Plugins sind von Google abhängig und hinter der Firewall durchgängig blockiert. Wir entwickeln die Erweiterungen, die laufen, und ertüchtigen jene, die sich retten lassen.',
+    description: 'Viele gängige WordPress-Plugins greifen auf Google-Server zu. Manche sind blockiert, andere antworten einem Rechenzentrum, antworten an Privatanschlüssen jedoch nicht. Wir entwickeln die Erweiterungen, die laufen, und ertüchtigen jene, die sich retten lassen.',
     link: '/de/leistungen/plugins-erweiterungen/',
     cta: 'Plugin-Beratung anfragen',
     icon: 'plugins',
@@ -154,12 +156,12 @@ const hosting = {
     {
       name: 'Chinesisches Festland',
       timeframe: '6-10 Wochen',
-      bullets: ['Ladezeiten unter 1 s auf chinesischen Smartphones', 'Voraussetzung für den Baidu-Schub', 'ICP-Lizenz von Anfang bis Ende übernommen'],
+      bullets: ['Kein Grenzübertritt für Besucher in China', 'Dasselbe Netz wie Ihre Besucher', 'ICP-Registrierung von Anfang bis Ende übernommen'],
     },
     {
       name: 'Hongkong',
       timeframe: '2-3 Wochen',
-      bullets: ['2 bis 4 s Ladezeit vom Festland', 'Kein ICP nötig', 'Schneller Start, geringer Baidu-Schub'],
+      bullets: ['Jede Anfrage überquert die Grenze', 'Kein ICP nötig', 'Schneller Start, während die Registrierung läuft'],
     },
     {
       name: 'Dual-Stack',
@@ -168,9 +170,9 @@ const hosting = {
     },
   ],
   stats: [
-    { value: '0,8 s', label: 'mittlere Ladezeit auf dem Festland' },
-    { value: '99,97 %', label: 'Verfügbarkeit, 30 Tage rollierend' },
-    { value: '100 %', label: 'Erfolgsquote bei der ICP-Registrierung' },
+    { value: '4 bis 4,5x', label: 'längere Wartezeit auf das erste Byte in Peking (Chinafy, Apr. 2026)' },
+    { value: '1 bis 20', label: 'Arbeitstage für die ICP-Prüfung durch die Provinzbehörde (Alibaba Cloud)' },
+    { value: '3', label: 'Festland-Clouds: Aliyun, Tencent, Huawei' },
   ],
 };
 
@@ -259,7 +261,7 @@ const maintenance = {
 };
 ---
 
-<PageLayout
+<PageLayout jsonLd={[pageFreshness]}
   title="Web-Services in China für internationale Marken | ChinaWebFoundry"
   description="Alles, was eine internationale Marke braucht, um eine Website in China aufzubauen, zu starten und wachsen zu lassen. Von der Strategie bis zur Wartung, geliefert von einem festen Senior-Team in Shanghai seit 2005."
   heroPage={true}
@@ -817,5 +819,6 @@ const maintenance = {
       </div>
     </div>
   </section>
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Die beschriebenen Wege gelten für Dateien, die vom angegebenen Server ausgeliefert werden. Externe Skripte, APIs und das CDN-Routing werden separat geprüft.</p>
 </PageLayout>
 

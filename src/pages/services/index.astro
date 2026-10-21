@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 
@@ -23,7 +25,7 @@ const phases = [
     label: 'Host',
     cn: '主机',
     title: 'Hosting that actually works in mainland China',
-    blurb: 'Sub-second loads from Shanghai phones. ICP filing handled end-to-end. Mainland, Hong Kong, or dual-stack.',
+    blurb: 'Served from inside the mainland, so requests from Shanghai phones never cross the border. ICP filing handled end-to-end. Mainland, Hong Kong, or dual-stack.',
   },
   {
     id: 'grow',
@@ -105,7 +107,7 @@ const buildServices = [
   {
     title: 'Technical Integration',
     cn: '技术',
-    tagline: '2 seconds in the West turns 15 in Shenzhen.',
+    tagline: 'Third-party requests can hold up a page in China.',
     description: "Server config, theme cleanup, blocked dependency swaps, WeChat Pay, Alipay, Baidu Tongji. The whole stack rebuilt and tested from real Chinese networks in Shanghai and Shenzhen.",
     link: '/services/technical-integration/',
     cta: 'Schedule a technical consultation',
@@ -117,15 +119,15 @@ const buildServices = [
       'PIPL and Cybersecurity Law architecture from day one',
     ],
     stats: [
-      { value: '47', label: 'blocked resources per site' },
-      { value: '2.1s', label: 'load time after fixes' },
+      { value: '72 of 72', label: 'Google Fonts requests answered from Alibaba Cloud Zhangjiakou' },
+      { value: '0 of 54', label: 'answered on a Beijing home line (21YunBox, Aug 2026)' },
     ],
   },
   {
     title: 'Plugins & Extensions',
     cn: '插件',
     tagline: 'WordPress plugins built for the Firewall.',
-    description: "About 40% of popular WordPress plugins depend on Google. All blocked behind the Firewall. We build the ones that work and patch the ones that can be saved.",
+    description: "Plenty of popular WordPress plugins call Google hosts. Some of those hosts are blocked; others answer a datacentre and go quiet on home lines. We build the ones that work and patch the ones that can be saved.",
     link: '/services/plugins-extensions/',
     cta: 'Request a plugin consultation',
     icon: 'plugins',
@@ -154,12 +156,12 @@ const hosting = {
     {
       name: 'Mainland China',
       timeframe: '6-10 weeks',
-      bullets: ['Sub-1s loads from Chinese phones', 'Required for Baidu boost', 'ICP licence handled end-to-end'],
+      bullets: ['No border crossing for visitors in China', 'Same network as your visitors', 'ICP filing handled end-to-end'],
     },
     {
       name: 'Hong Kong',
       timeframe: '2-3 weeks',
-      bullets: ['2-4s loads from mainland', 'No ICP required', 'Quick launch, minimal Baidu boost'],
+      bullets: ['Every request crosses the border', 'No ICP required', 'Quick launch while the filing runs'],
     },
     {
       name: 'Dual-Stack',
@@ -168,9 +170,9 @@ const hosting = {
     },
   ],
   stats: [
-    { value: '0.8s', label: 'median mainland load' },
-    { value: '99.97%', label: 'uptime, rolling 30d' },
-    { value: '100%', label: 'ICP filing success' },
+    { value: '4-4.5x', label: 'higher time to first byte from Beijing (Chinafy, Apr 2026)' },
+    { value: '1-20', label: 'working days for provincial ICP review (Alibaba Cloud)' },
+    { value: '3', label: 'mainland clouds: Aliyun, Tencent, Huawei' },
   ],
 };
 
@@ -259,7 +261,7 @@ const maintenance = {
 };
 ---
 
-<PageLayout
+<PageLayout jsonLd={[pageFreshness]}
   title="China web services for international brands | ChinaWebFoundry"
   description="Everything an international brand needs to build, launch and grow a website in China. Strategy through maintenance, delivered by one senior team in Shanghai since 2005."
   heroPage={true}
@@ -816,4 +818,5 @@ const maintenance = {
       </div>
     </div>
   </section>
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Hosting routes below refer to files served by the stated origin. External scripts, APIs and CDN routing need separate checks.</p>
 </PageLayout>

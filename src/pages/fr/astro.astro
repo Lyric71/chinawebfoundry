@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
@@ -10,7 +12,7 @@ const metaDescription = 'Astro reste la façon la plus rapide de publier un site
 const stats = [
   { value: 100, suffix: '', label: 'Score Lighthouse moyen d’un site Astro, sans le moindre réglage manuel', source: 'Sitepins, Astro en 2026' },
   { value: 60, suffix: '%', label: 'des sites Astro passent les seuils « Good » des Core Web Vitals', source: 'Contre 38 % côté WordPress' },
-  { value: 50, suffix: '%', label: 'de LCP en moins qu’un WordPress équivalent, sur le même hébergeur chinois', source: 'Mesures ChinaWebFoundry' },
+  { value: 614, suffix: '', label: 'sites internationaux passés au banc d’essai depuis Pékin en 2026 : deux sur trois n’ont pas pu se charger', source: 'Chinafy, avril 2026' },
 ];
 
 const useCases = [
@@ -42,7 +44,7 @@ const useCases = [
   {
     icon: 'zap',
     title: 'Sites où les Core Web Vitals pilotent le budget',
-    body: 'Quand le budget média dépend de la vitesse de la page d’atterrissage, ou que votre référencement tient à l’indexation Baidu, Astro reste le framework qui vous y amène avec le moins d’obstacles. Premier rendu sous la seconde sur un téléphone chinois de milieu de gamme.',
+    body: 'Quand le budget média dépend de la vitesse de la page d’atterrissage, ou que votre référencement tient à l’indexation Baidu, Astro reste le framework qui vous y amène avec le moins d’obstacles. Une page en HTML statique, servie par un serveur continental déclaré, offre moins de prises au blocage.',
     span: 'normal',
   },
   {
@@ -141,7 +143,7 @@ const changeGroups = [
       {
         icon: 'zap',
         title: 'Performance',
-        body: 'Du HTML statique servi par un CDN continental, c’est dur à battre. Nous visons un premier rendu utile sous la seconde sur un téléphone chinois de milieu de gamme, et nous y arrivons la plupart du temps.',
+        body: 'Avant la mise en ligne, nous examinons les fichiers générés et les requêtes du navigateur. Un script externe peut appeler d’autres serveurs pendant la visite : le contrôle doit donc aller au-delà des fichiers compilés.',
       },
       {
         icon: 'search',
@@ -182,8 +184,8 @@ const chinaStack = [
 const faqs = [
   {
     id: 'astro-icp',
-    question: 'Notre site Astro a-t-il besoin d’une licence ICP pour fonctionner en Chine ?',
-    answer: 'Hébergé en Chine continentale, oui. Hébergé via Hong Kong ou Cloudflare, non, mais le site perdra alors en vitesse de façon mesurable pour les internautes du continent, et Baidu le traitera comme un site étranger. Pour une marque qui prend le marché chinois au sérieux, le dépôt ICP vaut l’investissement.',
+    question: 'Notre site Astro doit-il faire l’objet d’un dépôt ICP sur un serveur continental ?',
+    answer: 'Hébergé en Chine continentale, oui : il lui faut le dépôt ICP, comme à tout site installé sur un serveur du continent. À Hong Kong ou à l’étranger, aucun dépôt n’est exigé, mais chaque requête d’un internaute du continent doit alors franchir la frontière. Pour une marque qui prend le marché chinois au sérieux, le dépôt ICP vaut l’investissement.',
   },
   {
     id: 'astro-marketing-team',
@@ -193,7 +195,7 @@ const faqs = [
   {
     id: 'astro-vs-wp-speed',
     question: 'Astro est-il vraiment plus rapide que WordPress en Chine ?',
-    answer: 'En chiffres bruts, oui. Astro sert du HTML statique avec quasiment zéro JavaScript : moins de données transférées, un rendu plus rapide, moins d’allers-retours serveur. Nous avons mesuré un Largest Contentful Paint inférieur de 40 à 60 % sur Astro face à un WordPress équivalent, sur le même hébergeur chinois.',
+    answer: 'Nous ne disposons d’aucun test publié comparant les deux depuis la Chine. Un site statique permet de vérifier les fichiers générés avant sa mise en ligne ; il faut aussi contrôler les appels que les scripts déclenchent dans le navigateur. WordPress peut lui aussi charger rapidement sur un serveur continental une fois les dépendances bloquées retirées.',
   },
   {
     id: 'astro-headless-cms',
@@ -240,7 +242,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
 };
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
+<PageLayout jsonLd={[pageFreshness]} title={metaTitle} description={metaDescription} heroPage={true} lang="fr">
 
   <ScrollEffects />
 
@@ -944,6 +946,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Les trajets décrits concernent les fichiers servis par le serveur indiqué. Les scripts externes, les API et le routage des CDN se vérifient séparément.</p>
 </PageLayout>
 
 <script>

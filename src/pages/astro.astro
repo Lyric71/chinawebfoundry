@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../layouts/PageLayout.astro';
 import Button from '../components/ui/Button.astro';
 import FAQItem from '../components/pages/FAQItem.astro';
@@ -10,7 +12,7 @@ const metaDescription = 'Astro is the quickest way to ship a marketing site in m
 const stats = [
   { value: 100, suffix: '', label: 'Lighthouse score on a typical Astro site, no manual tuning', source: 'Sitepins, Astro in 2026' },
   { value: 60, suffix: '%', label: 'of Astro sites pass Core Web Vitals “Good” thresholds', source: 'Versus 38% on WordPress' },
-  { value: 50, suffix: '%', label: 'faster LCP versus a comparable WordPress site, same Chinese host', source: 'ChinaWebFoundry measurements' },
+  { value: 614, suffix: '', label: 'global websites tested from Beijing in a 2026 vendor benchmark; 2 in 3 failed to load', source: 'Chinafy, April 2026' },
 ];
 
 const useCases = [
@@ -42,7 +44,7 @@ const useCases = [
   {
     icon: 'zap',
     title: 'Sites where Core Web Vitals are the budget',
-    body: 'When paid media depends on landing page speed, or your SEO depends on Baidu indexing your content cleanly, Astro is the framework that gets you there with the least fight. Sub-second loads on a mid-range Chinese phone.',
+    body: 'When paid media depends on landing page speed, or your SEO depends on Baidu indexing your content cleanly, Astro is the framework that gets you there with the least fight. Static HTML from a filed mainland server gives a page fewer ways to stall.',
     span: 'normal',
   },
   {
@@ -141,7 +143,7 @@ const changeGroups = [
       {
         icon: 'zap',
         title: 'Performance',
-        body: 'Static HTML on a mainland CDN is hard to beat. We target sub-second first meaningful paint on a mid-range Chinese phone, and we usually hit it.',
+        body: 'We inspect the generated files before launch and check requests in the browser. External scripts can call further hosts at runtime, so the build output alone is not a complete host inventory.',
       },
       {
         icon: 'search',
@@ -182,8 +184,8 @@ const chinaStack = [
 const faqs = [
   {
     id: 'astro-icp',
-    question: 'Does our Astro site need an ICP licence to work in China?',
-    answer: 'If it’s hosted in mainland China, yes. If you host in Hong Kong or on Cloudflare, no, but the site will be measurably slower for mainland users and Baidu will treat it as foreign. For brands serious about the Chinese market, the ICP filing is worth doing.',
+    question: 'Does our Astro site need an ICP filing on a mainland server?',
+    answer: 'If it’s hosted in mainland China, yes: it needs the ICP filing, like any other site on a mainland server. Hosted in Hong Kong or overseas, it needs none, but every request from a mainland visitor then crosses the border. For brands serious about the Chinese market, the ICP filing is worth doing.',
   },
   {
     id: 'astro-marketing-team',
@@ -193,7 +195,7 @@ const faqs = [
   {
     id: 'astro-vs-wp-speed',
     question: 'Is Astro really faster than WordPress in China?',
-    answer: 'In raw numbers, yes. Astro ships static HTML with near-zero JavaScript, which means lower data transfer, faster parsing and fewer round-trips to a server. We have measured 40 to 60 percent faster Largest Contentful Paint on Astro versus a comparable WordPress site, on the same Chinese host.',
+    answer: 'We have no published China benchmark comparing the two. A static build lets us inspect the generated files before launch; browser scripts still need a network check. WordPress can also load quickly on a mainland server when blocked dependencies are removed.',
   },
   {
     id: 'astro-headless-cms',
@@ -240,7 +242,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
 };
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true}>
+<PageLayout jsonLd={[pageFreshness]} title={metaTitle} description={metaDescription} heroPage={true}>
 
   <ScrollEffects />
 
@@ -944,6 +946,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Hosting routes below refer to files served by the stated origin. External scripts, APIs and CDN routing need separate checks.</p>
 </PageLayout>
 
 <script>

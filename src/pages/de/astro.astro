@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../../layouts/PageLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import FAQItem from '../../components/pages/FAQItem.astro';
@@ -10,7 +12,7 @@ const metaDescription = 'Mit Astro steht die Marketing-Website in Festlandchina 
 const stats = [
   { value: 100, suffix: '', label: 'Lighthouse-Score, den eine gewöhnliche Astro-Website schon ohne Handarbeit erreicht', source: 'Sitepins, Astro in 2026' },
   { value: 60, suffix: '%', label: 'der Astro-Websites bestehen die Core Web Vitals mit der Note „Good“', source: 'WordPress kommt auf 38 %' },
-  { value: 50, suffix: '%', label: 'schnellerer LCP als eine vergleichbare WordPress-Website auf demselben China-Host', source: 'Messungen von ChinaWebFoundry' },
+  { value: 614, suffix: '', label: 'internationale Websites, die ein Anbieter 2026 aus Peking testete: Zwei von drei ließen sich nicht laden', source: 'Chinafy, April 2026' },
 ];
 
 const useCases = [
@@ -42,7 +44,7 @@ const useCases = [
   {
     icon: 'zap',
     title: 'Websites, bei denen die Core Web Vitals über das Budget entscheiden',
-    body: 'Hängt der Ertrag Ihrer bezahlten Kampagnen an der Ladezeit der Landingpage, oder steht und fällt Ihre Sichtbarkeit damit, dass Baidu den Inhalt sauber indexiert, bringt Astro Sie mit dem geringsten Aufwand ans Ziel. Auf einem chinesischen Mittelklasse-Handy sind Ladezeiten unter einer Sekunde gut erreichbar.',
+    body: 'Hängt der Ertrag Ihrer bezahlten Kampagnen an der Ladezeit der Landingpage, oder steht und fällt Ihre Sichtbarkeit damit, dass Baidu den Inhalt sauber indexiert, bringt Astro Sie mit dem geringsten Aufwand ans Ziel. Eine statische Seite auf einem registrierten Festlandserver braucht beim Aufruf keine Datenbankabfrage.',
     span: 'normal',
   },
   {
@@ -141,7 +143,7 @@ const changeGroups = [
       {
         icon: 'zap',
         title: 'Performance',
-        body: 'Statisches HTML auf einem Festland-CDN ist kaum zu schlagen. Wir zielen auf den ersten sichtbaren Seiteninhalt in unter einer Sekunde, gemessen auf einem chinesischen Mittelklasse-Handy, und meistens treffen wir diesen Wert.',
+        body: 'Vor dem Start prüfen wir die erzeugten Dateien und die Anfragen im Browser. Externe Skripte können während des Besuchs weitere Server aufrufen. Die kompilierten Dateien allein erfassen deshalb nicht alle Verbindungen.',
       },
       {
         icon: 'search',
@@ -182,8 +184,8 @@ const chinaStack = [
 const faqs = [
   {
     id: 'astro-icp',
-    question: 'Braucht unsere Astro-Website eine ICP-Lizenz, damit sie in China läuft?',
-    answer: 'Liegt sie auf einem Server in Festlandchina, dann ja. Wer in Hongkong oder bei Cloudflare hostet, umgeht die Pflicht zwar, doch die Website lädt für Nutzer auf dem Festland spürbar langsamer, und Baidu führt sie als ausländisches Angebot. Wer den chinesischen Markt ernst nimmt, für den lohnt der Aufwand der ICP-Registrierung allemal.',
+    question: 'Braucht unsere Astro-Website auf einem Festlandserver eine ICP-Registrierung?',
+    answer: 'Liegt sie auf einem Server in Festlandchina, dann ja: Sie braucht die ICP-Registrierung wie jede andere Website auf einem Festlandserver. In Hongkong oder im Ausland entfällt die Pflicht, dafür muss dann jede Anfrage eines Festlandnutzers über die Grenze. Wer den chinesischen Markt ernst nimmt, für den lohnt der Aufwand der ICP-Registrierung allemal.',
   },
   {
     id: 'astro-marketing-team',
@@ -193,7 +195,7 @@ const faqs = [
   {
     id: 'astro-vs-wp-speed',
     question: 'Ist Astro in China tatsächlich schneller als WordPress?',
-    answer: 'Die Messwerte sagen Ja. Astro liefert statisches HTML mit fast keinem JavaScript, das senkt die Datenmenge, beschleunigt das Parsen und spart Roundtrips zum Server. Gegenüber einer vergleichbaren WordPress-Website auf demselben chinesischen Host haben wir einen um 40 bis 60 Prozent kürzeren Largest Contentful Paint gemessen.',
+    answer: 'Uns liegt kein veröffentlichter Test vor, der beide Systeme aus China vergleicht. Bei einer statischen Website lassen sich die erzeugten Dateien vor dem Start prüfen; hinzu kommt die Prüfung der Verbindungen, die Skripte im Browser aufbauen. Auch WordPress kann auf einem Festlandserver schnell laden, wenn blockierte Abhängigkeiten entfernt sind.',
   },
   {
     id: 'astro-headless-cms',
@@ -240,7 +242,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
 };
 ---
 
-<PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="de">
+<PageLayout jsonLd={[pageFreshness]} title={metaTitle} description={metaDescription} heroPage={true} lang="de">
 
   <ScrollEffects />
 
@@ -944,6 +946,7 @@ const accentClasses: Record<string, { bg: string; text: string; border: string }
     </div>
   </section>
 
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Die beschriebenen Wege gelten für Dateien, die vom angegebenen Server ausgeliefert werden. Externe Skripte, APIs und das CDN-Routing werden separat geprüft.</p>
 </PageLayout>
 
 <script>

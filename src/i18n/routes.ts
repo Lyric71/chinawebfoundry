@@ -56,6 +56,7 @@ export const serviceSlugs: Record<string, Trans> = {
 
 /** Guide article slugs, keyed by English content id. */
 export const guideSlugs: Record<string, Trans> = {
+  'wordpress-vs-astro-china': { fr: 'wordpress-ou-astro-chine', es: 'wordpress-o-astro-china', de: 'wordpress-oder-astro-china' },
   'cloudflare-china': { fr: 'cloudflare-chine', es: 'cloudflare-china', de: 'cloudflare-china' },
   'wordpress-plugins-china': { fr: 'plugins-wordpress-chine', es: 'plugins-wordpress-china', de: 'wordpress-plugins-china' },
   'baidu-keyword-research-tools': { fr: 'outils-mots-cles-baidu', es: 'herramientas-palabras-clave-baidu', de: 'baidu-keyword-recherche' },

@@ -11,7 +11,7 @@ title: "WordPress or Astro for a China Site"
 suggested_category: Technology
 locales_at_publish: en fr es de
 facts: [F1, F4, F8, F19, F29, F31]
-status: not_started
+status: published
 ---
 
 ## How to run this brief
@@ -56,9 +56,9 @@ tier-specific boxes for T1.
 **Angle.** Argue from request topology, not from speed. This is the discipline that makes the article credible: there is no published benchmark comparing static against WordPress from China, so do not fabricate the comparison. Argue the mechanism instead, which is stronger anyway.
 
 **The argument, in the order it should appear.**
-1. Each additional third-party origin costs a separate DNS lookup, TCP handshake and TLS handshake across the border, and the border inflates round trips more than bytes. Cutting origins beats cutting kilobytes.
-2. A blocked host does not fail fast. It hangs until the browser gives up (F1). One render-blocking reference is catastrophic; the same file self-hosted is free.
-3. A static build resolves the dependency graph at build time, so "which hosts does this page touch" has a fixed, auditable answer rather than a per-plugin one.
+1. A fresh HTTPS connection over TCP requires DNS and connection setup. Cached DNS, reused connections and other transports change that cost. Removing an unnecessary overseas origin removes a possible connection and failure point; do not rank this universally above reducing page weight.
+2. A blocked connection can time out (F1); the failure mode and the resource's role determine its effect. A locally served copy can reuse a connection but still has a transfer cost.
+3. A static build produces files that can be inspected before deployment. Browser JavaScript can construct further requests, and remote scripts can change independently. Audit the files and browser network activity; never claim that a file search proves the complete runtime host list. Astro's Scripts and event handling documentation explicitly permits external scripts and browser-side analytics requests (updated 19 June 2026, checked twice 22 October 2026).
 4. A static site has no admin surface making outbound calls from a mainland server (F8, F4).
 5. Against that: no editor a marketing team recognizes, no plugin ecosystem, a build step between an edit and a live page, and a developer in the loop for changes WordPress would let a marketer make.
 
@@ -75,8 +75,10 @@ tier-specific boxes for T1.
 **Metadata.**
 ```yaml
 title: "WordPress or Astro for a China Site"
-description: "Not a speed argument. A request topology argument, plus an honest account of what a static build costs a marketing team that publishes weekly."
-excerpt: "How to choose between WordPress and a static build for China, argued from mechanism rather than benchmarks."
+description: "Choosing WordPress or a static Astro build for mainland China, argued from how requests cross the border, and what static costs a weekly publisher."
+excerpt: "How to choose between WordPress and a static Astro build for China, argued from the way requests cross the border."
 ```
+
+(Metadata corrected 22 October 2026, A11 draft run: the earlier description opened "Not a speed argument. A request topology argument" and the excerpt ended "rather than benchmarks", both the negation-reframe banned by `.claude/anti-ai-writing-style.md` section 3F.)
 
 **CTA.** Book a 30-minute scoping call with our Shanghai team

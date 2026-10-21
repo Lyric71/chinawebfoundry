@@ -2866,3 +2866,144 @@ Check 1 and check 2 both completed 20 October 2026. All six pages returned HTTP 
 - URL: https://www.21cloudbox.com/support/cloudflare-china.html
 - Verified 1: 2026-10-20. Verified 2: 2026-10-20.
 - Decision: stale search-result figures rejected; the re-fetched revised page consistently supplies 3 of 6. No broad Cloudflare or customer-host verdict inferred. reviewBy 2026-11-26.
+
+## 22 October 2026: A11 WordPress or Astro for a China site
+
+Recovered from the same run's research note and iteration-8 receipt. Both checks were performed by the first model on 22 October 2026; the fallback preserves those completed checks. Receipt: editorial/logs/2026-10-22-wordpress-vs-astro-china/source-check2.txt. Subsequent audit checks are recorded separately.
+
+### Vercel Knowledge Base
+- Claim: F29: Vercel has no servers or CDN nodes in mainland China; China can block or throttle traffic to foreign domains including .vercel.app; Vercel can't guarantee availability or performance; in-country deployment needs an ICP licence (Vercel's wording)
+- Source date/version: published 3 Nov 2025, modified 11 Sep 2026 (JSON-LD)
+- URL: https://vercel.com/kb/guide/accessing-vercel-hosted-sites-from-mainland-china
+- Verified 1: 2026-10-22, pass, all four sentences and both dates present
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### GreatFire (JSON API)
+- Claim: F29: https://vercel.app blocked, 4 of 4 conclusive tests, last tested 14 Sep 2026
+- Source date/version: 14 Sep 2026
+- URL: https://en.greatfire.org/api/url/https/vercel.app
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### GreatFire (JSON API)
+- Claim: F1: https://ajax.googleapis.com blocked, 1 of 1 conclusive, last tested 22 Aug 2026
+- Source date/version: 22 Aug 2026
+- URL: https://en.greatfire.org/api/url/https/ajax.googleapis.com
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### 21YunBox support page
+- Claim: F1: Google's Hosted Libraries website returned no first byte in 3 of 3 runs, each abandoned at 60 s, Alibaba Cloud Zhangjiakou probe, 28 Aug 2026 (a load of the website, never of ajax.googleapis.com)
+- Source date/version: reviewed 8 Oct 2026
+- URL: https://www.21cloudbox.com/support/google-hosted-libraries.html
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### GreatFire (JSON API)
+- Claim: F4: https://secure.gravatar.com blocked, 1 of 1 conclusive, last tested 31 Aug 2026
+- Source date/version: 31 Aug 2026
+- URL: https://en.greatfire.org/api/url/https/secure.gravatar.com
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### WordPress core 7.1.3
+- Claim: F4: WordPress 7.1.3 builds every avatar URL on https://secure.gravatar.com/avatar/ (link-template.php line 4605)
+- Source date/version: 7.1.3 is current stable (api.wordpress.org version-check, 22 Oct 2026)
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/link-template.php
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### WordPress core 7.1.3
+- Claim: F8: core version check to api.wordpress.org, 3-second timeout outside cron (update.php lines 226, 237)
+- Source date/version: as above
+- URL: https://raw.githubusercontent.com/WordPress/WordPress/7.1.3/wp-includes/update.php
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### WordPress.org Meta Trac #5106, archive capture
+- Claim: F8: "Several Chinese network sources are rate-limited on certain services"
+- Source date/version: 21 Mar 2020
+- URL: https://web.archive.org/web/20260116133057/https://meta.trac.wordpress.org/ticket/5106
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### Baidu Search Resource Platform (百度搜索资源平台)
+- Claim: F19: Baiduspider-render/2.0 fetches CSS, JavaScript and images
+- Source date/version: 发布日期 2017-03-24
+- URL: https://ziyuan.baidu.com/wiki/990
+- Verified 1: 2026-10-22, pass; date is 24 March 2017, see correction below
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### Chinafy (vendor benchmark)
+- Claim: F31: 614 global websites tested from Beijing, Virginia and London; 2 in 3 failed to load in China; TTFB 4 to 4.5x higher in Beijing than in Virginia or London
+- Source date/version: posted 14 Apr 2026
+- URL: https://www.chinafy.com/blog/china-website-performance-benchmarks-2026
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### MDN Web Docs, Understanding latency
+- Claim: A first request includes a DNS lookup, a TCP handshake and the TLS negotiation; more hostnames mean more DNS lookups
+- Source date/version: last modified 25 Feb 2025
+- URL: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Understanding_latency
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### MDN Web Docs, Critical rendering path
+- Claim: CSS is render blocking
+- Source date/version: last modified 25 Feb 2025
+- URL: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Critical_rendering_path
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### MDN Web Docs, the script element
+- Claim: Classic scripts are fetched and executed before parsing continues
+- Source date/version: last modified 9 May 2026
+- URL: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### Astro Docs, On-demand rendering
+- Claim: Astro pre-renders pages at build time as static pages by default
+- Source date/version: last commit 19 Jun 2026 (withastro/docs)
+- URL: https://docs.astro.build/en/guides/on-demand-rendering/
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### Astro Docs, WordPress and Astro
+- Claim: WordPress can be used as a headless CMS for Astro through its REST API
+- Source date/version: last commit 19 Oct 2026 (withastro/docs)
+- URL: https://docs.astro.build/en/guides/cms/wordpress/
+- Verified 1: 2026-10-22, pass
+- Verified 2: 2026-10-22, iteration 8 refetch; same-run receipt and quality tracker confirm the claim. For WordPress avatar source and MDN script semantics, additional fallback fetch receipts are also retained.
+- Used in: wordpress-vs-astro-china; source scope and network vantage remain attached to the claim.
+
+### Alibaba Cloud ICP overview, reused ledger entry
+- Claim: mainland nodes require an ICP filing; Hong Kong and overseas nodes do not. Provincial review is 1 to 20 working days, not the whole project duration.
+- URL: https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview
+- Source date: 26 August 2026.
+- Verified 1: retained earlier ledger checks, rechecked 2026-10-22 during the original draft research. Verified 2: 2026-10-22, source-check2.txt.
+- The live-page service counts reuse existing twice-verified F6 and F31 ledger entries; the Google Fonts pair remains 72 of 72 from Alibaba Cloud Zhangjiakou on 28 August 2026 and 0 of 54 from Beijing China Mobile residential broadband on 30 August 2026.
+
+### Astro browser scripts and external scripts
+- Claim: Astro supports scripts in the browser, analytics requests and remote script URLs. Inference: searching build output alone cannot establish every runtime host, especially when a remote script changes.
+- URL: https://docs.astro.build/en/guides/client-side-scripts/
+- Source date: 19 June 2026, official docs commit ca1ae0c1883582b7e9bf99835b6e1871f44a37f9; GitHub commits API for src/content/docs/en/guides/client-side-scripts.mdx checked 22 October 2026.
+- Verified 1: 2026-10-22, live page read, Client-Side Scripts and Load external scripts sections.
+- Verified 2: 2026-10-22, live page reopened, same script and remote URL examples present.
+- Used in: A11 draft, PLAN.md A11 argument, corrected Astro page in en/fr/es/de.
+
+Publication correction, 22 October 2026: the Baidu SEO service page hosting passage and ICP FAQ in EN/FR/ES/DE now reuse the Alibaba ICP overview above (both checks 22 October). Unsupported claims of a mainland ranking advantage and offshore ranking penalty were cut under the fact bank Do Not Assert rule. No new numerical or ranking claim added.

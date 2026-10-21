@@ -418,7 +418,7 @@ Every figure below carries a vantage point, and the vantage point changes the an
 
 ### Baidu, SEO tooling and search
 
-- **F19.** **Baiduspider does render JavaScript.** Baidu announced `Baiduspider-render/2.0` in April 2017 explicitly to fetch CSS, JavaScript and images. The widely repeated opposite claim traces to a January 2017 source that predates it by three months. Baidu publishes nothing on rendering coverage or queue latency, so server-side rendering remains the defensive practice, framed as risk reduction rather than as documented Baidu policy.
+- **F19.** **Baiduspider does render JavaScript.** Baidu announced `Baiduspider-render/2.0` on 24 March 2017 (发布日期 2017-03-24 on the Baidu Search Resource Platform notice, https://ziyuan.baidu.com/wiki/990), explicitly to fetch CSS, JavaScript and images, in beta on selected sites from that day. The widely repeated opposite claim traces to a January 2017 source that predates it by about two months. (Corrected 22 October 2026: this entry used to say "April 2017" and "three months"; the notice's own date, re-fetched on 1, 13 and 22 October 2026, is 24 March 2017.) Baidu publishes nothing on rendering coverage or queue latency, so server-side rendering remains the defensive practice, framed as risk reduction rather than as documented Baidu policy.
 - **F20.** Verify Baiduspider by **reverse DNS**, never by user agent. A genuine IP resolves to a hostname ending `.baidu.com` or `.baidu.jp`, and a forward lookup of that hostname returns the original IP. UA strings are `Baiduspider/2.0` and `Baiduspider-render/2.0`. Published IP allowlists on Chinese SEO blogs go stale: Baidu says its IP ranges change dynamically and it cannot publish them. Source: Baidu Search Resource Platform (百度搜索资源平台), 轻松两步，教你快速识别百度蜘蛛（User-Agent）, 8 February 2022, https://ziyuan.baidu.com/college/articleinfo?id=3378.
 - **F21.** Yoast and Rank Math each output exactly one Baidu-specific thing, the site verification meta tag (`baidu-site-verification`). Everything else is manual: no push to the 普通收录 or 快速收录 API, no Baidu Tongji (百度统计) injection, no Baidu-format structured data, no robots.txt handling for Baiduspider.
 - **F22.** Maintained Baidu push plugins exist. `baidu-submit-link` v4.5.0, updated 4 September 2026, tested to WP 7.1, roughly 2,000 active installs, posts to the real endpoint `data.zz.baidu.com/urls` and covers Baidu, Bing, IndexNow, Yandex and Toutiao. It also phones home to `bsl.api.wbolt.com` and uses `oauth2.googleapis.com` for its Google module, which fails from a mainland server. Alternatives: `zhanzhangb-baidu-submit` v1.9.6, `baiduseo` v2.2.4.
@@ -843,9 +843,9 @@ excerpt: "The gap between what your SEO plugin does for Google and what Baidu ac
 **Angle.** Argue from request topology, not from speed. This is the discipline that makes the article credible: there is no published benchmark comparing static against WordPress from China, so do not fabricate the comparison. Argue the mechanism instead, which is stronger anyway.
 
 **The argument, in the order it should appear.**
-1. Each additional third-party origin costs a separate DNS lookup, TCP handshake and TLS handshake across the border, and the border inflates round trips more than bytes. Cutting origins beats cutting kilobytes.
-2. A blocked host does not fail fast. It hangs until the browser gives up (F1). One render-blocking reference is catastrophic; the same file self-hosted is free.
-3. A static build resolves the dependency graph at build time, so "which hosts does this page touch" has a fixed, auditable answer rather than a per-plugin one.
+1. A fresh HTTPS connection over TCP requires DNS and connection setup. Cached DNS, reused connections and other transports change that cost. Removing an unnecessary overseas origin removes a possible connection and failure point; do not rank this universally above reducing page weight.
+2. A blocked connection can time out (F1); the failure mode and the resource's role determine its effect. A locally served copy can reuse a connection but still has a transfer cost.
+3. A static build produces files that can be inspected before deployment. Browser JavaScript can construct further requests, and remote scripts can change independently. Audit the files and browser network activity; never claim that a file search proves the complete runtime host list. Astro's Scripts and event handling documentation explicitly permits external scripts and browser-side analytics requests (updated 19 June 2026, checked twice 22 October 2026).
 4. A static site has no admin surface making outbound calls from a mainland server (F8, F4).
 5. Against that: no editor a marketing team recognizes, no plugin ecosystem, a build step between an edit and a live page, and a developer in the loop for changes WordPress would let a marketer make.
 
@@ -862,9 +862,11 @@ excerpt: "The gap between what your SEO plugin does for Google and what Baidu ac
 **Metadata.**
 ```yaml
 title: "WordPress or Astro for a China Site"
-description: "Not a speed argument. A request topology argument, plus an honest account of what a static build costs a marketing team that publishes weekly."
-excerpt: "How to choose between WordPress and a static build for China, argued from mechanism rather than benchmarks."
+description: "Choosing WordPress or a static Astro build for mainland China, argued from how requests cross the border, and what static costs a weekly publisher."
+excerpt: "How to choose between WordPress and a static Astro build for China, argued from the way requests cross the border."
 ```
+
+(Metadata corrected 22 October 2026, A11 draft run: the earlier description opened "Not a speed argument. A request topology argument" and the excerpt ended "rather than benchmarks", both the negation-reframe banned by `.claude/anti-ai-writing-style.md` section 3F.)
 
 **CTA.** Book a 30-minute scoping call with our Shanghai team
 
@@ -2206,7 +2208,7 @@ excerpt: "Why the update path is the security story, what belongs in the scope, 
 | **Incumbent** | Recycled 2017-era posts repeating claims that were already out of date when written. |
 | **Length** | 1,500 words |
 
-**Angle.** Almost every English-language comparison of Baidu and Google is a strategy piece wearing a technical costume. This one is only the deltas, and it corrects the single most repeated error in the category: Baiduspider renders JavaScript and has done since April 2017, which means the standard advice traces to a source three months older than the announcement that invalidated it. Server-side rendering is still the right call, but for a reason the reader has probably never been given.
+**Angle.** Almost every English-language comparison of Baidu and Google is a strategy piece wearing a technical costume. This one is only the deltas, and it corrects the single most repeated error in the category: Baiduspider renders JavaScript and has done since March 2017 (the render UA notice is dated 24 March 2017), which means the standard advice traces to a source about two months older than the announcement that invalidated it. Server-side rendering is still the right call, but for a reason the reader has probably never been given.
 
 **Facts.** F19 (lead), F20, F21, F22, F24, F15, F16, F18, F23.
 

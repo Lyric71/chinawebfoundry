@@ -52,7 +52,7 @@ tier-specific boxes for T5.
 | **Incumbent** | Recycled 2017-era posts repeating claims that were already out of date when written. |
 | **Length** | 1,500 words |
 
-**Angle.** Almost every English-language comparison of Baidu and Google is a strategy piece wearing a technical costume. This one is only the deltas, and it corrects the single most repeated error in the category: Baiduspider renders JavaScript and has done since April 2017, which means the standard advice traces to a source three months older than the announcement that invalidated it. Server-side rendering is still the right call, but for a reason the reader has probably never been given.
+**Angle.** Almost every English-language comparison of Baidu and Google is a strategy piece wearing a technical costume. This one is only the deltas, and it corrects the single most repeated error in the category: Baiduspider renders JavaScript and has done since March 2017 (the render UA notice is dated 24 March 2017), which means the standard advice traces to a source about two months older than the announcement that invalidated it. Server-side rendering is still the right call, but for a reason the reader has probably never been given.
 
 **Facts.** F19 (lead), F20, F21, F22, F24, F15, F16, F18, F23.
 

@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Button from '../../../components/ui/Button.astro';
 
@@ -23,7 +25,7 @@ const phases = [
     label: 'Alojar',
     cn: '主机',
     title: 'Un alojamiento que aguanta en China continental',
-    blurb: 'Carga por debajo del segundo en un teléfono de Shanghái. Trámite ICP gestionado de principio a fin. Continental, Hong Kong o doble pila.',
+    blurb: 'Servido desde el continente, sin que las peticiones de un teléfono en Shanghái crucen la frontera. Trámite ICP gestionado de principio a fin. Continental, Hong Kong o doble pila.',
   },
   {
     id: 'grow',
@@ -117,15 +119,15 @@ const buildServices = [
       'Arquitectura conforme a la PIPL y a la Ley de Ciberseguridad desde el primer día',
     ],
     stats: [
-      { value: '47', label: 'recursos bloqueados por sitio' },
-      { value: '2,1 s', label: 'carga tras las correcciones' },
+      { value: '72 de 72', label: 'peticiones a Google Fonts atendidas desde Alibaba Cloud en Zhangjiakou' },
+      { value: '0 de 54', label: 'atendidas en una línea doméstica de Pekín (21YunBox, ago. 2026)' },
     ],
   },
   {
     title: 'Extensiones y plugins',
     cn: '插件',
     tagline: 'Extensiones de WordPress hechas a la medida del Cortafuegos.',
-    description: "Cerca del 40 % de las extensiones populares de WordPress dependen de Google. Todas quedan bloqueadas detrás del Cortafuegos. Construimos las que funcionan y reparamos las que tienen arreglo.",
+    description: "Muchas extensiones conocidas de WordPress recurren a servidores de Google: algunos están bloqueados y otros responden a un centro de datos, pero enmudecen en las líneas domésticas. Construimos las que funcionan y reparamos las que tienen arreglo.",
     link: '/es/servicios/plugins-extensiones/',
     cta: 'Pedir una consulta',
     icon: 'plugins',
@@ -154,12 +156,12 @@ const hosting = {
     {
       name: 'Continental',
       timeframe: '6-10 semanas',
-      bullets: ['Carga por debajo del segundo en los teléfonos chinos', 'Necesario para el efecto Baidu', 'Licencia ICP gestionada de principio a fin'],
+      bullets: ['Sin cruce de frontera para los visitantes en China', 'La misma red que sus visitantes', 'Registro ICP gestionado de principio a fin'],
     },
     {
       name: 'Hong Kong',
       timeframe: '2-3 semanas',
-      bullets: ['De 2 a 4 segundos desde el continente', 'Sin ICP', 'Lanzamiento rápido, efecto Baidu débil'],
+      bullets: ['Cada petición cruza la frontera', 'Sin ICP', 'Lanzamiento rápido mientras se tramita el registro'],
     },
     {
       name: 'Doble pila',
@@ -168,9 +170,9 @@ const hosting = {
     },
   ],
   stats: [
-    { value: '0,8 s', label: 'carga mediana en el continente' },
-    { value: '99,97 %', label: 'disponibilidad a 30 días' },
-    { value: '100 %', label: 'tasa de éxito del ICP' },
+    { value: '4 a 4,5x', label: 'más espera hasta el primer byte desde Pekín (Chinafy, abr. 2026)' },
+    { value: '1 a 20', label: 'días hábiles de revisión provincial del ICP (Alibaba Cloud)' },
+    { value: '3', label: 'nubes continentales: Aliyun, Tencent, Huawei' },
   ],
 };
 
@@ -259,7 +261,7 @@ const maintenance = {
 };
 ---
 
-<PageLayout
+<PageLayout jsonLd={[pageFreshness]}
   title="Servicios web en China para marcas internacionales | ChinaWebFoundry"
   description="Todo lo que una marca internacional necesita para lanzar y mantener un sitio en China. De la estrategia al mantenimiento, en manos de un único equipo senior en Shanghái desde 2005."
   heroPage={true}
@@ -817,4 +819,5 @@ const maintenance = {
       </div>
     </div>
   </section>
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Los recorridos descritos corresponden a los archivos servidos por el servidor indicado. Los scripts externos, las API y las rutas de los CDN se comprueban por separado.</p>
 </PageLayout>

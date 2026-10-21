@@ -32,8 +32,8 @@ const whyDifferent = [
   {
     n: '03',
     cn: '主机',
-    title: 'L’emplacement de l’hébergement compte',
-    body: 'Sans licence ICP, un site est rétrogradé dans l’index. À contenu égal, un hébergement en Chine continentale passe devant un site logé à Hong Kong ou à l’étranger. C’est un signal de fond, qui joue sur chaque requête.',
+    title: 'Les formalités ICP dépendent de l’hébergement',
+    body: 'Sur un serveur continental, la mise en ligne exige un enregistrement ICP préalable. Cette formalité ne concerne pas les serveurs de Hong Kong ou de l’étranger. Contrôlez l’accès des robots aux pages et à leurs ressources.',
     tag: 'Infrastructure',
     chips: ['ICP', 'Continental', 'Aliyun', 'Tencent Cloud'],
   },
@@ -226,7 +226,7 @@ const faqs = [
     id: 'no-icp',
     question: 'Et si notre site n’a pas de dépôt ICP ?',
     answer: [
-      'Il se classera, mais avec un handicap qui se mesure. Baidu range les sites de Hong Kong et offshore parmi les étrangers : il les crawle moins souvent et les place sous les sites continentaux. Pour une marque qui vise vraiment Baidu, l’ICP sur hébergement continental reste le bon choix.',
+      'L’hébergement sur un serveur continental exige un enregistrement ICP. À Hong Kong ou à l’étranger, cette formalité ne s’applique pas. Choisissez selon votre public et vérifiez l’accès des robots aux pages. L’enregistrement seul ne prouve aucun gain de position dans les résultats.',
     ],
   },
   {
@@ -292,7 +292,8 @@ const faqLd = {
 };
 
 const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
-const pageLd = [...serviceLd, faqLd];
+const updatedAt = '2026-10-22';
+const pageLd = [...serviceLd, faqLd, { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt }];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>

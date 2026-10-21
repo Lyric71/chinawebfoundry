@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../../layouts/PageLayout.astro';
 import { serviceSchema } from '../../lib/schema';
 import Button from '../../components/ui/Button.astro';
@@ -13,9 +15,9 @@ const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
 
 const proofStats = [
-  { value: '0.8', suffix: 's', label: 'Median load time on a mainland Chinese server', sub: 'Mid-range Chinese phone, Shanghai connection' },
-  { value: '99.97', suffix: '%', label: 'Uptime across the sites we currently host', sub: 'Rolling 30-day average' },
-  { value: '100', suffix: '%', label: 'ICP filing success rate so far', sub: 'Every application has eventually gone through' },
+  { value: '4', suffix: ' to 4.5x', label: 'Higher time to first byte from Beijing than from Virginia or London', sub: 'Chinafy vendor benchmark, 614 global websites, April 2026' },
+  { value: '20', suffix: ' days', label: 'Longest provincial ICP review Alibaba Cloud quotes', sub: '1 to 20 working days, Alibaba Cloud, August 2026' },
+  { value: '3', suffix: '', label: 'Mainland clouds we host on', sub: 'Aliyun, Tencent Cloud and Huawei Cloud' },
   { value: '20', suffix: '+', label: 'Years on the ground in Shanghai', sub: 'Same team, same city, since 2005' },
 ];
 
@@ -36,17 +38,17 @@ const hostingOptions = [
     name: 'Mainland China',
     tag: 'ICP Required',
     tagline: 'Servers in Beijing, Shanghai, Shenzhen or Guangzhou.',
-    headline: 'The real deal. Sub-second loads, full Baidu boost.',
+    headline: 'The real deal. Served inside the mainland, under your own filing.',
     body: 'Your site lives on servers inside mainland China. We use Aliyun, Tencent Cloud or Huawei Cloud, depending on the project. We have been working with all three for years now, so we know exactly what we are getting from each one of them.',
-    detail: 'Load times come in under one second. Baidu gives a noticeable ranking boost to sites that hold an ICP licence on local servers, which matters a lot if organic search is part of your China strategy. We handle the full ICP filing too. Honestly, that is where most foreign companies hit a wall without someone in-country helping them through it.',
+    detail: 'Requests from visitors in China never cross the border, which takes the longest leg out of every page load. We handle the full ICP filing too. Honestly, that is where most foreign companies hit a wall without someone in-country helping them through it.',
     fit: 'Brands committed to the Chinese market, anyone serious about Baidu SEO, e-commerce, sites capturing Chinese user data.',
     image: '/images/hosting-china-cdn-map.webp',
     imageAlt: 'A stylised map of mainland China with glowing data center nodes in Beijing, Shanghai, Shenzhen and Guangzhou connected by a CDN mesh',
     accent: 'orange',
     metrics: [
-      { label: 'Load time', value: '< 1s' },
+      { label: 'Served from', value: 'Mainland' },
       { label: 'ICP', value: 'Required' },
-      { label: 'Baidu boost', value: 'Big' },
+      { label: 'Border crossing', value: 'None' },
       { label: 'Time to live', value: '6 to 10 wks' },
     ],
   },
@@ -56,16 +58,16 @@ const hostingOptions = [
     tag: 'No ICP Needed',
     tagline: 'Online quickly, no government filing required.',
     headline: 'A bridge to the mainland. Fast to launch.',
-    body: 'Don\'t have an ICP licence yet? Hong Kong gets you online faster. No filing required. With the right CDN and caching setup, you are looking at 2 to 4 second load times in mainland China. Compared to serving the site from Frankfurt or Virginia, that\'s night and day.',
+    body: 'Don\'t have an ICP licence yet? Hong Kong gets you online faster. No filing required. Every request from the mainland still crosses the border, so the CDN and caching setup decides much of what visitors feel. It is a far shorter trip than Frankfurt or Virginia.',
     detail: 'We use this as a bridge solution pretty often, while clients wait on their ICP filing or while they are still deciding whether to commit to a mainland presence. Some of our long-running clients have stayed on Hong Kong for years and never felt the need to move.',
     fit: 'Quick launches, interim solutions, projects that can\'t get an ICP yet, brands testing the Chinese market before committing.',
     image: '/images/hosting-hong-kong-bridge.webp',
     imageAlt: 'Hong Kong skyline at blue hour from across Victoria Harbour with neon orange light trails crossing the water toward mainland China',
     accent: 'sky',
     metrics: [
-      { label: 'Load time', value: '2 to 4s' },
+      { label: 'Served from', value: 'Hong Kong' },
       { label: 'ICP', value: 'Not required' },
-      { label: 'Baidu boost', value: 'Minimal' },
+      { label: 'Border crossing', value: 'Every request' },
       { label: 'Time to live', value: '2 to 3 wks' },
     ],
   },
@@ -82,9 +84,9 @@ const hostingOptions = [
     imageAlt: 'Isometric 3D illustration of a globe with two server clusters glowing (orange over China and cyan over the West) with routing paths splitting traffic by geography',
     accent: 'emerald',
     metrics: [
-      { label: 'Load time', value: '< 1s in CN' },
+      { label: 'Served from', value: 'Mainland (CN)' },
       { label: 'ICP', value: 'Required (CN)' },
-      { label: 'Baidu boost', value: 'Big' },
+      { label: 'Border crossing', value: 'None in CN' },
       { label: 'Time to live', value: '8 to 12 wks' },
     ],
   },
@@ -200,9 +202,9 @@ const timelines = [
 ];
 
 const performanceRows = [
-  { location: 'US or Europe', loadTime: 8, loadLabel: '8 to 15+ seconds', icp: 'No', baiduBoost: 'None', highlight: false },
-  { location: 'Hong Kong', loadTime: 2.5, loadLabel: '2 to 4 seconds', icp: 'No', baiduBoost: 'Minimal', highlight: false },
-  { location: 'Mainland China', loadTime: 0.8, loadLabel: 'Under 1 second', icp: 'Yes', baiduBoost: 'Big', highlight: true },
+  { location: 'US or Europe', route: 'Crosses the border, then a continent or an ocean', icp: 'No', highlight: false },
+  { location: 'Hong Kong', route: 'Crosses the border', icp: 'No', highlight: false },
+  { location: 'Mainland China', route: 'Stays inside the mainland', icp: 'Yes', highlight: true },
 ];
 
 const audiences = [
@@ -216,12 +218,12 @@ const faqs = [
   {
     id: 'mainland-or-hk',
     question: 'Do we have to use mainland hosting, or can we just stay in Hong Kong?',
-    answer: 'You can stay in Hong Kong, especially for an interim launch. But Baidu treats Hong Kong sites as foreign and the ranking penalty is real. For brands serious about the Chinese market long-term, mainland hosting with an ICP filing is the right call.',
+    answer: 'You can stay in Hong Kong, especially for an interim launch. Every request from a mainland visitor then crosses the border, which a CDN can soften but not remove. For brands serious about the Chinese market long-term, mainland hosting with an ICP filing is the right call.',
   },
   {
     id: 'aliyun-overseas',
     question: 'Do we need an ICP if we host on Aliyun\'s overseas region?',
-    answer: 'Yes, if you want the site on Aliyun\'s mainland servers. Aliyun also runs servers in Hong Kong and Singapore which don\'t require an ICP, but you lose the mainland performance and the Baidu boost.',
+    answer: 'Yes, if you want the site on Aliyun\'s mainland servers. Aliyun also runs servers in Hong Kong and Singapore which don\'t require an ICP, but every visit from the mainland then crosses the border again.',
   },
   {
     id: 'cost',
@@ -289,7 +291,7 @@ const accentMap: Record<string, { dot: string; bg: string; text: string; border:
   },
 };
 const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
-const pageLd = [...serviceLd];
+const pageLd = [...serviceLd, pageFreshness];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} jsonLd={pageLd}>
@@ -357,15 +359,15 @@ const pageLd = [...serviceLd];
                   <span class="text-sm font-semibold text-emerald-400 font-mono">Shanghai</span>
                 </div>
                 <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Load time (China)</span>
-                  <span class="text-sm font-semibold text-emerald-400 font-mono">0.8s</span>
+                  <span class="text-sm text-white/50">Border crossing</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">None</span>
                 </div>
                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                   <div class="w-[8%] h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
                 </div>
                 <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Uptime (30d)</span>
-                  <span class="text-sm font-semibold text-emerald-400 font-mono">99.97%</span>
+                  <span class="text-sm text-white/50">ICP filing</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">Filed</span>
                 </div>
                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                   <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
@@ -471,8 +473,8 @@ const pageLd = [...serviceLd];
                   </div>
                 </div>
                 <div class="mt-4 text-center">
-                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-red-500 tabular-nums leading-none">12.4s</p>
-                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">median load</p>
+                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-red-500 tabular-nums leading-none">Abroad</p>
+                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">every request crosses the border</p>
                 </div>
               </div>
 
@@ -495,14 +497,14 @@ const pageLd = [...serviceLd];
                   </div>
                 </div>
                 <div class="mt-4 text-center">
-                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600 tabular-nums leading-none">0.8s</p>
-                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">median load</p>
+                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600 tabular-nums leading-none">Mainland</p>
+                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">no border crossing</p>
                 </div>
               </div>
             </div>
 
             <p class="mt-6 text-[11px] text-[var(--color-text-muted)] text-center">
-              Tested from a mid-range Chinese phone on a typical Shanghai mobile connection.
+              Illustration: the same page served from abroad and from a filed mainland server.
             </p>
           </div>
         </div>
@@ -889,7 +891,7 @@ const pageLd = [...serviceLd];
           Performance
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight max-w-2xl mx-auto">
-          Where you host changes everything.
+          Where you host decides the route.
         </h2>
       </div>
 
@@ -897,8 +899,8 @@ const pageLd = [...serviceLd];
         <!-- Chart legend -->
         <div class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-6 border-b border-[var(--color-surface-border)]">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Median load time in China</p>
-            <p class="text-sm text-[var(--color-text-body)]">Lower is better. A 12-second load loses every Chinese visitor before the page renders.</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-1">The route a request from China takes</p>
+            <p class="text-sm text-[var(--color-text-body)]">In Chinafy’s April 2026 vendor benchmark of 614 global websites, time to first byte ran 4 to 4.5 times higher from Beijing than from Virginia or London.</p>
           </div>
           <div class="flex items-center gap-4 text-xs text-[var(--color-text-muted)]">
             <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-red-400"></span> Foreign</div>
@@ -912,8 +914,6 @@ const pageLd = [...serviceLd];
           {performanceRows.map((row, i) => {
             const colour = i === 0 ? 'bg-red-400' : i === 1 ? 'bg-amber-400' : 'bg-[var(--color-brand-orange)]';
             const textColour = i === 0 ? 'text-red-500' : i === 1 ? 'text-amber-600' : 'text-[var(--color-brand-orange)]';
-            // bar widths normalised to 12s = 100%
-            const widthPct = Math.min((row.loadTime / 12) * 100, 100);
             return (
               <div class="grid grid-cols-12 gap-4 items-center">
                 <div class="col-span-12 sm:col-span-3">
@@ -924,18 +924,13 @@ const pageLd = [...serviceLd];
                     {row.location}
                   </p>
                   <p class="mt-0.5 text-xs text-[var(--color-text-muted)]">
-                    ICP: {row.icp} · Baidu: {row.baiduBoost}
+                    ICP filing: {row.icp}
                   </p>
                 </div>
                 <div class="col-span-12 sm:col-span-9 flex items-center gap-3">
-                  <div class="flex-1 h-9 bg-[var(--color-surface-light)] rounded-md overflow-hidden">
-                    <div
-                      class:list={['h-full rounded-md transition-all duration-700', colour]}
-                      style={`width: ${widthPct}%; ${row.highlight ? 'box-shadow: 0 0 0 2px rgba(242,95,41,0.15);' : ''}`}
-                    ></div>
-                  </div>
-                  <p class:list={['flex-shrink-0 w-32 text-right text-sm lg:text-base font-semibold font-mono tabular-nums', textColour]}>
-                    {row.loadLabel}
+                  <span class:list={['flex-shrink-0 w-3 h-9 rounded-md', colour]} aria-hidden="true"></span>
+                  <p class:list={['text-sm lg:text-base font-semibold', textColour]}>
+                    {row.route}
                   </p>
                 </div>
               </div>
@@ -944,7 +939,7 @@ const pageLd = [...serviceLd];
         </div>
 
         <p class="mt-10 pt-6 border-t border-[var(--color-surface-border)] text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-2xl mx-auto">
-          Chinese users expect pages to load fast and they will leave yours if it doesn't. Mainland hosting with an ICP filing is what closes that gap.
+          Chinese users expect pages to load fast and they will leave yours if it doesn't. Mainland hosting with an ICP filing takes the border out of every request.
         </p>
       </div>
     </div>
@@ -1068,4 +1063,5 @@ const pageLd = [...serviceLd];
     document.addEventListener('astro:page-load', initHostingTabs);
   </script>
 
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Hosting routes below refer to files served by the stated origin. External scripts, APIs and CDN routing need separate checks.</p>
 </PageLayout>

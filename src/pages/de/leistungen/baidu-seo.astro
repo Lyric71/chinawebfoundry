@@ -32,8 +32,8 @@ const whyDifferent = [
   {
     n: '03',
     cn: '主机',
-    title: 'Der Hosting-Standort ist ein Ranking-Signal',
-    body: 'Seiten ohne ICP-Registrierung werden im Index benachteiligt. Bei identischem Inhalt setzt sich ein Festland-Hosting gegenüber einem Standort in Hongkong oder im Ausland durch. Das ist im Algorithmus angelegt und nicht dem Zufall überlassen.',
+    title: 'Die ICP-Pflicht hängt vom Hostingort ab',
+    body: 'Für eine Website auf einem Festlandserver muss vor dem Start die ICP-Registrierung vorliegen. Bei Servern in Hongkong oder im Ausland entfällt sie. Prüfen Sie, ob Crawler die Seiten und die zugehörigen Ressourcen abrufen können.',
     tag: 'Infrastruktur',
     chips: ['ICP', 'Festland-Host', 'Aliyun', 'Tencent Cloud'],
   },
@@ -226,7 +226,7 @@ const faqs = [
     id: 'no-icp',
     question: 'Was, wenn unsere Website keine ICP-Registrierung hat?',
     answer: [
-      'Sie wird ranken, allerdings mit einem messbaren Nachteil. Baidu behandelt Seiten aus Hongkong und von Offshore-Servern als ausländisch, crawlt sie seltener und stuft sie niedriger ein als vergleichbare Festland-Seiten. Für Marken, die es mit Baidu ernst meinen, ist eine ICP-Registrierung auf einem Festland-Hosting die richtige Wahl.',
+      'Die Registrierungspflicht gilt für Websites auf Festlandservern. Bei Hosting in Hongkong oder im Ausland ist keine ICP-Registrierung nötig. Wählen Sie den Standort passend zu Ihrer Zielgruppe und prüfen Sie den Zugriff der Crawler. Die Registrierung allein belegt keine bessere Platzierung in den Suchergebnissen.',
     ],
   },
   {
@@ -292,7 +292,8 @@ const faqLd = {
 };
 
 const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
-const pageLd = [...serviceLd, faqLd];
+const updatedAt = '2026-10-22';
+const pageLd = [...serviceLd, faqLd, { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt }];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="de" jsonLd={pageLd}>

@@ -1,4 +1,6 @@
 ---
+const updatedAt = '2026-10-22';
+const pageFreshness = { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt };
 import PageLayout from '../../../layouts/PageLayout.astro';
 import { serviceSchema } from '../../../lib/schema';
 import Button from '../../../components/ui/Button.astro';
@@ -13,9 +15,9 @@ const metaTitle = service.data.metaTitle;
 const metaDescription = service.data.metaDescription;
 
 const proofStats = [
-  { value: '0,8', suffix: ' s', label: 'Temps de chargement médian depuis le continent', sub: 'Mesuré sur smartphone chinois milieu de gamme, réseau Shanghai' },
-  { value: '99,97', suffix: '%', label: 'Disponibilité observée sur les sites que nous hébergeons', sub: 'Moyenne glissante sur les 30 derniers jours' },
-  { value: '100', suffix: '%', label: 'Dossiers ICP menés jusqu\'au bout', sub: 'Aucun de ceux que nous avons pris en charge n\'a échoué' },
+  { value: '4', suffix: ' à 4,5x', label: 'Délai d’arrivée du premier octet, plus long depuis Pékin que depuis la Virginie ou Londres', sub: 'Banc d’essai éditeur Chinafy, 614 sites internationaux, avril 2026' },
+  { value: '20', suffix: ' jours', label: 'Durée maximale de l’instruction ICP en province, selon Alibaba Cloud', sub: '1 à 20 jours ouvrés, Alibaba Cloud, août 2026' },
+  { value: '3', suffix: '', label: 'Clouds continentaux sur lesquels nous hébergeons', sub: 'Aliyun, Tencent Cloud et Huawei Cloud' },
   { value: '20', suffix: '+', label: 'Années de présence à Shanghai', sub: 'Même équipe, même bureau, depuis 2005' },
 ];
 
@@ -36,17 +38,17 @@ const hostingOptions = [
     name: 'Chine continentale',
     tag: 'ICP requis',
     tagline: 'Serveurs à Pékin, Shanghai, Shenzhen ou Canton.',
-    headline: 'L’option de référence : chargement sous la seconde et plein effet Baidu.',
+    headline: 'L’option de référence : un site servi depuis le continent, sous votre propre dépôt.',
     body: 'Votre site tourne sur des serveurs implantés en Chine continentale. Selon le profil du projet, nous déployons chez Aliyun, Tencent Cloud ou Huawei Cloud. Trois fournisseurs que nous pratiquons depuis des années, dont nous connaissons les forces respectives à la virgule près.',
-    detail: 'Les pages s’affichent sous la seconde. Baidu favorise nettement les sites sous licence ICP hébergés sur le continent, ce qui change tout dès que le référencement compte. Le dépôt ICP, nous le montons aussi en interne. C’est typiquement l’étape sur laquelle les marques étrangères s’enlisent quand elles avancent sans relais local.',
+    detail: 'Les requêtes des visiteurs en Chine restent en deçà de la frontière, ce qui supprime le tronçon le plus long de chaque chargement. Le dépôt ICP, nous le montons aussi en interne. C’est typiquement l’étape sur laquelle les marques étrangères s’enlisent quand elles avancent sans relais local.',
     fit: 'Marques installées sur le marché chinois, projets à fort enjeu de référencement Baidu, plateformes e-commerce, sites qui collectent des données auprès d’utilisateurs chinois.',
     image: '/images/hosting-china-cdn-map.webp',
     imageAlt: 'Carte stylisée de la Chine continentale avec des nœuds de centres de données à Pékin, Shanghai, Shenzhen et Canton reliés par un maillage CDN',
     accent: 'orange',
     metrics: [
-      { label: 'Chargement', value: '< 1 s' },
+      { label: 'Servi depuis', value: 'Continent' },
       { label: 'ICP', value: 'Requis' },
-      { label: 'Effet Baidu', value: 'Fort' },
+      { label: 'Passage de frontière', value: 'Aucun' },
       { label: 'Mise en ligne', value: '6 à 10 sem.' },
     ],
   },
@@ -56,16 +58,16 @@ const hostingOptions = [
     tag: 'Sans ICP',
     tagline: 'Mise en ligne rapide, sans formalité administrative chinoise.',
     headline: 'Une passerelle vers le continent, en service immédiat.',
-    body: 'Sans licence ICP en main, Hong Kong reste l’option la plus rapide à mettre en service. Aucun dossier à instruire, déploiement direct. Avec un CDN bien dimensionné et un cache calibré, la page s’affiche en 2 à 4 secondes pour les visiteurs chinois. Face à un site servi depuis Francfort ou la Virginie, l’écart est spectaculaire.',
+    body: 'Sans licence ICP en main, Hong Kong reste l’option la plus rapide à mettre en service. Aucun dossier à instruire, déploiement direct. Chaque requête partie du continent franchit toutefois la frontière : la qualité du CDN et du cache pèse donc lourd dans l’expérience du visiteur. Le trajet reste nettement plus court que depuis Francfort ou la Virginie.',
     detail: 'Cette configuration sert souvent d’étape intermédiaire, le temps d’obtenir la licence ICP ou de décider d’une implantation pleine et entière sur le marché chinois. Certains clients de longue date sont restés à Hong Kong pendant des années sans jamais en éprouver les limites.',
     fit: 'Lancements rapides, solutions provisoires, projets pour lesquels la licence ICP n’est pas accessible immédiatement, marques en phase de test avant un engagement plus durable.',
     image: '/images/hosting-hong-kong-bridge.webp',
     imageAlt: 'Skyline de Hong Kong à l’heure bleue depuis Victoria Harbour, avec des traînées lumineuses orange traversant l’eau vers la Chine continentale',
     accent: 'sky',
     metrics: [
-      { label: 'Chargement', value: '2 à 4 s' },
+      { label: 'Servi depuis', value: 'Hong Kong' },
       { label: 'ICP', value: 'Pas requis' },
-      { label: 'Effet Baidu', value: 'Faible' },
+      { label: 'Passage de frontière', value: 'À chaque requête' },
       { label: 'Mise en ligne', value: '2 à 3 sem.' },
     ],
   },
@@ -82,9 +84,9 @@ const hostingOptions = [
     imageAlt: 'Illustration 3D isométrique d’un globe avec deux grappes de serveurs lumineux (orange sur la Chine, cyan sur l’Occident) et des chemins de routage qui répartissent le trafic selon la géographie',
     accent: 'emerald',
     metrics: [
-      { label: 'Chargement', value: '< 1 s en CN' },
+      { label: 'Servi depuis', value: 'Continent (CN)' },
       { label: 'ICP', value: 'Requis (CN)' },
-      { label: 'Effet Baidu', value: 'Fort' },
+      { label: 'Passage de frontière', value: 'Aucun en CN' },
       { label: 'Mise en ligne', value: '8 à 12 sem.' },
     ],
   },
@@ -200,9 +202,9 @@ const timelines = [
 ];
 
 const performanceRows = [
-  { location: 'États-Unis ou Europe', loadTime: 8, loadLabel: '8 à 15 secondes, voire au-delà', icp: 'Non', baiduBoost: 'Aucun', highlight: false },
-  { location: 'Hong Kong', loadTime: 2.5, loadLabel: '2 à 4 secondes', icp: 'Non', baiduBoost: 'Faible', highlight: false },
-  { location: 'Chine continentale', loadTime: 0.8, loadLabel: 'Sous la seconde', icp: 'Oui', baiduBoost: 'Fort', highlight: true },
+  { location: 'États-Unis ou Europe', route: 'Franchit la frontière, puis un continent ou un océan', icp: 'Non', highlight: false },
+  { location: 'Hong Kong', route: 'Franchit la frontière', icp: 'Non', highlight: false },
+  { location: 'Chine continentale', route: 'Reste sur le continent', icp: 'Oui', highlight: true },
 ];
 
 const audiences = [
@@ -216,12 +218,12 @@ const faqs = [
   {
     id: 'mainland-or-hk',
     question: 'Faut-il impérativement héberger sur le continent, ou peut-on rester à Hong Kong ?',
-    answer: 'Hong Kong reste une option viable, surtout pour un lancement transitoire. Mais Baidu traite les sites hongkongais comme étrangers, avec une pénalité de classement bien réelle. Pour les marques qui s’installent en Chine sur le long terme, l’hébergement continental sous licence ICP demeure la voie la plus efficace.',
+    answer: 'Hong Kong reste une option viable, surtout pour un lancement transitoire. Chaque requête d’un internaute du continent franchit alors la frontière, un handicap qu’un CDN atténue sans l’effacer. Pour les marques qui s’installent en Chine sur le long terme, l’hébergement continental avec dépôt ICP demeure la voie la plus efficace.',
   },
   {
     id: 'aliyun-overseas',
     question: 'Une licence ICP reste-t-elle exigée sur la région internationale d’Aliyun ?',
-    answer: 'Oui, dès lors que vous visez les serveurs continentaux d’Aliyun. L’opérateur dispose également de zones à Hong Kong et à Singapour, exemptes de licence ICP. Mais vous renoncez alors à la performance continentale et au gain de classement sur Baidu.',
+    answer: 'Oui, dès lors que vous visez les serveurs continentaux d’Aliyun. L’opérateur dispose également de zones à Hong Kong et à Singapour, exemptes de licence ICP. Mais chaque visite partie du continent repasse alors la frontière.',
   },
   {
     id: 'cost',
@@ -290,7 +292,7 @@ const accentMap: Record<string, { dot: string; bg: string; text: string; border:
 };
 
 const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
-const pageLd = [...serviceLd];
+const pageLd = [...serviceLd, pageFreshness];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="fr" jsonLd={pageLd}>
@@ -358,15 +360,15 @@ const pageLd = [...serviceLd];
                   <span class="text-sm font-semibold text-emerald-400 font-mono">Shanghai</span>
                 </div>
                 <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Chargement (Chine)</span>
-                  <span class="text-sm font-semibold text-emerald-400 font-mono">0,8 s</span>
+                  <span class="text-sm text-white/50">Passage de frontière</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">Aucun</span>
                 </div>
                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                   <div class="w-[8%] h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
                 </div>
                 <div class="flex items-center justify-between pt-2">
-                  <span class="text-sm text-white/50">Disponibilité (30 j)</span>
-                  <span class="text-sm font-semibold text-emerald-400 font-mono">99,97 %</span>
+                  <span class="text-sm text-white/50">Dépôt ICP</span>
+                  <span class="text-sm font-semibold text-emerald-400 font-mono">Déposé</span>
                 </div>
                 <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                   <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"></div>
@@ -472,8 +474,8 @@ const pageLd = [...serviceLd];
                   </div>
                 </div>
                 <div class="mt-4 text-center">
-                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-red-500 tabular-nums leading-none">12,4 s</p>
-                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">chargement médian</p>
+                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-red-500 tabular-nums leading-none">À l’étranger</p>
+                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">chaque requête franchit la frontière</p>
                 </div>
               </div>
 
@@ -496,14 +498,14 @@ const pageLd = [...serviceLd];
                   </div>
                 </div>
                 <div class="mt-4 text-center">
-                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600 tabular-nums leading-none">0,8 s</p>
-                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">chargement médian</p>
+                  <p class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-emerald-600 tabular-nums leading-none">Continent</p>
+                  <p class="mt-1 text-[11px] text-[var(--color-text-muted)]">aucun passage de frontière</p>
                 </div>
               </div>
             </div>
 
             <p class="mt-6 text-[11px] text-[var(--color-text-muted)] text-center">
-              Test réalisé depuis un smartphone chinois milieu de gamme, sur une connexion mobile standard à Shanghai.
+              Illustration : la même page servie depuis l’étranger et depuis un serveur continental déclaré.
             </p>
           </div>
         </div>
@@ -890,7 +892,7 @@ const pageLd = [...serviceLd];
           Performance
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight max-w-2xl mx-auto">
-          Le lieu d’hébergement décide de tout.
+          Le lieu d’hébergement décide du trajet.
         </h2>
       </div>
 
@@ -898,8 +900,8 @@ const pageLd = [...serviceLd];
         <!-- Chart legend -->
         <div class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-6 border-b border-[var(--color-surface-border)]">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Chargement médian en Chine</p>
-            <p class="text-sm text-[var(--color-text-body)]">Plus la barre est courte, mieux c’est. À 12 secondes de chargement, le visiteur chinois est déjà parti avant que la page ne s’affiche.</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Le trajet d’une requête partie de Chine</p>
+            <p class="text-sm text-[var(--color-text-body)]">Selon le banc d’essai que l’éditeur Chinafy a publié en avril 2026 sur 614 sites internationaux, le premier octet mettait 4 à 4,5 fois plus de temps à arriver à Pékin qu’en Virginie ou à Londres.</p>
           </div>
           <div class="flex items-center gap-4 text-xs text-[var(--color-text-muted)]">
             <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-red-400"></span> Étranger</div>
@@ -913,8 +915,6 @@ const pageLd = [...serviceLd];
           {performanceRows.map((row, i) => {
             const colour = i === 0 ? 'bg-red-400' : i === 1 ? 'bg-amber-400' : 'bg-[var(--color-brand-orange)]';
             const textColour = i === 0 ? 'text-red-500' : i === 1 ? 'text-amber-600' : 'text-[var(--color-brand-orange)]';
-            // bar widths normalised to 12s = 100%
-            const widthPct = Math.min((row.loadTime / 12) * 100, 100);
             return (
               <div class="grid grid-cols-12 gap-4 items-center">
                 <div class="col-span-12 sm:col-span-3">
@@ -925,18 +925,13 @@ const pageLd = [...serviceLd];
                     {row.location}
                   </p>
                   <p class="mt-0.5 text-xs text-[var(--color-text-muted)]">
-                    ICP : {row.icp} · Baidu : {row.baiduBoost}
+                    Dépôt ICP : {row.icp}
                   </p>
                 </div>
                 <div class="col-span-12 sm:col-span-9 flex items-center gap-3">
-                  <div class="flex-1 h-9 bg-[var(--color-surface-light)] rounded-md overflow-hidden">
-                    <div
-                      class:list={['h-full rounded-md transition-all duration-700', colour]}
-                      style={`width: ${widthPct}%; ${row.highlight ? 'box-shadow: 0 0 0 2px rgba(242,95,41,0.15);' : ''}`}
-                    ></div>
-                  </div>
-                  <p class:list={['flex-shrink-0 w-32 text-right text-sm lg:text-base font-semibold font-mono tabular-nums', textColour]}>
-                    {row.loadLabel}
+                  <span class:list={['flex-shrink-0 w-3 h-9 rounded-md', colour]} aria-hidden="true"></span>
+                  <p class:list={['text-sm lg:text-base font-semibold', textColour]}>
+                    {row.route}
                   </p>
                 </div>
               </div>
@@ -945,7 +940,7 @@ const pageLd = [...serviceLd];
         </div>
 
         <p class="mt-10 pt-6 border-t border-[var(--color-surface-border)] text-base text-[var(--color-text-body)] leading-relaxed text-center max-w-2xl mx-auto">
-          Les internautes chinois veulent des pages rapides ; sinon, ils referment l’onglet. L’hébergement continental sous licence ICP, c’est ce qui remet votre site dans la course.
+          Les internautes chinois veulent des pages rapides ; sinon, ils referment l’onglet. L’hébergement continental, dépôt ICP à l’appui, épargne à chaque requête le passage de la frontière.
         </p>
       </div>
     </div>
@@ -1069,4 +1064,5 @@ const pageLd = [...serviceLd];
     document.addEventListener('astro:page-load', initHostingTabs);
   </script>
 
+<p class="mx-auto max-w-5xl px-6 pb-8 text-sm text-[var(--color-text-muted)]">Les trajets décrits concernent les fichiers servis par le serveur indiqué. Les scripts externes, les API et le routage des CDN se vérifient séparément.</p>
 </PageLayout>

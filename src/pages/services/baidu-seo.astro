@@ -32,8 +32,8 @@ const whyDifferent = [
   {
     n: '03',
     cn: '主机',
-    title: 'Hosting location is a ranking signal',
-    body: "Sites without an ICP filing get penalised in Baidu's index. Mainland hosting outranks identical content in Hong Kong or abroad. Structural, not coincidental.",
+    title: 'Hosting determines the filing requirement',
+    body: 'A site on a mainland server needs an ICP filing before launch. Hong Kong and overseas hosting do not require it. Check that crawlers can reach your pages and the resources they need.',
     tag: 'Infrastructure',
     chips: ['ICP', 'Mainland host', 'Aliyun', 'Tencent Cloud'],
   },
@@ -226,7 +226,7 @@ const faqs = [
     id: 'no-icp',
     question: "What if our site doesn't have an ICP filing?",
     answer: [
-      'It will rank, but with a measurable handicap. Baidu treats Hong Kong and offshore sites as foreign, crawls them less frequently, and ranks them lower than mainland-hosted alternatives. For brands serious about Baidu, an ICP filing on mainland hosting is the right call.',
+      'An ICP filing is required for hosting on a mainland server. Hong Kong and overseas servers do not require it. Choose the hosting location around your audience and check crawl access; the filing alone does not establish a ranking advantage.',
     ],
   },
   {
@@ -290,7 +290,8 @@ const faqLd = {
   })),
 };
 const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
-const pageLd = [...serviceLd, faqLd];
+const updatedAt = '2026-10-22';
+const pageLd = [...serviceLd, faqLd, { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt }];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} jsonLd={pageLd}>

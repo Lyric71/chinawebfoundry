@@ -32,8 +32,8 @@ const whyDifferent = [
   {
     n: '03',
     cn: '主机',
-    title: 'Dónde se aloja el sitio también cuenta',
-    body: 'Un sitio sin registro ICP parte con desventaja en el índice. Con el mismo contenido, el que se aloja en China continental queda por encima de los de Hong Kong o del extranjero. Es una señal de fondo que pesa en cada consulta.',
+    title: 'El registro ICP depende del alojamiento',
+    body: 'Alojar la web en China continental exige tramitar el registro ICP antes de publicarla. En Hong Kong o en el extranjero no se exige. Revise el acceso de los rastreadores a las páginas y a los recursos que necesitan.',
     tag: 'Infraestructura',
     chips: ['ICP', 'Continental', 'Aliyun', 'Tencent Cloud'],
   },
@@ -226,7 +226,7 @@ const faqs = [
     id: 'no-icp',
     question: '¿Y si nuestro sitio no tiene registro ICP?',
     answer: [
-      'Posicionará, pero con una clara desventaja. Baidu trata como extranjeros los sitios alojados en Hong Kong o fuera del país: los rastrea menos a menudo y los deja por debajo de los continentales. Si una marca se toma Baidu en serio, el registro ICP con alojamiento en el continente sigue siendo la opción acertada.',
+      'El registro ICP se exige al alojar la web en un servidor continental. En Hong Kong o en el extranjero no es obligatorio. Elija según su público y compruebe el acceso de los rastreadores. El registro por sí solo no acredita una mejora en los resultados de búsqueda.',
     ],
   },
   {
@@ -292,7 +292,8 @@ const faqLd = {
 };
 
 const serviceLd = serviceSchema(Astro.url, Astro.site, service.data);
-const pageLd = [...serviceLd, faqLd];
+const updatedAt = '2026-10-22';
+const pageLd = [...serviceLd, faqLd, { '@context': 'https://schema.org', '@type': 'WebPage', url: Astro.url.href, dateModified: updatedAt }];
 ---
 
 <PageLayout title={metaTitle} description={metaDescription} heroPage={true} lang="es" jsonLd={pageLd}>
