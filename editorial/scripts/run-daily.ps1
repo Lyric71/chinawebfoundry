@@ -57,7 +57,7 @@ if (-not $Force -and (Get-Date).Date -lt $PlanStart) {
   exit 0
 }
 
-# The shared runner uses: Opus 5.5, then Fable, GPT-6 Astra and GPT-5.6 Sol as fallbacks.
+# The shared runner uses: Opus 5.5, then Fable, GPT-6 Astra, GPT-5.6 Sol and Gemini 4 Argon as fallbacks.
 $Model = 'claude-opus-5-5'
 
 if ($Mode -eq 'draft') {

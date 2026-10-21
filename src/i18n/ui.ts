@@ -11,6 +11,7 @@ export const ui = {
     'nav.contactUs': 'Contact Us',
     'nav.chinaSiteScanner': 'China Site Scanner',
     'nav.chinaWebGuide': 'China Web Guide',
+    'nav.chinaDependencyIndex': 'China Dependency Index',
     'nav.faq': 'Frequently Asked Questions',
     'nav.faqShort': 'FAQ',
     'nav.allServices': 'All services overview',
@@ -35,6 +36,7 @@ export const ui = {
     'nav.desc.maintenanceSupport': 'Ongoing updates and monitoring',
     'nav.desc.chinaSiteScanner': 'Test your site for China readiness',
     'nav.desc.chinaWebGuide': 'Your guide to the Chinese web',
+    'nav.desc.chinaDependencyIndex': '115 web dependencies tracked monthly across China',
     'nav.desc.faq': 'Common questions answered',
 
     // Navigation service labels
@@ -111,6 +113,7 @@ export const ui = {
     'nav.contactUs': 'Nous écrire',
     'nav.chinaSiteScanner': 'China Site Scanner',
     'nav.chinaWebGuide': 'Guide du web chinois',
+    'nav.chinaDependencyIndex': 'Indice des dépendances web en Chine',
     'nav.faq': 'Questions fréquentes',
     'nav.faqShort': 'FAQ',
     'nav.allServices': 'Toutes nos prestations',
@@ -135,6 +138,7 @@ export const ui = {
     'nav.desc.maintenanceSupport': 'Mises à jour et supervision en continu',
     'nav.desc.chinaSiteScanner': 'Tester votre site face à la réalité chinoise',
     'nav.desc.chinaWebGuide': 'Le guide pour décoder le web chinois',
+    'nav.desc.chinaDependencyIndex': '115 dépendances web suivies chaque mois en Chine',
     'nav.desc.faq': 'Les questions qui reviennent le plus souvent',
 
     // Navigation service labels
@@ -211,6 +215,7 @@ export const ui = {
     'nav.contactUs': 'Hablemos',
     'nav.chinaSiteScanner': 'China Site Scanner',
     'nav.chinaWebGuide': 'Guía de la web china',
+    'nav.chinaDependencyIndex': 'Índice de dependencias web en China',
     'nav.faq': 'Preguntas frecuentes',
     'nav.faqShort': 'FAQ',
     'nav.allServices': 'Ver todos los servicios',
@@ -235,6 +240,7 @@ export const ui = {
     'nav.desc.maintenanceSupport': 'Actualizaciones y vigilancia constantes',
     'nav.desc.chinaSiteScanner': 'Poner su sitio a prueba frente a la realidad china',
     'nav.desc.chinaWebGuide': 'La guía para descifrar la web china',
+    'nav.desc.chinaDependencyIndex': '115 dependencias web seguidas mes a mes en China',
     'nav.desc.faq': 'Las dudas que más se repiten',
 
     // Navigation service labels
@@ -311,6 +317,7 @@ export const ui = {
     'nav.contactUs': 'Kontakt aufnehmen',
     'nav.chinaSiteScanner': 'China Site Scanner',
     'nav.chinaWebGuide': 'China-Web-Leitfaden',
+    'nav.chinaDependencyIndex': 'China-Abhängigkeitsindex',
     'nav.faq': 'Häufige Fragen',
     'nav.faqShort': 'FAQ',
     'nav.allServices': 'Alle Leistungen im Überblick',
@@ -335,6 +342,7 @@ export const ui = {
     'nav.desc.maintenanceSupport': 'Laufende Updates und Überwachung',
     'nav.desc.chinaSiteScanner': 'Ihre Website auf China-Tauglichkeit prüfen',
     'nav.desc.chinaWebGuide': 'Ihr Wegweiser durch das chinesische Web',
+    'nav.desc.chinaDependencyIndex': '115 Web-Abhängigkeiten monatlich in China geprüft',
     'nav.desc.faq': 'Die Fragen, die am häufigsten kommen',
 
     // Navigation service labels

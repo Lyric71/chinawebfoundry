@@ -102,6 +102,11 @@ export function getMainNav(lang: Locale): NavItem[] {
           description: t('nav.desc.chinaWebGuide'),
         },
         {
+          label: t('nav.chinaDependencyIndex'),
+          href: lp('/resources/china-dependency-index/'),
+          description: t('nav.desc.chinaDependencyIndex'),
+        },
+        {
           label: t('nav.faq'),
           href: lp('/resources/faq/'),
           description: t('nav.desc.faq'),
@@ -157,8 +162,13 @@ export function getFooterNav(lang: Locale) {
     resources: [
       { label: t('nav.chinaSiteScanner'), href: lp('/china-site-scanner/') },
       { label: t('nav.chinaWebGuide'), href: lp('/resources/china-web-guide/') },
+      { label: t('nav.chinaDependencyIndex'), href: lp('/resources/china-dependency-index/') },
       { label: t('nav.faqShort'), href: lp('/resources/faq/') },
-      ...(lang === 'en' ? [{ label: "CEO's Opinion", href: '/resources/ceo-opinion/' }] : []),
+      ...(lang === 'en'
+        ? [
+            { label: "CEO's Opinion", href: '/resources/ceo-opinion/' },
+          ]
+        : []),
     ],
   };
 }

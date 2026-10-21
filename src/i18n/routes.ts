@@ -30,6 +30,7 @@ export const staticRoutes: Record<string, Trans> = {
   '/contact/': { fr: '/contact/', es: '/contacto/', de: '/kontakt/' },
   '/resources/': { fr: '/ressources/', es: '/recursos/', de: '/ressourcen/' },
   '/resources/china-web-guide/': { fr: '/ressources/guide-web-chine/', es: '/recursos/guia-web-china/', de: '/ressourcen/china-web-leitfaden/' },
+  '/resources/china-dependency-index/': { fr: '/ressources/indice-dependances-chine/', es: '/recursos/indice-dependencias-china/', de: '/ressourcen/china-abhaengigkeitsindex/' },
   '/resources/faq/': { fr: '/ressources/faq/', es: '/recursos/faq/', de: '/ressourcen/faq/' },
   '/privacy-policy/': { fr: '/politique-de-confidentialite/', es: '/politica-de-privacidad/', de: '/datenschutz/' },
   '/terms-of-service/': { fr: '/conditions-generales/', es: '/condiciones-del-servicio/', de: '/nutzungsbedingungen/' },

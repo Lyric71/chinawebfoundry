@@ -98,6 +98,11 @@ export const mainNav: NavItem[] = [
         description: 'Test your site for China readiness',
       },
       {
+        label: 'China Dependency Index',
+        href: '/resources/china-dependency-index/',
+        description: '115 web dependencies tracked monthly across China',
+      },
+      {
         label: 'China Web Guide',
         href: '/resources/china-web-guide/',
         description: 'Your guide to the Chinese web',
@@ -124,6 +129,7 @@ export const footerNav = {
   ],
   resources: [
     { label: 'China Site Scanner', href: '/china-site-scanner/' },
+    { label: 'China Dependency Index', href: '/resources/china-dependency-index/' },
     { label: 'China Web Guide', href: '/resources/china-web-guide/' },
     { label: 'FAQ', href: '/resources/faq/' },
   ],

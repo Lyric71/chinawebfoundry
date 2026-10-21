@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Button from '../ui/Button.astro';
 
 const guides = (await getCollection('guides'))
-  .filter((guide) => guide.data.published)
+  .filter((guide) => guide.data.published && !guide.id.startsWith('china-dependency-index-'))
   .sort((a, b) => b.data.order - a.data.order)
   .slice(0, 3);
 ---

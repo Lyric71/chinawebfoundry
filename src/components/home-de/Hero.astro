@@ -7,6 +7,9 @@
  * Der Header liegt über dieser Sektion (auf Hero-Seiten transparent).
  */
 import Button from '../ui/Button.astro';
+import { loadDependencyIndexData } from '../../data/dependencyIndex';
+
+const { latestEdition, verdictSummaries, globalTendency } = loadDependencyIndexData('de');
 
 const trustBadges = [
   'Büro in Shanghai',
@@ -24,7 +27,7 @@ const trustBadges = [
 
 <section
   data-hero
-  class="relative bg-[var(--color-surface-dark)] overflow-hidden min-h-[100vh] flex flex-col"
+  class="relative bg-[var(--color-surface-dark)] overflow-hidden min-h-[100svh] flex flex-col justify-between"
 >
   <!-- ====== HINTERGRUND ====== -->
   <!-- Skyline als Hintergrundbild -->
@@ -63,62 +66,58 @@ const trustBadges = [
   <!-- Großes dekoratives chinesisches Schriftzeichen -->
   <span
     aria-hidden="true"
-    class="absolute right-[-4rem] bottom-[-2rem] text-[26rem] lg:text-[32rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block"
+    class="absolute right-[-4rem] bottom-[-2rem] text-[22rem] lg:text-[28rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none pointer-events-none hidden md:block"
     data-hero-glyph
   >中</span>
 
-  <!-- Statusleiste oben (Live-Indikator) -->
-  <div class="relative z-30 mx-auto w-full max-w-[1400px] section-padding pt-24 lg:pt-28">
-    <div class="flex items-center justify-between gap-4 flex-wrap">
-      <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.04] backdrop-blur-md border border-white/10">
-        <span class="relative flex h-2 w-2">
-          <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-75 animate-ping"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
-        </span>
-        <span class="text-[11px] font-mono uppercase tracking-[0.18em] text-white/70">Live aus Shanghai · 上海</span>
-        <span class="text-white/30">·</span>
-        <span class="text-[11px] font-mono text-white/55" data-hero-clock>--:--</span>
-      </div>
-    </div>
-  </div>
-
   <!-- ====== HAUPTRASTER ====== -->
-  <div class="relative z-20 mx-auto w-full max-w-[1400px] section-padding flex-1 flex items-center pt-12 pb-20 lg:pb-28">
-    <div class="grid grid-cols-12 gap-8 lg:gap-12 w-full items-center">
-      <!-- LINKS: Titel, CTAs, Live-Kennzahlen -->
+  <div class="relative z-20 mx-auto w-full max-w-[1400px] section-padding flex-1 flex items-center pt-[68px] sm:pt-[74px] lg:pt-[78px] pb-2 sm:pb-3 lg:pb-4">
+    <div class="grid grid-cols-12 gap-4 lg:gap-8 w-full items-center">
+      <!-- LINKS: Titel, CTAs, Live-Kennzahlen, grafische Leiste zum Abhängigkeitsindex -->
       <div class="col-span-12 lg:col-span-7" data-hero-text>
-        <!-- Vortitel -->
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-10 bg-[var(--color-brand-orange)]"></div>
-          <span class="text-xs lg:text-sm font-medium tracking-[0.18em] text-[var(--color-brand-orange)] uppercase">
-            Webagentur für China · Büro in Shanghai
-          </span>
+        <!-- Statusleiste und Vortitel kombiniert -->
+        <div class="flex flex-wrap items-center gap-2.5 mb-2 sm:mb-2.5">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-white/[0.04] backdrop-blur-md border border-white/10">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-75 animate-ping"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.16em] text-white/75">Live aus Shanghai · 上海</span>
+            <span class="text-white/30">·</span>
+            <span class="text-[10px] font-mono text-white/55" data-hero-clock>--:--</span>
+          </div>
+          <div class="hidden sm:flex items-center gap-2">
+            <div class="h-px w-5 bg-[var(--color-brand-orange)]"></div>
+            <span class="text-[11px] font-medium tracking-[0.16em] text-[var(--color-brand-orange)] uppercase">
+              Webagentur für China · Büro in Shanghai
+            </span>
+          </div>
         </div>
 
         <!-- Titel mit Verlaufsakzent -->
-        <h1 class="text-[clamp(2.4rem,5.4vw,4.5rem)] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
+        <h1 class="hero-headline text-[clamp(1.7rem,3.5vw,3.15rem)] font-medium font-[var(--font-heading)] text-white leading-[1.02] tracking-tight">
           Eine Webagentur
-          <span class="block mt-2">
+          <span class="block mt-0.5">
             <span class="relative inline-block">
               <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
                 aus Shanghai
               </span>
             </span>
           </span>
-          <span class="block mt-2 text-white/95">für China.</span>
+          <span class="block mt-0.5 text-white/95">für China.</span>
         </h1>
 
-        <p class="mt-7 text-base lg:text-xl text-white/65 leading-relaxed max-w-[640px]">
+        <p class="hero-lead mt-2 sm:mt-2.5 lg:mt-3 text-xs sm:text-sm lg:text-[15px] text-white/65 leading-snug max-w-[600px]">
           In China wird anders gelesen, gesucht und gekauft. Wir bauen Websites, die genau darauf eingehen: chinesische Inhalte, eine mobile Bedienung, die dem hiesigen Leseverhalten folgt, und Sichtbarkeit auf Baidu wie in den chinesischen KI-Diensten.
           <span class="text-white/85 font-medium">Geführt aus Shanghai, seit 15 Jahren vor Ort.</span>
         </p>
 
         <!-- CTAs -->
-        <div class="mt-9 flex flex-wrap items-center gap-4">
-          <Button href="/de/kontakt/" variant="primary" size="lg">Mit unserem Team sprechen</Button>
+        <div class="hero-actions mt-3 sm:mt-3.5 flex flex-wrap items-center gap-2.5 sm:gap-3">
+          <Button href="/de/kontakt/" variant="primary" size="md">Mit unserem Team sprechen</Button>
           <a
             href="/de/china-site-scanner/"
-            class="group inline-flex items-center gap-3 px-7 py-3 text-base font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(255,255,255,0.10)] active:translate-y-0 no-underline transition-all duration-200"
+            class="group inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium font-[var(--font-button)] rounded-[var(--radius-pill)] border border-white/20 bg-white/[0.04] backdrop-blur-md text-white hover:bg-white/[0.10] hover:border-white/40 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(255,255,255,0.10)] active:translate-y-0 no-underline transition-all duration-200"
           >
             <span class="relative flex h-2 w-2">
               <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-60 animate-ping"></span>
@@ -132,33 +131,106 @@ const trustBadges = [
         </div>
 
         <!-- Live-Kennzahlen -->
-        <div class="mt-12 grid grid-cols-3 gap-6 max-w-xl">
-          <div class="border-l-2 border-[var(--color-brand-orange)]/70 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">15</span></div>
-            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Jahre digital in CN</div>
+        <div class="hero-stats mt-2.5 sm:mt-3 grid grid-cols-3 gap-3 sm:gap-5 max-w-md">
+          <div class="border-l-2 border-[var(--color-brand-orange)]/70 pl-2.5 sm:pl-3">
+            <div class="text-lg sm:text-xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter data-counter-suffix="+">15</span></div>
+            <div class="text-[9px] uppercase tracking-[0.14em] text-white/50 mt-0.5">Jahre digital in CN</div>
           </div>
-          <div class="border-l-2 border-white/15 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none">SH</div>
-            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Chinesisches Team</div>
+          <div class="border-l-2 border-white/15 pl-2.5 sm:pl-3">
+            <div class="text-lg sm:text-xl font-medium font-[var(--font-heading)] text-white leading-none">SH</div>
+            <div class="text-[9px] uppercase tracking-[0.14em] text-white/50 mt-0.5">Chinesisches Team</div>
           </div>
-          <div class="border-l-2 border-white/15 pl-4">
-            <div class="text-2xl lg:text-3xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter>10</span></div>
-            <div class="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-2">Leistungen im Haus</div>
+          <div class="border-l-2 border-white/15 pl-2.5 sm:pl-3">
+            <div class="text-lg sm:text-xl font-medium font-[var(--font-heading)] text-white leading-none"><span data-counter>10</span></div>
+            <div class="text-[9px] uppercase tracking-[0.14em] text-white/50 mt-0.5">Leistungen im Haus</div>
           </div>
         </div>
+
+        <!-- Grafische Leiste zum China-Abhängigkeitsindex -->
+        <a
+          href="/de/ressourcen/china-abhaengigkeitsindex/"
+          class="hero-index-strip group mt-2.5 sm:mt-3 block max-w-2xl rounded-2xl bg-white/[0.04] hover:bg-white/[0.07] backdrop-blur-md border border-white/12 hover:border-[var(--color-brand-orange)]/45 p-2.5 sm:p-3 no-underline transition-all duration-300"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5 pb-1.5 border-b border-white/10">
+            <div class="flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <div class="inline-flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+                <span class="text-[10px] font-mono uppercase tracking-[0.14em] text-[var(--color-brand-orange)]">
+                  China-Abhängigkeitsindex · {latestEdition.label}
+                </span>
+              </div>
+              <div class="inline-flex items-baseline gap-1.5 pl-2 border-l border-white/15">
+                <span class="text-sm sm:text-base font-mono font-bold text-white leading-none">
+                  {globalTendency.reachabilityPct}
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/60">
+                  erreichbar ({globalTendency.reachableCount}/{globalTendency.testedCount})
+                </span>
+                <span
+                  class:list={[
+                    'inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full border font-mono text-[10px] sm:text-[11px] font-semibold leading-none',
+                    globalTendency.trendBadgeClass,
+                  ]}
+                  title={`Gesamterreichbarkeit unter getesteten Hosts: ${globalTendency.prevReachabilityPct} → ${globalTendency.reachabilityPct} (${globalTendency.comparisonLabel})`}
+                >
+                  <span>{globalTendency.trendArrow}</span>
+                  <span>{globalTendency.deltaPct}</span>
+                </span>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-mono text-white/75 group-hover:text-[var(--color-brand-orange)] transition-colors">
+              <span>{latestEdition.totalEntries} erfasste Hosts</span>
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+
+          <!-- Proportionale Befundleiste -->
+          <div
+            class="flex h-1.5 w-full rounded-full overflow-hidden bg-white/[0.06] gap-0.5 p-0.5 mb-1.5"
+            role="img"
+            aria-label={`Verteilung im China-Abhängigkeitsindex (${latestEdition.label}) über ${latestEdition.totalEntries} Hosts`}
+          >
+            {verdictSummaries.map((v) => (
+              <div
+                class:list={['h-full first:rounded-l-full last:rounded-r-full', v.barClass]}
+                style={`width: ${(v.count / latestEdition.totalEntries) * 100}%`}
+                title={`${v.label}: ${v.count}`}
+              ></div>
+            ))}
+          </div>
+
+          <!-- Kompakte grafische Legende -->
+          <div class="flex flex-wrap items-center gap-x-2.5 gap-y-0.5">
+            {verdictSummaries.map((v) => (
+              <span class="inline-flex items-center gap-1 text-[10px] text-white/70">
+                <span class:list={['w-1.5 h-1.5 rounded-full flex-shrink-0', v.dotClass]}></span>
+                <span>{v.label}</span>
+                <strong class="font-mono text-white">{v.count}</strong>
+                <span
+                  class:list={['font-mono text-[9px] sm:text-[10px] font-medium', v.trendClass]}
+                  title={`Vorausgabe: ${v.prevCount} → ${v.count}`}
+                >
+                  {v.trendArrow}{v.trendText}
+                </span>
+              </span>
+            ))}
+          </div>
+        </a>
       </div>
 
       <!-- RECHTS: schwebende UI-Mockup-Karten -->
-      <div class="hidden lg:block col-span-12 lg:col-span-5 relative h-[560px]" data-hero-mockups>
+      <div class="hidden lg:block col-span-12 lg:col-span-5 relative h-[390px] xl:h-[430px]" data-hero-mockups>
         <!-- Karte 1: Baidu-Ranking-Monitor -->
         <div
           data-mockup="1"
-          class="absolute top-0 right-0 w-[320px] rounded-2xl bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/15 p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
+          class="absolute top-0 right-0 w-[290px] xl:w-[310px] rounded-2xl bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/15 p-4 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
           style="animation-delay: 0s;"
         >
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between mb-3">
             <div class="inline-flex items-center gap-2">
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#2932E1]/15 border border-[#2932E1]/30 text-[10px] font-bold text-[#7A82FF]">百</span>
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-[#2932E1]/15 border border-[#2932E1]/30 text-[10px] font-bold text-[#7A82FF]">百</span>
               <span class="text-xs font-mono text-white/85">Baidu-Ranking</span>
             </div>
             <span class="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-300">
@@ -167,7 +239,7 @@ const trustBadges = [
             </span>
           </div>
           <!-- Mini-Balkendiagramm -->
-          <div class="flex items-end gap-1.5 h-16 mb-3">
+          <div class="flex items-end gap-1.5 h-12 mb-2.5">
             <div class="flex-1 rounded-sm bg-white/15" style="height: 30%"></div>
             <div class="flex-1 rounded-sm bg-white/20" style="height: 45%"></div>
             <div class="flex-1 rounded-sm bg-white/25" style="height: 38%"></div>
@@ -176,9 +248,9 @@ const trustBadges = [
             <div class="flex-1 rounded-sm bg-[var(--color-brand-orange)]/80" style="height: 85%"></div>
             <div class="flex-1 rounded-sm bg-[var(--color-brand-orange)]" style="height: 95%"></div>
           </div>
-          <div class="flex items-baseline justify-between pt-3 border-t border-white/10">
+          <div class="flex items-baseline justify-between pt-2.5 border-t border-white/10">
             <div>
-              <div class="text-2xl font-medium font-[var(--font-heading)] text-white leading-none">#3</div>
+              <div class="text-xl font-medium font-[var(--font-heading)] text-white leading-none">Top 3</div>
               <div class="text-[9px] uppercase tracking-wider text-white/45 mt-1">企业网站设计</div>
             </div>
             <div class="text-right">
@@ -191,12 +263,12 @@ const trustBadges = [
         <!-- Karte 2: ICP-Lizenz -->
         <div
           data-mockup="2"
-          class="absolute top-[150px] left-0 w-[280px] rounded-2xl bg-gradient-to-br from-emerald-500/[0.10] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-emerald-400/25 p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
+          class="absolute top-[115px] xl:top-[130px] left-0 w-[260px] xl:w-[275px] rounded-2xl bg-gradient-to-br from-emerald-500/[0.10] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-emerald-400/25 p-4 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
           style="animation-delay: 1.5s;"
         >
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between mb-3">
             <div class="inline-flex items-center gap-2">
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-300">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-300">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               <span class="text-xs font-mono text-white/85">ICP-Lizenz</span>
@@ -206,20 +278,20 @@ const trustBadges = [
               <span class="text-[9px] font-semibold uppercase tracking-wider text-emerald-300">Aktiv</span>
             </span>
           </div>
-          <div class="text-sm font-mono text-white mb-1">沪ICP备2024XXXXXX号</div>
+          <div class="text-xs font-mono text-white mb-0.5">沪ICP备2024XXXXXX号</div>
           <div class="text-[10px] text-white/45">Eingereicht über Aliyun · gültig bis 2027</div>
-          <div class="mt-3 pt-3 border-t border-white/10 grid grid-cols-3 gap-2">
+          <div class="mt-2.5 pt-2.5 border-t border-white/10 grid grid-cols-3 gap-2">
             <div>
               <div class="text-[9px] uppercase tracking-wider text-white/40">Provinz</div>
-              <div class="text-xs font-mono text-white/85">Shanghai</div>
+              <div class="text-[11px] font-mono text-white/85">Shanghai</div>
             </div>
             <div>
               <div class="text-[9px] uppercase tracking-wider text-white/40">Typ</div>
-              <div class="text-xs font-mono text-white/85">B2B</div>
+              <div class="text-[11px] font-mono text-white/85">B2B</div>
             </div>
             <div>
               <div class="text-[9px] uppercase tracking-wider text-white/40">Jahr</div>
-              <div class="text-xs font-mono text-white/85">2024</div>
+              <div class="text-[11px] font-mono text-white/85">2024</div>
             </div>
           </div>
         </div>
@@ -227,23 +299,23 @@ const trustBadges = [
         <!-- Karte 3: Performance -->
         <div
           data-mockup="3"
-          class="absolute bottom-[140px] right-[20px] w-[260px] rounded-2xl bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/15 p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
+          class="absolute bottom-[110px] xl:bottom-[120px] right-[10px] w-[240px] xl:w-[255px] rounded-2xl bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/15 p-4 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
           style="animation-delay: 0.7s;"
         >
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between mb-2.5">
             <div class="inline-flex items-center gap-2">
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-[var(--color-brand-orange)]/15 text-[var(--color-brand-orange)]">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </span>
               <span class="text-xs font-mono text-white/85">Ladezeit · 上海 PVG</span>
             </div>
           </div>
-          <div class="flex items-baseline gap-2 mb-3">
-            <span class="text-3xl font-medium font-[var(--font-heading)] text-white leading-none">1,2</span>
-            <span class="text-sm font-mono text-white/50">s</span>
+          <div class="flex items-baseline gap-1.5 mb-2">
+            <span class="text-2xl font-medium font-[var(--font-heading)] text-white leading-none">1,2</span>
+            <span class="text-xs font-mono text-white/50">s</span>
           </div>
           <!-- Fortschrittsbalken -->
-          <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden mb-2">
+          <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden mb-1.5">
             <div class="h-full w-[85%] bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full"></div>
           </div>
           <div class="flex items-center justify-between text-[10px] font-mono">
@@ -255,19 +327,19 @@ const trustBadges = [
         <!-- Karte 4: KI-Suchmaschinen -->
         <div
           data-mockup="4"
-          class="absolute bottom-0 left-[20px] w-[300px] rounded-2xl bg-gradient-to-br from-[#8b5cf6]/[0.12] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-[#8b5cf6]/25 p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
+          class="absolute bottom-0 left-[10px] w-[280px] xl:w-[295px] rounded-2xl bg-gradient-to-br from-[#8b5cf6]/[0.12] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-[#8b5cf6]/25 p-4 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] mockup-float"
           style="animation-delay: 2.2s;"
         >
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between mb-2.5">
             <div class="inline-flex items-center gap-2">
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#8b5cf6]/15 text-[#a78bfa]">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-[#8b5cf6]/15 text-[#a78bfa]">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
               </span>
               <span class="text-xs font-mono text-white/85">KI-Zitierungen · CN</span>
             </div>
             <span class="text-[10px] font-mono text-white/45">30 Tage</span>
           </div>
-          <div class="space-y-2.5">
+          <div class="space-y-1.5">
             <div class="flex items-center gap-3">
               <span class="text-[10px] font-mono text-white/60 w-16">DeepSeek</span>
               <div class="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
@@ -300,10 +372,10 @@ const trustBadges = [
         </div>
 
         <!-- Dekorative Verbindungslinien -->
-        <svg aria-hidden="true" class="absolute inset-0 w-full h-full pointer-events-none opacity-30" viewBox="0 0 500 560" fill="none">
-          <line x1="290" y1="100" x2="180" y2="200" stroke="url(#gradLine)" stroke-width="1" stroke-dasharray="4 4"/>
-          <line x1="180" y1="280" x2="280" y2="380" stroke="url(#gradLine)" stroke-width="1" stroke-dasharray="4 4"/>
-          <line x1="280" y1="380" x2="180" y2="480" stroke="url(#gradLine)" stroke-width="1" stroke-dasharray="4 4"/>
+        <svg aria-hidden="true" class="absolute inset-0 w-full h-full pointer-events-none opacity-30" viewBox="0 0 500 480" fill="none">
+          <line x1="290" y1="80" x2="180" y2="170" stroke="url(#gradLine)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="180" y1="240" x2="280" y2="320" stroke="url(#gradLine)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="280" y1="320" x2="180" y2="410" stroke="url(#gradLine)" stroke-width="1" stroke-dasharray="4 4"/>
           <defs>
             <linearGradient id="gradLine" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#F25F29" stop-opacity="0.6"/>
@@ -316,7 +388,7 @@ const trustBadges = [
   </div>
 
   <!-- ====== DURCHLAUFENDES TRUST-BAND ====== -->
-  <div class="relative z-20 border-y border-white/10 bg-black/30 backdrop-blur-sm py-4 overflow-hidden">
+  <div class="relative z-20 border-y border-white/10 bg-black/30 backdrop-blur-sm py-2.5 sm:py-3 overflow-hidden">
     <div class="flex gap-12 animate-[marquee_55s_linear_infinite] whitespace-nowrap">
       {[...trustBadges, ...trustBadges, ...trustBadges].map((badge) => (
         <span class="inline-flex items-center gap-2.5 text-sm font-medium text-white/55 hover:text-[var(--color-brand-orange)] transition-colors">
@@ -370,6 +442,53 @@ const trustBadges = [
     box-shadow: 0 30px 70px -20px rgba(242, 95, 41, 0.25);
   }
 
+  @media (max-height: 780px) {
+    .hero-headline {
+      font-size: clamp(1.7rem, 3.6vw, 3.1rem);
+    }
+    .hero-lead {
+      margin-top: 0.65rem;
+      font-size: 0.925rem;
+      line-height: 1.45;
+    }
+    .hero-actions {
+      margin-top: 0.85rem;
+    }
+    .hero-stats {
+      margin-top: 0.85rem;
+    }
+    .hero-index-strip {
+      margin-top: 0.85rem;
+      padding: 0.65rem 0.85rem;
+    }
+    [data-hero-mockups] {
+      height: 390px;
+      transform: scale(0.92);
+      transform-origin: center right;
+    }
+  }
+
+  @media (max-height: 680px) {
+    .hero-headline {
+      font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+    }
+    .hero-lead {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    .hero-actions,
+    .hero-stats,
+    .hero-index-strip {
+      margin-top: 0.6rem;
+    }
+    [data-hero-mockups] {
+      height: 350px;
+      transform: scale(0.84);
+      transform-origin: center right;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .mesh-orb-1, .mesh-orb-2, .mesh-orb-3, .mockup-float {
       animation: none !important;
@@ -382,7 +501,6 @@ const trustBadges = [
     const hero = document.querySelector<HTMLElement>('[data-hero]');
     if (!hero) return;
 
-    // Maus-Parallaxe: Hintergrundbild und Karten driften gegen den Cursor
     const bg = hero.querySelector<HTMLElement>('[data-hero-bg]');
     const mockups = Array.from(hero.querySelectorAll<HTMLElement>('[data-mockup]'));
     const glyph = hero.querySelector<HTMLElement>('[data-hero-glyph]');
@@ -422,7 +540,7 @@ const trustBadges = [
       const rect = hero!.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
-      targetX = (x - 0.5) * 2;  // -1 bis 1
+      targetX = (x - 0.5) * 2;
       targetY = (y - 0.5) * 2;
       if (!raf) raf = requestAnimationFrame(animate);
     }
@@ -439,7 +557,6 @@ const trustBadges = [
       hero.addEventListener('mouseleave', onLeave);
     }
 
-    // Live-Uhr Shanghai (CST = UTC+8)
     const clock = hero.querySelector<HTMLElement>('[data-hero-clock]');
     if (clock) {
       function updateClock() {

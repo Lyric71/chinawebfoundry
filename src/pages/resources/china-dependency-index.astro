@@ -1,0 +1,894 @@
+---
+/**
+ * China Dependency Index: dedicated hub page (/resources/china-dependency-index/).
+ *
+ * Explains what the monthly China Dependency Index is, presents the graphical
+ * category and verdict breakdown alongside an interactive 115-entry register,
+ * and tracks how the index evolves month over month as new JSON panels land in
+ * public/data/china-dependency-index-YYYY-MM.json.
+ *
+ * Ships in EN, FR, ES and DE (see staticRoutes in src/i18n/routes.ts).
+ */
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import {
+  loadDependencyIndexData,
+  VERDICT_META,
+  CATEGORY_LABELS,
+  REPORT_ANCHOR_IDS,
+  type IndexEntry,
+} from '../../data/dependencyIndex';
+
+const {
+  latestPanel,
+  latestEdition,
+  previousEdition,
+  editions,
+  verdictSummaries,
+  categorySummaries,
+  globalTendency,
+} = loadDependencyIndexData();
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') || 'https://www.chinawebfoundry.com';
+
+const datasetLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  '@id': `${siteOrigin}/resources/china-dependency-index/#dataset`,
+  name: 'China Dependency Index',
+  description:
+    `Monthly register of ${latestEdition.totalEntries} third-party web dependencies across 8 categories, compiled from dated GreatFire HTTPS verdicts and 21YunBox mainland network probes.`,
+  url: `${siteOrigin}/resources/china-dependency-index/`,
+  inLanguage: 'en-GB',
+  isPartOf: { '@id': `${siteOrigin}/#website` },
+  publisher: { '@id': `${siteOrigin}/#organization` },
+  dateModified: latestEdition.compiledOn,
+  distribution: editions.map((ed) => ({
+    '@type': 'DataDownload',
+    name: `China Dependency Index ${ed.label} (${ed.edition}) JSON`,
+    encodingFormat: 'application/json',
+    contentUrl: `${siteOrigin}${ed.jsonPath}`,
+  })),
+};
+
+function formatCloudCell(row: IndexEntry): { primary: string; sub: string | null } {
+  if (row.dc_n && row.dc_ms !== null) {
+    return { primary: `${row.dc_n} answered`, sub: `${row.dc_ms}ms median TTFB (${row.dc_date})` };
+  }
+  if (row.dc_n) {
+    return { primary: `${row.dc_n} answered`, sub: row.dc_date ? `Tested ${row.dc_date}` : null };
+  }
+  return { primary: 'Unavailable', sub: 'No named cloud probe' };
+}
+
+function formatHomeCell(row: IndexEntry): { primary: string; sub: string | null } {
+  if (row.consumer_n && row.consumer_ms !== null) {
+    return {
+      primary: `${row.consumer_n} answered`,
+      sub: `${row.consumer_ms}ms median TTFB (${row.consumer_date})`,
+    };
+  }
+  if (row.consumer_n) {
+    return {
+      primary: `${row.consumer_n} answered`,
+      sub: row.consumer_date ? `Beijing home line (${row.consumer_date})` : null,
+    };
+  }
+  return { primary: 'Unavailable', sub: 'No named home-line test' };
+}
+
+function formatGreatFireCell(row: IndexEntry): { primary: string; sub: string | null } {
+  if (!row.gf_verdict) {
+    return { primary: 'Unavailable', sub: 'No GreatFire sample' };
+  }
+  const parts: string[] = [];
+  if (row.gf_count) parts.push(`${row.gf_count} checks`);
+  if (row.gf_date) parts.push(row.gf_date);
+  return {
+    primary: row.gf_verdict,
+    sub: parts.length ? parts.join(' · ') : null,
+  };
+}
+
+function formatChangeBadge(change: string): { label: string; badgeClass: string } {
+  switch (change) {
+    case 'improved':
+      return { label: '↑ Improved', badgeClass: 'text-emerald-400' };
+    case 'degraded':
+      return { label: '↓ Degraded', badgeClass: 'text-rose-400' };
+    case 'newlyTested':
+      return { label: '★ Newly tested', badgeClass: 'text-amber-300' };
+    case 'withdrawn':
+      return { label: '− Figure withdrawn', badgeClass: 'text-white/55' };
+    case 'unchanged':
+      return { label: '→ Unchanged', badgeClass: 'text-white/45' };
+    default:
+      return { label: change, badgeClass: 'text-white/55' };
+  }
+}
+
+const methodCards = [
+  {
+    eyebrow: 'Named vantages · 测量点',
+    title: 'Cloud probe vs home broadband',
+    body: '21YunBox sampled five resources every ten minutes for twelve hours on 28 August 2026 from Alibaba Cloud (阿里云) cn-zhangjiakou with a 30-second timeout, then observed 264 page loads across 88 sites on Beijing China Mobile (中国移动) residential broadband on 30 August 2026 with a 60-second ceiling. One of the five went unanswered from the cloud; four went unanswered on the Beijing home line.',
+  },
+  {
+    eyebrow: 'Scoped targets · 测试目标',
+    title: 'Exact hostnames and test dates',
+    body: 'Each row names the tested hostname or URL path, such as fonts.googleapis.com, www.googletagmanager.com or challenges.cloudflare.com, along with its source test date. GreatFire HTTPS verdicts sit in their own reachability column because GreatFire does not name a cloud region or consumer carrier.',
+  },
+  {
+    eyebrow: 'Honest gaps · 证据边界',
+    title: 'Untested stays untested',
+    body: 'Twenty-one entries in this 115-host register have no dated third-party test on record, including js.driftt.com, js.hs-scripts.com, cdn.matomo.cloud, Crisp and Tawk.to. They stay marked untested until a dated test exists.',
+  },
+];
+
+const evolutionRules = [
+  {
+    eyebrow: 'Matching endpoints only',
+    title: 'Like-for-like deltas',
+    body: 'A row moves in the Edition change column only when the same publisher tests the same hostname and protocol on a newer date.',
+  },
+  {
+    eyebrow: 'Coverage vs network shifts',
+    title: 'Method changes logged separately',
+    body: 'Re-reading a source checks a citation without creating a new test. Withdrawn vendor-page timings or revised publisher rules are logged as evidence changes.',
+  },
+  {
+    eyebrow: 'Permanent snapshots',
+    title: 'Dated URLs and raw JSON',
+    body: 'Every monthly edition keeps its own URL and downloadable JSON manifest (/data/china-dependency-index-YYYY-MM.json) so past citations remain verifiable.',
+  },
+];
+---
+
+<PageLayout
+  title="China Dependency Index: 115 Web Hosts in China"
+  description="Monthly register of 115 third-party web hosts in China from dated GreatFire and 21YunBox data. October 2026 reachability: 48.9% (+24.5% vs Sept)."
+  heroPage={true}
+  breadcrumbName="China Dependency Index"
+  jsonLd={[datasetLd]}
+>
+  <!-- ====== HERO ====== -->
+  <section class="cdi-hero relative bg-[#0a0a0e] overflow-hidden min-h-[100svh] flex flex-col justify-center pt-[68px] sm:pt-[76px] lg:pt-[80px] pb-4 lg:pb-6">
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e]/70 via-[#0a0a0e] to-[#0f0f12]"></div>
+      <div class="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:38px_38px] opacity-50"></div>
+      <div class="absolute -top-32 left-[8%] w-[520px] h-[520px] rounded-full bg-[var(--color-brand-orange)]/[0.12] blur-[150px]"></div>
+      <div class="absolute -bottom-32 right-[8%] w-[480px] h-[480px] rounded-full bg-[#3b82f6]/[0.08] blur-[160px]"></div>
+      <span class="absolute right-[-3rem] top-[12%] text-[20rem] lg:text-[26rem] font-medium font-[var(--font-heading)] text-white/[0.025] leading-none select-none hidden md:block">
+        指数
+      </span>
+    </div>
+
+    <div class="relative z-10 mx-auto w-full max-w-[1400px] section-padding">
+      <div class="grid grid-cols-12 gap-5 lg:gap-8 items-center">
+        <!-- Left: Headline & introduction -->
+        <div class="col-span-12 lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[var(--color-brand-orange)]/15 border border-[var(--color-brand-orange)]/30 mb-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] animate-pulse"></span>
+            <span class="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-orange)]">
+              China Dependency Index · 依赖指数
+            </span>
+          </div>
+
+          <h1 class="text-[clamp(1.7rem,3.6vw,3.1rem)] font-medium font-[var(--font-heading)] text-white leading-[1.04]">
+            {latestEdition.totalEntries} web dependencies.
+            <span class="block mt-0.5">
+              <span class="bg-gradient-to-r from-[var(--color-brand-orange)] via-[#FF9466] to-[var(--color-brand-orange)] bg-clip-text text-transparent">
+                Tracked across China.
+              </span>
+            </span>
+            <span class="block mt-0.5 text-white/95">Published every month.</span>
+          </h1>
+
+          <p class="mt-2.5 sm:mt-3 text-xs sm:text-sm lg:text-[15px] text-white/70 leading-snug max-w-2xl">
+            Foreign websites often stall in China because of the third-party hosts their pages call during load: Google Fonts, tag managers, captcha widgets, form scripts, video players and search APIs. The China Dependency Index is our monthly register of {latestEdition.totalEntries} external dependencies across 8 categories, compiled from dated GreatFire HTTPS verdicts and 21YunBox network probes.
+          </p>
+          <p class="mt-2 text-xs sm:text-sm text-white/55 leading-snug max-w-2xl">
+            We compile what GreatFire and 21YunBox publish, keep Alibaba Cloud (阿里云) datacentre timings separate from Beijing China Mobile (中国移动) home-line observations, and log how each row shifts every month. We don’t run our own mainland probes.
+          </p>
+
+          <div class="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-2.5">
+            <Button href="#full-register" variant="primary" size="md">
+              Explore the {latestEdition.totalEntries}-host register
+            </Button>
+            <a
+              href={latestEdition.slug}
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/[0.04] text-xs sm:text-sm font-medium font-[var(--font-button)] text-white hover:border-[var(--color-brand-orange)] hover:bg-white/[0.08] no-underline transition-all duration-200"
+            >
+              Read {latestEdition.label} report
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a
+              href="#evolution-log"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-white/65 hover:text-white no-underline transition-colors"
+            >
+              View monthly evolution ↓
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Current Edition Graphical Card -->
+        <div class="col-span-12 lg:col-span-5">
+          <div class="rounded-3xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-4 lg:p-5">
+            <div class="flex items-start justify-between gap-3 pb-2.5 mb-2.5 border-b border-white/10">
+              <div>
+                <div class="text-[10px] font-mono uppercase tracking-[0.16em] text-white/55">
+                  Current edition · Compiled {latestEdition.compiledLabel}
+                </div>
+                <div class="text-lg sm:text-xl font-medium font-[var(--font-heading)] text-white mt-0.5">
+                  {latestEdition.label}
+                </div>
+                <div class="text-[10px] font-mono text-white/50 mt-0.5">
+                  Source window: {latestEdition.sourceWindow}
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 flex-shrink-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-300">
+                  Edition {latestEdition.edition}
+                </span>
+              </span>
+            </div>
+
+            <!-- Big Global Reachability Index & Tendency Banner -->
+            <div class="rounded-2xl bg-gradient-to-r from-emerald-500/[0.10] via-white/[0.04] to-white/[0.02] border border-emerald-400/25 p-3 mb-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <div class="text-[10px] font-mono uppercase tracking-[0.16em] text-emerald-300/90">
+                    Global Reachability Index · 整体可达率
+                  </div>
+                  <div class="flex items-baseline gap-2 mt-0.5">
+                    <span class="text-2xl sm:text-3xl font-mono font-bold text-white leading-none tracking-tight">
+                      {globalTendency.reachabilityPct}
+                    </span>
+                    <span class="text-[11px] font-mono text-white/65">
+                      reachable ({globalTendency.reachableCount}/{globalTendency.testedCount} tested)
+                    </span>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end">
+                  <span
+                    class:list={[
+                      'inline-flex items-center gap-1 px-2.5 py-1 rounded-xl border font-mono text-xs sm:text-sm font-bold leading-none',
+                      globalTendency.trendBadgeClass,
+                    ]}
+                  >
+                    <span>{globalTendency.trendArrow}</span>
+                    <span>{globalTendency.deltaPct}</span>
+                  </span>
+                  <span class="text-[10px] font-mono text-white/50 mt-0.5">
+                    {globalTendency.comparisonLabel} ({globalTendency.prevReachabilityPct})
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Verdict breakdown bar -->
+            <div class="mb-2">
+              <div class="flex items-center justify-between text-[11px] text-white/55 mb-1">
+                <span>Register distribution ({latestEdition.totalEntries} entries)</span>
+                <span class="font-mono text-[10px]">{categorySummaries.length} categories</span>
+              </div>
+              <div
+                class="flex h-2 w-full rounded-full overflow-hidden bg-white/[0.06] gap-0.5 p-0.5"
+                role="img"
+                aria-label={`Distribution of the ${latestEdition.totalEntries} dependency entries by verdict`}
+              >
+                {verdictSummaries.map((v) => (
+                  <div
+                    class:list={['h-full first:rounded-l-full last:rounded-r-full', v.barClass]}
+                    style={`width: ${(v.count / latestEdition.totalEntries) * 100}%`}
+                    title={`${v.label}: ${v.count} entries`}
+                  ></div>
+                ))}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 pt-0.5">
+              {verdictSummaries.map((v) => (
+                <div class="flex items-center justify-between gap-2 rounded-xl bg-white/[0.03] border border-white/5 px-2.5 py-1">
+                  <span class="inline-flex items-center gap-1.5 text-[11px] text-white/75 truncate">
+                    <span class:list={['w-1.5 h-1.5 rounded-full flex-shrink-0', v.dotClass]}></span>
+                    <span class="truncate">{v.label}</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 flex-shrink-0 font-mono">
+                    <span class="text-[11px] font-semibold text-white">{v.count}</span>
+                    <span
+                      class:list={['text-[10px] font-medium px-1 py-0.5 rounded bg-white/[0.04]', v.trendClass]}
+                      title={`vs ${previousEdition.label}: ${v.prevCount} → ${v.count}`}
+                    >
+                      {v.trendArrow} {v.trendText}
+                    </span>
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-white/55">
+              <span>Each row uses its cited source method</span>
+              <a
+                href={latestEdition.jsonPath}
+                class="font-mono text-[var(--color-brand-orange)] hover:text-[#FF9466] no-underline"
+              >
+                Download JSON ↓
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WHAT IT IS & METHODOLOGY ====== -->
+  <section class="py-20 md:py-28 bg-[var(--color-surface-light)] border-b border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="max-w-3xl mb-12 lg:mb-14">
+        <p class="text-xs font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange-text)] mb-3">
+          What the index measures · 指数说明
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+          Why cloud probes, Beijing home broadband and GreatFire checks stay separate
+        </h2>
+        <p class="text-base lg:text-lg text-[var(--color-text-body)] leading-relaxed mb-4">
+          A server that answers a synthetic check from an Alibaba Cloud (阿里云) datacentre can still hang in a visitor’s browser when the page calls a blocked third-party host. Each public source tests from a different network vantage point under its own timeout rules, so our register keeps those columns apart rather than blending them into one artificial latency score.
+        </p>
+        <p class="text-sm lg:text-base text-[var(--color-text-body)] leading-relaxed">
+          In October 2026, {globalTendency.reachableCount} of {globalTendency.testedCount} tested hosts ({globalTendency.reachabilityPct}) read reachable, up from {globalTendency.prevReachableCount} of {globalTendency.prevTestedCount} ({globalTendency.prevReachabilityPct}) in September 2026. Much of that {globalTendency.deltaPct} shift comes from GreatFire’s late-August 2026 decision to stop counting outright refused mainland connections as evidence of blocking, alongside 21YunBox’s 7 October 2026 withdrawal of 11 vendor-page timings and 12 newly tested hosts. When a host fails on your own pages, our <a href="/resources/china-web-guide/javascript-cdn-china/" class="text-[var(--color-brand-orange-text)] underline">JavaScript CDNs in China</a> guide, our <a href="/resources/china-web-guide/great-firewall-what-it-blocks/" class="text-[var(--color-brand-orange-text)] underline">Great Firewall compatibility table</a>, and our Shanghai <a href="/services/technical-integration/" class="text-[var(--color-brand-orange-text)] underline">Technical Integration</a> team cover the practical replacements.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+        <blockquote class="rounded-2xl bg-white border-l-4 border-[var(--color-brand-orange)] border border-[var(--color-surface-border)] p-6 shadow-sm">
+          <p class="text-sm text-[var(--color-text-dark)] leading-relaxed">
+            “Of the five resources in 21YunBox’s paired study, reCAPTCHA went unanswered from Alibaba Cloud (阿里云) cn-zhangjiakou on 28 August 2026. On Beijing China Mobile (中国移动) residential broadband on 30 August 2026, Google Fonts’ two hosts and Google Tag Manager also went unanswered. jsDelivr answered from both.”
+          </p>
+          <footer class="mt-3 text-xs font-mono text-[var(--color-text-muted)]">
+            Source: 21YunBox, 28 and 30 August 2026 · <a href="https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-[var(--color-brand-orange-text)]">21cloudbox.com</a>
+          </footer>
+        </blockquote>
+        <blockquote class="rounded-2xl bg-white border-l-4 border-[var(--color-brand-orange)] border border-[var(--color-surface-border)] p-6 shadow-sm">
+          <p class="text-sm text-[var(--color-text-dark)] leading-relaxed">
+            “Since late August 2026 refusals have been arriving on routes with no other sign of interference, so they no longer count as evidence of blocking.”
+          </p>
+          <footer class="mt-3 text-xs font-mono text-[var(--color-text-muted)]">
+            Source: GreatFire HTTPS verdict revision notes, September and October 2026 · <a href="https://en.greatfire.org/https/cdn.shopify.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-[var(--color-brand-orange-text)]">en.greatfire.org</a>
+          </footer>
+        </blockquote>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {methodCards.map((card) => (
+          <article class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-7 lg:p-8 shadow-sm">
+            <p class="text-xs font-mono uppercase tracking-[0.16em] text-[var(--color-brand-orange-text)] mb-3">
+              {card.eyebrow}
+            </p>
+            <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+              {card.title}
+            </h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed">
+              {card.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GRAPHICAL CATEGORY BREAKDOWN ====== -->
+  <section class="py-20 md:py-24 bg-[#0a0a0e] text-white border-b border-white/10">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">
+            Category breakdown · 分类视图
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-white leading-tight">
+            How the {latestEdition.totalEntries} dependencies break down across {categorySummaries.length} categories
+          </h2>
+        </div>
+        <p class="text-sm text-white/60 max-w-md">
+          Click any category card below to filter the live {latestEdition.label} register to that group.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {categorySummaries.map((cat) => (
+          <button
+            type="button"
+            data-category-jump={cat.category}
+            class="text-left rounded-2xl bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 hover:border-[var(--color-brand-orange)]/40 p-5 transition-all duration-200 cursor-pointer group"
+          >
+            <div class="flex items-start justify-between gap-2 mb-2.5">
+              <div>
+                <h3 class="text-base font-medium font-[var(--font-heading)] text-white group-hover:text-[var(--color-brand-orange)] transition-colors">
+                  {cat.label}
+                </h3>
+                <span class="text-[11px] font-mono text-white/50">
+                  {cat.total} {cat.total === 1 ? 'host' : 'hosts'} ({cat.testedCount} tested)
+                </span>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <div class="inline-flex items-baseline gap-1 font-mono">
+                  <span class="text-sm font-bold text-white">{cat.reachabilityPct}</span>
+                  <span class:list={['text-xs font-semibold', cat.trendClass]}>
+                    {cat.trendArrow}{cat.deltaPct}
+                  </span>
+                </div>
+                <div class="text-[10px] font-mono uppercase tracking-wider text-white/45">
+                  reachable
+                </div>
+              </div>
+            </div>
+
+            <div class="flex h-2 w-full rounded-full overflow-hidden bg-white/[0.06] gap-0.5 p-0.5 mb-3">
+              {cat.segments.map((seg) => (
+                <div
+                  class:list={['h-full first:rounded-l-full last:rounded-r-full', seg.barClass]}
+                  style={`width: ${(seg.count / cat.total) * 100}%`}
+                  title={`${seg.label}: ${seg.count}`}
+                ></div>
+              ))}
+            </div>
+
+            <div class="flex flex-wrap gap-x-3 gap-y-1.5">
+              {cat.segments.map((seg) => (
+                <span class="inline-flex items-center gap-1 text-[11px] text-white/70">
+                  <span class:list={['w-1.5 h-1.5 rounded-full flex-shrink-0', seg.dotClass]}></span>
+                  <span>{seg.label}:</span>
+                  <strong class="font-mono text-white">{seg.count}</strong>
+                  <span
+                    class:list={['font-mono text-[10px] font-medium', seg.trendClass]}
+                    title={`vs ${previousEdition.label}: ${seg.prevCount} → ${seg.count}`}
+                  >
+                    {seg.trendArrow}{seg.trendText}
+                  </span>
+                </span>
+              ))}
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FULL 115-ENTRY INTERACTIVE REGISTER ====== -->
+  <section id="full-register" class="py-20 md:py-28 bg-[#0a0a0e] text-white scroll-mt-24">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange)] mb-3">
+            Full register · {latestEdition.label} ({latestEdition.edition})
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-white leading-tight">
+            All {latestEdition.totalEntries} tracked dependencies
+          </h2>
+          <p class="mt-2 text-sm text-white/65 max-w-3xl">
+            Filter by category, verdict or hostname. Click any dependency row to open its evidence note in the {latestEdition.label} edition report or its cited third-party check.
+          </p>
+        </div>
+
+        <div class="w-full lg:w-72">
+          <label for="dep-search" class="sr-only">Search by dependency or hostname</label>
+          <input
+            id="dep-search"
+            type="search"
+            placeholder="Filter by name or host..."
+            class="w-full rounded-full bg-white/[0.05] border border-white/15 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-[var(--color-brand-orange)]"
+          />
+        </div>
+      </div>
+
+      <!-- Category & Verdict filter pills -->
+      <div class="space-y-3 mb-8">
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by category">
+          <span class="text-xs font-mono uppercase tracking-wider text-white/45 mr-1">Category:</span>
+          <button
+            type="button"
+            data-cat-filter="all"
+            class="dep-cat-btn is-active px-3.5 py-1.5 rounded-full text-xs font-medium border transition-colors cursor-pointer bg-[var(--color-brand-orange)] text-white border-[var(--color-brand-orange)]"
+          >
+            All ({latestEdition.totalEntries})
+          </button>
+          {categorySummaries.map((cat) => (
+            <button
+              type="button"
+              data-cat-filter={cat.category}
+              class="dep-cat-btn px-3.5 py-1.5 rounded-full text-xs font-medium border transition-colors cursor-pointer bg-white/[0.04] text-white/70 border-white/10 hover:border-white/30 hover:text-white"
+            >
+              {cat.label} ({cat.total})
+            </button>
+          ))}
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by verdict">
+          <span class="text-xs font-mono uppercase tracking-wider text-white/45 mr-1">Verdict:</span>
+          <button
+            type="button"
+            data-verdict-filter="all"
+            class="dep-verdict-btn is-active px-3.5 py-1.5 rounded-full text-xs font-medium border transition-colors cursor-pointer bg-white/15 text-white border-white/30"
+          >
+            All verdicts
+          </button>
+          {verdictSummaries.map((v) => (
+            <button
+              type="button"
+              data-verdict-filter={v.verdict}
+              class="dep-verdict-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border transition-colors cursor-pointer bg-white/[0.04] text-white/70 border-white/10 hover:border-white/30 hover:text-white"
+            >
+              <span class:list={['w-1.5 h-1.5 rounded-full', v.dotClass]}></span>
+              <span>{v.label} ({v.count})</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Register Table -->
+      <div class="rounded-3xl bg-white/[0.03] border border-white/10 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[920px] text-left border-collapse">
+            <thead>
+              <tr class="border-b border-white/10 bg-white/[0.03] text-[11px] font-mono uppercase tracking-wider text-white/55">
+                <th scope="col" class="py-3.5 px-6">Dependency & scoped host</th>
+                <th scope="col" class="py-3.5 px-4">Cloud probe (cn-zhangjiakou)</th>
+                <th scope="col" class="py-3.5 px-4">Home broadband (Beijing)</th>
+                <th scope="col" class="py-3.5 px-4">GreatFire HTTPS check</th>
+                <th scope="col" class="py-3.5 px-4">Verdict</th>
+                <th scope="col" class="py-3.5 px-6">Edition change</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 text-sm" id="dep-register-body">
+              {latestPanel.entries.map((row) => {
+                const cloud = formatCloudCell(row);
+                const home = formatHomeCell(row);
+                const gf = formatGreatFireCell(row);
+                const changeBadge = formatChangeBadge(row.change);
+                const vMeta = VERDICT_META[row.verdict];
+                const catLabel = CATEGORY_LABELS[row.category] ?? row.category;
+                const hasReportAnchor = REPORT_ANCHOR_IDS.has(row.id);
+                const primaryCiteUrl = row.citations?.[0]?.url ?? null;
+                const rowHref = hasReportAnchor
+                  ? `${latestEdition.slug}#${row.anchor}`
+                  : primaryCiteUrl;
+                const searchBlob = `${row.name} ${row.host ?? ''} ${row.category} ${catLabel}`.toLowerCase();
+                return (
+                  <tr
+                    data-dep-row
+                    data-category={row.category}
+                    data-verdict={row.verdict}
+                    data-search={searchBlob}
+                    class="transition-colors duration-150 hover:bg-white/[0.03]"
+                  >
+                    <th scope="row" class="py-4 px-6 font-medium text-white align-top">
+                      {rowHref ? (
+                        <a
+                          href={rowHref}
+                          target={hasReportAnchor ? undefined : '_blank'}
+                          rel={hasReportAnchor ? undefined : 'noopener noreferrer'}
+                          class="group inline-flex flex-col no-underline"
+                        >
+                          <span class="text-white group-hover:text-[var(--color-brand-orange)] transition-colors">
+                            {row.name}
+                          </span>
+                          <code class="text-xs font-mono text-white/55 mt-0.5">
+                            {row.host ?? 'Scoped in row notes'}
+                          </code>
+                          <span class="text-[11px] text-white/40 mt-1">{catLabel}</span>
+                        </a>
+                      ) : (
+                        <div class="inline-flex flex-col">
+                          <span class="text-white">{row.name}</span>
+                          <code class="text-xs font-mono text-white/55 mt-0.5">
+                            {row.host ?? 'Scoped in row notes'}
+                          </code>
+                          <span class="text-[11px] text-white/40 mt-1">{catLabel}</span>
+                        </div>
+                      )}
+                    </th>
+                    <td class="py-4 px-4 align-top">
+                      <div class="text-white/90 font-mono text-xs">{cloud.primary}</div>
+                      {cloud.sub && <div class="text-[11px] text-white/50 mt-0.5">{cloud.sub}</div>}
+                    </td>
+                    <td class="py-4 px-4 align-top">
+                      <div class="text-white/90 font-mono text-xs">{home.primary}</div>
+                      {home.sub && <div class="text-[11px] text-white/50 mt-0.5">{home.sub}</div>}
+                    </td>
+                    <td class="py-4 px-4 align-top">
+                      <div class="text-white/90 font-mono text-xs">{gf.primary}</div>
+                      {gf.sub && <div class="text-[11px] text-white/50 mt-0.5">{gf.sub}</div>}
+                    </td>
+                    <td class="py-4 px-4 align-top">
+                      <span class:list={['inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-medium', vMeta.badgeClass]}>
+                        <span class:list={['w-1.5 h-1.5 rounded-full', vMeta.dotClass]}></span>
+                        {vMeta.label}
+                      </span>
+                    </td>
+                    <td class="py-4 px-6 align-top text-xs font-mono text-white/65">
+                      <div class={changeBadge.badgeClass}>{changeBadge.label}</div>
+                      {hasReportAnchor ? (
+                        <a
+                          href={`${latestEdition.slug}#${row.anchor}`}
+                          class="text-[11px] text-[var(--color-brand-orange)] hover:text-[#FF9466] no-underline mt-1 inline-block"
+                        >
+                          Row notes →
+                        </a>
+                      ) : primaryCiteUrl ? (
+                        <a
+                          href={primaryCiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-[11px] text-[var(--color-brand-orange)] hover:text-[#FF9466] no-underline mt-1 inline-block"
+                        >
+                          GreatFire check ↗
+                        </a>
+                      ) : (
+                        <span class="text-[11px] text-white/40 mt-1 inline-block">
+                          No test on record
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        <div id="dep-empty-state" hidden class="p-10 text-center text-sm text-white/60">
+          No dependency rows match the selected filters.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EVOLUTION OVER TIME ====== -->
+  <section id="evolution-log" class="py-20 md:py-28 bg-[var(--color-surface-light)] border-t border-[var(--color-surface-border)] scroll-mt-24">
+    <div class="mx-auto max-w-[1400px] section-padding">
+      <div class="grid grid-cols-12 gap-8 lg:gap-12 items-start">
+        <!-- Left: Monthly Edition Log -->
+        <div class="col-span-12 lg:col-span-7">
+          <p class="text-xs font-mono uppercase tracking-[0.18em] text-[var(--color-brand-orange-text)] mb-3">
+            Evolution over time · 版本演进
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-4">
+            Monthly edition log
+          </h2>
+          <p class="text-base text-[var(--color-text-body)] leading-relaxed mb-8">
+            Every monthly edition of the China Dependency Index publishes as a dated report and a machine-readable JSON manifest. Compiled 16 October 2026; next scheduled review: 15 November 2026. As new editions land, this log records how many of the {latestEdition.totalEntries} dependencies shifted verdict against the previous month.
+          </p>
+
+          <div class="space-y-6">
+            {editions.map((ed) => (
+              <article class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-8 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                  <div class="flex items-center gap-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-brand-orange)]/10 text-xs font-mono font-semibold text-[var(--color-brand-orange-text)]">
+                      {ed.edition}
+                    </span>
+                    <h3 class="text-xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)]">
+                      {ed.label} Edition
+                    </h3>
+                  </div>
+                  <span class="text-xs font-mono text-[var(--color-text-muted)]">
+                    {ed.isBaseline
+                      ? `Baseline · ${ed.totalEntries} entries`
+                      : `${ed.changedCount} changed of ${ed.totalEntries} entries`}
+                  </span>
+                </div>
+
+                <p class="text-xs font-mono text-[var(--color-text-muted)] mb-4">
+                  Compiled {ed.compiledLabel} · Source tests dated {ed.sourceWindow}
+                </p>
+
+                <!-- Mini verdict bar for this edition -->
+                <div class="flex h-2 w-full rounded-full overflow-hidden bg-black/[0.06] gap-0.5 p-0.5 mb-5">
+                  {verdictSummaries.map((v) => {
+                    const count = ed.verdictCounts[v.verdict] ?? 0;
+                    if (count === 0) return null;
+                    return (
+                      <div
+                        class:list={['h-full first:rounded-l-full last:rounded-r-full', v.barClass]}
+                        style={`width: ${(count / ed.totalEntries) * 100}%`}
+                        title={`${v.label}: ${count}`}
+                      ></div>
+                    );
+                  })}
+                </div>
+
+                <ul class="space-y-2.5 mb-6">
+                  {ed.highlights.map((item) => (
+                    <li class="flex items-start gap-2.5 text-sm text-[var(--color-text-body)] leading-relaxed">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-orange)] mt-2 flex-shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--color-surface-border)] text-xs font-mono">
+                  {ed.slug && (
+                    <>
+                      <a
+                        href={ed.slug}
+                        class="text-[var(--color-brand-orange-text)] hover:underline no-underline inline-flex items-center gap-1.5 font-semibold"
+                      >
+                        Read {ed.label} report
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </a>
+                      <span class="text-[var(--color-text-muted)]">·</span>
+                    </>
+                  )}
+                  <a
+                    href={ed.jsonPath}
+                    class="text-[var(--color-text-muted)] hover:text-[var(--color-text-dark)] no-underline"
+                  >
+                    Download JSON ({ed.edition})
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: Rules for tracking evolution -->
+        <div class="col-span-12 lg:col-span-5">
+          <div class="rounded-2xl bg-white border border-[var(--color-surface-border)] p-6 lg:p-8 shadow-sm">
+            <p class="text-xs font-mono uppercase tracking-[0.16em] text-[var(--color-brand-orange-text)] mb-2">
+              Tracking rules · 追踪规则
+            </p>
+            <h3 class="text-2xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-snug mb-3">
+              How we follow changes month by month
+            </h3>
+            <p class="text-sm text-[var(--color-text-body)] leading-relaxed mb-6">
+              Each monthly edition compares its {latestEdition.totalEntries} entries against the previous monthly edition, starting from the September 2026 baseline. To keep edition-over-edition comparisons reliable, every update follows three rules:
+            </p>
+
+            <div class="space-y-4">
+              {evolutionRules.map((rule) => (
+                <div class="rounded-xl bg-[var(--color-surface-light)] border border-[var(--color-surface-border)] p-4">
+                  <div class="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-brand-orange-text)] mb-1">
+                    {rule.eyebrow}
+                  </div>
+                  <div class="text-base font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] mb-1">
+                    {rule.title}
+                  </div>
+                  <p class="text-xs text-[var(--color-text-body)] leading-relaxed">
+                    {rule.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA ====== -->
+  <section class="py-24 md:py-32 border-t border-[var(--color-surface-border)]">
+    <div class="mx-auto max-w-[1400px] section-padding text-center">
+      <h2 class="text-3xl sm:text-4xl font-medium font-[var(--font-heading)] text-[var(--color-text-dark)] leading-tight mb-6">
+        Check which of these {latestEdition.totalEntries} dependencies your site loads
+      </h2>
+      <p class="text-lg text-[var(--color-text-body)] leading-relaxed max-w-2xl mx-auto mb-10">
+        Run our free China Site Scanner to spot blocked or slow third-party hosts on your pages, or talk directly with our Shanghai team about replacing them.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <Button href="/china-site-scanner/" variant="primary" size="lg">Run a free China readiness scan</Button>
+        <Button href="/contact/" variant="secondary" size="lg">Book a call</Button>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  function initDependencyIndexPage() {
+    const searchInput = document.getElementById('dep-search') as HTMLInputElement | null;
+    const catButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.dep-cat-btn'));
+    const verdictButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.dep-verdict-btn'));
+    const categoryJumpButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-category-jump]'));
+    const rows = Array.from(document.querySelectorAll<HTMLElement>('[data-dep-row]'));
+    const emptyState = document.getElementById('dep-empty-state');
+    const registerSection = document.getElementById('full-register');
+
+    if (!rows.length) return;
+
+    let activeCategory = 'all';
+    let activeVerdict = 'all';
+    let query = '';
+
+    function applyFilters() {
+      let visibleCount = 0;
+      const q = query.trim().toLowerCase();
+
+      rows.forEach((row) => {
+        const matchCat = activeCategory === 'all' || row.dataset.category === activeCategory;
+        const matchVerdict = activeVerdict === 'all' || row.dataset.verdict === activeVerdict;
+        const matchSearch = !q || (row.dataset.search ?? '').includes(q);
+        const show = matchCat && matchVerdict && matchSearch;
+        row.hidden = !show;
+        if (show) visibleCount += 1;
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount > 0;
+      }
+    }
+
+    function updateCatButtons() {
+      catButtons.forEach((btn) => {
+        const isCurrent = btn.dataset.catFilter === activeCategory;
+        btn.classList.toggle('bg-[var(--color-brand-orange)]', isCurrent);
+        btn.classList.toggle('text-white', isCurrent);
+        btn.classList.toggle('border-[var(--color-brand-orange)]', isCurrent);
+        btn.classList.toggle('bg-white/[0.04]', !isCurrent);
+        btn.classList.toggle('text-white/70', !isCurrent);
+        btn.classList.toggle('border-white/10', !isCurrent);
+      });
+    }
+
+    function updateVerdictButtons() {
+      verdictButtons.forEach((btn) => {
+        const isCurrent = btn.dataset.verdictFilter === activeVerdict;
+        btn.classList.toggle('bg-white/15', isCurrent);
+        btn.classList.toggle('text-white', isCurrent);
+        btn.classList.toggle('border-white/30', isCurrent);
+        btn.classList.toggle('bg-white/[0.04]', !isCurrent);
+        btn.classList.toggle('text-white/70', !isCurrent);
+        btn.classList.toggle('border-white/10', !isCurrent);
+      });
+    }
+
+    catButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.catFilter ?? 'all';
+        updateCatButtons();
+        applyFilters();
+      });
+    });
+
+    verdictButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeVerdict = btn.dataset.verdictFilter ?? 'all';
+        updateVerdictButtons();
+        applyFilters();
+      });
+    });
+
+    categoryJumpButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.categoryJump ?? 'all';
+        updateCatButtons();
+        applyFilters();
+        registerSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    searchInput?.addEventListener('input', () => {
+      query = searchInput.value;
+      applyFilters();
+    });
+  }
+
+  initDependencyIndexPage();
+  document.addEventListener('astro:page-load', initDependencyIndexPage);
+  document.addEventListener('astro:after-swap', initDependencyIndexPage);
+</script>
+
+<style>
+  @media (max-height: 780px) {
+    .cdi-hero {
+      padding-top: 68px;
+      padding-bottom: 14px;
+    }
+    .cdi-hero h1 {
+      font-size: clamp(1.55rem, 3.4vw, 2.55rem);
+    }
+  }
+</style>
