@@ -10,7 +10,7 @@ slug: upgrade-agency-money-pages
 title: "FAQ schema and hard numbers on the two agency money pages"
 locales_at_publish: as the page exists
 facts: [F1, F6, F25, F26, F31, F32, F46]
-status: not_started
+status: image_ready
 ---
 
 ## How to run this brief
