@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-20
+updatedAt: 2026-10-24
 category: Technology
 ---
 
@@ -31,7 +31,7 @@ Two probes, two days apart, over the same list of hosts. One ran on a commercial
 | www.googletagmanager.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 of 72, 118ms median, 143ms p95 | Reachable | 28 Aug 2026 |
 | www.googletagmanager.com | Beijing China Mobile (中国移动) home line | 0 of 112 | Blocked | 30 Aug 2026 |
 | www.google.com/recaptcha | Alibaba Cloud (阿里云) cn-zhangjiakou | 0 of 72 | Blocked | 28 Aug 2026 |
-| www.google.com/recaptcha | Beijing China Mobile (中国移动) home line | 0 of 18 | Blocked | 30 Aug 2026 |
+| www.google.com (reCAPTCHA host) | Beijing China Mobile (中国移动) home line | 0 of 18 | Blocked | 30 Aug 2026 |
 | cdn.jsdelivr.net | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 of 72, 660ms median, 1,757ms p95 | Slow | 28 Aug 2026 |
 | cdn.jsdelivr.net | Beijing China Mobile (中国移动) home line | 36 of 36 | Reachable | 30 Aug 2026 |
 
@@ -39,7 +39,16 @@ Two probes, two days apart, over the same list of hosts. One ran on a commercial
 >
 > Source: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 August 2026, updated 30 August 2026
 
-Read the two rows for a host together or the number will mislead you. A commercial cloud in China buys better international transit than a flat in Chaoyang does, so the datacentre figure is a ceiling. Your visitor sits somewhere underneath it. On three of the five hosts here, the visitor gets nothing at all.
+Read each host’s two rows together. The dates and collection methods differ,
+so these observations cannot isolate the cause of the discrepancy or set a
+general cloud-to-home latency bound. The home-line reCAPTCHA result groups
+requests under www.google.com; it does not provide a result for every path.
+
+> In 21YunBox’s comparison, four of the five resources went unanswered on
+> Beijing China Mobile (中国移动) residential broadband on 30 August 2026;
+> one went unanswered on Alibaba Cloud (阿里云) cn-zhangjiakou on 28 August.
+> Source: 21YunBox, 28 and 30 August 2026.
+> https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 That is five hosts out of the full list. The rest of the dependencies sit in the table below, with verdicts rather than timings.
 
@@ -72,7 +81,6 @@ Most of the lists circulating on the English web were written between 2019 and 2
 | wordpress.org and update servers | Reachable, rate limited | HTTP 429 on plugin and core updates |
 | cdnjs, unpkg | Reachable | GreatFire reads both as not blocked. Neither has a published home line test |
 | cdn.jsdelivr.net | Reachable, slow | 660ms median from a datacentre, completes on a home line |
-| Stripe and PayPal scripts | Reachable | Licensing, not the firewall, is the blocker |
 
 For the wider picture beyond WordPress, our guide on [what the Great Firewall blocks](/resources/china-web-guide/great-firewall-what-it-blocks/) covers the DNS and packet-level machinery underneath all of this.
 
@@ -154,8 +162,8 @@ A filing (ICP备案) covers an informational site. Roughly three to six weeks, o
 
 **Is Astro a better choice than WordPress for China?**
 
-Sometimes. A static build removes a whole class of runtime dependency and loads faster behind the firewall. It also removes the editing experience a marketing team expects, and that trade tends to matter more than the milliseconds. The honest answer depends on who updates the site and how often.
+Choose from the site’s actual dependencies and editing needs. This guide has no matched mainland benchmark that establishes a general speed advantage for Astro over WordPress. Compare the proposed request lists and the publishing workflow before choosing a platform.
 
 **How fast should a site load from Shanghai?**
 
-Under two seconds is achievable on mainland hosting once the dependencies are cleaned up. One recent migration went from 23.4 seconds on a European origin to 1.2 seconds, and roughly half of that came from deleting external calls rather than from moving the server. Our guide on [hosting a website in China](/resources/china-web-guide/host-website-in-china/) covers the origin side.
+Set a target for the page and visitor action you need to support, then assess it against evidence with a named network, method and date. A first-byte result alone cannot establish whether that action finishes. Our guide on [hosting a website in China](/resources/china-web-guide/host-website-in-china/) covers the hosting decision.

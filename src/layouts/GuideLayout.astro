@@ -23,6 +23,7 @@ interface Props {
   subtitle: string;
   summary: string;
   visual?: string;
+  visualAlt?: string;
   tocItems: TocItem[];
   lang?: Locale;
   author?: AuthorInfo;
@@ -34,7 +35,7 @@ interface Props {
   faqs?: Array<{ question: string; answer: string }>;
 }
 
-const { title, subtitle, summary, visual, tocItems, lang, author, publishedAt, updatedAt, column = false, faqs = [] } = Astro.props;
+const { title, subtitle, summary, visual, visualAlt, tocItems, lang, author, publishedAt, updatedAt, column = false, faqs = [] } = Astro.props;
 const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 
@@ -164,7 +165,7 @@ const jsonLd = faqs.length ? [articleLd, breadcrumbLd, faqSchema(faqs, currentLa
         <div class="aspect-[16/9] sm:aspect-[21/9] rounded-t-2xl overflow-hidden">
           <img
             src={visual}
-            alt={title}
+            alt={visualAlt || title}
             class="w-full h-full object-cover"
             loading="eager"
             decoding="async"

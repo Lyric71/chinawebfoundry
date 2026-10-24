@@ -38,7 +38,8 @@ located outside of China.
 - Buttons: Inter, self-hosted WOFF2 (weights: 400, 500)
 - Body: system sans-serif stack
 - CRITICAL: Never link to fonts.googleapis.com - all fonts must be self-hosted
-  because Google Fonts are blocked in China.
+  because dated cloud and home-line observations differ; follow F6 in the
+  editorial fact bank rather than asserting a flat country-wide verdict.
 
 ## Brand & Content Rules
 - Brand name is "ChinaWebFoundry" - one word, PascalCase

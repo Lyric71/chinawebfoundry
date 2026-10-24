@@ -10,7 +10,7 @@ slug: china-latency-vantage-point-study
 title: "Why China Latency Tests Disagree"
 suggested_category: Technology
 locales_at_publish: en fr es de
-status: not_started
+status: published
 ---
 
 ## How to run this brief

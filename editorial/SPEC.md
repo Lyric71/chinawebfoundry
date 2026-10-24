@@ -400,7 +400,9 @@ Verify each by counting or checking, not by assuming.
 - [ ] Method stated before any finding.
 - [ ] Raw host list published or linked.
 - [ ] Untested hosts listed as untested.
-- [ ] Dated slug, no prior edition touched.
+- [ ] Monthly editions use dated slugs, with no prior edition touched.
+  One-off studies retain the explicit slugs supplied by their briefs,
+  including T4-02; any later edition uses a new dated slug.
 
 **T6 only**
 - [ ] The change list names every file and passage touched.

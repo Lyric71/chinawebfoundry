@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-20
+updatedAt: 2026-10-24
 category: Technology
 ---
 
@@ -31,7 +31,7 @@ Deux campagnes de mesure, à deux jours d'écart, sur la même liste d'hôtes. L
 | www.googletagmanager.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 sur 72, médiane 118 ms, p95 143 ms | Accessible | 28 août 2026 |
 | www.googletagmanager.com | Ligne domestique China Mobile (中国移动) à Pékin | 0 sur 112 | Bloqué | 30 août 2026 |
 | www.google.com/recaptcha | Alibaba Cloud (阿里云) cn-zhangjiakou | 0 sur 72 | Bloqué | 28 août 2026 |
-| www.google.com/recaptcha | Ligne domestique China Mobile (中国移动) à Pékin | 0 sur 18 | Bloqué | 30 août 2026 |
+| www.google.com (hôte reCAPTCHA) | Ligne domestique China Mobile (中国移动) à Pékin | 0 sur 18 | Bloqué | 30 août 2026 |
 | cdn.jsdelivr.net | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 sur 72, médiane 660 ms, p95 1 757 ms | Lent | 28 août 2026 |
 | cdn.jsdelivr.net | Ligne domestique China Mobile (中国移动) à Pékin | 36 sur 36 | Accessible | 30 août 2026 |
 
@@ -39,7 +39,11 @@ Deux campagnes de mesure, à deux jours d'écart, sur la même liste d'hôtes. L
 >
 > Source : 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28 août 2026, mis à jour le 30 août 2026
 
-Lisez ensemble les deux lignes d'un même hôte, sans quoi le chiffre vous égare. Un cloud commercial chinois s'achète un transit international qu'un appartement de Chaoyang n'aura jamais : la mesure du centre de données fixe un plafond, rien de plus. Votre visiteur se tient quelque part en dessous. Sur trois des cinq hôtes retenus ici, il ne reçoit rien.
+Les deux lignes de chaque hôte se lisent ensemble. Les dates et les méthodes de collecte diffèrent, ce qui empêche d’isoler la cause de l’écart ou d’en déduire une limite de latence applicable aux connexions résidentielles. Pour reCAPTCHA, le relevé à domicile regroupe les requêtes vers www.google.com, sans résultat propre à chaque chemin.
+
+> Dans le comparatif de 21YunBox, quatre ressources sur cinq sont restées sans réponse sur la ligne résidentielle China Mobile (中国移动) à Pékin le 30 août 2026. Une seule n’avait pas répondu depuis Alibaba Cloud (阿里云) cn-zhangjiakou le 28 août.
+> Source : 21YunBox, 28 et 30 août 2026.
+> https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Cinq hôtes seulement, sur une liste autrement plus longue. Les autres dépendances figurent dans le tableau ci-dessous, avec un verdict et non un chrono.
 
@@ -72,7 +76,6 @@ Les listes qui circulent sur le web anglophone datent pour l'essentiel de 2019 �
 | wordpress.org et serveurs de mise à jour | Accessible, débit limité | HTTP 429 sur les mises à jour du cœur et des extensions |
 | cdnjs, unpkg | Accessible | Non bloqués selon GreatFire. Aucun test publié sur ligne résidentielle |
 | cdn.jsdelivr.net | Accessible, lent | Médiane de 660 ms depuis un centre de données, aboutit sur une ligne domestique |
-| Scripts Stripe et PayPal | Accessible | L'obstacle vient des licences, pas du pare-feu |
 
 Pour le tableau d'ensemble, au-delà de WordPress, notre guide sur [ce que bloque le Grand Pare-feu](/fr/ressources/guide-web-chine/grand-pare-feu-chine/) détaille la mécanique DNS et le filtrage de paquets qui sous-tendent tout cela.
 
@@ -154,8 +157,8 @@ Le dépôt (备案) couvre un site d'information. Trois à six semaines environ,
 
 **Astro vaut-il mieux que WordPress pour la Chine ?**
 
-Parfois. Une construction statique élimine toute une catégorie de dépendances d'exécution et se charge plus vite derrière le pare-feu. Elle supprime aussi l'expérience d'édition qu'attend une équipe marketing, et cet arbitrage pèse en général plus lourd que les millisecondes. La réponse honnête dépend de qui met le site à jour, et à quelle fréquence.
+Le choix repose sur les ressources externes du site et les besoins de l’équipe éditoriale. Ce guide ne dispose d’aucun comparatif à conditions identiques en Chine continentale permettant d’établir qu’Astro serait, de manière générale, plus rapide que WordPress. Comparez les requêtes de chaque solution et les tâches nécessaires à la publication des contenus.
 
 **En combien de temps un site doit-il s'afficher depuis Shanghai ?**
 
-Moins de deux secondes reste atteignable sur un hébergement continental une fois les dépendances nettoyées. Une migration récente est passée de 23,4 secondes sur une origine européenne à 1,2 seconde, et la moitié environ de ce gain vient de la suppression des appels externes, pas du déplacement du serveur. Notre guide sur [l'hébergement d'un site web en Chine](/fr/ressources/guide-web-chine/heberger-site-web-chine/) traite le versant origine.
+Fixez un objectif pour la page et l’action attendue du visiteur, puis évaluez-le à partir de relevés datés qui précisent le réseau et la méthode. Le délai jusqu’au premier octet ne suffit pas à vérifier que l’action aboutit. Notre guide sur [l’hébergement d’un site web en Chine](/fr/ressources/guide-web-chine/heberger-site-web-chine/) précise les critères de choix de l’hébergement.

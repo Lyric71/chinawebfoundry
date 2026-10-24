@@ -6,7 +6,7 @@ visual: "/images/guides/is-wordpress-blocked-in-china.webp"
 order: 34
 published: true
 publishedAt: 2026-08-29
-updatedAt: 2026-10-20
+updatedAt: 2026-10-24
 category: Technology
 ---
 
@@ -31,7 +31,7 @@ Zwei Messreihen im Abstand von zwei Tagen, dieselbe Liste von Hosts. Die eine li
 | www.googletagmanager.com | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 von 72, Median 118 ms, p95 143 ms | Erreichbar | 28.08.2026 |
 | www.googletagmanager.com | Privatleitung China Mobile (中国移动) in Peking | 0 von 112 | Gesperrt | 30.08.2026 |
 | www.google.com/recaptcha | Alibaba Cloud (阿里云) cn-zhangjiakou | 0 von 72 | Gesperrt | 28.08.2026 |
-| www.google.com/recaptcha | Privatleitung China Mobile (中国移动) in Peking | 0 von 18 | Gesperrt | 30.08.2026 |
+| www.google.com (reCAPTCHA-Host) | Privatleitung China Mobile (中国移动) in Peking | 0 von 18 | Gesperrt | 30.08.2026 |
 | cdn.jsdelivr.net | Alibaba Cloud (阿里云) cn-zhangjiakou | 72 von 72, Median 660 ms, p95 1.757 ms | Langsam | 28.08.2026 |
 | cdn.jsdelivr.net | Privatleitung China Mobile (中国移动) in Peking | 36 von 36 | Erreichbar | 30.08.2026 |
 
@@ -39,7 +39,11 @@ Zwei Messreihen im Abstand von zwei Tagen, dieselbe Liste von Hosts. Die eine li
 >
 > Quelle: 21YunBox, *A Chinese Cloud Probe Is Not a Chinese Visitor: The Same Hosts, Opposite Answers*, 28. August 2026, aktualisiert am 30. August 2026
 
-Lesen Sie die beiden Zeilen eines Hosts immer zusammen, sonst führt die Zahl in die Irre. Eine kommerzielle Cloud in China kauft internationalen Transit, den eine Wohnung in Chaoyang nie bekommt; die Messung aus dem Rechenzentrum markiert damit eine Obergrenze. Ihr Besucher liegt irgendwo darunter. Bei drei der fünf Hosts bekommt er gar nichts.
+Lesen Sie die beiden Zeilen je Host zusammen. Die Erhebungen stammen von unterschiedlichen Tagen und beruhen auf verschiedenen Methoden. Deshalb lässt sich weder die Ursache der Abweichung isolieren noch eine allgemeine Latenzgrenze für Privatanschlüsse ableiten. Bei reCAPTCHA sind die Anfragen an www.google.com im Ergebnis des Privatanschlusses zusammengefasst; einzelne Pfade wurden nicht gesondert ausgewiesen.
+
+> Im Vergleich von 21YunBox blieben am privaten Breitbandanschluss von China Mobile (中国移动) in Peking am 30. August 2026 vier von fünf Ressourcen ohne Antwort. Bei Alibaba Cloud (阿里云) cn-zhangjiakou war am 28. August eine Ressource ohne Antwort geblieben.
+> Quelle: 21YunBox, 28. und 30. August 2026.
+> https://www.21cloudbox.com/a-day-of-third-party-requests-from-inside-china.html
 
 Fünf Hosts aus einer deutlich längeren Liste. Die übrigen Abhängigkeiten stehen in der Tabelle weiter unten, mit Befund statt Zeit.
 
@@ -72,7 +76,6 @@ Die Listen, die im englischsprachigen Netz kursieren, stammen überwiegend aus d
 | wordpress.org und Update-Server | Erreichbar, gedrosselt | HTTP 429 bei Core- und Plugin-Updates |
 | cdnjs, unpkg | Erreichbar | Laut GreatFire nicht gesperrt. Kein veröffentlichter Test über eine Privatleitung |
 | cdn.jsdelivr.net | Erreichbar, langsam | Median 660 ms aus einem Rechenzentrum, kommt auch an einer Privatleitung durch |
-| Stripe- und PayPal-Skripte | Erreichbar | Die Hürde sind die Lizenzen, nicht die Firewall |
 
 Das größere Bild jenseits von WordPress zeichnet unser Leitfaden dazu, [was die Great Firewall blockiert](/de/ressourcen/china-web-leitfaden/great-firewall-china/): DNS-Manipulation und Paketfilterung, die unter alldem liegen.
 
@@ -154,8 +157,8 @@ Die Registrierung (备案) deckt eine reine Informationswebsite ab und dauert et
 
 **Ist Astro für China die bessere Wahl als WordPress?**
 
-Manchmal. Ein statischer Build entfernt eine ganze Klasse von Laufzeitabhängigkeiten und lädt hinter der Firewall schneller. Er nimmt einem Marketingteam aber auch die Redaktionsoberfläche, die es erwartet, und dieser Handel wiegt meist schwerer als die Millisekunden. Die ehrliche Antwort hängt davon ab, wer die Website pflegt und wie oft.
+Entscheidend sind die externen Ressourcen der Website und die Anforderungen der Redaktion. Dieser Leitfaden enthält keine Messungen unter gleichen Bedingungen aus Festlandchina, die einen allgemeinen Geschwindigkeitsvorteil von Astro gegenüber WordPress belegen. Prüfen Sie die Anfragen jeder vorgeschlagenen Lösung und den Arbeitsablauf beim Veröffentlichen von Inhalten.
 
 **Wie schnell sollte eine Website aus Shanghai laden?**
 
-Unter zwei Sekunden ist auf Festland-Hosting erreichbar, sobald die Abhängigkeiten geräumt sind. Eine kürzliche Migration ging von 23,4 Sekunden auf einem europäischen Origin auf 1,2 Sekunden herunter, und rund die Hälfte davon kam aus dem Löschen externer Aufrufe, nicht aus dem Serverumzug. Unser Leitfaden zum [Hosting einer Website in China](/de/ressourcen/china-web-leitfaden/website-in-china-hosten/) behandelt die Origin-Seite.
+Legen Sie fest, welche Aufgabe der Besucher auf der Seite erledigen soll und wie lange das dauern darf. Bewerten Sie das Ziel anhand datierter Aufzeichnungen, die Netz und Messmethode nennen. Das erste empfangene Byte belegt noch nicht, dass die Aufgabe abgeschlossen wurde. Unser Leitfaden zum [Hosting einer Website in China](/de/ressourcen/china-web-leitfaden/website-in-china-hosten/) erläutert die Kriterien für die Hostingwahl.

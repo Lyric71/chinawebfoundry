@@ -56,6 +56,7 @@ export const serviceSlugs: Record<string, Trans> = {
 
 /** Guide article slugs, keyed by English content id. */
 export const guideSlugs: Record<string, Trans> = {
+  'china-latency-vantage-point-study': { fr: 'latence-chine-points-de-mesure', es: 'latencia-china-puntos-de-medicion', de: 'china-latenz-messpunkte' },
   'wordpress-vs-astro-china': { fr: 'wordpress-ou-astro-chine', es: 'wordpress-o-astro-china', de: 'wordpress-oder-astro-china' },
   'cloudflare-china': { fr: 'cloudflare-chine', es: 'cloudflare-china', de: 'cloudflare-china' },
   'wordpress-plugins-china': { fr: 'plugins-wordpress-chine', es: 'plugins-wordpress-china', de: 'wordpress-plugins-china' },

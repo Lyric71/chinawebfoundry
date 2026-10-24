@@ -6,7 +6,7 @@ visual: "/images/guides/china-dependency-index-2026-10.webp"
 order: 45
 published: true
 publishedAt: "2026-10-16"
-updatedAt: "2026-10-16"
+updatedAt: "2026-10-24"
 reviewBy: "2026-11-15"
 category: "Technology"
 author: "cyril-drouin"
@@ -370,7 +370,7 @@ Dans les lignes de mesure d’audience, lisez séparément l’hôte de la bibli
 
 Mesurez jusqu’au chargement complet de la page, au-delà du premier octet. Pour Wix, le premier octet est arrivé, et pourtant la page n’a pas fini de se charger dans le délai fixé par la source. Un tableau de bord arrêté au premier octet n’aurait rien vu. Suivez la requête jusqu’à l’action qui compte sur la page.
 
-Notre [guide des CDN JavaScript en Chine](/fr/ressources/guide-web-chine/cdn-javascript-chine/) explique comment retracer ces appels dans une page. Pour modifier des formulaires ou un dispositif de suivi, notre offre d’[intégration technique](/fr/services/integration-technique/) couvre la mise en œuvre. Le [guide de ce que bloque le Grand Pare-feu](/fr/ressources/guide-web-chine/grand-pare-feu-chine/) aide à lire l’ensemble des preuves sur les dépendances.
+Notre [guide des CDN JavaScript en Chine](/fr/ressources/guide-web-chine/cdn-javascript-chine/) explique comment retracer ces appels dans une page. Pour modifier des formulaires ou un dispositif de suivi, notre offre d’[intégration technique](/fr/services/integration-technique/) couvre la mise en œuvre. Le [comparatif cloud et connexion domestique](/fr/ressources/guide-web-chine/latence-chine-points-de-mesure/#méthode-et-limites) expose la méthode et les limites de ces relevés.
 
 ## Là où manquent les preuves datées
 

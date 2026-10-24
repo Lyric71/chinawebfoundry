@@ -6,7 +6,7 @@ visual: "/images/guides/china-dependency-index-2026-10.webp"
 order: 45
 published: true
 publishedAt: "2026-10-16"
-updatedAt: "2026-10-16"
+updatedAt: "2026-10-24"
 reviewBy: "2026-11-15"
 category: "Technology"
 author: "cyril-drouin"
@@ -370,7 +370,7 @@ Lesen Sie in den Analysezeilen den Host der Bibliothek und den der Datenerfassun
 
 Eine Messung sollte über das erste Byte hinaus bis zur vollständig geladenen Seite reichen. Bei Wix kam das erste Byte an, und trotzdem wurde die Seite nicht innerhalb der Ladefrist der Quelle fertig. Ein Dashboard, das beim ersten Byte aufhört, hätte das übersehen. Verfolgen Sie die Anfrage bis zu der Aktion, auf die es auf der Seite ankommt.
 
-Unser [Leitfaden zu JavaScript-CDNs in China](/de/ressourcen/china-web-leitfaden/javascript-cdn-china/) erklärt, wie Sie diese Aufrufe in einer Seite nachverfolgen. Für Änderungen an Formularen oder am Tracking übernimmt unsere [technische Integration](/de/leistungen/technische-integration/) die Umsetzung. Der [Leitfaden dazu, was die Great Firewall sperrt](/de/ressourcen/china-web-leitfaden/great-firewall-china/), erklärt, wie sich die breitere Beleglage zu Abhängigkeiten lesen lässt.
+Unser [Leitfaden zu JavaScript-CDNs in China](/de/ressourcen/china-web-leitfaden/javascript-cdn-china/) erklärt, wie Sie diese Aufrufe in einer Seite nachverfolgen. Für Änderungen an Formularen oder am Tracking übernimmt unsere [technische Integration](/de/leistungen/technische-integration/) die Umsetzung. Der [Vergleich von Cloud und Privatanschluss](/de/ressourcen/china-web-leitfaden/china-latenz-messpunkte/#methode-und-grenzen) erläutert die Messmethode und die Grenzen der Befunde.
 
 ## Wo datierte Belege fehlen
 

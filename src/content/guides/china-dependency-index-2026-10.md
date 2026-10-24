@@ -6,7 +6,7 @@ visual: "/images/guides/china-dependency-index-2026-10.webp"
 order: 45
 published: true
 publishedAt: "2026-10-16"
-updatedAt: "2026-10-16"
+updatedAt: "2026-10-24"
 reviewBy: "2026-11-15"
 category: "Technology"
 author: "cyril-drouin"
@@ -445,8 +445,8 @@ request through to the action that matters on the page.
 
 Our [guide to JavaScript CDNs in China](/resources/china-web-guide/javascript-cdn-china/) explains how to trace those calls
 through a page. For changes to forms or tracking, [Technical Integration](/services/technical-integration/) covers
-the implementation work. The [guide to what the Great Firewall blocks](/resources/china-web-guide/great-firewall-what-it-blocks/) explains
-how to read the wider dependency evidence.
+the implementation work. The [cloud and home-line comparison](/resources/china-web-guide/china-latency-vantage-point-study/#method-and-limits) explains
+the method and limits of these observations.
 
 ## Where dated evidence is missing
 

@@ -6,7 +6,7 @@ visual: "/images/guides/china-dependency-index-2026-10.webp"
 order: 45
 published: true
 publishedAt: "2026-10-16"
-updatedAt: "2026-10-16"
+updatedAt: "2026-10-24"
 reviewBy: "2026-11-15"
 category: "Technology"
 author: "cyril-drouin"
@@ -370,7 +370,7 @@ En las filas de analítica, lea por separado el host de la biblioteca y el de re
 
 Una medición debe llegar hasta la carga completa de la página, más allá del primer byte. La observación de Wix devolvió un primer byte y aun así no terminó dentro del plazo de carga de la fuente. Un panel de tiempos que se detenga en el primer byte pasaría por alto ese desenlace. Siga la solicitud hasta la acción que importa en la página.
 
-Nuestra [guía de CDN de JavaScript en China](/es/recursos/guia-web-china/cdn-javascript-china/) explica cómo rastrear esas llamadas en una página. Para cambios en formularios o en el seguimiento, nuestro servicio de [integración técnica](/es/servicios/integracion-tecnica/) se encarga de la implementación. La [guía de lo que bloquea el Gran Cortafuegos](/es/recursos/guia-web-china/gran-cortafuegos-china/) explica cómo interpretar el conjunto de pruebas sobre dependencias.
+Nuestra [guía de CDN de JavaScript en China](/es/recursos/guia-web-china/cdn-javascript-china/) explica cómo rastrear esas llamadas en una página. Para cambios en formularios o en el seguimiento, nuestro servicio de [integración técnica](/es/servicios/integracion-tecnica/) se encarga de la implementación. La [comparación entre nube y línea doméstica](/es/recursos/guia-web-china/latencia-china-puntos-de-medicion/#método-y-límites) explica el método y los límites de esos registros.
 
 ## Dónde faltan pruebas fechadas
 

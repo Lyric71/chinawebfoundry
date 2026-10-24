@@ -387,7 +387,7 @@ Verified 29 August, 4 September and 6 September 2026. Amended 2 October 2026 wit
 
 ### Read this before citing any latency number
 
-Every figure below carries a vantage point, and the vantage point changes the answer. A datacenter probe and a consumer broadband line in the same city can return opposite verdicts on the same host. Where a fact says "datacenter", treat the number as a ceiling and not as a user experience. Where a fact carries both, cite both. Never publish a latency figure without naming where it was measured and when.
+Every figure below carries a vantage point, and the vantage point changes the answer. A datacenter probe and a consumer broadband line can return opposite results for the same host. A datacenter observation describes that network, date and method; it supplies neither a visitor experience nor a general upper or lower bound for consumer latency. Where a fact carries both, cite both. Different dates and methods do not isolate a network cause. Never publish a latency figure without naming where it was measured and when.
 
 ### Blocked, confirmed
 
